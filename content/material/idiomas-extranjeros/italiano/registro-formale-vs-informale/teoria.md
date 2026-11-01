@@ -1,56 +1,59 @@
-# Registro formal e informale en italiano (C1)
+# Registro formal e informal en italiano (C1)
 
 > Tema del MAPA: `idiomas-extranjeros/italiano/registro-formale-vs-informale`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y comparaciones falsas con el español.
 
 ---
 
 ## Introducción
-El uso adecuado del registro formal o informal es una habilidad clave en el nivel C1 del Marco Común Europeo de Referencia para las Lenguas (MCER). En italiano, la elección entre formas formales (*Lei*) e informales (*tu*) determina el tono y la relación social entre interlocutores. Dominar esta distinción permite comunicarse con respeto en contextos profesionales, sociales o familiares, evitando malentendidos culturales.
+El italiano marca el registro con claridad: **tratamiento** (*tu* / *Lei*), **léxico**, **fórmulas** y **estructuras**. En C1 hay que saber adaptarse a cada situación y reconocer el registro de un texto.
 
 ## Explicación central
-En italiano, el registro formal se usa para dirigirse a personas desconocidas, autoridades, clientes o en situaciones profesionales. Se caracteriza por el uso de la forma *Lei*, que implica el verbo en tercera persona singular:
-- **Formal**: *Lei è una brava persona.* (Usted es una buena persona.)
-- **Informal**: *Sei una brava persona.* (Tú eres una buena persona.)
+### Tu, Lei, Voi
+- ***tu***: amigos, familia, colegas jóvenes, entre estudiantes.
+- ***Lei*** (3.ª persona, con mayúscula en lo escrito formal): desconocidos, superiores, clientes: *Signora, **Lei** è molto gentile. Come **sta**?*
+- ***Voi***: plural de *tu* y *Lei*; en el sur y en el comercio a veces singular formal.
+- Pasar al *tu*: *Possiamo darci del tu?*
 
-Además, los pronombres de objeto directo e indirecto cambian según el registro:
-- **Formal**: *Lei mi ha aiutato.* (Usted me ayudó.)
-- **Informal**: *Mi hai aiutato.* (Me ayudaste.)
+### Léxico
+| Informale | Neutro | Formale |
+|---|---|---|
+| *casino* | *confusione* | *disordine, trambusto* |
+| *un sacco di* | *molto* | *numerosi, una notevole quantità di* |
+| *beccare* | *trovare, prendere* | *rintracciare* |
+| *mollare* | *lasciare* | *abbandonare* |
+| *figo* | *bello* | *gradevole, notevole* |
+| *sgobbare* | *lavorare molto* | *impegnarsi* |
+| *prof* | *professore* | *docente* |
+| *mi sa che* | *credo che* | *ritengo che* |
 
-Los adjetivos y verbos también se adaptan al contexto. Por ejemplo, en un entorno laboral:
-- **Formal**: *Grazie per la sua collaborazione.* (Gracias por su colaboración.)
-- **Informal**: *Grazie per la tua collaborazione.* (Gracias por tu colaboración.)
+### Estructuras
+- Formal: congiuntivo, pasiva, nominalización, *pertanto, qualora*.
+- Informal: *che* polivalente (*Vieni, che è tardi*), dislocaciones (*Il caffè, lo prendi?*), *mica* (*Non è mica facile*), imperfetto en hipótesis (*Se lo sapevo…*).
 
-En contextos informales, como con amigos o familiares, se usan formas más coloquiales:
-- *Ciao Marco, come stai?* (¡Hola Marco, ¿cómo estás?)
-- *Sono stanco, non lavoro oggi.* (Estoy cansado, no trabajo hoy.)
+### Correspondencia formal
+- Apertura: ***Gentile*** *Dott. Rossi, / **Egregio** Direttore, / **Spettabile** Ditta* (empresas).
+- Fórmulas: *Le scrivo per… / In riferimento alla Sua del… / Sarei grato se potesse…*
+- Cierre: ***Distinti saluti / Cordiali saluti / In attesa di un Suo riscontro***.
+- Informal: *Caro Luca, … Un abbraccio / Baci / A presto*.
+
+### Títulos
+*Dottore/Dottoressa* (graduados universitarios), *Avvocato, Ingegnere, Professore*: se usan mucho al dirigirse a alguien.
 
 ## Errores comunes de hispanohablantes
-Los hablantes de español suelen confundir el uso del registro formal en italiano. Por ejemplo:
-1. **Uso incorrecto de *Lei* en contextos informales**: Decir *Lei è stanco?* (¿Está cansado?) a un amigo, cuando debería usar *Sei stanco?*
-2. **Confusión con el español**: En español, el uso del *usted* es menos común que en italiano, donde *Lei* se aplica universalmente en situaciones formales.
-3. **Omisión de pronombres**: Olvidar cambiar los pronombres de objeto según el registro: *Mi hai aiutato* (informal) vs *Lei mi ha aiutato* (formal).
+1. Tutear a un desconocido o a un profesor.
+2. Mezclar: ❌ *Gentile Direttore, … Ciao!*
+3. ❌ *Lei sei* ✅ *Lei è*.
+4. Escribir *lei, la, le* con minúscula en una carta muy formal, donde se acostumbra *Lei, La, Le* (*Le scrivo, La ringrazio*).
 
 ## Comparación con el español
-El español también distingue entre registros formales (*usted*) e informales (*tú*), pero su uso es más flexible. En italiano, sin embargo, *Lei* se impone en contextos profesionales y sociales, incluso cuando la relación no es formal, como en un servicio al cliente:
-- **Español**: *¿Puedo ayudarle?* (formal) o *¿Puedo ayudarte?* (informal).
-- **Italiano**: *Posso aiutarla?* (formal) siempre que se dirija a alguien desconocido.
-
-Además, en italiano no existe una forma equivalente al español *vosotros* para el plural informal, lo que exige alternativas como *voi* (más formal) o construcciones coloquiales (*tutti voi*).
+*Lei* funciona como «usted» (3.ª persona). En Italia los títulos académicos (*Dottore*, *Ingegnere*) se usan más que en la Argentina, y el «vos» no existe: el informal es siempre *tu*.
 
 ## Ejemplo extendido en contexto
-**Escena**: Un cliente entra en una tienda y pregunta sobre un producto.
-
-- **Cliente**: *Buongiorno, scusi.* (Buenos días, perdón.)
-- **Vendedor (formal)**: *Certo! Cosa desidera?* (Claro ¿qué desea?)
-- **Cliente**: *Vorrei comprare un regalo per mia sorella. Ha qualcosa di elegante?* (Quiero comprar un regalo para mi hermana. Tiene algo elegante?)
-- **Vendedor (formal)**: *Sì, abbiamo alcuni accessori molto raffinati. Le posso mostrare?* (Sí, tenemos algunos accesorios muy refinados. ¿Puedo mostrarle?)
-
-Si el cliente y el vendedor fueran amigos:
-- **Cliente**: *Ciao Luca! Mi serve un regalo per la mia sorella.* (¡Hola Luca! Necesito un regalo para mi hermana.)
-- **Vendedor (informal)**: *Ah, sei sempre qui a cercare regali!* (Oh, siempre vienes a buscar regalos.)
-
-Este ejemplo muestra cómo el registro formal o informal adapta la comunicación según la relación y el contexto.
+**Informale:** *Ciao Marco! Mi sa che domani non ce la faccio, ho un sacco di roba da fare. Ci sentiamo, eh?*
+**Formale:** *Gentile Dott. Bianchi, Le scrivo per comunicarLe che domani non potrò essere presente alla riunione a causa di impegni improrogabili. Resto a disposizione per un nuovo appuntamento. Distinti saluti.*

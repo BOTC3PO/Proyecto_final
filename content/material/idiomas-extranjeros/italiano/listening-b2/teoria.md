@@ -1,44 +1,47 @@
-# Comprensión auditiva en italiano (nivel B2)
+# Comprensión auditiva en italiano (B2)
 
 > Tema del MAPA: `idiomas-extranjeros/italiano/listening-b2`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en los ejemplos.
 
 ---
 
 ## Introducción
-La comprensión auditiva al nivel B2 implica la capacidad de entender conversaciones, noticias o discursos breves en contextos cotidianos o académicos. Es fundamental para interactuar eficazmente en situaciones reales, como pedir información, seguir instrucciones o participar en debates. En italiano, este nivel requiere reconocer vocabulario específico, acentuación y estructuras gramaticales que pueden variar según el hablante o la región.
+En B2 se entienden **intervenciones largas**: entrevistas, debates, noticias de radio y TV, conferencias. Hay que seguir una **argumentación** a ritmo natural y distinguir hechos, opiniones y fuentes.
 
-## Explicación central con ejemplos
-Para comprender textos orales en italiano, es clave prestar atención a:
-1. **Vocabulario contextualizado**: Palabras como *prenotare* (reservar), *ritardare* (retrasar) o *spesa* (gastos) suelen aparecer en situaciones prácticas. Ejemplo: _"Ho prenotato un tavolo per due, ma c’è un ritardo nel servizio."*
-2. **Acentuación y entonación**: Las frases interrogativas (¿*Hai visto la novità?*) o exclamativas (*Che bello!*) tienen acentos que marcan el tono emocional.
-3. **Conectores lógicos**: Expresiones como *però* (pero), *invece* (en cambio) o *quindi* (por tanto) ayudan a seguir la estructura del discurso: _"Il film è interessante, però il finale non mi ha convinto."*
+## Explicación central
+### Estructura del discurso
+- Plan: *Vorrei affrontare tre punti… Innanzitutto… In secondo luogo… Infine…*
+- Matiz y concesión: *è vero che… però, certo… ma, tuttavia*.
+- Conclusión: *Insomma, in conclusione, in sintesi*.
+
+### Hechos, opiniones y fuentes
+- Datos: *secondo l'Istat* (instituto de estadística), *stando ai dati*.
+- Opinión: *sono convinto che, a mio avviso*.
+- Información no confirmada: **condizionale**: *Il ministro **sarebbe** pronto a dimettersi.*
+
+### Oralidad natural
+Reformulación (*cioè, vale a dire, nel senso che*), dudas (*ehm, diciamo*), cortes y frases incompletas.
+
+### Variedades
+Acentos regionales marcados (romano: *annamo* = andiamo; napolitano; véneto). En los medios nacionales se oye un italiano estándar con acento regional.
+
+### Estrategias
+1. Anticipar el tema por el título o la introducción.
+2. Tomar notas con símbolos.
+3. Prestar atención a los conectores, que anuncian el giro del argumento.
 
 ## Errores comunes de hispanohablantes
-Los hablantes de español suelen cometer errores como:
-- **Confusión con sonidos italianos únicos**: Por ejemplo, no distinguir entre *gn* (como en *gennaio*) y *ñ* del español.
-- **Uso incorrecto de artículos definidos**: Olvidar usar *il*, *la* o *lo* antes de sustantivos en contextos orales: _"Voglio un caffè, grazie"* (correcto) vs. *"Voglio caffè"* (incorrecto).
-- **Malinterpretación de tiempos verbales**: Confundir el presente (*parlo*) con el imperfecto (*parlavo*), especialmente en relatos orales: _"Ieri ho parlato con il mio amico"* (ayer hablé) vs. *"Ieri parlavo con il mio amico"* (ayer estaba hablando).
+1. Tomar como hecho lo que está en condizionale.
+2. Perder lo que viene después de *però / tuttavia*.
+3. Confundir la opinión del periodista con la del entrevistado.
 
 ## Comparación con el español
-Algunas diferencias clave que ayudan a fijar la comprensión son:
-- **Uso de preposiciones**: En italiano, se usan más *a* y *di* en contextos verbales: _"Pensare a qualcosa"* (pensar en algo) vs. español *"pensar en algo"*.
-- **Formas informales**: El uso de *tu* (tú) es común en conversaciones cotidianas, mientras que el español tiende a usar *usted* o la forma impersonal: _"Tu hai fame?"* (¿Tienes hambre?) vs. *"¿Tiene hambre?"*.
-- **Contracciones**: Expresiones como *ne* (*di + ne*) o *ci* (*a + i*) aparecen frecuentemente en el habla: _"Non ci vado"* (no voy allí) vs. español *"No voy a ir".*
+Las estructuras argumentativas son equivalentes. La dificultad está en la velocidad, los acentos regionales y el vocabulario abstracto.
 
 ## Ejemplo extendido en contexto
-**Escena**: Dos amigos discuten sobre un viaje al norte de Italia.
-**Diálogo**:
-**Alessio**: "Hai sentito che il treno per Verona è in ritardo? Il biglietto lo abbiamo prenotato ieri, ma non sappiamo se partiremo in tempo."
-**Lidia**: "Sì, ho letto l’annuncio. Purtroppo ci sono problemi con le linee ferroviarie. Però possiamo provare a prenotare un autobus invece. Che ne dici?"
-**Alessio**: "Forse è meglio. Non vogliamo arrivare troppo tardi al museo, no? Dobbiamo anche trovare un hotel."
-
-**Análisis**:
-- **Vocabulario específico**: *ritardo* (retraso), *prenotato* (reservado), *museo* (museo).
-- **Estructura lógica**: El uso de *però* indica una alternativa, mientras que *dobbiamo* expresa obligación.
-- **Contexto cultural**: La mención del tren y el museo refleja situaciones típicas en Italia.
-
-Este tipo de ejemplos ayuda a integrar la comprensión auditiva con conocimientos culturales y gramaticales, esenciales para alcanzar el nivel B2.
+*Audio: «È vero che lo smart working riduce il traffico. Però, secondo un'indagine recente, il 40% dei lavoratori si sente più isolato. Insomma, serve un equilibrio.»*

@@ -1,486 +1,234 @@
-# Idiomas — Portugués (Brasil) — uso-del-gerundio (cuestionario)
+# Portugués (Brasil) — gerundio (cuestionario, 12 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/portugues-br/uso-del-gerundio/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
-
----
-
-### 1 — Uso de gerúndio após preposição  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "uso-del-gerundio"
-  nivel: "B1"
-  tags: ["preposições", "simultâneo"]
-pasos:
-  - "Identificar a preposição que exige o gerúndio."
-  - "Verificar a concordância do verbo com o sujeito."
-tipo: completar
-respuestas_validas:
-  - "estudando"
-  - "Estudando"
-enunciado: "Ela está trabalhando ___ um projeto importante."
-explicacion: "O gerúndio é usado após preposições como 'em' ou 'com', indicando ação simultânea. O verbo 'trabalhar' em gerúndio é 'estudando'."
-```
-
-### 2 — Gerúndio com "ao"  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "uso-del-gerundio"
-  nivel: "B1"
-  tags: ["preposições", "infinitivo"]
-pasos:
-  - "Reconhecer a estrutura 'ao + gerúndio'."
-  - "Verificar se o verbo está no tempo correto."
-tipo: completar
-respuestas_validas:
-  - "correndo"
-  - "Correndo"
-enunciado: "Ele foi atropelado ___ na rua."
-explicacion: "A expressão 'ao' (equivalente a 'quando') exige o gerúndio. O verbo 'correr' em gerúndio é 'correndo'."
-```
-
-### 3 — Gerúndio com "durante"  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "uso-del-gerundio"
-  nivel: "B1"
-  tags: ["tempo", "preposições"]
-pasos:
-  - "Identificar o uso de 'durante' com gerúndio."
-  - "Confirmar a concordância do verbo."
-tipo: completar
-respuestas_validas:
-  - "cantando"
-  - "Cantando"
-enunciado: "Ela ouviu uma música ___ no trem."
-explicacion: "A preposição 'durante' exige o gerúndio. O verbo 'cantar' em gerúndio é 'cantando'."
-```
-
-### 4 — Gerúndio com "enquanto"  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "uso-del-gerundio"
-  nivel: "B1"
-  tags: ["simultâneo", "conjunções"]
-pasos:
-  - "Reconhecer a conjunção 'enquanto'."
-  - "Verificar o uso do gerúndio para ação simultânea."
-tipo: completar
-respuestas_validas:
-  - "lendo"
-  - "Lendo"
-enunciado: "Enquanto eu ___ o livro, ele dormiu."
-explicacion: "'Enquanto' indica ação simultânea e exige gerúndio. 'Ler' em gerúndio é 'lendo'."
-```
-
-### 5 — Gerúndio com "após"  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "uso-del-gerundio"
-  nivel: "B1"
-  tags: ["tempo", "preposições"]
-pasos:
-  - "Identificar a preposição 'após'."
-  - "Confirmar o uso do gerúndio para ação subsequente."
-tipo: completar
-respuestas_validas:
-  - "chegando"
-  - "Chegando"
-enunciado: "Ela começou a trabalhar ___ ao escritório."
-explicacion: "'Após' exige o gerúndio para indicar ação que ocorre depois. 'Chegar' em gerúndio é 'chegando'."
-```
-
-### 6 — Gerúndio com "sem"  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "uso-del-gerundio"
-  nivel: "B1"
-  tags: ["negação", "preposições"]
-pasos:
-  - "Reconhecer a preposição 'sem'."
-  - "Verificar o uso do gerúndio para expressar ausência de ação."
-tipo: completar
-respuestas_validas:
-  - "esperando"
-  - "Esperando"
-enunciado: "Não vou sair ___ por você."
-explicacion: "'Sem' exige o gerúndio para indicar ausência de ação. 'Esperar' em gerúndio é 'esperando'."
-```
-
-### 7 — Gerúndio com "com"  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "uso-del-gerundio"
-  nivel: "B1"
-  tags: ["preposições", "simultâneo"]
-pasos:
-  - "Identificar a preposição 'com'."
-  - "Confirmar o uso do gerúndio para ação simultânea."
-tipo: completar
-respuestas_validas:
-  - "correndo"
-  - "Correndo"
-enunciado: "Ele foi pego ___ na rua."
-explicacion: "'Com' indica ação simultânea e exige gerúndio. 'Correr' em gerúndio é 'correndo'."
-```
-
-### 8 — Gerúndio com "durante" (2)  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "uso-del-gerundio"
-  nivel: "B1"
-  tags: ["tempo", "preposições"]
-pasos:
-  - "Reconhecer a preposição 'durante'."
-  - "Verificar o uso do gerúndio para ação contínua."
-tipo: completar
-respuestas_validas:
-  - "escrevendo"
-  - "Escrevendo"
-enunciado: "Ela estava ___ uma carta quando ele chegou."
-explicacion: "'Durante' exige o gerúndio para indicar ação contínua. 'Escrever' em gerúndio é 'escrevendo'."
-```
-
-### 9 — Gerúndio com "enquanto" (2)  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "uso-del-gerundio"
-  nivel: "B1"
-  tags: ["simultâneo", "conjunções"]
-pasos:
-  - "Identificar a conjunção 'enquanto'."
-  - "Confirmar o uso do gerúndio para ação simultânea."
-tipo: completar
-respuestas_validas:
-  - "assistindo"
-  - "Assistindo"
-enunciado: "Enquanto eu ___ ao filme, ele foi embora."
-explicacion: "'Enquanto' exige gerúndio para ação simultânea. 'Assistir' em gerúndio é 'assistindo'."
-```
-
-### 10 — Gerúndio com "após" (2)  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "uso-del-gerundio"
-  nivel: "B1"
-  tags: ["tempo", "preposições"]
-pasos:
-  - "Reconhecer a preposição 'após'."
-  - "Verificar o uso do gerúndio para ação subsequente."
-tipo: completar
-respuestas_validas:
-  - "saindo"
-  - "Saindo"
-enunciado: "Ela começou a trabalhar ___ da reunião."
-explicacion: "'Após' exige gerúndio para indicar ação que ocorre depois. 'Sair' em gerúndio é 'saindo'."
-```
-
-### 11 — Gerúndio com "sem" (2)  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "uso-del-gerundio"
-  nivel: "B1"
-  tags: ["negação", "preposições"]
-pasos:
-  - "Identificar a preposição 'sem'."
-  - "Confirmar o uso do gerúndio para expressar ausência de ação."
-tipo: completar
-respuestas_validas:
-  - "respondendo"
-  - "Respondendo"
-enunciado: "Ela não respondeu ___ meu e-mail."
-explicacion: "'Sem' exige gerúndio para indicar ausência de ação. 'Responder' em gerúndio é 'respondendo'."
-```
-
-### 12 — Gerúndio com "com" (2)  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "uso-del-gerundio"
-  nivel: "B1"
-  tags: ["preposições", "simultâneo"]
-pasos:
-  - "Reconhecer a preposição 'com'."
-  - "Verificar o uso do gerúndio para ação simultânea."
-tipo: completar
-respuestas_validas:
-  - "dormindo"
-  - "Dormindo"
-enunciado: "Ela foi encontrada ___ no chão."
-explicacion: "'Com' indica ação simultânea e exige gerúndio. 'Dormir' em gerúndio é 'dormindo'."
-```
-
-### 13 — Gerúndio com "durante" (3)  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "uso-del-gerundio"
-  nivel: "B1"
-  tags: ["tempo", "preposições"]
-pasos:
-  - "Identificar a preposição 'durante'."
-  - "Confirmar o uso do gerúndio para ação contínua."
-tipo: completar
-respuestas_validas:
-  - "cozinhand"
-  - "Cozinhand"
-enunciado: "Ele estava ___ almoço quando ouviu um barulho."
-explicacion: "'Durante' exige gerúndio para indicar ação contínua. 'Cozinhar' em gerúndio é 'cozinhand'."
-```
-
-### 14 — Gerúndio com "enquanto" (3)  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "uso-del-gerundio"
-  nivel: "B1"
-  tags: ["simultâneo", "conjunções"]
-pasos:
-  - "Reconhecer a conjunção 'enquanto'."
-  - "Verificar o uso do gerúndio para ação simultânea."
-tipo: completar
-respuestas_validas:
-  - "correndo"
-  - "Correndo"
-enunciado: "Enquanto eu ___ na praia, ele ficou em casa."
-explicacion: "'Enquanto' exige gerúndio para ação simultânea. 'Correr' em gerúndio é 'correndo'."
-```
-
-### 15 — Gerúndio com "após" (3)  
-```
-metadata:
-  materia: "portugues-br"
-  tema: "uso-del-gerundio"
-  nivel: "B1"
-  tags: ["preposições", "simultâneo"]
-pasos:
-  - "Identificar el contexto de la oración."
-  - "Determinar la preposición que requiere el gerundio."
-tipo: completar
-respuestas_validas:
-  - "ao"
-  - "Ao"
-enunciado: "Ela está trabalhando ___ um projeto importante."
-explicacion: "El gerundio 'trabalhando' se usa con la preposición 'ao' para indicar un objeto directo en la oración."
-```
+> Tema: `idiomas-extranjeros/portugues-br/uso-del-gerundio`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 16 — Gerúndio com "sem" (3)  
+### 1 — Formación -ar
+
 ```
 metadata:
-  materia: "portugues-br"
+  materia: "idiomas-extranjeros/portugues-br"
   tema: "uso-del-gerundio"
   nivel: "B1"
-  tags: ["simultâneo", "enquanto"]
-pasos:
-  - "Reconocer la estructura 'Enquanto + gerundio'."
-  - "Seleccionar el verbo que completa la acción paralela."
-opciones_explicitas:
-  - "estava esperando"
-  - "esperou"
-  - "espera"
-respuesta: "estava esperando"
-tipo: mc
-enunciado: "Enquanto eu ___ ao filme, ele foi embora."
-explicacion: "'Enquanto' requiere el gerundio para indicar una acción simultánea. 'Estava esperando' es la forma correcta en pasado continuo."
+  tags: ["gerundio"]
+
+respuesta: "falando"
+tipo: "mc"
+opciones_explicitas: ["falando", "falendo", "hablando"]
+
+enunciado: "Estou ___ com a minha irmã."
+
+explicacion: |
+  *Falar → falando*.
 ```
 
----
+### 2 — Formación -er
 
-### 17 — Gerúndio com "com" (3)  
 ```
 metadata:
-  materia: "portugues-br"
+  materia: "idiomas-extranjeros/portugues-br"
   tema: "uso-del-gerundio"
   nivel: "B1"
-  tags: ["lugar", "preposições"]
-pasos:
-  - "Determinar si el verbo necesita preposición."
-  - "Elegir la forma correcta del gerundio con esa preposición."
-tipo: completar
-respuestas_validas:
-  - "na"
-  - "Na"
-enunciado: "Ele foi atropelado ___ na rua."
-explicacion: "El gerundio 'atropelado' se usa con la preposición 'na' para indicar el lugar donde ocurrió la acción."
+  tags: ["gerundio"]
+
+respuesta: "fazendo"
+tipo: "mc"
+opciones_explicitas: ["fazendo", "faciendo", "fazindo"]
+
+enunciado: "O que você está ___?"
+
+explicacion: |
+  *Fazer → fazendo*.
 ```
 
----
+### 3 — Formación -ir
 
-### 18 — Gerúndio com "durante" (4)  
 ```
 metadata:
-  materia: "portugues-br"
+  materia: "idiomas-extranjeros/portugues-br"
   tema: "uso-del-gerundio"
   nivel: "B1"
-  tags: ["interrupción", "passado"]
-pasos:
-  - "Reconocer el uso del gerundio en oraciones con interrupción."
-  - "Identificar la forma correcta del verbo en pasado continuo."
-opciones_explicitas:
-  - "estava escrevendo"
-  - "escreveu"
-  - "escreve"
-respuesta: "estava escrevendo"
-tipo: mc
-enunciado: "Ela estava ___ uma carta quando ele chegou."
-explicacion: "'Estava escrevendo' es la forma correcta del gerundio en pasado continuo para describir una acción interrumpida."
+  tags: ["gerundio"]
+
+respuesta: "dormindo"
+tipo: "mc"
+opciones_explicitas: ["dormindo", "durmiendo", "durmindo"]
+
+enunciado: "O bebê está ___."
+
+explicacion: |
+  Regular: *dormindo*.
 ```
 
----
+### 4 — dizer
 
-### 19 — Gerúndio com "enquanto" (4)  
 ```
 metadata:
-  materia: "portugues-br"
+  materia: "idiomas-extranjeros/portugues-br"
   tema: "uso-del-gerundio"
   nivel: "B1"
-  tags: ["preposições", "simultâneo"]
-pasos:
-  - "Identificar la preposición que modifica al gerundio."
-  - "Escribir el verbo en forma correcta con dicha preposición."
-tipo: completar
-respuestas_validas:
-  - "durante"
-  - "Durante"
-enunciado: "Ela estava ___ uma carta durante a reunião."
-explicacion: "'Durante' es la preposición que indica el momento en que se realizó la acción con el gerundio 'escrevendo'."
+  tags: ["gerundio"]
+
+respuesta: "dizendo"
+tipo: "mc"
+opciones_explicitas: ["dizendo", "diciendo", "dizindo"]
+
+enunciado: "Ele está ___ a verdade."
+
+explicacion: |
+  *Dizer → dizendo* (regular).
 ```
 
----
+### 5 — pôr
 
-### 20 — Gerúndio com "após" (4)  
 ```
 metadata:
-  materia: "portugues-br"
+  materia: "idiomas-extranjeros/portugues-br"
   tema: "uso-del-gerundio"
   nivel: "B1"
-  tags: ["expresiones", "preposições"]
-pasos:
-  - "Reconocer la estructura de expresión idiomática con gerundio."
-  - "Seleccionar el verbo que completa correctamente la frase."
-opciones_explicitas:
-  - "não vou sair por você"
-  - "não vou sair com você"
-  - "não vou sair de você"
-respuesta: "não vou sair por você"
-tipo: mc
-enunciado: "Não vou sair ___ por você."
-explicacion: "'Por' es la preposición correcta en esta expresión idiomática, seguida del gerundio 'sair'."
+  tags: ["gerundio"]
+
+respuesta: "pondo"
+tipo: "mc"
+opciones_explicitas: ["pondo", "poniendo", "pôndo"]
+
+enunciado: "Ela está ___ a mesa."
+
+explicacion: |
+  *Pôr → pondo*.
 ```
 
----
+### 6 — ir + gerúndio
 
-### 21 — Gerúndio com "sem" (4)  
 ```
 metadata:
-  materia: "portugues-br"
+  materia: "idiomas-extranjeros/portugues-br"
   tema: "uso-del-gerundio"
   nivel: "B1"
-  tags: ["acción continua", "simultâneo"]
-pasos:
-  - "Identificar el momento de la acción (continua o simultánea)."
-  - "Escribir el gerundio con la preposición adecuada."
-tipo: completar
-respuestas_validas:
-  - "enquanto"
-  - "Enquanto"
-enunciado: "___ eu lia o livro, ele dormiu."
-explicacion: "'Enquanto' introduce una acción simultánea, requiriendo el gerundio 'lia' para la primera parte de la oración."
+  tags: ["gerundio"]
+
+respuesta: "vai"
+tipo: "mc"
+opciones_explicitas: ["vai", "está indo a", "anda a"]
+
+enunciado: "A situação econômica ___ melhorando aos poucos."
+
+explicacion: |
+  Progresión: *vai melhorando*.
 ```
 
----
+### 7 — andar + gerúndio
 
-### 22 — Gerúndio com "com" (4)  
 ```
 metadata:
-  materia: "portugues-br"
+  materia: "idiomas-extranjeros/portugues-br"
   tema: "uso-del-gerundio"
   nivel: "B1"
-  tags: ["preposições", "ação passiva"]
-pasos:
-  - "Reconocer el uso del gerundio en oraciones pasivas."
-  - "Seleccionar la preposición correcta que lo acompaña."
-opciones_explicitas:
-  - "foi pego de surpresa"
-  - "foi pego na rua"
-  - "foi pego por ele"
-respuesta: "foi pego de surpresa"
-tipo: mc
-enunciado: "Ele foi pego ___ na rua."
-explicacion: "'De surpresa' es la frase que complementa correctamente al gerundio 'pegado', indicando el modo en que fue capturado."
+  tags: ["gerundio"]
+
+respuesta: "ando"
+tipo: "mc"
+opciones_explicitas: ["ando", "estou a", "vou a"]
+
+enunciado: "Eu ___ dormindo mal esta semana."
+
+explicacion: |
+  *Andar + gerúndio* = repetición reciente.
 ```
 
----
+### 8 — ficar + gerúndio
 
-### 23 — Gerúndio com "durante" (5)  
 ```
 metadata:
-  materia: "portugues-br"
+  materia: "idiomas-extranjeros/portugues-br"
   tema: "uso-del-gerundio"
   nivel: "B1"
-  tags: ["objeto directo", "preposições"]
-pasos:
-  - "Determinar si el verbo requiere preposición para su complemento."
-  - "Formular el gerundio con la preposición correcta."
-tipo: completar
-respuestas_validas:
-  - "ao"
-  - "Ao"
-enunciado: "Ela começou a trabalhar ___ ao escritório."
-explicacion: "'Ao' es la preposición que indica el lugar donde se inició la acción, combinada con el gerundio 'trabalhando'."
+  tags: ["gerundio"]
+
+respuesta: "esperando"
+tipo: "mc"
+opciones_explicitas: ["esperando", "esperar", "esperado"]
+
+enunciado: "Fiquei ___ o ônibus por uma hora."
+
+explicacion: |
+  *Ficar + gerúndio*.
 ```
 
----
+### 9 — Modo
 
-### 24 — Gerúndio com "enquanto" (5)  
 ```
 metadata:
-  materia: "portugues-br"
+  materia: "idiomas-extranjeros/portugues-br"
   tema: "uso-del-gerundio"
   nivel: "B1"
-  tags: ["duracion", "simultâneo"]
-pasos:
-  - "Reconocer el uso del gerundio con la preposición 'durante'."
-  - "Seleccionar el verbo correcto en forma de gerundio."
-opciones_explicitas:
-  - "estava ouvindo uma música durante o trem"
-  - "estava ouvindo uma música durante o trecho"
-  - "estava ouvindo uma música durante a viagem"
-respuesta: "estava ouvindo uma música durante a viagem"
-tipo: mc
-enunciado: "Ela ouviu uma música ___ no trem."
-explicacion: "'Durante a viagem' es la frase que completa correctamente el gerundio 'ouvindo', indicando el momento en que ocurrió la acción."
+  tags: ["gerundio"]
+
+respuesta: "correndo"
+tipo: "mc"
+opciones_explicitas: ["correndo", "corrido", "a correr"]
+
+enunciado: "Ele saiu ___ porque estava atrasado."
+
+explicacion: |
+  Modo: *saiu correndo*.
 ```
 
----
+### 10 — Pronombre
 
-### 25 — Gerúndio com "após" (5)  
 ```
 metadata:
-  materia: "portugues-br"
+  materia: "idiomas-extranjeros/portugues-br"
   tema: "uso-del-gerundio"
   nivel: "B1"
-  tags: ["interrupción", "preposições"]
-pasos:
-  - "Identificar la estructura de oración con acción interrumpida."
-  - "Seleccionar el gerundio correcto con preposición adecuada."
-respuesta: "enquanto"
-tipo: completar
-respuestas_validas:
-  - "enquanto"
-  - "Enquanto"
-enunciado: "___ eu estava limpando a casa, o vizinho chegou."
-explicacion: "'Enquanto' introduce una acción simultánea que se interrumpe, requiriendo el gerundio 'estava limpando' con la preposición correcta."
+  tags: ["gerundio"]
+
+respuesta: "Estou te esperando."
+tipo: "mc"
+opciones_explicitas: ["Estou te esperando.", "Estou esperando-te.", "Te estou esperando-te."]
+
+enunciado: "No Brasil, lo más común en el habla es:"
+
+explicacion: |
+  Pronombre antes del gerundio (habla brasileña).
+```
+
+### 11 — Gerundismo
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "uso-del-gerundio"
+  nivel: "B1"
+  tags: ["gerundio"]
+
+respuesta: "Vou enviar o relatório amanhã."
+tipo: "mc"
+opciones_explicitas: ["Vou enviar o relatório amanhã.", "Vou estar enviando o relatório amanhã.", "Vou estar a enviar amanhã."]
+
+enunciado: "¿Cuál es la mejor forma en un correo profesional?"
+
+explicacion: |
+  Evitar el gerundismo *vou estar enviando*.
+```
+
+### 12 — Variante
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "uso-del-gerundio"
+  nivel: "B1"
+  tags: ["gerundio"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En Brasil lo más común para una acción en curso es «estar + gerúndio» (estou comendo)."
+
+explicacion: |
+  Verdadero; en Portugal se prefiere *estar a + infinitivo*.
 ```

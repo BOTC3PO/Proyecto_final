@@ -1,59 +1,63 @@
-# Formación de preguntas en japonés (nivel N5)
+# Cómo formar preguntas en japonés (N5)
 
 > Tema del MAPA: `idiomas-extranjeros/japones/formacion-de-preguntas`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores de escritura, lecturas y traducciones incorrectas.
 
 ---
 
-La formación de preguntas es una destreza fundamental para comunicarse en cualquier idioma, y en el caso del japonés, se basa principalmente en la estructura de las oraciones afirmativas con pequeñas modificaciones. En el nivel N5, los aprendices deben dominar las formas básicas para hacer preguntas cerradas (sí/no) y abiertas (¿dónde?, ¿cuándo?, etc.), que son esenciales para iniciar conversaciones simples.
+## Introducción
+Hacer una pregunta en japonés es simple: se agrega **か** al final de la oración, **sin cambiar el orden** de las palabras. Las palabras interrogativas (何, どこ, だれ…) ocupan el lugar de lo que se pregunta.
 
-## Estructura básica de preguntas
+## Explicación central
+### Preguntas sí/no
+**Oración + か**: 学生です → 学生です**か**。(¿Es estudiante?)
+- Respuesta: はい、そうです。/ いいえ、違います。
+- En el habla informal, sin か, con entonación ascendente: 行く？
 
-En japonés, las preguntas se forman añadiendo **か** (ka) al final de una oración afirmativa. Por ejemplo:
+### Palabras interrogativas
+| | |
+|---|---|
+| **何** (*nani / nan*) | qué |
+| **だれ / どなた** | quién (どなた, más cortés) |
+| **どこ** | dónde |
+| **いつ** | cuándo |
+| **どう / いかが** | cómo (いかが, cortés) |
+| **どうして / なぜ** | por qué |
+| **いくら** | cuánto (precio) |
+| **いくつ** | cuántos / cuántos años |
+| **どれ / どの + sust.** | cuál |
+| **何時** (*nanji*) | qué hora |
 
-- Afirmativo: 私は学生です。(Watashi wa gakusei desu.) → "Soy estudiante."
-- Pregunta cerrada: 私は学生ですか？(Watashi wa gakusei desu ka?) → "¿Soy estudiante?"
+- 何 se lee **なん** ante です, の y contadores (何です, 何時, 何人), y **なに** en general (何を食べますか).
 
-Para preguntas abiertas, se utiliza **の** (no) antes de la partícula que indica el elemento interrogado. Por ejemplo:
+### Ejemplos
+- これは**何**ですか。(¿Qué es esto?)
+- トイレは**どこ**ですか。(¿Dónde está el baño?)
+- 誕生日は**いつ**ですか。(¿Cuándo es tu cumpleaños?)
+- **だれ**が来ましたか。(¿Quién vino?) — con quién como sujeto se usa **が**, nunca は.
+- このかばんは**いくら**ですか。(¿Cuánto cuesta este bolso?)
 
-- Afirmativo: どこに住んでいますか？(Doko ni sunde imasu ka?) → "¿Dónde vive?"
-- Pregunta abierta: どこに住んでいますの？(Doko ni sunde imasu no?) → "¿Dónde vive?"
+### Sin signo de interrogación
+En el japonés formal escrito, la pregunta termina en **。** (か ya marca la pregunta). En textos informales se usa ？.
 
-También se pueden usar expresiones como **どうして** (doushite) para "¿por qué?" o **いつ** (itsu) para "¿cuándo?", que funcionan de manera similar a las preguntas cerradas.
-
-## Errores comunes en el aprendizaje
-
-Los hablantes hispanohablantes suelen cometer errores relacionados con la posición de los elementos de la oración. Por ejemplo:
-
-- **Error:** あなたは学生ですか？(Anata wa gakusei desu ka?) → Es correcto, pero a veces se olvida añadir **か** al final.
-- **Error:** どこに住んでいます？(Doko ni sunde imasu?) → Faltaría el **の** para formar una pregunta abierta.
-
-Otro error frecuente es confundir la partícula **は** (wa) con **が** (ga), lo que puede cambiar el significado de la oración. Por ejemplo:
-
-- Correcto: これは本ですか？(Kore wa hon desu ka?) → "¿Esto es un libro?"
-- Incorrecto: これは本がですか？(Kore wa hon ga desu ka?) → La partícula **が** (ga) se usa para marcar el sujeto, pero en este contexto no es necesario.
+## Errores comunes de hispanohablantes
+1. Cambiar el orden: ❌ ですか学生 ✅ 学生ですか.
+2. ❌ だれは来ましたか ✅ だれが来ましたか.
+3. ❌ なにですか ✅ なんですか.
+4. Responder a una pregunta negativa como en español: — 田中さんは来ませんでしたか。— **はい**、来ませんでした (= es así, no vino). はい confirma lo que dijo el otro. Ojo: 〜ませんか también sirve para invitar (一緒に行きませんか = ¿vamos juntos?).
 
 ## Comparación con el español
-
-En español, las preguntas se forman con signos de interrogación (¿?), mientras que en japonés se usan **か** y **の**. Por ejemplo:
-
-- Español: ¿Eres estudiante? → Japonés: 私は学生ですか？(Watashi wa gakusei desu ka?)
-- Español: ¿Dónde vive? → Japonés: どこに住んでいますの？(Doko ni sunde imasu no?)
-
-Además, en español se pueden usar interrogativos como "¿quién?", "¿dónde?" directamente al inicio de la oración, mientras que en japonés se requiere un elemento contextual (como **どこ** para "dónde") seguido de **の**.
+El español marca la pregunta con entonación y signos (¿?); el japonés con la partícula か al final, sin cambiar el orden. Como en español, la palabra interrogativa ocupa el lugar del dato: 駅は**どこ**ですか = «¿La estación está **dónde**?».
 
 ## Ejemplo extendido en contexto
-
-**Escena:** Dos personas se conocen por primera vez.
-**A:** こんにちは。(Konnichiwa.) → "Hola."
-**B:** こんにちは。あなたは学生ですか？(Konnichiwa. Anata wa gakusei desu ka?) → "Hola. ¿Eres estudiante?"
-**A:** はい、私は学生です。(Hai, watashi wa gakusei desu.) → "Sí, soy estudiante."
-**B:** どこに住んでいますか？(Doko ni sunde imasu ka?) → "¿Dónde vive?"
-**A:** 私は東京に住んでいます。(Watashi wa Tōkyō ni sunde imasu.) → "Vivo en Tokio."
-**B:** どうして東京に住んでいますか？(Doushite Tōkyō ni sunde imasu ka?) → "¿Por qué vive en Tokio?"
-**A:** 東京は便利だからです。(Tōkyō wa benri da kara desu.) → "Porque Tokio es conveniente."
-
-Este diálogo muestra cómo se combinan preguntas cerradas y abiertas para obtener información básica, algo clave para los niveles iniciales.
+- A: すみません、駅は**どこ**ですか。
+- B: あそこです。
+- A: 次の電車は**何時**ですか。
+- B: 三時です。
+- A: 切符は**いくら**ですか。
+- B: 二百円です。

@@ -5,39 +5,45 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores en la comparación con el español y daba poca estrategia concreta.
 
 ---
 
 ## Introducción
-En el nivel **C1 del Marco Europeo Común de Referencia para las Lenguas (CEFR)**, los estudiantes ya pueden comprender con facilidad discursos complejos y participar en conversaciones avanzadas. Sin embargo, un desafío clave es la **comprensión auditiva de textos orales con acentos variados**. Este tema implica reconocer diferencias fonéticas, ritmos y patrones de entonación entre acentos como el británico, estadounidense, australiano, caribeño o sudamericano, sin perder el hilo del contenido. Es esencial para escuchar podcasts, conferencias o entrevistas internacionales, donde la diversidad lingüística es común.
+En C1 se espera entender **discursos largos y poco estructurados**, conferencias, podcasts y debates con **acentos variados** (británico, estadounidense, australiano, irlandés, de hablantes no nativos), captando **implicaciones, ironía y cambios de registro**.
 
-## Explicación central con ejemplos reales
-La comprensión auditiva en inglés requiere adaptarse a **variaciones de pronunciación, entonación y velocidad**. Por ejemplo:
-- Un hablante británico podría decir *“I’m going to the shops”* con un énfasis en la sílaba “shops” (pronunciada como /ʃɒps/), mientras que un estadounidense diría *“I’m gonna the store”* (/ɡənə ðə stɔːr/).
-- Un acento caribeño podría usar contracciones y ritmos más rápidos, como en: *“Yuh know, dem people was talkin’ ‘bout climate change, right?”*
+## Explicación central
+### Acentos
+- **Británico estándar (RP)**: *r* final muda (*car* /kɑː/), *a* larga en *bath, can't*.
+- **Estadounidense**: *r* pronunciada (*car* /kɑːr/), *t* entre vocales como una *r* suave (*water* ≈ «wáder»).
+- **Australiano**: vocales desplazadas (*day* suena parecido a «dai»), entonación ascendente en afirmaciones.
+- **Irlandés y escocés**: *r* marcada, vocales distintas; *th* a veces como *t/d*.
+No hace falta imitarlos, sino **reconocer las mismas palabras** con pronunciaciones distintas.
 
-Los podcasts como **“The Daily”** (NPR) o **“Radiolab”** incluyen entrevistas con invitados de diferentes partes del mundo. Por ejemplo, un episodio podría tener a una científica británica explicando un descubrimiento: *“We’ve identified a new species of coral in the Great Barrier Reef—this is groundbreaking!”* (pronunciado con un acento inglés). Otro segmento podría incluir a un entrevistador estadounidense: *“So, what’s your take on this?”*
+### Discurso oral espontáneo
+- **Rellenos y vacilaciones**: *you know, I mean, sort of, kind of, like*.
+- **Autocorrecciones**: *It was in 2019 — no, 2018*.
+- **Elipsis**: *Want some?* (= *Do you want some?*), *Sounds good.*
 
-## Errores comunes de hablantes hispanohablantes
-1. **Confusión entre sonidos similares**: Los hispanohablantes pueden confundir el /v/ y el /w/ en acentos británicos (ej.: *“very”* vs. *“weary”*).
-2. **Dificultad con la entonación**: En inglés, la entonación indica preguntas o énfasis. Por ejemplo, un acento australiano puede usar una caída de tono en frases declarativas (*“I’m tired.”*), mientras que el español suele mantener un tono plano.
-3. **Ritmo acelerado**: Podcasts con hablantes nativos suelen hablar más rápido que los textos escritos, lo que dificulta la comprensión si no se practica escucha activa.
+### Implicaciones y matices
+- **Lítotes** (atenuar diciendo lo contrario negado): *It's not bad* = está bastante bien; *He's not the most reliable person* = no es confiable.
+- **Hedging**: *arguably, to a certain extent, it could be argued that*.
+- **Ironía y sarcasmo**: marcados por el tono.
+
+### Estrategias
+1. Seguir la **estructura argumentativa**: tesis, concesión (*Granted…*), refutación (*But…*), conclusión.
+2. Tomar notas con **palabras clave y símbolos**, no frases completas.
+3. Identificar el **propósito**: informar, persuadir, criticar, entretener.
+
+## Errores comunes de hispanohablantes
+1. Tomar literalmente la lítotes (*not bad* no es «mediocre»).
+2. Perderse con acentos no estadounidenses.
+3. No captar el giro después de *Granted, … but…*
 
 ## Comparación con el español
-El español tiene un ritmo y entonación más predecible, con énfasis en la última sílaba de las palabras. En cambio, el inglés varía según el acento:
-- El **acento británico** usa una entonación ascendente frecuente (*“Did you go to the party?”*).
-- El **acento estadounidense** tiende a usar más contracciones y un tono más plano en declaraciones.
-- En español, las palabras como *“casa”* tienen siempre el énfasis en la última sílaba (*ká-sa*), mientras que en inglés “house” puede cambiar según el contexto (*“I live in a house.”* vs. “*That’s my HOUSE!*”).
+El español también tiene variedades (rioplatense, caribeña, peninsular) y usa la atenuación («no está nada mal»). La diferencia en inglés es la mayor variación de las vocales entre acentos.
 
 ## Ejemplo extendido en contexto
-**Escenario**: Un podcast titulado *“Global Voices”* presenta una entrevista con un activista ambiental de Chile y un economista de India.
-
-**Diálogo (transcripción)**:
-**Host**: “Welcome back to Global Voices. Today, we’re speaking with María Fernández from Chile and Ravi Kumar from India. María, how does your work in the Andes compare to climate challenges elsewhere?”
-**María**: “Well, the glaciers are melting faster here than in the Alps. It’s a huge threat to water supplies.” (Acento sudamericano: pronunciación clara, ritmo moderado).
-**Host**: “Ravi, you’ve studied economic policies in South Asia—what role does climate play there?”
-**Ravi**: “In India, we face monsoon irregularities. Our agriculture depends on predictable rains—but that’s changing.” (Acento indio: uso de *“we”* en lugar de *“they”*, entonación más baja).
-
-**Análisis**: El oyente debe identificar los acentos y seguir la conversación, incluso cuando se usen términos técnicos como “monsoon irregularities” o “glaciers”. La práctica con material real (podcasts, videos) ayuda a adaptarse a estas variaciones.
-
-Este tema requiere **escucha activa**, familiarización con acentos y exposición repetida a contenidos auténticos para desarrollar la competencia auditiva en contextos complejos.
+*Audio (podcast): «Granted, remote work has its perks — no commute, more flexibility. But, and it's a big but, it can be pretty isolating. I mean, it's not the end of the world, but you do miss the chats by the coffee machine, you know?»*
+**Claves:** concesión (*Granted*), giro (*But… a big but*), atenuación (*not the end of the world*), postura matizada.

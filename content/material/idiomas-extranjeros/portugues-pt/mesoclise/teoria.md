@@ -1,49 +1,52 @@
-# Mesoclise en portugués: uso y contexto (nível B2)
+# Mesóclisis en portugués de Portugal (C1)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-pt/mesoclise`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía formas mal construidas y no explicaba cuándo se usa.
 
 ---
 
 ## Introducción
-La **mesoclise** es una característica gramatical del portugués que consiste en colocar un pronombre de objeto directo o indirecto entre el prefijo y la raíz de un verbo. Este fenómeno es común en el lenguaje oral y ayuda a facilitar la fluidez al evitar repeticiones innecesarias. En el nivel B2, su dominio es clave para comunicarse con naturalidad, ya que permite construir frases más dinámicas y cercanas al habla cotidiana.
+La **mesóclise** coloca el pronombre átono **en el medio** del verbo en el **futuro simple** y el **condicional**: *Dir-**te**-ei* («te diré»), *Far-**se**-ia* («se haría»). Está viva en el portugués **formal escrito** de Portugal (textos oficiales, prensa, literatura) y desaparece en el habla, que prefiere *ir + infinitivo*.
 
 ## Explicación central
-La mesoclise ocurre principalmente en verbos compuestos por prefijos como *des-* (desfazer), *re-* (refazer) o *a-* (afastar). En estos casos, el pronombre se inserta entre el prefijo y la raíz. Por ejemplo:
-- **Vou te encontrar** (en vez de "vou encontrar-te").
-- **Preciso de vocês** (en vez de "precisam de mim", si el sujeto es plural).
+### Por qué existe
+El futuro y el condicional se formaron con **infinitivo + haver**: *dizer + hei → direi*. Por eso el pronombre se intercala donde estaba esa unión: *dir-**te**-ei* (= *dizer-te-hei*).
 
-Sin embargo, no todos los verbos admiten esta estructura. Por ejemplo, en *lembrar* ("recordar"), la forma correcta es **lembras-te** (no se usa mesoclise). La regla general es:
-1. El pronombre solo va entre el prefijo y la raíz si el verbo no tiene un sujeto explícito.
-2. No se usa en frases formales o escritas, donde prevalece la colocación final del pronombre.
+### Formación
+Se separa la raíz del infinitivo y la terminación, y se coloca el pronombre entre guiones:
+| Sin pronombre | Con mesóclise |
+|---|---|
+| direi | dir-**te**-ei |
+| faremos | far-**se**-emos |
+| daria | dar-**lhe**-ia |
+| encontrarão | encontrá-**los**-ão |
 
-Ejemplos reales:
-- **Vou te ajudar** (vou ayudarte).
-- **Elas vão nos esperar** (ellas van a esperarnos).
-- **Não te esqueças disso** (no te olvides de eso).
+- Con *o/a* después de **-r**: se cae la *r* y queda *-lo/-la* con acento: *encontrar + os + ão → encontrá-**los**-ão*; *fazer + o + ia → fá-**lo**-ia*.
 
-## Errores comunes en hablantes hispanohablantes
-1. **Omisión del pronombre mesoclítico**: Al confundir el uso con el español, donde los pronombres suelen ir antes del verbo (ej: "te ayudaré"). En portugués, si se omite, la frase puede sonar rígida o inadecuada.
-2. **Uso incorrecto en verbos simples**: Aplicar mesoclise a verbos que no admiten esta estructura, como *esquecer* (no es "esquece-me", sino "esquece-me").
-3. **Confusión con la posición final**: En contextos formales, usar mesoclise puede sonar inapropiado si el habla no está adaptada al registro.
+### Cuándo se usa
+Solo en contextos de **ênclise** (sin atractor) con futuro o condicional:
+- ***Far-se-á** uma reunião amanhã.* (prensa formal)
+- *Se puder, **ajudá-lo-ei**.*
+
+Si hay atractor (negación, *que*, adverbios…), se usa **próclise**:
+- *Não **te** direi nada. Acho que **se** fará justiça.*
+
+### En el habla
+*Vou dizer-te / Vou-te dizer* en lugar de *dir-te-ei*; *Ia ajudá-lo / Ajudava-o* en lugar de *ajudá-lo-ia*.
+
+## Errores comunes de hispanohablantes
+1. ❌ *Direi-te* ✅ *Dir-te-ei*.
+2. ❌ *Não dir-te-ei* ✅ *Não te direi* (la negación pide próclise).
+3. ❌ *fazer-o-ei* ✅ *fá-lo-ei*.
+4. Usar mesóclise en una charla: suena muy afectado.
 
 ## Comparación con el español
-En español, los pronombres de objeto suelen ir antes del verbo (ej: "te ayudaré") o después (en infinitivo, gerundio o imperativo). En portugués, la mesoclise es una alternativa natural en oraciones afirmativas y negativas cuando no hay sujeto explícito. Por ejemplo:
-- Español: *Voy a **ayudarte**.*
-- Portugués: *Vou **te ajudar**.*
-
-Esta diferencia puede ayudar a fijar la regla, ya que en español el pronombre va al final, mientras que en portugués se coloca entre el prefijo y la raíz.
+El español antiguo tenía algo parecido («decirte he», «darlo ha»), hoy desaparecido. Equivalencias: *Dir-te-ei* = «Te diré»; *Far-se-ia* = «Se haría».
 
 ## Ejemplo extendido en contexto
-**Diálogo:**
-*Ana: — Hoje vou **te encontrar** no shopping?*
-*Maria: — Sim! Vou te esperar perto da loja de roupas.*
-*Ana: — E se eu chegar antes?*
-*Maria: — Não te esqueças de me ligar, tá?*
-
-En este contexto, la mesoclise aparece en "te encontrar", "te esperar" y "me ligar", reflejando el uso natural en situaciones cotidianas. Nota que si se usara la forma final ("encontrar-te"), sonaría menos fluido: *Vou encontrar-te no shopping?*
-
-La mesoclise, aunque inicialmente puede parecer compleja, es una herramienta clave para dominar el portugués oral y escribir con mayor naturalidad.
+*Comunicado: «A reunião **realizar-se-á** na próxima segunda-feira. Os participantes **receberão** a ordem de trabalhos por correio eletrónico e **ser-lhes-á** pedida confirmação. Não **se aceitarão** inscrições fora do prazo.»*

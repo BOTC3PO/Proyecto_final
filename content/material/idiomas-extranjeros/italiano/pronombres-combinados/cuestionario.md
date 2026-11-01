@@ -1,457 +1,272 @@
-# Idiomas — Italiano — pronombres-combinados (cuestionario)
+# Italiano — pronombres combinados (cuestionario, 14 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/italiano/pronombres-combinados/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
+> Tema: `idiomas-extranjeros/italiano/pronombres-combinados`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Pronomi combinati con verbo transitivo  
+### 1 — te lo
+
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "pronombres-combinados"
   nivel: "B2"
-  tags: ["pronome indiretto", "pronome diretto", "verbo transitivo"]
-pasos:
-  - "Identifica il pronome indiretto e il pronome diretto."
-  - "Componi i due pronomi in ordine corretto."
-tipo: completar
-respuestas_validas:
-  - "Glielo"
-  - "gliesto"
-enunciado: "Maria ___ compra un regalo per lui."
-explicacion: "Il pronome indiretto 'gli' (a lui) precede il diretto 'lo' (un regalo), formando 'glielo'."
+  tags: ["pronombres-combinados"]
+
+respuesta: "Te lo"
+tipo: "mc"
+opciones_explicitas: ["Te lo", "Ti lo", "Lo ti"]
+
+enunciado: "Il libro? ___ presto volentieri."
+
+explicacion: |
+  *Ti + lo → te lo*.
 ```
 
-### 2 — Pronomi combinati con verbo intransitivo  
+### 2 — glielo
+
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "pronombres-combinados"
   nivel: "B2"
-  tags: ["verbo intransitivo", "pronome indiretto"]
-pasos:
-  - "Verifica se il verbo richiede un complemento oggetto."
-  - "Scegli il pronome combinato corretto."
-tipo: completar
-respuestas_validas:
-  - "Non glielo"
-  - "Non gliel'"
-enunciado: "___ posso dare, perché non l'ho visto."
-explicacion: "Il verbo 'dare' è transitivo e richiede il pronome combinato 'glielo'. L'assenza di oggetto impone la negazione."
+  tags: ["pronombres-combinados"]
+
+respuesta: "Glielo"
+tipo: "mc"
+opciones_explicitas: ["Glielo", "Gli lo", "Se lo"]
+
+enunciado: "Il regalo a Marco? ___ do domani."
+
+explicacion: |
+  *Gli + lo → glielo*.
 ```
 
-### 3 — Pronomi combinati con verbi modali  
+### 3 — A ella
+
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "pronombres-combinados"
   nivel: "B2"
-  tags: ["verbo modale", "pronome diretto"]
-pasos:
-  - "Identifica il verbo modale e il verbo principale."
-  - "Componi i pronomi in ordine corretto."
-tipo: completar
-respuestas_validas:
-  - "Me lo"
-  - "mel'"
-enunciado: "Devo ___ fare prima di andare a scuola."
-explicacion: "Il verbo modale 'dovere' non cambia la forma del pronome diretto, che rimane 'lo'."
+  tags: ["pronombres-combinados"]
+
+respuesta: "Gliela"
+tipo: "mc"
+opciones_explicitas: ["Gliela", "Le la", "Se la"]
+
+enunciado: "La lettera a Giulia? ___ mando oggi."
+
+explicacion: |
+  *Le + la → gliela*.
 ```
 
-### 4 — Pronomi combinati con verbi riflessivi  
+### 4 — me lo
+
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "pronombres-combinados"
   nivel: "B2"
-  tags: ["verbo riflesso", "pronome indiretto"]
-pasos:
-  - "Riconosci il verbo riflessivo e il complemento."
-  - "Scegli la forma corretta del pronome combinato."
-tipo: completar
-respuestas_validas:
-  - "Se lo"
-  - "sel'"
-enunciado: "___ dimenticò di chiudere la porta."
-explicacion: "Il verbo riflessivo 'dimenticare' richiede il pronome diretto 'lo', che si combina con 'se' (a se stesso)."
+  tags: ["pronombres-combinados"]
+
+respuesta: "Me lo"
+tipo: "mc"
+opciones_explicitas: ["Me lo", "Mi lo", "Lo mi"]
+
+enunciado: "___ dai, per favore?"
+
+explicacion: |
+  *Mi → me*.
 ```
 
-### 5 — Pronomi combinati con complemento di termine  
+### 5 — ce lo
+
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "pronombres-combinados"
   nivel: "B2"
-  tags: ["complemento di termine", "verbo transitivo"]
-pasos:
-  - "Individua il complemento di termine e il verbo."
-  - "Componi i due pronomi in ordine corretto."
-tipo: completar
-respuestas_validas:
-  - "Glielo"
-  - "gliesto"
-enunciado: "Maria ___ ha detto per favore."
-explicacion: "Il verbo 'dire' richiede il pronome diretto 'lo', che si unisce al complemento indiretto 'gli'."
+  tags: ["pronombres-combinados"]
+
+respuesta: "l'"
+tipo: "mc"
+opciones_explicitas: ["l'", "la", "li"]
+
+enunciado: "Il risultato? Ce ___ hanno detto ieri."
+
+explicacion: |
+  *Il risultato* (masc. sing.): *ce l'hanno detto* (= *ce lo hanno detto*).
 ```
 
-### 6 — Pronomi combinati con verbi impersonali  
+### 6 — Infinitivo
+
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "pronombres-combinados"
   nivel: "B2"
-  tags: ["verbo impersonale", "negazione"]
-pasos:
-  - "Riconosci il verbo impersonale e la negazione."
-  - "Scegli il pronome combinato corretto."
-tipo: completar
-respuestas_validas:
-  - "Non te lo"
-  - "Non tel'"
-enunciado: "___ posso dire, perché non so la risposta."
-explicacion: "Il verbo impersonale 'dovere' richiede il pronome diretto 'lo', che si combina con 'te'."
+  tags: ["pronombres-combinados"]
+
+respuesta: "dirtelo"
+tipo: "mc"
+opciones_explicitas: ["dirtelo", "dirlo te", "te lo dirlo"]
+
+enunciado: "Voglio ___ subito."
+
+explicacion: |
+  Unido al infinitivo.
 ```
 
-### 7 — Pronomi combinati in frasi complesse  
+### 7 — Imperativo
+
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "pronombres-combinados"
   nivel: "B2"
-  tags: ["frase complessa", "verbo transitivo"]
-pasos:
-  - "Analizza la struttura della frase."
-  - "Componi i pronomi in ordine corretto."
-tipo: completar
-respuestas_validas:
-  - "Me lo"
-  - "mel'"
-enunciado: "Devo ___ mandare a casa sua domani."
-explicacion: "Il verbo 'mandare' richiede il pronome diretto 'lo', che si combina con 'me'."
+  tags: ["pronombres-combinados"]
+
+respuesta: "Dimmelo"
+tipo: "mc"
+opciones_explicitas: ["Dimmelo", "Dimelo", "Di' me lo"]
+
+enunciado: "Il segreto? ___!"
+
+explicacion: |
+  *Di'* + *me lo* → *dimmelo*.
 ```
 
-### 8 — Pronomi combinati con verbi di movimento  
+### 8 — da'
+
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "pronombres-combinados"
   nivel: "B2"
-  tags: ["verbo di movimento", "complemento oggetto"]
-pasos:
-  - "Identifica il verbo e il complemento oggetto."
-  - "Componi i pronomi in ordine corretto."
-tipo: completar
-respuestas_validas:
-  - "Glielo"
-  - "gliesto"
-enunciado: "Maria ___ porterà al lavoro domani."
-explicacion: "Il verbo 'portare' richiede il pronome diretto 'lo', che si unisce al complemento indiretto 'gli'."
+  tags: ["pronombres-combinados"]
+
+respuesta: "Dammela"
+tipo: "mc"
+opciones_explicitas: ["Dammela", "Damela", "Dà mela"]
+
+enunciado: "La penna? ___, per favore!"
+
+explicacion: |
+  *Da'* duplica: *dammela*.
 ```
 
-### 9 — Pronomi combinati con verbi di stato  
+### 9 — Concordancia
+
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "pronombres-combinados"
   nivel: "B2"
-  tags: ["verbo di stato", "negazione"]
-pasos:
-  - "Riconosci il verbo di stato e la negazione."
-  - "Scegli il pronome combinato corretto."
-tipo: completar
-respuestas_validas:
-  - "Non te lo"
-  - "Non tel'"
-enunciado: "___ so dire, perché non l'ho visto."
-explicacion: "Il verbo 'sapere' richiede il pronome diretto 'lo', che si combina con 'te'."
+  tags: ["pronombres-combinados"]
+
+respuesta: "date"
+tipo: "mc"
+opciones_explicitas: ["date", "dato", "dati"]
+
+enunciado: "Le chiavi? Gliele ho ___."
+
+explicacion: |
+  *Le* (fem. pl.): *date*.
 ```
 
-### 10 — Pronomi combinati in frasi interrogative  
+### 10 — ne
+
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "pronombres-combinados"
   nivel: "B2"
-  tags: ["frase interrogativa", "verbo transitivo"]
-pasos:
-  - "Analizza la struttura della frase interrogativa."
-  - "Componi i pronomi in ordine corretto."
-tipo: completar
-respuestas_validas:
-  - "Me lo"
-  - "mel'"
-enunciado: "___ devi fare prima di partire?"
-explicacion: "Il verbo 'dovere' richiede il pronome diretto 'lo', che si combina con 'me'."
+  tags: ["pronombres-combinados"]
+
+respuesta: "Me ne"
+tipo: "mc"
+opciones_explicitas: ["Me ne", "Mi ne", "Ne me"]
+
+enunciado: "Quante mele? ___ dai tre?"
+
+explicacion: |
+  *Mi + ne → me ne*.
 ```
 
-### 11 — Pronomi combinati con verbi di percezione  
+### 11 — Modal
+
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "pronombres-combinados"
   nivel: "B2"
-  tags: ["verbo di percezione", "complemento oggetto"]
-pasos:
-  - "Identifica il verbo e il complemento oggetto."
-  - "Componi i pronomi in ordine corretto."
-tipo: completar
-respuestas_validas:
-  - "Glielo"
-  - "gliesto"
-enunciado: "Maria ___ ha visto al parco."
-explicacion: "Il verbo 'vedere' richiede il pronome diretto 'lo', che si unisce al complemento indiretto 'gli'."
+  tags: ["pronombres-combinados"]
+
+respuesta: "Te lo posso spiegare."
+tipo: "mc"
+opciones_explicitas: ["Te lo posso spiegare.", "Posso te lo spiegare.", "Posso spiegare telo."]
+
+enunciado: "¿Cuál es correcta?"
+
+explicacion: |
+  Antes del modal o unido al infinitivo.
 ```
 
-### 12 — Pronomi combinati in frasi condizionali  
+### 12 — Reflexivo
+
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "pronombres-combinados"
   nivel: "B2"
-  tags: ["frase condizionale", "verbo transitivo"]
-pasos:
-  - "Analizza la struttura della frase condizionale."
-  - "Componi i pronomi in ordine corretto."
-tipo: completar
-respuestas_validas:
-  - "Me lo"
-  - "mel'"
-enunciado: "Se ___ dimenticassi, non potrei fare nulla."
-explicacion: "Il verbo 'dimenticare' richiede il pronome diretto 'lo', che si combina con 'me'."
+  tags: ["pronombres-combinados"]
+
+respuesta: "ne"
+tipo: "mc"
+opciones_explicitas: ["ne", "lo", "la"]
+
+enunciado: "Me ___ vado, è tardi."
+
+explicacion: |
+  *Andarsene*: *me ne vado*.
 ```
 
-### 13 — Pronomi combinati con verbi di azione reciproca  
+### 13 — Usted
+
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "pronombres-combinados"
   nivel: "B2"
-  tags: ["verbo reciproco", "complemento oggetto"]
-pasos:
-  - "Riconosci il verbo reciproco e il complemento."
-  - "Scegli il pronome combinato corretto."
-tipo: completar
-respuestas_validas:
-  - "Sielo"
-  - "siel'"
-enunciado: "___ hanno aiutato a pulire la stanza."
-explicacion: "Il verbo reciproco 'aiutare' richiede il pronome diretto 'lo', che si unisce al complemento indiretto 'si'."
+  tags: ["pronombres-combinados"]
+
+respuesta: "glielo"
+tipo: "mc"
+opciones_explicitas: ["glielo", "Le lo", "se lo"]
+
+enunciado: "Signora, il conto ___ porto subito."
+
+explicacion: |
+  *Le* (usted) + *lo* → *glielo*.
 ```
 
-### 14 — Pronomi combinati con verbi di possesso  
+### 14 — Error típico
+
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "pronombres-combinados"
   nivel: "B2"
-  tags: ["verbo di possesso", "negazione"]
-pasos:
-  - "Identifica il verbo e la negazione."
-  - "Componi i pronomi in ordine corretto."
-tipo: completar
-respuestas_validas:
-  - "Non te lo"
-  - "Non tel'"
-enunciado: "___ posso consegnare, perché non l'ho visto."
-explicacion: "Il verbo 'consegnare' richiede il pronome diretto 'lo', che si combina con 'te'."
-```
+  tags: ["pronombres-combinados"]
 
-### 15 — Pronomi combinati in frasi esclamative  
-```
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "pronombres-combinados"
-  nivel: "B2"
-  tags: ["frase esclamativa", "verbo transitivo"]
-pasos:
-  - "Analizza la struttura della frase esclamativa."
-  - "Componi i pronomi in ordine corretto."
-tipo: completar
-respuestas_validas:
-  - "Me lo"
-  - "mel'"
-enunciado: "___ devo fare subito!"
-explicacion: "Il verbo 'dovere' richiede il pronome diretto 'lo', che si combina con 'me'."
-```
+respuesta: falso
+tipo: vf
 
-### 16 — Pronomi combinati con verbi di desiderio  
-```
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "pronombres-combinados"
-  nivel: "B2"
-  tags: ["verbo di desiderio", "complemento oggetto"]
-pasos:
-  - "Identifica il verbo e il complemento."
-  - "Componi i pronomi in ordine corretto."
-tipo: completar
-respuestas_validas:
-  - "Glielo"
-  - "gliesto"
-enunciado: "Maria ___ vorrebbe dire al suo amico."
-explicacion: "Il verbo 'volere' richiede il pronome diretto 'lo', che si unisce al complemento indiretto 'gli'."
-```
+enunciado: "«Se lo do a Marco» es correcta en italiano."
 
-### 17 — Pronomi combinati in frasi ipotetiche  
-```
-metadata:
-  materia: "italiano"
-  tema: "pronombre-combinado"
-  nivel: "B2"
-  tags: ["reflejo", "dove"]
-pasos:
-  - "Identificar el verbo que requiere un pronombre combinado."
-  - "Seleccionar la forma correcta del pronombre después de 'dove'."
-tipo: completar
-respuestas_validas:
-  - "si"
-  - "Si"
-enunciado: "Non so dove ___ sia andato."
-explicacion: "El verbo 'sia andato' (esser + participio) requiere el pronombre combinado 'si' después de 'dove', ya que se combina con la preposición implícita 'di'."
-```
-
-### 18 — Pronomi combinati con verbi di azione reciproca  
-```
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "pronombres-combinados"
-  nivel: "B2"
-  tags: ["verbo reciproco", "complemento oggetto"]
-pasos:
-  - "Riconosci il verbo reciproco e il complemento."
-  - "Scegli il pronome combinato corretto."
-tipo: completar
-respuestas_validas:
-  - "Sielo"
-  - "siel'"
-enunciado: "___ si sono aiutati a pulire la stanza."
-explicacion: "Il verbo reciproco 'aiutare' richiede il pronome diretto 'lo', che si unisce al complemento indiretto 'si'."
-```
-
-### 19 — Pronomi combinati con verbi di possesso  
-```
-metadata:
-  materia: "italiano"
-  tema: "pronombre-combinado"
-  nivel: "B2"
-  tags: ["passivo", "loro"]
-pasos:
-  - "Reconocer la estructura de la oración pasiva."
-  - "Elegir el pronombre combinado correcto después de 'a'."
-respuesta: "li"
-tipo: mc
-opciones_explicitas:
-  - "loro"
-  - "li"
-  - "lo"
-enunciado: "Hanno dato ___ il premio."
-explicacion: "La preposición 'a' (implícita en 'dato') se combina con el pronombre 'loro', resultando en 'li'."
-```
-
-### 20 — Pronomi combinati in frasi esclamative  
-```
-metadata:
-  materia: "italiano"
-  tema: "pronombre-combinado"
-  nivel: "B2"
-  tags: ["impersonale", "chi"]
-pasos:
-  - "Identificar el sujeto gramatical en la oración."
-  - "Seleccionar el pronombre combinado correcto después de 'che'."
-tipo: completar
-respuestas_validas:
-  - "chi"
-  - "Chi"
-enunciado: "Non riesco a capire ___ intende dire."
-explicacion: "El verbo impersonal 'capire' requiere el pronombre combinado 'chi' después de la preposición implícita 'che'."
-```
-
-### 21 — Pronomi combinati con verbi di desiderio  
-```
-metadata:
-  materia: "italiano"
-  tema: "pronombre-combinado"
-  nivel: "B2"
-  tags: ["preposizione", "con"]
-pasos:
-  - "Identificar la preposición 'con' en el enunciado."
-  - "Elegir el pronombre combinado correcto después de 'con'."
-tipo: completar
-respuestas_validas:
-  - "con lui"
-  - "Con lui"
-enunciado: "Gli ho detto di non andare ___."
-explicacion: "La preposición 'con' se combina con el pronombre 'lui', formando 'con lui'."
-```
-
-### 22 — Pronomi combinati in frasi ipotetiche  
-```
-metadata:
-  materia: "italiano"
-  tema: "pronombre-combinado"
-  nivel: "B2"
-  tags: ["senza", "loro"]
-pasos:
-  - "Reconocer la preposición 'senza' en el contexto."
-  - "Seleccionar el pronombre combinado correcto después de 'senza'."
-tipo: completar
-respuestas_validas:
-  - "senza di loro"
-  - "Senza di loro"
-enunciado: "Non so come fare ___."
-explicacion: "La preposición 'senza' requiere el pronombre 'loro', combinándose como 'senza di loro'."
-```
-
-### 23 — Pronomi combinati con verbi di azione reciproca  
-```
-metadata:
-  materia: "italiano"
-  tema: "pronombre-combinado"
-  nivel: "B2"
-  tags: ["preposizione", "loro"]
-pasos:
-  - "Identificar la preposición 'per' en el enunciado."
-  - "Elegir el pronombre combinado correcto después de 'per'."
-tipo: completar
-respuestas_validas:
-  - "per loro"
-  - "Per loro"
-enunciado: "Hanno cercato ___ aiutare."
-explicacion: "La preposición 'per' se combina con el pronombre 'loro', formando 'per loro'."
-```
-
-### 24 — Pronomi combinati con verbi di possesso  
-```
-metadata:
-  materia: "italiano"
-  tema: "pronombre-combinado"
-  nivel: "B2"
-  tags: ["preposizione", "me"]
-pasos:
-  - "Reconocer la preposición 'a' en el contexto."
-  - "Seleccionar el pronombre combinado correcto después de 'a'."
-tipo: completar
-respuestas_validas:
-  - "a me"
-  - "A me"
-enunciado: "Non hai spiegato ___ il problema."
-explicacion: "La preposición 'a' (implícita en 'spiegare') se combina con el pronombre 'me', formando 'a me'."
-```
-
-### 25 — Pronomi combinati in frasi esclamative  
-```
-metadata:
-  materia: "italiano"
-  tema: "pronombre-combinado"
-  nivel: "B2"
-  tags: ["preposizione", "loro"]
-pasos:
-  - "Identificar la preposición 'fra' en el enunciado."
-  - "Elegir el pronombre combinado correcto después de 'fra'."
-tipo: completar
-respuestas_validas:
-  - "fra loro"
-  - "Fra loro"
-enunciado: "Non c'è mai accordo ___."
-explicacion: "La preposición 'fra' se combina con el pronombre 'loro', formando 'fra loro'."
+explicacion: |
+  Falso: *Glielo do*.
 ```

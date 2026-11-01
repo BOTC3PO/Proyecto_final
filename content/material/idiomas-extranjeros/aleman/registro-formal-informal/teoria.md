@@ -5,46 +5,53 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
 ## Introducción
-El uso correcto del registro formal e informal es fundamental para comunicarse con naturalidad en contextos sociales y profesionales en alemán. A nivel C1, los hablantes deben manejar flexiblemente ambas variantes según el interlocutor, la situación o el entorno. Esta distinción no solo afecta el tratamiento (como *Sie* vs. *du*), sino también el vocabulario y la gramática, lo que permite una comunicación más precisa y respetuosa.
+En alemán el registro se marca con el **tratamiento** (*du* / *Sie*), el **léxico**, las **fórmulas** y la **sintaxis**. Elegir mal el tratamiento es uno de los errores sociales más notados.
 
 ## Explicación central
-En alemán, el registro formal e informal se determina principalmente por dos factores: **el pronombre de tratamiento** (*Sie* o *du*) y **la conjugación verbal correspondiente**. Por ejemplo:
+### du o Sie
+- ***Sie*** (con mayúscula, verbo en 3.ª plural): desconocidos adultos, trabajo, autoridades, clientes. Con ***Herr / Frau*** + apellido: *Guten Tag, Frau Schmidt.*
+- ***du***: familia, amigos, niños, entre estudiantes, muchos ambientes de trabajo jóvenes, deportes, internet.
+- El paso al *du* lo propone normalmente la persona de mayor edad o rango: *Wollen wir uns duzen?* / *Wir können uns gern duzen.*
+- Verbos: ***duzen*** y ***siezen***.
 
-- **Formal (Sie):**
-  - Saludo: *Guten Tag, Frau Schneider. Wie geht es Ihnen?*
-  - Verbo: *Sie sprechen sehr gut Deutsch.* (usted habla muy bien alemán)
-  - Vocabulario formal: *Ich würde gern...* (me gustaría), *Könnten Sie...?* (¿Podría usted...?)
+### Léxico
+| Umgangssprachlich | Neutral | Formell |
+|---|---|---|
+| *kriegen* | *bekommen* | *erhalten* |
+| *klasse, geil, cool* | *toll, gut* | *hervorragend, ausgezeichnet* |
+| *quatschen* | *reden* | *sich unterhalten, erörtern* |
+| *Kohle* | *Geld* | *finanzielle Mittel* |
+| *Klamotten* | *Kleidung* | *Bekleidung* |
+| *pennen* | *schlafen* | *ruhen* |
+| *checken* | *verstehen, prüfen* | *nachvollziehen, überprüfen* |
+| *Bock haben auf* | *Lust haben auf* | *beabsichtigen* |
 
-- **Informal (du):**
-  - Saludo: *Hallo, Lena! Wie geht’s?*
-  - Verbo: *Du sprichst sehr gut Deutsch.* (tú hablas muy bien alemán)
-  - Vocabulario informal: *Ich will gern...* (me gustaría), *Kannst du...?* (¿Puedes...?)
+### Rasgos orales
+Caída de *-e* y fusiones (*ich hab, haste, gibt's, 'nen*), partículas modales, *weil* con verbo en segunda posición (coloquial), frases incompletas.
 
-Otra característica clave es el uso de **formas impersonales** en contextos formales, como *Man sollte...* (Se debería...) o *Es ist wichtig,...* (Es importante...). En cambio, en registros informales se prefiere la voz activa: *Ich finde, man sollte...* (Creo que se debería...).
+### Correspondencia formal
+- Apertura: ***Sehr geehrte Frau Müller, / Sehr geehrter Herr Weber, / Sehr geehrte Damen und Herren,*** (sin nombre).
+- Primera palabra del cuerpo **en minúscula** tras la coma.
+- Fórmulas: *Ich wende mich an Sie, weil… / Bezug nehmend auf Ihr Schreiben vom… / Für Rückfragen stehe ich Ihnen gern zur Verfügung.*
+- Cierre: ***Mit freundlichen Grüßen*** (estándar), *Freundliche Grüße* (algo más cercano).
+- Informal: *Liebe Anna, / Hallo Tom,* … *Liebe Grüße / Viele Grüße / LG*.
 
-## Errores comunes de hablantes hispanohablantes
-1. **Uso incorrecto del pronombre *Sie***: Algunos confunden el uso de *Sie* con *usted* en español, pero en alemán, el *Sie* implica una formalidad más estricta y se usa incluso con colegas o en situaciones neutrales.
-2. **Conjugación verbal errónea**: La conjugación del verbo en tercera persona singular (*Sie sprechen*, *er spricht*) puede confundirse con la forma impersonal (*es spricht*).
-3. **Mixto de registros**: Alterar el registro dentro de una misma conversación sin motivo (ej: usar *du* con un cliente formal).
+## Errores comunes de hispanohablantes
+1. Tutear a un desconocido: *Kannst du mir helfen?* → *Können Sie mir helfen?*
+2. ❌ *Sehr geehrte Frau Anna* ✅ *Sehr geehrte Frau Müller* (apellido).
+3. Escribir *sie* con minúscula para «usted».
+4. ❌ *Sehr geehrte Damen und Herren, Ich schreibe…* ✅ *…, ich schreibe…*
+5. Usar *geil, Kohle* en un contexto profesional.
 
 ## Comparación con el español
-Aunque ambos idiomas tienen un sistema de tratamiento formal/informal, en alemán:
-- El pronombre *Sie* se usa **siempre** para tratar a desconocidos, superiores o personas respetuosas, incluso si la edad es similar. En español, esto no siempre ocurre (ej: *usted* puede usarse con jóvenes).
-- La forma impersonal (*man*, *es*) en alemán es más común que en español para evitar el sujeto.
+*Sie* equivale a «usted», pero en Alemania se usa mucho más que en la Argentina: con colegas de cierta edad, vecinos, profesores. El *du* rioplatense se usa casi con cualquiera; en alemán hay que esperar a que lo ofrezcan.
 
 ## Ejemplo extendido en contexto
-**Escena:** Un estudiante alemán (*Lars*) conversa con su profesor de idiomas (*Herr Müller*) y luego con su amigo (*Anna*).
-
-**Formal (con el profesor):**
-*Lars:* *Guten Tag, Herr Müller. Ich würde gern wissen, ob Sie Zeit haben, um mir bei der Hausarbeit zu helfen.*
-*Herr Müller:* *Guten Tag, Lars. Selbstverständlich, ich helfe Ihnen gerne. Wann können wir uns treffen?*
-
-**Informal (con el amigo):**
-*Lars:* *Hey Anna! Hast du die neue Playlist auf Spotify? Ich hab sie gerade entdeckt und finde sie mega cool.*
-*Anna:* *Oh, ja! Das ist wirklich gut. Du solltest mal den Track „Sommer“ hören – der ist total faszinierend!*
-
-Este ejemplo muestra cómo el registro varía según la relación y el contexto, manteniendo respeto y naturalidad en ambos casos.
+**Informell:** *Hey Tom, haste Bock, heute Abend was trinken zu gehen? Ich hab endlich mein Gehalt gekriegt! LG, Ana*
+**Formell:** *Sehr geehrter Herr Weber, ich wende mich an Sie, weil ich mein Gehalt für Oktober noch nicht erhalten habe. Ich bitte Sie, den Vorgang zu überprüfen. Für Rückfragen stehe ich Ihnen gern zur Verfügung. Mit freundlichen Grüßen, Ana Pérez*

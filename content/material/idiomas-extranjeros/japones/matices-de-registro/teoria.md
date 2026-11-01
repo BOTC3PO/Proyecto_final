@@ -1,54 +1,60 @@
-# Matices de registro en japonés: nivel N1
+# Matices de registro en japonés (N1)
 
 > Tema del MAPA: `idiomas-extranjeros/japones/matices-de-registro`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores de escritura, lecturas y traducciones incorrectas.
 
 ---
 
-Los matices de registro en el japonés se refieren a las formas verbales, expresiones y estructuras que indican el grado de formalidad, respeto o familiaridad entre hablantes. En el nivel N1, dominar estos matices es fundamental para comunicarse con naturalidad en contextos formales (como negocios, instituciones) o informales (entre amigos, familiares). La elección incorrecta puede generar malentendidos o incluso ofender al interlocutor.
+## Introducción
+En N1 hay que reconocer **matices finos de registro**: del habla íntima al lenguaje de negocios, de la prensa a la literatura. El mismo contenido puede expresarse de maneras muy distintas, y elegir mal resulta tan llamativo como un error gramatical.
 
-## Explicación central: ejemplos reales en japonés
+## Explicación central
+### Escala de registros
+| Registro | Ejemplo «No sé» |
+|---|---|
+| Muy informal | 知らねえ / わかんない |
+| Informal | 知らない / わからない |
+| Cortés | わかりません / 存じません (humilde) |
+| Muy formal (negocios) | 存じかねます / 承知いたしかねます |
 
-El japonés utiliza tres niveles principales de registro:
-1. **Formal (尊敬語 - keigo)**: Se usa para hablar a superiores, clientes, o personas desconocidas. Ejemplo:
-   - 「お疲れ様です。」(Otsukaresama desu) → "Gracias por su trabajo" (formal).
-2. **Neutro (普通形 - futsūkei)**: Se aplica en situaciones cotidianas entre iguales o cuando no se conoce al interlocutor. Ejemplo:
-   - 「こんにちは、田中さん。」(Konnichiwa, Tanaka-san) → "Hola, Sr. Tanaka" (neutro).
-3. **Informal (です・ます体 - desu-masu tai)**: Se usa entre amigos o familiaridades. Ejemplo:
-   - 「こんにちは、田中！元気？」(Konnichiwa, Tanaka! Genki?) → "Hola, Tanaka, ¿cómo estás?" (informal).
+### Expresiones de amortiguación (クッション言葉)
+Suavizan pedidos y rechazos: **恐れ入りますが** (disculpe la molestia), **お手数ですが** (perdone las molestias), **あいにく** (lamentablemente), **差し支えなければ** (si no tiene inconveniente), **せっかくですが** (le agradezco, pero…).
 
-Los verbos también cambian según el nivel de formalidad. Por ejemplo:
-- **Formal**: ～ます (masu) → 「ご飯を食べます。」(Gohan o tabemasu) → "Voy a comer".
-- **Neutro**: ～る (ru) → 「ご飯を食べる。」(Gohan o taberu).
-- **Informal**: ～よ (yo) → 「ご飯を食べよ。」(Gohan o tabeyo).
+### Rechazos indirectos
+〜かねます (no me es posible: 対応**いたしかねます**), 検討させていただきます (lo vamos a considerar → a menudo «no»), 前向きに検討します, 難しいかと存じます.
+
+### Léxico según registro
+| Coloquial | Neutro | Formal / escrito |
+|---|---|---|
+| ちょっと | 少し | 少々 |
+| すごく | とても | 非常に / 大変 |
+| やっぱり | やはり | やはり |
+| どっち | どちら | いずれ |
+| あとで | 後で | 後ほど |
+| さっき | 先ほど | 先ほど |
+| 今日 (きょう) | 本日 | 本日 |
+| 明日 (あした) | 明日 (あす) | 明日 (みょうにち) |
+
+### Género y edad
+Finales como **〜わ**, **〜かしら** (asociados al habla femenina tradicional), **〜ぜ**, **〜ぞ** (masculino, enfático); pronombres **僕 / 俺 / 私 / わたくし**. Hoy su uso es más libre, pero marcan un estilo.
+
+### Lenguaje escrito
+Prensa: estilo nominal y frases sin verbo final (首相、来月訪米へ); literatura: estilo である, arcaísmos (〜ぬ, 〜べし).
 
 ## Errores comunes de hispanohablantes
-
-Los hablantes de español suelen confundir los niveles de formalidad, especialmente al usar el **尊敬語** (keigo), que no tiene un equivalente directo en otros idiomas. Por ejemplo:
-- Error común: Usar siempre です・ます体 (desu-masu tai) incluso cuando se necesita expresar respeto hacia superiores.
-- Otro error es omitir el uso de **尊敬語** en contextos formales, lo que puede parecer irrespetuoso.
+1. Usar やっぱり, すごく, ちょっと en un correo de negocios.
+2. Responder con un いいえ directo cuando se espera un rechazo amortiguado.
+3. Usar 俺 o 〜ぜ en contextos formales.
+4. Tomar 検討させていただきます como un «sí».
 
 ## Comparación con el español
-
-En el español, los matices de registro se expresan principalmente mediante la elección entre "usted" (formal) y "tú" (informal), o por el uso de verbos como **hablar** vs. **hablarse**. Sin embargo, en japonés, los matices son más complejos porque incluyen:
-- Formas verbales específicas (**尊敬語**, **謙譲語 - kenjōgo**) y
-- Títulos o honoríficos (como **さん - san**, **様 - sama**).
-
-Por ejemplo, en español, decir "¿Cómo está?" es formal, pero en japonés se requiere elegir entre 「お元気ですか？」(Ogenki desu ka?) para el registro neutral o 「お元気でいらっしゃいますか？」(Ogenki de irasshaimasu ka?) para un tono más respetuoso.
+El español también distingue «no sé» / «no tengo idea» / «desconozco», pero el japonés tiene más niveles gramaticalizados y una cultura del rechazo indirecto mucho más marcada.
 
 ## Ejemplo extendido en contexto
-
-**Escena**: Un empleado (A) habla con su jefe (B) y luego con su amigo (C).
-
-1. **Con el jefe (formal)**:
-   A: 「お疲れ様です。今日の会議、準備はできましたか？」(Otsukaresama desu. Kimyō no kaigi, junbi wa dekimasen ka?) → "Buenos días, ¿preparó bien la reunión de hoy?"
-   B: 「はい、準備は完了しています。」(Hai, junbi wa kanryō shite imasu) → "Sí, ya está lista".
-
-2. **Con el amigo (informal)**:
-   A: 「こんにちは、田中！今日、どこ行くの？」(Konnichiwa, Tanaka! Kimyō, doko iku no?) → "¡Hola, Tanaka! ¿Hoy a dónde vas?"
-   C: 「映画見に行くんだよ。」(Eiga mi ni iku nda yo) → "Voy al cine".
-
-Este ejemplo muestra cómo el cambio en los matices de registro refleja la relación entre las personas y el contexto social.
+- Amigos: 「明日のイベント、行く？」「うーん、ちょっと無理かも。」
+- Negocios: 「**恐れ入りますが**、明日のイベントにご参加いただけますでしょうか。」「**せっかく**お誘いいただいたのですが、**あいにく**先約がございまして、今回は参加**いたしかねます**。」

@@ -1,491 +1,272 @@
-> **Nota de corrección:** Este cuestionario fue corregido a partir del borrador en
-> `_borradores-gemma/idiomas-extranjeros/japones/formacion-de-preguntas/cuestionario_crudo.md`
-> mediante el script `mechanical_fix_idiomas.py`. A 16 bloques les faltaba el
-> `enunciado:`, reconstruido como una pregunta completa en japonés acorde al
-> interrogativo probado (だれ/どこ/いつ/なに/どの). Se corrigió además un error
-> repetido en 8 bloques: `respuestas_validas:` aceptaba la traducción al español del
-> interrogativo (p. ej. "Dónde", "¿Qué", "¿Cuándo") como si fuera una respuesta
-> japonesa válida; se quitaron esas entradas. El bloque 2 tenía un `enunciado:` vacío
-> ("___？", sin ninguna pregunta real), lo que hacía imposible determinar cuál de las
-> tres oraciones-opción era la correcta; se reescribió con una pregunta que establece
-> el contexto necesario.
+# Japonés — preguntas (cuestionario, 14 preguntas VBLang)
 
-### 1 — どこ  
-```yaml
+> Tema: `idiomas-extranjeros/japones/formacion-de-preguntas`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
+
+---
+
+### 1 — か
+
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "formacion-de-preguntas"
   nivel: "N5"
-  tags: ["particula-は", "interrogativo"]
-pasos:
-  - "Identificar el uso de la particula は para marcar el sujeto en una pregunta."
-  - "Completar el hueco con el interrogativo adecuado."
-tipo: completar
-respuestas_validas:
-  - "どこ"
-explicacion: "En preguntas como '¿Dónde está el libro?', se usa 'どこ' para indicar la ubicación. La particula は marca el sujeto de la oración."
-enunciado: "本は___にあります。"
+  tags: ["preguntas"]
+
+respuesta: "学生ですか。"
+tipo: "mc"
+opciones_explicitas: ["学生ですか。", "ですか学生。", "か学生です。"]
+
+enunciado: "«¿Es estudiante?»:"
+
+explicacion: |
+  か al final.
 ```
 
+### 2 — 何
 
-
-### 2 — いつ  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "formacion-de-preguntas"
   nivel: "N5"
-  tags: ["interrogativo", "particula-は"]
-pasos:
-  - "Reconocer el uso de 'いつ' para preguntar sobre tiempo."
-  - "Elegir la opción correcta con el contexto temporal adecuado."
-respuesta: "会議は今日です。"
-tipo: mc
-opciones_explicitas:
-  - "会議は今週です。"
-  - "会議は今日です。"
-  - "会議は明日です。"
-explicacion: "La pregunta sobre tiempo se forma con 'いつ' seguido del sujeto y el verbo en afirmativo. La opción correcta es la que indica el día actual."
-enunciado: "「会議はいつですか」と聞かれました。会議は今日開催されます。正しい答えはどれですか？"
+  tags: ["preguntas"]
+
+respuesta: "何"
+tipo: "mc"
+opciones_explicitas: ["何", "だれ", "どこ"]
+
+enunciado: "これは＿＿ですか。(qué)"
+
+explicacion: |
+  何 = qué.
 ```
 
+### 3 — どこ
 
-
-### 3 — 何  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "formacion-de-preguntas"
   nivel: "N5"
-  tags: ["interrogativo", "particula-は"]
-pasos:
-  - "Identificar el uso de '何' para preguntar sobre un objeto."
-  - "Completar el hueco con la palabra correcta."
-tipo: completar
-respuestas_validas:
-  - "何"
-explicacion: "El interrogativo '何' se usa para preguntar sobre objetos o cosas. La particula は marca el sujeto de la oración."
-enunciado: "___が好きですか？"
-```
+  tags: ["preguntas"]
 
-
-
-### 4 — どこ  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "formacion-de-preguntas"
-  nivel: "N5"
-  tags: ["interrogativo", "particula-は"]
-pasos:
-  - "Reconocer el uso de 'どこ' para preguntar sobre ubicación."
-  - "Completar el hueco con la palabra correcta."
-tipo: completar
-respuestas_validas:
-  - "どこ"
-explicacion: "El interrogativo 'どこ' se usa en preguntas de lugar. La particula は marca el sujeto de la oración."
-enunciado: "公園は___にあります。"
-```
-
-
-
-### 5 — いつ  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "formacion-de-preguntas"
-  nivel: "N5"
-  tags: ["interrogativo", "particula-は"]
-pasos:
-  - "Identificar el uso de 'いつ' para preguntar sobre tiempo."
-  - "Completar el hueco con la palabra correcta."
-tipo: completar
-respuestas_validas:
-  - "いつ"
-explicacion: "El interrogativo 'いつ' se usa en preguntas de tiempo. La particula は marca el sujeto de la oración."
-enunciado: "___に遊びに行きますか？"
-```
-
-
-
-### 6 — 何  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "formacion-de-preguntas"
-  nivel: "N5"
-  tags: ["interrogativo", "particula-は"]
-pasos:
-  - "Reconocer el uso de '何' para preguntar sobre un objeto."
-  - "Completar el hueco con la palabra correcta."
-tipo: completar
-respuestas_validas:
-  - "何"
-explicacion: "El interrogativo '何' se usa en preguntas de objetos. La particula は marca el sujeto de la oración."
-enunciado: "___を食べますか？"
-```
-
-
-
-### 7 — どこ  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "formacion-de-preguntas"
-  nivel: "N5"
-  tags: ["interrogativo", "particula-は"]
-pasos:
-  - "Identificar el uso de 'どこ' para preguntar sobre ubicación."
-  - "Completar el hueco con la palabra correcta."
-tipo: completar
-respuestas_validas:
-  - "どこ"
-explicacion: "El interrogativo 'どこ' se usa en preguntas de lugar. La particula は marca el sujeto de la oración."
-enunciado: "駅は___にあります。"
-```
-
-
-
-### 8 — いつ  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "formacion-de-preguntas"  
-  nivel: "N5"  
-  tags: ["sujeto", "partícula-が"]  
-pasos:  
-  - "Identificar la partícula necesaria para formar una pregunta sobre sujeto."  
-respuestas_validas:  
-  - "だれ"  
-enunciado: "______が来ましたか。"
-tipo: mc
-opciones_explicitas:  
-  - "だれ"  
-  - "どこ"  
-  - "いつ"  
-  - "なに"  
-respuesta: "だれ"
-```
-
-### 9 — 何  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "formacion-de-preguntas"
-  nivel: "N5"
-  tags: ["interrogativo", "particula-は"]
-pasos:
-  - "Identificar el uso de '何' para preguntar sobre un objeto."
-  - "Completar el hueco con la palabra correcta."
-tipo: completar
-respuestas_validas:
-  - "何"
-explicacion: "El interrogativo '何' se usa en preguntas de objetos. La particula は marca el sujeto de la oración."
-enunciado: "___を飲みますか？"
-```
-
-
-
-### 10 — どこ  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "formacion-de-preguntas"
-  nivel: "N5"
-  tags: ["interrogativo", "particula-は"]
-pasos:
-  - "Reconocer el uso de 'どこ' para preguntar sobre ubicación."
-  - "Completar el hueco con la palabra correcta."
-tipo: completar
-respuestas_validas:
-  - "どこ"
-explicacion: "El interrogativo 'どこ' se usa en preguntas de lugar. La particula は marca el sujeto de la oración."
-enunciado: "学校は___にあります。"
-```
-
-
-
-### 11 — いつ  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "formacion-de-preguntas"  
-  nivel: "N5"  
-  tags: ["lugar", "partícula-に"]  
-pasos:  
-  - "Elegir la partícula correcta para formar una pregunta sobre lugar."  
-enunciado: "図書館は______にありますか。"
-tipo: mc
-opciones_explicitas:  
-  - "どこ"  
-  - "どの"  
-  - "どう"  
-  - "いつ"  
 respuesta: "どこ"
+tipo: "mc"
+opciones_explicitas: ["どこ", "いつ", "いくら"]
+
+enunciado: "トイレは＿＿ですか。(dónde)"
+
+explicacion: |
+  どこ = dónde.
 ```
 
-### 12 — 何  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "formacion-de-preguntas"  
-  nivel: "N5"  
-  tags: ["lugar", "partícula-に"]  
-pasos:  
-  - "Usar la partícula adecuada para preguntar sobre un lugar futuro."  
-enunciado: "来週、______へ旅行しますか。"
-tipo: mc
-opciones_explicitas:  
-  - "どこ"  
-  - "いつ"  
-  - "どの"  
-  - "どう"  
-respuesta: "どこ"
-```
+### 4 — いつ
 
-### 13 — どこ  
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "formacion-de-preguntas"  
-  nivel: "N5"  
-  tags: ["objeto", "partícula-を"]  
-pasos:  
-  - "Seleccionar la partícula correcta para preguntar sobre un objeto."  
-enunciado: "テーブルの上に______がありますか。"
-tipo: mc
-opciones_explicitas:  
-  - "なに"  
-  - "だれ"  
-  - "どこ"  
-  - "いつ"  
-respuesta: "なに"
-```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "formacion-de-preguntas"
+  nivel: "N5"
+  tags: ["preguntas"]
 
-### 14 — いつ  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "formacion-de-preguntas"  
-  nivel: "N5"  
-  tags: ["sujeto", "partícula-が"]  
-pasos:  
-  - "Identificar la partícula necesaria para formar una pregunta sobre el sujeto de una acción."  
-enunciado: "______がこの本を書きましたか。"
-tipo: mc
-opciones_explicitas:  
-  - "だれ"  
-  - "どこ"  
-  - "いつ"  
-  - "なに"  
-respuesta: "だれ"
-```
-
-### 15 — 何  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "formacion-de-preguntas"  
-  nivel: "N5"  
-  tags: ["objeto", "partícula-の"]  
-pasos:  
-  - "Elegir la partícula correcta para preguntar sobre un objeto específico."  
-enunciado: "______本を読みましたか。"
-tipo: mc
-opciones_explicitas:  
-  - "どの"  
-  - "なに"  
-  - "だれ"  
-  - "どこ"  
-respuesta: "どの"
-```
-
-### 16 — どこ  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "formacion-de-preguntas"  
-  nivel: "N5"  
-  tags: ["tiempo", "partícula-に"]  
-pasos:  
-  - "Usar la partícula adecuada para preguntar sobre un momento en el tiempo."  
-enunciado: "会議は______始まりますか。"
-tipo: mc
-opciones_explicitas:  
-  - "いつ"  
-  - "どこ"  
-  - "だれ"  
-  - "なに"  
 respuesta: "いつ"
+tipo: "mc"
+opciones_explicitas: ["いつ", "どこ", "何"]
+
+enunciado: "誕生日は＿＿ですか。(cuándo)"
+
+explicacion: |
+  いつ = cuándo.
 ```
 
-### 17 — いつ  
+### 5 — いくら
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "formacion-de-preguntas"  
-  nivel: "N5"  
-  tags: ["sujeto", "partícula-が"]  
-pasos:  
-  - "Identificar la partícula necesaria para formar una pregunta sobre el sujeto de un verbo."  
-enunciado: "______が窓を開けましたか。"
-tipo: mc
-opciones_explicitas:  
-  - "だれ"  
-  - "どこ"  
-  - "いつ"  
-  - "なに"  
-respuesta: "だれ"
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "formacion-de-preguntas"
+  nivel: "N5"
+  tags: ["preguntas"]
+
+respuesta: "いくら"
+tipo: "mc"
+opciones_explicitas: ["いくら", "いくつ", "何人"]
+
+enunciado: "このかばんは＿＿ですか。(precio)"
+
+explicacion: |
+  いくら = cuánto cuesta.
 ```
 
-### 18 — 何  
+### 6 — だれが
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "formacion-de-preguntas"  
-  nivel: "N5"  
-  tags: ["lugar", "partícula-の"]  
-pasos:  
-  - "Seleccionar la partícula correcta para preguntar sobre una línea específica de tren."  
-enunciado: "______線に乗りますか。"
-tipo: mc
-opciones_explicitas:  
-  - "どの"  
-  - "どこ"  
-  - "だれ"  
-  - "いつ"  
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "formacion-de-preguntas"
+  nivel: "N5"
+  tags: ["preguntas"]
+
+respuesta: "だれが"
+tipo: "mc"
+opciones_explicitas: ["だれが", "だれは", "だれを"]
+
+enunciado: "＿＿来ましたか。(¿quién vino?)"
+
+explicacion: |
+  Interrogativo sujeto + が.
+```
+
+### 7 — 何時
+
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "formacion-de-preguntas"
+  nivel: "N5"
+  tags: ["preguntas"]
+
+respuesta: "何時"
+tipo: "mc"
+opciones_explicitas: ["何時", "いつ", "何日"]
+
+enunciado: "今、＿＿ですか。(¿qué hora?)"
+
+explicacion: |
+  何時 (*nanji*).
+```
+
+### 8 — Lectura
+
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "formacion-de-preguntas"
+  nivel: "N5"
+  tags: ["preguntas"]
+
+respuesta: "なんですか"
+tipo: "mc"
+opciones_explicitas: ["なんですか", "なにですか", "なにかですか"]
+
+enunciado: "«何ですか» se lee…"
+
+explicacion: |
+  Ante です: なん.
+```
+
+### 9 — どうして
+
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "formacion-de-preguntas"
+  nivel: "N5"
+  tags: ["preguntas"]
+
+respuesta: "どうして"
+tipo: "mc"
+opciones_explicitas: ["どうして", "どう", "どこ"]
+
+enunciado: "＿＿日本語を勉強しますか。(por qué)"
+
+explicacion: |
+  どうして = por qué.
+```
+
+### 10 — どれ
+
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "formacion-de-preguntas"
+  nivel: "N5"
+  tags: ["preguntas"]
+
+respuesta: "どれ"
+tipo: "mc"
+opciones_explicitas: ["どれ", "どの", "だれ"]
+
+enunciado: "あなたのかさは＿＿ですか。(cuál)"
+
+explicacion: |
+  どれ solo; どの + sustantivo.
+```
+
+### 11 — どの
+
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "formacion-de-preguntas"
+  nivel: "N5"
+  tags: ["preguntas"]
+
 respuesta: "どの"
+tipo: "mc"
+opciones_explicitas: ["どの", "どれ", "何"]
+
+enunciado: "＿＿電車に乗りますか。(qué/cuál tren)"
+
+explicacion: |
+  どの + sustantivo.
 ```
 
-### 19 — どこ  
+### 12 — Respuesta
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "formacion-de-preguntas"  
-  nivel: "N5"  
-  tags: ["sujeto", "partícula-が"]  
-pasos:  
-  - "Usar la partícula adecuada para preguntar sobre quién realizó una acción."  
-enunciado: "______が料理を作りましたか。"
-tipo: mc
-opciones_explicitas:  
-  - "だれ"  
-  - "どこ"  
-  - "いつ"  
-  - "なに"  
-respuesta: "だれ"
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "formacion-de-preguntas"
+  nivel: "N5"
+  tags: ["preguntas"]
+
+respuesta: "違います"
+tipo: "mc"
+opciones_explicitas: ["違います", "そうです", "はいです"]
+
+enunciado: "— 先生ですか。— いいえ、＿＿。"
+
+explicacion: |
+  Negar: 違います.
 ```
 
-### 20 — いつ  
+### 13 — いかが
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "formacion-de-preguntas"  
-  nivel: "N5"  
-  tags: ["objeto", "partícula-の"]  
-pasos:  
-  - "Elegir la partícula correcta para preguntar sobre un objeto específico en el futuro."  
-enunciado: "明日、______映画を見ますか。"
-tipo: mc
-opciones_explicitas:  
-  - "どの"  
-  - "なに"  
-  - "だれ"  
-  - "どこ"  
-respuesta: "どの"
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "formacion-de-preguntas"
+  nivel: "N5"
+  tags: ["preguntas"]
+
+respuesta: "いかが"
+tipo: "mc"
+opciones_explicitas: ["いかが", "どう", "なぜ"]
+
+enunciado: "Forma cortés de «¿cómo está / qué tal?» para ofrecer: お茶は＿＿ですか。"
+
+explicacion: |
+  いかが = どう cortés.
 ```
 
-### 21 — 何  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "formacion-de-preguntas"  
-  nivel: "N5"  
-  tags: ["sujeto", "partícula-が"]  
-pasos:  
-  - "Identificar la partícula necesaria para formar una pregunta sobre el sujeto de un verbo."  
-enunciado: "______が電話しましたか。"
-tipo: mc
-opciones_explicitas:  
-  - "だれ"  
-  - "どこ"  
-  - "いつ"  
-  - "なに"  
-respuesta: "だれ"
-```
+### 14 — Orden
 
-### 22 — どこ  
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "formacion-de-preguntas"  
-  nivel: "N5"  
-  tags: ["lugar", "partícula-の"]  
-pasos:  
-  - "Usar la partícula adecuada para preguntar sobre un lugar específico."  
-enunciado: "______店で買いましたか。"
-tipo: mc
-opciones_explicitas:  
-  - "どの"  
-  - "どこ"  
-  - "だれ"  
-  - "いつ"  
-respuesta: "どの"
-```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "formacion-de-preguntas"
+  nivel: "N5"
+  tags: ["preguntas"]
 
-### 23 — いつ  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "formacion-de-preguntas"  
-  nivel: "N5"  
-  tags: ["sujeto", "partícula-が"]  
-pasos:  
-  - "Identificar la partícula correcta para formar una pregunta sobre el sujeto de un verbo."  
-enunciado: "______が歌を歌いましたか。"
-tipo: mc
-opciones_explicitas:  
-  - "だれ"  
-  - "どこ"  
-  - "いつ"  
-  - "なに"  
-respuesta: "だれ"
-```
+respuesta: falso
+tipo: vf
 
-### 24 — 何  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "formacion-de-preguntas"  
-  nivel: "N5"  
-  tags: ["sujeto", "partícula-が"]  
-pasos:  
-  - "Elegir la partícula adecuada para preguntar sobre quién realizó una acción."  
-enunciado: "______が掃除をしましたか。"
-tipo: mc
-opciones_explicitas:  
-  - "だれ"  
-  - "どこ"  
-  - "いつ"  
-  - "なに"  
-respuesta: "だれ"
-```
+enunciado: "Para preguntar en japonés hay que invertir el orden de sujeto y verbo."
 
-### 25 — どこ  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "formacion-de-preguntas"  
-  nivel: "N5"  
-  tags: ["lugar", "partícula-の"]  
-pasos:  
-  - "Usar la partícula correcta para preguntar sobre una línea específica de tren."  
-enunciado: "東京駅で______線に乗り換えますか。"
-tipo: mc
-opciones_explicitas:  
-  - "どの"  
-  - "どこ"  
-  - "だれ"  
-  - "いつ"  
-respuesta: "どの"
+explicacion: |
+  Falso: solo se agrega か.
 ```

@@ -1,586 +1,274 @@
-# Idiomas — Inglés — present-continuous (cuestionario, 25 preguntas VBLang)
+# Inglés — present continuous (cuestionario, 14 preguntas VBLang)
 
-> Corregido a partir del borrador
-> (`../../../_borradores-gemma/idiomas-extranjeros/ingles/present-continuous/cuestionario_crudo.md`):
-> los 25 bloques tenían `pasos`/`respuesta`/`explicacion` pero nunca el
-> `enunciado:` (la oración con el hueco) — redactado acá usando esos
-> campos como contexto, sin cambiar ninguna respuesta ni explicación
-> original.
+> Tema: `idiomas-extranjeros/ingles/present-continuous`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas ambiguas (varias respuestas válidas) o con la respuesta equivocada.
 
 ---
 
-### 1 — Present Continuous vs Simple Present
+### 1 — Forma
 
 ```
 metadata:
   materia: "ingles"
   tema: "present-continuous"
   nivel: "A1"
-  tags: ["formación", "now"]
+  tags: ["present-continuous"]
 
-pasos:
-  - "Identifica la forma correcta del verbo en el contexto."
-
-respuesta: "is studying"
-opciones_explicitas:
-  - "is study"
-  - "studying"
-  - "is studying"
-tipo: mc
-
-enunciado: "Look! She ___ for her exam right now."
-
-explicacion: "El presente continuo se usa para acciones que ocurren en este momento. 'Study' requiere el sufijo '-ing'."
-```
-
-### 2 — Present Continuous with 'They'
-
-```
-metadata:
-  materia: "ingles"
-  tema: "present-continuous"
-  nivel: "A1"
-  tags: ["formación", "now"]
-
-pasos:
-  - "Completa la oración con el verbo en forma continua."
-
-respuestas_validas:
-  - "are playing"
-  - "Are playing"
-tipo: completar
-
-enunciado: "Look! They ___ football in the park right now."
-
-explicacion: "'They' requiere el auxiliar 'are' y el verbo en '-ing'."
-```
-
-### 3 — Present Continuous with 'I'
-
-```
-metadata:
-  materia: "ingles"
-  tema: "present-continuous"
-  nivel: "A1"
-  tags: ["formación", "now"]
-
-pasos:
-  - "Elige la forma correcta del verbo para el sujeto."
-
-respuesta: "am cooking"
-opciones_explicitas:
-  - "is cook"
-  - "am cooking"
-  - "are cooking"
-tipo: mc
-
-enunciado: "I ___ dinner right now."
-
-explicacion: "'I' requiere 'am' como auxiliar y el verbo en '-ing'."
-```
-
-### 4 — Simple Present vs Continuous
-
-```
-metadata:
-  materia: "ingles"
-  tema: "present-continuous"
-  nivel: "A1"
-  tags: ["contraste", "habitual"]
-
-pasos:
-  - "Selecciona la forma correcta según el contexto."
-
-respuesta: "go"
-opciones_explicitas:
-  - "am going"
-  - "go"
-  - "are going"
-tipo: mc
-
-enunciado: "Every day, I ___ to school by bus."
-
-explicacion: "La acción de 'ir a la escuela' es habitual, no una acción en curso."
-```
-
-### 5 — Present Continuous with 'He'
-
-```
-metadata:
-  materia: "ingles"
-  tema: "present-continuous"
-  nivel: "A1"
-  tags: ["formación", "now"]
-
-pasos:
-  - "Completa la oración con el verbo en forma continua."
-
-respuestas_validas:
-  - "is working"
-  - "Is working"
-tipo: completar
-
-enunciado: "Right now, he ___ on his homework."
-
-explicacion: "'He' requiere 'is' como auxiliar y el verbo en '-ing'."
-```
-
-### 6 — Verbo que no se usa en continuo ('know')
-
-```
-metadata:
-  materia: "ingles"
-  tema: "present-continuous"
-  nivel: "A1"
-  tags: ["limitaciones", "verbo"]
-
-pasos:
-  - "Elige la forma correcta del verbo 'know'."
-
-respuesta: "knows"
-opciones_explicitas:
-  - "is knowing"
-  - "knows"
-  - "are knowing"
-tipo: mc
-
-enunciado: "She ___ the answer."
-
-explicacion: "'Know' no se usa en presente continuo."
-```
-
-### 7 — Present Continuous con 'The children'
-
-```
-metadata:
-  materia: "ingles"
-  tema: "present-continuous"
-  nivel: "A1"
-  tags: ["formación", "now"]
-
-pasos:
-  - "Completa la oración con el verbo en forma continua."
-
-respuestas_validas:
-  - "are running"
-  - "Are running"
-tipo: completar
+respuesta: "are playing"
+tipo: "mc"
+opciones_explicitas: ["are playing", "is playing", "play"]
 
 enunciado: "Look! The children ___ in the garden."
 
-explicacion: "'The children' requiere 'are' como auxiliar y '-ing'."
+explicacion: |
+  Ahora mismo, plural: *are + -ing*.
 ```
 
-### 8 — Simple Present para hábito ('live')
-
-```
-metadata:
-  materia: "ingles"
-  tema: "present-continuous"
-  nivel: "A1"
-  tags: ["contraste", "habitual"]
-
-pasos:
-  - "Elige la forma correcta según el contexto."
-
-respuesta: "live"
-opciones_explicitas:
-  - "are living"
-  - "live"
-  - "lives"
-tipo: mc
-
-enunciado: "I ___ in Paris."
-
-explicacion: "'Live in Paris' es una acción habitual, no continua."
-```
-
-### 9 — Present Continuous con 'You'
+### 2 — Forma (2)
 
 ```
 metadata:
   materia: "ingles"
   tema: "present-continuous"
   nivel: "A1"
-  tags: ["formación", "now"]
+  tags: ["present-continuous"]
 
-pasos:
-  - "Completa la oración con el verbo en forma continua."
+respuesta: "is sleeping"
+tipo: "mc"
+opciones_explicitas: ["is sleeping", "sleeps", "are sleeping"]
 
-respuestas_validas:
-  - "are waiting"
-  - "Are waiting"
+enunciado: "Be quiet! The baby ___."
+
+explicacion: |
+  *The baby is sleeping*.
+```
+
+### 3 — Negativa
+
+```
+metadata:
+  materia: "ingles"
+  tema: "present-continuous"
+  nivel: "A1"
+  tags: ["present-continuous"]
+
+respuesta: "'m not watching"
+tipo: "mc"
+opciones_explicitas: ["'m not watching", "don't watch", "not watching"]
+
+enunciado: "I ___ TV right now. You can turn it off."
+
+explicacion: |
+  *I'm not + -ing*.
+```
+
+### 4 — Pregunta
+
+```
+metadata:
+  materia: "ingles"
+  tema: "present-continuous"
+  nivel: "A1"
+  tags: ["present-continuous"]
+
+respuesta: "are"
+tipo: "mc"
+opciones_explicitas: ["are", "do", "is"]
+
+enunciado: "What ___ you doing?"
+
+explicacion: |
+  *What are you doing?*
+```
+
+### 5 — Ortografía
+
+```
+metadata:
+  materia: "ingles"
+  tema: "present-continuous"
+  nivel: "A1"
+  tags: ["present-continuous"]
+
+respuesta: "swimming"
+tipo: "mc"
+opciones_explicitas: ["swiming", "swimming", "swimmming"]
+
+enunciado: "He's ___ in the pool."
+
+explicacion: |
+  *Swim → swimming*.
+```
+
+### 6 — Ortografía (2)
+
+```
+metadata:
+  materia: "ingles"
+  tema: "present-continuous"
+  nivel: "A1"
+  tags: ["present-continuous"]
+
+respuesta: "making"
+tipo: "mc"
+opciones_explicitas: ["makeing", "making", "makking"]
+
+enunciado: "She's ___ a cake."
+
+explicacion: |
+  *Make → making*.
+```
+
+### 7 — Simple vs. continuo
+
+```
+metadata:
+  materia: "ingles"
+  tema: "present-continuous"
+  nivel: "A1"
+  tags: ["present-continuous"]
+
+respuesta: "go"
+tipo: "mc"
+opciones_explicitas: ["go", "am going", "going"]
+
+enunciado: "I usually ___ to school by bus."
+
+explicacion: |
+  Hábito con *usually*: present simple.
+```
+
+### 8 — Simple vs. continuo (2)
+
+```
+metadata:
+  materia: "ingles"
+  tema: "present-continuous"
+  nivel: "A1"
+  tags: ["present-continuous"]
+
+respuesta: "'m working"
+tipo: "mc"
+opciones_explicitas: ["work", "'m working", "works"]
+
+enunciado: "This week I ___ from home because the office is closed."
+
+explicacion: |
+  Situación temporal: continuo.
+```
+
+### 9 — Verbo de estado
+
+```
+metadata:
+  materia: "ingles"
+  tema: "present-continuous"
+  nivel: "A1"
+  tags: ["present-continuous"]
+
+respuesta: "understand"
+tipo: "mc"
+opciones_explicitas: ["understand", "'m understanding", "am understand"]
+
+enunciado: "I ___ what you mean."
+
+explicacion: |
+  *Understand* no va en continuo.
+```
+
+### 10 — Verbo de estado (2)
+
+```
+metadata:
+  materia: "ingles"
+  tema: "present-continuous"
+  nivel: "A1"
+  tags: ["present-continuous"]
+
+respuesta: "wants"
+tipo: "mc"
+opciones_explicitas: ["wants", "is wanting", "want"]
+
+enunciado: "She ___ a new phone."
+
+explicacion: |
+  *Want* no va en continuo.
+```
+
+### 11 — Plan futuro
+
+```
+metadata:
+  materia: "ingles"
+  tema: "present-continuous"
+  nivel: "A1"
+  tags: ["present-continuous"]
+
+respuesta: "are flying"
+tipo: "mc"
+opciones_explicitas: ["are flying", "fly", "flying"]
+
+enunciado: "We ___ to Ushuaia next Friday. We've got the tickets."
+
+explicacion: |
+  Plan organizado: continuo.
+```
+
+### 12 — Think
+
+```
+metadata:
+  materia: "ingles"
+  tema: "present-continuous"
+  nivel: "A1"
+  tags: ["present-continuous"]
+
+respuesta: "'m thinking"
+tipo: "mc"
+opciones_explicitas: ["think", "'m thinking", "thinks"]
+
+enunciado: "I ___ about changing jobs."
+
+explicacion: |
+  *Think* como proceso mental: continuo.
+```
+
+### 13 — Error típico
+
+```
+metadata:
+  materia: "ingles"
+  tema: "present-continuous"
+  nivel: "A1"
+  tags: ["present-continuous"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "«I working now» es correcta."
+
+explicacion: |
+  Falso: *I'm working now*.
+```
+
+### 14 — Completar
+
+```
+metadata:
+  materia: "ingles"
+  tema: "present-continuous"
+  nivel: "A1"
+  tags: ["present-continuous"]
+
+respuesta: "are"
 tipo: completar
-
-enunciado: "Right now, you ___ for the bus."
-
-explicacion: "'You' requiere 'are' como auxiliar y '-ing'."
-```
-
-### 10 — Verbo que no se usa en continuo ('believe')
-
-```
-metadata:
-  materia: "ingles"
-  tema: "present-continuous"
-  nivel: "A1"
-  tags: ["limitaciones", "verbo"]
-
-pasos:
-  - "Elige la forma correcta del verbo 'believe'."
-
-respuesta: "believes"
-opciones_explicitas:
-  - "is believing"
-  - "believes"
-  - "are believing"
-tipo: mc
-
-enunciado: "He ___ in ghosts."
-
-explicacion: "'Believe' no se usa en presente continuo."
-```
-
-### 11 — Present Continuous con 'The teacher'
-
-```
-metadata:
-  materia: "ingles"
-  tema: "present-continuous"
-  nivel: "A1"
-  tags: ["formación", "now"]
-
-pasos:
-  - "Completa la oración con el verbo en forma continua."
-
 respuestas_validas:
-  - "is explaining"
-  - "Is explaining"
-tipo: completar
+  - "are"
+  - "Are"
 
-enunciado: "Right now, the teacher ___ the lesson."
+enunciado: "Completá con *am/is/are*: «My parents ___ travelling in Europe this month.»"
 
-explicacion: "'The teacher' requiere 'is' como auxiliar y '-ing'."
-```
-
-### 12 — Simple Present para rutina ('drink')
-
-```
-metadata:
-  materia: "ingles"
-  tema: "present-continuous"
-  nivel: "A1"
-  tags: ["contraste", "habitual"]
-
-pasos:
-  - "Elige la forma correcta según el contexto."
-
-respuesta: "drink"
-opciones_explicitas:
-  - "are drinking"
-  - "drink"
-  - "drinks"
-tipo: mc
-
-enunciado: "I ___ coffee every morning."
-
-explicacion: "'Drink coffee every morning' es una rutina, no una acción en curso."
-```
-
-### 13 — Present Continuous con 'We'
-
-```
-metadata:
-  materia: "ingles"
-  tema: "present-continuous"
-  nivel: "A1"
-  tags: ["formación", "now"]
-
-pasos:
-  - "Completa la oración con el verbo en forma continua."
-
-respuestas_validas:
-  - "are talking"
-  - "Are talking"
-tipo: completar
-
-enunciado: "Right now, we ___ about the project."
-
-explicacion: "'We' requiere 'are' como auxiliar y '-ing'."
-```
-
-### 14 — Verbo que no se usa en continuo ('have', posesión)
-
-```
-metadata:
-  materia: "ingles"
-  tema: "present-continuous"
-  nivel: "A1"
-  tags: ["limitaciones", "verbo"]
-
-pasos:
-  - "Elige la forma correcta del verbo 'have'."
-
-respuesta: "has"
-opciones_explicitas:
-  - "is having"
-  - "has"
-  - "are having"
-tipo: mc
-
-enunciado: "She ___ a new car."
-
-explicacion: "'Have' no se usa en presente continuo para expresar posesión."
-```
-
-### 15 — Present Continuous con 'The students'
-
-```
-metadata:
-  materia: "ingles"
-  tema: "present-continuous"
-  nivel: "A1"
-  tags: ["formación", "now"]
-
-pasos:
-  - "Completa la oración con el verbo en forma continua."
-
-respuestas_validas:
-  - "are listening"
-  - "Are listening"
-tipo: completar
-
-enunciado: "Right now, the students ___ to the teacher."
-
-explicacion: "'The students' requiere 'are' como auxiliar y '-ing'."
-```
-
-### 16 — Simple Present para generalización ('have a car')
-
-```
-metadata:
-  materia: "ingles"
-  tema: "present-continuous"
-  nivel: "A1"
-  tags: ["contraste", "habitual"]
-
-pasos:
-  - "Elige la forma correcta según el contexto."
-
-respuesta: "have"
-opciones_explicitas:
-  - "are having"
-  - "have"
-  - "has"
-tipo: mc
-
-enunciado: "I ___ a car."
-
-explicacion: "'Have a car' es una generalización, no una acción en curso."
-```
-
-### 17 — Present Continuous con 'She'
-
-```
-metadata:
-  materia: "ingles"
-  tema: "present-continuous"
-  nivel: "A1"
-  tags: ["formación", "now"]
-
-pasos:
-  - "Completa la oración con el verbo en forma continua."
-
-respuestas_validas:
-  - "is singing"
-  - "Is singing"
-tipo: completar
-
-enunciado: "Right now, she ___ in the shower."
-
-explicacion: "'She' requiere 'is' como auxiliar y '-ing'."
-```
-
-### 18 — Verbo que no se usa en continuo ('think', opinión)
-
-```
-metadata:
-  materia: "ingles"
-  tema: "present-continuous"
-  nivel: "A1"
-  tags: ["limitaciones", "verbo"]
-
-pasos:
-  - "Elige la forma correcta del verbo 'think'."
-
-respuesta: "thinks"
-opciones_explicitas:
-  - "is thinking"
-  - "thinks"
-  - "are thinking"
-tipo: mc
-
-enunciado: "He ___ this is a good idea."
-
-explicacion: "'Think' no se usa en presente continuo para expresar opinión."
-```
-
-### 19 — Present Continuous con 'He is'
-
-```
-metadata:
-  materia: "ingles"
-  tema: "present-continuous"
-  nivel: "A1"
-  tags: ["formación", "now"]
-
-pasos:
-  - "Completa la oración con el verbo en forma continua."
-
-respuestas_validas:
-  - "is working"
-  - "Is working"
-tipo: completar
-
-enunciado: "Right now, he ___ hard on his project."
-
-explicacion: "'He is' requiere un verbo en '-ing'."
-```
-
-### 20 — Simple Present para rutina ('walk')
-
-```
-metadata:
-  materia: "ingles"
-  tema: "present-continuous"
-  nivel: "A1"
-  tags: ["contraste", "habitual"]
-
-pasos:
-  - "Elige la forma correcta según el contexto."
-
-respuesta: "walk"
-opciones_explicitas:
-  - "are walking"
-  - "walk"
-  - "walks"
-tipo: mc
-
-enunciado: "I ___ to work every day."
-
-explicacion: "'Walk to work' es una rutina, no una acción en curso."
-```
-
-### 21 — Present Continuous con 'They are'
-
-```
-metadata:
-  materia: "ingles"
-  tema: "present-continuous"
-  nivel: "A1"
-  tags: ["formación", "now"]
-
-pasos:
-  - "Completa la oración con el verbo en forma continua."
-
-respuestas_validas:
-  - "are eating"
-  - "Are eating"
-tipo: completar
-
-enunciado: "Right now, they ___ dinner."
-
-explicacion: "'They are' requiere un verbo en '-ing'."
-```
-
-### 22 — Verbo que no se usa en continuo ('see', percepción)
-
-```
-metadata:
-  materia: "ingles"
-  tema: "present-continuous"
-  nivel: "A1"
-  tags: ["limitaciones", "verbo"]
-
-pasos:
-  - "Elige la forma correcta del verbo 'see'."
-
-respuesta: "sees"
-opciones_explicitas:
-  - "is seeing"
-  - "sees"
-  - "are seeing"
-tipo: mc
-
-enunciado: "She ___ the mountains from her window."
-
-explicacion: "'See' no se usa en presente continuo para expresar percepción."
-```
-
-### 23 — Present Continuous con 'I am'
-
-```
-metadata:
-  materia: "ingles"
-  tema: "present-continuous"
-  nivel: "A1"
-  tags: ["formación", "now"]
-
-pasos:
-  - "Completa la oración con el verbo en forma continua."
-
-respuestas_validas:
-  - "am waiting"
-  - "Am waiting"
-tipo: completar
-
-enunciado: "Right now, I ___ for my friend."
-
-explicacion: "'I am' requiere un verbo en '-ing'."
-```
-
-### 24 — Simple Present para generalización ('have a dog')
-
-```
-metadata:
-  materia: "ingles"
-  tema: "present-continuous"
-  nivel: "A1"
-  tags: ["contraste", "habitual"]
-
-pasos:
-  - "Elige la forma correcta según el contexto."
-
-respuesta: "have"
-opciones_explicitas:
-  - "are having"
-  - "have"
-  - "has"
-tipo: mc
-
-enunciado: "I ___ a dog."
-
-explicacion: "'Have a dog' es una generalización, no una acción en curso."
-```
-
-### 25 — Present Continuous con 'The man is'
-
-```
-metadata:
-  materia: "ingles"
-  tema: "present-continuous"
-  nivel: "A1"
-  tags: ["formación", "now"]
-
-pasos:
-  - "Completa la oración con el verbo en forma continua."
-
-respuestas_validas:
-  - "is reading"
-  - "Is reading"
-tipo: completar
-
-enunciado: "Right now, the man ___ a book."
-
-explicacion: "'The man is' requiere un verbo en '-ing'."
+explicacion: |
+  *Parents* → *are*.
 ```

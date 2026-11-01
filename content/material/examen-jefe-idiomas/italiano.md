@@ -702,8 +702,8 @@ enunciado: "Andiamo ＿＿ Roma ＿＿ treno."
 opciones_explicitas:
   - "a / in"
   - "in / a"
-  - "a / con il"
-  - "in / con"
+  - "in / per"
+  - "di / in"
 respuesta: "a / in"
 tipo: mc
 explicacion: "Andare a + città; in treno."
@@ -2712,7 +2712,7 @@ metadata:
   tags: ["gramatica", "examen-jefe"]
 pasos:
   - "Leer con atención y elegir la opción correcta."
-enunciado: "Scegli la forma corretta: Per ＿＿ non lo so."
+enunciado: "Scegli la forma corretta: Per ＿＿ ne so, il negozio è chiuso."
 opciones_explicitas:
   - "quanti"
   - "quale"
@@ -2720,7 +2720,7 @@ opciones_explicitas:
   - "quando di"
 respuesta: "quanto"
 tipo: mc
-explicacion: "Per quanto + congiuntivo o indicativo; qui espressione fissa."
+explicacion: "Per quanto ne so = por lo que sé (espressione fissa)."
 ```
 
 ```
@@ -2731,7 +2731,7 @@ metadata:
   tags: ["gramatica", "examen-jefe"]
 pasos:
   - "Leer con atención y elegir la opción correcta."
-enunciado: "Scegli la forma corretta: Ne ＿＿ tre."
+enunciado: "Scegli la forma corretta: Libri? Ne ＿＿ tre."
 opciones_explicitas:
   - "ho comprato"
   - "ho compra"
@@ -2739,7 +2739,7 @@ opciones_explicitas:
   - "ho comprati"
 respuesta: "ho comprati"
 tipo: mc
-explicacion: "Accordo con ne partitivo (tre libri)."
+explicacion: "Accordo del participio con ne partitivo: tre libri (maschile plurale)."
 ```
 
 ```

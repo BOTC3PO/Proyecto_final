@@ -1,72 +1,50 @@
-# Presente de los verbos en francés: -er, -ir y -re (niveles A1-A2)
+# Presente de los verbos en -er, -ir y -re en francés (A1)
 
 > Tema del MAPA: `idiomas-extranjeros/frances/presente-verbos-er-ir-re`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
 ## Introducción
-El presente es uno de los tiempos verbales más usados en francés para expresar acciones que ocurren ahora o habitualmente. En el nivel A1-A2 del Marco Común Europeo de Referencia para las Lenguas (CEFR), es fundamental dominar la conjugación de los verbos regulares terminados en **-er**, **-ir** y **-re**, ya que constituyen la base de la gramática verbal. Estos grupos siguen patrones específicos, lo que facilita su aprendizaje una vez comprendidos.
+El **présent de l'indicatif** expresa lo que pasa ahora, hábitos y verdades generales: *Je **parle** français. Il **finit** à cinq heures.* Los verbos se agrupan según su infinitivo: **-er** (la gran mayoría), **-ir** (tipo *finir*) y **-re**, más un grupo de irregulares muy frecuentes.
 
 ## Explicación central
-Los verbos en francés se clasifican según sus terminaciones:
+### Verbos en -er (1.er grupo): parler
+*je parl**e**, tu parl**es**, il/elle/on parl**e**, nous parl**ons**, vous parl**ez**, ils/elles parl**ent***
+- *je, tu, il, ils* **suenan igual** («parl»): la *-e, -es, -ent* no se pronuncian.
+- Ortografía: *manger → nous mangeons*, *commencer → nous commençons*, *appeler → j'appelle*, *acheter → j'achète*.
 
-### 1. **Verbos en -er** (ej.: *parler*, *manger*)
-La conjugación sigue el patrón:
-- **je** + **e** (je parle)
-- **tu** + **es** (tu parles)
-- **il/elle/on** + **e** (il mange)
-- **nous** + **ons** (nous parlons)
-- **vous** + **ez** (vous mangez)
-- **ils/elles** + **ent** (ils parlent)
+### Verbos en -ir (2.º grupo): finir
+*je fin**is**, tu fin**is**, il fin**it**, nous fin**issons**, vous fin**issez**, ils fin**issent*** (también *choisir, réussir, grandir*).
 
-Ejemplo: *J’aime parler français.* (Me gusta hablar francés).
+### Verbos en -re: vendre
+*je vend**s**, tu vend**s**, il vend, nous vend**ons**, vous vend**ez**, ils vend**ent*** (también *attendre, répondre, entendre*).
 
-### 2. **Verbos en -ir** (ej.: *finir*, *choisir*)
-Los verbos en -ir siguen una estructura similar, pero con variaciones de vocal en el infinitivo:
-- **je** + **is** (je finis)
-- **tu** + **is** (tu finis)
-- **il/elle/on** + **it** (il choisit)
-- **nous** + **issons** (nous finissons)
-- **vous** + **issez** (vous choisissez)
-- **ils/elles** + **issent** (ils finissent)
+### Irregulares frecuentes
+- **aller**: vais, vas, va, allons, allez, vont
+- **faire**: fais, fais, fait, faisons, faites, font
+- **prendre**: prends, prends, prend, prenons, prenez, prennent
+- **pouvoir**: peux, peux, peut, pouvons, pouvez, peuvent
+- **vouloir**: veux, veux, veut, voulons, voulez, veulent
+- **venir**: viens, viens, vient, venons, venez, viennent
+- (*être* y *avoir*: ver su tema)
 
-Ejemplo: *Elle finit son travail à 18h.* (Ella termina su trabajo a las 6 p.m.).
-
-### 3. **Verbos en -re** (ej.: *dire*, *prendre*)
-Los verbos en -re tienen una conjugación ligeramente diferente, especialmente en la tercera persona del singular:
-- **je** + **s** (je dis)
-- **tu** + **s** (tu dis)
-- **il/elle/on** + **t** (il dit)
-- **nous** + **sons** (nous disons)
-- **vous** + **nez** (vous dites)
-- **ils/elles** + **sent** (ils disent)
-
-Ejemplo: *Il prend son café chaque matin.* (Él toma su café cada mañana).
+### El sujeto es obligatorio
+En francés siempre se dice el pronombre: ***Je** parle* (no *Parle* solo). *On* = «nosotros» en el habla (*On va au cinéma*), con verbo en 3.ª del singular.
 
 ## Errores comunes de hispanohablantes
-1. **Confusión con el español**: Muchos aprendices confunden la conjugación francesa con la del español. Por ejemplo, en español *hablar* se conjuga como *hablo/hablas/habla*, pero en francés es *parle/parles/parle*.
-2. **Omisión de la 's'**: En el presente de indicativo, la forma "tu" y "ils/elles" requieren una 's' o 't', que a veces se omiten: *tu mange* vs. *tu manges*.
-3. **Uso incorrecto del infinitivo**: Algunos estudiantes usan directamente el infinitivo en lugar de la conjugación, como decir *Je parle français* (incorrecto) en vez de *J’aime parler français* (correcto).
+1. Omitir el sujeto: ❌ *Parle français.* ✅ *Je parle français.*
+2. Pronunciar la *-ent*: *ils parlent* suena «il parl».
+3. ❌ *vous faisez* ✅ *vous faites*; ❌ *ils allent* ✅ *ils vont*.
+4. ❌ *je finis* para el 1.er grupo: ❌ *je parlis* ✅ *je parle*.
 
 ## Comparación con el español
-- En español, los verbos terminados en -ar siguen un patrón similar a los franceses en -er:
-  - *hablar* → yo hablo / tú hablas / él/ella habla.
-  - Sin embargo, en francés no hay una "a" o "e" final en las formas de los verbos.
-- Los verbos en -ir en español (ej.: *vivir*) siguen un patrón diferente al francés:
-  - *vivo/vives/vive* vs. *je vis/tu vis/il vit*.
+Las terminaciones se parecen (*parlons* ≈ «hablamos»), pero el francés **no puede omitir el sujeto** porque varias formas suenan iguales. «Nosotros» en el habla es *on*.
 
 ## Ejemplo extendido en contexto
-**Situación**: Dos amigos hablan sobre sus rutinas diarias.
-
-**Alex**: Salut, Clara! Qu’est-ce que tu fais ce soir?
-**Clara**: Je finis mon travail à 18h30. Après, je dîne avec mes parents. Et toi?
-**Alex**: Moi, je parle anglais toute la journée au bureau. Mais le soir, je préfère regarder des films. Tu aimes les films?
-**Clara**: Oui! Je choisis toujours un film français.
-
-En este diálogo, se usan verbos regulares de los tres grupos: *finir* (en -ir), *parler* (en -er) y *choisir* (en -ir). La conjugación refleja las reglas aprendidas, como "je finis" o "tu parles".
-
-Dominar estos patrones permite a los estudiantes construir oraciones sencillas y expresar acciones cotidianas con confianza.
+*Je **m'appelle** Lucía. J'**habite** à Lyon et je **travaille** dans une librairie. Le matin, je **prends** le bus. Mes collègues **finissent** à six heures, et après on **va** au café. Et toi, qu'est-ce que tu **fais** ?*

@@ -1,521 +1,272 @@
-> **Nota de corrección:** Este cuestionario fue corregido a partir del borrador en
-> `_borradores-gemma/idiomas-extranjeros/japones/matices-de-registro/cuestionario_crudo.md`
-> mediante el script `mechanical_fix_idiomas.py` (comillas mal cerradas en
-> `explicacion:`). A 8 bloques les faltaba además el `enunciado:`. Se corrigieron
-> además varios errores de contenido:
-> - **3 bloques (18, 21, 23):** las opciones llevaban los corchetes japoneses 「」
->   incluidos en el propio texto de cada opción, mientras que `respuesta:` no los
->   llevaba, por lo que nunca coincidía literalmente con ninguna opción; se quitaron
->   los corchetes.
-> - **Bloques 1, 3, 5, 9:** el `enunciado:` insertaba la respuesta en medio de un
->   párrafo con el que no encajaba gramaticalmente (p. ej. una cópula suelta "です"
->   pegada en medio de una oración ya completa); se rediseñó cada oración para que la
->   respuesta cierre o conecte la frase de forma coherente.
-> - **Bloques 8 y 14:** estaban gravemente corrompidos — las propias
->   `opciones_explicitas:` eran oraciones completas que aún contenían el marcador de
->   hueco "__" sin rellenar, y el `enunciado:` era una frase entre comillas
->   completamente distinta y sin relación con esas opciones. Se reconstruyeron ambos
->   bloques: las opciones ahora son los conectores/cierres reales a elegir, y el
->   `enunciado:` es una oración coherente que efectivamente los necesita.
-> - **Bloque 14:** además tenía un typo en `materia:` con un carácter japonés
->   incrustado en medio de la palabra española ("extranじeros"); corregido.
+# Japonés — matices de registro (cuestionario, 14 preguntas VBLang)
 
-### 1 — ビジネスメールの表現  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "matices-de-registro"  
-  nivel: "N1"  
-  tags: ["formal", "correo-electrónico"]  
-pasos:  
-  - "Complete el hueco con la forma más formal de 'です' en un contexto profesional."  
-respuestas_validas:  
-  - "です"  
-  - "で"  
-tipo: completar  
-enunciado: "これは新規プロジェクトのご提案__。"  
-explicacion: "En contextos formales como correos electrónicos, se usa 'です' como cópula final para mantener el tono respetuoso. 'で' por sí solo no puede cerrar la oración; necesitaría ir seguido de más texto."  
+> Tema: `idiomas-extranjeros/japones/matices-de-registro`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
+
+---
+
+### 1 — Formal
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "matices-de-registro"
+  nivel: "N1"
+  tags: ["registro"]
 
+respuesta: "後ほどご連絡いたします。"
+tipo: "mc"
+opciones_explicitas: ["後ほどご連絡いたします。", "あとで連絡するね。", "あとで連絡すっから。"]
 
+enunciado: "Versión de negocios de «あとで連絡します»:"
 
-### 2 — 電話応対の敬語  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "matices-de-registro"  
-  nivel: "N1"  
-  tags: ["honoríficos", "teléfono"]  
-pasos:  
-  - "Elija la opción correcta para un diálogo formal en una llamada telefónica."  
-respuesta: "お手数をおかけしますが"  
-opciones_explicitas:  
-  - "お手数をおかけしますが"  
-  - "手数をかけてください"  
-  - "ちょっとだけ手間をかけて"  
-tipo: mc  
-enunciado: "「__、ご案内いただけますか？」"  
-explicacion: "En situaciones formales, se usan frases como 'お手数をおかけしますが' para expresar cortesía. Las otras opciones son más informales o incorrectas en este contexto."  
-
+explicacion: |
+  後ほど + kenjōgo.
 ```
 
-
-
-### 3 — 学術論文の文体  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "matices-de-registro"  
-  nivel: "N1"  
-  tags: ["académico", "formal"]  
-pasos:  
-  - "Complete el hueco con la forma más adecuada para un texto académico."  
-respuestas_validas:  
-  - "である"  
-  - "です"  
-tipo: completar  
-enunciado: "この結果は、仮説を支持するもの__。"  
-explicacion: "En textos académicos, se prefiere la cópula 'である' para mantener un tono impersonal y formal como cierre de la oración. 'です' es más común en contextos cotidianos."  
+### 2 — 本日
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "matices-de-registro"
+  nivel: "N1"
+  tags: ["registro"]
 
+respuesta: "本日"
+tipo: "mc"
+opciones_explicitas: ["本日", "今日さ", "きょうって"]
 
+enunciado: "Equivalente formal de 今日:"
 
-### 4 — カジュアルな会話の表現  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "matices-de-registro"  
-  nivel: "N1"  
-  tags: ["informal", "conversación"]  
-pasos:  
-  - "Elija la opción más adecuada para un diálogo entre amigos."  
-respuesta: "ちょっと待って"  
-opciones_explicitas:  
-  - "ちょっと待って"  
-  - "お待ちください"  
-  - "ご静聴ください"  
-tipo: mc  
-enunciado: "「__、その件について話したいことがある。」"  
-explicacion: "En conversaciones informales, 'ちょっと待って' es más natural que las formas formales como 'お待ちください' o 'ご静聴ください', que son inapropiadas en este contexto."  
-
+explicacion: |
+  Registro formal.
 ```
 
-
-
-### 5 — リストラの通知文書  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "matices-de-registro"  
-  nivel: "N1"  
-  tags: ["formal", "notificación"]  
-pasos:  
-  - "Complete el hueco con la forma más respetuosa para una notificación oficial."  
-respuestas_validas:  
-  - "ご連絡いたします"  
-  - "連絡します"  
-tipo: completar  
-enunciado: "詳細については、追って__。"  
-explicacion: "En notificaciones oficiales, se usa 'ご連絡いたします' para expresar respeto y formalidad al prometer un contacto posterior. La forma '連絡します' es más directa y menos adecuada en este contexto."  
+### 3 — 少々
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "matices-de-registro"
+  nivel: "N1"
+  tags: ["registro"]
 
+respuesta: "少々お待ちください。"
+tipo: "mc"
+opciones_explicitas: ["少々お待ちください。", "ちょっと待って。", "ちょい待ち。"]
 
+enunciado: "Formal de «ちょっと待ってください»:"
 
-### 6 — レストランでの注文  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "matices-de-registro"  
-  nivel: "N1"  
-  tags: ["casual", "servicio"]  
-pasos:  
-  - "Elija la opción más adecuada para pedir comida en un restaurante informal."  
-respuesta: "この魚、おすすめですか？"  
-opciones_explicitas:  
-  - "この魚、おすすめですか？"  
-  - "お魚をおすすめしていただけますか？"  
-  - "この魚は、ぜひ食べてください。"  
-tipo: mc  
-enunciado: "「__、お願いします。」"  
-explicacion: "En restaurantes informales, se usan preguntas directas como 'この魚、おすすめですか？' para mantener un tono casual. Las otras opciones son más formales o impertinentes."  
-
+explicacion: |
+  少々.
 ```
 
-
-
-### 7 — クラスでの発表  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "matices-de-registro"  
-  nivel: "N1"  
-  tags: ["formal", "educación"]  
-pasos:  
-  - "Complete el hueco con la forma más adecuada para una presentación académica."  
-respuestas_validas:  
-  - "ご存知のように"  
-  - "あなたは知ってますよね"  
-tipo: completar  
-enunciado: "「__、このテーマは非常に重要です。」"  
-explicacion: "En presentaciones académicas, 'ご存知のように' es más formal y respetuoso. La forma 'あなたは知ってますよね' es demasiado informal para este contexto."  
+### 4 — 非常に
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "matices-de-registro"
+  nivel: "N1"
+  tags: ["registro"]
 
+respuesta: "非常に"
+tipo: "mc"
+opciones_explicitas: ["非常に", "めっちゃ", "超"]
 
+enunciado: "En un informe, en lugar de すごく:"
 
-### 8 — 業務報告書の表現  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "matices-de-registro"  
-  nivel: "N1"  
-  tags: ["formal", "informe"]  
-pasos:  
-  - "Elija la opción más adecuada para un informe ejecutivo."  
-respuesta: "結果として"  
-opciones_explicitas:  
-  - "結果として"  
-  - "その結果"  
-  - "そして"  
-tipo: mc  
-enunciado: "予算を削減した。__、問題が発生しました。"  
-explicacion: "En informes formales, '結果として' (como resultado) conecta con precisión una causa con su consecuencia directa; 'その結果' es sinónimo pero algo menos formal, y 'そして' (y luego) es demasiado neutro para un informe ejecutivo."  
-
+explicacion: |
+  Registro escrito.
 ```
 
-
-
-### 9 — メールでの断りの表現  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "matices-de-registro"  
-  nivel: "N1"  
-  tags: ["formal", "correo-electrónico"]  
-pasos:  
-  - "Complete el hueco con la forma más respetuosa para rechazar una solicitud."  
-respuestas_validas:  
-  - "ご希望に添えず、大変申し訳ございません。"  
-  - "ご希望通りにはできませんが"  
-tipo: completar  
-enunciado: "残念ながら、__。"  
-explicacion: "En correos formales, se usa 'ご希望に添えず、大変申し訳ございません' para expresar cortesía en un rechazo, típicamente introducido por '残念ながら' (lamentablemente). La forma alternativa es menos formal."  
+### 5 — かねる
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "matices-de-registro"
+  nivel: "N1"
+  tags: ["registro"]
 
+respuesta: "No nos es posible atenderlo"
+tipo: "mc"
+opciones_explicitas: ["No nos es posible atenderlo", "Lo atenderemos con gusto", "Ya lo atendimos"]
 
+enunciado: "«対応いたしかねます» significa…"
 
-### 10 — ライブ配信での挨拶  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "matices-de-registro"  
-  nivel: "N1"  
-  tags: ["casual", "entretención"]  
-pasos:  
-  - "Elija la opción más adecuada para un saludo en una transmisión en vivo."  
-respuesta: "皆さん、こんにちは！"  
-opciones_explicitas:  
-  - "皆さん、こんにちは！"  
-  - "皆様、ご挨拶いたします。"  
-  - "おはようございます"  
-tipo: mc  
-enunciado: "「__、よろしくお願いします！」"  
-explicacion: "En transmisiones en vivo, '皆さん、こんにちは！' es más natural y casual. Las otras opciones son demasiado formales o inapropiadas para este contexto."  
-
+explicacion: |
+  〜かねる = no poder.
 ```
 
-
-
-### 11 — ビジネスミーティングでの提案  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "matices-de-registro"  
-  nivel: "N1"  
-  tags: ["formal", "negocios"]  
-pasos:  
-  - "Complete el hueco con la forma más adecuada para una propuesta en un meeting empresarial."  
-respuestas_validas:  
-  - "ご検討いただけますようお願いいたします"  
-  - "検討してください"  
-tipo: completar  
-enunciado: "「弊社の提案を__、誠にありがとうございます。」"  
-explicacion: "En reuniones empresariales, se usa 'ご検討いただけますようお願いいたします' para mantener un tono respetuoso. La forma alternativa es menos formal."  
+### 6 — 検討
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "matices-de-registro"
+  nivel: "N1"
+  tags: ["registro"]
 
+respuesta: "un rechazo cortés o una respuesta incierta"
+tipo: "mc"
+opciones_explicitas: ["un rechazo cortés o una respuesta incierta", "un sí seguro", "una orden"]
 
+enunciado: "En negocios, «検討させていただきます» a menudo significa…"
 
-### 12 — カフェでの注文  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "matices-de-registro"  
-  nivel: "N1"  
-  tags: ["formalidad", "explicación"]  
-pasos:  
-  - "Identificar el contexto formal de la oración."
-  - "Seleccionar la expresión que indica explicación o aclaración en un entorno profesional."
-enunciado: "会議の結果を______、コスト削減が最優先事項です。"
-respuesta: "つまり"  
-respuestas_validas:  
-  - "つまり"  
-  - "つまりは"  
-explicacion: "La palabra 「つまり」 se usa para introducir una aclaración o resumen en contextos formales, como explicar un concepto complejo de forma concisa."
+explicacion: |
+  Rechazo indirecto.
 ```
 
-### 13 — 学校での発表の挨拶  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "matices-de-registro"  
-  nivel: "N1"  
-  tags: ["formal", "educación"]  
-pasos:  
-  - "Complete el hueco con la forma más adecuada para una presentación en clase."  
-respuestas_validas:  
-  - "ご静聴ありがとうございます"  
-  - "聞いてください"  
-tipo: completar  
-enunciado: "「__、本日の発表を始めさせていただきます。」"  
-explicacion: "En presentaciones formales, 'ご静聴ありがとうございます' es más respetuoso. La forma alternativa es demasiado informal para este contexto."  
+### 7 — 恐れ入りますが
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "matices-de-registro"
+  nivel: "N1"
+  tags: ["registro"]
 
+respuesta: "suavizar un pedido"
+tipo: "mc"
+opciones_explicitas: ["suavizar un pedido", "despedirse", "felicitar"]
 
+enunciado: "«恐れ入りますが» sirve para…"
 
-### 14 — ビジネス提案書の表現  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "matices-de-registro"  
-  nivel: "N1"  
-  tags: ["formal", "documentos"]  
-pasos:  
-  - "Elija la opción más adecuada para un documento formal de propuesta empresarial."  
-respuesta: "今後とも、ご支援いただけますようお願い申し上げます。"  
-opciones_explicitas:  
-  - "今後とも、ご支援いただけますようお願い申し上げます。"  
-  - "今後も、支援してください。"  
-  - "今後とも、協力してください。"  
-tipo: mc  
-enunciado: "取引先への提案書を、どのように締めくくるのが最も丁寧ですか？"  
-explicacion: "En documentos formales, 'ご支援いただけますようお願い申し上げます' es más respetuoso. Las otras opciones son menos formales o inapropiadas para este contexto."  
-
+explicacion: |
+  クッション言葉.
 ```
 
-
-
-### 15 — メールでの感謝の表現  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "matices-de-registro"  
-  nivel: "N1"  
-  tags: ["formal", "correo-electrónico"]  
-pasos:  
-  - "Complete el hueco con la forma más adecuada para expresar gratitud en un correo electrónico."  
-respuestas_validas:  
-  - "大変お世話になっております"  
-  - "ありがとうございます"  
-tipo: completar  
-enunciado: "「__、いつも感謝しています。」"  
-explicacion: "En correos formales, '大変お世話になっております' es más respetuoso. La forma alternativa es demasiado informal para este contexto."  
+### 8 — あいにく
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "matices-de-registro"
+  nivel: "N1"
+  tags: ["registro"]
 
+respuesta: "Lamentablemente está todo ocupado"
+tipo: "mc"
+opciones_explicitas: ["Lamentablemente está todo ocupado", "Por suerte hay lugar", "Está cerrado hoy"]
 
+enunciado: "«あいにく満席でございます» significa…"
 
-### 16 — ライブ配信での質問への回答  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "matices-de-registro"  
-  nivel: "N1"  
-  tags: ["casual", "entretención"]  
-pasos:  
-  - "Elija la opción más adecuada para responder a una pregunta en una transmisión en vivo."  
-respuesta: "その質問、とても良いですね！"  
-opciones_explicitas:  
-  - "その質問、とても良いですね！"  
-  - "ご質問ありがとうございます。"  
-  - "質問はできますか？"  
-tipo: mc  
-enunciado: "「__、ありがとうございます！」"  
-explicacion: "En transmisiones en vivo, 'その質問、とても良いですね！' es más natural y casual. Las otras opciones son demasiado formales o impertinentes."  
-
+explicacion: |
+  あいにく = lamentablemente.
 ```
 
-
-
-### 17 — ビジネスミーティングでの報告  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "matices-de-registro"  
-  nivel: "N1"  
-  tags: ["formal", "negocios"]  
-pasos:  
-  - "Complete el hueco con la forma más adecuada para un informe en una reunión empresarial."  
-respuestas_validas:  
-  - "ご報告いたします"  
-  - "報告します"  
-tipo: completar  
-enunciado: "「__、本日の進捗についてお知らせいたします。」"  
-explicacion: "En reuniones empresariales, 'ご報告いたします' es más respetuoso. La forma alternativa es demasiado informal para este contexto."  
+### 9 — せっかく
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "matices-de-registro"
+  nivel: "N1"
+  tags: ["registro"]
 
+respuesta: "un rechazo cortés"
+tipo: "mc"
+opciones_explicitas: ["un rechazo cortés", "una aceptación", "una pregunta"]
 
+enunciado: "«せっかくですが、今回は遠慮いたします» es…"
 
-### 18 — カジュアルな会話での感謝の表現  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "matices-de-registro"  
-  nivel: "N1"  
-  tags: ["formalidad", "explicación"]  
-enunciado: "彼の説明は長かったが、______、予算が不足しているということだった。"
-tipo: mc
-opciones_explicitas:  
-  - "つまり"
-  - "それでは"
-  - "例えば"
-  - "ただし"
-respuesta: "つまり"  
-explicacion: "En contextos formales, 「つまり」 es la opción correcta para enfatizar una explicación clara y directa, mientras que otras opciones como 「例えば」 indican ejemplos o 「ただし」 señalan excepciones."
+explicacion: |
+  せっかくですが.
 ```
 
-### 19 — 学術論文の表現  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "matices-de-registro"  
-  nivel: "N1"  
-  tags: ["humbildad", "saludo"]  
-pasos:  
-  - "Determinar el nivel de humildad requerido en una situación comercial."
-  - "Seleccionar la expresión que refleja respeto hacia el interlocutor."
-enunciado: "お忙しい中、______。"
-respuesta: "お手数をおかけします"  
-respuestas_validas:  
-  - "お手数をおかけします"  
-  - "お手間をおかけします"  
-explicacion: "「お手数をおかけします」 es una frase humilde que expresa disculpa por molestar al interlocutor, común en contextos profesionales."
-```
-
-### 20 — ビジネスメールの表現  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "matices-de-registro"  
-  nivel: "N1"  
-  tags: ["formal", "correo-electrónico"]  
-pasos:  
-  - "Elija la opción más adecuada para un correo electrónico formal."  
-respuesta: "ご連絡いたします"  
-opciones_explicitas:  
-  - "ご連絡いたします"  
-  - "連絡します"  
-  - "お手紙を送ります"  
-tipo: mc  
-enunciado: "「__、大変申し訳ございません。」"  
-explicacion: "En correos formales, 'ご連絡いたします' es más respetuoso. Las otras opciones son menos formales o inapropiadas para este contexto."  
+### 10 — 存じません
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "matices-de-registro"
+  nivel: "N1"
+  tags: ["registro"]
 
+respuesta: "存じません"
+tipo: "mc"
+opciones_explicitas: ["存じません", "知らねえ", "わかんない"]
 
+enunciado: "Forma humilde de «no sé»:"
 
-### 21 — レストランでの注文の表現  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "matices-de-registro"  
-  nivel: "N1"  
-  tags: ["formalidad", "contexto"]  
-enunciado: "彼は多くのデータを分析したが、______、市場は成長しているということだ。"
-tipo: mc
-opciones_explicitas:  
-  - "つまり"
-  - "それでは"
-  - "例えば"
-  - "ただし"
-respuesta: "つまり"  
-explicacion: "En un discurso formal, 「つまり」 es la opción correcta para explicar una situación de forma clara y precisa."
+explicacion: |
+  Kenjōgo.
 ```
 
-### 22 — メールでの断りの表現  
+### 11 — Prensa
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "matices-de-registro"  
-  nivel: "N1"  
-  tags: ["humbildad", "negativa"]  
-pasos:  
-  - "Identificar la necesidad de una negativa con cortesía."
-  - "Seleccionar la expresión que transmite respeto al rechazar una solicitud."
-enunciado: "誠に申し訳ございませんが、______、ご了承ください。"
-respuesta: "ご希望に添えないかもしれませんが"  
-respuestas_validas:  
-  - "ご希望に添えないかもしれませんが"  
-  - "ご希望にそえることができませんが"  
-explicacion: "Esta frase es adecuada para expresar una negativa con humildad, común en contextos empresariales."
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "matices-de-registro"
+  nivel: "N1"
+  tags: ["registro"]
+
+respuesta: "un titular de prensa"
+tipo: "mc"
+opciones_explicitas: ["un titular de prensa", "una charla entre amigos", "una carta personal"]
+
+enunciado: "«首相、来月訪米へ» es típico de…"
+
+explicacion: |
+  Estilo nominal.
 ```
 
-### 23 — ライブ配信での挨拶  
+### 12 — Pronombre
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "matices-de-registro"  
-  nivel: "N1"  
-  tags: ["formalidad", "contexto"]  
-enunciado: "会議は長引いたが、______、結論は変わらなかった。"
-tipo: mc
-opciones_explicitas:  
-  - "つまり"
-  - "それでは"
-  - "例えば"
-  - "ただし"
-respuesta: "つまり"  
-explicacion: "En contextos formales, 「つまり」 se usa para presentar una situación o circunstancia de forma clara y directa."
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "matices-de-registro"
+  nivel: "N1"
+  tags: ["registro"]
+
+respuesta: "わたくし"
+tipo: "mc"
+opciones_explicitas: ["わたくし", "俺", "あたし"]
+
+enunciado: "En una entrevista de trabajo, ¿qué pronombre usarías?"
+
+explicacion: |
+  Registro formal.
 ```
 
-### 24 — ビジネスミーティングでの提案の表現  
+### 13 — 差し支えなければ
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "matices-de-registro"  
-  nivel: "N1"  
-  tags: ["formalidad", "enfoque"]  
-pasos:  
-  - "Reconocer la necesidad de enfatizar un punto clave."
-  - "Seleccionar la expresión que resalta la importancia en un discurso formal."
-enunciado: "彼の意見は複雑だったが、______、反対だということだ。"
-respuesta: "つまりは"  
-respuestas_validas:  
-  - "つまりは"  
-  - "つまり"  
-explicacion: "「つまりは」 es una variante de 「つまり」 que se usa para enfatizar aún más el punto central en contextos formales o académicos."
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "matices-de-registro"
+  nivel: "N1"
+  tags: ["registro"]
+
+respuesta: "Si no tiene inconveniente, ¿me daría su contacto?"
+tipo: "mc"
+opciones_explicitas: ["Si no tiene inconveniente, ¿me daría su contacto?", "Deme su contacto ya", "No me dé su contacto"]
+
+enunciado: "«差し支えなければ、ご連絡先を教えていただけますか» significa…"
+
+explicacion: |
+  Amortiguación.
 ```
 
-### 25 — カフェでの注文の表現  
+### 14 — Mezcla
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "matices-de-registro"  
-  nivel: "N1"  
-  tags: ["formalidad", "solicitud"]  
-pasos:  
-  - "Determinar la necesidad de una solicitud con respeto."
-  - "Seleccionar la expresión que transmite cortesía en un entorno profesional."
-enunciado: "本件について、______。"
-respuesta: "ご協力いただけますと幸いです"  
-respuestas_validas:  
-  - "ご協力いただけますと幸いです"  
-  - "お手伝いいただけますと幸いです"  
-explicacion: "Esta frase humilde y formal se usa para pedir colaboración respetuosamente, común en contextos empresariales."
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "matices-de-registro"
+  nivel: "N1"
+  tags: ["registro"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Usar やっぱり o すごく en un correo de negocios es adecuado."
+
+explicacion: |
+  Falso: se prefieren やはり, 非常に / 大変.
 ```

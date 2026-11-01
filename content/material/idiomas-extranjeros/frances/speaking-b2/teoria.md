@@ -1,49 +1,47 @@
-# Hablar en francés: nivel B2 (intermedio alto)
+# Expresión oral en francés (B2)
 
 > Tema del MAPA: `idiomas-extranjeros/frances/speaking-b2`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en los ejemplos.
 
 ---
 
 ## Introducción
-El nivel B2 del Marco Europeo Común de Referencia para las Lenguas (CEFR) se centra en la **fluidez y coherencia** al hablar. En este nivel, los hablantes pueden comunicarse eficazmente en situaciones cotidianas y profesionales, expresar opiniones con claridad, y participar en conversaciones estructuradas sobre temas generales o de interés personal. Es fundamental dominar **estructuras gramaticales complejas**, **vocabulario específico** y **estrategias para mantener la interacción** sin depender constantemente del inglés como puente.
+En B2 se espera **argumentar** con claridad, **debatir** respetando turnos, **matizar** y **reformular**, y hablar con fluidez sobre temas concretos y abstractos.
 
-## Explicación central con ejemplos en francés
-En el nivel B2, se requiere manejar **tiempos verbales avanzados** (como el futuro, el condicional o los tiempos compuestos) y expresar ideas con **conectores lógicos** para articular argumentos. Por ejemplo:
+## Explicación central
+### Estructurar una intervención
+- Introducir: *Je voudrais aborder la question de… Il s'agit de savoir si…*
+- Ordenar: *Tout d'abord… Ensuite… Par ailleurs… Enfin…*
+- Concluir: *Pour conclure… En résumé… Bref…*
 
-- *Je pense que si on ne réduit pas les émissions de CO₂, la situation va empirer.*
-  (Creo que si no reducimos las emisiones de CO₂, la situación empeorará.)
-  Aquí se usa el **condicional** (*va empirer*) para expresar una posibilidad futura y un **si + presente** para indicar una condición.
+### Argumentar y matizar
+- Ventajas e inconvenientes: *D'un côté… de l'autre… L'avantage, c'est que… L'inconvénient, c'est que…*
+- Concesión: *Certes… mais… Il est vrai que… cependant… Même si…*
+- Hipótesis: *Si on augmentait les impôts, on pourrait…*
+- Grados de certeza: *Je suis convaincu que… Il me semble que… Je doute que* + subjuntivo.
 
-- *Il a fallu deux heures pour réparer la voiture.*
-  (Tuvieron que pasar dos horas para reparar el coche.)
-  El uso del **passé composé** (*a fallu*) con el verbo *fallir* (necesitar) es clave en este contexto.
+### Interactuar en un debate
+- Tomar la palabra: *Si je peux me permettre… Je voudrais ajouter que…*
+- Interrumpir con cortesía: *Pardon de vous interrompre, mais…*
+- Pedir aclaración: *Qu'est-ce que vous entendez par… ?*
+- Reformular: *Autrement dit… Ce que je veux dire, c'est que…*
 
-Además, se espera un **vocabulario variado** para describir situaciones complejas:
-- *Je suis d’accord avec toi, mais je ne comprends pas pourquoi on doit attendre si longtemps.*
-  (Estoy de acuerdo contigo, pero no entiendo por qué tenemos que esperar tanto tiempo.)
+### Expresiones idiomáticas útiles
+*avoir du mal à* (costar), *ça vaut la peine* (vale la pena), *il n'empêche que* (aun así), *en fin de compte* (al fin y al cabo).
 
 ## Errores comunes de hispanohablantes
-1. **Confusión entre tiempos verbales**: Usar *passé simple* en lugar de *passé composé* en contextos cotidianos (ej: *Il a mangé* vs. *Il mangea*).
-2. **Uso incorrecto del subjuntivo**: En francés, el subjuntivo se usa menos frecuentemente que en español. Por ejemplo, *Je veux que tu viennes* (Quiero que vengas) es correcto, pero no se usa en frases impersonales como *Il est nécessaire que tu viennes*.
-3. **Preposiciones fijas**: Errores con *à*, *de*, *en* o *par* en expresiones como *être en retard* (estar tarde) o *avoir besoin de* (necesitar).
+1. ❌ *Je doute qu'il a raison* ✅ *qu'il ait raison*.
+2. Calcar «en mi opinión personal» → ✅ *personnellement*.
+3. ❌ *Ça vaut la pena* ✅ *Ça vaut la peine*.
+4. Hablar sin estructura: el examen B2 valora la organización.
 
 ## Comparación con el español
-Algunas estructuras del francés pueden confundirse con las del español:
-- **Pronombres**: En francés, los pronombres de objeto indirecto (*me*, *te*, *le*, etc.) se usan más frecuentemente que en español. Ejemplo: *Je lui ai donné le livre* (Se lo di el libro).
-- **Tiempo futuro**: Mientras en español se usa un verbo auxiliar (*ir + infinitivo*), en francés se emplea una forma conjugada: *Je partirai demain* (Saldré mañana).
-- **Verbos irregulares**: Algunos verbos como *avoir* (tener) o *être* (ser) tienen conjugaciones que no siguen patrones del español.
+Los recursos argumentativos son equivalentes. La dificultad está en el subjuntivo tras expresiones de duda y en conectores formales (*cependant, par ailleurs*).
 
 ## Ejemplo extendido en contexto
-**Situación**: Dos amigos planifican un viaje a París.
-
-**Dialogue**:
-**Ana**: Bonjour Marc, j’ai pensé à notre voyage à Paris. Tu penses qu’on devrait réserver les billets de train maintenant ?
-**Marc**: Salut Ana ! Oui, je crois que c’est une bonne idée. Si on attend trop longtemps, les prix vont augmenter. Et puis, il faut aussi choisir un hôtel pas cher mais confortable.
-**Ana**: Tu as raison. Je vais vérifier les disponibilités sur Internet. Et pour la visite du Louvre, tu veux aller le matin ou l’après-midi ?
-**Marc**: Le matin, je pense. Il y aura moins de monde et on pourra admirer les tableaux plus tranquillement.
-
-Este diálogo muestra el uso del **futur proche** (*vont augmenter*), el **conditionnel** (*je veux*), y la cohesión mediante conectores como *et puis*, *par ailleurs*. También se aplica un vocabulario específico (hôtels, billets de train) y una estructura clara para expresar planes futuros.
+*« **Je voudrais aborder** la question du télétravail. **D'un côté**, il permet d'éviter les transports ; **de l'autre**, il peut isoler les salariés. **Certes**, beaucoup d'employés sont plus productifs chez eux, **mais je doute que** ce **soit** le cas pour tous. **En fin de compte**, la solution serait un modèle hybride. »*

@@ -1,451 +1,216 @@
-# Idiomas — Francés — writing-a2 (cuestionario)
+# Francés — writing A2 (cuestionario, 11 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/frances/writing-a2/cuestionario_crudo.md`)
-> con una corrección de contenido: los 25 bloques carecían de `enunciado:`; se redactó una
-> oración con hueco para cada uno, coherente con el verbo o el complemento de objeto directo ya
-> indicado en `pasos:`/`explicacion:`.
+> Tema: `idiomas-extranjeros/frances/writing-a2`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Accord du participe passé  
-```yaml
+### 1 — Saludo fem.
+
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "writing-a2"
   nivel: "A2"
-  tags: ["participe passé", "accord"]
-pasos:
-  - "Completez le vide avec la forme correcte du participe passé."
-explicacion: "Le participe passé s'accorde en genre et en nombre avec le complément d'objet direct placé avant le verbe. Ici, 'le livre' est masculin singulier, donc 'lu'."
-enunciado: "Voici le livre que j'ai ___."
-respuesta: "lu"
-respuestas_validas:
-  - "lu"
-  - "Lu"
+  tags: ["writing", "A2"]
+
+respuesta: "Chère Julie,"
+tipo: "mc"
+opciones_explicitas: ["Chère Julie,", "Cher Julie,", "Querida Julie,"]
+
+enunciado: "Para empezar un correo a una amiga llamada Julie:"
+
+explicacion: |
+  *Chère* (fem.).
 ```
 
-### 2 — Présent de l’indicatif  
-```yaml
+### 2 — Saludo masc.
+
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "writing-a2"
   nivel: "A2"
-  tags: ["verbes réguliers", "présent"]
-pasos:
-  - "Choisissez la bonne forme du verbe 'manger' au présent."
-enunciado: "Il ___ une pomme."
-tipo: mc
-opciones_explicitas:
-  - "mangeons"
-  - "manges"
-  - "mange"
-respuesta: "mange"
+  tags: ["writing", "A2"]
+
+respuesta: "Cher Paul,"
+tipo: "mc"
+opciones_explicitas: ["Cher Paul,", "Chère Paul,", "Chers Paul,"]
+
+enunciado: "Para empezar un correo a un amigo llamado Paul:"
+
+explicacion: |
+  *Cher* (masc.).
 ```
 
-### 3 — Présent de l’indicatif  
-```yaml
+### 3 — Cierre
+
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "writing-a2"
   nivel: "A2"
-  tags: ["verbes réguliers", "présent"]
-pasos:
-  - "Choisissez la bonne forme du verbe 'parler' au présent."
-enunciado: "Il ___ français."
-tipo: mc
-opciones_explicitas:
-  - "parle"
-  - "parlons"
-  - "parles"
-respuesta: "parle"
+  tags: ["writing", "A2"]
+
+respuesta: "Grosses bises,"
+tipo: "mc"
+opciones_explicitas: ["Grosses bises,", "Salutations distinguées,", "Cordialement vôtre,"]
+
+enunciado: "Cierre adecuado para un amigo:"
+
+explicacion: |
+  Cierre informal.
 ```
 
-### 4 — Présent de l’indicatif  
-```yaml
+### 4 — à / a
+
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "writing-a2"
   nivel: "A2"
-  tags: ["verbes réguliers", "présent"]
-pasos:
-  - "Choisissez la bonne forme du verbe 'étudier' au présent."
-enunciado: "Il ___ le français."
-tipo: mc
-opciones_explicitas:
-  - "étudie"
-  - "étudions"
-  - "étudies"
-respuesta: "étudie"
+  tags: ["writing", "A2"]
+
+respuesta: "à"
+tipo: "mc"
+opciones_explicitas: ["à", "a", "á"]
+
+enunciado: "Je suis allée ___ Marseille."
+
+explicacion: |
+  Preposición: *à*.
 ```
 
-### 5 — Accord du participe passé  
-```yaml
+### 5 — où / ou
+
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "writing-a2"
   nivel: "A2"
-  tags: ["participe passé", "accord"]
-pasos:
-  - "Completez le vide avec la forme correcte du participe passé."
-explicacion: "Le complément d'objet direct 'les lettres' est féminin pluriel, donc 'écrites'."
-enunciado: "Voici les lettres que j'ai ___."
-respuesta: "écrites"
-respuestas_validas:
-  - "écrites"
-  - "Écrites"
+  tags: ["writing", "A2"]
+
+respuesta: "ou"
+tipo: "mc"
+opciones_explicitas: ["ou", "où", "oú"]
+
+enunciado: "Tu préfères le thé ___ le café ?"
+
+explicacion: |
+  *Ou* = o.
 ```
 
-### 6 — Présent de l’indicatif  
-```yaml
+### 6 — Ortografía
+
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "writing-a2"
   nivel: "A2"
-  tags: ["verbes réguliers", "présent"]
-pasos:
-  - "Choisissez la bonne forme du verbe 'aimer' au présent."
-enunciado: "Il ___ le chocolat."
-tipo: mc
-opciones_explicitas:
-  - "aime"
-  - "aimons"
-  - "aimes"
-respuesta: "aime"
+  tags: ["writing", "A2"]
+
+respuesta: "aujourd'hui"
+tipo: "mc"
+opciones_explicitas: ["aujourd'hui", "aujourdhui", "aujour d'hui"]
+
+enunciado: "¿Cuál está bien escrita?"
+
+explicacion: |
+  *Aujourd'hui*.
 ```
 
-### 7 — Présent de l’indicatif  
-```yaml
+### 7 — Puntuación
+
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "writing-a2"
   nivel: "A2"
-  tags: ["verbes réguliers", "présent"]
-pasos:
-  - "Choisissez la bonne forme du verbe 'habiter' au présent."
-enunciado: "Il ___ à Paris."
-tipo: mc
-opciones_explicitas:
-  - "habite"
-  - "habitons"
-  - "habites"
-respuesta: "habite"
+  tags: ["writing", "A2"]
+
+respuesta: "Ça va ?"
+tipo: "mc"
+opciones_explicitas: ["Ça va ?", "¿Ça va?", "Ça va?"]
+
+enunciado: "En francés de Francia, ¿cuál es la puntuación correcta?"
+
+explicacion: |
+  Espacio antes de *?*, sin signo de apertura.
 ```
 
-### 8 — Présent de l’indicatif  
-```yaml
+### 8 — Pasado
+
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "writing-a2"
   nivel: "A2"
-  tags: ["verbes réguliers", "présent"]
-pasos:
-  - "Choisissez la bonne forme du verbe 'travailler' au présent."
-enunciado: "Il ___ beaucoup."
-tipo: mc
-opciones_explicitas:
-  - "travaille"
-  - "travailons"
-  - "travaillent"
-respuesta: "travaille"
+  tags: ["writing", "A2"]
+
+respuesta: "avons visité"
+tipo: "mc"
+opciones_explicitas: ["avons visité", "visitons", "sommes visité"]
+
+enunciado: "Hier, nous ___ le Vieux-Port."
+
+explicacion: |
+  *Passé composé* con *avoir*.
 ```
 
-### 9 — Présent de l’indicatif  
-```yaml
+### 9 — Plan
+
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "writing-a2"
   nivel: "A2"
-  tags: ["verbes réguliers", "présent"]
-pasos:
-  - "Choisissez la bonne forme du verbe 'aller' au présent."
-enunciado: "Il ___ à l'école."
-tipo: mc
-opciones_explicitas:
-  - "va"
-  - "allons"
-  - "vas"
+  tags: ["writing", "A2"]
+
 respuesta: "va"
+tipo: "mc"
+opciones_explicitas: ["va", "allons", "vas"]
+
+enunciado: "Demain, on ___ faire une excursion."
+
+explicacion: |
+  *On va*.
 ```
 
-### 10 — Accord du participe passé  
-```yaml
+### 10 — Motivo
+
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "writing-a2"
   nivel: "A2"
-  tags: ["participe passé", "accord"]
-pasos:
-  - "Completez le vide avec la forme correcte du participe passé."
-explicacion: "Le complément d'objet direct 'le chien' est masculin singulier, donc 'perdu'."
-enunciado: "Voici le chien que j'ai ___."
-respuesta: "perdu"
-respuestas_validas:
-  - "perdu"
-  - "Perdu"
+  tags: ["writing", "A2"]
+
+respuesta: "Je t'écris pour te dire que…"
+tipo: "mc"
+opciones_explicitas: ["Je t'écris pour te dire que…", "Je t'écris pour dire te que…", "Je te écris pour dire que…"]
+
+enunciado: "Para explicar el motivo del correo:"
+
+explicacion: |
+  Fórmula habitual.
 ```
 
-### 11 — Présent de l’indicatif  
-```yaml
+### 11 — Conector
+
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "writing-a2"
   nivel: "A2"
-  tags: ["verbes réguliers", "présent"]
-pasos:
-  - "Choisissez la bonne forme du verbe 'dormir' au présent."
-enunciado: "Il ___ huit heures par nuit."
-tipo: mc
-opciones_explicitas:
-  - "dort"
-  - "dormons"
-  - "dors"
-respuesta: "dort"
-```
+  tags: ["writing", "A2"]
 
-### 12 — Présent de l’indicatif  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "writing-a2"
-  nivel: "A2"
-  tags: ["verbes réguliers", "présent"]
-pasos:
-  - "Choisissez la bonne forme du verbe 'marcher' au présent."
-enunciado: "Il ___ vite."
-tipo: mc
-opciones_explicitas:
-  - "marche"
-  - "marchons"
-  - "marches"
-respuesta: "marche"
-```
+respuesta: "alors"
+tipo: "mc"
+opciones_explicitas: ["alors", "mais", "parce que"]
 
-### 13 — Présent de l’indicatif  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "writing-a2"
-  nivel: "A2"
-  tags: ["verbes réguliers", "présent"]
-pasos:
-  - "Choisissez la bonne forme du verbe 'écouter' au présent."
-enunciado: "Il ___ de la musique."
-tipo: mc
-opciones_explicitas:
-  - "écoute"
-  - "écoutons"
-  - "écoutes"
-respuesta: "écoute"
-```
+enunciado: "Il fait beau, ___ on va à la plage."
 
-### 14 — Accord du participe passé  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "writing-a2"
-  nivel: "A2"
-  tags: ["participe passé", "accord"]
-pasos:
-  - "Completez le vide avec la forme correcte du participe passé."
-explicacion: "Le complément d'objet direct 'les livres' est masculin pluriel, donc 'lus'."
-enunciado: "Voici les livres que j'ai ___."
-respuesta: "lus"
-respuestas_validas:
-  - "lus"
-  - "Lus"
-```
-
-### 15 — Présent de l’indicatif  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "writing-a2"
-  nivel: "A2"
-  tags: ["verbes réguliers", "présent"]
-pasos:
-  - "Choisissez la bonne forme du verbe 'finir' au présent."
-enunciado: "Il ___ son travail."
-tipo: mc
-opciones_explicitas:
-  - "finit"
-  - "finissons"
-  - "finis"
-respuesta: "finit"
-```
-
-### 16 — Présent de l’indicatif  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "writing-a2"
-  nivel: "A2"
-  tags: ["verbes réguliers", "présent"]
-pasos:
-  - "Choisissez la bonne forme du verbe 'prendre' au présent."
-enunciado: "Il ___ le bus."
-tipo: mc
-opciones_explicitas:
-  - "prend"
-  - "prenons"
-  - "prends"
-respuesta: "prend"
-```
-
-### 17 — Présent de l’indicatif  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "writing-a2"
-  nivel: "A2"
-  tags: ["verbes réguliers", "présent"]
-pasos:
-  - "Choisissez la bonne forme du verbe 'voir' au présent."
-enunciado: "Il ___ un film."
-tipo: mc
-opciones_explicitas:
-  - "voit"
-  - "voyons"
-  - "vois"
-respuesta: "voit"
-```
-
-### 18 — Accord du participe passé  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "writing-a2"
-  nivel: "A2"
-  tags: ["participe passé", "accord"]
-pasos:
-  - "Completez le vide avec la forme correcte du participe passé."
-explicacion: "Le complément d'objet direct 'la pomme' est féminin singulier, donc 'mangée'."
-enunciado: "Voici la pomme que j'ai ___."
-respuesta: "mangée"
-respuestas_validas:
-  - "mangée"
-  - "Mangée"
-```
-
-### 19 — Présent de l’indicatif  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "writing-a2"
-  nivel: "A2"
-  tags: ["verbes réguliers", "présent"]
-pasos:
-  - "Choisissez la bonne forme du verbe 'aller' au présent."
-enunciado: "Il ___ au marché."
-tipo: mc
-opciones_explicitas:
-  - "va"
-  - "allons"
-  - "vas"
-respuesta: "va"
-```
-
-### 20 — Présent de l’indicatif  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "writing-a2"
-  nivel: "A2"
-  tags: ["verbes réguliers", "présent"]
-pasos:
-  - "Choisissez la bonne forme du verbe 'donner' au présent."
-enunciado: "Il ___ un cadeau."
-tipo: mc
-opciones_explicitas:
-  - "donne"
-  - "donnons"
-  - "donnes"
-respuesta: "donne"
-```
-
-### 21 — Accord du participe passé  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "writing-a2"
-  nivel: "A2"
-  tags: ["participe passé", "accord"]
-pasos:
-  - "Completez le vide avec la forme correcte du participe passé."
-explicacion: "Le complément d'objet direct 'les fleurs' est féminin pluriel, donc 'offertes'."
-enunciado: "Voici les fleurs que j'ai ___."
-respuesta: "offertes"
-respuestas_validas:
-  - "offertes"
-  - "Offertes"
-```
-
-### 22 — Présent de l’indicatif  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "writing-a2"
-  nivel: "A2"
-  tags: ["verbes réguliers", "présent"]
-pasos:
-  - "Choisissez la bonne forme du verbe 'croire' au présent."
-enunciado: "Il ___ cette histoire."
-tipo: mc
-opciones_explicitas:
-  - "croit"
-  - "croyons"
-  - "crois"
-respuesta: "croit"
-```
-
-### 23 — Présent de l’indicatif  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "writing-a2"
-  nivel: "A2"
-  tags: ["verbes réguliers", "présent"]
-pasos:
-  - "Choisissez la bonne forme du verbe 'oublier' au présent."
-enunciado: "Il ___ souvent son parapluie."
-tipo: mc
-opciones_explicitas:
-  - "oublie"
-  - "oublions"
-  - "oublies"
-respuesta: "oublie"
-```
-
-### 24 — Accord du participe passé  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "writing-a2"
-  nivel: "A2"
-  tags: ["participe passé", "accord"]
-pasos:
-  - "Completez le vide avec la forme correcte du participe passé."
-explicacion: "Le complément d'objet direct 'le chat' est masculin singulier, donc 'perdu'."
-enunciado: "Voici le chat que j'ai ___."
-respuesta: "perdu"
-respuestas_validas:
-  - "perdu"
-  - "Perdu"
-```
-
-### 25 — Présent de l’indicatif  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "writing-a2"
-  nivel: "A2"
-  tags: ["verbes réguliers", "présent"]
-pasos:
-  - "Choisissez la bonne forme du verbe 'finir' au présent."
-enunciado: "Il ___ ses devoirs."
-tipo: mc
-opciones_explicitas:
-  - "finit"
-  - "finissons"
-  - "finis"
-respuesta: "finit"
+explicacion: |
+  Consecuencia: *alors*.
 ```

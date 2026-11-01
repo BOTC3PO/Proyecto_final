@@ -1,408 +1,253 @@
-# Idiomas — Francés — pronombres-relativos-qui-que-ou (cuestionario)
+# Francés — relativos qui, que, où (cuestionario, 13 preguntas VBLang)
 
-> Promovido desde el borrador
-> (`../../../_borradores-gemma/idiomas-extranjeros/frances/pronombres-relativos-qui-que-ou/cuestionario_crudo.md`)
-> con correcciones de contenido: trece bloques de opción múltiple carecían de `enunciado:` (sus
-> `opciones_explicitas:` ya eran oraciones completas); se generó una pregunta de contexto según
-> el pronombre relativo que cada bloque evalúa realmente (`qui`, `que` u `où`). Al generarlas se
-> detectó que dos bloques (1 y 3) tenían las etiquetas mezcladas o apuntando a "qui"/"sujeto"
-> aunque su respuesta correcta usa "que" (objeto directo); se corrigieron las etiquetas y la
-> pregunta generada para reflejar el pronombre realmente evaluado.
+> Tema: `idiomas-extranjeros/frances/pronombres-relativos-qui-que-ou`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Pronoms relatifs 1
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "pronombres-relativos-qui-que-ou"
-  nivel: "B1"
-  tags: ["pronoms relatifs"]
-tipo: completar
-respuestas_validas:
-  - "qui"
-  - "Qui"
-enunciado: "La femme ___ habite ici est médecin."
-explicacion: "« Qui » sujeto del verbo \"habite\"."
-```
+### 1 — qui
 
-### 2 — Pronoms relatifs 2
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "pronombres-relativos-qui-que-ou"
   nivel: "B1"
-  tags: ["pronoms relatifs"]
-tipo: completar
-respuestas_validas:
-  - "que"
-  - "Que"
-enunciado: "Le livre ___ je lis est passionnant."
-explicacion: "« Que » complemento directo de \"lis\"."
-```
+  tags: ["relativos"]
 
-### 3 — Pronoms relatifs 3
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "pronombres-relativos-qui-que-ou"
-  nivel: "B1"
-  tags: ["pronoms relatifs"]
-tipo: completar
-respuestas_validas:
-  - "où"
-  - "Où"
-enunciado: "La ville ___ je suis né est très belle."
-explicacion: "« Où » indica lugar."
-```
-
-### 4 — Pronoms relatifs 4
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "pronombres-relativos-qui-que-ou"
-  nivel: "B1"
-  tags: ["pronoms relatifs"]
-tipo: mc
-opciones_explicitas:
-  - "que"
-  - "qui"
-  - "où"
-  - "dont"
-respuesta: "que"
-enunciado: "Complétez : « Le film ___ nous avons vu hier était drôle. »"
-explicacion: "« Que » es el CD de \"avons vu\"."
-```
-
-### 5 — Pronoms relatifs 5
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "pronombres-relativos-qui-que-ou"
-  nivel: "B1"
-  tags: ["pronoms relatifs"]
-tipo: mc
-opciones_explicitas:
-  - "qui"
-  - "que"
-  - "où"
-  - "quoi"
 respuesta: "qui"
-enunciado: "Complétez : « L'homme ___ parle est mon voisin. »"
-explicacion: "« Qui » es sujeto de \"parle\"."
+tipo: "mc"
+opciones_explicitas: ["qui", "que", "où"]
+
+enunciado: "L'homme ___ parle est mon père."
+
+explicacion: |
+  Sigue un verbo: *qui*.
 ```
 
-### 6 — Pronoms relatifs 6
+### 2 — que
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "pronombres-relativos-qui-que-ou"
   nivel: "B1"
-  tags: ["pronoms relatifs"]
-tipo: completar
-respuestas_validas:
-  - "où"
-  - "Où"
-enunciado: "Le jour ___ nous nous sommes rencontrés était un lundi."
-explicacion: "« Où » también expresa tiempo."
-```
+  tags: ["relativos"]
 
-### 7 — Pronoms relatifs 7
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "pronombres-relativos-qui-que-ou"
-  nivel: "B1"
-  tags: ["pronoms relatifs"]
-tipo: mc
-opciones_explicitas:
-  - "que"
-  - "qui"
-  - "où"
-  - "dont"
 respuesta: "que"
-enunciado: "Quel pronom remplace le COD ?"
-explicacion: "« Que » sustituye al complemento directo."
+tipo: "mc"
+opciones_explicitas: ["que", "qui", "dont"]
+
+enunciado: "Le film ___ je regarde est drôle."
+
+explicacion: |
+  Sigue un sujeto: *que*.
 ```
 
-### 8 — Pronoms relatifs 8
+### 3 — qu'
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "pronombres-relativos-qui-que-ou"
   nivel: "B1"
-  tags: ["pronoms relatifs"]
-tipo: completar
-respuestas_validas:
-  - "qui"
-  - "Qui"
-enunciado: "C'est le professeur ___ m'a aidé."
-explicacion: "El antecedente es el sujeto de \"a aidé\"."
-```
+  tags: ["relativos"]
 
-### 9 — Pronoms relatifs 9
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "pronombres-relativos-qui-que-ou"
-  nivel: "B1"
-  tags: ["pronoms relatifs"]
-tipo: mc
-opciones_explicitas:
-  - "qu'"
-  - "qui"
-  - "où"
-  - "dont"
 respuesta: "qu'"
-enunciado: "Complétez : « La robe ___ elle porte est rouge. »"
-explicacion: "« Que » se elide ante vocal: qu'elle."
+tipo: "mc"
+opciones_explicitas: ["qu'", "qui", "que"]
+
+enunciado: "La fille ___ il aime s'appelle Léa."
+
+explicacion: |
+  *Que* + vocal: *qu'*.
 ```
 
-### 10 — Pronoms relatifs 10
+### 4 — où lugar
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "pronombres-relativos-qui-que-ou"
   nivel: "B1"
-  tags: ["pronoms relatifs"]
-tipo: completar
-respuestas_validas:
-  - "où"
-  - "Où"
-enunciado: "La maison ___ nous habitons est vieille."
-explicacion: "« Où » = en la que."
+  tags: ["relativos"]
+
+respuesta: "où"
+tipo: "mc"
+opciones_explicitas: ["où", "que", "qui"]
+
+enunciado: "La ville ___ j'habite est petite."
+
+explicacion: |
+  Lugar: *où*.
 ```
 
-### 11 — Pronoms relatifs 11
+### 5 — où tiempo
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "pronombres-relativos-qui-que-ou"
   nivel: "B1"
-  tags: ["pronoms relatifs"]
-tipo: mc
-opciones_explicitas:
-  - "Le livre que tu m'as prêté est très bon."
-  - "Le livre qui tu m'as prêté est très bon."
-  - "Le livre où tu m'as prêté est très bon."
-  - "Le livre dont tu m'as prêté est très bon."
-respuesta: "Le livre que tu m'as prêté est très bon."
-enunciado: "Choisissez la phrase correcte :"
-explicacion: "« Que » es el CD de \"as prêté\"."
+  tags: ["relativos"]
+
+respuesta: "où"
+tipo: "mc"
+opciones_explicitas: ["où", "que", "quand"]
+
+enunciado: "Le jour ___ je suis né, il neigeait."
+
+explicacion: |
+  Tiempo: *où*.
 ```
 
-### 12 — Pronoms relatifs 12
+### 6 — dont
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "pronombres-relativos-qui-que-ou"
   nivel: "B1"
-  tags: ["pronoms relatifs"]
-tipo: completar
-respuestas_validas:
-  - "qui"
-  - "Qui"
-enunciado: "Les amis ___ viennent ce soir sont français."
-explicacion: "« Qui » sujeto de \"viennent\"."
+  tags: ["relativos"]
+
+respuesta: "dont"
+tipo: "mc"
+opciones_explicitas: ["dont", "que", "où"]
+
+enunciado: "C'est le livre ___ je t'ai parlé."
+
+explicacion: |
+  *Parler de* → *dont*.
 ```
 
-### 13 — Pronoms relatifs 13
+### 7 — qui cosa
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "pronombres-relativos-qui-que-ou"
   nivel: "B1"
-  tags: ["pronoms relatifs"]
-tipo: mc
-opciones_explicitas:
-  - "qui"
-  - "que"
-  - "où"
-  - "dont"
+  tags: ["relativos"]
+
 respuesta: "qui"
-enunciado: "Complétez : « Je connais une boulangerie ___ vend des croissants excellents. »"
-explicacion: "« Qui » sujeto de \"vend\"."
+tipo: "mc"
+opciones_explicitas: ["qui", "qu'", "que"]
+
+enunciado: "Le bus ___ arrive va à la gare."
+
+explicacion: |
+  *Qui* sujeto (también cosas).
 ```
 
-### 14 — Pronoms relatifs 14
+### 8 — ce que
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "pronombres-relativos-qui-que-ou"
   nivel: "B1"
-  tags: ["pronoms relatifs"]
-tipo: completar
-respuestas_validas:
-  - "que"
-  - "Que"
-enunciado: "L'étudiant ___ j'ai rencontré est très sympathique."
-explicacion: "« Que » CD de \"ai rencontré\"."
+  tags: ["relativos"]
+
+respuesta: "ce que"
+tipo: "mc"
+opciones_explicitas: ["ce que", "que", "ce qui"]
+
+enunciado: "Dis-moi ___ tu veux."
+
+explicacion: |
+  «Lo que» objeto: *ce que*.
 ```
 
-### 15 — Pronoms relatifs 15
+### 9 — ce qui
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "pronombres-relativos-qui-que-ou"
   nivel: "B1"
-  tags: ["pronoms relatifs"]
-tipo: mc
-opciones_explicitas:
-  - "où"
-  - "qui"
-  - "que"
-  - "dont"
-respuesta: "où"
-enunciado: "Complétez : « L'année ___ il est arrivé, il neigeait. »"
-explicacion: "« Où » con expresiones de tiempo."
+  tags: ["relativos"]
+
+respuesta: "Ce qui"
+tipo: "mc"
+opciones_explicitas: ["Ce qui", "Ce que", "Qui"]
+
+enunciado: "___ me plaît, c'est la mer."
+
+explicacion: |
+  «Lo que» sujeto: *ce qui*.
 ```
 
-### 16 — Pronoms relatifs 16
+### 10 — Concordancia
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "pronombres-relativos-qui-que-ou"
   nivel: "B1"
-  tags: ["pronoms relatifs"]
-tipo: mc
-opciones_explicitas:
-  - "La fille qui je vois est ma cousine."
-  - "La fille que je vois est ma cousine."
-  - "La fille qui parle est ma cousine."
-  - "La fille que j'aime est ma cousine."
-respuesta: "La fille qui je vois est ma cousine."
-enunciado: "Quelle phrase est incorrecte ?"
-explicacion: "\"Je vois\" necesita CD: que."
+  tags: ["relativos"]
+
+respuesta: "ai"
+tipo: "mc"
+opciones_explicitas: ["ai", "a", "as"]
+
+enunciado: "C'est moi qui ___ raison."
+
+explicacion: |
+  Concuerda con *moi*.
 ```
 
-### 17 — Pronoms relatifs 17
+### 11 — Participio
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "pronombres-relativos-qui-que-ou"
   nivel: "B1"
-  tags: ["pronoms relatifs"]
-tipo: completar
-respuestas_validas:
-  - "où"
-  - "Où"
-enunciado: "Voici le restaurant ___ nous avons dîné."
-explicacion: "Lugar: où."
+  tags: ["relativos"]
+
+respuesta: "prises"
+tipo: "mc"
+opciones_explicitas: ["prises", "pris", "prisent"]
+
+enunciado: "Les photos que j'ai ___ sont belles."
+
+explicacion: |
+  COD antepuesto fem. pl.
 ```
 
-### 18 — Pronoms relatifs 18
+### 12 — dont cuyo
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "pronombres-relativos-qui-que-ou"
   nivel: "B1"
-  tags: ["pronoms relatifs"]
-tipo: mc
-opciones_explicitas:
-  - "le chien (sujet)"
-  - "le chien (COD)"
-  - "un lieu"
-  - "un temps"
-respuesta: "le chien (sujet)"
-enunciado: "Dans « Le chien qui aboie est à moi », « qui » remplace :"
-explicacion: "« Qui » sustituye al sujeto."
+  tags: ["relativos"]
+
+respuesta: "dont"
+tipo: "mc"
+opciones_explicitas: ["dont", "qui", "que"]
+
+enunciado: "J'ai un ami ___ le père est pilote."
+
+explicacion: |
+  «Cuyo»: *dont*.
 ```
 
-### 19 — Pronoms relatifs 19
+### 13 — Error típico
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "pronombres-relativos-qui-que-ou"
   nivel: "B1"
-  tags: ["pronoms relatifs"]
-tipo: completar
-respuestas_validas:
-  - "qu'"
-  - "Qu'"
-enunciado: "Le cadeau ___ elle m'a offert est magnifique."
-explicacion: "« Que » ante vocal: qu'elle."
-```
+  tags: ["relativos"]
 
-### 20 — Pronoms relatifs 20
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "pronombres-relativos-qui-que-ou"
-  nivel: "B1"
-  tags: ["pronoms relatifs"]
-tipo: mc
-opciones_explicitas:
-  - "où"
-  - "qui"
-  - "que"
-  - "dont"
-respuesta: "où"
-enunciado: "Complétez : « La rue ___ passe le tramway est bruyante. »"
-explicacion: "« Où » = por la que (lugar)."
-```
+respuesta: falso
+tipo: vf
 
-### 21 — Pronoms relatifs 21
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "pronombres-relativos-qui-que-ou"
-  nivel: "B1"
-  tags: ["pronoms relatifs"]
-tipo: completar
-respuestas_validas:
-  - "qui"
-  - "Qui"
-enunciado: "Ce sont des enfants ___ aiment lire."
-explicacion: "« Qui » sujeto de \"aiment\"."
-```
+enunciado: "«La maison que j'habite» es correcta."
 
-### 22 — Pronoms relatifs 22
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "pronombres-relativos-qui-que-ou"
-  nivel: "B1"
-  tags: ["pronoms relatifs"]
-tipo: mc
-opciones_explicitas:
-  - "que"
-  - "qui"
-  - "où"
-  - "quoi"
-respuesta: "que"
-enunciado: "« Le pull ___ j'ai acheté est trop grand. » Quelle réponse est correcte ?"
-explicacion: "CD de \"ai acheté\"."
-```
-
-### 23 — Pronoms relatifs 23
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "pronombres-relativos-qui-que-ou"
-  nivel: "B1"
-  tags: ["pronoms relatifs"]
-tipo: completar
-respuestas_validas:
-  - "que"
-  - "Que"
-enunciado: "Le café ___ je prends chaque matin est fort."
-explicacion: "« Que » CD de \"prends\"."
-```
-
-### 24 — Pronoms relatifs 24
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "pronombres-relativos-qui-que-ou"
-  nivel: "B1"
-  tags: ["pronoms relatifs"]
-tipo: mc
-opciones_explicitas:
-  - "où"
-  - "qui"
-  - "que"
-  - "dont"
-respuesta: "où"
-enunciado: "Complétez : « Elle habite dans un quartier ___ il y a beaucoup de parcs. »"
-explicacion: "« Où » con lugar."
+explicacion: |
+  Falso: *où j'habite*.
 ```

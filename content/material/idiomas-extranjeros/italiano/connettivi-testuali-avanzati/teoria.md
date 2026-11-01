@@ -1,57 +1,53 @@
-# Conectivos textuales avanzados en italiano (nivel C1)
+# Conectores textuales avanzados en italiano (C1)
 
 > Tema del MAPA: `idiomas-extranjeros/italiano/connettivi-testuali-avanzati`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y comparaciones falsas con el español.
 
 ---
 
 ## Introducción
-Los conectivos textuales avanzados son herramientas clave para estructurar discursos complejos, conectar ideas de manera coherente y expresar relaciones lógicas sutiles. En el nivel C1 del Marco Común Europeo de Referencia para las Lenguas (MCER), su dominio permite al hablante crear textos elaborados, argumentativos o narrativos con precisión y naturalidad. A diferencia de los conectivos básicos (como *ma*, *però* o *poi*), estos elementos permiten expresar relaciones causales, temporales, condicionales o consecutivas con matices específicos, esenciales para el intercambio académico, profesional o discursivo avanzado.
+En C1 se espera un texto que **encadene ideas con precisión**. Los conectores (*connettivi*) marcan la relación lógica, y cada uno pide una construcción: indicativo, congiuntivo, infinitivo o sustantivo.
 
 ## Explicación central
-Los conectivos textuales en italiano se clasifican según la relación que establecen entre oraciones: causal, temporal, condicional, consecutiva, concesiva y final. A continuación, ejemplos reales de cada tipo:
+### Causa
+***poiché, dal momento che, dato che, visto che, siccome*** (al inicio) + indicativo; ***in quanto*** (en tanto que); ***a causa di, per via di, grazie a*** + sustantivo.
 
-- **Causal**: *Perché* (porque), *Poiché* (ya que).
-  - Ejemplo: *Perché non hai risposto al telefono?* (¿Por qué no respondiste al teléfono?)
-  - *Poiché era tardi, abbiamo deciso di andare a casa.* (Ya que era tarde, decidimos irnos a casa.)
+### Consecuencia
+***quindi, dunque, pertanto, perciò, di conseguenza, sicché, cosicché***; ***talmente / così… che***.
 
-- **Temporal**: *Mentre* (mientras), *Quando* (cuando).
-  - Ejemplo: *Mentre guardavo la TV, è arrivata una lettera.* (Mientras miraba la televisión, llegó una carta.)
-  - *Quando ho visto il film, mi sono commosso.* (Cuando vi la película, me conmoví.)
+### Oposición y concesión
+- ***tuttavia, eppure, ciononostante, nondimeno*** (sin embargo).
+- ***invece, al contrario, mentre*** (oposición): *Lui lavora, **mentre** lei studia.*
+- ***benché, sebbene, nonostante, malgrado (che)*** + **congiuntivo**: *Nonostante **piova**, usciamo.*
+- ***anche se*** + **indicativo**: *Anche se **piove**, usciamo.*
+- ***pur*** + gerundio: ***Pur essendo** stanco, continua.*
 
-- **Condicional**: *Se* (si), *In caso che* (en caso de que).
-  - Ejemplo: *Se avessi più tempo, andrei in vacanza.* (Si tuviera más tiempo, iría de vacaciones.)
-  - *In caso che piova, portiamo un ombrello.* (En caso de que llueva, llevemos un paraguas.)
+### Adición y precisión
+***inoltre, per di più, oltretutto, altresì*** (formal), ***non solo… ma anche***, ***ovvero, ossia, cioè*** (es decir), ***vale a dire***, ***in particolare, nella fattispecie*** (formal).
 
-- **Consecutiva**: *Così* (así), *Perciò* (por tanto).
-  - Ejemplo: *Non ho studiato abbastanza. Così non ho superato l’esame.* (No estudié suficiente. Así no pasé el examen.)
+### Finalidad
+***affinché, perché*** + congiuntivo; ***per, al fine di, allo scopo di*** + infinitivo.
 
-- **Concesiva**: *Benché* (aunque), *Pur se* (a pesar de que).
-  - Ejemplo: *Benché fosse stanco, è rimasto sveglio tutta la notte.* (Aunque estaba cansado, permaneció despierto toda la noche.)
+### Condición
+***purché, a patto che, a condizione che, qualora*** + congiuntivo; ***nel caso in cui*** + congiuntivo.
 
-- **Final**: *Affinché* (para que), *Per* (para).
-  - Ejemplo: *Studierò affinché possa passare l’esame.* (Estudiaré para poder pasar el examen.)
+### Conclusión
+***in conclusione, insomma, in definitiva, tutto sommato*** (después de todo).
 
 ## Errores comunes de hispanohablantes
-Los hablantes nativos de español suelen cometer errores al usar conectivos que tienen equivalencias parciales o distintas en italiano:
-
-1. **Confusión con preposiciones**: Usar *per* (para) como si fuera *por*, olvidando que *perché* (porque) es un conectivo causal y no una preposición.
-2. **Uso incorrecto de *benché***: En español, *aunque* se usa con subjuntivo, pero en italiano *benché* requiere el subjuntivo también (*benché fosse stanco*), algo que a veces se omite.
-3. **Substitución errónea**: Usar *però* (pero) para expresar contrastes donde *tuttavia* o *nonostante* serían más precisos.
+1. ❌ *Benché piove* ✅ *Benché piova*.
+2. ❌ *Anche se piova* ✅ *Anche se piove*.
+3. Usar *siccome* después de la principal: ✅ *Siccome era tardi, sono andato a casa* (*siccome* va al inicio).
+4. Confundir *ovvero* (= es decir, o sea) con «o».
+5. ❌ *Per di più che* ✅ *Per di più,*.
 
 ## Comparación con el español
-El italiano tiene conectivos específicos que no existen en español:
-- *Affinché* (para que): En español, se usa *para que* + subjuntivo, pero en italiano, *affinché* siempre va seguido de subjuntivo (*affinché io possa*).
-- *Pur se* (a pesar de que): En español, el equivalente es *aunque*, pero en italiano, *pur se* introduce una oración subordinada con subjuntivo.
-- *Poiché* (ya que): En español, *ya que* también tiene esta función, pero en italiano, *poiché* se usa más formalmente y suele ir al inicio de la oración (*Poiché era tardi...*).
+Muchos tienen equivalente directo (*tuttavia* = sin embargo, *dato che* = dado que). Como en español, «aunque» se divide: ***anche se*** + indicativo / ***benché*** + congiuntivo.
 
 ## Ejemplo extendido en contexto
-**Diálogo**:
-*A: Scusa, perché non sei venuto alla riunione ieri?* (Disculpa, ¿por qué no viniste a la reunión ayer?)
-*B: Benché avessi voluto partecipare, non ho potuto a causa di un imprevisto.* (Aunque quería participar, no pude debido a un imprevisto.)
-*A: Capisco. Affinché non accada più, ti prego di dirmelo in anticipo.* (Entiendo. Para que no vuelva a ocurrir, por favor dime con antelación.)
-
-Este intercambio muestra el uso de *benché* (concesiva), *affinché* (final) y la estructura causal implícita en *perché*. La precisión de estos conectivos permite una comunicación clara y elaborada.
+*Il lavoro da remoto offre vantaggi evidenti: **non solo** riduce gli spostamenti, **ma** permette **anche** una migliore organizzazione. **Tuttavia**, **sebbene** molti lo **apprezzino**, può isolare i dipendenti. **Pertanto**, le aziende dovrebbero adottare un modello ibrido, **ovvero** alternare ufficio e casa. **Tutto sommato**, si tratta di trovare un equilibrio.*

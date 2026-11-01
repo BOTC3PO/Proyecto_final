@@ -1,48 +1,50 @@
-# Plurales en italiano: reglas básicas (nivel A1-A2)
+# El plural en italiano (A1)
 
 > Tema del MAPA: `idiomas-extranjeros/italiano/plurales`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y comparaciones falsas con el español.
 
 ---
 
 ## Introducción
-El plural es una de las primeras destrezas gramaticales que se enseñan al aprender un idioma, y en el caso del italiano, su uso es fundamental para comunicarse correctamente. En los niveles A1-A2 del Marco Común Europeo de Referencia para las Lenguas (CEFR), los estudiantes aprenden a formar plurales de sustantivos comunes, lo que les permite describir cantidades mayores o referirse a más de un objeto. Este tema es clave porque el italiano tiene reglas específicas para la formación del plural, distintas de otras lenguas como el español.
+En italiano el plural se forma **cambiando la vocal final**, no agregando *-s*: *libro → libri, casa → case*.
 
 ## Explicación central
-La mayoría de los sustantivos en italiano tienen plurales regulares, que se forman añadiendo **-i** (para masculinos) o **-e** (para femeninos) al singular. Por ejemplo:
-- **libro → libri** ("libro" → "libros")
-- **casa → case** ("casa" → "casas")
+### Reglas básicas
+| Singular | Plural | Ejemplo |
+|---|---|---|
+| **-o** (masc.) | **-i** | *il libro → i libri* |
+| **-a** (fem.) | **-e** | *la casa → le case* |
+| **-e** (masc. o fem.) | **-i** | *il fiore → i fiori; la chiave → le chiavi* |
+| **-a** (masc., origen griego) | **-i** | *il problema → i problemi; il programma → i programmi* |
 
-No todos los sustantivos siguen esta regla, pero en el nivel A1-A2 se enfocan principalmente en los regulares. Además, es importante recordar que el artículo determinado cambia según el género y número:
-- **il libro** (singular masculino) → **i libri** (plural masculino)
-- **la casa** (singular femenino) → **le case** (plural femenino)
+### Invariables (no cambian)
+- Palabras con **acento final**: *la città → le città, il caffè → i caffè*.
+- Palabras **extranjeras**: *il bar → i bar, lo sport → gli sport, il computer → i computer*.
+- Palabras **abreviadas**: *la foto → le foto, la moto, il cinema → i cinema*.
+- Monosílabos: *il re → i re*.
+- Femeninas en **-i** y **-ie**: *la crisi → le crisi, la serie → le serie*.
 
-Algunos sustantivos tienen plurales irregulares, como **uomo → uomini** ("hombre" → "hombres") o **donna → donne** ("mujer" → "mujeres"), pero estos se enseñan en niveles más avanzados.
+### -co/-go, -ca/-ga
+- Femeninas **-ca/-ga → -che/-ghe** (mantienen el sonido duro): *l'amica → le amiche, la riga → le righe*.
+- Masculinas **-co/-go**: en general ***-chi/-ghi*** si el acento cae en la penúltima (*il gioco → i giochi, il lago → i laghi*), y ***-ci/-gi*** si cae antes (*il medico → i medici, l'amico → gli amici*, que es excepción).
+
+### Irregulares frecuentes
+*l'uomo → gli uomini, il dito → le dita, l'uovo → le uova, il braccio → le braccia, il paio → le paia*.
 
 ## Errores comunes de hispanohablantes
-Los hablantes nativos de español suelen cometer errores al aplicar las reglas del plural del español al italiano. Por ejemplo:
-- **libro → libros** (error: el plural italiano es *libri*, no *libros*)
-- **casa → casas** (error: en italiano se dice *case* con *e*, no *s*)
-
-Otro error frecuente es olvidar cambiar el artículo determinado. Por ejemplo, decir *"i case"* en lugar de *"le case"*. También puede surgir confusión al intentar aplicar la regla del plural femenino: en español se usan terminaciones como **-as** o **-es**, pero en italiano es **-e** para sustantivos femeninos.
+1. ❌ *le citte* ✅ *le città*.
+2. ❌ *i bars* ✅ *i bar*.
+3. ❌ *le amice* ✅ *le amiche*.
+4. ❌ *le probleme* ✅ *i problemi* (*problema* es masculino).
+5. ❌ *gli uomi* ✅ *gli uomini*.
 
 ## Comparación con el español
-Aunque ambas lenguas tienen plurales, las diferencias son claras:
-- En español, los plurales masculinos se forman añadiendo **-s/-es** (ej.: *libro → libros*), mientras que en italiano es **-i** (*libri*).
-- Los plurales femeninos en español suelen tener **-s/-es** o **-as** (ej.: *casa → casas*), pero en italiano se usa **-e** (*case*).
-- El artículo determinado también cambia: en español, el singular y plural masculino son *"el libro" / "los libros"*, mientras que en italiano es *"il libro" / "i libri"* (con *i* para plurales masculinos).
+El español agrega *-s/-es*; el italiano cambia la vocal. Las palabras extranjeras y las abreviadas no llevan plural visible en italiano («los bares» = *i bar*). *Il problema, il programma, il sistema* son masculinos como en español.
 
 ## Ejemplo extendido en contexto
-**Diálogo:**
-*Alessio:* Ciao, Maria! Hai visto **i libri** che ho comprato ieri?
-*Maria:* Sì, ma erano troppi. Perché hai preso **tante case**?
-*Alessio:* Non le ho prese io, sono di mio fratello. Comunque, **le case** sono belle.
-
-**Explicación:**
-- En "i libri" y "tante case", se usan los plurales correctos (*libri* con *i* para masculino plural; *case* con *e* para femenino plural).
-- El artículo *"le"* en "le case" se usa porque *case* es femenino plural.
-
-Este ejemplo refuerza cómo el uso del plural y los artículos cambia según el género y número, algo que debe practicarse constantemente para evitar errores comunes.
+*In centro ci sono tanti **bar**, due **cinema** e molte **librerie**. Le mie **amiche** prendono sempre tre **caffè** al giorno! I **bambini** giocano con i **giochi** nuovi e mangiano le **uova** di Pasqua.*

@@ -1,539 +1,253 @@
-# Idiomas — Portugués (Portugal) — presente-indicativo (cuestionario)
+# Portugués (Portugal) — presente del indicativo (cuestionario, 13 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/portugues-pt/presente-indicativo/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
+> Tema: `idiomas-extranjeros/portugues-pt/presente-indicativo`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Presente do indicativo  
+### 1 — Tu
+
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "presente-indicativo"
   nivel: "A1"
-  tags: ["ser", "eu"]
-pasos:
-  - "Identificar o sujeito da oração."
-  - "Aplicar a conjugação do verbo 'ser' no presente para o sujeito 'eu'."
-respuestas_validas:
-  - "sou"
-  - "Sou"
-tipo: completar
-enunciado: "Eu ___ estudante."
-explicacion: "O verbo 'ser' em primeira pessoa do singular no presente é 'sou'."
+  tags: ["presente"]
+
+respuesta: "falas"
+tipo: "mc"
+opciones_explicitas: ["falas", "fala", "falás"]
+
+enunciado: "Tu ___ português muito bem."
+
+explicacion: |
+  *Tu falas* (2.ª persona).
 ```
 
----
+### 2 — Regular -er
 
-### 2 — Presente do indicativo  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "presente-indicativo"
-  nivel: "A1"
-  tags: ["estar", "você"]
-pasos:
-  - "Identificar o sujeito da oração."
-  - "Aplicar a conjugação do verbo 'estar' no presente para o sujeito 'você'."
-opciones_explicitas:
-  - "está"
-  - "esta"
-  - "estou"
-  - "estais"
-respuesta: "está"
-tipo: mc
-enunciado: "Você ___ cansado hoje?"
-explicacion: "O verbo 'estar' em segunda pessoa do singular no presente é 'está'."
-```
-
----
-
-### 3 — Presente do indicativo  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "presente-indicativo"
   nivel: "A1"
-  tags: ["ter", "nós"]
-pasos:
-  - "Identificar o sujeito da oração."
-  - "Aplicar a conjugação do verbo 'ter' no presente para o sujeito 'nós'."
-respuestas_validas:
-  - "temos"
-  - "Temos"
-tipo: completar
-enunciado: "Nós ___ um livro."
-explicacion: "O verbo 'ter' em primeira pessoa do plural no presente é 'temos'."
+  tags: ["presente"]
+
+respuesta: "comemos"
+tipo: "mc"
+opciones_explicitas: ["comemos", "comimos", "comem"]
+
+enunciado: "Nós ___ peixe todas as sextas."
+
+explicacion: |
+  *Nós comemos*.
 ```
 
----
+### 3 — ter
 
-### 4 — Presente do indicativo  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "presente-indicativo"
-  nivel: "A1"
-  tags: ["ir", "eles"]
-pasos:
-  - "Identificar o sujeito da oração."
-  - "Aplicar a conjugação do verbo 'ir' no presente para o sujeito 'eles'."
-opciones_explicitas:
-  - "vão"
-  - "va"
-  - "vem"
-  - "vamos"
-respuesta: "vão"
-tipo: mc
-enunciado: "Eles ___ ao cinema hoje à noite."
-explicacion: "O verbo 'ir' em terceira pessoa do plural no presente é 'vão'."
-```
-
----
-
-### 5 — Presente do indicativo  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "presente-indicativo"
   nivel: "A1"
-  tags: ["fazer", "ela"]
-pasos:
-  - "Identificar o sujeito da oração."
-  - "Aplicar a conjugação do verbo 'fazer' no presente para o sujeito 'ela'."
-respuestas_validas:
-  - "faz"
-  - "Faz"
-tipo: completar
-enunciado: "Ela ___ um bolo de chocolate."
-explicacion: "O verbo 'fazer' em terceira pessoa do singular no presente é 'faz'."
+  tags: ["presente"]
+
+respuesta: "tenho"
+tipo: "mc"
+opciones_explicitas: ["tenho", "tengo", "tens"]
+
+enunciado: "Eu ___ dois irmãos."
+
+explicacion: |
+  *Eu tenho*.
 ```
 
----
+### 4 — ter tu
 
-### 6 — Presente do indicativo  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "presente-indicativo"
-  nivel: "A1"
-  tags: ["gostar", "vocês"]
-pasos:
-  - "Identificar o sujeito da oração."
-  - "Aplicar a conjugação do verbo 'gostar' no presente para o sujeito 'vocês'."
-opciones_explicitas:
-  - "gosta"
-  - "gostam"
-  - "gosto"
-  - "gostais"
-respuesta: "gostam"
-tipo: mc
-enunciado: "Vocês ___ de pôr a mesa?"
-explicacion: "O verbo 'gostar' em segunda pessoa do plural no presente é 'gostam'."
-```
-
----
-
-### 7 — Presente do indicativo  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "presente-indicativo"
   nivel: "A1"
-  tags: ["ler", "nós"]
-pasos:
-  - "Identificar o sujeito da oração."
-  - "Aplicar a conjugação do verbo 'ler' no presente para o sujeito 'nós'."
-respuestas_validas:
-  - "leemos"
-  - "Leemos"
-tipo: completar
-enunciado: "Nós ___ um livro de ficção científica."
-explicacion: "O verbo 'ler' em primeira pessoa do plural no presente é 'leemos'."
+  tags: ["presente"]
+
+respuesta: "tens"
+tipo: "mc"
+opciones_explicitas: ["tens", "tem", "tienes"]
+
+enunciado: "Tu ___ carro?"
+
+explicacion: |
+  *Tu tens*.
 ```
 
----
+### 5 — ir
 
-### 8 — Presente do indicativo  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "presente-indicativo"
-  nivel: "A1"
-  tags: ["escrever", "ele"]
-pasos:
-  - "Identificar o sujeito da oração."
-  - "Aplicar a conjugação do verbo 'escrever' no presente para o sujeito 'ele'."
-opciones_explicitas:
-  - "escreve"
-  - "escrevem"
-  - "escrevo"
-  - "escreveis"
-respuesta: "escreve"
-tipo: mc
-enunciado: "Ele ___ uma carta para a irmã."
-explicacion: "O verbo 'escrever' em terceira pessoa do singular no presente é 'escreve'."
-```
-
----
-
-### 9 — Presente do indicativo  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "presente-indicativo"
   nivel: "A1"
-  tags: ["comer", "você"]
-pasos:
-  - "Identificar o sujeito da oração."
-  - "Aplicar a conjugação do verbo 'comer' no presente para o sujeito 'você'."
-respuestas_validas:
-  - "come"
-  - "Come"
-tipo: completar
-enunciado: "Você ___ um sanduíche de queijo."
-explicacion: "O verbo 'comer' em segunda pessoa do singular no presente é 'come'."
+  tags: ["presente"]
+
+respuesta: "vais"
+tipo: "mc"
+opciones_explicitas: ["vais", "vai", "vas"]
+
+enunciado: "Tu ___ ao cinema hoje?"
+
+explicacion: |
+  *Tu vais*.
 ```
 
----
+### 6 — fazer
 
-### 10 — Presente do indicativo  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "presente-indicativo"
-  nivel: "A1"
-  tags: ["beber", "nós"]
-pasos:
-  - "Identificar o sujeito da oração."
-  - "Aplicar a conjugação do verbo 'beber' no presente para o sujeito 'nós'."
-opciones_explicitas:
-  - "bebemos"
-  - "bebe"
-  - "bebes"
-  - "bebeis"
-respuesta: "bebemos"
-tipo: mc
-enunciado: "Nós ___ água de manhã."
-explicacion: "O verbo 'beber' em primeira pessoa do plural no presente é 'bebemos'."
-```
-
----
-
-### 11 — Presente do indicativo  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "presente-indicativo"
   nivel: "A1"
-  tags: ["dormir", "ela"]
-pasos:
-  - "Identificar o sujeito da oração."
-  - "Aplicar a conjugação do verbo 'dormir' no presente para o sujeito 'ela'."
-respuestas_validas:
-  - "dorme"
-  - "Dorme"
-tipo: completar
-enunciado: "Ela ___ muito durante o dia."
-explicacion: "O verbo 'dormir' em terceira pessoa do singular no presente é 'dorme'."
+  tags: ["presente"]
+
+respuesta: "faço"
+tipo: "mc"
+opciones_explicitas: ["faço", "fazo", "faz"]
+
+enunciado: "Eu ___ o jantar todas as noites."
+
+explicacion: |
+  *Eu faço*.
 ```
 
----
+### 7 — ser
 
-### 12 — Presente do indicativo  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "presente-indicativo"
-  nivel: "A1"
-  tags: ["trabalhar", "vocês"]
-pasos:
-  - "Identificar o sujeito da oração."
-  - "Aplicar a conjugação do verbo 'trabalhar' no presente para o sujeito 'vocês'."
-opciones_explicitas:
-  - "trabalham"
-  - "trabalho"
-  - "trabalhas"
-  - "trabalhais"
-respuesta: "trabalham"
-tipo: mc
-enunciado: "Vocês ___ em uma empresa grande."
-explicacion: "O verbo 'trabalhar' em segunda pessoa do plural no presente é 'trabalham'."
-```
-
----
-
-### 13 — Presente do indicativo  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "presente-indicativo"
   nivel: "A1"
-  tags: ["estudar", "nós"]
-pasos:
-  - "Identificar o sujeito da oração."
-  - "Aplicar a conjugação do verbo 'estudar' no presente para o sujeito 'nós'."
-respuestas_validas:
-  - "estudamos"
-  - "Estudamos"
-tipo: completar
-enunciado: "Nós ___ em uma universidade."
-explicacion: "O verbo 'estudar' em primeira pessoa do plural no presente é 'estudamos'."
+  tags: ["presente"]
+
+respuesta: "és"
+tipo: "mc"
+opciones_explicitas: ["és", "é", "eres"]
+
+enunciado: "Tu ___ de Lisboa?"
+
+explicacion: |
+  *Tu és*.
 ```
 
----
+### 8 — Estar a
 
-### 14 — Presente do indicativo  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "presente-indicativo"
-  nivel: "A1"
-  tags: ["visitar", "ele"]
-pasos:
-  - "Identificar o sujeito da oração."
-  - "Aplicar a conjugação do verbo 'visitar' no presente para o sujeito 'ele'."
-opciones_explicitas:
-  - "visita"
-  - "visitam"
-  - "visito"
-  - "visitais"
-respuesta: "visita"
-tipo: mc
-enunciado: "Ele ___ a cidade de Lisboa."
-explicacion: "O verbo 'visitar' em terceira pessoa do singular no presente é 'visita'."
-```
-
----
-
-### 15 — Presente do indicativo  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "presente-indicativo"
   nivel: "A1"
-  tags: ["caminhar", "você"]
-pasos:
-  - "Identificar o sujeito da oração."
-  - "Aplicar a conjugação do verbo 'caminhar' no presente para o sujeito 'você'."
-respuestas_validas:
-  - "caminha"
-  - "Caminha"
-tipo: completar
-enunciado: "Você ___ ao trabalho todos os dias."
-explicacion: "O verbo 'caminhar' em segunda pessoa do singular no presente é 'caminha'."
+  tags: ["presente"]
+
+respuesta: "a escrever"
+tipo: "mc"
+opciones_explicitas: ["a escrever", "escrevendo", "escrever"]
+
+enunciado: "Agora eu estou ___ uma carta."
+
+explicacion: |
+  En Portugal: *estar a + infinitivo*.
 ```
 
----
+### 9 — Reflexivo
 
-### 16 — Presente do indicativo  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "presente-indicativo"
-  nivel: "A1"
-  tags: ["ler", "eles"]
-pasos:
-  - "Identificar o sujeito da oração."
-  - "Aplicar a conjugação do verbo 'ler' no presente para o sujeito 'eles'."
-opciones_explicitas:
-  - "leem"
-  - "leio"
-  - "lêem"
-  - "lês"
-respuesta: "leem"
-tipo: mc
-enunciado: "Eles ___ um jornal todos os dias."
-explicacion: "O verbo 'ler' em terceira pessoa do plural no presente é 'leem'."
-```
-
----
-
-### 17 — Presente do indicativo  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "presente-indicativo"
   nivel: "A1"
-  tags: ["escrever", "nós"]
-pasos:
-  - "Identificar o sujeito da oração."
-  - "Aplicar a conjugação do verbo 'escrever' no presente para o sujeito 'nós'."
-respuestas_validas:
-  - "escrevemos"
-  - "Escrevemos"
-tipo: completar
-enunciado: "Nós ___ uma carta de amor."
-explicacion: "O verbo 'escrever' em primeira pessoa do plural no presente é 'escrevemos'."
+  tags: ["presente"]
+
+respuesta: "Chamo-me Martín."
+tipo: "mc"
+opciones_explicitas: ["Chamo-me Martín.", "Me chamo Martín.", "Me llamo Martín."]
+
+enunciado: "Para presentarte en Portugal decís:"
+
+explicacion: |
+  Afirmativa: pronombre después del verbo.
 ```
 
----
+### 10 — Reflexivo con negación
 
-### 18 — Presente do indicativo  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "presente-indicativo"
-  nivel: "A1"
-  tags: ["falar", "ela"]
-pasos:
-  - "Identificar o sujeito da oração."
-  - "Aplicar a conjugação do verbo 'falar' no presente para o sujeito 'ela'."
-opciones_explicitas:
-  - "fala"
-  - "falamos"
-  - "falas"
-  - "falam"
-respuesta: "fala"
-tipo: mc
-enunciado: "Ela ___ muito bem português."
-explicacion: "O verbo 'falar' em terceira pessoa do singular no presente é 'fala'."
-```
-
----
-
-### 19 — Presente do indicativo  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "presente-indicativo"
   nivel: "A1"
-  tags: ["comprar", "vocês"]
-pasos:
-  - "Identificar o sujeito da oração."
-  - "Aplicar a conjugação do verbo 'comprar' no presente para o sujeito 'vocês'."
-respuestas_validas:
-  - "compram"
-  - "Compram"
-tipo: completar
-enunciado: "Vocês ___ frutas no mercado."
-explicacion: "O verbo 'comprar' em segunda pessoa do plural no presente é 'compram'."
+  tags: ["presente"]
+
+respuesta: "me levanto"
+tipo: "mc"
+opciones_explicitas: ["me levanto", "levanto-me", "levanto me"]
+
+enunciado: "Ao domingo não ___ cedo."
+
+explicacion: |
+  Con *não*, el pronombre va antes.
 ```
 
----
+### 11 — Formal
 
-### 20 — Presente do indicativo  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "presente-indicativo"
-  nivel: "A1"
-  tags: ["ver", "nós"]
-pasos:
-  - "Identificar o sujeito da oração."
-  - "Aplicar a conjugação do verbo 'ver' no presente para o sujeito 'nós'."
-opciones_explicitas:
-  - "vemos"
-  - "vejo"
-  - "vêem"
-  - "véis"
-respuesta: "vemos"
-tipo: mc
-enunciado: "Nós ___ um filme de terror."
-explicacion: "O verbo 'ver' em primeira pessoa do plural no presente é 'vemos'."
-```
-
----
-
-### 21 — Presente do indicativo  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "presente-indicativo"
   nivel: "A1"
-  tags: ["cantar", "ele"]
-pasos:
-  - "Identificar o sujeito da oração."
-  - "Aplicar a conjugação do verbo 'cantar' no presente para o sujeito 'ele'."
-respuestas_validas:
-  - "canta"
-  - "Canta"
-tipo: completar
-enunciado: "Ele ___ uma canção de amor."
-explicacion: "O verbo 'cantar' em terceira pessoa do singular no presente é 'canta'."
+  tags: ["presente"]
+
+respuesta: "O senhor deseja mais alguma coisa?"
+tipo: "mc"
+opciones_explicitas: ["O senhor deseja mais alguma coisa?", "Tu desejas mais alguma coisa?", "Desejas, pá?"]
+
+enunciado: "En una tienda, a un cliente mayor:"
+
+explicacion: |
+  Trato formal: *o senhor* + 3.ª persona.
 ```
 
----
+### 12 — vir plural
 
-### 22 — Presente do indicativo  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "presente-indicativo"
-  nivel: "A1"
-  tags: ["ler", "você"]
-pasos:
-  - "Identificar o sujeito da oração."
-  - "Aplicar a conjugação do verbo 'ler' no presente para o sujeito 'você'."
-opciones_explicitas:
-  - "lê"
-  - "leio"
-  - "leem"
-  - "lês"
-respuesta: "lê"
-tipo: mc
-enunciado: "Você ___ um livro de ficção."
-explicacion: "O verbo 'ler' em segunda pessoa do singular no presente é 'lê'."
-```
-
----
-
-### 23 — Presente do indicativo  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "presente-indicativo"
   nivel: "A1"
-  tags: ["escrever", "ela"]
-pasos:
-  - "Identificar o sujeito da oração."
-  - "Aplicar a conjugação do verbo 'escrever' no presente para o sujeito 'ela'."
-respuestas_validas:
-  - "escreve"
-  - "Escreve"
-tipo: completar
-enunciado: "Ela ___ um diário de viagem."
-explicacion: "O verbo 'escrever' em terceira pessoa do singular no presente é 'escreve'."
+  tags: ["presente"]
+
+respuesta: "vêm"
+tipo: "mc"
+opciones_explicitas: ["vêm", "vem", "vienen"]
+
+enunciado: "Os meus pais ___ amanhã."
+
+explicacion: |
+  *Eles vêm*.
 ```
 
----
+### 13 — Variante
 
-### 24 — Presente do indicativo  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "presente-indicativo"
-  nivel: "A1"
-  tags: ["trabalhar", "nós"]
-pasos:
-  - "Identificar o sujeito da oração."
-  - "Aplicar a conjugação do verbo 'trabalhar' no presente para o sujeito 'nós'."
-opciones_explicitas:
-  - "trabalhamos"
-  - "trabalho"
-  - "trabalhas"
-  - "trabalhais"
-respuesta: "trabalhamos"
-tipo: mc
-enunciado: "Nós ___ em uma empresa de tecnologia."
-explicacion: "O verbo 'trabalhar' em primeira pessoa do plural no presente é 'trabalhamos'."
-```
-
----
-
-### 25 — Presente do indicativo  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "presente-indicativo"
   nivel: "A1"
-  tags: ["visitar", "vocês"]
-pasos:
-  - "Identificar o sujeito da oração."
-  - "Aplicar a conjugação do verbo 'visitar' no presente para o sujeito 'vocês'."
-respuestas_validas:
-  - "visitam"
-  - "Visitam"
-tipo: completar
-enunciado: "Vocês ___ uma cidade nova este mês."
-explicacion: "O verbo 'visitar' em segunda pessoa do plural no presente é 'visitam'."
+  tags: ["presente"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En Portugal, «Estou a comer» es la forma habitual de decir «Estoy comiendo»."
+
+explicacion: |
+  Verdadero: *estar a + infinitivo*.
 ```

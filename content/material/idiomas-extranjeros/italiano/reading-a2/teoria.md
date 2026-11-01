@@ -1,51 +1,41 @@
-# Lectura en italiano (nivel A2)
+# Comprensión lectora en italiano (A2)
 
 > Tema del MAPA: `idiomas-extranjeros/italiano/reading-a2`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en los ejemplos.
 
 ---
 
 ## Introducción
-La lectura es una de las habilidades fundamentales para comunicarse en un idioma extranjero. En el nivel A2 del Marco Común Europeo de Referencia para las Lenguas (MCER), los estudiantes deben ser capaces de comprender textos cortos y sencillos sobre temas cotidianos, como noticias breves, menús o horarios. Esta habilidad no solo amplía el vocabulario, sino que también mejora la capacidad de reconocer patrones gramaticales y estructuras básicas del idioma.
+En A2 se leen **textos breves y concretos**: carteles, menús, horarios, mensajes, correos personales, anuncios. El objetivo es encontrar **la información precisa** que se pide.
 
 ## Explicación central
-En italiano, los textos para lectura en A2 suelen utilizar vocabulario simple y frases cortas. Por ejemplo:
+### Tipos de textos
+- **Carteles**: *Chiuso il lunedì. Ingresso libero. Vietato fumare. Uscita di sicurezza. Saldi -30%. Spingere / Tirare.*
+- **Horarios**: *Aperto dal martedì al sabato, ore 9-18.*
+- **Mensajes**: *Ciao Giulia! Ci vediamo domani alle 15 davanti alla stazione? Baci, Luca.*
+- **Anuncios**: *Affittasi monolocale, 30 mq, centro, 600 €/mese spese incluse.*
 
-**Ejemplo 1:**
-*“Ciao! Sono Maria. Ho vent’anni e lavoro in ufficio.”*
-(¡Hola! Soy María. Tengo veinte años y trabajo en oficina.)
+### Palabras clave
+*tranne* (excepto), *gratuito*, *ridotto* (reducido), *esaurito* (agotado), *a partire da* (desde), *fino a* (hasta), *IVA inclusa*, *spese incluse*, *orario continuato* (sin corte al mediodía), *festivi* (feriados).
 
-Este texto usa estructuras básicas como el verbo *essere* (ser) y *avere* (tener), junto con sustantivos comunes (*ufficio*, oficina). Otro ejemplo podría ser un horario de trenes:
+### Estrategias
+1. Mirar el **tipo de texto**.
+2. Leer la pregunta y **buscar** el dato concreto.
+3. Usar las palabras transparentes y desconfiar de los falsos amigos.
 
-**Ejemplo 2:**
-*“Il treno per Milano parte alle 8:30. Il costo del biglietto è di €15.”*
-(El tren a Milán sale a las 8:30. El costo del billete es de €15.)
-
-Los textos suelen incluir verbos en presente, sustantivos con artículos definidos (*il*, *la*, *lo*) y adjetivos que concuerdan en género y número.
-
-## Errores comunes
-Los hablantes de español a menudo confunden:
-1. **Artículos definidos**: En italiano, *lo* se usa antes de sustantivos masculinos que empiezan con vocal o *h*, mientras que en español no hay esta regla (ejemplo: *“lo zaino”* vs. español *el mochila*).
-2. **Preposiciones**: En italiano, algunas preposizioni como *di* (de) y *a* (a) se usan de manera diferente que en español. Por ejemplo, *“la casa di Maria”* (la casa de María) vs. español *la casa de María*.
-3. **Verbos irregulares**: El verbo *avere* (tener) tiene formas como *ho*, *hai*, *ha*, que no siguen patrones regulares y pueden confundirse con el español (*tengo*, *tienes*, *tiene*).
+## Errores comunes de hispanohablantes
+1. *Ingresso libero* = entrada gratuita.
+2. *Esaurito* = agotado (no «exhausto» en un cartel).
+3. *Affittasi* = se alquila.
+4. *Tirare* = tirar hacia uno (en una puerta), *spingere* = empujar.
 
 ## Comparación con el español
-La lectura en italiano comparte con el español la estructura de oraciones simples, pero hay diferencias clave:
-- **Género de los sustantivos**: En italiano, los adjetivos y artículos deben concordar con el género del sustantivo (*“la ragazza bella”* vs. *“el chico guapo”*). En español, aunque también se usa el género, los adjetivos suelen colocarse después del sustantivo (*“la chica guapa”*).
-- **Uso de la preposición “a”**: En italiano, *a* se usa para indicar movimiento hacia un lugar (*vado a scuola*) o posesión indirecta (*il libro di Maria*), mientras que en español *a* se usa principalmente para complementos directos o indirectos (*voy a la escuela*, *el libro de María*).
+La mayoría del vocabulario es transparente. Ojo con *tirare* («tirar» de la puerta, no «tirar» algo), *salire* (subir) y *uscita* (salida).
 
-## Ejemplo extendido
-**Diálogo:**
-**A:** *“Ciao, come ti chiami?”*
-(¡Hola, cómo te llamas?)
-**B:** *“Mi chiamo Luca. Ho ventidue anni e vivo a Roma.”*
-(Me llamo Luca. Tengo veintidós años y vivo en Roma.)
-**A:** *“Dove lavori?”*
-(¿Dónde trabajas?)
-**B:** *“Lavoro in un ristorante. Il mio lavoro è molto interessante!”*
-(Trabajo en un restaurante. Mi trabajo es muy interesante!)
-
-Este diálogo muestra la estructura básica de preguntas y respuestas, el uso del presente de indicativo y vocabulario relacionado con la vida cotidiana.
+## Ejemplo extendido en contexto
+*Testo: «Museo Civico — Aperto tutti i giorni tranne il lunedì, ore 10-18. Biglietto: 8 €, ridotto 5 € (studenti). Ingresso gratuito la prima domenica del mese.»*

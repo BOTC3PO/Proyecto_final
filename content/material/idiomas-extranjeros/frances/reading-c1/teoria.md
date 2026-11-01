@@ -1,43 +1,48 @@
-# Comprensión lectora en francés (nivel C1): lectura crítica y análisis de textos complejos
+# Comprensión lectora en francés (C1)
 
 > Tema del MAPA: `idiomas-extranjeros/frances/reading-c1`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en los ejemplos.
 
 ---
 
 ## Introducción
-En el nivel C1 del Marco Común Europeo de Referencia para las Lenguas (MCER), la comprensión lectora implica no solo entender textos formales o académicos, sino también interpretar matices, inferir significados implícitos y analizar estructuras argumentativas. Este dominio es clave para acceder a fuentes especializadas, como artículos científicos, ensayos filosóficos o documentos oficiales en francés, donde la precisión lingüística y el razonamiento crítico son fundamentales.
+En C1 se leen **textos largos y complejos**: ensayos, editoriales, crónicas, textos literarios y especializados. Hay que captar **lo implícito**, la **ironía**, el **tono** y la **intención** del autor, y apreciar diferencias de estilo.
 
-## Explicación central con ejemplos reales
-En textos de nivel C1, es común encontrar:
-- **Vocabulario técnico o abstracto**: Por ejemplo, en un artículo sobre economía, podrías leer *"La déréglementation des marchés financiers a exacerbé les inégalités économiques."* (La liberalización de los mercados financieros ha exacerbadas las desigualdades económicas.)
-- **Construcciones gramaticales complejas**: Frases con subordinadas, negaciones anidadas o uso de participios passés: *"Bien que les mesures aient été prises pour réduire la pollution, leur efficacité reste à vérifier."* (Aunque se hayan tomado medidas para reducir la contaminación, su eficacia aún debe verificarse.)
-- **Referencias culturales o históricas**: Un texto sobre historia podría mencionar *"le contexte de la Révolution française et ses répercussions sur l’Europe."* (El contexto de la Revolución francesa y sus repercusiones en Europa.)
+## Explicación central
+### Lectura crítica
+- ¿Qué **tesis** defiende el autor y contra quién?
+- ¿Qué **estrategias** usa? Ejemplos, cifras, autoridad, analogías, preguntas retóricas, ironía.
+- ¿Qué **presupone** sin decirlo?
+
+### Recursos de estilo
+- **Ironía**: decir lo contrario de lo que se piensa: *Quelle brillante idée que de supprimer les bibliothèques !*
+- **Lítote y eufemismo**: *Ce n'est pas sans risque* (= es arriesgado).
+- **Pregunta retórica**: *Faut-il vraiment s'en étonner ?*
+- **Metáfora**: *Une vague de licenciements.*
+
+### Rasgos del francés escrito culto
+- *Passé simple* en la narración: *il fut, ils arrivèrent*.
+- Inversión: *Peut-être faut-il…, Aussi convient-il de…*
+- Subjuntivo imparfait (literario): *qu'il fût, qu'il eût*.
+- *Ne* sin *pas* (literario): *Je ne saurais dire. Je n'ose le croire.*
+
+### Estrategias
+1. Leer dos veces: primero el sentido global, después la argumentación.
+2. Subrayar marcas de subjetividad (adjetivos, adverbios, ironía).
+3. Reconstruir la tesis en una frase propia.
 
 ## Errores comunes de hispanohablantes
-1. **Confusión entre *le* y *la***: Al leer *"Il a perdu le contrôle de sa voiture"*, un hispanohablante podría interpretar "perder la carroza" (literalmente), pero en francés se refiere a "perder el control del coche".
-2. **Incomprensión de negaciones múltiples**: Frases como *"Je n’ai pas vu personne"* (No vi a nadie) pueden malinterpretarse como "no vi a alguien", ignorando la doble negación.
-3. **Uso incorrecto de *de* y *à***: En expresiones como *"l’arrivée à Paris"* vs. *"la fin de la guerre"*, confundir estos preposiciones altera el significado (ej.: "el final de la guerra" vs. "la llegada a París").
+1. Leer literalmente una frase irónica.
+2. Confundir *passé simple* con presente (*il fit* ≠ *il fait*).
+3. Tomar *ne saurais* como negación incompleta: significa «no podría».
 
 ## Comparación con el español
-- **Género de los sustantivos**: En francés, *"le livre"* (el libro) y *"la table"* (la mesa), mientras que en español ambos son masculinos (*el libro*, *la mesa*). Esto puede generar confusión al leer descripciones como *"Le livre est sur la table"*.
-- **Uso de artículos definidos**: En francés, siempre se usan artículos antes de sustantivos (ej.: *"La France est un pays riche en histoire"*), a diferencia del español, donde los artículos suelen omitirse en contextos genéricos (*"Francia es un país rico en historia"*).
-- **Tiempo verbal**: El francés distingue entre *passé composé* y *imparfait*, mientras que el español usa el pretérito perfecto compuesto y el imperfecto, pero con matices distintos. Por ejemplo: *"Nous avons mangé" (pasado reciente)* vs. *"Nous mangions souvent" (costumbre pasada).*
+La lectura crítica es igual en ambas lenguas. El francés escrito culto se aleja más del oral que el español: *passé simple*, *ne* solo y subjuntivo imparfait son marcas literarias que hay que reconocer.
 
 ## Ejemplo extendido en contexto
-**Texto**:
-*"La digitalisation des services publics a transformé la manière dont les citoyens interagissent avec l’État. Cependant, cette évolution soulève des questions éthiques : qui contrôle les données personnelles ? Quelles sont les conséquences sur la vie privée ? Les autorités doivent trouver un équilibre entre innovation et protection des droits fondamentaux."*
-
-**Análisis**:
-- **Comprensión literal**: El texto habla de cómo la digitalización de servicios públicos ha cambiado la interacción ciudadana con el Estado.
-- **Inferencia**: Se sugiere que, aunque hay beneficios (como mayor eficiencia), existen riesgos éticos (control de datos y privacidad).
-- **Cuestiones críticas**: ¿Qué medidas propone el autor? ¿Cómo se comparan con políticas similares en otros países?
-
-**Diálogo posible**:
-*Aline: "¿Entiendes por qué el texto menciona 'équilibre entre innovation et protection'?"*
-*Marie: "Creo que se refiere a la necesidad de no sacrificar los derechos privados por el avance tecnológico. En España, también hay debates similares sobre la ley de datos."*
-
-Este enfoque permite al lector C1 no solo comprender lo explícito, sino también situar el texto en un contexto más amplio y analizar sus implicaciones.
+*Texte : « Quelle brillante idée que de fermer les bibliothèques pour faire des économies ! On s'étonnera ensuite que les jeunes ne lisent plus. Faut-il vraiment s'en étonner ? »*

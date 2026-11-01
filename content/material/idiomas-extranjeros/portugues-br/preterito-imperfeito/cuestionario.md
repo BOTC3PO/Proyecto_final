@@ -1,547 +1,253 @@
-# Idiomas — Portugués (Brasil) — preterito-imperfeito (cuestionario)
+# Portugués (Brasil) — pretérito imperfeito (cuestionario, 13 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/portugues-br/preterito-imperfeito/cuestionario_crudo.md`)
-> con correcciones de contenido: doce bloques mc carecían de `enunciado:`; se redactó una
-> oración con hueco para cada uno según el sujeto y verbo ya indicados. Se corrigió además un
-> bloque con comillas dobles anidadas en `pasos:`, `explicacion:` sin comillas, y
-> `respuestas_validas:` con la misma cadena duplicada dos veces ("freqüentava" repetida,
-> etiquetada erróneamente como "mayúscula inicial" sin serlo) usando además el trema, ortografía
-> anterior al Acuerdo Ortográfico de 1990; se corrigió a "frequentava"/"Frequentava", la grafía
-> vigente.
+> Tema: `idiomas-extranjeros/portugues-br/preterito-imperfeito`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Preterito Imperfeito de "ler"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "preterito-imperfeito"  
-  nivel: "B1"  
-  tags: ["conjugacion", "habituales"]  
-pasos:  
-  - "Reconocer el verbo en infinitivo y su forma conjugada."  
-  - "Identificar la persona y número del sujeto (ella)."  
-respuestas_validas:  
-  - "lia"  
-  - "Lia"  
-enunciado: "Ela ___ livros todos los días cuando era niña."  
-tipo: completar  
+### 1 — Hábito -ar
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "preterito-imperfeito"
+  nivel: "B1"
+  tags: ["preterito-imperfeito"]
 
+respuesta: "jogava"
+tipo: "mc"
+opciones_explicitas: ["jogava", "joguei", "jogaba"]
 
+enunciado: "Quando eu era criança, ___ futebol todos os dias."
 
-### 2 — Preterito Imperfeito de "viver"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "preterito-imperfeito"  
-  nivel: "B1"  
-  tags: ["conjugacion", "contexto"]  
-pasos:  
-  - "Identificar el sujeto (nós) y la conjugación del verbo."  
-  - "Verificar que se usa para describir una situación pasada habitual."  
-enunciado: "Antigamente, nós ___ numa casa pequena."  
-opciones_explicitas:  
-  - "vivíamos"  
-  - "vivimos"  
-  - "vivermos"  
-  - "viviamos"  
-respuesta: "vivíamos"  
-tipo: mc  
-
+explicacion: |
+  Hábito en el pasado: *jogava*.
 ```
 
-
-
-### 3 — Preterito Imperfeito de "estudar"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "preterito-imperfeito"  
-  nivel: "B1"  
-  tags: ["conjugacion", "descripciones"]  
-pasos:  
-  - "Determinar el sujeto (eles) y la conjugación del verbo."  
-  - "Asegurar que se refiera a una acción continua en el pasado."  
-respuestas_validas:  
-  - "estudavam"  
-  - "Estudavam"  
-enunciado: "Eles ___ muito na escola antes de empezar a trabajar."  
-tipo: completar  
+### 2 — -er
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "preterito-imperfeito"
+  nivel: "B1"
+  tags: ["preterito-imperfeito"]
 
+respuesta: "comíamos"
+tipo: "mc"
+opciones_explicitas: ["comíamos", "comiamos", "comemos"]
 
+enunciado: "Nós ___ na casa da minha avó aos domingos."
 
-### 4 — Preterito Imperfeito de "cantar"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "preterito-imperfeito"  
-  nivel: "B1"  
-  tags: ["conjugacion", "habituales"]  
-pasos:  
-  - "Reconocer el verbo en infinitivo y su forma conjugada."  
-  - "Verificar que se usa para acciones repetitivas en el pasado."  
-enunciado: "Todos os fins de semana, eles ___ no coral da igreja."  
-opciones_explicitas:  
-  - "cantavam"  
-  - "cantaram"  
-  - "cantação"  
-  - "cantaria"  
-respuesta: "cantavam"  
-tipo: mc  
-
+explicacion: |
+  *Nós comíamos* (con acento).
 ```
 
-
-
-### 5 — Preterito Imperfeito de "ser"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "preterito-imperfeito"  
-  nivel: "B1"  
-  tags: ["conjugacion", "contexto"]  
-pasos:  
-  - "Identificar el sujeto (nós) y la conjugación del verbo."  
-  - "Asegurar que se refiera a un estado o característica pasada."  
-respuestas_validas:  
-  - "éramos"  
-  - "Eramos"  
-enunciado: "Nós ___ muy activos cuando éramos niños."  
-tipo: completar  
+### 3 — ser
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "preterito-imperfeito"
+  nivel: "B1"
+  tags: ["preterito-imperfeito"]
 
+respuesta: "era"
+tipo: "mc"
+opciones_explicitas: ["era", "foi", "estava sendo"]
 
+enunciado: "A casa ___ pequena, mas muito bonita."
 
-### 6 — Preterito Imperfeito de "trabalhar"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "preterito-imperfeito"  
-  nivel: "B1"  
-  tags: ["conjugacion", "descripciones"]  
-pasos:  
-  - "Determinar el sujeto (ele) y la conjugación del verbo."  
-  - "Verificar que se usa para describir una acción continua en el pasado."  
-enunciado: "Antes de se aposentar, ele ___ numa fábrica."  
-opciones_explicitas:  
-  - "trabalhava"  
-  - "trabalhou"  
-  - "trabalhará"  
-  - "trabalharam"  
-respuesta: "trabalhava"  
-tipo: mc  
-
+explicacion: |
+  Descripción: *era*.
 ```
 
-
-
-### 7 — Preterito Imperfeito de "ver"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "preterito-imperfeito"  
-  nivel: "B1"  
-  tags: ["conjugacion", "habituales"]  
-pasos:  
-  - "Reconocer el verbo en infinitivo y su forma conjugada."  
-  - "Identificar que se refiere a una acción repetitiva en el pasado."  
-respuestas_validas:  
-  - "via"  
-  - "Via"  
-enunciado: "Eu ___ filmes no cinema todos los sábados cuando era adolescente."  
-tipo: completar  
+### 4 — ter
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "preterito-imperfeito"
+  nivel: "B1"
+  tags: ["preterito-imperfeito"]
 
+respuesta: "tinha"
+tipo: "mc"
+opciones_explicitas: ["tinha", "tenía", "teve"]
 
+enunciado: "Ela ___ vinte anos quando se mudou."
 
-### 8 — Preterito Imperfeito de "falar"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "preterito-imperfeito"  
-  nivel: "B1"  
-  tags: ["conjugacion", "contexto"]  
-pasos:  
-  - "Identificar el sujeto (eles) y la conjugación del verbo."  
-  - "Asegurar que se refiera a una acción continua en el pasado."  
-enunciado: "Quando eram crianças, eles ___ muito ao telefone."  
-opciones_explicitas:  
-  - "falavam"  
-  - "falaram"  
-  - "falarão"  
-  - "falam"  
-respuesta: "falavam"  
-tipo: mc  
-
+explicacion: |
+  Edad en el pasado: *tinha*.
 ```
 
-
-
-### 9 — Preterito Imperfeito de "ler"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "preterito-imperfeito"  
-  nivel: "B1"  
-  tags: ["conjugacion", "descripciones"]  
-pasos:  
-  - "Determinar el sujeto (nós) y la conjugación del verbo."  
-  - "Verificar que se usa para describir una acción habitual en el pasado."  
-respuestas_validas:  
-  - "lêramos"  
-  - "Lêramos"  
-enunciado: "Nós ___ livros todos los días cuando estávamos em casa."  
-tipo: completar  
+### 5 — vir
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "preterito-imperfeito"
+  nivel: "B1"
+  tags: ["preterito-imperfeito"]
 
+respuesta: "vinha"
+tipo: "mc"
+opciones_explicitas: ["vinha", "venía", "veio"]
 
+enunciado: "Ele sempre ___ de bicicleta para a escola."
 
-### 10 — Preterito Imperfeito de "ser"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "preterito-imperfeito"  
-  nivel: "B1"  
-  tags: ["conjugacion", "habituales"]  
-pasos:  
-  - "Reconocer el verbo en infinitivo y su forma conjugada."  
-  - "Identificar que se refiere a un estado pasado habitual."  
-enunciado: "Há vinte anos, nós ___ muito mais jovens."  
-opciones_explicitas:  
-  - "éramos"  
-  - "eramos"  
-  - "seremos"  
-  - "era"  
-respuesta: "éramos"  
-tipo: mc  
-
+explicacion: |
+  *Vir*: *vinha*.
 ```
 
-
-
-### 11 — Preterito Imperfeito de "viver"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "preterito-imperfeito"  
-  nivel: "B1"  
-  tags: ["conjugacion", "contexto"]  
-pasos:  
-  - "Identificar el sujeto (você) y la conjugación del verbo."  
-  - "Asegurar que se refiera a una situación pasada habitual."  
-respuestas_validas:  
-  - "vivia"  
-  - "Vivia"  
-enunciado: "Você ___ em São Paulo antes de mudar para Rio."  
-tipo: completar  
+### 6 — Interrumpida
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "preterito-imperfeito"
+  nivel: "B1"
+  tags: ["preterito-imperfeito"]
 
+respuesta: "dormia"
+tipo: "mc"
+opciones_explicitas: ["dormia", "dormi", "durmo"]
 
+enunciado: "Eu ___ quando o telefone tocou."
 
-### 12 — Preterito Imperfeito de "cantar"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "preterito-imperfeito"  
-  nivel: "B1"  
-  tags: ["conjugacion", "descripciones"]  
-pasos:  
-  - "Determinar el sujeto (eles) y la conjugación del verbo."  
-  - "Verificar que se usa para describir una acción continua en el pasado."  
-enunciado: "Nas festas de família, eles ___ juntos até tarde."  
-opciones_explicitas:  
-  - "cantavam"  
-  - "cantaram"  
-  - "cantaria"  
-  - "cantando"  
-respuesta: "cantavam"  
-tipo: mc  
-
+explicacion: |
+  Acción en curso interrumpida: *dormia*.
 ```
 
-
-
-### 13 — Preterito Imperfeito de "trabalhar"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "preterito-imperfeito"  
-  nivel: "B1"  
-  tags: ["conjugacion", "habituales"]  
-pasos:  
-  - "Reconocer el verbo en infinitivo y su forma conjugada."  
-  - "Identificar que se refiere a una acción repetitiva en el pasado."  
-respuestas_validas:  
-  - "trabalhava"  
-  - "Trabalhava"  
-enunciado: "Ele ___ em uma empresa de tecnologia antes de empezar seu próprio negócio."  
-tipo: completar  
+### 7 — Hora
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "preterito-imperfeito"
+  nivel: "B1"
+  tags: ["preterito-imperfeito"]
 
+respuesta: "Eram"
+tipo: "mc"
+opciones_explicitas: ["Eram", "Foram", "Estavam"]
 
+enunciado: "___ dez horas da noite quando chegamos."
 
-### 14 — Preterito Imperfeito de "ver"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "preterito-imperfeito"  
-  nivel: "B1"  
-  tags: ["conjugacion", "contexto"]  
-pasos:  
-  - "Identificar el sujeto (nós) y la conjugación del verbo."  
-  - "Asegurar que se refiera a una acción continua en el pasado."  
-enunciado: "Todos os domingos, nós ___ o mesmo programa na TV."  
-opciones_explicitas:  
-  - "víamos"  
-  - "vimos"  
-  - "veremos"  
-  - "via"  
-respuesta: "víamos"  
-tipo: mc  
-
+explicacion: |
+  Hora en el pasado: *Eram*.
 ```
 
-
-
-### 15 — Preterito Imperfeito de "falar"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "preterito-imperfeito"  
-  nivel: "B1"  
-  tags: ["conjugacion", "descripciones"]  
-pasos:  
-  - "Determinar el sujeto (você) y la conjugación del verbo."  
-  - "Verificar que se usa para describir una acción habitual en el pasado."  
-respuestas_validas:  
-  - "falava"  
-  - "Falava"  
-enunciado: "Você ___ muito em público antes de ganhar confiança."  
-tipo: completar  
+### 8 — Cortesía
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "preterito-imperfeito"
+  nivel: "B1"
+  tags: ["preterito-imperfeito"]
 
+respuesta: "queria"
+tipo: "mc"
+opciones_explicitas: ["queria", "quis", "quero ter"]
 
+enunciado: "Eu ___ um café com leite, por favor."
 
-### 16 — Preterito Imperfeito de "ler"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "preterito-imperfeito"  
-  nivel: "B1"  
-  tags: ["conjugacion", "habituales"]  
-pasos:  
-  - "Reconocer el verbo en infinitivo y su forma conjugada."  
-  - "Identificar que se refiere a una acción repetitiva en el pasado."  
-enunciado: "Quando criança, eu ___ muitos livros de aventura."  
-opciones_explicitas:  
-  - "lia"  
-  - "li"  
-  - "leria"  
-  - "lendo"  
-respuesta: "lia"  
-tipo: mc  
-
+explicacion: |
+  *Eu queria…* = pedido cortés.
 ```
 
-
-
-### 17 — Preterito Imperfeito de "viver"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "preterito-imperfeito"  
-  nivel: "B1"  
-  tags: ["conjugacion", "contexto"]  
-pasos:  
-  - "Identificar el sujeto (eles) y la conjugación del verbo."  
-  - "Asegurar que se refiera a una situación pasada habitual."  
-respuestas_validas:  
-  - "viviam"  
-  - "Viviam"  
-enunciado: "Eles ___ em uma cidade pequena antes de se mudar para o interior."  
-tipo: completar  
+### 9 — Costumbre vs. una vez
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "preterito-imperfeito"
+  nivel: "B1"
+  tags: ["preterito-imperfeito"]
 
+respuesta: "fui"
+tipo: "mc"
+opciones_explicitas: ["fui", "ia", "vinha"]
 
+enunciado: "No verão passado eu ___ a Florianópolis."
 
-### 18 — Preterito Imperfeito de "cantar"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "preterito-imperfeito"  
-  nivel: "B1"  
-  tags: ["conjugacion", "descripciones"]  
-pasos:  
-  - "Determinar el sujeto (nós) y la conjugación del verbo."  
-  - "Verificar que se usa para describir una acción continua en el pasado."  
-enunciado: "No coral da escola, nós ___ todas as quintas-feiras."  
-opciones_explicitas:  
-  - "cantávamos"  
-  - "cantamos"  
-  - "cantaria"  
-  - "cantando"  
-respuesta: "cantávamos"  
-tipo: mc  
-
+explicacion: |
+  Una vez, terminado: *fui*.
 ```
 
-
-
-### 19 — Preterito Imperfeito de "trabalhar"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "preterito-imperfeito"  
-  nivel: "B1"  
-  tags: ["conjugacion", "habituales"]  
-pasos:  
-  - "Reconocer el verbo en infinitivo y su forma conjugada."  
-  - "Identificar que se refiere a una acción repetitiva en el pasado."  
-respuestas_validas:  
-  - "trabalhávamos"  
-  - "Trabalhávamos"  
-enunciado: "Nós ___ em uma empresa de logística antes de abrir nosso próprio negócio."  
-tipo: completar  
+### 10 — Costumbre
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "preterito-imperfeito"
+  nivel: "B1"
+  tags: ["preterito-imperfeito"]
 
+respuesta: "íamos"
+tipo: "mc"
+opciones_explicitas: ["íamos", "fomos", "iamos"]
 
+enunciado: "Todo verão nós ___ a Florianópolis."
 
-### 20 — Preterito Imperfeito de "ver"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "preterito-imperfeito"  
-  nivel: "B1"  
-  tags: ["conjugacion", "contexto"]  
-pasos:  
-  - "Identificar el sujeto (ele) y la conjugación del verbo."  
-  - "Asegurar que se refiera a una acción continua en el pasado."  
-enunciado: "Todas as noites, ele ___ o noticiário antes de dormir."  
-opciones_explicitas:  
-  - "via"  
-  - "viu"  
-  - "verá"  
-  - "vendo"  
-respuesta: "via"  
-tipo: mc  
-
+explicacion: |
+  Costumbre: *íamos* (con acento).
 ```
 
-
-
-### 21 — Preterito Imperfeito de "falar"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "preterito-imperfeito"  
-  nivel: "B1"  
-  tags: ["conjugacion", "descripciones"]  
-pasos:  
-  - "Determinar el sujeto (eles) y la conjugación del verbo."  
-  - "Verificar que se usa para describir una acción habitual en el pasado."  
-respuestas_validas:  
-  - "falavam"  
-  - "Falavam"  
-enunciado: "Eles ___ muito em público antes de ganhar confiança."  
-tipo: completar  
+### 11 — Plural
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "preterito-imperfeito"
+  nivel: "B1"
+  tags: ["preterito-imperfeito"]
 
+respuesta: "moravam"
+tipo: "mc"
+opciones_explicitas: ["moravam", "moraban", "moraram sempre"]
 
+enunciado: "Meus avós ___ no campo."
 
-### 22 — Preterito Imperfeito de "ler"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "preterito-imperfeito"  
-  nivel: "B1"  
-  tags: ["conjugacion", "habituales"]  
-pasos:  
-  - "Reconocer el verbo en infinitivo y su forma conjugada."  
-  - "Identificar que se refiere a una acción repetitiva en el pasado."  
-enunciado: "Ela ___ o jornal todas as manhãs quando era jovem."  
-opciones_explicitas:  
-  - "lia"  
-  - "li"  
-  - "leria"  
-  - "lendo"  
-respuesta: "lia"  
-tipo: mc  
-
+explicacion: |
+  *Eles moravam*.
 ```
 
-
-
-### 23 — Preterito Imperfeito de "viver"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "preterito-imperfeito"  
-  nivel: "B1"  
-  tags: ["conjugacion", "contexto"]  
-pasos:  
-  - "Identificar el sujeto (nós) y la conjugación del verbo."  
-  - "Asegurar que se refiera a una situación pasada habitual."  
-respuestas_validas:  
-  - "vivíamos"  
-  - "Vivíamos"  
-enunciado: "Nós ___ em uma cidade pequena antes de empezar a trabalhar no exterior."  
-tipo: completar  
+### 12 — pôr
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "preterito-imperfeito"
+  nivel: "B1"
+  tags: ["preterito-imperfeito"]
 
+respuesta: "punha"
+tipo: "mc"
+opciones_explicitas: ["punha", "ponía", "pôs"]
 
+enunciado: "Minha mãe sempre ___ a mesa às oito."
 
-### 24 — Preterito Imperfeito de "cantar"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "preterito-imperfeito"  
-  nivel: "B1"  
-  tags: ["conjugacion", "descripciones"]  
-pasos:  
-  - "Determinar el sujeto (você) y la conjugación del verbo."  
-  - "Verificar que se usa para describir una acción continua en el pasado."  
-enunciado: "Você sempre ___ no chuveiro quando era criança."  
-opciones_explicitas:  
-  - "cantava"  
-  - "cantou"  
-  - "cantaria"  
-  - "cantando"  
-respuesta: "cantava"  
-tipo: mc  
-
+explicacion: |
+  *Pôr*: *punha*.
 ```
 
+### 13 — Coloquial
 
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "preterito-imperfeito"
+  nivel: "B1"
+  tags: ["preterito-imperfeito"]
 
-### 25 — Preterito Imperfeito de "trabalhar"  
-```  
-metadata:  
-  materia: "portugues-br"  
-  tema: "preterito-imperfeito"  
-  nivel: "B1"  
-  tags: ["habituais", "frequenta"]  
-pasos:  
-  - "Identificar el sujeto 'Ela' y el contexto de acción recurrente."
-  - "Reconocer que 'quando era jovem' indica un hábito en el pasado."
-  - "Aplicar la conjugación del verbo 'frequentar' en preterito imperfeito para tercera persona singular."
-respuestas_validas:  
-  - "frequentava"  
-  - "Frequentava"  
-tipo: completar  
-enunciado: "Ela ___ aulas de música todos os fins de semana quando era jovem."  
-explicacion: "El preterito imperfeito se usa para describir acciones habituales o repetitivas en el pasado. En este caso, 'frequentava' (sin trema, ortografía vigente desde el Acuerdo Ortográfico de 1990) es la conjugación correcta del verbo 'frequentar' para 'Ela'."
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el habla, «Se eu tivesse dinheiro, eu comprava um carro» es una oración usual en Brasil."
+
+explicacion: |
+  Verdadero: el imperfeito reemplaza al condicional (*compraria*) en el habla.
 ```

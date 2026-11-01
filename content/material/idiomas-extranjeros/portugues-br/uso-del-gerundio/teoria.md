@@ -1,64 +1,43 @@
-# Uso do gerúndio no português (B1)
+# Uso del gerundio en portugués de Brasil (B1)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-br/uso-del-gerundio`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
-## Introdução
-O **gerúndio** é uma forma verbal que indica ações simultâneas ou estados contínuos em português. No nível B1, os aprendentes começam a usar estruturas mais complexas para descrever situações dinâmicas, como "enquanto fazia isso, estava pensando em aquilo". É essencial dominar o gerúndio para expressar relações temporais e causais de forma clara.
+## Introducción
+El **gerúndio** (*-ndo*) es muy frecuente en el portugués de Brasil, sobre todo en la construcción **estar + gerúndio** para acciones en curso. (En Portugal, en cambio, se prefiere *estar a + infinitivo*.)
 
-## Explicação central
-O gerúndio em português é formado com a terminação **-ndo** (ex: "falando", "comendo") e sempre acompanha um verbo auxiliar como *estar*, *ir* ou *ter*. Ele indica que uma ação está acontecendo ao mesmo tempo que outra.
+## Explicación central
+### Formación
+- *-ar → -ando*: falar → **falando**; *-er → -endo*: comer → **comendo**; *-ir → -indo*: partir → **partindo**.
+- *pôr → pondo*. No hay irregulares (a diferencia del español: «diciendo», «durmiendo»): *dizendo, dormindo*.
 
-### Exemplos reais
-1. **Ações simultâneas**:
-   - *Estou estudando enquanto o meu irmão assiste a um filme.*
-     (Eu estou fazendo X enquanto Y está fazendo Z.)
+### Usos
+1. **Acción en curso**: *Estou **estudando**. O que você está **fazendo**?*
+2. **Acción progresiva** con *ir* o *vir*: *A situação **vai melhorando**. Ele **vem trabalhando** muito.*
+3. **Repetición reciente** con *andar*: *Ando **dormindo** mal.* («ando durmiendo mal»)
+4. **Simultaneidad o modo**: *Ele saiu **correndo**. Ela aprendeu **lendo** muito.*
+5. **Ficar + gerúndio** (permanecer): *Fiquei **esperando** duas horas.*
 
-2. **Explicação de causa ou consequência**:
-   - *Preciso parar de fumar, pois isso prejudica minha saúde.*
-     (O gerúndio "fumar" explica a razão da ação principal: "parar".)
+### Con pronombres
+En Brasil el pronombre suele ir antes del gerundio: *Estou **te esperando**.* (formal: *esperando-te*)
 
-3. **Descrição contínua**:
-   - *Ela chegou ao trabalho com o cabelo ainda molhado de chuva.*
-     (O gerúndio "molhado" indica que a ação de "chover" estava em andamento quando ela chegou.)
+### El «gerundismo»: evitarlo
+Construcciones como ***vou estar enviando*** («voy a estar enviando») se consideran un vicio, sobre todo en atención al cliente. Es mejor: ***vou enviar*** o ***envio***.
 
-## Erros comuns de hispanohablantes
-1. **Confusão entre gerúndio e infinitivo**:
-   - ❌ *Estava falando no celular quando o professor entrou.* (Correto: "falando")
-   - ✅ *Estava falando no celular...* (O gerúndio é obrigatório após verbos de ação contínua como *estar*.)
+## Errores comunes de hispanohablantes
+1. Calcar irregulares del español: ❌ *diciendo, durmiendo* ✅ *dizendo, dormindo*.
+2. Gerundismo: ❌ *Vou estar ligando amanhã.* ✅ *Vou ligar amanhã.*
+3. Confundir con el participio: ❌ *Estou falado.* ✅ *Estou falando.*
 
-2. **Uso excessivo do gerúndio onde seria melhor usar uma oração subordinada**:
-   - ❌ *Ela estava caminhando pela rua, tropeçou e caiu.*
-     (Correto: "caminhava" ou "enquanto caminhava...")
-   - ✅ *Ela caminhava pela rua quando tropeçou e caiu.*
+## Comparación con el español
+«Estoy comiendo» = *Estou comendo*: igual idea. El portugués de Brasil lo usa todavía más que el español, también con *andar*, *ir*, *vir* y *ficar*. La forma es siempre regular.
 
-3. **Erros de formação**:
-   - ❌ *O carro estava dirigindo na avenida.* (Falta o verbo auxiliar)
-     (Correto: "O carro estava sendo dirigido" ou "Ela estava dirigindo".)
-
-## Comparação com o espanhol
-No português, o gerúndio é menos frequente que no espanhol. Muitas vezes, prefere-se usar orações subordinadas com *cuando* ou *mientras*. Por exemplo:
-
-- **Espanhol**: *Estaba estudiando cuando sonó el teléfono.*
-- **Português**: *Estava estudando quando o telefone tocou.* (Nenhum gerúndio necessário.)
-
-Além disso, no português, o gerúndio não é usado para indicar ações futuras ou hipotéticas, ao contrário do espanhol. Exemplo:
-- **Espanhol**: *Voy a estar trabajando mañana.* (Futuro)
-- **Português**: *Estarei trabalhando amanhã.* (Gerúndio + futuro do verbo auxiliar "estar")
-
-## Exemplo em contexto
-**Diálogo**:
-— O que você estava fazendo quando eu te liguei?
-— Estava organizando o armário e, ao mesmo tempo, preparando o jantar.
-— Ah, entendi! Tive que esperar um pouco porque estava ocupado.
-
-**Explicação**:
-- "Estava organizando" e "preparando" usam o gerúndio para indicar ações simultâneas.
-- "Tive que esperar" mostra uma consequência da ação contínua ("estava ocupado").
-
-Dominar o gerúndio permite expressar ideias complexas com naturalidade, como relações de tempo e causalidade em situações cotidianas.
+## Ejemplo extendido en contexto
+*Ultimamente **ando trabalhando** demais. Ontem **fiquei esperando** o ônibus uma hora e cheguei em casa **correndo**. Agora **estou fazendo** o jantar e **ouvindo** música. Aos poucos as coisas **vão melhorando**!*

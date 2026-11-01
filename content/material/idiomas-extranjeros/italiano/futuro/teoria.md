@@ -1,55 +1,46 @@
-# Futuro en italiano (nivel B1)
+# El futuro en italiano (A2-B1)
 
 > Tema del MAPA: `idiomas-extranjeros/italiano/futuro`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y comparaciones falsas con el español.
 
 ---
 
 ## Introducción
-El **futuro simple** es un tiempo verbal que se usa para expresar acciones que ocurrirán en el futuro, planes, intenciones o hipótesis. En el nivel B1 del Marco Común Europeo de Referencia para las Lenguas (MCER), su estudio es clave para comunicarse con precisión sobre proyectos, eventos futuros y suposiciones. A diferencia del español, donde el futuro se forma con la raíz del verbo más sufijos (-é, -ás, etc.), en italiano el tiempo se construye añadiendo **sufijos específicos** a la infinitiva, lo que puede requerir atención especial.
+El **futuro semplice** expresa acciones futuras (*Domani **partirò***) y también **suposiciones** sobre el presente (*Saranno le tre* = deben de ser las tres). En el habla, el futuro cercano se dice muchas veces en **presente**: *Domani parto.*
 
 ## Explicación central
-El futuro simple en italiano se forma agregando los siguientes sufijos a la raíz del verbo:
+### Formación
+Infinitivo sin *-e* final (los de **-are cambian la *a* por *e***) + ***-ò, -ai, -à, -emo, -ete, -anno***:
+- *parlare → **parlerò**, parlerai, parlerà, parleremo, parlerete, parleranno*
+- *leggere → leggerò*; *dormire → dormirò*
+- *-care/-gare*: *cercherò, pagherò*; *-ciare/-giare*: *comincerò, mangerò*.
 
-| Persona | Sufijo | Ejemplo (parlare) |
-|---------|--------|------------------|
-| 1ª sing. | -ò | parler**ò** |
-| 2ª sing. | -ai | parl**erai** |
-| 3ª sing. | -à | parl**erà** |
-| 1ª plur. | -emo | parl**eremo** |
-| 2ª plur. | -ete | parl**erete** |
-| 3ª plur. | -anno | parl**eranno** |
+### Irregulares
+- Raíz contraída: *andare → andrò, avere → avrò, dovere → dovrò, potere → potrò, sapere → saprò, vedere → vedrò, vivere → vivrò*.
+- Con *-rr-*: *volere → vorrò, venire → verrò, rimanere → rimarrò, bere → berrò, tenere → terrò*.
+- *essere → sarò*; *fare → farò*; *dare → darò*; *stare → starò*.
 
-Ejemplos reales en contexto:
-- *Domani **mangerò** una torta.* (Mañana comeré un pastel.)
-- *Se non pioverà, andremo al parco.* (Si no llueve, iremos al parque.)
-- *Loro **vedranno** il film domani.* (Ellos verán la película mañana.)
+### Futuro anteriore
+*avrò* / *sarò* + participio: *Quando **avrò finito**, uscirò.* (cuando haya terminado)
 
-Importante: el futuro simple se usa para acciones futuras concretas o hipotéticas. No es equivalente al condicional en italiano; por ejemplo, *Se fossi ricco, comprerei una casa* (Si fuera rico, compraría una casa) requiere el **condizionale**.
+### Usos
+- Planes, previsiones, promesas: *L'anno prossimo **andrò** in Giappone.*
+- **Suposición** presente: *Dov'è Marco? — **Sarà** al lavoro.* (estará)
+- Tras ***quando, appena, se*** referidos al futuro: *Quando **arriverai**, ti chiamerò.*
 
 ## Errores comunes de hispanohablantes
-1. **Confusión con el futuro del español**: Muchos estudiantes aplican los sufijos españoles (-é, -ás) sin considerar que en italiano se usan otros. Por ejemplo, *Yo hablaré* (español) vs. *Parlerò* (italiano).
-2. **Uso indebido de "avere" o "essere"**: Al formar los futuros compuestos (*avrei parlato*, *sarei andato*), se olvida que el verbo auxiliar depende del verbo principal, algo similar al español pero con reglas propias.
-3. **Confusión entre hipótesis y planes reales**: Usar el futuro simple en lugar del condizionale para expresar suposiciones no realizadas: *Se non pioverà, andremo* (correcto) vs. *Se non pioverò, andremo* (incorrecto).
+1. ❌ *parlarò* ✅ *parlerò*.
+2. ❌ *anderò* ✅ *andrò*; ❌ *venirò* ✅ *verrò*.
+3. Tras *quando* con valor futuro, el registro cuidado pide futuro: ✅ *Quando arriverai, ti chiamerò* (el habla también admite *quando arrivi*).
+4. ❌ *mangierò* ✅ *mangerò*.
 
 ## Comparación con el español
-Aunque ambos idiomas comparten la función del futuro simple, sus formas son distintas. Por ejemplo:
-- **Español**: *Mañana **comeré**.* → **Italiano**: *Domani **mangerò**.*
-- **Español**: *Si **fuera** rico, compraría una casa.* → **Italiano**: *Se **fossi** ricco, comprerei una casa.* (condizionale).
-
-Además, en italiano el futuro simple no reemplaza al condizionale como sí ocurre en español. Por ejemplo:
-- **Español**: *Si llueve, no iremos.* → **Italiano**: *Se pioverà, non andremo.* (futuro) o *Se piovesse, non andremmo.* (condizionale).
+Funciona como el futuro español, incluso para suposiciones («estará en casa» = *sarà a casa*). Diferencias: la *a* de *-are* pasa a *e* (*parlerò*), y tras *quando* italiano usa futuro donde el español usa subjuntivo («cuando llegues» = *quando arriverai*).
 
 ## Ejemplo extendido en contexto
-**Diálogo:**
-*Anna: "Maria, sabes si Luca y Paolo **vorranno** acompañarnos al concierto mañana?"*
-*Maria: "No lo so, pero si **potranno**, les llamaré. Tengo que comprobar mi horario primero."*
-
-**Explicación:**
-- *Vorranno* (futuro de volere) expresa una intención hipotética de Luca y Paolo.
-- *Potranno* (futuro de potere) indica posibilidad futura condicionada al horario de Maria.
-
-Este uso refuerza que el futuro simple en italiano no solo describe planes concretos, sino también situaciones dependientes de condiciones externas o incertidumbres.
+*L'estate prossima **andremo** in Sicilia. **Prenderemo** il traghetto da Napoli e **staremo** due settimane a Palermo. Quando **arriveremo**, **telefonerò** ai miei cugini. — E il gatto? — Lo **terrà** la vicina. **Sarà** contenta!*

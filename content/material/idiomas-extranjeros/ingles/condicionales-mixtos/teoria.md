@@ -5,39 +5,40 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior llamaba «condicional» a *were* y comparaba mal con el español; el cuestionario daba «had had» en una oración de segundo condicional.
 
 ---
 
 ## Introducción
-Los condicionales mixtos son estructuras gramaticales que combinan tiempos verbales distintos en la cláusula *if* y en la oración principal. Su propósito es expresar situaciones hipotéticas donde el pasado tiene una consecuencia en el presente, o viceversa. En el nivel C1 de CEFR, su dominio permite comunicar ideas complejas con precisión, como especular sobre decisiones pasadas que afectan la actualidad o proyectar resultados futuros basados en condiciones presentes.
+Los **condicionales mixtos** combinan dos momentos distintos: una condición irreal en un tiempo y su consecuencia en otro. Son de nivel B2-C1.
 
 ## Explicación central
-Los condicionales mixtos combinan tiempos verbales de distintas categorías (pasado/presente/futuro) para reflejar realidades no cumplidas y sus implicaciones actuales o futuras. Por ejemplo:
-- **If I had studied harder, I would be a doctor now** *(Si hubiera estudiado más, ahora sería médico)*: la cláusula *if* usa el pasado perfecto (*had studied*) para referirse a una acción no realizada en el pasado, y la oración principal usa *would + base verb* (*be*) para expresar su consecuencia en el presente.
-- **If she were more careful, she wouldn’t have made that mistake** *(Si fuera más cuidadosa, no habría cometido ese error)*: aquí, la cláusula *if* usa el condicional (*were*) para una situación hipotética en el presente, y la oración principal usa el pluscuamperfecto (*wouldn’t have made*) para una consecuencia pasada.
+### 1. Pasado irreal → consecuencia en el presente
+**If + past perfect, … would + infinitivo**
+- *If I **had studied** medicine, I **would be** a doctor now.* (No estudié medicina; hoy no soy médico.)
+- *If she **had taken** the earlier train, she **would be** here by now.*
 
-Otra variante es **If they had left earlier, they would be here by now** *(Si hubieran salido antes, estarían aquí ahora)*: pasado perfecto en *if* y condicional en la principal.
+### 2. Presente irreal (algo permanente) → consecuencia en el pasado
+**If + past simple, … would have + participio**
+- *If I **were** more patient, I **wouldn't have shouted** at him yesterday.* (No soy paciente, por eso ayer le grité.)
+- *If he **spoke** English, he **would have got** the job.*
 
-## Errores comunes de hablantes hispanohablantes
-1. **Uso incorrecto del tiempo verbal en *if***: confundir el pasado simple con el pasado perfecto. Por ejemplo, decir *"If I studied harder..."* (pasado simple) en lugar de *"If I had studied harder..."* (pasado perfecto).
-2. **Error en la oración principal**: usar *will* en vez de *would*. Ejemplo: *"If I had saved money, I will afford a house"* (incorrecto), cuando debería ser *"I would afford a house"*.
-3. **Confusión entre condicionales reales e irreales**: aplicar estructuras de condicional irreal (*if + past perfect*) en situaciones hipotéticas que no requieren ese nivel de irrealidad.
+### Cómo reconocerlos
+- Las palabras de tiempo ayudan: *now, today, by now* → consecuencia presente (*would + infinitivo*); *yesterday, last year* → consecuencia pasada (*would have + participio*).
+- Si las dos partes hablan del pasado, es el **tercer condicional**: *If I had studied, I would have passed.*
+- Si las dos hablan del presente, es el **segundo**: *If I had more time, I would help you.*
+- En lugar de *would* se pueden usar *could* y *might*: *If you had told me, I could help you now.*
+
+## Errores comunes de hispanohablantes
+1. **Usar *would* en la condición**: ❌ *If I would have known…* ✅ *If I had known…*
+2. **Usar *will***: ❌ *If I had saved money, I will buy a house.* ✅ *…I would buy / would have bought…*
+3. **Mezclar sin mirar el tiempo**: *If I had more time* (presente) no es lo mismo que *If I had had more time* (pasado).
 
 ## Comparación con el español
-En español, los condicionales mixtos también existen, pero su construcción difiere. Por ejemplo:
-- **Si hubiera estudiado más, ahora sería médico** (pasado perfecto en *si* y condicional en la principal).
-- **Si fuera más cuidadosa, no habría cometido ese error** (*condicional* en *si* y pluscuamperfecto en la principal).
+El español hace las mismas combinaciones: «Si **hubiera estudiado** medicina, ahora **sería** médico» (*If I had studied…, I would be…*) y «Si **fuera** más paciente, ayer no le **habría gritado**» (*If I were…, I wouldn't have shouted…*). El pluscuamperfecto de subjuntivo («hubiera estudiado») corresponde al *past perfect* y el imperfecto de subjuntivo («fuera»), al *past simple*.
 
-La diferencia clave es que en inglés se usa siempre *would* (o variantes como *could*, *might*) en la oración principal, mientras que en español se emplea el condicional o el subjuntivo según el contexto. Esto ayuda a los hablantes de español a identificar la estructura: **if + tiempo pasado irreal → would + base verb**.
-
-## Ejemplo extendido
-*Dialogue:*
-— *"I wish I had taken that job offer in Madrid,"* said Ana, looking out the window.
-— *"If you had accepted it, you’d be working there now instead of dealing with this boring project,"* replied Luis.
-— *"Yeah, but if I were more confident, maybe I wouldn’t have hesitated back then."*
-— *"Exactly! If you had said yes to that opportunity, your career would’ve taken a different turn by now."*
-
-En este diálogo, los condicionales mixtos reflejan decisiones pasadas con consecuencias actuales (*had accepted → be working*) y situaciones hipotéticas en el presente que afectan posibles resultados futuros (*were more confident → wouldn’t have hesitated*).
-
----
-Dominar estos condicionales permite expresar reflexiones complejas sobre causas y efectos, esenciales para debates académicos, análisis de decisiones o relatos narrativos.
+## Ejemplo extendido en contexto
+*Ana: I'm so tired of this boring project.*
+*Luis: Well, if you **had accepted** that job in Madrid, you **would be living** in Spain now.*
+*Ana: True. But if I **were** braver, I **would have said** yes immediately.*

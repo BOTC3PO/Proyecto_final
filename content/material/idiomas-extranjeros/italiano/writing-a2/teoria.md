@@ -1,41 +1,51 @@
-# Escritura en italiano: nivel A2 (CEFR)
+# Expresión escrita en italiano (A2)
 
 > Tema del MAPA: `idiomas-extranjeros/italiano/writing-a2`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en los ejemplos.
 
 ---
 
 ## Introducción
-En el nivel A2 de la escala CEFR, los aprendices de italiano deben desarrollar habilidades básicas para escribir textos simples y coherentes sobre temas cotidianos. Esta etapa se centra en la construcción de oraciones sencillas con vocabulario relacionado a situaciones personales, como presentarse, describir actividades diarias o expresar opiniones básicas. La escritura en este nivel es fundamental para consolidar el dominio del idioma y preparar al estudiante para interacciones más complejas en niveles superiores.
+En A2 se escriben **textos breves y simples**: mensajes, postales, correos personales, notas, formularios. Lo importante es **comunicar la información** con frases claras y bien conectadas.
 
-## Explicación central: estructuras y ejemplos
-En italiano, la escritura A2 requiere dominar verbos regulares e irregulares en presente de indicativo, uso básico de artículos definidos (*il, la, lo, i, le*), y conectores simples (*e*, *ma*, *poi*, *perché*). Por ejemplo:
-- **Oración simple**: *"Io studio italiano ogni giorno."* (Estudio italiano todos los días.)
-- **Descripción de una actividad**: *"La domenica vado in parco con i miei amici. Gioco a pallone e mangio un gelato."* (El domingo voy al parque con mis amigos. Juego al fútbol y como un helado.)
+## Explicación central
+### Correo personal
+1. **Saludo**: *Ciao Marco! / Caro Marco, / Cara Giulia,*
+2. **Motivo**: *Ti scrivo per… / Grazie per il tuo messaggio.*
+3. **Desarrollo**: 2 o 3 ideas.
+4. **Cierre**: *A presto! Un abbraccio. Baci.*
+5. **Firma**.
 
-Los textos suelen tener un propósito comunicativo claro, como completar formularios (*"Il mio nome è Maria. Ho 25 anni. Sono studente."*) o escribir una carta corta (*"Ciao Marco! Come stai? Sto bene. Vengo a casa tua domani."*).
+### Conectores básicos
+*e, ma, o, perché, quindi, anche, prima, poi, dopo*.
 
-## Errores comunes de hablantes de español
-Los hispanohablantes suelen cometer errores relacionados con:
-1. **Artículos definidos**: Olvidar el uso del artículo antes de sustantivos (*"Vivo in Milano"* en lugar de *"Vivo a Milano"*).
-2. **Conjugación verbal**: Usar formas españolas en italiano (*"yo como" → "io mangio", no "io como"*).
-3. **Pronombres reflexivos**: Confundir *mi* (posesivo) con *me* (reflexivo) (*"Mi lavo le mani"*, no *"Me lavo las manos"*).
-4. **Uso de preposiciones**: Sustituir *a* por *en* o viceversa (*"vado a scuola"*, no *"vado en escuela"*).
+### Tiempos
+Presente (rutina), *passato prossimo* (lo que pasó), futuro o presente (planes).
 
-## Comparación con el español: diferencias clave
-- **Artículos definidos**: En italiano, los artículos se usan siempre antes de sustantivos, incluso si estos son singulares y comienzan con vocal (*"l’uomo"*, no *"el hombre"*).
-- **Verbo "ser"**: En español, *ser* puede tener múltiples significados (identidad, estado), pero en italiano se usa *essere* solo para aspectos como identidad (*"Sono Maria"*) o estados temporales (*"Sono stanco"*).
-- **Conjunciones**: Aunque ambas lenguas usan conectores similares, el italiano prefiere estructuras más directas (*"Vado al parco e mangio un gelato"* en lugar de *"Voy al parque y como un helado"*).
+### Ortografía que suele fallar
+- **Acentos**: *è* (es) / *e* (y), *perché, città, più, già, così*.
+- **Apóstrofo**: *un'amica* (fem.), *un amico* (masc., sin apóstrofo), *l'albero*, *c'è*.
+- **h** en *ho, hai, ha, hanno*; sin *h* en *o, ai, a, anno*.
+- **Dobles**: *mamma, nonno, bello, città, settimana*.
+- **qu / cu**: *quando, questo, quattro* / pero ***cuore, cuoco, scuola***.
+
+## Errores comunes de hispanohablantes
+1. ❌ *Querida Giulia* ✅ *Cara Giulia*.
+2. ❌ *Lui e italiano* ✅ *Lui è italiano*.
+3. ❌ *Io o un cane* ✅ *Io ho un cane*.
+4. ❌ *un'amico* ✅ *un amico*; ❌ *perche* ✅ *perché*.
+5. ❌ *settimana* con una *t*: ✅ *settimana*.
+
+## Comparación con el español
+La estructura del correo es igual. Las diferencias son ortográficas: acento grave (*è, città*) y agudo (*perché*), la *h* de *avere* y las consonantes dobles.
 
 ## Ejemplo extendido en contexto
-**Texto**: *Ciao, mi chiamo Luca. Ho 18 anni e studio informatica all’università. Il mio lavoro preferito è giocare a calcio con gli amici. La domenica vado in palestra e poi mangio un panino con la mia ragazza. Mi piace molto l’Italia perché è bella e i miei amici sono simpatici.*
-
-**Explicación**:
-- **Vocabulario básico**: Palabras como *studio*, *informatica*, *calcio* (fútbol) son comunes en A2.
-- **Estructura coherente**: Uso de *e* para conectar ideas y *poi* para indicar secuencia (*vado in palestra e poi mangio...*).
-- **Tiempo verbal**: Presente de indicativo para describir hábitos o situaciones actuales.
-
-Este tipo de texto permite al estudiante practicar la organización lógica de ideas y el uso correcto de conectores, esenciales para avanzar en niveles superiores.
+*Cara Giulia,*
+*grazie per la tua cartolina! Io sono a Napoli con la mia famiglia. Fa molto caldo e andiamo al mare tutti i giorni. Ieri abbiamo visitato Pompei: è stato bellissimo! Domani facciamo una gita in barca a Capri.*
+*Un abbraccio,*
+*Ana*

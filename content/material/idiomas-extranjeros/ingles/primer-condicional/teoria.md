@@ -5,49 +5,41 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía explicaciones confusas y ejemplos con errores.
 
 ---
 
 ## Introducción
-El **primer condicional** se utiliza para expresar situaciones futuras posibles o reales que dependen de una condición. En inglés, se forma con la estructura: *if* + verbo en tiempo presente, seguido de *will* + verbo en infinitivo (ejemplo: *If it rains, we will stay home*). Este tipo de oración es clave en el nivel B1 del Marco Común Europeo de Referencia para las Lenguas (CEFR), ya que permite a los hablantes planificar eventos futuros, hacer predicciones basadas en condiciones y expresar hipótesis realistas.
-
----
+El **primer condicional** habla de situaciones **reales o probables en el futuro** y sus consecuencias: *If it rains, we'll stay at home.*
 
 ## Explicación central
-El primer condicional se emplea cuando **la condición es posible o probable de cumplirse**. La estructura básica es:
-- **If + presente simple**, *will* + infinitivo (sin "to").
+### Estructura
+**If + present simple, will + infinitivo**
+- *If you **study**, you**'ll pass** the exam.*
+- El orden puede invertirse (sin coma): *You'll pass the exam **if** you study.*
+- ❌ No va *will* después de *if*: ❌ *If it will rain…* ✅ *If it rains…*
 
-Ejemplos reales en inglés:
-1. *If you study hard, you will pass the exam.* (Si estudias mucho, aprobarás el examen.)
-2. *If I don’t finish my work today, I will be late for the meeting.* (Si no termino mi trabajo hoy, llegaré tarde a la reunión.)
-3. *If they call me, I will answer immediately.* (Si me llaman, responderé de inmediato.)
+### Variantes
+- En la consecuencia también: *can, may, might, should, must* o un **imperativo**: *If you see Ana, **tell** her to call me. If you're tired, you **can** go home.*
+- **unless** = *if … not*: *I'll go **unless** it rains* (= *if it doesn't rain*).
+- **as soon as / when / before / after / until** + presente para el futuro: *I'll call you **when** I **arrive**.* (❌ *when I will arrive*)
 
-En estos casos, **ambas cláusulas son necesarias**: la condición (*if* + presente) y el resultado futurible (*will* + infinitivo). Además, se pueden omitir partes para hacer oraciones más coloquiales:
-- *If it’s sunny tomorrow, we’ll go to the park.* (Si está soleado mañana, iremos al parque.)
+### Primer condicional vs. condicional cero
+- **Cero** (verdades generales): *If you heat ice, it **melts**.* (siempre)
+- **Primero** (una situación concreta futura): *If you heat the soup, it **will be** ready in five minutes.*
 
----
+### Primero vs. segundo
+- *If I **have** time, I'**ll help** you.* (es posible)
+- *If I **had** time, I'**d help** you.* (no tengo tiempo: hipotético)
 
-## Errores comunes de hablantes hispanohablantes
-1. **Confusión con el segundo condicional**: Algunos usan *would* en lugar de *will* cuando la situación es posible, no hipotética (ejemplo incorrecto: *If I have time, I would call you* → correcto: *I will call you*).
-2. **Uso del futuro en el "if"**: En español se dice *"si llueve, iremos a casa"*, pero en inglés debe ser presente simple (*If it rains, we will go home*).
-3. **Falta de la cláusula condicional**: Oraciones como *We will stay home tomorrow* (sin "if") no expresan una dependencia lógica, por lo que son incorrectas en este contexto.
-
----
+## Errores comunes de hispanohablantes
+1. ❌ *If you will come, I will cook.* ✅ *If you come, I'll cook.*
+2. ❌ *When I will finish, I'll call you.* ✅ *When I finish, I'll call you.*
+3. ❌ *Unless you don't hurry, you'll miss the bus.* ✅ *Unless you hurry…* (*unless* ya es negativo).
 
 ## Comparación con el español
-En español, la estructura para condiciones futuras posibles es similar: *"Si + presente, futuro"* (ejemplo: *Si llueve, nos quedaremos en casa*). Sin embargo, en inglés se usa **will** para expresar el resultado futuro, mientras que en español se puede usar el verbo en infinitivo o conjugado. Otra diferencia es que en inglés, la cláusula condicional (*if*) siempre va primero si no se usa un conectivo como *then* (ejemplo: *If it rains, we’ll stay home* vs. *We’ll stay home if it rains*).
-
----
+Coincide con «Si + presente, futuro»: «Si llueve, nos quedaremos en casa». Igual que en español, después de «si» no va futuro. La diferencia está en *when*: «cuando **llegue**» (subjuntivo) = *when I **arrive*** (presente simple).
 
 ## Ejemplo extendido en contexto
-**Diálogo entre dos amigos planeando un viaje:**
-- **Ana**: *If the weather is good this weekend, we should go hiking.* (Si el clima está bueno este fin de semana, deberíamos ir a caminar.)
-- **Carlos**: *Yes, but if it’s too hot, I will stay home and read instead.* (Sí, pero si hace demasiado calor, me quedaré en casa leyendo en lugar de eso.)
-- **Ana**: *If we take the train, we’ll arrive earlier. But if there are delays, we might miss our flight.* (Si tomamos el tren, llegaremos antes. Pero si hay retrasos, podríamos perder nuestro vuelo.)
-
-Este intercambio muestra cómo el primer condicional se usa para:
-- Planificar acciones futuras basadas en condiciones posibles (*if the weather is good*).
-- Expresar consecuencias de decisiones (*If we take the train...*).
-- Predecir eventos inciertos (*we might miss our flight*).
-
-Dominar esta estructura permite a los estudiantes expresarse con claridad sobre situaciones futuras en contextos cotidianos, académicos o profesionales.
+*If we **leave** now, we'**ll catch** the 8 o'clock train. If we **miss** it, we **won't arrive** in time. I'**ll text** you as soon as I **get** to the station. Don't worry: **unless** there's a strike, everything will be fine.*

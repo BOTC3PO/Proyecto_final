@@ -1,63 +1,46 @@
-# Plurales en alemán: reglas básicas para A1-A2
+# El plural en alemán (A1)
 
 > Tema del MAPA: `idiomas-extranjeros/aleman/plurales`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
 ## Introducción
-Los plurales en alemán son una de las primeras gramáticas que los aprendices deben dominar, ya que permiten referirse a más de un objeto o persona. En el nivel A1-A2 del Marco Común Europeo de Referencia para las Lenguas (MCER), es fundamental comprender cómo se forman los plurales y sus diferencias con respecto al español, pues esto facilita la comunicación en contextos cotidianos como describir objetos, hacer compras o hablar de familiares.
+El plural alemán es **irregular**: hay varias terminaciones posibles y a veces cambia la vocal (*Umlaut*). Por eso el plural se aprende junto con cada sustantivo: *der Tisch, die Tische*. Lo bueno: en plural, el artículo es siempre ***die***.
 
 ## Explicación central
-En alemán, los sustantivos pueden tener tres tipos de plural: **plural regular**, **plural irregular** y **plural invariable** (que no cambia). A continuación, se detallan ejemplos reales:
+### Tipos principales
+| Terminación | Ejemplos | Tendencia |
+|---|---|---|
+| **-e** (a veces con Umlaut) | *der Tisch → die Tische; der Stuhl → die Stühle* | masculinos |
+| **-(e)n** | *die Frau → die Frauen; die Lampe → die Lampen* | casi todos los femeninos |
+| **-er** (con Umlaut si se puede) | *das Kind → die Kinder; das Buch → die Bücher* | neutros |
+| **— / Umlaut** | *der Lehrer → die Lehrer; der Vater → die Väter* | en *-er, -el, -en* |
+| **-s** | *das Auto → die Autos; das Hotel → die Hotels* | extranjerismos, siglas |
 
-1. **Plural con -e**:
-   - *der Stuhl* → *die Stühle* ("la silla" → "las sillas").
-   - *das Buch* → *die Bücher* ("el libro" → "los libros").
+### Reglas útiles
+- Femeninos en *-ung, -heit, -keit, -schaft, -ion, -tät* → ***-en***: *die Zeitungen, die Universitäten*.
+- Femeninos en *-in* → ***-nen***: *die Lehrerin → die Lehrerinnen*.
+- Diminutivos *-chen, -lein* → **sin cambio**: *das Mädchen → die Mädchen*.
+- Masculinos y neutros en *-er, -el, -en* → **sin terminación** (a veces Umlaut): *der Apfel → die Äpfel*.
 
-2. **Plural con -n/-en**:
-   - *der Tisch* → *die Tische* ("la mesa" → "las mesas").
-   - *die Frau* → *die Frauen* ("la mujer" → "las mujeres").
-
-3. **Plural irregular**:
-   - *das Kind* → *die Kinder* ("el niño" → "los niños").
-   - *der Mann* → *die Männer* ("el hombre" → "los hombres").
-
-4. **Plural invariable**:
-   - *der Name* → *die Namen* ("el nombre" → "los nombres").
-   - *das Auto* → *die Autos* ("el coche" → "los coches").
-
-Algunos sustantivos no cambian en plural, como *das Fenster* (→ *die Fenster*) o *der Film* (→ *die Filme*). Es crucial memorizar estos patrones y practicarlos con ejercicios de repaso.
+### Dativo plural
+En dativo plural se agrega ***-n*** (si no termina en *-n* o *-s*): *mit den Kinder**n***.
 
 ## Errores comunes de hispanohablantes
-Los hablantes nativos de español suelen cometer errores al aplicar reglas del español a los plurales alemanes:
-- **Uso excesivo de -s**: Por ejemplo, *der Tisch* → *die Tische* (correcto) en lugar de *die Tisches* (incorrecto).
-- **Confusión con el género**: En español, el plural no cambia el género, pero en alemán sí. Por ejemplo, *der Mann* es masculino singular, pero en plural se convierte en *die Männer* (femenino).
-- **Olvidar cambios de artículo**: Al pluralizar, los artículos también varían: *ein Auto* → *eine Auto* (incorrecto), ya que el artículo correcto es *eine Autos*.
+1. Agregar *-s* a todo: ❌ *die Tischs* ✅ *die Tische*.
+2. ❌ *die Kinds* ✅ *die Kinder*.
+3. ❌ *die Lehrerins* ✅ *die Lehrerinnen*.
+4. Olvidar el Umlaut: ❌ *die Buchen* ✅ *die Bücher*.
+5. ❌ *mit den Kinder* ✅ *mit den Kindern*.
 
 ## Comparación con el español
-En español, los plurales se forman generalmente añadiendo -s o -es al sustantivo, y el género no cambia. Por ejemplo:
-- *el libro* → *los libros* (masculino en ambos casos).
-- *la mesa* → *las mesas* (femenino en ambos casos).
-
-En alemán, sin embargo, los plurales pueden alterar tanto la forma del sustantivo como el género del artículo. Por ejemplo:
-- *der Mann* (masculino) → *die Männer* (femenino plural).
-- *das Fenster* (neutro) → *die Fenster* (femenino plural).
-
-Este cambio en el género es un aspecto clave que diferencia al alemán del español y requiere atención especial.
+El español agrega *-s/-es* a casi todo. En alemán el *-s* es la excepción (palabras extranjeras como *Autos, Hotels, Handys*). La buena noticia: el artículo plural es siempre *die*, sin género.
 
 ## Ejemplo extendido en contexto
-**Situación:** Un estudiante compra útiles escolares en una tienda.
-**Diálogo:**
-*Vendedor:* ¿Was möchten Sie? (¿Qué quiere?)
-*Estudiante:* Ich möchte zwei Stifte und drei Bücher. (Quiero dos bolígrafos y tres libros).
-*Vendedor:* Gut, die Stifte sind hier, und die Bücher dort. (Bien, los bolígrafos están aquí y los libros allá).
-*Estudiante:* Danke! Und... haben Sie noch mehr Tische? (Gracias. Y... ¿tienen más mesas?).
-*Vendedor:* Ja, da hinten sind einige Tische. (Sí, detrás hay algunas mesas).
-
-En este ejemplo se muestran plurales regulares (*Stifte*, *Bücher*, *Tische*) y la concordancia de artículos (*die Stifte*, *die Bücher*). La frase "einige Tische" ilustra el uso del plural invariable.
-
-Dominar los plurales es esencial para avanzar en el alemán, ya que permiten expresar ideas más complejas y comunicarse con claridad en situaciones cotidianas.
+*In unserer Schule gibt es viele **Klassenzimmer**. In jedem Zimmer stehen zwanzig **Tische** und zwanzig **Stühle**. Die **Lehrerinnen** und **Lehrer** sind nett. Die **Kinder** lesen **Bücher** und spielen mit den **Bällen**.*

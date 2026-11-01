@@ -1,55 +1,46 @@
-# Futuro en portugués brasileño (nível B1)
+# El futuro en portugués de Brasil (B1)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-br/futuro`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
 ## Introducción
-El futuro es un tiempo verbal que se usa para expresar acciones que ocurrirán en el futuro, predicciones, planes o hipótesis. En el nivel B1, dominar este tiempo es clave para comunicarse sobre proyectos, eventos futuros y expectativas sin recurrir constantemente a frases como "vai acontecer" (va a suceder), lo que limita la expresividad.
+En portugués de Brasil hay varias formas de hablar del futuro. En el habla cotidiana la más usada es **ir + infinitivo**; el **futuro simple** (*falarei*) es más formal o escrito.
 
 ## Explicación central
-En portugués brasileño, el futuro se forma de tres maneras principales:
+### ir + infinitivo (la más común)
+- *Eu **vou viajar** amanhã. Eles **vão comprar** uma casa.*
+- Con *ir* mismo se usa solo *ir*: *Eu **vou** ao cinema* (y no *vou ir ao cinema*, aunque en el habla se oye).
 
-1. **Futuro del verbo**: Se añaden terminaciones al infinitivo. Por ejemplo:
-   - *Eu estudarei* (yo estudiaré)
-   - *Você viajará* (usted viajará)
-   - *Eles virão* (ellos vendrán)
+### Futuro do presente simples (formal)
+- Infinitivo + **-ei, -á, -emos, -ão**: *falar**ei**, falar**á**, falar**emos**, falar**ão***.
+- Irregulares: **fazer → farei**, **dizer → direi**, **trazer → trarei**.
+- Uso: textos formales, noticias, promesas solemnes y **suposiciones**: *Onde **estará** o Pedro?* («¿Dónde estará Pedro?»)
 
-2. **Construcción con "vai" o "ir" + infinitivo**: Es común en el habla cotidiana, especialmente para expresar planes cercanos:
-   - *Vou estudar amanhã* (Voy a estudiar mañana)
-   - *Ela vai viajar no fim de semana* (Ella va a viajar este fin de semana)
+### Presente con valor de futuro
+- Con una marca de tiempo: *Amanhã eu **trabalho** até tarde.*
 
-3. **Futuro en el subjuntivo**: Se usa en oraciones condicionales o hipotéticas:
-   - *Se eu ganhar dinheiro, vou viajar* (Si gano dinero, voy a viajar)
-   - *O que aconteceria se ele viesse conosco?* (¿Qué pasaría si él viniera con nosotros?)
+### Futuro do pretérito (condicional)
+- Infinitivo + **-ia, -ia, -íamos, -iam**: *eu falaria, nós falaríamos*. Irregulares: *faria, diria, traria*.
+- Usos: hipótesis (*Eu **compraria** uma casa*), cortesía (*Você **poderia** me ajudar?*). En el habla muchas veces se reemplaza por el imperfeito.
 
-**Ejemplo real en portugués**:
-- *Amanhã, eu estudarei para o exame.* (Mañana, estudiaré para el examen.)
-- *Vai chover amanhã, então não vamos ao parque.* (Va a llover mañana, entonces no iremos al parque.)
+### Pronombres con el futuro (registro formal)
+En el portugués culto el pronombre puede ir en el medio del verbo (*mesóclise*): *far**-se-á***. En Brasil, en el habla se dice *vai se fazer* o *se fará*.
 
 ## Errores comunes de hispanohablantes
-1. **Confusión entre "vai" y futuro del verbo**: Algunos usan solo "vai + infinitivo" incluso cuando el contexto requiere el futuro indicativo. Por ejemplo: *Vou estudar amanhã* (correcto) vs. *Estudarei amanhã* (también correcto, pero menos común en el habla informal).
-
-2. **Uso incorrecto del subjuntivo**: En oraciones condicionales, se omite el subjuntivo o se usa la forma indicativa:
-   - ❌ *Se eu ganhar dinheiro, vou viajar.* (correcto)
-   - ✅ *Se eu ganhasse dinheiro, viajaria.* (en hipótesis irreal, aunque rara en portugués brasileño).
-
-3. **Falta de flexión en el infinitivo**: Errores como *Vou estudar* (correcto) vs. *Voy estudiar* (equivocado, ya que "estudiar" no se usa así en portugués).
+1. ❌ *Eu vou a viajar.* ✅ *Eu vou viajar.* (sin *a*)
+2. ❌ *fazerei, dizerei* ✅ *farei, direi*.
+3. Usar el futuro simple en una charla informal: suena muy formal.
+4. ❌ *Eu iria* para un plan seguro (es condicional) ✅ *Eu vou*.
 
 ## Comparación con el español
-En español, el futuro se forma añadiendo terminaciones al infinitivo (*hablaré*, *viajarás*), similar a la forma del verbo en portugués. Sin embargo:
-- **El uso de "vai"**: En español no existe una construcción equivalente directa (no hay "va + infinitivo"), por lo que se prefiere el futuro o el presente de subjuntivo según el contexto.
-- **Futuro en el subjuntivo**: En portugués, el subjuntivo futuro es menos común que en español. Por ejemplo: *Se eu tivesse dinheiro* (en hipótesis irreal) vs. *Si tuviera dinero* (español).
+«Voy a viajar» = *Vou viajar* (sin preposición). El futuro simple existe igual que en español («hablaré» = *falarei*), pero en Brasil se usa todavía menos en el habla que en el español rioplatense.
 
 ## Ejemplo extendido en contexto
-**Diálogo**:
-— *Ana, você vai viajar no final de semana?* (¿Vas a viajar este fin de semana?)
-— *Sim! Estarei em São Paulo para uma reunião. Vou passar por um amigo na sexta-feira.* (Sí! Estaré en São Paulo para una reunión. Pasaré por un amigo el viernes.)
-— *Que legal! O que você vai fazer no domingo?* (¡Qué bien! ¿Qué vas a hacer el domingo?)
-— *Vou ficar em casa, mas talvez eu vá ao cinema se tiver tempo.* (Voy a quedarme en casa, pero quizás vaya al cine si tengo tiempo.)
-
-Este ejemplo muestra cómo combinar "vai + infinitivo" y el futuro del verbo para expresar planes futuros con diferentes grados de certeza.
+*No ano que vem eu **vou morar** em Curitiba. **Vou procurar** um apartamento perto da universidade. Minha mãe disse: "**Farei** de tudo para te visitar". E você, o que **vai fazer** nas férias?*

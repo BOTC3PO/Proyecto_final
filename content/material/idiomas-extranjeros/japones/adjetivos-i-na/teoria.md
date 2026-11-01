@@ -1,40 +1,59 @@
-# Adjetivos *-i* y *-na* en japonés (N5)
+# Adjetivos -i y -na en japonés (N5)
 
 > Tema del MAPA: `idiomas-extranjeros/japones/adjetivos-i-na`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores de escritura, lecturas y traducciones incorrectas.
 
 ---
 
 ## Introducción
-En el idioma japonés, los adjetivos se dividen en dos categorías principales: **adjetivos *-i*** (terminados en *-い*) y **adjetivos *-na*** (que requieren la partícula *な* para modificar sustantivos). Esta distinción es fundamental en el nivel N5, ya que afecta cómo se construyen oraciones descriptivas. Los adjetivos *-i* suelen describir estados o cualidades más generales, mientras que los *-na* tienden a referirse a propiedades concretas o categorías.
+El japonés tiene dos clases de adjetivos: los **adjetivos -i** (い形容詞), que terminan en い y se conjugan solos, y los **adjetivos -na** (な形容詞), que se comportan como sustantivos y llevan な delante de un sustantivo.
 
 ## Explicación central
-**Adjetivos *-i***: Estos terminan en *-い* y se usan directamente antes del sustantivo que modifican, sin necesidad de partículas adicionales. Por ejemplo:
-- **高いビル** (*takai biru*, "edificio alto") → El adjetivo *たかい* (alto) precede al sustantivo *ビル* (edificio).
-- **静かな部屋** (*shizukana heya*, "habitación tranquila") → Aquí, *静か* (*shizuka*, "tranquilo") se convierte en *静かな* antes de *部屋*.
+### Adjetivos -i
+Ejemplos: 高い (*takai*, caro/alto), 安い (*yasui*, barato), 大きい (*ōkii*, grande), 小さい (*chiisai*, chico), おいしい (*oishii*, rico), 暑い (*atsui*, caluroso), 新しい (*atarashii*, nuevo).
 
-**Adjetivos *-na***: Estos no terminan en *-い*, sino que requieren la partícula *な* para modificar sustantivos. Ejemplos comunes incluyen:
-- **新しい本** (*atarashii hon*, "libro nuevo") → *新しく* (*atarashiku*) es el adverbio, pero como adjetivo se usa *新しい* (*atarashii*) antes del sustantivo *本*.
-- **静かな部屋** (*shizukana heya*, "habitación tranquila") → Aquí, *静か* (*shizuka*) es un adjetivo *-na* que requiere *な* para modificar *部屋*.
+| Forma | Regla | 高い |
+|---|---|---|
+| Presente afirmativo | — | 高い(です) |
+| Presente negativo | い → **くない** | 高くない(です) / 高くありません |
+| Pasado afirmativo | い → **かった** | 高かった(です) |
+| Pasado negativo | い → **くなかった** | 高くなかった(です) |
+
+- Delante de sustantivo, sin cambios: **高い**本 (*takai hon*, un libro caro).
+- Irregular: **いい** (bueno) → よくない, よかった, よくなかった.
+
+### Adjetivos -na
+Ejemplos: きれい (*kirei*, lindo/limpio), 静か (*shizuka*, tranquilo), 元気 (*genki*, sano/animado), 有名 (*yūmei*, famoso), 便利 (*benri*, práctico), 好き (*suki*, que gusta), 嫌い (*kirai*, que disgusta).
+
+| Forma | 静か |
+|---|---|
+| Presente afirmativo | 静か**です** / 静か**だ** |
+| Presente negativo | 静か**じゃない(です)** / 静か**ではありません** |
+| Pasado afirmativo | 静か**でした** / 静か**だった** |
+| Pasado negativo | 静か**じゃなかった(です)** |
+
+- Delante de sustantivo, con **な**: 静か**な**町 (*shizuka na machi*, un pueblo tranquilo).
+
+### Trampas
+- **きれい** y **嫌い** terminan en い pero son adjetivos **-na**: ❌ きれくない ✅ きれいじゃない.
+- 好き y 嫌い se usan con が: 猫**が**好きです (me gustan los gatos).
 
 ## Errores comunes de hispanohablantes
-1. **Confusión entre *-i* y *-na***: Algunos aprendices aplican reglas del español, donde los adjetivos suelen ir después del sustantivo, y colocan el adjetivo al final en japonés. Por ejemplo, decir *"部屋静か"* (*heya shizuka*) en lugar de *"静かな部屋"* (*shizukana heya*).
-2. **Uso incorrecto de *な***: Olvidar añadir *な* antes del sustantivo al usar adjetivos *-na*. Por ejemplo, *"新しい本"* (*atarashii hon*) es correcto, pero *"新しいうえ"* (*atarashii ue*, "techo nuevo") está mal; la forma correcta sería *"新しいうえ"* (*atarashii ue*).
-3. **Confusión con adverbios**: Usar formas de adjetivo como *静かに* (*shizukani*, "tranquilamente") donde se requiere un adjetivo, o viceversa.
+1. ❌ 高いじゃないです ✅ 高くないです.
+2. ❌ 高いでした ✅ 高かったです.
+3. ❌ 静か町 ✅ 静かな町.
+4. ❌ いくない ✅ よくない.
+5. ❌ きれくない ✅ きれいじゃない.
 
 ## Comparación con el español
-En el español, los adjetivos suelen ir después del sustantivo y cambiar según el género y número del sustantivo modificado (ej.: *una casa alta*). En japonés, no hay concordancia de género ni número: tanto *"高いビル"* como *"高い家"* (*takai ie*, "casa alta") usan la misma forma. Además, los adjetivos *-na* requieren siempre *な* antes del sustantivo, algo que no ocurre en español.
+En español el adjetivo no se conjuga («era caro» lleva el verbo «ser»). En japonés, el adjetivo -i lleva el tiempo y la negación en su propia terminación: 高かった = «era caro». Además, el adjetivo va **antes** del sustantivo: 大きい家 = «casa grande».
 
-## Ejemplo extendido
-**Diálogo:**
-A: あなたの部屋、どんなですか？ (*Anata no heya, donna desu ka?*, "¿Cómo es tu habitación?")
-B: 静かで、新しい本がたくさんあります。(*Shizukade, atarashii hon ga takusan arimasu.*, "Es tranquila y hay muchos libros nuevos.")
-
-**Análisis:**
-- *静か* (*shizuka*, adjetivo *-na*) se usa como *静かで* (*shizukade*, "tranquila") para describir el estado de la habitación.
-- *新しい* (*atarashii*, adjetivo *-i*) modifica a *本* (*hon*, "libro") con la forma *新しい本* (*atarashii hon*).
-
-Este uso distinto entre *-i* y *-na* permite diferenciar descripciones de cualidades generales (como el estado de tranquilidad) versus propiedades específicas (como la novedad de los libros).
+## Ejemplo extendido en contexto
+- A: 昨日の旅行はどうでしたか。(*Kinō no ryokō wa dō deshita ka.*) ¿Qué tal el viaje de ayer?
+- B: とても**楽しかった**です。ホテルは**きれい**で、料理も**おいしかった**です。でも、天気は**よくなかった**です。
+(Fue muy divertido. El hotel era lindo y la comida estaba rica. Pero el clima no fue bueno.)

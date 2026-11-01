@@ -1,573 +1,197 @@
-> **Nota de corrección:** Este cuestionario fue corregido a partir del borrador en
-> `_borradores-gemma/idiomas-extranjeros/portugues-pt/listening-c1/cuestionario_crudo.md`.
-> Los 24 bloques con `tipo: completar`/`mc` mezclados tenían una línea `---` suelta
-> dentro de la propia cerca, rompiendo el parseo; se quitó. Se corrigieron además
-> cinco errores de contenido:
-> - **Bloque 3:** llamaba "verbo en infinitivo" y "sujeto de la oración" a la palabra
->   "se", que en realidad es la conjunción que introduce una pregunta indirecta
->   ("perguntei-lhe se ia"); corregida la etiqueta y la explicación.
-> - **Bloque 4:** afirmaba que "gostar de" exige el gerundio ("gosta de caminhando"),
->   cuando en realidad exige el infinitivo ("gosta de caminhar") -- el gerundio suelto
->   tras "gostar de" es agramatical. Se cambió el verbo principal a "continuar" (que sí
->   es un disparador genuino de gerundio) manteniendo la misma respuesta.
-> - **Bloque 12:** afirmaba que "vamos" (subjuntivo presente de "ir" para "nós") lleva
->   "acento agudo", cuando en realidad no lleva ningún acento; corregida.
-> - **Bloque 19:** usaba el continuo al estilo brasileño ("estava pensando") en vez
->   del estándar europeo ("estava a pensar"); corregido.
-> - **Bloque 21:** la misma afirmación falsa de acento que el bloque 12, esta vez
->   sobre "seja"; corregida.
+# Portugués (Portugal) — listening C1 (cuestionario, 10 preguntas VBLang)
 
-### 1 — Subjuntivo após "esperar que"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-c1"  
-  nivel: "C1"  
-  tags: ["subjuntivo", "esperar"]  
-pasos:  
-  - "Identificar el verbo principal y la estructura de oración."  
-  - "Aplicar la regla del subjuntivo en contexto."  
-respuestas_validas:  
-  - "termine"  
-  - "Termine"  
-tipo: completar  
-enunciado: "Ela espera que ele _______ o trabalho antes das 5."  
+> Tema: `idiomas-extranjeros/portugues-pt/listening-c1`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior pedía completar sin audio ni texto; ahora cada pregunta trae la transcripción.
 
-explicacion: "Después de 'esperar que', se usa el subjuntivo. La forma correcta es 'termine' (terceira pessoa do singular do presente do subjuntivo)."  
+---
+
+### 1 — Agora
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "listening-c1"
+  nivel: "C1"
+  tags: ["listening", "C1"]
 
-### 2 — Pronomes relativos em orações complexas  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-c1"  
-  nivel: "C1"  
-  tags: ["pronome relativo", "cláusula"]  
-pasos:  
-  - "Reconhecer a estrutura da oração subordinada."  
-  - "Escolher o pronome relativo adequado ao sujeito."  
-opciones_explicitas:
-  - "que"
-  - "quem"
-  - "onde"
-  - "como"
-respuesta: "que"  
-tipo: mc  
+respuesta: "Una objeción («ahora bien»)"
+tipo: "mc"
+opciones_explicitas: ["Una objeción («ahora bien»)", "Un momento presente", "Una conclusión"]
 
-enunciado: "O livro ___ comprei é muito caro."  
+enunciado: "Áudio: «É claro que tem vantagens. Agora, estar sozinho o dia todo…» ¿Qué introduce *Agora*?"
 
-explicacion: "'Que' é o pronome relativo correto para substituir 'o livro', pois se refere a um objeto direto. 'Quem' refere-se a pessoas, e 'onde' indica lugar."  
-
+explicacion: |
+  *Agora,…*
 ```
 
-### 3 — Perguntas indiretas com "se"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-c1"  
-  nivel: "C1"  
-  tags: ["pergunta indireta", "se"]  
-pasos:  
-  - "Identificar a estrutura da pergunta indireta."  
-  - "Completar com a conjunção que introduz a pergunta indireta."  
-respuestas_validas:  
-  - "se"  
-  - "Se"  
-tipo: completar  
-enunciado: "Perguntei-lhe _______ iria ao cinema."  
-
-explicacion: "Em perguntas indiretas do tipo sim/não, usa-se a conjunção 'se' para introduzir a oração subordinada (equivalente a 'si' no discurso direto: 'Perguntei-lhe: Vais ao cinema?')."  
+### 2 — Pronto
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "listening-c1"
+  nivel: "C1"
+  tags: ["listening", "C1"]
 
-### 4 — Gerúndio após verbos específicos  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-c1"  
-  nivel: "C1"  
-  tags: ["gerúndio", "caminhar"]  
-pasos:  
-  - "Reconhecer o verbo que exige o gerúndio."  
-  - "Aplicar a forma correta do gerúndio."  
-respuestas_validas:  
-  - "caminhando"  
-  - "Caminhando"  
-tipo: completar  
-enunciado: "Ele continua _______ no parque aos fins de semana."  
+respuesta: "Bueno, listo"
+tipo: "mc"
+opciones_explicitas: ["Bueno, listo", "Rápido", "Pronto (enseguida)"]
 
-explicacion: "O gerúndio é formado com a terminação '-ndo'. 'Caminhar' → 'caminhando'. Verbos aspectuais como 'continuar' exigem o gerúndio ('continua caminhando' = segue a caminhar); note-se que 'gostar de', ao contrário, exige o infinitivo ('gosta de caminhar'), nunca o gerúndio."  
+enunciado: "Áudio: «Pronto, então ficamos assim.»"
 
+explicacion: |
+  *Pronto* = bueno, listo.
 ```
 
-### 5 — Preposições com verbos específicos  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-c1"  
-  nivel: "C1"  
-  tags: ["preposição", "a/em"]  
-pasos:  
-  - "Identificar o verbo e sua preposição associada."  
-  - "Escolher a preposição correta entre as opções."  
-opciones_explicitas:
-  - "a"
-  - "em"
-  - "de"
-  - "para"
-respuesta: "a"  
-tipo: mc  
-
-enunciado: "Ela viajou _______ Lisboa ontem."  
-
-explicacion: "'Viajar a' é a preposição correta para indicar destino. 'Em' indica localização já estabelecida, e 'para' pode ser usado em contextos diferentes (como propósito)."  
+### 3 — Idiom
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "listening-c1"
+  nivel: "C1"
+  tags: ["listening", "C1"]
 
-### 6 — Passado perfeito com verbos regulares  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-c1"  
-  nivel: "C1"  
-  tags: ["passado perfeito", "sair"]  
-pasos:  
-  - "Reconhecer a necessidade do passado perfeito."  
-  - "Formular o verbo no passado perfeito."  
-respuestas_validas:  
-  - "tinha saído"  
-  - "Tinha saído"  
-tipo: completar  
-enunciado: "Quando cheguei, ele já _______."  
+respuesta: "Decir algo obvio"
+tipo: "mc"
+opciones_explicitas: ["Decir algo obvio", "Desperdiciar agua", "Algo nuevo"]
 
-explicacion: "O passado perfeito do verbo 'sair' é 'tinha saído'. Usamos essa forma para ações concluídas antes de outra no passado."  
+enunciado: "Áudio: «Isso é chover no molhado.»"
 
+explicacion: |
+  Decir lo obvio.
 ```
 
-### 7 — Condições hipotéticas com "se"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-c1"  
-  nivel: "C1"  
-  tags: ["condicional", "se"]  
-pasos:  
-  - "Identificar a estrutura da oração condicional."  
-  - "Escolher o tempo verbal adequado após 'se'."  
-opciones_explicitas:
-  - "se eu for"
-  - "se eu fosse"
-  - "se eu vou"
-  - "se eu fui"
-respuesta: "se eu fosse"  
-tipo: mc  
-
-enunciado: "Se _______ à festa, teria visto o artista."  
-
-explicacion: "Em orações condicionais hipotéticas (impossíveis no presente), usamos o pretérito imperfeito do subjuntivo após 'se' ('fosse')."  
+### 4 — Idiom (2)
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "listening-c1"
+  nivel: "C1"
+  tags: ["listening", "C1"]
 
-### 8 — Uso de "para" vs. "por"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-c1"  
-  nivel: "C1"  
-  tags: ["preposição", "para/por"]  
-pasos:  
-  - "Reconhecer o uso de 'para' e 'por' em contextos."  
-  - "Selecionar a preposição correta com base no significado."  
-opciones_explicitas:
-  - "para"
-  - "por"
-  - "a"
-  - "em"
-respuesta: "para"  
-tipo: mc  
+respuesta: "Contó un secreto"
+tipo: "mc"
+opciones_explicitas: ["Contó un secreto", "Se mordió la lengua", "Se quedó callado"]
 
-enunciado: "Estou aqui _______ te ajudar."  
+enunciado: "Áudio: «Ele deu com a língua nos dentes.»"
 
-explicacion: "'Para' indica propósito, enquanto 'por' indica causa ou meio. Neste caso, o objetivo é 'ajudar', então 'para' é a preposição correta."  
-
+explicacion: |
+  *Dar com a língua nos dentes* = irse de boca.
 ```
 
-### 9 — Verbos reflexivos em contexto  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-c1"  
-  nivel: "C1"  
-  tags: ["verbo reflexivo", "lavar"]  
-pasos:  
-  - "Identificar o verbo reflexivo e seu pronome."  
-  - "Completar a frase com o pronome adequado."  
-respuestas_validas:  
-  - "se lavou"  
-  - "Se lavou"  
-tipo: completar  
-enunciado: "Ela _______ antes de sair de casa."  
-
-explicacion: "O verbo 'lavar' é reflexivo em contextos como 'lavarse'. A forma correta é 'se lavou' (terceira pessoa do singular do pretérito perfeito)."  
+### 5 — Idiom (3)
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "listening-c1"
+  nivel: "C1"
+  tags: ["listening", "C1"]
 
-### 10 — Objeto indireto com pronomes  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-c1"  
-  nivel: "C1"  
-  tags: ["objeto indireto", "dizer"]  
-pasos:  
-  - "Identificar o objeto indireto da oração."  
-  - "Escolher o pronome adequado."  
-opciones_explicitas:
-  - "me"
-  - "te"
-  - "lhe"
-  - "nos"
-respuesta: "lhe"  
-tipo: mc  
+respuesta: "¡Qué cara dura tenés!"
+tipo: "mc"
+opciones_explicitas: ["¡Qué cara dura tenés!", "¡Tenés una lata!", "¡Qué suerte!"]
 
-enunciado: "Ela disse _______ uma notícia importante."  
+enunciado: "Áudio: «Tens cá uma lata!»"
 
-explicacion: "'Dizer a alguém' exige o pronome 'lhe' (terceira pessoa do singular). 'Me' e 'te' são para primeira e segunda pessoas, respectivamente."  
-
+explicacion: |
+  *Ter lata* = tener cara dura.
 ```
 
-### 11 — Futuro com "vai" ou verbos regulares  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-c1"  
-  nivel: "C1"  
-  tags: ["futuro", "vai"]  
-pasos:  
-  - "Reconhecer o uso de 'vai' para indicar futuro."  
-  - "Verificar se a estrutura é correta."  
-respuestas_validas:  
-  - "vai chegar"  
-  - "Vai chegar"  
-tipo: completar  
-enunciado: "Ela _______ amanhã à noite."  
-
-explicacion: "'Vai' é o auxiliar para formar o futuro com verbos regulares. 'Chegar' fica invariável, então a forma correta é 'vai chegar'."  
+### 6 — Idiom (4)
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "listening-c1"
+  nivel: "C1"
+  tags: ["listening", "C1"]
 
-### 12 — Subjuntivo após "desejar que"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-c1"  
-  nivel: "C1"  
-  tags: ["subjuntivo", "desejar"]  
-pasos:  
-  - "Identificar o verbo que exige subjuntivo."  
-  - "Aplicar a forma correta do presente do subjuntivo."  
-respuestas_validas:  
-  - "vamos"  
-  - "Vamos"  
-tipo: completar  
-enunciado: "Ela deseja que nós _______ ao evento."  
+respuesta: "Se hizo el sordo"
+tipo: "mc"
+opciones_explicitas: ["Se hizo el sordo", "Escuchó con atención", "Vendió las críticas"]
 
-explicacion: "'Desejar que' exige o subjuntivo. A forma correta para 'nós' no presente do subjuntivo de 'ir' é 'vamos', idêntica à forma do indicativo (sem acento)."  
+enunciado: "Áudio: «O Governo fez ouvidos de mercador às críticas.»"
 
+explicacion: |
+  *Fazer ouvidos de mercador*.
 ```
 
-### 13 — Adverbios de lugar em orações  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-c1"  
-  nivel: "C1"  
-  tags: ["advérbio", "aqui"]  
-pasos:  
-  - "Reconhecer a posição do advérbio na oração."  
-  - "Escolher o advérbio adequado ao contexto."  
-opciones_explicitas:
-  - "aqui"
-  - "ali"
-  - "lá"
-  - "aí"
-respuesta: "aqui"  
-tipo: mc  
-
-enunciado: "O documento está _______ no meu computador."  
-
-explicacion: "'Aqui' indica proximidade com o falante. 'Ali', 'lá', e 'aí' são usados para distâncias ou locais específicos, dependendo do contexto."  
+### 7 — Ironía
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "listening-c1"
+  nivel: "C1"
+  tags: ["listening", "C1"]
 
-### 14 — Comparações com "mais" vs. "menos"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-c1"  
-  nivel: "C1"  
-  tags: ["comparação", "mais"]  
-pasos:  
-  - "Identificar o verbo de comparação."  
-  - "Escolher a forma correta de 'mais' ou 'menos'."  
-opciones_explicitas:
-  - "mais alto"
-  - "menos alto"
-  - "alto como"
-  - "tão alto"
-respuesta: "mais alto"  
-tipo: mc  
+respuesta: "Está molesto"
+tipo: "mc"
+opciones_explicitas: ["Está molesto", "Está feliz", "Le da igual"]
 
-enunciado: "Ele é _______ do que eu."  
+enunciado: "Áudio (tono irónico, tras un corte de luz): «Ah, que maravilha!»"
 
-explicacion: "'Mais alto' é a forma correta para comparar graus. 'Tão alto quanto' é outra estrutura, mas não se aplica aqui."  
-
+explicacion: |
+  Ironía.
 ```
 
-### 15 — Uso de "onde" vs. "aonde"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-c1"  
-  nivel: "C1"  
-  tags: ["advérbio", "onde"]  
-pasos:  
-  - "Reconhecer a diferença entre 'onde' e 'aonde'."  
-  - "Escolher o advérbio adequado ao contexto."  
-opciones_explicitas:
-  - "onde"
-  - "aonde"
-  - "como"
-  - "por que"
-respuesta: "aonde"  
-tipo: mc  
-
-enunciado: "Você foi _______ ontem?"  
-
-explicacion: "'Aonde' indica movimento ou direção. 'Onde' é usado para localização estática, mas não se aplica a perguntas sobre destino."  
+### 8 — Norte
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "listening-c1"
+  nivel: "C1"
+  tags: ["listening", "C1"]
 
-### 16 — Fala indireta com verbos de falar  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-c1"  
-  nivel: "C1"  
-  tags: ["fala indireta", "dizer"]  
-pasos:  
-  - "Identificar a mudança de tempo verbal na fala indireta."  
-  - "Completar com o verbo no pretérito perfeito."  
-respuestas_validas:  
-  - "disse"  
-  - "Disse"  
-tipo: completar  
-enunciado: "Ela _______ que iria ao médico."  
+respuesta: "vinho"
+tipo: "mc"
+opciones_explicitas: ["vinho", "bingo", "vizinho"]
 
-explicacion: "Na fala indireta, o tempo verbal muda de presente para pretérito perfeito. A forma correta é 'disse' (terceira pessoa do singular)."  
+enunciado: "Áudio (acento del norte): «Um copo de /binho/, se faz favor.»"
 
+explicacion: |
+  En el norte la *v* suena *b*.
 ```
 
-### 17 — Particípio com concordância  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-c1"  
-  nivel: "C1"  
-  tags: ["particípio", "concordância"]  
-pasos:  
-  - "Reconhecer o uso do particípio com sujeito."  
-  - "Formular a concordância correta."  
-respuestas_validas:  
-  - "escrito"  
-  - "Escrito"  
-tipo: completar  
-enunciado: "O livro _______ por ele é muito interessante."  
-
-explicacion: "O particípio 'escrito' concorda com o sujeito (o livro), que é masculino singular. A forma correta é 'escrito'."  
+### 9 — Autocorrección
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "listening-c1"
+  nivel: "C1"
+  tags: ["listening", "C1"]
 
-### 18 — Uso de "se" como pronome reflexivo  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-c1"  
-  nivel: "C1"  
-  tags: ["pronome reflexivo", "cortar"]  
-pasos:  
-  - "Identificar o verbo que exige pronome reflexivo."  
-  - "Escolher a forma correta do pronome."  
-opciones_explicitas:
-  - "se cortou"
-  - "ele se corta"
-  - "ele cortou-se"
-  - "se corta"
-respuesta: "se cortou"  
-tipo: mc  
+respuesta: "En 2019"
+tipo: "mc"
+opciones_explicitas: ["En 2019", "En 2018", "No se sabe"]
 
-enunciado: "Ele _______ ao preparar o sanduíche."  
+enunciado: "Áudio: «Mudámo-nos em 2018… quer dizer, 2019.»"
 
-explicacion: "'Cortar-se' é o verbo reflexivo. A forma correta no pretérito perfeito é 'se cortou', que indica ação concluída."  
-
+explicacion: |
+  *Quer dizer* introduce la corrección.
 ```
 
-### 19 — Gerúndio com "estar" + gerúndio  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-c1"  
-  nivel: "C1"  
-  tags: ["gerúndio", "estar"]  
-pasos:  
-  - "Reconhecer a estrutura 'estar + gerúndio'."  
-  - "Formular o verbo no gerúndio."  
-respuestas_validas:  
-  - "estava a pensar"  
-  - "Estava a pensar"  
-tipo: completar  
-enunciado: "Ela _______ quando cheguei."  
-
-explicacion: "Em português europeu, a ação em curso no passado forma-se com 'estar a' + infinitivo (não 'estar' + gerúndio, que é próprio do português do Brasil). A forma correta é 'estava a pensar'."  
+### 10 — Empurrar com a barriga
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "listening-c1"
+  nivel: "C1"
+  tags: ["listening", "C1"]
 
-### 20 — Pronomes de objeto indireto  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-c1"  
-  nivel: "C1"  
-  tags: ["objeto indireto", "dizer"]  
-pasos:  
-  - "Identificar o objeto indireto da oração."  
-  - "Escolher o pronome adequado para a terceira pessoa do singular."  
-opciones_explicitas:
-  - "me"
-  - "te"
-  - "lhe"
-  - "nos"
-respuesta: "lhe"  
-tipo: mc  
+respuesta: "Postergan el problema"
+tipo: "mc"
+opciones_explicitas: ["Postergan el problema", "Lo resuelven", "Lo empeoran a propósito"]
 
-enunciado: "Ela contou _______ uma história incrível."  
+enunciado: "Áudio: «Andam a empurrar o problema com a barriga.»"
 
-explicacion: "'Contar a alguém' exige o pronome 'lhe' (terceira pessoa do singular). 'Me' e 'te' são para primeira e segunda pessoas, respectivamente."  
-
-```
-
-### 21 — Subjuntivo após expressões impersonais  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-c1"  
-  nivel: "C1"  
-  tags: ["subjuntivo", "ser necessário"]  
-pasos:  
-  - "Identificar a expressão que exige subjuntivo."  
-  - "Aplicar o presente do subjuntivo."  
-respuestas_validas:  
-  - "seja"  
-  - "Seja"  
-tipo: completar  
-enunciado: "É necessário que ele _______ aqui."  
-
-explicacion: "Expressões como 'é necessário que' exigem o subjuntivo. A forma correta para 'ele' no presente do subjuntivo de 'ser' é 'seja' (sem acento -- é uma palavra paroxítona terminada em 'a')."  
-
-```
-
-### 22 — Cláusulas relativas em orações complexas  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-c1"  
-  nivel: "C1"  
-  tags: ["cláusula", "que"]  
-pasos:  
-  - "Reconhecer a estrutura da cláusula relativa."  
-  - "Escolher o pronome relativo adequado ao sujeito."  
-opciones_explicitas:
-  - "que"
-  - "quem"
-  - "onde"
-  - "como"
-respuesta: "que"  
-tipo: mc  
-
-enunciado: "O artigo _______ li é muito interessante."  
-
-explicacion: "'Que' substitui 'o artigo', que é um objeto direto. 'Quem' refere-se a pessoas, e 'onde' indica lugar, não aplicando aqui."  
-
-```
-
-### 23 — Uso de "como" vs. "tal como"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-c1"  
-  nivel: "C1"  
-  tags: ["comparação", "como"]  
-pasos:  
-  - "Reconhecer a diferença entre 'como' e 'tal como'."  
-  - "Escolher o advérbio adequado ao contexto."  
-opciones_explicitas:
-  - "como"
-  - "tal como"
-  - "tão como"
-  - "assim como"
-respuesta: "tal como"  
-tipo: mc  
-
-enunciado: "Ela está _______ ele."  
-
-explicacion: "'Tal como' é a forma correta para comparar características. 'Como' pode ser usado em contextos diferentes, mas não se aplica aqui."  
-
-```
-
-### 24 — Posição do verbo em orações subordinadas  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-c1"  
-  nivel: "C1"  
-  tags: ["ordem das palavras", "subordinada"]  
-pasos:  
-  - "Reconhecer a estrutura da oração subordinada."  
-  - "Escolher a ordem correta dos verbos."  
-opciones_explicitas:
-  - "que ele vai"
-  - "que vai ele"
-  - "ele que vai"
-  - "vai ele que"
-respuesta: "que ele vai"  
-tipo: mc  
-
-enunciado: "Ela disse _______ ao evento."  
-
-explicacion: "Na oração subordinada, o sujeito vem antes do verbo. A forma correta é 'que ele vai', com a estrutura normal da oração."  
-
-```
-
-### 25 — Preposições com substantivos  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-c1"  
-  nivel: "C1"  
-  tags: ["preposição", "com"]  
-pasos:  
-  - "Identificar a preposição correta para o substantivo."  
-  - "Escolher entre as opções fornecidas."  
-opciones_explicitas:
-  - "com"
-  - "sem"
-  - "para"
-  - "de"
-respuesta: "com"  
-tipo: mc  
-
-enunciado: "Ela veio _______ seu irmão."  
-
-explicacion: "'Com' indica companhia. 'Sem' é o oposto, e 'para' pode indicar propósito ou direção, não aplicando aqui."
+explicacion: |
+  Postergar.
 ```

@@ -1,69 +1,52 @@
-# Gênero e artigos: diferenças entre o português (Brasil) e o espanhol (nível A1-A2)
+# Género y artículos: diferencias con el español (A1)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-br/genero-articulos-diferencias-con-espanol`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
-## Introdução
-No português brasileiro, como no espanhol, os substantivos têm gênero (masculino ou feminino), que afeta a concordância de artigos definidos (*o*, *a*), pronomes e adjetivos. No entanto, existem diferenças importantes na forma como o gênero é aplicado, especialmente em relação aos artigos. Para alunos do nível A1-A2, compreender essas regras ajuda a evitar erros comuns, como usar artigos de formas erradas ou confundir o gênero de palavras que têm significados semelhantes no espanhol.
+## Introducción
+Los artículos del portugués son **o, a, os, as** (definidos) y **um, uma, uns, umas** (indefinidos). Se contraen con muchas preposiciones y hay sustantivos que tienen **distinto género** que en español.
 
----
+## Explicación central
+### Artículos
+| | masculino | femenino |
+|---|---|---|
+| definido sing. / pl. | o / os | a / as |
+| indefinido sing. / pl. | um / uns | uma / umas |
 
-## Explicação central
-No português, o **gênero** dos substantivos é determinado por sua forma (ex.: *livro* [masculino], *casa* [feminino]) ou pelo contexto (ex.: *pessoa* pode ser masculina ou feminina). Os artigos definidos (*o*, *a*) não mudam conforme o gênero do substantivo, **diferentemente do espanhol**, onde os artigos *el* e *la* variam. Por exemplo:
+### Contracciones (obligatorias)
+| preposición | + o | + a | + os | + as | + um / uma |
+|---|---|---|---|---|---|
+| **de** | do | da | dos | das | dum / duma (o *de um*) |
+| **em** | no | na | nos | nas | num / numa |
+| **a** | ao | à | aos | às | — |
+| **por** | pelo | pela | pelos | pelas | — |
 
-- **Português**:
-  - *O livro está na mesa.* (masculino)
-  - *A casa é grande.* (feminino)
-  - *A pessoa está cansada.* (feminino, com *a*)
-  - *O homem é alto.* (masculino, com *o*)
+*Eu moro **na** rua Augusta. Vou **ao** mercado. O livro **do** professor. Passei **pela** praça.*
 
-- **Espanhol**:
-  - *El libro está en la mesa.* (*el* para masculino)
-  - *La casa es grande.* (*la* para feminino)
+### Sustantivos con género distinto del español
+- Masculinos en portugués (femeninos en español): **o leite** (la leche), **o sangue**, **o nariz**, **o mel**, **o sal**, **o legume**, **o costume**, **o paradoxo**.
+- Femeninos en portugués (masculinos en español): **a árvore** (el árbol), **a ponte** (el puente), **a dor** (el dolor), **a cor** (el color), **a equipe** (el equipo).
+- Las palabras en **-agem** son femeninas: **a viagem, a mensagem, a garagem, a paisagem, a coragem** (en español: el viaje, el mensaje, el garaje, el paisaje, el coraje).
 
-Note que no português, o artigo *a* é usado tanto para substantivos femininos quanto para palavras como *pessoa*, mesmo quando se refere a um homem (ex.: *A pessoa está cansada* — pode ser "o homem" ou "a mulher", dependendo do contexto).
+### Artículo con posesivos y nombres
+- Antes del posesivo el artículo es frecuente (opcional en Brasil): ***o** meu carro, **a** minha casa*.
+- Con nombres propios depende de la región: *A Maria chegou* (sudeste) / *Maria chegou* (nordeste, más formal).
 
----
+## Errores comunes de hispanohablantes
+1. ❌ *a leite, o viagem* ✅ *o leite, a viagem*.
+2. No contraer: ❌ *em o Brasil, de o professor* ✅ *no Brasil, do professor*.
+3. ❌ *a o mercado* ✅ *ao mercado*; ❌ *a a praia* ✅ *à praia*.
+4. Olvidar el acento grave de *à* (contracción de *a + a*).
 
-## Erros comuns de hispanohablantes
-1. **Confundir artigos com gênero**: Alguns alunos tentam aplicar regras do espanhol, como usar *el* para masculino e *la* para feminino no português, o que é errado. Por exemplo:
-   - ❌ *El livro está na mesa.* (errado)
-   - ✅ *O livro está na mesa.* (correto)
+## Comparación con el español
+El español solo contrae «al» y «del»; el portugués contrae casi todas las preposiciones con el artículo (*no, na, do, da, pelo, pela, ao, à*). Además, los países suelen llevar artículo: ***o** Brasil, **a** Argentina, **os** Estados Unidos* (pero *Portugal*, *Angola* sin artículo).
 
-2. **Usar *a* de forma excessiva**: Em português, o artigo *a* é usado para nomes femininos e para substantivos abstratos ou inanimados, mas não há variação por gênero. Por exemplo:
-   - ❌ *La caneta está aqui.* (errado — tentar usar *la*, como no espanhol)
-   - ✅ *A caneta está aqui.* (correto)
-
-3. **Ignorar exceções**: Alguns substantivos têm gênero oposto ao do espanhol, como:
-   - *Pintor* (masculino em português e em espanhol).
-   - *Mulher* (feminino no português; em espanhol, o masculino é *hombre*, e a forma feminina é *mujer*).
-
----
-
-## Comparação com o espanhol
-| Palavra | Gênero em português | Gênero em espanhol | Observações |
-|--------|----------------------|--------------------|-------------|
-| *Casa* | Feminino (*a casa*)  | Feminino (*la casa*) | Igual. |
-| *Pessoa* | Masculino/feminino (*o/a pessoa*) | Masculino/feminino (*el/la persona*) | Ambos usam artigos variáveis, mas no português o gênero do substantivo não muda o artigo. |
-| *Homem* | Masculino (*o homem*)  | Masculino (*el hombre*) | Igual. |
-| *Mulher* | Feminino (*a mulher*) | Feminino (*la mujer*) | Igual. |
-
-**Exemplo de diferença**:
-- No português, *pintor* (masculino) e *pintora* (feminino) são formas variáveis do substantivo. No espanhol, o gênero é indicado apenas pelo artigo (*el pintor*, *la pintora*).
-
----
-
-## Exemplo em contexto
-**Diálogo**:
-*Ana: Onde está a chave?*
-*Lúcia: Está na mesa, ao lado do livro.*
-
-- *A chave* (feminino) → artigo *a*.
-- *Do livro* (masculino) → artigo *o*, mas o possessivo *do* (de + o) não muda.
-
-**Observação**: Mesmo que *chave* seja feminina, o artigo é *a*, e não há variação como no espanhol (*la llave*). O gênero influencia apenas adjetivos e pronomes.
+## Ejemplo extendido en contexto
+*No fim de semana fiz **uma** viagem **ao** litoral. **A** paisagem era linda e **a** cor **do** mar, incrível. Comprei **o** mel e **o** leite **numa** feira **da** cidade e voltei **pela** ponte nova.*

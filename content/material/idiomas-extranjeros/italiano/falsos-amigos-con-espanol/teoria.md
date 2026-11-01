@@ -1,45 +1,47 @@
-# Falsos amigos entre el español y el italiano (nivel A1-A2)
+# Falsos amigos entre el italiano y el español (A1-A2)
 
 > Tema del MAPA: `idiomas-extranjeros/italiano/falsos-amigos-con-espanol`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía equivalencias incorrectas.
 
 ---
 
 ## Introducción
-Los **falsos amigos** son palabras que parecen similares en dos idiomas pero tienen significados completamente distintos. En el caso del español e italiano, esta confusión es común debido a la influencia mutua de ambas lenguas en la historia y la cultura europea. Para los aprendices de nivel A1-A2 (comunicación básica), reconocer estos falsos amigos ayuda a evitar malentendidos y mejorar la precisión al hablar o escribir.
+Muchas palabras italianas se parecen a las españolas y significan otra cosa. Son los **falsos amigos**: conviene aprender los más frecuentes con un ejemplo.
 
 ## Explicación central
-Algunos ejemplos reales de falsos amigos entre el español e italiano incluyen:
-- **"Embarazada" (español)** vs. **"Imbarazzata" (italiano)**: En español, *embarazada* significa "embarazada" (preñada), pero en italiano, *imbarazzata* significa "avergonzada" o "embarazosa".
-- **"Telefono" (español)** vs. **"Telefonino" (italiano)**: En español, *teléfono* es el término general para "teléfono", mientras que en italiano, *telefonino* se refiere específicamente al "móvil", y *telefono* puede entenderse como "teléfono fijo".
-- **"Sorpresa" (español)** vs. **"Sorpresa" (italiano)**: En español, *sorpresa* es un sustantivo ("una sorpresa"), pero en italiano, el adjetivo *sorprendente* (que significa "sorprendente") no existe; en su lugar se usa *inaspettato* o *imprevisto*.
-
-Estos ejemplos muestran que incluso palabras idénticas pueden tener usos diferentes. Por ejemplo, en italiano, **"telefono"** puede ser ambiguo si no se aporta contexto (¿se refiere al móvil o al fijo?).
+| Italiano | Significa | Parece | Lo que parece se dice |
+|---|---|---|---|
+| **burro** | manteca | burro | *asino* |
+| **caldo** | calor, caliente | caldo | *brodo* |
+| **salire** | subir | salir | *uscire* |
+| **guardare** | mirar | guardar | *conservare, mettere via* |
+| **gamba** | pierna | gamba (camarón) | *gambero* |
+| **aceto** | vinagre | aceite | *olio* |
+| **topo** | ratón | topo | *talpa* |
+| **imbarazzata** | avergonzada | embarazada | *incinta* |
+| **subire** | sufrir, padecer | subir | *salire* |
+| **largo** | ancho | largo | *lungo* |
+| **camera** | habitación | cámara | *macchina fotografica* |
+| **fermare** | detener | firmar | *firmare* |
+| **morbido** | blando, suave | morboso | *morboso* |
+| **seta** | seda | seta (hongo) | *fungo* |
+| **tasto** | tecla | tacto | *tatto* |
+| **negozio** | tienda | negocio | *affare* |
+| **ufficio** | oficina | oficio | *mestiere* |
 
 ## Errores comunes de hispanohablantes
-Los errores más frecuentes incluyen:
-1. Usar *embarazada* en italiano para referirse a un estado físico, ignorando que el término correcto es *incinta*.
-2. Decir *telefono* cuando se quiere decir "móvil", sin darse cuenta de que *telefonino* es más común.
-3. Creer que *sorpresa* (como adjetivo) existe en italiano, cuando en realidad se usan términos como *inaspettato*.
-
-Estas confusiones surgen al confiar demasiado en la apariencia de las palabras sin verificar su uso real en el idioma objetivo.
+1. *Sono imbarazzata* para anunciar un embarazo (es *sono incinta*).
+2. *Salgo di casa* ❌ → *Esco di casa* ✅ (*salire* = subir).
+3. *Metti l'aceto* cuando se quería aceite (*olio*).
+4. *Questa strada è larga* = ancha (no larga: *lunga*).
 
 ## Comparación con el español
-La comparación con el español resalta diferencias clave:
-- En español, **"imbarazzado"** no existe como palabra; se usa *avergonzado* o *cohibido*.
-- El adjetivo **"sorprendente"** (español) no tiene un equivalente directo en italiano, donde se prefiere el sustantivo *sorpresa* o el adjetivo *inaspettato*.
-- En español, **"telefono"** es único, mientras que en italiano hay dos términos para diferenciar entre "teléfono fijo" (*telefono*) y "móvil" (*telefonino*).
+El italiano y el español comparten mucho vocabulario latino, y la mayoría de las palabras parecidas significan lo mismo (*casa, libro, amico*). Por eso los falsos amigos son traicioneros: no se sospecha de ellos.
 
 ## Ejemplo extendido en contexto
-**Diálogo:**
-*Alessia (italiana):* "Maria, hai un *telefono*?"
-*Maria:* "Sì, ma è un *telefonino*. Perché?"
-*Alessia:* "Scusa, non sapevo che in italiano il *telefono* fosse diverso. In Spagna lo chiamiamo così."
-*Maria:* "Ah, capisco! Ma se vuoi parlare al telefono fisso, devi dire 'chiamo sul telefono', mentre per il cellulare usiamo sempre 'telefonino'."
-
-**Explicación:** Aquí, Alessia confunde *telefono* (español) con *telefono* (italiano), pero Maria le explica que en italiano se usa *telefonino* para el móvil. Además, se ve cómo la palabra *sorpresa* no se usaría como adjetivo en italiano.
-
-Reconocer estos falsos amigos es fundamental para evitar confusiones y comunicarse con claridad en contextos cotidianos.
+*Stamattina sono **uscita** presto e sono **salita** sull'autobus. In **ufficio** faceva **caldo**. A pranzo ho mangiato pane con **burro** e un'insalata con **olio** e **aceto**. Poi sono andata in un **negozio** a comprare una sciarpa di **seta**.*

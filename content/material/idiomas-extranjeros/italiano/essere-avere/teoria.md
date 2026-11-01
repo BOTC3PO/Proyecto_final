@@ -1,56 +1,53 @@
-# **Essere y avere en italiano: diferencias y uso básico (A1-A2)**
+# Essere y avere en italiano (A1)
 
 > Tema del MAPA: `idiomas-extranjeros/italiano/essere-avere`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y comparaciones falsas con el español.
 
 ---
 
-## **Introducción**
-En el italiano, los verbos *essere* ("ser") y *avere* ("tener") son fundamentales para expresar ideas básicas. Ambos son irregulares y se usan con frecuencia, pero sus funciones son distintas: *essere* describe estados de ser, identidad, origen o emociones, mientras que *avere* expresa posesión o posesión física. Dominar estas reglas es clave para construir oraciones simples en los niveles A1-A2 del Marco Común Europeo de Referencia para las Lenguas (MCER).
+## Introducción
+***Essere*** (ser/estar) y ***avere*** (tener/haber) son los dos verbos más usados del italiano: describen, ubican, expresan posesión y forman los tiempos compuestos.
 
-## **Explicación central con ejemplos reales**
-- **Essere**: Se usa para:
-  - **Identidad**: *Io sono italiano* ("Soy italiano").
-  - **Origen**: *Lei è di Roma* ("Ella es de Roma").
-  - **Emociones**: *Mi sento felice* ("Me siento feliz").
-  - **Características permanentes**: *Lui è alto* ("Él es alto").
+## Explicación central
+### Presente
+| | essere | avere |
+|---|---|---|
+| io | **sono** | **ho** |
+| tu | **sei** | **hai** |
+| lui/lei/Lei | **è** | **ha** |
+| noi | **siamo** | **abbiamo** |
+| voi | **siete** | **avete** |
+| loro | **sono** | **hanno** |
 
-- **Avere**: Se usa para:
-  - **Poseer algo**: *Ho un libro* ("Tengo un libro").
-  - **Estado temporal (físico o emocional)**: *Hai fame?* ("¿Tienes hambre?").
-  - **Posesión de cualidades**: *Ha una bella voce* ("Tiene una buena voz").
+La *h* de *ho, hai, ha, hanno* **no suena**; sirve para distinguir *ho* (tengo) de *o* (o), *ha* de *a*, *hanno* de *anno* (año).
 
-**Nota:** Algunas expresiones con *avere* son fijas y no se traducen literalmente al español, como en *avere paura* ("tener miedo") o *avere ragione* ("tener razón").
+### Usos de essere
+- Identidad, origen, profesión: *Sono argentino. È medico.*
+- Lugar (= estar): *Sono a casa. Roma è in Italia.*
+- Estados: *Sono stanco.*
+- ***C'è / ci sono*** = hay: *C'è un bar. Ci sono due bar.*
 
-## **Errores comunes de hispanohablantes**
-1. **Confusión entre "ser" y "tener"**: En español, *ser* se usa para identidad, mientras que en italiano, *essere* también abarca emociones y estados temporales. Por ejemplo:
-   - ❌ *Io ho fame* (incorrecto como "tengo hambre", pero es correcto).
-   - ✅ *Ho fame* ("Tengo hambre") es válido, aunque en español diríamos "tengo hambre" con *tener*.
+### Usos de avere
+- Posesión: *Ho una macchina.*
+- Edad: ***Ho** vent'anni.*
+- Expresiones: ***avere fame*** (hambre), ***sete*** (sed), ***caldo / freddo***, ***sonno***, ***paura***, ***fretta*** (apuro), ***ragione*** (razón), ***bisogno di*** (necesitar).
 
-2. **Uso de *avere* donde se necesita *essere***:
-   - ❌ *Io ho un amico in Spagna* (incorrecto si se refiere a la nacionalidad).
-   - ✅ *Io sono spagnolo* ("Soy español") es correcto, no "ho spagnolo".
+### Lei
+Tratamiento formal: ***Lei** è italiano?* (verbo en 3.ª persona, como «usted»).
 
-3. **Falta de concordancia en tiempos**:
-   - ❌ *Lui ha un cane e è felice* (correcto, pero algunos confunden el sujeto).
-   - ✅ *Lei ha una macchina e è contenta* ("Ella tiene un coche y está contenta").
+## Errores comunes de hispanohablantes
+1. ❌ *Sono vent'anni* ✅ *Ho vent'anni*.
+2. ❌ *Sono fame* ✅ *Ho fame*.
+3. ❌ *Ha un libro sul tavolo* (= hay) ✅ *C'è un libro sul tavolo*.
+4. Pronunciar la *h*: *ho* suena «o».
 
-## **Comparación con el español**
-- **Essere vs. ser**: En español, *ser* se usa para identidad (*soy argentino*) y estados permanentes (*es alto*). En italiano, *essere* también abarca emociones (*mi sento stanco*), algo que en español se expresa con *estar*.
-- **Avere vs. tener**: Aunque ambos significan "tener", en italiano *avere* incluye expresiones como *avere fame* ("tengo hambre") o *avere ragione* ("tengo razón"), que en español usamos *tener* sin ambigüedad.
+## Comparación con el español
+*Essere* cubre «ser» y «estar»; no hay que elegir: *Sono stanco* (estoy cansado), *Sono alto* (soy alto). *Avere* cubre «tener», y «hay» se dice *c'è / ci sono*. Igual que en español, con *avere* se dice la edad y el hambre.
 
-## **Ejemplo extendido en contexto**
-**Diálogo:**
-- *Maria: Ciao, io sono Maria. Dove sei nato?*
-  (*Hola, soy María. ¿Dónde naciste?*)
-- *Luca: Sono di Milano. Ho una sorella che vive a Torino.*
-  (*Soy de Milán. Tengo una hermana que vive en Turín.*)
-- *Maria: Hai un cane?*
-  (*¿Tienes un perro?*)
-- *Luca: No, non ho un cane, ma sono felice quando vado in vacanza.*
-  (*No, no tengo un perro, pero estoy feliz cuando voy de vacaciones.*)
-
-Este ejemplo muestra cómo *essere* describe identidad y emociones, mientras que *avere* expresa posesión. La comprensión de estas diferencias permite construir frases coherentes en italiano básico.
+## Ejemplo extendido en contexto
+*Ciao, **sono** Giulia e **ho** venticinque anni. **Sono** di Napoli, ma adesso **sono** a Milano per lavoro. **Ho** un fratello: **è** ingegnere e **ha** due figli. Nel mio quartiere **c'è** un parco e **ci sono** tanti bar. Adesso **ho** fame: andiamo a mangiare?*

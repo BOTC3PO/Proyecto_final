@@ -1,414 +1,216 @@
-> **Nota de corrección:** Este cuestionario fue corregido a partir del borrador en
-> `_borradores-gemma/idiomas-extranjeros/japones/listening-n4/cuestionario_crudo.md`
-> mediante el script `mechanical_fix_idiomas.py`. A 21 bloques les faltaba el
-> `enunciado:` -- el borrador presuponía un audio real que nunca existía. Se
-> reconstruyó cada uno citando directamente el contenido "escuchado" dentro del propio
-> `enunciado:` (siguiendo el mismo patrón ya usado en otros temas de listening de este
-> proyecto), de forma que la pregunta sea respondible únicamente a partir del texto
-> dado. Se depuraron además dos entradas duplicadas idénticas en `respuestas_validas:`
-> (bloques 1 y 5).
+# Japonés — listening N4 (cuestionario, 11 preguntas VBLang)
 
-### 1 — 電話の内容  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "listening-n4"
-  nivel: "N4"
-  tags: ["telefono", "pregunta"]
-pasos:
-  - "Escucha el mensaje de voz y completa la oración."
-explicacion: "El mensaje menciona que la persona no puede atender la llamada porque está en una reunión. La palabra 'reunión' es clave para completar correctamente el hueco."
-tipo: completar
-respuestas_validas:
-  - "会議"
-enunciado: "「今、_に参加しているので、後で戻ります。」"
-```
+> Tema: `idiomas-extranjeros/japones/listening-n4`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior pedía responder sin audio ni texto; ahora cada pregunta trae la transcripción.
 
+---
 
+### 1 — Cambio
 
-### 2 — 買い物の相手  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "listening-n4"
-  nivel: "N4"
-  tags: ["compra", "mc"]
-pasos:
-  - "Escucha el diálogo y elige la opción correcta."
-explicacion: "La persona pregunta si tienen un artículo en stock, y la respuesta confirma que sí lo tienen. La opción 'あります' es la única que indica disponibilidad."
-tipo: mc
-enunciado: "店員に「これはありますか」と聞いたら、店員は何と答えますか？"
-opciones_explicitas:
-  - "ありません"
-  - "あります"
-  - "わかりません"
-respuesta: "あります"
-```
-
-
-
-### 3 — レストランの予約  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "listening-n4"
-  nivel: "N4"
-  tags: ["reserva", "completar"]
-pasos:
-  - "Escucha el anuncio y completa la oración."
-explicacion: "El anuncio menciona que las reservas deben hacerse con al menos dos días de antelación. La palabra '前' es necesaria para completar el tiempo correctamente."
-tipo: completar
-respuestas_validas:
-  - "前"
-  - "日前"
-enunciado: "「予約は、来店の_にご連絡ください。」"
-```
-
-
-
-### 4 — 電車の運行  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "listening-n4"
-  nivel: "N4"
-  tags: ["transporte", "mc"]
-pasos:
-  - "Escucha el anuncio y elige la opción correcta."
-explicacion: "El anuncio indica que los trenes están retrasados debido a una falla en la vía. La opción '遅延' describe correctamente la situación."
-tipo: mc
-enunciado: "電車の遅延についてのアナウンスを聞きました。何が起きていますか？"
-opciones_explicitas:
-  - "運行停止"
-  - "遅延"
-  - "終点変更"
-respuesta: "遅延"
-```
-
-
-
-### 5 — ホテルのチェックイン  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "listening-n4"
-  nivel: "N4"
-  tags: ["hotel", "completar"]
-pasos:
-  - "Escucha el mensaje de voz y completa la oración."
-explicacion: "El mensaje dice que el check-in es a las 3 p.m. La palabra '午後' indica correctamente la hora en japonés."
-tipo: completar
-respuestas_validas:
-  - "午後"
-enunciado: "「チェックインは_3時です。」"
-```
-
-
-
-### 6 — 学校の行事  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "listening-n4"
-  nivel: "N4"
-  tags: ["evento", "mc"]
-pasos:
-  - "Escucha el anuncio y elige la opción correcta."
-explicacion: "El anuncio menciona que el evento es una reunión de padres. La opción '保護者会' corresponde al término usado en el mensaje."
-tipo: mc
-enunciado: "学校からのお知らせを聞きました。どんなイベントについてですか？"
-opciones_explicitas:
-  - "文化祭"
-  - "保護者会"
-  - "運動会"
-respuesta: "保護者会"
-```
-
-
-
-### 7 — メールの内容  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "listening-n4"
-  nivel: "N4"
-  tags: ["correo", "completar"]
-pasos:
-  - "Escucha el mensaje de voz y completa la oración."
-explicacion: "El mensaje dice que hay un error en el correo electrónico. La palabra 'ミス' describe correctamente la situación."
-tipo: completar
-respuestas_validas:
-  - "ミス"
-  - "間違い"
-enunciado: "「メールに_があります。確認してください。」"
-```
-
-
-
-### 8 — レストランのメニュー  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "listening-n4"
-  nivel: "N4"
-  tags: ["comida", "mc"]
-pasos:
-  - "Escucha el diálogo y elige la opción correcta."
-explicacion: "La persona pregunta si tienen un plato específico, y la respuesta confirma que sí lo tienen. La opción 'あります' es la única que indica disponibilidad."
-tipo: mc
-enunciado: "店員に「この料理はありますか」と聞いたら、店員は何と答えますか？"
-opciones_explicitas:
-  - "ありません"
-  - "あります"
-  - "わかりません"
-respuesta: "あります"
-```
-
-
-
-### 9 — 電話の受付  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "listening-n4"  
-  nivel: "N4"  
-  tags: ["expresiones de tiempo", "confirmación"]  
-pasos:  
-  - "Identificar el momento clave en la oración."  
-  - "Revisar las opciones según el contexto temporal."  
-enunciado: "「会議は午後2時に始まります」という放送を聞きました。会議は何時からですか？"
-tipo: mc
-opciones_explicitas:  
-  - "午前10時"  
-  - "午後2時"  
-  - "午前8時"  
-respuesta: "午後2時"
-```
-
-### 10 — Responder una pregunta de precio
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "listening-n4"
   nivel: "N4"
-  tags: ["compra", "mc"]
-enunciado: "店員に「これは安いですか」と聞いたら、店員は何と答えますか？"
-tipo: mc
-opciones_explicitas:
-  - "はい、安いです"
-  - "いいえ、読みました"
-  - "はい、ありがとうございました"
-respuesta: "はい、安いです"
-explicacion: "La respuesta coherente con la pregunta es はい、安いです."
+  tags: ["listening", "N4"]
+
+respuesta: "A las 5"
+tipo: "mc"
+opciones_explicitas: ["A las 5", "A las 3", "A las 4"]
+
+enunciado: "Audio: «A: 三時はどう？ B: 三時はちょっと…。五時なら大丈夫。 A: じゃあ、五時にしよう。» ¿A qué hora se encuentran?"
+
+explicacion: |
+  ちょっと… rechaza las 3.
 ```
 
+### 2 — Precio
 
-
-### 11 — レストランの予約  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "listening-n4"  
-  nivel: "N4"  
-  tags: ["verbo te-forma", "pedidos"]  
-pasos:  
-  - "Distinguir la estructura de pedido usando ～てください."  
-  - "Verificar el verbo en te-forma correcto."  
-enunciado: "レストランでスープを注文したいとき、正しい言い方はどれですか？"
-tipo: mc
-opciones_explicitas:  
-  - "スープを飲んでください"  
-  - "スープをお願いします"  
-  - "スープで食べてください"  
-respuesta: "スープをお願いします"
-```
-
-### 12 — Anuncio de tren
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "listening-n4"
   nivel: "N4"
-  tags: ["transporte", "mc"]
-enunciado: "駅のアナウンスで「この電車は五分遅れて到着します」と言っていました。何が起きていますか？"
-tipo: mc
-opciones_explicitas:
-  - "遅れ"
-  - "運行停止"
-  - "終点変更"
-respuesta: "遅れ"
-explicacion: "遅れて到着します = llegará con retraso."
+  tags: ["listening", "N4"]
+
+respuesta: "1500 yenes"
+tipo: "mc"
+opciones_explicitas: ["1500 yenes", "150 yenes", "15000 yenes"]
+
+enunciado: "Audio: «このシャツは千五百円です。» ¿Cuánto cuesta?"
+
+explicacion: |
+  千五百 = 1500.
 ```
 
+### 3 — Hora
 
-
-### 13 — ホテルのチェックイン  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "listening-n4"  
-  nivel: "N4"  
-  tags: ["direcciones", "partículas"]  
-pasos:  
-  - "Analizar la partícula que indica dirección."  
-  - "Seleccionar el uso correcto de に o へ."  
-enunciado: "薬局までの道を尋ねられました。方向を示す正しい表現はどれですか？"
-tipo: mc
-opciones_explicitas:  
-  - "薬局に歩いてください"  
-  - "薬局へ歩いてください"  
-  - "薬局で歩いてください"  
-respuesta: "薬局へ歩いてください"
-```
-
-### 14 — Aviso escolar
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "listening-n4"
   nivel: "N4"
-  tags: ["evento", "mc"]
-enunciado: "学校から「来週の月曜日は休みです」というお知らせがありました。月曜日はどうなりますか？"
-tipo: mc
-opciones_explicitas:
-  - "休み"
-  - "試験"
-  - "遠足"
-respuesta: "休み"
-explicacion: "休みです significa que no hay clases."
+  tags: ["listening", "N4"]
+
+respuesta: "2:30"
+tipo: "mc"
+opciones_explicitas: ["2:30", "2:00", "12:30"]
+
+enunciado: "Audio: «会議は二時半からです。» ¿A qué hora empieza?"
+
+explicacion: |
+  半 = y media.
 ```
 
+### 4 — やっぱり
 
-
-### 15 — メールの内容  
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "listening-n4"  
-  nivel: "N4"  
-  tags: ["expresiones de tiempo", "duracion"]  
-pasos:  
-  - "Reconocer la estructura de tiempo en minutos."  
-  - "Verificar el uso de 数分 (nankun)."  
-enunciado: "「あと30分間お待ちください」という放送を聞きました。あと何分待ちますか？"
-tipo: mc
-opciones_explicitas:  
-  - "30分間"  
-  - "1時間"  
-  - "25分間"  
-respuesta: "30分間"
-```
-
-### 16 — Responder una pregunta de precio
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "listening-n4"
   nivel: "N4"
-  tags: ["comida", "mc"]
-enunciado: "店員に「この傘は千円ですか」と聞いたら、店員は何と答えますか？"
-tipo: mc
-opciones_explicitas:
-  - "はい、千円です"
-  - "いいえ、食べません"
-  - "はい、行きます"
-respuesta: "はい、千円です"
-explicacion: "Una respuesta afirmativa coherente repite el precio."
+  tags: ["listening", "N4"]
+
+respuesta: "Té"
+tipo: "mc"
+opciones_explicitas: ["Té", "Café", "Agua"]
+
+enunciado: "Audio: «コーヒーにします。あ、やっぱり紅茶にします。» ¿Qué pide al final?"
+
+explicacion: |
+  やっぱり = al final, cambio.
 ```
 
+### 5 — Obligación
 
-
-### 17 — 電話の受付  
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "listening-n4"  
-  nivel: "N4"  
-  tags: ["reglas", "prohibiciones"]  
-pasos:  
-  - "Identificar la prohibición expresa en el texto."  
-  - "Revisar el uso de ～てはいけません."  
-enunciado: "図書館で規則についてのアナウンスを聞きました。禁止されていることは何ですか？"
-tipo: mc
-opciones_explicitas:  
-  - "携帯電話を使ってはいけません"  
-  - "携帯電話を持ってはいけません"  
-  - "携帯電話を貸してはいけません"  
-respuesta: "携帯電話を使ってはいけません"
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "listening-n4"
+  nivel: "N4"
+  tags: ["listening", "N4"]
+
+respuesta: "Llegar antes de las 8"
+tipo: "mc"
+opciones_explicitas: ["Llegar antes de las 8", "Llegar después de las 8", "No venir"]
+
+enunciado: "Audio: «明日は八時までに来なければなりません。» ¿Qué tiene que hacer?"
+
+explicacion: |
+  〜なければなりません.
 ```
 
-### 18 — レストランの予約  
+### 6 — No hace falta
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "listening-n4"  
-  nivel: "N4"  
-  tags: ["expresiones climáticas", "días de la semana"]  
-pasos:  
-  - "Asociar el día con la previsión climática."  
-  - "Verificar el uso de 予報 (yohō)."  
-enunciado: "天気予報を聞きました。「水曜日は晴れです」と言っていました。水曜日の天気はどうですか？"
-tipo: mc
-opciones_explicitas:  
-  - "月曜日は雨です"  
-  - "水曜日は晴れです"  
-  - "金曜日は雪です"  
-respuesta: "水曜日は晴れです"
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "listening-n4"
+  nivel: "N4"
+  tags: ["listening", "N4"]
+
+respuesta: "Que no hace falta entregar hoy"
+tipo: "mc"
+opciones_explicitas: ["Que no hace falta entregar hoy", "Que tiene que entregar hoy", "Que no puede entregar"]
+
+enunciado: "Audio: «レポートは今日出さなくてもいいですよ。» ¿Qué le dicen?"
+
+explicacion: |
+  〜なくてもいい.
 ```
 
-### 19 — ホテルのチェックイン  
+### 7 — ううん
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "listening-n4"  
-  nivel: "N4"  
-  tags: ["verbo te-forma", "pedidos"]  
-pasos:  
-  - "Identificar el verbo en te-forma para pedir."  
-  - "Seleccionar la opción con ～てください."  
-enunciado: "喫茶店でコーヒーを注文したいとき、正しい言い方はどれですか？"
-tipo: mc
-opciones_explicitas:  
-  - "コーヒーを飲んでください"  
-  - "コーヒーをお願いします"  
-  - "コーヒーで食べてください"  
-respuesta: "コーヒーをお願いします"
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "listening-n4"
+  nivel: "N4"
+  tags: ["listening", "N4"]
+
+respuesta: "No"
+tipo: "mc"
+opciones_explicitas: ["No", "Sí", "No se sabe"]
+
+enunciado: "Audio: «A: 昨日、パーティー行った？ B: ううん、行かなかった。» ¿Fue B a la fiesta?"
+
+explicacion: |
+  ううん = no.
 ```
 
-### 20 — メールの内容  
+### 8 — Permiso
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "listening-n4"  
-  nivel: "N4"  
-  tags: ["confirmación", "partículas"]  
-pasos:  
-  - "Revisar la partícula que indica el momento de contacto."  
-  - "Verificar el uso correcto de に o へ."  
-enunciado: "予約の案内を聞きました。「来店の前日にご連絡ください」と言われました。いつ連絡すればいいですか？"
-tipo: mc
-opciones_explicitas:  
-  - "予約は、来店の前日にご連絡ください"  
-  - "予約は、来店の時にご連絡ください"  
-  - "予約は、来店の後にご連絡ください"  
-respuesta: "予約は、来店の前日にご連絡ください"
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "listening-n4"
+  nivel: "N4"
+  tags: ["listening", "N4"]
+
+respuesta: "No"
+tipo: "mc"
+opciones_explicitas: ["No", "Sí", "Solo una"]
+
+enunciado: "Audio: «A: ここで写真を撮ってもいいですか。 B: すみません、ちょっと…。» ¿Puede sacar fotos?"
+
+explicacion: |
+  Rechazo indirecto.
 ```
 
-### 21 — 電話の受付  
+### 9 — Fecha
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "listening-n4"  
-  nivel: "N4"  
-  tags: ["expresiones de tiempo", "confirmación"]  
-pasos:  
-  - "Identificar la hora clave en la oración."  
-  - "Revisar las opciones según el contexto temporal."  
-enunciado: "「会議は午後3時に始まります」という放送を聞きました。会議は何時からですか？"
-tipo: mc
-opciones_explicitas:  
-  - "午前11時"  
-  - "午後3時"  
-  - "午前9時"  
-respuesta: "午後3時"
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "listening-n4"
+  nivel: "N4"
+  tags: ["listening", "N4"]
+
+respuesta: "El 20 del mes que viene"
+tipo: "mc"
+opciones_explicitas: ["El 20 del mes que viene", "El 2 del mes que viene", "En 20 días"]
+
+enunciado: "Audio: «試験は来月の二十日です。» ¿Qué día es el examen?"
+
+explicacion: |
+  二十日 = *hatsuka*, día 20.
+```
+
+### 10 — Indicación
+
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "listening-n4"
+  nivel: "N4"
+  tags: ["listening", "N4"]
+
+respuesta: "Doblar a la derecha"
+tipo: "mc"
+opciones_explicitas: ["Doblar a la derecha", "Doblar a la izquierda", "Seguir derecho"]
+
+enunciado: "Audio: «駅を出て、まっすぐ行って、二つ目の角を右に曲がってください。» ¿Qué hay que hacer en la segunda esquina?"
+
+explicacion: |
+  右に曲がる.
+```
+
+### 11 — Tarea
+
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "listening-n4"
+  nivel: "N4"
+  tags: ["listening", "N4"]
+
+respuesta: "Fotocopiar el documento"
+tipo: "mc"
+opciones_explicitas: ["Fotocopiar el documento", "Llamar al jefe", "Firmar el documento"]
+
+enunciado: "Audio: «すみません、この書類をコピーして、部長に渡してもらえますか。» ¿Qué le piden primero?"
+
+explicacion: |
+  コピーして → 渡す.
 ```

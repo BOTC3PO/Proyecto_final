@@ -1,66 +1,43 @@
-# Gerundio (Gerondif) en francés (nivel B2)
+# El gérondif en francés (B1-B2)
 
 > Tema del MAPA: `idiomas-extranjeros/frances/gerondif`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
 ## Introducción
-El gerundio en francés se forma con **"en" + participio presente del verbo** y expresa una acción simultánea o continua. Es esencial para estructurar oraciones que describen acciones en curso, causas o consecuencias, y aparece con frecuencia en textos cotidianos y formales. A nivel B2 (Intermedio Alto), su dominio permite expresar ideas dinámicas y conectar cláusulas de manera fluida.
+El **gérondif** es ***en* + participio presente** (*-ant*): ***en marchant, en lisant***. Indica una acción simultánea a la principal, la manera o la condición, y tiene **el mismo sujeto** que el verbo principal.
 
 ## Explicación central
-El gerundio se usa principalmente:
-1. **Después de preposiciones**: *Avant*, *pendant*, *sans*, *en* (para acciones simultáneas).
-   - Ejemplo: *"Il parlait en riant."* (Hablaba riendo.)
-2. **Para indicar causa o consecuencia**: *"En mangeant beaucoup, il a grossi."* (Al comer mucho, engordó.)
-3. **Con verbos que exigen un complemento**: *S'occuper de*, *s'intéresser à*.
-   - Ejemplo: *"Elle s'intéresse à l'écologie en réfléchissant aux solutions."* (Se interesa por la ecología al reflexionar sobre soluciones.)
+### Formación
+Raíz de ***nous*** en presente + ***-ant***, precedido de ***en***:
+- *parler → nous parl-ons → **en parlant***; *finir → **en finissant***; *faire → **en faisant***; *prendre → **en prenant***.
+- Irregulares: *être → **en étant***, *avoir → **en ayant***, *savoir → **en sachant***.
+- Pronominales: *se lever → **en me levant**, en te levant, en se levant…*
 
-**Ejemplos reales**:
-- *"En arrivant au bureau, j’ai trouvé un message urgent."* (Al llegar a la oficina, encontré un mensaje urgente.)
-- *"Sans en parler à personne, il a pris une décision radicale."* (Sin decírselo a nadie, tomó una decisión radical.)
+### Usos
+- **Simultaneidad**: *Il chante **en se douchant**.* (mientras se ducha)
+- **Manera / medio**: *Elle a appris le français **en regardant** des films.*
+- **Condición**: ***En partant** maintenant, tu arriveras à l'heure.* (si salís ahora)
+- **Causa**: *Il s'est blessé **en tombant**.*
+- ***tout en*** = simultaneidad con contraste: ***Tout en** étant riche, il vit simplement.*
 
-**Nota**: El gerundio no se usa con verbos como *penser*, *croire*, *dire*, que requieren la subordinación con el subjuntivo.
-- ❌ *"Je pense en lui parler demain."* (Incorrecto)
-- ✅ *"Je pense lui parler demain."* (Correcto: "pienso decírselo mañana")
+### Gérondif vs. participe présent
+- *gérondif* (con *en*): se refiere al **sujeto** y es invariable: *J'ai vu Marie **en sortant*** (yo salía).
+- *participe présent* (sin *en*): equivale a una relativa, sobre todo escrito: *J'ai vu Marie **sortant** du cinéma* (ella salía) = *qui sortait*.
 
 ## Errores comunes de hispanohablantes
-1. **Uso incorrecto con preposiciones**: Olvidar o añadir *en* innecesariamente.
-   - ❌ *"Avant de manger, il a pris une douche."* (Falta *en*)
-   - ✅ *"Avant d’en manger, il a pris une douche."* (Antes de comerlo)
-
-2. **Confusión con el participio pasado**: Usar el gerundio donde se requiere el participio.
-   - ❌ *"En finissant mon travail, je suis allé au cinéma."* (Debería ser *après avoir fini*)
-
-3. **Confusión con el presente de indicativo**: Usar el gerundio para describir acciones futuras o generales.
-   - ❌ *"En travaillant plus, j’aurai plus d'argent."* (Incorrecto: el gerundio no expresa futuros)
-   - ✅ *"Si je travaille plus, j’aurai plus d'argent."* (Si trabajo más, tendré más dinero.)
+1. Usarlo con otro sujeto: ❌ *En arrivant, le train était parti* (el tren no llega) ✅ *Quand je suis arrivé, le train était parti.*
+2. Calcar el progresivo: ❌ *Je suis en mangeant* ✅ *Je suis en train de manger.*
+3. ❌ *en sabant* ✅ *en sachant*.
 
 ## Comparación con el español
-En español, el gerundio se usa de manera similar, pero con diferencias clave:
-- **Estructura**: En francés, siempre se añade *en* antes del participio. En español, no.
-  - Fr.: *"En allant au cinéma..."* (Al ir al cine...)
-  - Esp.: *"Voyendo la película..."* (Viendo la película)
-
-- **Preposiciones**: El francés usa *en* para acciones simultáneas, mientras que el español lo hace sin preposición.
-  - Fr.: *"Il parlait en riant."*
-  - Esp.: *"Hablaba riéndose."*
-
-- **Uso con verbos de percepción**: En español, se usa el gerundio; en francés, se prefiere la subordinación.
-  - Fr.: *"Je l’ai vu pleurer."* (Lo vi llorar)
-  - Esp.: *"Lo vi llorando."*
+Equivale al gerundio español en usos de modo y simultaneidad («aprendió **mirando** películas»), pero **nunca** forma tiempos progresivos: «estoy comiendo» = *je suis **en train de** manger*.
 
 ## Ejemplo extendido en contexto
-**Diálogo**:
-*Alice*: "Hier soir, j’étais en train de lire un livre quand mon téléphone a sonné. En le regardant, je me suis rendu compte qu’il s’agissait d’un appel important. Sans hésiter, j’ai répondu."
-
-**Traducción y análisis**:
-"Anoche estaba leyendo un libro cuando mi teléfono sonó. Al verlo, me di cuenta de que era una llamada importante. Sin vacilar, respondí."
-- **"En train de lire"**: Expresa acción en curso (estaba leyendo).
-- **"En le regardant"**: Acción simultánea a la percepción ("al verlo").
-- **"Sans hésiter"**: Uso del gerundio con *sans* para indicar una acción inmediata.
-
-Este uso permite conectar ideas de manera concisa y natural en situaciones cotidianas o narrativas.
+*J'ai appris l'anglais **en écoutant** des podcasts **en faisant** du sport. **En pratiquant** tous les jours, on progresse vite. Mais attention : **tout en** voulant aller vite, il faut être patient !*

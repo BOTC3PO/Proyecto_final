@@ -1,490 +1,216 @@
-# Idiomas — Italiano — reading-b2 (cuestionario)
+# Italiano — reading B2 (cuestionario, 11 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/italiano/reading-b2/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
-
----
-
-### 1 — Preposizione dopo "parlare"  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["preposizioni", "verbi"]  
-pasos:  
-  - "Identificar la preposición correcta después del verbo 'parlare'."  
-explicacion: "El verbo 'parlare' requiere la preposición 'di' cuando se refiere a temas o sobre algo. Ejemplo: parlare di politica (hablar de política)."  
-tipo: completar  
-enunciado: "Maria ___ del suo lavoro con entusiasmo."  
-respuestas_validas:  
-  - "parla"  
-  - "Parla"  
-```  
+> Tema: `idiomas-extranjeros/italiano/reading-b2`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas sin texto de referencia o ambiguas; ahora cada pregunta trae el fragmento.
 
 ---
 
-### 2 — Tiempo verbal en una narrativa  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["tiempos verbales", "narración"]  
-pasos:  
-  - "Identificar el tiempo verbal correcto para describir una acción reciente."  
-explicacion: "El pasado prossimo se usa para acciones completadas en el pasado. Ejemplo: 'ho mangiato' (he comido)."  
-tipo: mc  
-enunciado: "Ieri ___ un film molto interessante con gli amici."  
-opciones_explicitas:  
-  - "ha visto"  
-  - "vedevo"  
-  - "vivo"  
-respuesta: "ha visto"  
-```  
+### 1 — Tesis
 
----
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["reading", "B2"]
 
-### 3 — Conjunction en una oración condicional  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["condicionales", "conexiones"]  
-pasos:  
-  - "Seleccionar la conjunción que conecta dos oraciones condicionales."  
-explicacion: "La conjunción 'se' introduce una condición. Ejemplo: 'Se piove, restiamo a casa.'"  
-tipo: mc  
-enunciado: "___ facesse caldo, andremmo in spiaggia."  
-opciones_explicitas:  
-  - "Se"  
-  - "Dopo che"  
-  - "Quando"  
-respuesta: "Se"  
-```  
+respuesta: "La transición ecológica es más que cambiar de motor"
+tipo: "mc"
+opciones_explicitas: ["La transición ecológica es más que cambiar de motor", "Los autos eléctricos no contaminan", "Hay que prohibir los autos"]
 
----
+enunciado: "Testo: «È vero che le auto elettriche non emettono CO₂ durante la guida. Tuttavia, la loro produzione, in particolare quella delle batterie, resta molto inquinante. È innegabile che la transizione ecologica non si riduca a cambiare motore.» ¿Cuál es la tesis?"
 
-### 4 — Uso del gerundio en una oración continua  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["gerundio", "oraciones compuestas"]  
-pasos:  
-  - "Completar el hueco con la forma correcta del gerundio."  
-explicacion: "El gerundio se usa para acciones simultáneas. Ejemplo: 'Mentre leggevo, ho sentito un rumore.'"  
-tipo: completar  
-enunciado: "Mentre ___ il libro, ha suonato il telefono."  
-respuestas_validas:  
-  - "leggevo"  
-  - "Leggevo"  
-```  
+explicacion: |
+  Tesis final.
+```
 
----
+### 2 — Concesión
 
-### 5 — Preposición después de "pensare"  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["preposizioni", "verbi"]  
-pasos:  
-  - "Identificar la preposición correcta después del verbo 'pensare'."  
-explicacion: "El verbo 'pensare' requiere la preposición 'a' cuando se refiere a ideas o planes. Ejemplo: pensare a un viaggio (pensar en un viaje)."  
-tipo: completar  
-enunciado: "Non ___ mai alle conseguenze del suo comportamento."  
-respuestas_validas:  
-  - "penso"  
-  - "Penso"  
-```  
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["reading", "B2"]
 
----
+respuesta: "Que no emiten CO₂ al circular"
+tipo: "mc"
+opciones_explicitas: ["Que no emiten CO₂ al circular", "Que las baterías son limpias", "Que son baratos"]
 
-### 6 — Uso del subjuntivo después de "sperare"  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["subjuntivo", "verbos modales"]  
-pasos:  
-  - "Elegir la forma correcta del subjuntivo después de 'sperare'."  
-explicacion: "Después de verbos como 'sperare', se usa el subjuntivo. Ejemplo: 'Spero che tu venga.'"  
-tipo: mc  
-enunciado: "Spero che ___ una soluzione al problema."  
-opciones_explicitas:  
-  - "trovi"  
-  - "hai trovato"  
-  - "trovavi"  
-respuesta: "trovi"  
-```  
+enunciado: "Testo: «È vero che le auto elettriche non emettono CO₂ durante la guida. Tuttavia, la loro produzione, in particolare quella delle batterie, resta molto inquinante. È innegabile che la transizione ecologica non si riduca a cambiare motore.» ¿Qué admite con *è vero che*?"
 
----
+explicacion: |
+  Concesión.
+```
 
-### 7 — Uso de "dove" en preguntas de lugar  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["preguntas", "adverbios"]  
-pasos:  
-  - "Seleccionar el adverbio correcto para responder a una pregunta sobre lugar."  
-explicacion: "'Dove' se usa para preguntar o indicar lugares. Ejemplo: 'Dove hai messo le chiavi?' (¿Dónde pusiste las llaves?)."  
-tipo: mc  
-enunciado: "___ hai lasciato il tuo zaino?"  
-opciones_explicitas:  
-  - "Dove"  
-  - "Quando"  
-  - "Perché"  
-respuesta: "Dove"  
-```  
+### 3 — Contraargumento
 
----
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["reading", "B2"]
 
-### 8 — Forma correcta del imperativo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["imperativo", "mandatos"]  
-pasos:  
-  - "Escribir la forma correcta del imperativo en segunda persona."  
-explicacion: "El imperativo en segunda persona singular (tu) se forma con la raíz del verbo. Ejemplo: 'Fai attenzione' (¡Presta atención!)."  
-tipo: completar  
-enunciado: "___ più attento alle istruzioni, per favore!"  
-respuestas_validas:  
-  - "fai"  
-  - "Fai"  
-```  
+respuesta: "La producción, sobre todo de baterías"
+tipo: "mc"
+opciones_explicitas: ["La producción, sobre todo de baterías", "El uso diario", "El reciclaje"]
 
----
+enunciado: "Testo: «È vero che le auto elettriche non emettono CO₂ durante la guida. Tuttavia, la loro produzione, in particolare quella delle batterie, resta molto inquinante. È innegabile che la transizione ecologica non si riduca a cambiare motore.» ¿Qué es contaminante?"
 
-### 9 — Uso de "ne" como pronombre indefinido  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["pronombres", "indefinidos"]  
-pasos:  
-  - "Completar el hueco con el pronombre 'ne' en su forma correcta."  
-explicacion: "'Ne' se usa para sustituir una expresión de cantidad + preposición. Ejemplo: 'Non ne ho bisogno' (No lo necesito)."  
-tipo: completar  
-enunciado: "Non ___ faccio uso da anni, ma lo ricordo bene."  
-respuestas_validas:  
-  - "ne"  
-```  
+explicacion: |
+  *In particolare quella delle batterie*.
+```
 
----
+### 4 — Innegabile
 
-### 10 — Uso de "prima che" en oraciones temporales  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["tiempos verbales", "oraciones temporales"]  
-pasos:  
-  - "Elegir la forma correcta del subjuntivo después de 'prima che'."  
-explicacion: "'Prima che' se usa con el subjuntivo para indicar una acción que debe ocurrir antes. Ejemplo: 'Vado a letto prima che lui torni.'"  
-tipo: mc  
-enunciado: "Non uscirò di casa ___ lui arrivi."  
-opciones_explicitas:  
-  - "prima che"  
-  - "dopo che"  
-  - "mentre"  
-respuesta: "prima che"  
-```  
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["reading", "B2"]
 
----
+respuesta: "Es innegable que"
+tipo: "mc"
+opciones_explicitas: ["Es innegable que", "Es dudoso que", "No se sabe si"]
 
-### 11 — Uso de "cui" en oraciones relativas  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["oraciones relativas", "pronombres relativos"]  
-pasos:  
-  - "Seleccionar el pronombre relativo correcto para referirse a un lugar."  
-explicacion: "'Cui' se usa cuando la oración relativa se refiere a un lugar y se introduce con 'a'. Ejemplo: 'La città ___ vivo è molto bella.' (La ciudad donde vivo es muy bonita)."  
-tipo: completar  
-enunciado: "Il libro ___ ho parlato è molto interessante."  
-respuestas_validas:  
-  - "che"  
-```  
+enunciado: "Testo: «È vero che le auto elettriche non emettono CO₂ durante la guida. Tuttavia, la loro produzione, in particolare quella delle batterie, resta molto inquinante. È innegabile che la transizione ecologica non si riduca a cambiare motore.» «È innegabile che» significa…"
 
----
+explicacion: |
+  Modalizador de certeza.
+```
 
-### 12 — Uso de "avere bisogno di"  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["expresiones", "necesidad"]  
-pasos:  
-  - "Completar el hueco con la preposición correcta después de 'avere bisogno'."  
-explicacion: "'Avere bisogno di' se usa para expresar necesidad. Ejemplo: 'Ho bisogno di aiuto.' (Necesito ayuda)."  
-tipo: completar  
-enunciado: "Gli studenti ___ aiuto per comprendere l’argomento."  
-respuestas_validas:  
-  - "hanno"  
-```  
+### 5 — Calo
 
----
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["reading", "B2"]
 
-### 13 — Uso de "sebbene" en oraciones adversativas  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["conexiones", "adversativas"]  
-pasos:  
-  - "Seleccionar la conjunción correcta para introducir una oración adversativa."  
-explicacion: "'Sebbene' introduce una contraposición y se usa con el subjuntivo. Ejemplo: 'Sebbene fosse stanco, è rimasto sveglio.'"  
-tipo: mc  
-enunciado: "___ era stanco, non ha dormito tutta la notte."  
-opciones_explicitas:  
-  - "Sebbene"  
-  - "Pur se"  
-  - "Anche se"  
-respuesta: "Sebbene"  
-```  
+respuesta: "Las ventas bajan mucho"
+tipo: "mc"
+opciones_explicitas: ["Las ventas bajan mucho", "Las ventas suben", "Hace calor"]
 
----
+enunciado: "Testo: «Si registra un forte calo delle vendite.» ¿Qué pasa?"
 
-### 14 — Uso de "dopo che" en oraciones temporales  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["tiempos verbales", "oraciones temporales"]  
-pasos:  
-  - "Elegir la forma correcta del subjuntivo después de 'dopo che'."  
-explicacion: "'Dopo che' se usa con el subjuntivo para indicar una acción que ocurre después de otra. Ejemplo: 'Sono andato a letto dopo che lui è tornato.'"  
-tipo: mc  
-enunciado: "Non ho mangiato ___ lei ha finito di cucinare."  
-opciones_explicitas:  
-  - "dopo che"  
-  - "prima che"  
-  - "mentre"  
-respuesta: "dopo che"  
-```  
+explicacion: |
+  *Calo* = baja.
+```
 
----
+### 6 — Distancia
 
-### 15 — Uso de "da" como preposición de origen  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["preposiciones", "origen"]  
-pasos:  
-  - "Identificar la preposición correcta para indicar el lugar de origen."  
-explicacion: "'Da' se usa para indicar el lugar de donde algo proviene. Ejemplo: 'Sono venuto da Roma.' (Vine de Roma)."  
-tipo: completar  
-enunciado: "La lettera ___ Milano è arrivata ieri."  
-respuestas_validas:  
-  - "da"  
-```  
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["reading", "B2"]
 
----
+respuesta: "atribuye la información al informe"
+tipo: "mc"
+opciones_explicitas: ["atribuye la información al informe", "afirma que fracasó", "dice que funcionó"]
 
-### 16 — Uso de "avere fame/di"  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["expresiones", "deseos"]  
-pasos:  
-  - "Completar el hueco con la preposición correcta después de 'avere fame'."  
-explicacion: "'Avere fame di' se usa para expresar hambre. Ejemplo: 'Ho fame di pizza.' (Tengo hambre de pizza)."  
-tipo: completar  
-enunciado: "Non ho ___ mangiare, ma non so cosa preparare."  
-respuestas_validas:  
-  - "voglia"  
-```  
+enunciado: "Testo: «Secondo il rapporto, la misura avrebbe fallito.» El autor…"
 
----
+explicacion: |
+  Condizionale de distancia.
+```
 
-### 17 — Uso de "mentre" en oraciones simultáneas  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["conexiones", "oraciones compuestas"]  
-pasos:  
-  - "Seleccionar la conjunción correcta para conectar dos acciones simultáneas."  
-explicacion: "'Mentre' introduce una acción que ocurre al mismo tiempo que otra. Ejemplo: 'Mentre leggevo, ha suonato il telefono.'"  
-tipo: mc  
-enunciado: "___ lavoro, lei mi preparava la cena."  
-opciones_explicitas:  
-  - "Mentre"  
-  - "Dopo che"  
-  - "Quando"  
-respuesta: "Mentre"  
-```  
+### 7 — Sfida
 
----
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["reading", "B2"]
 
-### 18 — Uso de "poco dopo" en oraciones temporales  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["tiempos verbales", "oraciones temporales"]  
-pasos:  
-  - "Elegir el tiempo verbal correcto después de 'poco dopo'."  
-explicacion: "'Poco dopo' se usa con el passato prossimo para indicar una acción que ocurre poco tiempo después. Ejemplo: 'Poco dopo, ha iniziato a piovere.'"  
-tipo: mc  
-enunciado: "Poco ___ è arrivato il postino."  
-opciones_explicitas:  
-  - "dopo"  
-  - "prima che"  
-  - "mentre"  
-respuesta: "dopo"  
-```  
+respuesta: "desafío"
+tipo: "mc"
+opciones_explicitas: ["desafío", "desfile", "fracaso"]
 
----
+enunciado: "Testo: «La sfida principale è ridurre le emissioni.» *Sfida* significa…"
 
-### 19 — Uso de "perché" en oraciones causales  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["conexiones", "causas"]  
-pasos:  
-  - "Seleccionar la conjunción correcta para introducir una oración causal."  
-explicacion: "'Perché' introduce una causa y se usa con el subjuntivo. Ejemplo: 'Non ho mangiato perché ero stanco.'"  
-tipo: mc  
-enunciado: "Non sono andato al cinema ___ non avevo tempo."  
-opciones_explicitas:  
-  - "perché"  
-  - "sebbene"  
-  - "mentre"  
-respuesta: "perché"  
-```  
+explicacion: |
+  *Sfida*.
+```
 
----
+### 8 — Posta
 
-### 20 — Uso de "a proposito di" en preguntas  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["expresiones", "preguntas"]  
-pasos:  
-  - "Completar el hueco con la expresión correcta para hacer una pregunta sobre un tema."  
-explicacion: "'A proposito di' se usa para preguntar o referirse a algo específico. Ejemplo: 'Parliamo a proposito di politica?' (¿Hablamos de política?)."  
-tipo: completar  
-enunciado: "___ hai letto quel libro?"  
-respuestas_validas:  
-  - "A proposito di"  
-```  
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["reading", "B2"]
 
----
+respuesta: "Lo que está en juego es el futuro de la salud pública"
+tipo: "mc"
+opciones_explicitas: ["Lo que está en juego es el futuro de la salud pública", "El correo de la salud pública", "Se juega con la salud"]
 
-### 21 — Uso de "avere paura di"  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["expresiones", "emociones"]  
-pasos:  
-  - "Completar el hueco con la preposición correcta después de 'avere paura'."  
-explicacion: "'Avere paura di' se usa para expresar miedo. Ejemplo: 'Ho paura di volare.' (Tengo miedo de volar)."  
-tipo: completar  
-enunciado: "Non ___ di andare a letto presto, ma non riesco."  
-respuestas_validas:  
-  - "ho paura"  
-```  
+enunciado: "Testo: «La posta in gioco è il futuro della sanità pubblica.» Significa…"
 
----
+explicacion: |
+  *Posta in gioco*.
+```
 
-### 22 — Uso de "prima di" en oraciones temporales  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["preposiciones", "tiempos verbales"]  
-pasos:  
-  - "Seleccionar la preposición correcta para indicar una acción que ocurre antes de otra."  
-explicacion: "'Prima di' se usa con el infinitivo para indicar una acción previa. Ejemplo: 'Devo finire il lavoro prima di andare a casa.'"  
-tipo: completar  
-enunciado: "Sono uscito ___ mangiare qualcosa."  
-respuestas_validas:  
-  - "prima di"  
-```  
+### 9 — Valoración
 
----
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["reading", "B2"]
 
-### 23 — Uso de "nonostante" en oraciones adversativas  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["conexiones", "adversativas"]  
-pasos:  
-  - "Elegir la conjunción correcta para introducir una oración adversativa."  
-explicacion: "'Nonostante' introduce una contraposición y se usa con el subjuntivo. Ejemplo: 'Nonostante fosse stanco, è rimasto sveglio.'"  
-tipo: mc  
-enunciado: "___ aveva mal di testa, non ha preso la pillola."  
-opciones_explicitas:  
-  - "Nonostante"  
-  - "Sebbene"  
-  - "Anche se"  
-respuesta: "Nonostante"  
-```  
+respuesta: "de preocupación"
+tipo: "mc"
+opciones_explicitas: ["de preocupación", "de entusiasmo", "neutral"]
 
----
+enunciado: "Testo: «Questi dati sono preoccupanti.» La postura es…"
 
-### 24 — Uso de "invece di" en oraciones contrastivas  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["conexiones", "contraste"]  
-pasos:  
-  - "Seleccionar la expresión correcta para indicar una elección entre opciones."  
-explicacion: "'Invece di' se usa para contrastar acciones o decisiones. Ejemplo: 'Ho scelto invece di andare in spiaggia.' (He elegido en lugar de ir a la playa)."  
-tipo: completar  
-enunciado: "Non ho preso il treno, ___ ho preso l’autobus."  
-respuestas_validas:  
-  - "invece di"  
-```  
+explicacion: |
+  *Preoccupante*.
+```
 
----
+### 10 — Ejemplo
 
-### 25 — Uso de "a causa di" en oraciones causales  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["preposiciones", "causas"]  
-pasos:  
-  - "Completar el hueco con la preposición correcta para indicar una causa."  
-explicacion: "'A causa di' se usa para indicar una causa o motivo. Ejemplo: 'Il ritardo è stato a causa del maltempo.' (El retraso fue debido al mal tiempo)."  
-tipo: completar  
-enunciado: "L’incidente ___ la nebbia ha causato un incidente stradale."  
-respuestas_validas:  
-  - "a causa di"  
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["reading", "B2"]
+
+respuesta: "ejemplos"
+tipo: "mc"
+opciones_explicitas: ["ejemplos", "excepciones", "contraargumentos"]
+
+enunciado: "Testo: «Diverse città, come Bologna e Torino, hanno introdotto il limite di 30 km/h.» Bologna y Turín son…"
+
+explicacion: |
+  *Come* = ejemplo.
+```
+
+### 11 — Bilancio
+
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["reading", "B2"]
+
+respuesta: "Bueno en balance"
+tipo: "mc"
+opciones_explicitas: ["Bueno en balance", "Malo", "Sin datos"]
+
+enunciado: "Testo: «Il bilancio dell'anno è positivo.» ¿Cómo fue el año?"
+
+explicacion: |
+  *Bilancio* = balance.
 ```

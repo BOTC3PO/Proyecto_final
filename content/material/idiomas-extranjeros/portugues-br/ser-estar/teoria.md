@@ -1,58 +1,43 @@
-# Ser vs. Estar: Diferença e Uso no Português (Nível A1-A2)
+# Ser y estar en portugués de Brasil (A1-A2)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-br/ser-estar`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
-## Introdução
-No português, os verbos *ser* e *estar* são fundamentais para expressar identidade, características permanentes e estados temporários. Apesar de ambos traduzirem "ser" ou "estar" no inglês, suas funções são distintas e aprender a diferenciá-los é essencial para comunicação básica (nível A1-A2 do CEFR). Confundir os dois pode levar a frases que soam estranhas ou imprecisas.
+## Introducción
+Como en español, el portugués tiene **ser** y **estar**, y en general se usan de manera muy parecida. Pero hay diferencias en la ubicación, en algunos adjetivos y en expresiones con *estar com*.
 
-## Explicação Central
-**Ser (*ser*)** refere-se a características permanentes, identidade, profissão e origem:
-- *Ela é brasileira.* (Ela é de origem brasileira.)
-- *Ele é médico.* (Sua profissão é médica.)
-- *O meu nome é João.* (Identidade pessoal.)
+## Explicación central
+### ser
+- **Identidad, origen, profesión, nacionalidad**: *Eu **sou** professora. Ela **é** do Chile.*
+- **Características permanentes**: *A casa **é** grande. Ele **é** alto.*
+- **Hora y fecha**: ***São** três horas. Hoje **é** segunda-feira.*
+- **Eventos** (dónde ocurren): *A festa **é** na casa da Ana.*
+- **Estado civil** (muy común con *ser*): *Ele **é** casado.* (también *está casado*)
 
-**Estar (*estar*)** indica estados temporários, localização e emoções:
-- *Estou cansado.* (Estado momentâneo de fadiga.)
-- *Ela está feliz hoje.* (Emoção atual.)
-- *Nós estamos na escola.* (Localização no momento.)
+### estar
+- **Estados temporarios**: *Eu **estou** cansado. O café **está** frio.*
+- **Ubicación de personas y cosas móviles**: *O livro **está** na mesa. Onde você **está**?*
+- **Estar com + sustantivo** («tener» hambre, frío, etc.): ***Estou com** fome / sede / frio / sono / medo / pressa.*
+- **Estar + gerúndio** (acción en curso, típico de Brasil): *Ela **está falando** no telefone.*
 
-Exemplos comuns que evitam erros:
-- ✔️ *O céu está azul hoje.* (Estado do céu em um determinado dia.)
-- ❌ *O céu é azul hoje.* (Errado; o céu é azul permanentemente, não apenas hoje.)
+### ficar para la ubicación fija
+- Para lugares que no se mueven se usa mucho **ficar**: *Onde **fica** o banco? — **Fica** na esquina.*
 
-## Erros Comuns de Hispanohablantes
-1. **Confundir "ser" com "estar" para estados temporários:**
-   - ❌ *Ela é cansada.* → ✔️ *Ela está cansada.*
-2. **Usar "ser" para localização:**
-   - ❌ *Estamos em São Paulo.* (Errado; o verbo correto é *estar*.)
-3. **Atribuir características permanentes com "estar":**
-   - ❌ *O João está professor.* → ✔️ *O João é professor.*
+## Errores comunes de hispanohablantes
+1. ❌ *Eu tenho fome.* (se entiende, pero en Brasil lo natural es) ✅ *Eu estou com fome.*
+2. ❌ *Onde está o museu?* no es incorrecto, pero lo más natural es ✅ *Onde fica o museu?*
+3. Conjugar como en español: ❌ *eu soy, eu estoy* ✅ *eu sou, eu estou*.
+4. ❌ *Ela está brasileira.* ✅ *Ela é brasileira.*
 
-## Comparação com o Espanhol
-No espanhol, a distinção entre *ser* e *estar* também existe, mas costuma ser menos rígida. Por exemplo:
-- No português: *Ela **é** médica.* (Permanente) vs. *Ela **está** cansada.* (Temporal).
-- No espanhol: *Ella **es** médica.* (Permanente) e *Ella **está** cansada.* (Temporal).
+## Comparación con el español
+Los usos básicos coinciden. Diferencias: «tengo hambre/frío/sueño» = ***estou com** fome/frio/sono*; «¿dónde queda?» = *onde **fica**?*; y el gerundio con *estar* es mucho más frecuente en Brasil que en el español rioplatense.
 
-A diferença mais clara está em frases como:
-- Português: *O céu **é** azul.* (Verdadeira para sempre.)
-- Espanhol: *El cielo **es** azul.* (Também verdadeira, mas o uso de *estar* pode variar).
-
-## Exemplo em Contexto
-**Diálogo:**
-Ana: *Você é estudante?*
-Pedro: *Sim, sou estudante. Estou no segundo ano da faculdade.*
-Ana: *E você está feliz com a vida atual?*
-Pedro: *Estou cansado, mas estou feliz sim! Acho que sou uma pessoa otimista.*
-
-**Explicação:**
-- *Sou estudante* (identidade permanente).
-- *Estou no segundo ano* (estado temporário de estudo).
-- *Estou cansado* (emoção atual) vs. *Sou otimista* (caráter permanente).
-
-Compreender a distinção entre *ser* e *estar* permite expressar ideias com precisão, evitando ambiguidades e melhorando a fluência no português.
+## Ejemplo extendido en contexto
+*Oi! Eu **sou** a Camila, **sou** de Buenos Aires e **sou** engenheira. Agora **estou** em Recife, de férias. O hotel **fica** perto da praia. Hoje **está** muito calor e eu **estou com** sede. A festa de hoje à noite **é** no terraço!*

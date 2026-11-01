@@ -1,455 +1,253 @@
-# Idiomas — Francés — discours-indirect (cuestionario)
+# Francés — discours indirect (cuestionario, 13 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/frances/discours-indirect/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
+> Tema: `idiomas-extranjeros/frances/discours-indirect`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Changer direct en indirect  
+### 1 — Presente
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "discours-indirect"
   nivel: "B2"
-  tags: ["directo", "indirecto", "tense"]
-pasos:
-  - "Identificar el verbo de enunciación y el tiempo del verbo dentro del discurso directo."
-  - "Ajustar el tiempo verbal del verbo según las reglas del discurso indirecto."
-tipo: completar
-respuestas_validas:
-  - "avaient"
-  - "avaient"
-enunciado: "Elles ont expliqué que les étudiants _ des problèmes hier."
+  tags: ["discours-indirect"]
+
+respuesta: "est"
+tipo: "mc"
+opciones_explicitas: ["est", "était", "soit"]
+
+enunciado: "« Je suis fatigué. » → Il dit qu'il ___ fatigué."
+
+explicacion: |
+  Introductor en presente: no cambia el tiempo.
 ```
 
-### 2 — Elegir la forma correcta  
+### 2 — Pasado
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "discours-indirect"
   nivel: "B2"
-  tags: ["tense", "subordinada"]
-pasos:
-  - "Reconocer el verbo de enunciación y su tiempo."
-  - "Verificar si el tiempo del verbo dentro del discurso indirecto se ajusta a las reglas."
-respuesta: "va"
-tipo: mc
-opciones_explicitas:
-  - "vait"
-  - "va"
-  - "vas"
-enunciado: "Il m'a dit qu'il _ en vacances ce week-end."
+  tags: ["discours-indirect"]
+
+respuesta: "était"
+tipo: "mc"
+opciones_explicitas: ["était", "est", "a été"]
+
+enunciado: "« Je suis fatigué. » → Il a dit qu'il ___ fatigué."
+
+explicacion: |
+  Présent → imparfait.
 ```
 
-### 3 — Ajustar el tiempo verbal  
+### 3 — si
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "discours-indirect"
   nivel: "B2"
-  tags: ["tense", "passé composé"]
-pasos:
-  - "Identificar si el verbo en el discurso directo está en passé composé."
-  - "Convertirlo al tiempo adecuado para el discurso indirecto."
-tipo: completar
-respuestas_validas:
-  - "avait"
-  - "avait"
-enunciado: "Elle a dit qu'elle _ fini son travail avant dix heures."
+  tags: ["discours-indirect"]
+
+respuesta: "si"
+tipo: "mc"
+opciones_explicitas: ["si", "que", "ce que"]
+
+enunciado: "« Tu viens ? » → Elle demande ___ je viens."
+
+explicacion: |
+  Pregunta sí/no: *si*.
 ```
 
-### 4 — Verbo de enunciación y tiempo  
+### 4 — ce que
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "discours-indirect"
   nivel: "B2"
-  tags: ["verbo", "subordinada"]
-pasos:
-  - "Determinar el verbo de enunciación (dire, raconter, etc.) y su tiempo."
-  - "Ajustar el tiempo del verbo dentro del discurso indirecto según las reglas."
-respuesta: "aime"
-tipo: mc
-opciones_explicitas:
-  - "aime"
-  - "aimait"
-  - "aimera"
-enunciado: "Il a raconté que sa sœur _ le sport."
+  tags: ["discours-indirect"]
+
+respuesta: "ce que"
+tipo: "mc"
+opciones_explicitas: ["ce que", "qu'est-ce que", "que"]
+
+enunciado: "« Qu'est-ce que tu fais ? » → Il demande ___ je fais."
+
+explicacion: |
+  *Qu'est-ce que* → *ce que*.
 ```
 
-### 5 — Discurso indirecto y futuro  
+### 5 — ce qui
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "discours-indirect"
   nivel: "B2"
-  tags: ["futuro", "subordinada"]
-pasos:
-  - "Identificar si el verbo en el discurso directo está en futuro."
-  - "Aplicar la regla de conversión al tiempo adecuado para el discurso indirecto."
-tipo: completar
-respuestas_validas:
-  - "viendra"
-  - "Viendra"
-enunciado: "Elle a affirmé qu'elle _ nous rendre visite demain."
+  tags: ["discours-indirect"]
+
+respuesta: "ce qui"
+tipo: "mc"
+opciones_explicitas: ["ce qui", "ce que", "qu'est-ce qui"]
+
+enunciado: "« Qu'est-ce qui se passe ? » → Il demande ___ se passe."
+
+explicacion: |
+  *Qu'est-ce qui* → *ce qui*.
 ```
 
-### 6 — Elegir la forma correcta  
+### 6 — Orden
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "discours-indirect"
   nivel: "B2"
-  tags: ["subordinada", "pronom"]
-pasos:
-  - "Revisar el sujeto del verbo dentro del discurso indirecto."
-  - "Asegurarse de que el pronombre concuerde con el sujeto."
-respuesta: "m'a"
-tipo: mc
-opciones_explicitas:
-  - "me a"
-  - "m'a"
-  - "a me"
-enunciado: "Il m’a dit qu’il _ donné son numéro de téléphone."
+  tags: ["discours-indirect"]
+
+respuesta: "de fermer"
+tipo: "mc"
+opciones_explicitas: ["de fermer", "que je ferme", "fermer"]
+
+enunciado: "« Ferme la porte ! » → Il m'a dit ___ la porte."
+
+explicacion: |
+  Órdenes: *dire de* + infinitivo.
 ```
 
-### 7 — Ajustar el tiempo verbal  
+### 7 — Futur
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "discours-indirect"
   nivel: "B2"
-  tags: ["passé simple", "subordinada"]
-pasos:
-  - "Identificar si el verbo en el discurso directo está en passé simple."
-  - "Convertirlo al tiempo adecuado para el discurso indirecto."
-tipo: completar
-respuestas_validas:
-  - "avait mangé"
-  - "Avait mangé"
-enunciado: "Je lui ai dit qu'elle _ du pain avant de partir."
+  tags: ["discours-indirect"]
+
+respuesta: "partirait"
+tipo: "mc"
+opciones_explicitas: ["partirait", "partira", "partait"]
+
+enunciado: "« Je partirai. » → Elle a dit qu'elle ___."
+
+explicacion: |
+  Futur → conditionnel.
 ```
 
-### 8 — Elegir la forma correcta  
+### 8 — Passé composé
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "discours-indirect"
   nivel: "B2"
-  tags: ["subordinada", "tense"]
-pasos:
-  - "Determinar el tiempo del verbo en el discurso directo."
-  - "Verificar la conversión al tiempo adecuado para el discurso indirecto."
-respuesta: "avaient"
-tipo: mc
-opciones_explicitas:
-  - "avaient"
-  - "aient"
-  - "avait"
-enunciado: "Ils ont dit qu'ils _ fait leurs devoirs hier soir."
+  tags: ["discours-indirect"]
+
+respuesta: "avait perdu"
+tipo: "mc"
+opciones_explicitas: ["avait perdu", "a perdu", "perdait"]
+
+enunciado: "« J'ai perdu mes clés. » → Il a dit qu'il ___ ses clés."
+
+explicacion: |
+  Passé composé → plus-que-parfait.
 ```
 
-### 9 — Discurso indirecto y condicional  
+### 9 — demain
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "discours-indirect"
   nivel: "B2"
-  tags: ["condicional", "subordinada"]
-pasos:
-  - "Identificar si el verbo en el discurso directo está en condicional."
-  - "Aplicar la regla de conversión al tiempo adecuado para el discurso indirecto."
-tipo: completar
-respuestas_validas:
-  - "irait"
-  - "Irait"
-enunciado: "Elle a dit qu'elle _ au cinéma si elle avait le temps."
+  tags: ["discours-indirect"]
+
+respuesta: "le lendemain"
+tipo: "mc"
+opciones_explicitas: ["le lendemain", "demain", "la veille"]
+
+enunciado: "« Je viendrai demain. » → Il a dit qu'il viendrait ___."
+
+explicacion: |
+  *Demain → le lendemain*.
 ```
 
-### 10 — Elegir la forma correcta  
+### 10 — hier
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "discours-indirect"
   nivel: "B2"
-  tags: ["subordinada", "pronom"]
-pasos:
-  - "Revisar el sujeto del verbo dentro del discurso indirecto."
-  - "Asegurarse de que el pronombre concuerde con el sujeto."
-respuesta: "lui a"
-tipo: mc
-opciones_explicitas:
-  - "lui a"
-  - "a lui"
-  - "lui"
-enunciado: "On m’a dit qu’il _ donné son adresse à un ami."
+  tags: ["discours-indirect"]
+
+respuesta: "la veille"
+tipo: "mc"
+opciones_explicitas: ["la veille", "hier", "le lendemain"]
+
+enunciado: "« Je suis arrivé hier. » → Il a dit qu'il était arrivé ___."
+
+explicacion: |
+  *Hier → la veille*.
 ```
 
-### 11 — Ajustar el tiempo verbal  
+### 11 — Interrogativo
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "discours-indirect"
   nivel: "B2"
-  tags: ["passé composé", "subordinada"]
-pasos:
-  - "Identificar si el verbo en el discurso directo está en passé composé."
-  - "Convertirlo al tiempo adecuado para el discurso indirecto."
-tipo: completar
-respuestas_validas:
-  - "avait acheté"
-  - "Avait acheté"
-enunciado: "Elle a raconté qu'elle _ un cadeau pour son frère."
+  tags: ["discours-indirect"]
+
+respuesta: "où j'habitais"
+tipo: "mc"
+opciones_explicitas: ["où j'habitais", "où habitais-je", "si j'habitais où"]
+
+enunciado: "« Où habites-tu ? » → Il m'a demandé ___."
+
+explicacion: |
+  Sin inversión en el indirecto.
 ```
 
-### 12 — Elegir la forma correcta  
+### 12 — Pronombres
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "discours-indirect"
   nivel: "B2"
-  tags: ["subordinada", "tense"]
-pasos:
-  - "Determinar el tiempo del verbo en el discurso directo."
-  - "Verificar la conversión al tiempo adecuado para el discurso indirecto."
-respuesta: "aime"
-tipo: mc
-opciones_explicitas:
-  - "aime"
-  - "aimait"
-  - "aimera"
-enunciado: "Il a dit qu'il _ beaucoup les sports d'hiver."
+  tags: ["discours-indirect"]
+
+respuesta: "m'"
+tipo: "mc"
+opciones_explicitas: ["m'", "t'", "l'"]
+
+enunciado: "« Je t'aime. » → Il dit qu'il ___ aime."
+
+explicacion: |
+  Cambio de persona: *il m'aime*.
 ```
 
-### 13 — Discurso indirecto y futur antérieur  
+### 13 — Error típico
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "discours-indirect"
   nivel: "B2"
-  tags: ["futuro", "subordinada"]
-pasos:
-  - "Identificar si el verbo en el discurso directo está en futur antérieur."
-  - "Aplicar la regla de conversión al tiempo adecuado para el discurso indirecto."
-tipo: completar
-respuestas_validas:
-  - "aurait fini"
-  - "Aurait fini"
-enunciado: "Elle a dit qu'elle _ son projet avant la fin de semaine."
-```
+  tags: ["discours-indirect"]
 
-### 14 — Elegir la forma correcta  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "discours-indirect"
-  nivel: "B2"
-  tags: ["subordinada", "pronom"]
-pasos:
-  - "Revisar el sujeto del verbo dentro del discurso indirecto."
-  - "Asegurarse de que el pronombre concuerde con el sujeto."
-respuesta: "m'a dit"
-tipo: mc
-opciones_explicitas:
-  - "m'a dit"
-  - "a me dit"
-  - "me a dit"
-enunciado: "On _ qu'il était en retard."
-```
+respuesta: falso
+tipo: vf
 
-### 15 — Ajustar el tiempo verbal  
-```  
-metadata:  
-  materia: "frances"  
-  tema: "discours-indirect"  
-  nivel: "B2"  
-  tags: ["passé-composé", "plus-que-parfait"]  
-pasos:  
-  - "Identificar el tiempo verbal en la oración principal."  
-  - "Aplicar la regla de concordancia temporal para el discurso indirecto."  
-tipo: completar  
-respuestas_validas:  
-  - "avait terminé"  
-  - "Avait terminé"  
-enunciado: "Elle a dit qu'elle _ son projet avant la fin de semaine."  
-explicacion: "Cuando la oración principal está en passé composé y el contenido es un hecho anterior al momento mencionado, se usa el plus-que-parfait (avait + participe passé). 'Finir' tiene participe passé 'terminé', por lo tanto la forma correcta es 'avait terminé'."  
-```
+enunciado: "«Il demande qu'est-ce que je veux» es correcta en el discurso indirecto."
 
-### 16 — Elegir la forma correcta  
-```  
-metadata:  
-  materia: "frances"  
-  tema: "discours-indirect"  
-  nivel: "B2"  
-  tags: ["futur", "conditionnel"]  
-pasos:  
-  - "Reconocer la intención de futuro en el enunciado directo."  
-  - "Transformar el verbo al tiempo adecuado para el discurso indirecto."  
-tipo: completar  
-respuestas_validas:  
-  - "irait"  
-  - "Irait"  
-enunciado: "Il a dit qu'il _ en vacances ce week-end."  
-explicacion: "Cuando el contenido expresa un futuro hipotético o condicional, se usa el conditionnel présent. En este caso, 'aller' en conditionnel es 'irait', por lo tanto la respuesta correcta es 'irait'."  
-```
-
-### 17 — Discurso indirecto y condicional  
-```  
-metadata:  
-  materia: "frances"  
-  tema: "discours-indirect"  
-  nivel: "B2"  
-  tags: ["passé-composé", "plus-que-parfait"]  
-pasos:  
-  - "Determinar el tiempo de la oración principal."  
-  - "Ajustar el verbo al plus-que-parfait si el contenido es anterior a ese momento."  
-tipo: completar  
-respuestas_validas:  
-  - "avait reçu"  
-  - "Avait reçu"  
-enunciado: "On m’a dit qu’il _ donné son adresse à un ami."  
-explicacion: "El verbo principal 'a dit' está en passé composé, y el contenido ('donner') se refiere a una acción completada antes del momento mencionado. Por lo tanto, se usa el plus-que-parfait: 'avait donné', que concuerda con 'il'."  
-```
-
-### 18 — Elegir la forma correcta  
-```  
-metadata:  
-  materia: "frances"  
-  tema: "discours-indirect"  
-  nivel: "B2"  
-  tags: ["imparfait", "passé-composé"]  
-pasos:  
-  - "Identificar si el contenido describe una acción repetida o habitual."  
-  - "Seleccionar el imparfait para acciones habituales en el discurso indirecto."  
-tipo: completar  
-respuestas_validas:  
-  - "avait souvent réfléchi"  
-  - "Avait souvent réfléchi"  
-enunciado: "Elle a expliqué qu'elle _ à son problème avant de trouver une solution."  
-explicacion: "Cuando el contenido describe una acción habitual o repetida en el pasado, se usa el imparfait. 'Réfléchir' en imparfait es 'réfléchissait', pero como la oración principal está en passé composé, se transforma al plus-que-parfait: 'avait réfléchi'."  
-```
-
-### 19 — Ajustar el tiempo verbal  
-```  
-metadata:  
-  materia: "frances"  
-  tema: "discours-indirect"  
-  nivel: "B2"  
-  tags: ["passé-composé", "négation"]  
-pasos:  
-  - "Reconocer la negación en el contenido original."  
-  - "Aplicar la regla de concordancia temporal y mantener la negación."  
-tipo: completar  
-respuestas_validas:  
-  - "n'avait pas encore fini"  
-  - "N'avait pas encore fini"  
-enunciado: "Ils ont dit qu'ils _ leurs devoirs hier soir."  
-explicacion: "El verbo principal 'ont dit' está en passé composé, y el contenido ('ne ... pas') debe mantenerse. 'Finir' con negación se transforma al plus-que-parfait: 'n'avait pas fini', pero el 'encore' refuerza la idea de incompletud."  
-```
-
-### 20 — Elegir la forma correcta  
-```  
-metadata:  
-  materia: "frances"  
-  tema: "discours-indirect"  
-  nivel: "B2"  
-  tags: ["passé-composé", "imparfait"]  
-pasos:  
-  - "Determinar si la acción estaba en progreso en el momento mencionado."  
-  - "Usar el imparfait para acciones simultáneas o en progreso."  
-tipo: completar  
-respuestas_validas:  
-  - "était en train de cuisiner"  
-  - "Était en train de cuisiner"  
-enunciado: "Elle a dit qu'elle _ quand on l'a appelée."  
-explicacion: "Cuando se describe una acción que ocurría al mismo tiempo que otro evento (llamada), se usa el imparfait. 'Cuisiner' en imparfait es 'cuisinait', pero la construcción 'être en train de + infinitivo' refuerza el progreso, por lo tanto: 'était en train de cuisiner'."  
-```
-
-### 21 — Discurso indirecto y futur antérieur  
-```  
-metadata:  
-  materia: "frances"  
-  tema: "discours-indirect"  
-  nivel: "B2"  
-  tags: ["conditionnel", "passé-composé"]  
-pasos:  
-  - "Identificar una oración hipotética en el enunciado directo."  
-  - "Transformar al conditionnel présent para el discurso indirecto."  
-tipo: completar  
-respuestas_validas:  
-  - "voudrait"  
-  - "Voudrait"  
-enunciado: "Il a dit qu'il _ voyager si le budget était plus important."  
-explicacion: "Cuando el contenido expresa una posibilidad hipotética, se usa el conditionnel présent. 'Vouloir' en conditionnel es 'voudrait', por lo tanto la respuesta correcta es 'voudrait'."  
-```
-
-### 22 — Elegir la forma correcta  
-```  
-metadata:  
-  materia: "frances"  
-  tema: "discours-indirect"  
-  nivel: "B2"  
-  tags: ["imparfait", "passé-composé"]  
-pasos:  
-  - "Reconocer una acción repetida en el pasado."  
-  - "Usar el imparfait para acciones habituales en el discurso indirecto."  
-tipo: completar  
-respuestas_validas:  
-  - "aimait"  
-  - "Aimait"  
-enunciado: "Elle a raconté qu'elle _ le sport depuis son enfance."  
-explicacion: "Cuando el contenido describe una acción que ocurría con regularidad en el pasado, se usa el imparfait. 'Aimer' en imparfait es 'aimait', por lo tanto la respuesta correcta es 'aimait'."  
-```
-
-### 23 — Ajustar el tiempo verbal  
-```  
-metadata:  
-  materia: "frances"  
-  tema: "discours-indirect"  
-  nivel: "B2"  
-  tags: ["conditionnel", "passé-composé"]  
-pasos:  
-  - "Identificar una posibilidad futura en el contenido original."  
-  - "Transformar al conditionnel présent para el discurso indirecto."  
-tipo: completar  
-respuestas_validas:  
-  - "irait"  
-  - "Irait"  
-enunciado: "On m’a dit qu’il _ à l’étranger s’il trouvait un travail."  
-explicacion: "Cuando el contenido expresa una posibilidad futura condicional, se usa el conditionnel présent. 'Aller' en conditionnel es 'irait', por lo tanto la respuesta correcta es 'irait'."  
-```
-
-### 24 — Elegir la forma correcta  
-```  
-metadata:  
-  materia: "frances"  
-  tema: "discours-indirect"  
-  nivel: "B2"  
-  tags: ["plus-que-parfait", "passé-composé"]  
-pasos:  
-  - "Determinar el orden cronológico de los eventos."  
-  - "Usar el plus-que-parfait para acciones anteriores al momento mencionado."  
-tipo: completar  
-respuestas_validas:  
-  - "avait répondu"  
-  - "Avait répondu"  
-enunciado: "Elle a dit qu'elle _ à la lettre avant de partir en voyage."  
-explicacion: "Cuando el contenido describe una acción completada antes del momento mencionado ('avant de partir'), se usa el plus-que-parfait. 'Répondre' en plus-que-parfait es 'avait répondu', por lo tanto la respuesta correcta es 'avait répondu'."  
-```
-
-### 25 — Discurso indirecto y condicional  
-```  
-metadata:  
-  materia: "frances"  
-  tema: "discours-indirect"  
-  nivel: "B2"  
-  tags: ["imparfait", "passé-composé"]  
-pasos:  
-  - "Identificar si la acción ocurría al mismo tiempo que otro evento."  
-  - "Usar el imparfait para acciones simultáneas en el discurso indirecto."  
-tipo: completar  
-respuestas_validas:  
-  - "était en train de préparer"  
-  - "Était en train de préparer"  
-enunciado: "Il a dit qu'il _ le dîner quand la sonnette a sonné."  
-explicacion: "Cuando se describe una acción que ocurría al mismo tiempo que otro evento (sonar la campana), se usa el imparfait. 'Préparer' en imparfait es 'préparait', pero la construcción 'être en train de + infinitivo' refuerza el progreso, por lo tanto: 'était en train de préparer'."  
+explicacion: |
+  Falso: *ce que je veux*.
 ```

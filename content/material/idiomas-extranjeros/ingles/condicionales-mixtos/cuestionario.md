@@ -1,501 +1,297 @@
-# Idiomas — Inglés — condicionales-mixtos (cuestionario)
+# Inglés — condicionales mixtos (cuestionario, 15 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/ingles/condicionales-mixtos/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
-
----
-
-### 1 — Mixed Conditional Construction  
-```
-metadata:
-  materia: "ingles"
-  tema: "condicionales-mixtos"
-  nivel: "C1"
-  tags: ["pasado-presente", "hypothetical"]
-pasos:
-  - "Identify the time frame of the conditional clause."
-  - "Match it with the appropriate result tense."
-explicacion: "El condicional mixto combina un pasado hipotético con un resultado en el presente. 'Had studied' (past perfect) requiere 'would be' (present result)."
-tipo: completar
-enunciado: "If I had studied harder, I ______ now."
-respuestas_validas:
-  - "would be passing"
-  - "Would be passing"
-```
+> Tema: `idiomas-extranjeros/ingles/condicionales-mixtos`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior daba «had had» como respuesta en una oración de segundo condicional, mezclaba terceros condicionales sin aclararlo y tenía variantes de respuesta mal escritas.
 
 ---
 
-### 2 — Present Hypothetical with Future Result  
+### 1 — Pasado → presente
+
 ```
 metadata:
   materia: "ingles"
   tema: "condicionales-mixtos"
   nivel: "C1"
-  tags: ["presente-futuro", "hypothetical"]
-pasos:
-  - "Determine the time of the hypothetical situation."
-  - "Select the corresponding future result tense."
-explicacion: "Un supuesto en el presente (If I were) requiere un resultado futuro (would be)."
-tipo: completar
-enunciado: "If I ______ more confident, I would take that job offer next week."
-respuestas_validas:
-  - "were"
-  - "Were"
+  tags: ["condicionales-mixtos"]
+
+respuesta: "had studied"
+tipo: "mc"
+opciones_explicitas: ["studied", "had studied", "would have studied"]
+
+enunciado: "If I ___ medicine, I would be a doctor now."
+
+explicacion: |
+  Condición pasada irreal + consecuencia presente (*now*): *had studied … would be*.
 ```
 
----
+### 2 — Pasado → presente (2)
 
-### 3 — Mixed Conditional in a Narrative  
 ```
 metadata:
   materia: "ingles"
   tema: "condicionales-mixtos"
   nivel: "C1"
-  tags: ["narrativa", "pasado-presente"]
-pasos:
-  - "Analyze the timeline of events."
-  - "Apply the correct conditional structure."
-explicacion: "El pasado perfecto en la cláusula condicional (had known) se combina con el presente en el resultado (would be)."
-tipo: completar
-enunciado: "If she ______ my advice, she would be in a better position today."
-respuestas_validas:
-  - "had followed"
-  - "Had followed"
+  tags: ["condicionales-mixtos"]
+
+respuesta: "would be"
+tipo: "mc"
+opciones_explicitas: ["would be", "would have been", "will be"]
+
+enunciado: "If she had caught the train, she ___ here by now."
+
+explicacion: |
+  *By now* indica presente: *would be*.
 ```
 
----
+### 3 — Pasado → presente (3)
 
-### 4 — Mixed Conditional with Modal Verb  
 ```
 metadata:
   materia: "ingles"
   tema: "condicionales-mixtos"
   nivel: "C1"
-  tags: ["modales", "hypothetical"]
-pasos:
-  - "Identify the modal verb in the main clause."
-  - "Match it with the correct conditional form."
-explicacion: "'Could have' (past hypothetical) requiere 'would be' (present result)."
-tipo: completar
-enunciado: "If I ______ more time, I would be able to help you now."
-respuestas_validas:
-  - "had had"
-  - "Had had"
+  tags: ["condicionales-mixtos"]
+
+respuesta: "wouldn't be waiting"
+tipo: "mc"
+opciones_explicitas: ["wouldn't be waiting", "wouldn't have waited", "won't wait"]
+
+enunciado: "If you had called me earlier, I ___ for you now."
+
+explicacion: |
+  Consecuencia presente en curso: *wouldn't be waiting*.
 ```
 
----
+### 4 — Presente → pasado
 
-### 5 — Mixed Conditional in a Dialogue  
 ```
 metadata:
   materia: "ingles"
   tema: "condicionales-mixtos"
   nivel: "C1"
-  tags: ["diálogo", "hypothetical"]
-pasos:
-  - "Interpret the speaker's regret or hypothetical scenario."
-  - "Select the appropriate conditional form."
-explicacion: "El uso de 'would have' (past hypothetical) se combina con un resultado en el presente (is)."
-tipo: completar
-enunciado: "If you ______ me earlier, I wouldn’t be waiting for you now."
-respuestas_validas:
-  - "had called"
-  - "Had called"
+  tags: ["condicionales-mixtos"]
+
+respuesta: "were"
+tipo: "mc"
+opciones_explicitas: ["were", "had been", "would be"]
+
+enunciado: "If I ___ more patient, I wouldn't have shouted at him yesterday."
+
+explicacion: |
+  Rasgo permanente (presente irreal) con consecuencia pasada: *If I were…, I wouldn't have shouted*.
 ```
 
----
+### 5 — Presente → pasado (2)
 
-### 6 — Mixed Conditional with Future Reference  
 ```
 metadata:
   materia: "ingles"
   tema: "condicionales-mixtos"
   nivel: "C1"
-  tags: ["futuro", "hypothetical"]
-pasos:
-  - "Determine the time reference in both clauses."
-  - "Apply the correct conditional structure."
-explicacion: "'Had saved' (past perfect) requiere 'would have' (future hypothetical)."
-tipo: completar
-enunciado: "If I ______ more money, I would have bought that house by now."
-respuestas_validas:
-  - "had saved"
-  - "Had saved"
+  tags: ["condicionales-mixtos"]
+
+respuesta: "would have got"
+tipo: "mc"
+opciones_explicitas: ["would get", "would have got", "will get"]
+
+enunciado: "If he spoke English, he ___ the job last month."
+
+explicacion: |
+  *Last month* → consecuencia pasada: *would have got*.
 ```
 
----
+### 6 — Pasado → presente (4)
 
-### 7 — Mixed Conditional with Adverbial Clause  
 ```
 metadata:
   materia: "ingles"
   tema: "condicionales-mixtos"
   nivel: "C1"
-  tags: ["adverbio", "hypothetical"]
-pasos:
-  - "Identify the adverbial clause's time frame."
-  - "Match it with the correct result tense."
-explicacion: "'Had taken' (past perfect) se combina con 'would be' (present result)."
-tipo: completar
-enunciado: "If he ______ the train, he would be here by now."
-respuestas_validas:
-  - "had caught"
-  - "Had caught"
+  tags: ["condicionales-mixtos"]
+
+respuesta: "would be"
+tipo: "mc"
+opciones_explicitas: ["would be", "would have been", "are"]
+
+enunciado: "If we had followed his advice, we ___ in a better position today."
+
+explicacion: |
+  *Today* → *would be*.
 ```
 
----
+### 7 — Pasado → presente (5)
 
-### 8 — Mixed Conditional in a Scientific Context  
 ```
 metadata:
   materia: "ingles"
   tema: "condicionales-mixtos"
   nivel: "C1"
-  tags: ["ciencia", "hypothetical"]
-pasos:
-  - "Analyze the hypothetical scenario described."
-  - "Select the correct conditional form."
-explicacion: "'Had discovered' (past perfect) requiere 'would have changed' (present result)."
-tipo: completar
-enunciado: "If scientists ______ penicillin earlier, it would have changed modern medicine."
-respuestas_validas:
-  - "had discovered"
-  - "Had discovered"
+  tags: ["condicionales-mixtos"]
+
+respuesta: "had gone"
+tipo: "mc"
+opciones_explicitas: ["went", "had gone", "would go"]
+
+enunciado: "If I ___ to bed earlier last night, I wouldn't be so tired now."
+
+explicacion: |
+  Condición pasada (*last night*): *had gone*.
 ```
 
----
+### 8 — Segundo condicional (contraste)
 
-### 9 — Mixed Conditional with Modal in the Result  
 ```
 metadata:
   materia: "ingles"
   tema: "condicionales-mixtos"
   nivel: "C1"
-  tags: ["modales", "hypothetical"]
-pasos:
-  - "Identify the modal verb in the result clause."
-  - "Match it with the correct conditional form."
-explicacion: "'Would have' (future hypothetical) se usa con 'had been' (past perfect)."
-tipo: completar
-enunciado: "If they ______ more prepared, they would have passed the exam."
-respuestas_validas:
-  - "had been"
-  - "Had been"
+  tags: ["condicionales-mixtos"]
+
+respuesta: "had"
+tipo: "mc"
+opciones_explicitas: ["had", "had had", "would have"]
+
+enunciado: "If I ___ more time, I would help you now."
+
+explicacion: |
+  Las dos partes son presente: segundo condicional, *If I had…, I would…*
 ```
 
----
+### 9 — Tercer condicional (contraste)
 
-### 10 — Mixed Conditional with Past Regret  
 ```
 metadata:
   materia: "ingles"
   tema: "condicionales-mixtos"
   nivel: "C1"
-  tags: ["arrepentimiento", "hypothetical"]
-pasos:
-  - "Recognize the emotional context of regret."
-  - "Apply the correct conditional structure."
-explicacion: "'Had studied' (past perfect) requiere 'would be' (present result)."
-tipo: completar
-enunciado: "If I ______ for the test, I would be passing it now."
-respuestas_validas:
-  - "had studied"
-  - "Had studied"
+  tags: ["condicionales-mixtos"]
+
+respuesta: "would have passed"
+tipo: "mc"
+opciones_explicitas: ["would pass", "would have passed", "would be passing"]
+
+enunciado: "If they had prepared better, they ___ the exam last week."
+
+explicacion: |
+  Las dos partes son pasado: tercer condicional.
 ```
 
----
+### 10 — Could en la consecuencia
 
-### 11 — Mixed Conditional with Unreal Past  
 ```
 metadata:
   materia: "ingles"
   tema: "condicionales-mixtos"
   nivel: "C1"
-  tags: ["imposible", "hypothetical"]
-pasos:
-  - "Identify the unreal past situation."
-  - "Match it with the correct present result."
-explicacion: "'Had known' (past perfect) se combina con 'would be' (present result)."
-tipo: completar
-enunciado: "If you ______ my fears, you would be more supportive now."
-respuestas_validas:
-  - "had known"
-  - "Had known"
+  tags: ["condicionales-mixtos"]
+
+respuesta: "could help"
+tipo: "mc"
+opciones_explicitas: ["could help", "could have helped", "can help"]
+
+enunciado: "If you had told me about the problem, I ___ you now."
+
+explicacion: |
+  *Now* → *could + infinitivo*.
 ```
 
----
+### 11 — Error con would
 
-### 12 — Mixed Conditional with Future Regret  
 ```
 metadata:
   materia: "ingles"
   tema: "condicionales-mixtos"
   nivel: "C1"
-  tags: ["futuro", "hypothetical"]
-pasos:
-  - "Determine the time frame of the hypothetical situation."
-  - "Select the appropriate future result tense."
-explicacion: "'Had been' (past perfect) requiere 'would have' (future hypothetical)."
-tipo: completar
-enunciado: "If I ______ more careful, I would have avoided this mistake."
-respuestas_validas:
-  - "had been"
-  - "Had been"
+  tags: ["condicionales-mixtos"]
+
+respuesta: "If I had known, I would be there now."
+tipo: "mc"
+opciones_explicitas: ["If I would have known, I would be there now.", "If I had known, I would be there now.", "If I knew, I will be there now."]
+
+enunciado: "¿Cuál es correcta?"
+
+explicacion: |
+  En la condición no va *would*: *If I had known*.
 ```
 
----
+### 12 — Identificar
 
-### 13 — Mixed Conditional with Multiple Clauses  
 ```
 metadata:
   materia: "ingles"
   tema: "condicionales-mixtos"
   nivel: "C1"
-  tags: ["cláusulas", "hypothetical"]
-pasos:
-  - "Analyze the relationship between clauses."
-  - "Apply the correct conditional structure."
-explicacion: "'Had followed' (past perfect) se combina con 'would be' (present result)."
-tipo: completar
-enunciado: "If we ______ his advice, we would be in a better position today."
-respuestas_validas:
-  - "had followed"
-  - "Had followed"
+  tags: ["condicionales-mixtos"]
+
+respuesta: "Un rasgo presente con una consecuencia pasada"
+tipo: "mc"
+opciones_explicitas: ["Un rasgo presente con una consecuencia pasada", "Una condición pasada con una consecuencia presente", "Dos hechos del pasado"]
+
+enunciado: "«If she weren't so shy, she would have spoken at the meeting.» ¿Qué expresa?"
+
+explicacion: |
+  *Weren't* (presente: ella es tímida) + *would have spoken* (pasado: no habló).
 ```
 
----
+### 13 — Completar
 
-### 14 — Mixed Conditional with Adjective Clause  
 ```
 metadata:
   materia: "ingles"
   tema: "condicionales-mixtos"
   nivel: "C1"
-  tags: ["adjetivo", "hypothetical"]
-pasos:
-  - "Identify the adjective clause's time frame."
-  - "Match it with the correct result tense."
-explicacion: "'Had been' (past perfect) requiere 'would have' (future hypothetical)."
+  tags: ["condicionales-mixtos"]
+
+respuesta: "had taken"
 tipo: completar
-enunciado: "If she ______ more confident, she would have applied for that job."
 respuestas_validas:
-  - "had been"
-  - "Had been"
+  - "had taken"
+  - "Had taken"
+
+enunciado: "Completá (verbo *take*): «If I ___ that job in 2020, I would live in Madrid now.»"
+
+explicacion: |
+  Condición pasada: *had taken*.
 ```
 
----
+### 14 — Completar (2)
 
-### 15 — Mixed Conditional with Passive Voice  
 ```
 metadata:
   materia: "ingles"
   tema: "condicionales-mixtos"
   nivel: "C1"
-  tags: ["pasivo", "hypothetical"]
-pasos:
-  - "Recognize the passive voice in the conditional clause."
-  - "Apply the correct result tense."
-explicacion: "'Had been prepared' (past perfect) se combina con 'would be' (present result)."
+  tags: ["condicionales-mixtos"]
+
+respuesta: "would be"
 tipo: completar
-enunciado: "If he ______ better prepared, he would be passing the test now."
 respuestas_validas:
-  - "had been"
-  - "Had been"
+  - "would be"
+  - "Would be"
+  - "'d be"
+
+enunciado: "Completá con *would* + verbo *be*: «If he had saved money, he ___ rich today.»"
+
+explicacion: |
+  Consecuencia presente (*today*): *would be*.
 ```
 
----
+### 15 — Equivalencia
 
-### 16 — Mixed Conditional with Adverb of Time  
 ```
 metadata:
   materia: "ingles"
   tema: "condicionales-mixtos"
   nivel: "C1"
-  tags: ["adverbio", "hypothetical"]
-pasos:
-  - "Identify the time adverb in the clause."
-  - "Match it with the correct conditional form."
-explicacion: "'Had left' (past perfect) requiere 'would be' (present result)."
-tipo: completar
-enunciado: "If she ______ earlier, she would be here by now."
-respuestas_validas:
-  - "had left"
-  - "Had left"
-```
+  tags: ["condicionales-mixtos"]
 
----
+respuesta: "If I had studied more, I would have a better job now."
+tipo: "mc"
+opciones_explicitas: ["If I studied more, I would have a better job now.", "If I had studied more, I would have a better job now.", "If I had studied more, I would have had a better job now."]
 
-### 17 — Mixed Conditional with Modal in the Clause  
-```
-metadata:
-  materia: "ingles"
-  tema: "condicionales-mixtos"
-  nivel: "C1"
-  tags: ["modales", "hypothetical"]
-pasos:
-  - "Identify the modal verb in the conditional clause."
-  - "Match it with the correct result tense."
-explicacion: "'Had wanted' (past perfect) se combina con 'would be' (present result)."
-tipo: completar
-enunciado: "If I ______ to study more, I would be passing this course now."
-respuestas_validas:
-  - "had wanted"
-  - "Had wanted"
-```
+enunciado: "«Si hubiera estudiado más, ahora tendría un trabajo mejor.»"
 
----
-
-### 18 — Mixed Conditional with Past Regret and Present Result  
-```
-metadata:
-  materia: "ingles"
-  tema: "condicionales-mixtos"
-  nivel: "C1"
-  tags: ["arrepentimiento", "hypothetical"]
-pasos:
-  - "Recognize the past regret in the conditional clause."
-  - "Apply the correct present result tense."
-explicacion: "'Had followed' (past perfect) requiere 'would be' (present result)."
-tipo: completar
-enunciado: "If I ______ his advice, I would be in a better situation now."
-respuestas_validas:
-  - "had followed"
-  - "Had followed"
-```
-
----
-
-### 19 — Mixed Conditional with Future Regret  
-```
-metadata:
-  materia: "ingles"
-  tema: "condicionales-mixtos"
-  nivel: "C1"
-  tags: ["mixed conditionals", "past perfect", "present result"]
-pasos:
-  - "Identificar el tiempo de la acción hipotética (pasado) y su consecuencia en el presente."
-  - "Aplicar la estructura condicional mixta: si-cláusula con past perfect, resultado en would + base verb."
-respuestas_validas:
-  - "Had been"
-  - "HAD BEEN"
-tipo: completar
-enunciado: "If they ______ aware of the risks, they would be making better decisions now."
-explicacion: "En los condicionales mixtos, el pasado en la si-cláusula (past perfect) indica una acción hipotética no realizada, mientras que el resultado actual se expresa con 'would + base verb'. Aquí, 'had been' refleja la ausencia de conciencia pasada y su efecto presente."
-```
-
-### 20 — Mixed Conditional with Past Hypothetical and Present Result  
-```
-metadata:
-  materia: "ingles"
-  tema: "condicionales-mixtos"
-  nivel: "C1"
-  tags: ["pasado-presente", "hypothetical"]
-pasos:
-  - "Determine the time frame of the conditional clause."
-  - "Apply the correct present result tense."
-explicacion: "'Had studied' (past perfect) requiere 'would be' (present result)."
-tipo: completar
-enunciado: "If they ______ more, they would be passing the test now."
-respuestas_validas:
-  - "had studied"
-  - "Had studied"
-```
-
----
-
-### 21 — Mixed Conditional with Adjective and Noun Clause  
-```
-metadata:
-  materia: "ingles"
-  tema: "condicionales-mixtos"
-  nivel: "C1"
-  tags: ["adjetivo", "hypothetical"]
-pasos:
-  - "Identify the adjective and noun clauses."
-  - "Match them with the correct conditional form."
-explicacion: "'Had been' (past perfect) se combina con 'would be' (present result)."
-tipo: completar
-enunciado: "If she ______ more responsible, she would be a better leader now."
-respuestas_validas:
-  - "had been"
-  - "Had been"
-```
-
----
-
-### 22 — Mixed Conditional with Adverbial Clause of Time  
-```
-metadata:
-  materia: "ingles"
-  tema: "condicionales-mixtos"
-  nivel: "C1"
-  tags: ["adverbio", "hypothetical"]
-pasos:
-  - "Analyze the adverbial clause's time reference."
-  - "Select the correct conditional form."
-explicacion: "'Had waited' (past perfect) requiere 'would be' (present result)."
-tipo: completar
-enunciado: "If you ______ longer, you would be here by now."
-respuestas_validas:
-  - "had waited"
-  - "Had waited"
-```
-
----
-
-### 23 — Mixed Conditional with Modal in the Result Clause  
-```
-metadata:
-  materia: "ingles"
-  tema: "condicionales-mixtos"
-  nivel: "C1"
-  tags: ["modales", "hypothetical"]
-pasos:
-  - "Identify the modal verb in the result clause."
-  - "Match it with the correct conditional form."
-explicacion: "'Would have' (future hypothetical) se usa con 'had been' (past perfect)."
-tipo: completar
-enunciado: "If he ______ more focused, he would have passed the exam."
-respuestas_validas:
-  - "had been"
-  - "Had been"
-```
-
----
-
-### 24 — Mixed Conditional with Adjective and Noun Clause  
-```
-metadata:
-  materia: "ingles"
-  tema: "condicionales-mixtos"
-  nivel: "C1"
-  tags: ["adjetivo", "hypothetical"]
-pasos:
-  - "Identify the adjective and noun clauses."
-  - "Match them with the correct conditional form."
-explicacion: "'Had been' (past perfect) se combina con 'would be' (present result)."
-tipo: completar
-enunciado: "If I ______ more patient, I would be a better teacher now."
-respuestas_validas:
-  - "had been"
-  - "Had been"
-```
-
----
-
-### 25 — Mixed Conditional with Past Regret and Future Result  
-```
-metadata:
-  materia: "ingles"
-  tema: "condicionales-mixtos"
-  nivel: "C1"
-  tags: ["arrepentimiento", "hypothetical"]
-pasos:
-  - "Recognize the past regret in the conditional clause."
-  - "Apply the correct future result tense."
-explicacion: "'Had prepared' (past perfect) requiere 'would have' (future hypothetical)."
-tipo: completar
-enunciado: "If I ______ more, I would have passed this test."
-respuestas_validas:
-  - "had prepared"
-  - "Had prepared"
+explicacion: |
+  «Hubiera estudiado» = *had studied*; «ahora tendría» = *would have* (presente).
 ```

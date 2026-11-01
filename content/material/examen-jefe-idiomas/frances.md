@@ -1040,15 +1040,15 @@ metadata:
   tags: ["gramatica", "examen-jefe"]
 pasos:
   - "Leer con atención y elegir la opción correcta."
-enunciado: "Il a laissé ＿＿ la porte ouverte."
+enunciado: "Il a laissé la porte ＿＿."
 opciones_explicitas:
-  - "à"
-  - "de"
-  - "la"
-  - "pour"
-respuesta: "la"
+  - "ouverte"
+  - "ouvert"
+  - "ouverts"
+  - "ouvrir"
+respuesta: "ouverte"
 tipo: mc
-explicacion: "Laisser + COD."
+explicacion: "Attribut du COD: accord avec « la porte » (féminin)."
 ```
 
 ```

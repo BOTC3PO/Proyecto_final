@@ -5,69 +5,45 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores en los ejemplos y en la comparación con el español.
 
 ---
 
 ## Introducción
-En el nivel B1 del Marco Común Europeo de Referencia para las Lenguas (MCER), los estudiantes deben dominar la producción escrita en contextos cotidianos y profesionales. Un ejemplo clave es redactar un **correo electrónico formal corto** para expresar una opinión simple, como solicitar información, presentar una propuesta o compartir una idea básica. Esta habilidad es fundamental para comunicarse en entornos académicos, laborales o institucionales, donde la claridad y el tono adecuado son clave.
+En B1 se escriben **correos formales breves** (a una escuela, una empresa, un organismo) para pedir información, reclamar o dar una opinión sencilla con razones.
 
 ## Explicación central
-Un correo electrónico formal sigue una estructura clara: **asunto**, **saludo**, **cuerpo** (con la opinión o petición), **despedida** y **firma**. A continuación, se muestra un ejemplo en inglés:
+### Estructura de un correo formal
+1. **Saludo**: *Dear Mr/Ms + apellido,* (si sabés el nombre) / *Dear Sir or Madam,* (si no).
+2. **Motivo**: *I am writing to ask about… / to complain about… / to express my opinion on…*
+3. **Desarrollo** (1-2 párrafos): detalles y razones.
+4. **Pedido o propuesta**: *I would be grateful if you could… / Could you please…?*
+5. **Cierre**: *I look forward to hearing from you.*
+6. **Despedida**: *Yours sincerely,* (con nombre) / *Yours faithfully,* (sin nombre) / *Kind regards,* (neutro).
 
----
+### Dar una opinión simple
+*In my opinion, … because… / I believe that… / For example, … / Therefore, …*
 
-**Subject:** Inquiry about the Summer Internship Program
-Dear Sir/Madam,
-I am writing to ask for more information about the summer internship opportunities available at your company. I believe this program would help me gain practical experience in my field of study.
-Could you please send me details such as the application process and deadlines? I would greatly appreciate it if you could also share any requirements or recommendations for candidates.
-Thank you very much for your time and assistance.
-Best regards,
-[Your Full Name]
-[Your Contact Information]
+### Registro
+- **Sin contracciones**: *I am, I would* (no *I'm, I'd*).
+- **Vocabulario neutro o formal**: *receive* (no *get*), *information* (no *info*), *however* (al inicio, en vez de *but*).
 
----
-
-### Elementos clave:
-1. **Asunto claro:** "Inquiry about the Summer Internship Program" indica directamente el propósito del correo.
-2. **Saludo formal:** "Dear Sir/Madam," es adecuado cuando no se conoce al destinatario.
-3. **Expresión de opinión:** La frase *"I believe this program would help me..."* presenta una idea personal de manera respetuosa.
-4. **Petición específica:** El uso de *"Could you please send me..."* muestra cortesía y claridad en la solicitud.
-5. **Despedida formal:** "Best regards" es común en correos profesionales, seguido del nombre completo y datos de contacto.
+### Conectores
+*Firstly, Secondly, In addition, However, Therefore, For example, Finally*.
 
 ## Errores comunes de hispanohablantes
-1. **Uso incorrecto de pronombres o formas verbales:** Por ejemplo, decir *"I would like to know more about the program"* en lugar de *"Could you please send me details..."* (más directo y eficiente).
-2. **Falta de estructura:** Omitir el asunto o no separar las ideas con párrafos distintos.
-3. **Tono inadecuado:** Usar expresiones demasiado informales, como *"Hey there"* en lugar de "Dear Sir/Madam."
-4. **Confusión entre verbos modales:** Errores al usar *"can"* (permiso) vs. *"could"* (solicitud más educada).
+1. ❌ *Dear Sir, I want to know…* (demasiado directo) ✅ *I would like to know…*
+2. ❌ *Yours faithfully* con un nombre propio ✅ *Yours sincerely*.
+3. ❌ *I am writing you to…* (en inglés británico) ✅ *I am writing to you to…* / *I am writing to…*
+4. Usar emojis o abreviaturas (*pls, thx*).
 
 ## Comparación con el español
-En español, los correos formales suelen omitir el asunto o ser menos específicos en la estructura. Por ejemplo:
-
-**Asunto:** Consulta sobre pasantías de verano
-Estimado/a [nombre]:
-Escribo para conocer más detalles sobre las pasantías que ofrece su empresa. Creo que me ayudaría mucho adquirir experiencia práctica.
-¿Podría enviar información sobre el proceso de aplicación y plazos? Agradecería si también compartiera requisitos o recomendaciones.
-Gracias por su atención.
-Atentamente,
-[Nombre completo]
-
-En inglés, **el asunto es obligatorio** y la estructura requiere más precisión en las frases (ej.: "Could you please send me..."). Además, el uso de *"I believe"* en lugar de *"Creo que"* refuerza la opinión personal sin sonar dogmática.
+«Estimado/a» = *Dear*; «Me dirijo a usted para…» = *I am writing to…*; «Quedo a la espera de su respuesta» = *I look forward to hearing from you*. «Saludos cordiales» = *Kind regards*.
 
 ## Ejemplo extendido en contexto
-**Escenario:** Un estudiante universitario quiere postular a un intercambio académico y escribe un correo al departamento internacional.
-
----
-
-**Subject:** Application for Academic Exchange Program 2025
-Dear Ms. Thompson,
-I hope this message finds you well. I am writing to express my interest in the academic exchange program offered by your university for the 2025 academic year. As a final-year student majoring in Environmental Science at [University Name], I believe this opportunity would allow me to deepen my knowledge and gain international experience.
-Attached, you will find my CV and a letter of recommendation from my academic advisor. I would be grateful if you could inform me about the application deadlines and any additional requirements for candidates.
-Thank you very much for your time and consideration. I look forward to hearing from you.
-Best regards,
-Carlos Mendoza
-[Email Address]
-[Phone Number]
-
----
-
-Este ejemplo cumple con los requisitos de un correo formal: estructura clara, tono respetuoso y una opinión simple expresada de manera directa.
+*Dear Ms Taylor,*
+*I am writing to express my opinion on the new library hours. In my opinion, closing at 6 p.m. is too early, because many students work during the day. For example, I can only study in the evenings. Therefore, I would be grateful if you could consider opening until 9 p.m.*
+*I look forward to hearing from you.*
+*Yours sincerely,*
+*Lucas Fernández*

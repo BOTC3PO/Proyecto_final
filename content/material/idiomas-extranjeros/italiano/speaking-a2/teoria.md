@@ -1,41 +1,47 @@
-# Habilidad de conversación en nivel A2 del italiano
+# Expresión oral en italiano (A2)
 
 > Tema del MAPA: `idiomas-extranjeros/italiano/speaking-a2`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en los ejemplos.
 
 ---
 
 ## Introducción
-En el nivel A2 del Marco Común Europeo de Referencia para las Lenguas (MCER), los aprendices de italiano deben poder comunicarse en situaciones cotidianas sencillas, como presentarse, pedir información básica o expresar necesidades personales. Esta habilidad es clave para interactuar en contextos reales, como viajes, compras o conversaciones informales. Dominarla permite construir una base sólida para el desarrollo de competencias más complejas en niveles superiores.
+En A2 se espera poder **presentarse**, **describir** la rutina, la familia y el entorno, **pedir y dar** información simple y desenvolverse en situaciones cotidianas.
 
 ## Explicación central
-En el nivel A2, la conversación se centra en frases cortas y estructuras gramaticales básicas. Por ejemplo:
-- **Presentarse**: *Ciao, mi chiamo Maria. Sono di Roma.* (¡Hola, me llamo María. Soy de Roma.)
-- **Pedir algo**: *Vuoi un caffè?* (¿Quieres un café?)
-- **Expresar gustos**: *Mi piace il cioccolato.* (Me gusta el chocolate.)
+### Presentarse
+*Mi chiamo… Ho … anni. Sono di… / Abito a… Faccio l'insegnante / Lavoro come… Mi piace… / Non mi piace…*
 
-Los verbos en presente son fundamentales, como *parlare* (hablar), *andare* (ir) o *mangiare* (comer). Por ejemplo: *Io parlo italiano.* (Hablo italiano.) También se usan preposiciones simples como *a*, *in*, *da* y artículos definidos (*il*, *la*, *lo*) para referirse a objetos específicos.
+### Cortesía
+- Saludar: *Buongiorno* (mañana y primera tarde), *Buonasera* (desde media tarde), *Ciao* (informal, también para despedirse), *Salve* (neutro).
+- Pedir: ***Vorrei**… per favore. Avete… ? Quanto costa? / Quanto viene?*
+- Agradecer: *Grazie mille. — Prego / Di niente.*
+- Disculparse: *Scusi* (formal) / *Scusa* (informal). *Permesso?* (para pasar).
+- Despedirse: *Arrivederci* (formal), *Ciao, a presto!*
+
+### Tu o Lei
+- ***Lei***: desconocidos, adultos, comercios: *Scusi, **Lei** sa dov'è la stazione?*
+- ***tu***: amigos, familia, jóvenes.
+
+### Cuando no se entiende
+*Come, scusi? Può ripetere, per favore? Più lentamente, per favore. Come si dice… in italiano? Che cosa vuol dire…?*
+
+### Pasado y futuro
+*Ieri sono andato/a… Ho mangiato…* — *Domani vado / andrò…*
 
 ## Errores comunes de hispanohablantes
-1. **Confusión entre "sapere" y "conoscere"**: Ambos significan "saber", pero *sapere* se usa para habilidades (ej: *So parlare inglese*), mientras que *conoscere* es para conocer personas o lugares (*Conosco Milano*).
-2. **Uso incorrecto de artículos**: En italiano, los artículos definidos son obligatorios incluso en contextos donde el español no los usa. Por ejemplo: *Voglio un libro* (Quiero un libro) vs. *Quiero un libro* (sin artículo en español).
-3. **Preposiciones confusas**: Aunque ambas lenguas usan *a*, en italiano se requiere más precisión. Por ejemplo, *vado a scuola* (voy a la escuela) vs. *vengo da Madrid* (vengo de Madrid), donde "da" reemplaza "de".
+1. ❌ *Sono 20 anni* ✅ *Ho 20 anni*.
+2. ❌ *Mi piace i gatti* ✅ *Mi piacciono i gatti*.
+3. Decir *Ciao* a un desconocido mayor: ✅ *Buongiorno*.
+4. ❌ *Voglio un caffè* (brusco) ✅ *Vorrei un caffè*.
 
 ## Comparación con el español
-- **Artículos definidos**: En italiano, siempre se usan (*il libro*, *la casa*) en lugar del artículo neutro o su omisión en español.
-- **Verbo ser vs. estar**: En italiano, *essere* (ser) y *stare* (estar) tienen funciones distintas. Por ejemplo: *Sono felice* (soy feliz – estado emocional) vs. *Sto bene* (estoy bien – estado físico).
-- **Preposiciones**: La preposición *a* en italiano puede indicar dirección (*vado a Roma*) o posesión (*il libro di Maria*), mientras que en español se usan distintas estructuras.
+*Lei* = usted, con el verbo en 3.ª persona. *Piacere* funciona como «gustar» (concuerda con lo que gusta). Los saludos dependen de la hora, como «buen día / buenas tardes».
 
 ## Ejemplo extendido en contexto
-**Diálogo en un café:**
-*A: Buongiorno, posso ordinare un caffè?* (¡Buenos días, ¿puedo pedir un café?)
-*B: Certo! Vorrebbe un caffè normale o doppio?* (Claro. ¿Querría un café normal o doble?)
-*A: Normale, grazie.* (Normal, gracias.)
-*B: Bene, arrivo subito.* (Bueno, ya llego.)
-
-Este intercambio muestra el uso de frases cortas, verbos en presente (*posso*, *vorrebbe*) y preposiciones (*a* para "pedir algo"). También se incluyen expresiones formales (*Buongiorno*, *grazie*) y modales (*posso*, *vorrebbe*) que son comunes en situaciones cotidianas.
-
-Dominar estas estructuras permite a los aprendices interactuar con confianza en contextos reales, preparándolos para niveles más avanzados de comunicación.
+*— Buongiorno! — Buongiorno, mi dica. — Vorrei un chilo di pomodori, per favore. — Ecco. Altro? — No, basta così, grazie. Quanto viene? — Tre euro e cinquanta. — Ecco a Lei. Arrivederci!*

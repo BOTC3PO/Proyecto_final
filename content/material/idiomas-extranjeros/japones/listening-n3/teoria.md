@@ -1,49 +1,46 @@
-# Escucha en japonés: nivel N3
+# Comprensión auditiva en japonés (N3)
 
 > Tema del MAPA: `idiomas-extranjeros/japones/listening-n3`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en los ejemplos.
 
 ---
 
 ## Introducción
-La habilidad de escuchar es fundamental para comunicarse en un idioma extranjero, especialmente en el nivel N3 del Japonés como Lengua Extranjera (JSL). A este nivel, los estudiantes deben comprender conversaciones cotidianas, instrucciones básicas y mensajes breves. Esta habilidad no solo permite captar información directa, sino también interpretar contextos implícitos, lo que facilita la interacción en situaciones reales como comprar en una tienda o seguir indicaciones.
+En N3 se entienden **conversaciones y explicaciones** de la vida diaria y del trabajo a velocidad casi natural, y se capta la **intención** del hablante: qué quiere, qué opina, qué va a hacer.
 
-## Explicación central con ejemplos
-En el nivel N3, se enfatiza la comprensión de conversaciones sencillas y anuncios breves. Por ejemplo:
+## Explicación central
+### Captar la intención
+- **Opinión**: 〜と思います, 〜んじゃないかな (me parece que…), 〜べきだ.
+- **Queja o reproche suave**: 〜てほしいんだけど, 〜のに.
+- **Consejo**: 〜たほうがいいよ, 〜ばいいのに.
+- **Propuesta**: 〜たらどう？, 〜ようか.
 
-**Ejemplo 1 (conversación en una tienda):**
-—「この商品、いくらですか？」（Kono shouhin, ikura desu ka?）
-—「500円です。」（Go-hyaku en desu.）
+### Estilo hablado
+- Contracciones: 〜ている → **〜てる**, 〜てしまう → **〜ちゃう / じゃう**, 〜ておく → **〜とく**, 〜なければ → **〜なきゃ**, 〜ては → **〜ちゃ**.
+- 〜**んです / んだ**: explicación o énfasis: 遅れた**んです** (es que llegué tarde).
+- Frases sin terminar: 〜けど…, 〜し…
 
-**Ejemplo 2 (anuncio de tren):**
-「次は、京橋駅へ向かいます。（Tsugi wa, Kyo-bashi eki e mukai masu.）
+### Palabras de giro
+**でも / ただ / ところが** (pero), **実は** (en realidad, a decir verdad), **結局** (al final), **それより** (más importante).
 
-Los estudiantes deben reconocer palabras clave como 「いくら」（cuánto cuesta）、「駅」（estación） y partículas como 「へ」（hacia） para entender el sentido general. Además, es crucial prestar atención a la entonación y al ritmo del habla, ya que en japonés los tonos pueden cambiar el significado de una palabra (por ejemplo, 「は」 vs. 「わ」 en algunas palabras).
+### Estrategias
+1. Identificar la situación y la relación entre hablantes (amigos, jefe-empleado).
+2. Buscar lo que se **decide** al final.
+3. Atención a 実は y でも: ahí está la información clave.
 
 ## Errores comunes de hispanohablantes
-Los estudiantes de español suelen cometer errores relacionados con:
-1. **Confusión entre partículas:** Por ejemplo, usar 「に」（ni） en lugar de 「へ」（e） para indicar dirección.
-2. **Dificultad con el uso del honorífico y el informal:** Escuchar conversaciones formales o informales sin identificar las diferencias en el vocabulario (como 「おっしゃる」 vs. 「言う」).
-3. **Ignorar la importancia del contexto:** No reconocer que frases como 「ちょっと待ってください」（Chotto matte kudasai） pueden indicar una pausa o una petición, según el tono.
+1. No reconocer contracciones: 食べちゃった = 食べてしまった.
+2. Perder la decisión final (結局…).
+3. Interpretar 〜けど… como afirmación completa: muchas veces es un pedido o una objeción suave.
 
 ## Comparación con el español
-En el español, los contextos implícitos suelen ser menos comunes que en el japonés. Por ejemplo, en español se suele usar la palabra 「espera」 directamente para pedir una pausa, mientras que en japonés se recurre a frases más indirectas o gestos. Además, el español depende más de los verbos y tiempos gramaticales, mientras que el japonés utiliza partículas y estructuras como 「て-forma」（te-forma） para conectar ideas.
+El japonés hablado deja frases sin terminar y confía en el contexto, como el «es que…» del español. 〜んです equivale bastante bien a «es que…».
 
 ## Ejemplo extendido en contexto
-**Escenario:** Un estudiante llega a un almacén y pregunta por un producto.
-
-**Diálogo:**
-—「すみません、このシャツ、ありますか？」（Sumimasen, kono shatsu, arimasu ka?）
-—「はい、サイズSとMがあります。」（Hai, saizu S to M ga arimasu.）
-—「Sでお願いします。」（S de onegaishimasu.）
-—「すぐお持ちします。」（Sugu omochi shimasu.）
-
-**Análisis:**
-- La primera frase usa 「ありますか？」para preguntar por la disponibilidad del producto.
-- La respuesta menciona tamaños con el uso de 「と」 para enumerar opciones.
-- El cliente solicita un tamaño específico usando 「でお願いします」（de onegaishimasu）, una fórmula común en pedidos formales.
-
-Este ejemplo muestra cómo la escucha activa permite identificar necesidades del interlocutor y responder adecuadamente, incluso con vocabulario básico.
+*Audio: «A: 明日の会議、出られる？ B: 実は、歯医者の予約があるんだ。 A: そうか。じゃあ、資料だけメールで送っとくね。 B: ありがとう。助かる。»*
+**Claves:** B no va (dentista); A le va a mandar el material por mail (送っとく = 送っておく).

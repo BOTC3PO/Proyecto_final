@@ -1,48 +1,46 @@
-# Lectura en japonés (Nivel N1): Comprensión de textos complejos
+# Comprensión lectora en japonés (N1)
 
 > Tema del MAPA: `idiomas-extranjeros/japones/reading-n1`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en los ejemplos.
 
 ---
 
 ## Introducción
-En el nivel N1 de japonés, la lectura implica comprender textos de alto grado de dificultad, como artículos académicos, informes técnicos, noticias especializadas y obras literarias. Este nivel requiere no solo un vocabulario extenso (más de 10.000 palabras), sino también la capacidad de interpretar estructuras gramaticales complejas, kanji poco comunes y referencias contextuales implícitas. La lectura en N1 es clave para quienes buscan usar el japonés en entornos profesionales, académicos o culturales avanzados, ya que permite acceder a información especializada y participar en debates o análisis críticos.
+En N1 se leen **textos largos y abstractos**: editoriales, ensayos, críticas, textos especializados y literarios. Hay que captar la **tesis**, la **lógica argumentativa**, la **actitud del autor** y lo **implícito**.
 
-## Explicación central con ejemplos reales
-En el japonés N1, los textos suelen incluir:
-- **Kanji técnicos**: Por ejemplo, 開発 (*kaihatsu*, desarrollo) aparece frecuentemente en contextos científicos o económicos.
-- **Estructuras gramaticales avanzadas**: Frases como 「～に従って」(*ni mite* "según") o 「～と比べて」(*to kurabete* "en comparación con") se usan para expresar relaciones lógicas complejas.
+## Explicación central
+### Encontrar la tesis
+- Suele aparecer al **final** del texto o del párrafo, con marcas como 〜のではないか, 〜べきだ, 〜にほかならない, 〜と言えよう, つまり, 要するに.
+- Antes suele haber una **opinión ajena** o común que el autor discute: 〜と言われている / 一般に〜と考えられがちだが…
 
-Ejemplo:
-> 人工知能の開発は、近年急速に進んでおり、医療や教育など多くの分野で応用が期待されている。しかし、技術の進展に伴い、倫理的な問題も浮き彫りになってきた。
-*(El desarrollo de la inteligencia artificial ha avanzado rápidamente en los últimos años, y se espera su aplicación en muchos campos como la medicina o la educación. Sin embargo, con el avance tecnológico, también han surgido problemas éticos.)*
+### Estructuras de N1 en la lectura
+- **Énfasis**: 〜こそ, 〜にほかならない, 〜以外の何物でもない.
+- **Concesión**: 〜とはいえ, 〜ものの, 〜にせよ.
+- **Negación indirecta**: 〜わけではない (no es que…), 〜とは限らない (no necesariamente), 〜どころか (lejos de…).
+- **Pregunta retórica**: 〜だろうか (= no), 〜ではないだろうか (= sí).
 
-En este texto, se usan kanji como 開発 (*kaihatsu*) y 倫理 (*rinri*, ética), junto a partículas como に (*ni*) para indicar acompañamiento ("con el avance tecnológico") y が (*ga*) para marcar sujeto.
+### Lo implícito
+- Ironía y crítica velada: 結構なことだ (¡qué bien!, irónico).
+- Presuposiciones: さすがに, ようやく (por fin: tardó), せっかく.
+
+### Estrategias
+1. Leer las preguntas primero.
+2. Marcar conectores (しかし, つまり, 一方) y demostrativos (このような〜).
+3. Distinguir la opinión del autor de la que cita o critica.
+4. Reformular la tesis con palabras propias.
 
 ## Errores comunes de hispanohablantes
-Los hablantes de español suelen cometer errores al:
-1. **Usar preposiciones en lugar de partículas**: Por ejemplo, escribir 「に」como "en" (correcto) pero confundirlo con "a" (que no existe en japonés).
-2. **Confundir kanji con significados similares**: Como 開放 (*kaihō*, apertura) y 開発 (*kaihatsu*, desarrollo), que comparten el radical 開 pero difieren en su uso.
-3. **Ignorar la importancia del contexto**: En español, los verbos suelen tener conjugaciones que indican tiempo (pasado, presente), mientras que en japonés se usan partículas como た (*ta*) o ます (*masu*).
+1. Tomar como tesis la opinión común que el autor rebate.
+2. Interpretar 〜だろうか como duda real cuando es retórica.
+3. Confundir 〜わけではない (no es que…) con una negación total.
 
 ## Comparación con el español
-El japonés no usa artículos ni adjetivos concordados con género, lo que a menudo confunde a los hispanohablantes. Por ejemplo:
-- En español: 「el libro」 vs. en japonés: 本 (*hon*, sin artículo).
-- En español, el tiempo se expresa mediante conjugaciones verbales (e.g., "leí" vs. "leo"), mientras que en japonés se usa la partícula た (*ta*): 「読んだ」(*yonda* "leí") y 「読む」(*yomu* "leo").
+La lectura crítica es igual en ambas lenguas. En japonés la tesis suele estar al **final** y el autor se expresa de manera indirecta, por lo que las marcas de modalidad son la clave.
 
 ## Ejemplo extendido en contexto
-**Texto:**
-> 電子書籍の普及に伴い、紙の本に対する需要が減少している。一方で、電子書籍は携帯端末に簡単にアクセスできるため、若い世代を中心に人気を博している。しかし、長時間の読書には目への負担があるという指摘もある。
-
-**Traducción:**
-> Con la popularización de los libros electrónicos, la demanda por libros en papel ha disminuido. Por otro lado, debido a que los libros electrónicos se pueden acceder fácilmente desde dispositivos móviles, son populares entre las nuevas generaciones. Sin embargo, también hay advertencias sobre el daño ocular derivado de la lectura prolongada.
-
-**Análisis:**
-- **Kanji clave**: 普及 (*fukyū*, popularización), 需要 (*jūyo*, demanda), 負担 (*futan*, carga).
-- **Estructuras gramaticales**: 「に伴い」(*ni tamai* "con la...") y 「にアクセスできる」(*ni akusesu dekiru* "poder acceder a").
-- **Referencias contextuales**: La palabra 「一方で」(*ichibā de* "por otro lado") contrasta dos ideas, algo que en español se expresa con "sin embargo" o "por otro lado".
-
-Este tipo de textos exige no solo un conocimiento amplio del vocabulario y la gramática, sino también la capacidad de inferir significados a partir del contexto.
+*Texto: «経済効率のために図書館を閉鎖するとは、結構なことだ。そうしておいて、若者の読書離れを嘆くのである。だが、その原因を作っているのは、ほかならぬ我々大人ではないだろうか。»*

@@ -1,437 +1,197 @@
-# Idiomas — Portugués (Portugal) — speaking-a2 (cuestionario)
+# Portugués (Portugal) — speaking A2 (cuestionario, 10 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/portugues-pt/speaking-a2/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
+> Tema: `idiomas-extranjeros/portugues-pt/speaking-a2`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas abiertas con muchas respuestas posibles; ahora se elige la expresión adecuada.
 
 ---
 
-### 1 — Forma do verbo "ser"  
+### 1 — Presentarse
+
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["verbo-ser", "presente"]
-pasos:
-  - "Completar el hueco con la forma correcta del verbo 'ser'."
-respuestas_validas:
-  - "sou"
-  - "Sou"
-tipo: completar
-enunciado: "Eu ___ estudante. (completar)"
-explicacion: "El verbo 'ser' en primera persona del singular es 'sou'."
+  tags: ["speaking", "A2"]
+
+respuesta: "Chamo-me Lucía."
+tipo: "mc"
+opciones_explicitas: ["Chamo-me Lucía.", "Me chamo Lucía.", "Me llamo Lucía."]
+
+enunciado: "Te presentás:"
+
+explicacion: |
+  Ênclise.
 ```
 
-### 2 — Preposición de lugar  
+### 2 — Edad
+
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["preposiciones", "lugar"]
-pasos:
-  - "Elegir la preposición correcta para completar la oración."
-opciones_explicitas:
-  - "em"
-  - "na"
-  - "no"
-  - "de"
-respuesta: "na"
-tipo: mc
-enunciado: "O livro está ___ mesa. (elegir)"
-explicacion: "La preposición 'na' se usa para indicar lugar con el artículo definido femenino."
+  tags: ["speaking", "A2"]
+
+respuesta: "Tenho 18 anos."
+tipo: "mc"
+opciones_explicitas: ["Tenho 18 anos.", "Sou 18 anos.", "Estou 18 anos."]
+
+enunciado: "«Tengo 18 años»:"
+
+explicacion: |
+  *Ter*.
 ```
 
-### 3 — Artículo definido  
+### 3 — Transporte
+
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["articulos", "definidos"]
-pasos:
-  - "Completar el hueco con el artículo definido correcto."
-respuestas_validas:
-  - "a"
-  - "A"
-tipo: completar
-enunciado: "Ela é ___ professora. (completar)"
-explicacion: "El artículo 'a' se usa antes de sustantivos femeninos en singular."
+  tags: ["speaking", "A2"]
+
+respuesta: "Apanho o autocarro."
+tipo: "mc"
+opciones_explicitas: ["Apanho o autocarro.", "Pego o ônibus.", "Tomo o autobús."]
+
+enunciado: "«Tomo el colectivo» en Portugal:"
+
+explicacion: |
+  *Apanhar o autocarro*.
 ```
 
-### 4 — Verbo "estar" en presente  
+### 4 — Por favor
+
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["verbo-estar", "presente"]
-pasos:
-  - "Completar el hueco con la forma correcta del verbo 'estar'."
-respuestas_validas:
-  - "estou"
-  - "Estou"
-tipo: completar
-enunciado: "Eu ___ cansado. (completar)"
-explicacion: "El verbo 'estar' en primera persona del singular es 'estou'."
+  tags: ["speaking", "A2"]
+
+respuesta: "Queria um galão, se faz favor."
+tipo: "mc"
+opciones_explicitas: ["Queria um galão, se faz favor.", "Dame un café con leche.", "Quero um café com leite, pá."]
+
+enunciado: "Pedís un café con leche:"
+
+explicacion: |
+  *Se faz favor*.
 ```
 
-### 5 — Adjetivo de nacionalidad  
+### 5 — No entendí
+
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["adjetivos", "nacionalidad"]
-pasos:
-  - "Elegir el adjetivo de nacionalidad correcto."
-opciones_explicitas:
-  - "brasileira"
-  - "portuguesa"
-  - "francesa"
-  - "espanhola"
-respuesta: "portuguesa"
-tipo: mc
-enunciado: "Ela é ___ e mora em Lisboa. (elegir)"
-explicacion: "El adjetivo 'portuguesa' describe a alguien de Portugal."
+  tags: ["speaking", "A2"]
+
+respuesta: "Desculpe, não percebi. Pode repetir?"
+tipo: "mc"
+opciones_explicitas: ["Desculpe, não percebi. Pode repetir?", "Que?", "Não entendo nada, pá."]
+
+enunciado: "No entendiste:"
+
+explicacion: |
+  *Perceber* = entender.
 ```
 
-### 6 — Uso del verbo "ter"  
+### 6 — Rutina
+
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["verbo-ter", "presente"]
-pasos:
-  - "Completar el hueco con la forma correcta del verbo 'ter'."
-respuestas_validas:
-  - "tenho"
-  - "Tenho"
-tipo: completar
-enunciado: "Eu ___ um carro. (completar)"
-explicacion: "El verbo 'ter' en primera persona del singular es 'tenho'."
+  tags: ["speaking", "A2"]
+
+respuesta: "Levanto-me às sete."
+tipo: "mc"
+opciones_explicitas: ["Levanto-me às sete.", "Me levanto às sete.", "Levanto às sete-me."]
+
+enunciado: "«Me levanto a las siete»:"
+
+explicacion: |
+  Ênclise.
 ```
 
-### 7 — Preposición de tiempo  
+### 7 — Desayuno
+
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["preposiciones", "tiempo"]
-pasos:
-  - "Elegir la preposición correcta para completar la oración."
-opciones_explicitas:
-  - "em"
-  - "na"
-  - "no"
-  - "de"
-respuesta: "no"
-tipo: mc
-enunciado: "Vou à praia ___ domingo. (elegir)"
-explicacion: "La preposición 'no' se usa antes de días de la semana."
+  tags: ["speaking", "A2"]
+
+respuesta: "Tomo o pequeno-almoço em casa."
+tipo: "mc"
+opciones_explicitas: ["Tomo o pequeno-almoço em casa.", "Tomo o café da manhã em casa.", "Desayuno em casa."]
+
+enunciado: "«Desayuno en casa»:"
+
+explicacion: |
+  *Pequeno-almoço*.
 ```
 
-### 8 — Artículo indefinido  
+### 8 — Describir
+
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["articulos", "indefinidos"]
-pasos:
-  - "Completar el hueco con el artículo indefinido correcto."
-respuestas_validas:
-  - "um"
-  - "Um"
-tipo: completar
-enunciado: "Eu quero ___ livro. (completar)"
-explicacion: "El artículo 'um' se usa antes de sustantivos masculinos en singular."
+  tags: ["speaking", "A2"]
+
+respuesta: "Ela é alta e muito simpática."
+tipo: "mc"
+opciones_explicitas: ["Ela é alta e muito simpática.", "Ela está alta e muy simpática.", "Ela tem alta."]
+
+enunciado: "Describís a tu amiga:"
+
+explicacion: |
+  *Ser*.
 ```
 
-### 9 — Verbo "ir" en presente  
+### 9 — Barrio
+
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["verbo-ir", "presente"]
-pasos:
-  - "Completar el hueco con la forma correcta del verbo 'ir'."
-respuestas_validas:
-  - "vou"
-  - "Vou"
-tipo: completar
-enunciado: "Eu ___ ao cinema. (completar)"
-explicacion: "El verbo 'ir' en primera persona del singular es 'vou'."
+  tags: ["speaking", "A2"]
+
+respuesta: "O meu bairro é sossegado."
+tipo: "mc"
+opciones_explicitas: ["O meu bairro é sossegado.", "Meu bairro é tranquilão.", "O meu bairro está quieto."]
+
+enunciado: "«Mi barrio es tranquilo»:"
+
+explicacion: |
+  *Sossegado* = tranquilo.
 ```
 
-### 10 — Uso de "há" para tiempo  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["tiempo", "há"]
-pasos:
-  - "Elegir el uso correcto de 'há' para indicar tiempo."
-opciones_explicitas:
-  - "Há dois anos"
-  - "Há dois ano"
-  - "Há duan ano"
-  - "Há dua anos"
-respuesta: "Há dois anos"
-tipo: mc
-enunciado: "___ que eu sou professor. (elegir)"
-explicacion: "'Há' se usa con números plurales para indicar tiempo."
-```
+### 10 — Despedida
 
-### 11 — Adjetivo posesivo  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["adjetivos", "posesivos"]
-pasos:
-  - "Completar el hueco con el adjetivo posesivo correcto."
-respuestas_validas:
-  - "meu"
-  - "Meu"
-tipo: completar
-enunciado: "___ carro é azul. (completar)"
-explicacion: "'Meu' se usa para indicar posesión en primera persona singular."
-```
+  tags: ["speaking", "A2"]
 
-### 12 — Preposición de dirección  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["preposiciones", "direccion"]
-pasos:
-  - "Elegir la preposición correcta para indicar dirección."
-opciones_explicitas:
-  - "para"
-  - "em"
-  - "de"
-  - "com"
-respuesta: "para"
-tipo: mc
-enunciado: "Vou ___ escola. (elegir)"
-explicacion: "'Para' se usa para indicar dirección o destino."
-```
+respuesta: "Até já!"
+tipo: "mc"
+opciones_explicitas: ["Até já!", "Hasta luego!", "Chau, pá!"]
 
-### 13 — Verbo "fazer" en presente  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["verbo-fazer", "presente"]
-pasos:
-  - "Completar el hueco con la forma correcta del verbo 'fazer'."
-respuestas_validas:
-  - "faço"
-  - "Faço"
-tipo: completar
-enunciado: "Eu ___ exercícios. (completar)"
-explicacion: "El verbo 'fazer' en primera persona del singular es 'faço'."
-```
+enunciado: "Te despedís hasta dentro de un rato:"
 
-### 14 — Uso de "poder" para capacidad  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["verbo-poder", "capacidad"]
-pasos:
-  - "Completar el hueco con la forma correcta del verbo 'poder'."
-respuestas_validas:
-  - "posso"
-  - "Posso"
-tipo: completar
-enunciado: "Eu ___ ajudar. (completar)"
-explicacion: "'Poder' en primera persona del singular es 'posso'."
-```
-
-### 15 — Adverbio de lugar  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["adverbios", "lugar"]
-pasos:
-  - "Elegir el adverbio correcto para indicar lugar."
-opciones_explicitas:
-  - "aqui"
-  - "ali"
-  - "lá"
-  - "cá"
-respuesta: "aqui"
-tipo: mc
-enunciado: "O livro está ___. (elegir)"
-explicacion: "'Aqui' indica lugar cercano al hablante."
-```
-
-### 16 — Uso de "querer" para deseo  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["verbo-querer", "deseo"]
-pasos:
-  - "Completar el hueco con la forma correcta del verbo 'querer'."
-respuestas_validas:
-  - "quero"
-  - "Quero"
-tipo: completar
-enunciado: "Eu ___ viajar. (completar)"
-explicacion: "'Querer' en primera persona del singular es 'quero'."
-```
-
-### 17 — Preposición de pertenencia  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["preposiciones", "pertenencia"]
-pasos:
-  - "Elegir la preposición correcta para indicar pertenencia."
-opciones_explicitas:
-  - "de"
-  - "em"
-  - "na"
-  - "no"
-respuesta: "de"
-tipo: mc
-enunciado: "Este é o livro ___ João. (elegir)"
-explicacion: "'De' se usa para indicar pertenencia."
-```
-
-### 18 — Adjetivo de color  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["adjetivos", "color"]
-pasos:
-  - "Completar el hueco con el adjetivo de color correcto."
-respuestas_validas:
-  - "vermelho"
-  - "Vermelho"
-tipo: completar
-enunciado: "O carro é ___ . (completar)"
-explicacion: "'Vermelho' es el color rojo en portugués."
-```
-
-### 19 — Verbo "ler" en presente  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["verbo-ler", "presente"]
-pasos:
-  - "Completar el hueco con la forma correcta del verbo 'ler'."
-respuestas_validas:
-  - "leio"
-  - "Leio"
-tipo: completar
-enunciado: "Eu ___ livros. (completar)"
-explicacion: "'Ler' en primera persona del singular es 'leio'."
-```
-
-### 20 — Uso de "morrer" para evento  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["verbo-morrer", "evento"]
-pasos:
-  - "Completar el hueco con la forma correcta del verbo 'morrer'."
-respuestas_validas:
-  - "morri"
-  - "Morri"
-tipo: completar
-enunciado: "Ela ___ ontem. (completar)"
-explicacion: "'Morrer' en primera persona del singular es 'morri'."
-```
-
-### 21 — Preposición de instrumento  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["preposiciones", "instrumento"]
-pasos:
-  - "Elegir la preposición correcta para indicar instrumento."
-opciones_explicitas:
-  - "com"
-  - "em"
-  - "de"
-  - "para"
-respuesta: "com"
-tipo: mc
-enunciado: "Vou ao mercado ___ carro. (elegir)"
-explicacion: "'Com' se usa para indicar instrumento o medio."
-```
-
-### 22 — Adjetivo posesivo plural  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["adjetivos", "posesivos"]
-pasos:
-  - "Completar el hueco con el adjetivo posesivo correcto."
-respuestas_validas:
-  - "nossos"
-  - "Nossos"
-tipo: completar
-enunciado: "___ livros são bons. (completar)"
-explicacion: "'Nossos' se usa para posesión en primera persona plural."
-```
-
-### 23 — Verbo "dormir" en presente  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["verbo-dormir", "presente"]
-pasos:
-  - "Completar el hueco con la forma correcta del verbo 'dormir'."
-respuestas_validas:
-  - "durmo"
-  - "Durmo"
-tipo: completar
-enunciado: "Eu ___ bem. (completar)"
-explicacion: "'Dormir' en primera persona del singular es 'durmo'."
-```
-
-### 24 — Uso de "ter que" para obligación  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["frases", "obligacion"]
-pasos:
-  - "Completar el hueco con la frase correcta para indicar obligación."
-respuestas_validas:
-  - "tenho que"
-  - "Tenho que"
-tipo: completar
-enunciado: "___ estudar. (completar)"
-explicacion: "'Tenho que' se usa para expresar obligación."
+explicacion: |
+  *Até já* = hasta ahora.
 ```

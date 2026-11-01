@@ -1,61 +1,47 @@
-# Hablar en alemán (Nivel B2): Estructura y coherencia en conversaciones
+# Expresión oral en alemán (B2)
 
 > Tema del MAPA: `idiomas-extranjeros/aleman/speaking-b2`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en los ejemplos.
 
 ---
 
 ## Introducción
-En el nivel B2 del Marco Común Europeo de Referencia para las Lenguas (MCER), los hablantes deben ser capaces de participar en conversaciones cotidianas con fluidez, expresando ideas claras y coherentes. Esto implica dominar la estructura básica del discurso oral, como el uso adecuado de conectores, la organización lógica de las ideas y la capacidad de responder a preguntas con argumentos relevantes. La cohesión en el habla es clave para evitar ambigüedades y permitir una comunicación efectiva.
+En B2 se espera **argumentar** con claridad, **debatir** respetando turnos, **matizar** y **reformular**, con fluidez sobre temas concretos y abstractos.
 
-## Explicación central: Estructura y conectores
-En alemán, la organización lógica de las ideas se logra mediante **conectores** (z.B., *aber*, *deshalb*, *wenn*) y una **secuencia clara de oraciones**. Por ejemplo:
+## Explicación central
+### Estructurar una intervención
+- Introducir: *Ich möchte heute über … sprechen. Es geht um die Frage, ob…*
+- Ordenar: *Zunächst… Außerdem… Ein weiterer Punkt ist… Schließlich…*
+- Concluir: *Zusammenfassend lässt sich sagen… Alles in allem…*
 
-- **Conector causal**:
-  > „Ich habe heute keine Zeit, weil ich einen Termin habe.“ *(No tengo tiempo hoy porque tengo una cita.)*
-  Aquí, *weil* (porque) vincula dos ideas relacionadas por causa y efecto.
+### Argumentar y matizar
+- *Einerseits … andererseits… Ein Vorteil ist, dass… Ein Nachteil ist, dass…*
+- Concesión: *Es stimmt zwar, dass …, aber… Obwohl…*
+- Hipótesis: *Wenn man mehr investieren würde, könnte man…*
+- Certeza: *Ich bin überzeugt, dass… Es könnte sein, dass… Ich bezweifle, dass…*
 
-- **Contraste con conectores de oposición**:
-  > „Sie mag Kuchen, aber sie isst ihn nicht gern.“ *(Ella ama el pastel, pero no lo come con frecuencia.)*
-  *Aber* (pero) marca una contradicción entre dos afirmaciones.
+### Interactuar
+- Tomar la palabra: *Darf ich dazu etwas sagen?*
+- Interrumpir: *Entschuldigung, wenn ich Sie unterbreche, aber…*
+- Aclarar: *Was meinen Sie genau mit…?*
+- Reformular: *Mit anderen Worten… Ich meine damit, dass…*
 
-También es importante usar **sustantivos y verbos en la forma correcta**, como los tiempos verbales. Por ejemplo:
-- Futuro: „Morgen werden wir ins Kino gehen.“ *(Mañana iremos al cine.)*
-- Condicional: „Wenn ich mehr Zeit hätte, würde ich reisen.“ *(Si tuviera más tiempo, viajaría.)*
+### Expresiones útiles
+*Es fällt mir schwer, …* (me cuesta), *Es lohnt sich* (vale la pena), *auf jeden Fall* (en todo caso), *letztendlich* (al fin y al cabo).
 
 ## Errores comunes de hispanohablantes
-1. **Uso incorrecto de conectores**: A menudo se confunde *aber* (pero) con *sondern* (sino), que se usa para negar una idea previa:
-   - ❌ „Er ist nicht müde, aber er schläft.“ *(Él no está cansado pero duerme.)* → Incorrecto.
-   - ✅ „Er ist nicht müde, sondern wach.“ *(No está cansado, sino despierto.)*
-
-2. **Errores en la estructura de oraciones compuestas**: En alemán, el verbo principal se coloca al final en oraciones con subordinadas:
-   - ❌ „Ich gehe ins Kino, weil es ein guter Film ist.“ *(Voy al cine porque es una buena película.)* → Incorrecto (el verbo *ist* debe ir al final).
-   - ✅ „Ich gehe ins Kino, weil es ein guter Film ist.“ → Correcto.
-
-3. **Confusión con el uso de *zu* en infinitivos**:
-   - ❌ „Er möchte gehen in den Park.“ *(Él quiere ir al parque.)* → Incorrecto.
-   - ✅ „Er möchte in den Park gehen.“ → Correcto: *in den Park* antes del verbo.
+1. ❌ *Auf einer Seite… auf der anderen Seite* (calco) → natural: *Einerseits … andererseits*.
+2. ❌ *Es kostet mir zu verstehen* ✅ *Es fällt mir schwer zu verstehen*.
+3. ❌ *Es lohnt die Pena* ✅ *Es lohnt sich*.
+4. Olvidar el verbo al final tras *dass, obwohl, wenn*.
 
 ## Comparación con el español
-Algunas estructuras en alemán difieren claramente del español, especialmente en:
-- **Oraciones subordinadas**: En alemán, el verbo principal siempre va al final, mientras que en español se mantiene su posición normal.
-  - Español: „Voy al cine porque es una buena película.“
-  - Alemán: „Ich gehe ins Kino, weil es ein guter Film ist.“
-
-- **Conectores de oposición**: En alemán, *sondern* se usa para negar una idea previa (como en el español *sino que*), algo menos común en el uso cotidiano del español.
-  - Español: „No está cansado, sino despierto.“
-  - Alemán: „Er ist nicht müde, sondern wach.“
+Los recursos argumentativos son equivalentes. La dificultad está en la sintaxis: muchas fórmulas exigen subordinada con verbo al final.
 
 ## Ejemplo extendido en contexto
-**Situación**: Un estudiante pregunta a su profesor sobre un trabajo académico.
-
-**Diálogo**:
-**Student**: „Herr Professor, ich habe eine Frage zu der Arbeit. Darf ich sie stellen?“ *(Profesor, tengo una pregunta sobre el trabajo. ¿Puedo hacerla?)*
-**Professor**: „Natürlich! Was ist es?“ *(¡Claro! ¿De qué se trata?)*
-**Student**: „Ich verstehe nicht, wie ich die Quellen zitieren soll. Soll ich sie in der Arbeit erwähnen oder nur am Ende aufschreiben?“ *(No entiendo cómo citar las fuentes. ¿Las menciono en el trabajo o solo las escribo al final?)*
-**Professor**: „Du musst sie im Text erwähnen und dann am Ende in einer Liste aufschreiben. Das ist die gängige Regel.“ *(Debes mencionarlas en el texto y luego anotarlas en una lista al final. Es la regla común.)*
-
-Este intercambio muestra cómo se usan conectores (*wie*, *oder*), tiempos verbales (*muss*) y estructuras claras para transmitir información precisa.
+*«Ich möchte über das Homeoffice sprechen. **Einerseits** spart man Zeit, **andererseits** kann man sich isoliert fühlen. **Es stimmt zwar, dass** viele zu Hause produktiver sind, **aber ich bezweifle, dass** das für alle gilt. **Letztendlich** wäre ein hybrides Modell die beste Lösung.»*

@@ -1,446 +1,272 @@
-# Idiomas — Francés — connecteurs-logiques-avances (cuestionario)
+# Francés — conectores lógicos (C1) (cuestionario, 14 preguntas VBLang)
 
-> Promovido desde el borrador
-> (`../../../_borradores-gemma/idiomas-extranjeros/frances/connecteurs-logiques-avances/cuestionario_crudo.md`)
-> con correcciones de contenido. Los 25 bloques carecían de `enunciado:`; se generó una pregunta
-> de contexto según la categoría lógica evaluada. Se corrigieron además dos errores reales: seis
-> bloques (4, 8, 12, 16, 20, 24) etiquetaban "ainsi que" como conectivo de "consecuencia" y
-> afirmaban que "la segunda oración es el resultado directo de la primera", pero "ainsi que"
-> significa en realidad "tal como"/"así como" (comparación o adición equivalente), no expresa
-> causa-efecto — se corrigió la etiqueta, el título y la explicación. El bloque 6 daba
-> "caractérisé par" como conectivo causal correcto, pero esa expresión es una locución verbal
-> pasiva ("está caracterizado por"), no un conectivo que pueda unir dos cláusulas — se corrigió
-> la respuesta a "puisque" (ya presente entre las opciones), coherente con el resto del archivo.
+> Tema: `idiomas-extranjeros/frances/connecteurs-logiques-avances`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Connecteurs logiques 1
+### 1 — puisque
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["connecteurs logiques"]
-tipo: mc
-opciones_explicitas:
-  - "Bien qu'"
-  - "Parce qu'"
-  - "Puisqu'"
-  - "Alors qu'"
-respuesta: "Bien qu'"
-enunciado: "Complétez : « ___ il pleuve, nous irons au match. »"
-explicacion: "« Bien que » exprime la concession y exige subjuntivo (pleuve)."
+  tags: ["conectores"]
+
+respuesta: "Puisque"
+tipo: "mc"
+opciones_explicitas: ["Puisque", "Bien que", "Afin que"]
+
+enunciado: "___ tu insistes, je viendrai."
+
+explicacion: |
+  Causa conocida: *puisque*.
 ```
 
-### 2 — Connecteurs logiques 2
+### 2 — faute de
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["connecteurs logiques"]
-tipo: mc
-opciones_explicitas:
-  - "par conséquent"
-  - "néanmoins"
-  - "en revanche"
-  - "quoique"
-respuesta: "par conséquent"
-enunciado: "Quel connecteur exprime la conséquence ?"
-explicacion: "« Par conséquent » introduce una consecuencia."
+  tags: ["conectores"]
+
+respuesta: "faute de"
+tipo: "mc"
+opciones_explicitas: ["faute de", "malgré", "afin de"]
+
+enunciado: "Le projet a échoué ___ moyens."
+
+explicacion: |
+  *Faute de* + sustantivo.
 ```
 
-### 3 — Connecteurs logiques 3
+### 3 — aussi + inversión
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["connecteurs logiques"]
-tipo: completar
-respuestas_validas:
-  - "par conséquent"
-  - "donc"
-  - "ainsi"
-  - "Par conséquent"
-  - "Donc"
-  - "Ainsi"
-enunciado: "Il n'a pas révisé ; ___, il a échoué à l'examen. (conséquence)"
-explicacion: "Conectores de consecuencia: par conséquent, donc, ainsi."
+  tags: ["conectores"]
+
+respuesta: "faut-il"
+tipo: "mc"
+opciones_explicitas: ["faut-il", "il faut-il", "il faut aussi"]
+
+enunciado: "Le délai est court. Aussi ___ agir vite."
+
+explicacion: |
+  *Aussi* inicial: inversión.
 ```
 
-### 4 — Connecteurs logiques 4
+### 4 — en revanche
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["connecteurs logiques"]
-tipo: mc
-opciones_explicitas:
-  - "en revanche"
-  - "c'est pourquoi"
-  - "de sorte que"
-  - "puisque"
+  tags: ["conectores"]
+
 respuesta: "en revanche"
-enunciado: "Quel connecteur marque l'opposition ?"
-explicacion: "« En revanche » = en cambio."
+tipo: "mc"
+opciones_explicitas: ["en revanche", "en outre", "puisque"]
+
+enunciado: "Paul adore la mer ; ___, sa sœur la déteste."
+
+explicacion: |
+  Contraste: *en revanche*.
 ```
 
-### 5 — Connecteurs logiques 5
+### 5 — bien que
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["connecteurs logiques"]
-tipo: mc
-opciones_explicitas:
-  - "même si"
-  - "parce que"
-  - "afin que"
-  - "de sorte que"
-respuesta: "même si"
-enunciado: "Complétez : « Elle a accepté le poste, ___ le salaire était faible. »"
-explicacion: "« Même si » + indicativo: concesión."
+  tags: ["conectores"]
+
+respuesta: "Bien qu'"
+tipo: "mc"
+opciones_explicitas: ["Bien qu'", "Malgré qu'", "Même si"]
+
+enunciado: "___ il soit tard, il continue de travailler."
+
+explicacion: |
+  *Bien que* + subjuntivo.
 ```
 
-### 6 — Connecteurs logiques 6
+### 6 — malgré
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["connecteurs logiques"]
-tipo: completar
-respuestas_validas:
-  - "afin d'"
-  - "pour"
-  - "Afin d'"
-  - "Pour"
-enunciado: "Il a travaillé dur ___ obtenir une promotion. (but)"
-explicacion: "« Afin de » / « pour » + infinitivo expresan finalidad."
+  tags: ["conectores"]
+
+respuesta: "malgré"
+tipo: "mc"
+opciones_explicitas: ["malgré", "bien que", "quoique"]
+
+enunciado: "Ils sont sortis ___ la pluie."
+
+explicacion: |
+  *Malgré* + sustantivo.
 ```
 
-### 7 — Connecteurs logiques 7
+### 7 — même si
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["connecteurs logiques"]
-tipo: mc
-opciones_explicitas:
-  - "une cause"
-  - "un but"
-  - "une opposition"
-  - "une condition"
-respuesta: "une cause"
-enunciado: "« Étant donné que » introduit :"
-explicacion: "« Étant donné que » = dado que."
+  tags: ["conectores"]
+
+respuesta: "Même s'"
+tipo: "mc"
+opciones_explicitas: ["Même s'", "Bien qu'", "Quoiqu'"]
+
+enunciado: "___ il pleut, nous irons."
+
+explicacion: |
+  *Même si* + indicativo.
 ```
 
-### 8 — Connecteurs logiques 8
+### 8 — afin de
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["connecteurs logiques"]
-tipo: mc
-opciones_explicitas:
-  - "pour que"
-  - "parce que"
-  - "puisque"
-  - "comme"
-respuesta: "pour que"
-enunciado: "Quel connecteur est suivi du subjonctif ?"
-explicacion: "« Pour que » exige subjuntivo."
+  tags: ["conectores"]
+
+respuesta: "afin de"
+tipo: "mc"
+opciones_explicitas: ["afin de", "afin que", "de sorte que"]
+
+enunciado: "Il travaille tard ___ terminer à temps."
+
+explicacion: |
+  Mismo sujeto: *afin de* + infinitivo.
 ```
 
-### 9 — Connecteurs logiques 9
+### 9 — en outre
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["connecteurs logiques"]
-tipo: completar
-respuestas_validas:
-  - "Bien que"
-  - "Quoique"
-enunciado: "___ le prix soit élevé, ce produit se vend très bien. (concession + subjonctif)"
-explicacion: "Bien que / quoique + subjuntivo."
-```
+  tags: ["conectores"]
 
-### 10 — Connecteurs logiques 10
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "connecteurs-logiques-avances"
-  nivel: "C1"
-  tags: ["connecteurs logiques"]
-tipo: mc
-opciones_explicitas:
-  - "à condition que"
-  - "alors que"
-  - "tandis que"
-  - "néanmoins"
-respuesta: "à condition que"
-enunciado: "Quel connecteur exprime la condition ?"
-explicacion: "« À condition que » + subjuntivo."
-```
-
-### 11 — Connecteurs logiques 11
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "connecteurs-logiques-avances"
-  nivel: "C1"
-  tags: ["connecteurs logiques"]
-tipo: mc
-opciones_explicitas:
-  - "présenter deux aspects d'une question"
-  - "exprimer une cause"
-  - "conclure"
-  - "donner un exemple"
-respuesta: "présenter deux aspects d'une question"
-enunciado: "« D'une part… d'autre part… » sert à :"
-explicacion: "Estructura de enumeración/contraposición."
-```
-
-### 12 — Connecteurs logiques 12
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "connecteurs-logiques-avances"
-  nivel: "C1"
-  tags: ["connecteurs logiques"]
-tipo: mc
-opciones_explicitas:
-  - "en somme"
-  - "d'ailleurs"
-  - "pourtant"
-  - "cependant"
-respuesta: "en somme"
-enunciado: "Quel connecteur sert à conclure ?"
-explicacion: "« En somme » = en resumen."
-```
-
-### 13 — Connecteurs logiques 13
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "connecteurs-logiques-avances"
-  nivel: "C1"
-  tags: ["connecteurs logiques"]
-tipo: completar
-respuestas_validas:
-  - "pourtant"
-  - "cependant"
-  - "néanmoins"
-  - "toutefois"
-  - "Pourtant"
-  - "Cependant"
-  - "Néanmoins"
-  - "Toutefois"
-enunciado: "Il est fatigué ; ___, il continue à travailler. (opposition)"
-explicacion: "Conectores adversativos: pourtant, cependant, néanmoins, toutefois."
-```
-
-### 14 — Connecteurs logiques 14
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "connecteurs-logiques-avances"
-  nivel: "C1"
-  tags: ["connecteurs logiques"]
-tipo: mc
-opciones_explicitas:
-  - "l'opposition"
-  - "la conséquence"
-  - "le but"
-  - "la condition"
-respuesta: "l'opposition"
-enunciado: "« Tandis que » peut exprimer :"
-explicacion: "« Tandis que » = mientras que (contraste)."
-```
-
-### 15 — Connecteurs logiques 15
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "connecteurs-logiques-avances"
-  nivel: "C1"
-  tags: ["connecteurs logiques"]
-tipo: mc
-opciones_explicitas:
-  - "grâce à son"
-  - "à cause de son"
-  - "faute de son"
-  - "malgré son"
-respuesta: "grâce à son"
-enunciado: "Complétez : « Il a réussi ___ travail acharné. »"
-explicacion: "« Grâce à » indica causa positiva."
-```
-
-### 16 — Connecteurs logiques 16
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "connecteurs-logiques-avances"
-  nivel: "C1"
-  tags: ["connecteurs logiques"]
-tipo: mc
-opciones_explicitas:
-  - "à cause de"
-  - "grâce à"
-  - "afin de"
-  - "en vue de"
-respuesta: "à cause de"
-enunciado: "Quelle expression marque une cause négative ?"
-explicacion: "« À cause de » suele indicar causa negativa."
-```
-
-### 17 — Connecteurs logiques 17
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "connecteurs-logiques-avances"
-  nivel: "C1"
-  tags: ["connecteurs logiques"]
-tipo: completar
-respuestas_validas:
-  - "malgré"
-  - "en dépit de"
-  - "Malgré"
-  - "En dépit de"
-enunciado: "Il est sorti ___ la pluie. (concession : a pesar de)"
-explicacion: "« Malgré » / « en dépit de » + sustantivo."
-```
-
-### 18 — Connecteurs logiques 18
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "connecteurs-logiques-avances"
-  nivel: "C1"
-  tags: ["connecteurs logiques"]
-tipo: mc
-opciones_explicitas:
-  - "introduire un élément nouveau qui oriente la conclusion"
-  - "exprimer une cause"
-  - "donner un exemple"
-  - "marquer le temps"
-respuesta: "introduire un élément nouveau qui oriente la conclusion"
-enunciado: "« Or » dans un raisonnement sert à :"
-explicacion: "« Or » = ahora bien, introduce la premisa menor."
-```
-
-### 19 — Connecteurs logiques 19
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "connecteurs-logiques-avances"
-  nivel: "C1"
-  tags: ["connecteurs logiques"]
-tipo: mc
-opciones_explicitas:
-  - "en outre"
-  - "en revanche"
-  - "pourtant"
-  - "sauf que"
 respuesta: "en outre"
-enunciado: "Quel connecteur est un synonyme de « de plus » ?"
-explicacion: "Ambos añaden información."
+tipo: "mc"
+opciones_explicitas: ["en outre", "cependant", "faute de"]
+
+enunciado: "Ce logement est bien situé ; ___, il est peu cher."
+
+explicacion: |
+  Adición: *en outre*.
 ```
 
-### 20 — Connecteurs logiques 20
+### 10 — d'autant plus que
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["connecteurs logiques"]
-tipo: mc
-opciones_explicitas:
-  - "la conséquence"
-  - "le but"
-  - "la concession"
-  - "la condition"
-respuesta: "la conséquence"
-enunciado: "« De sorte que » + indicatif exprime :"
-explicacion: "Con indicativo = consecuencia; con subjuntivo = finalidad."
+  tags: ["conectores"]
+
+respuesta: "d'autant plus qu'"
+tipo: "mc"
+opciones_explicitas: ["d'autant plus qu'", "quant à", "alors qu'"]
+
+enunciado: "Il est fatigué, ___ il a mal dormi."
+
+explicacion: |
+  Refuerza la causa.
 ```
 
-### 21 — Connecteurs logiques 21
+### 11 — quant à
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["connecteurs logiques"]
-tipo: mc
-opciones_explicitas:
-  - "le subjonctif (but)"
-  - "l'indicatif (conséquence)"
-  - "le conditionnel"
-  - "l'impératif"
-respuesta: "le subjonctif (but)"
-enunciado: "Dans « Elle travaille de sorte qu'il ait de quoi vivre », le mode après « de sorte que » est :"
-explicacion: "« De sorte que » + subjuntivo = finalidad."
+  tags: ["conectores"]
+
+respuesta: "Quant à"
+tipo: "mc"
+opciones_explicitas: ["Quant à", "Par ailleurs", "Certes"]
+
+enunciado: "Marie viendra. ___ Paul, il reste ici."
+
+explicacion: |
+  *Quant à* = en cuanto a.
 ```
 
-### 22 — Connecteurs logiques 22
+### 12 — tandis que
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["connecteurs logiques"]
-tipo: mc
-opciones_explicitas:
-  - "Bien qu'il soit malade, il travaille."
-  - "Bien qu'il est malade, il travaille."
-  - "Bien qu'il serait malade, il travaille."
-  - "Bien qu'il sera malade, il travaille."
-respuesta: "Bien qu'il soit malade, il travaille."
-enunciado: "Quelle phrase utilise correctement « bien que » ?"
-explicacion: "« Bien que » exige subjuntivo."
+  tags: ["conectores"]
+
+respuesta: "tandis que"
+tipo: "mc"
+opciones_explicitas: ["tandis que", "bien que", "afin que"]
+
+enunciado: "Il travaille ___ son frère se repose."
+
+explicacion: |
+  Contraste simultáneo + indicativo.
 ```
 
-### 23 — Connecteurs logiques 23
+### 13 — en somme
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["connecteurs logiques"]
-tipo: mc
-opciones_explicitas:
-  - "confirmer ou expliquer ce qui précède"
-  - "s'opposer à ce qui précède"
-  - "conclure par une condition"
-  - "exprimer le but"
-respuesta: "confirmer ou expliquer ce qui précède"
-enunciado: "« En effet » sert à :"
-explicacion: "« En effet » = efectivamente / en efecto."
+  tags: ["conectores"]
+
+respuesta: "En somme"
+tipo: "mc"
+opciones_explicitas: ["En somme", "Puisque", "Quoique"]
+
+enunciado: "___, le bilan est positif."
+
+explicacion: |
+  Conclusión.
 ```
 
-### 24 — Connecteurs logiques 24
+### 14 — d'ailleurs
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["connecteurs logiques"]
-tipo: mc
-opciones_explicitas:
-  - "par exemple"
-  - "néanmoins"
-  - "donc"
-  - "sinon"
-respuesta: "par exemple"
-enunciado: "Quel connecteur introduit un exemple ?"
-explicacion: "« Par exemple » introduce un ejemplo."
+  tags: ["conectores"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "«D'ailleurs» significa «de otros lugares»."
+
+explicacion: |
+  Falso: significa «además, por otra parte, por cierto».
 ```

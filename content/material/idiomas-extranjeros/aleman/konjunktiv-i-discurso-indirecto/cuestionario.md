@@ -1,448 +1,272 @@
-# Idiomas — Alemán — konjunktiv-i-discurso-indirecto (cuestionario)
+# Alemán — Konjunktiv I (cuestionario, 14 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/aleman/konjunktiv-i-discurso-indirecto/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
+> Tema: `idiomas-extranjeros/aleman/konjunktiv-i-discurso-indirecto`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Konjunktiv I en indirect speech  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-i-discurso-indirecto"  
-  nivel: "C1"  
-  tags: ["indirekter Rede", "Präteritum", "sagen"]  
-pasos:  
-  - "Reemplaza el verbo en la oración indirecta con su forma de Konjunktiv I."  
-tipo: completar  
-respuestas_validas:  
-  - "wisste"  
-  - "wisse"  
-enunciado: "Er sagte, dass er ___ das Geheimnis nicht."  
-explicacion: "En el discurso indirecto tras 'sagen', los verbos en Präteritum se conjugan en Konjunktiv I. 'Wissen' en Konjunktiv I es 'wisse' (3ª persona singular)."  
-```
+### 1 — sei
 
-### 2 — Elección del verbo correcto en Konjunktiv I  
-```  
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "konjunktiv-i-discurso-indirecto"
   nivel: "C1"
-  tags: ["indirekter Rede", "Perfekt", "erzählen"]
-pasos:
-  - "Identifica la forma correcta de Konjunktiv I para el verbo en la oración indirecta."
-enunciado: "Sie berichtete, sie ___ den Fehler erkannt."
-opciones_explicitas:
-  - "habe"
-  - "hat"
-  - "hätte"
-  - "hatte"
-respuesta: "habe"
-tipo: mc
-explicacion: "En el discurso indirecto con Konjunktiv I, el auxiliar va en Konjunktiv I: 'sie habe ... erkannt'. En la 3.ª persona del singular 'habe' se distingue de 'hat', así que no hace falta recurrir a 'hätte'."
-```
+  tags: ["konjunktiv-i"]
 
-### 3 — Uso de Konjunktiv I con verbos de pensar  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-i-discurso-indirecto"  
-  nivel: "C1"  
-  tags: ["indirekter Rede", "Präsens", "denken"]  
-pasos:  
-  - "Completa la oración indirecta con el verbo en Konjunktiv I."  
-tipo: completar  
-respuestas_validas:  
-  - "mache"  
-  - "Mache"  
-enunciado: "Er dachte, dass sie ___ eine Pause machen würde."  
-explicacion: "'Denken' requiere Konjunktiv I en indirect speech. 'Machen' en Konjunktiv I (3ª persona singular) es 'mache'."  
-```
-
-### 4 — Distinción entre Indikativ y Konjunktiv I  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-i-discurso-indirecto"  
-  nivel: "C1"  
-  tags: ["indirekter Rede", "Präsens", "meinen"]  
-pasos:  
-  - "Elige la forma correcta de Konjunktiv I para el verbo en indirect speech."  
-opciones_explicitas:  
-  - "sei nicht"  
-  - "ist nicht"  
-  - "seien nicht"  
-respuesta: "sei nicht"  
-tipo: mc  
-enunciado: "Er meinte, dass sie ___ krank sei."  
-explicacion: "'Meinen' requiere Konjunktiv I en indirect speech. 'Sein' en Konjunktiv I (3ª persona singular) es 'sei'."  
-```
-
-### 5 — Konjunktiv I con verbos irregulares  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-i-discurso-indirecto"  
-  nivel: "C1"  
-  tags: ["indirekter Rede", "Präteritum", "sagen"]  
-pasos:  
-  - "Reemplaza el verbo en la oración indirecta con su forma de Konjunktiv I."  
-tipo: completar  
-respuestas_validas:  
-  - "habe"  
-  - "Habe"  
-enunciado: "Er sagte, dass er ___ den Fehler nicht bemerkt habe."  
-explicacion: "El Perfekt en indirect speech conserva 'haben' como auxiliar. El Konjunktiv I de 'haben' es 'habe' (3ª persona singular)."  
-```
-
-### 6 — Uso del Konjunktiv I tras verbos de dudar  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-i-discurso-indirecto"  
-  nivel: "C1"  
-  tags: ["indirekter Rede", "Präsens", "zweifeln"]  
-pasos:  
-  - "Completa la oración indirecta con el verbo en Konjunktiv I."  
-tipo: completar  
-respuestas_validas:  
-  - "sei"  
-  - "Sei"  
-enunciado: "Er zweifelte, dass sie ___ die Wahrheit sagen würde."  
-explicacion: "'Zweifeln' requiere Konjunktiv I en indirect speech. 'Sein' en Konjunktiv I (3ª persona singular) es 'sei'."  
-```
-
-### 7 — Elección del verbo correcto en Konjunktiv I  
-```  
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "konjunktiv-i-discurso-indirecto"
-  nivel: "C1"
-  tags: ["indirekter Rede", "Perfekt", "erzählen"]
-pasos:
-  - "Identificá el verbo auxiliar 'sein' en el pasado."
-  - "Elegí su forma de Konjunktiv I para er/sie/es."
-enunciado: "Er sagte, er ___ gestern im Kino gewesen."
-opciones_explicitas:
-  - "sei"
-  - "ist"
-  - "wäre"
-  - "war"
 respuesta: "sei"
-tipo: mc
-explicacion: "El Konjunktiv I de 'sein' en 3.ª persona del singular es 'sei': er sei gewesen."
+tipo: "mc"
+opciones_explicitas: ["sei", "ist", "wäre gewesen"]
+
+enunciado: "«Ich bin krank.» → Er sagte, er ___ krank."
+
+explicacion: |
+  *Sein → er sei*.
 ```
 
-### 8 — Uso del Konjunktiv I con verbos de recordar  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-i-discurso-indirecto"  
-  nivel: "C1"  
-  tags: ["indirekter Rede", "Präteritum", "erinnern"]  
-pasos:  
-  - "Completa la oración indirecta con el verbo en Konjunktiv I."  
-tipo: completar  
-respuestas_validas:  
-  - "wisse"  
-  - "Wisste"  
-enunciado: "Sie erinnerte sich, dass sie ___ den Namen nicht."  
-explicacion: "'Erinnern' requiere Konjunktiv I en indirect speech. 'Wissen' en Konjunktiv I (3ª persona singular) es 'wisse'."  
-```
+### 2 — habe
 
-### 9 — Uso del Konjunktiv I con verbos de creer  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-i-discurso-indirecto"  
-  nivel: "C1"  
-  tags: ["indirekter Rede", "Präsens", "glauben"]  
-pasos:  
-  - "Reemplaza el verbo en la oración indirecta con su forma de Konjunktiv I."  
-tipo: completar  
-respuestas_validas:  
-  - "sei"  
-  - "Sei"  
-enunciado: "Er glaubte, dass sie ___ krank sei."  
-explicacion: "'Glauben' requiere Konjunktiv I en indirect speech. 'Sein' en Konjunktiv I (3ª persona singular) es 'sei'."  
 ```
-
-### 10 — Elección del verbo correcto en Konjunktiv I  
-```  
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "konjunktiv-i-discurso-indirecto"
   nivel: "C1"
-  tags: ["indirekter Rede", "Präteritum", "sagen"]
-pasos:
-  - "Compará el Konjunktiv I con el indicativo en 3.ª persona del plural."
-  - "Si coinciden, usá el Konjunktiv II como forma sustituta."
-enunciado: "Die Schüler sagten, sie ___ die Aufgabe verstanden."
-opciones_explicitas:
-  - "hätten"
-  - "haben"
-  - "hatten"
-  - "habe"
+  tags: ["konjunktiv-i"]
+
+respuesta: "habe"
+tipo: "mc"
+opciones_explicitas: ["habe", "hat", "hatte"]
+
+enunciado: "«Ich habe keine Zeit.» → Sie sagt, sie ___ keine Zeit."
+
+explicacion: |
+  *Haben → sie habe*.
+```
+
+### 3 — Pasado
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "konjunktiv-i-discurso-indirecto"
+  nivel: "C1"
+  tags: ["konjunktiv-i"]
+
+respuesta: "gewesen"
+tipo: "mc"
+opciones_explicitas: ["gewesen", "geworden", "war"]
+
+enunciado: "«Ich war krank.» → Er sagte, er sei krank ___."
+
+explicacion: |
+  Pasado: *sei … gewesen*.
+```
+
+### 4 — Pasado haben
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "konjunktiv-i-discurso-indirecto"
+  nivel: "C1"
+  tags: ["konjunktiv-i"]
+
+respuesta: "habe"
+tipo: "mc"
+opciones_explicitas: ["habe", "hätte gehabt", "hat"]
+
+enunciado: "«Ich habe gearbeitet.» → Er sagte, er ___ gearbeitet."
+
+explicacion: |
+  *Habe* + participio.
+```
+
+### 5 — Futuro
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "konjunktiv-i-discurso-indirecto"
+  nivel: "C1"
+  tags: ["konjunktiv-i"]
+
+respuesta: "werde"
+tipo: "mc"
+opciones_explicitas: ["werde", "wird", "würde werden"]
+
+enunciado: "«Ich werde kommen.» → Sie sagte, sie ___ kommen."
+
+explicacion: |
+  *Werden → sie werde*.
+```
+
+### 6 — Sustitución
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "konjunktiv-i-discurso-indirecto"
+  nivel: "C1"
+  tags: ["konjunktiv-i"]
+
 respuesta: "hätten"
-tipo: mc
-explicacion: "En 3.ª persona del plural, el Konjunktiv I ('haben') coincide con el indicativo; por eso en el discurso indirecto se usa el Konjunktiv II como sustituto: 'hätten'."
+tipo: "mc"
+opciones_explicitas: ["hätten", "haben", "habe"]
+
+enunciado: "«Wir haben keine Zeit.» → Sie sagten, sie ___ keine Zeit."
+
+explicacion: |
+  *Haben* = indicativo → Konjunktiv II.
 ```
 
-### 11 — Uso del Konjunktiv I con verbos de dudar (variación)  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-i-discurso-indirecto"  
-  nivel: "C1"  
-  tags: ["indirekter Rede", "Präteritum", "zweifeln"]  
-pasos:  
-  - "Completa la oración indirecta con el verbo en Konjunktiv I."  
-tipo: completar  
-respuestas_validas:  
-  - "habe"  
-  - "Habe"  
-enunciado: "Er zweifelte, dass er ___ den Fehler nicht bemerkt habe."  
-explicacion: "'Zweifeln' requiere Konjunktiv I en indirect speech. 'Haben' en Konjunktiv I (3ª persona singular) es 'habe'."  
+### 7 — können
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "konjunktiv-i-discurso-indirecto"
+  nivel: "C1"
+  tags: ["konjunktiv-i"]
+
+respuesta: "könne"
+tipo: "mc"
+opciones_explicitas: ["könne", "kann", "konnte"]
+
+enunciado: "Der Arzt meinte, der Patient ___ morgen nach Hause gehen."
+
+explicacion: |
+  *Können → er könne*.
 ```
 
-### 12 — Elección del verbo correcto en Konjunktiv I  
-```  
-metadata:  
-  materia: "alemán"  
-  tema: "konjunktiv-i-discurso-indirecto"  
-  nivel: "C1"  
-  tags: ["duda", "zweifeln"]  
-pasos:  
-  - "Identificar el verbo principal que requiere Konjunktiv I."  
-  - "Aplicar la forma correcta del verbo en el cláusula de indirecto."  
-enunciado: "Er zweifelte, dass sie ___ den Auftrag erledigt hätte."  
-tipo: completar  
-respuestas_validas:  
-  - "hätte"  
-  - "Hätte"  
-explicacion: "Después de 'zweifeln' (dudar), el cláusula indirecta requiere Konjunktiv I. La forma correcta del verbo 'erledigen' en este contexto es 'hätte', ya que se usa el pluscuamperfecto en subjuntivo."  
+### 8 — Pregunta
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "konjunktiv-i-discurso-indirecto"
+  nivel: "C1"
+  tags: ["konjunktiv-i"]
+
+respuesta: "habe"
+tipo: "mc"
+opciones_explicitas: ["habe", "hast", "hatte"]
+
+enunciado: "«Hast du Zeit?» → Er fragte, ob ich Zeit ___."
+
+explicacion: |
+  Pregunta indirecta.
 ```
 
-### 13 — Uso del Konjunktiv I con verbos de recordar (variación)  
-```  
-metadata:  
-  materia: "alemán"  
-  tema: "konjunktiv-i-discurso-indirecto"  
-  nivel: "C1"  
-  tags: ["sagen", "verben regulares"]  
-pasos:  
-  - "Identificar el verbo principal (sagen) que requiere Konjunktiv I."  
-  - "Seleccionar la forma correcta del verbo en el cláusula indirecta."  
-enunciado: "Sie erzählte, dass sie ___ den Koffer nicht gesehen hätte."  
-opciones_explicitas:
-  - "hätte"
-  - "hatte"
-  - "wäre"
-  - "gehabt"
-respuesta: "hätte"  
-tipo: mc  
-explicacion: "El verbo 'sagen' requiere Konjunktiv I en el cláusula indirecta. La forma correcta de 'sehen' en pluscuamperfecto es 'hätte gesehen', por lo que la opción válida es 'hätte'."  
+### 9 — Orden
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "konjunktiv-i-discurso-indirecto"
+  nivel: "C1"
+  tags: ["konjunktiv-i"]
+
+respuesta: "solle"
+tipo: "mc"
+opciones_explicitas: ["solle", "soll", "warte"]
+
+enunciado: "«Warte hier!» → Er sagte, ich ___ hier warten."
+
+explicacion: |
+  Órdenes con *sollen*.
 ```
 
-### 14 — Uso del Konjunktiv I con verbos de creer (variación)  
-```  
-metadata:  
-  materia: "alemán"  
-  tema: "konjunktiv-i-discurso-indirecto"  
-  nivel: "C1"  
-  tags: ["glauben", "scheinen"]  
-pasos:  
-  - "Reconocer el verbo irregular 'scheinen' en Konjunktiv I."  
-  - "Aplicar la forma correcta en el cláusula indirecta."  
-enunciado: "Er glaubte, dass es ___ noch nicht regnete."  
-tipo: completar  
-respuestas_validas:  
-  - "schien"  
-  - "Schien"  
-explicacion: "El verbo 'scheinen' en Konjunktiv I del pretérito perfecto es 'schien'. Después de 'glauben', se usa el subjuntivo para expresar una suposición."  
+### 10 — Plural sein
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "konjunktiv-i-discurso-indirecto"
+  nivel: "C1"
+  tags: ["konjunktiv-i"]
+
+respuesta: "sei"
+tipo: "mc"
+opciones_explicitas: ["sei", "seien", "ist"]
+
+enunciado: "Die Experten sagen, die Lage ___ ernst."
+
+explicacion: |
+  Sujeto *die Lage*: singular.
 ```
 
-### 15 — Elección del verbo correcto en Konjunktiv I  
-```  
-metadata:  
-  materia: "alemán"  
-  tema: "konjunktiv-i-discurso-indirecto"  
-  nivel: "C1"  
-  tags: ["erinnern", "verben regulares"]  
-pasos:  
-  - "Identificar que 'erinnern' requiere Konjunktiv I en cláusula indirecta."  
-  - "Seleccionar la forma correcta del verbo 'sehen'."  
-enunciado: "Sie erinnerte sich, dass sie ___ den Schlüssel nicht gesehen hätte."  
-tipo: completar  
-respuestas_validas:  
-  - "hätte"  
-  - "Hätte"  
-explicacion: "El verbo 'erinnern' (recordar) implica una suposición, por lo que se usa Konjunktiv I. La forma correcta de 'sehen' en pluscuamperfecto es 'hätte gesehen'."  
+### 11 — seien
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "konjunktiv-i-discurso-indirecto"
+  nivel: "C1"
+  tags: ["konjunktiv-i"]
+
+respuesta: "seien"
+tipo: "mc"
+opciones_explicitas: ["seien", "sei", "sind"]
+
+enunciado: "Die Forscher erklärten, die Ergebnisse ___ eindeutig."
+
+explicacion: |
+  Plural: *seien*.
 ```
 
-### 16 — Uso del Konjunktiv I con verbos de dudar (variación)  
-```  
-metadata:  
-  materia: "alemán"  
-  tema: "konjunktiv-i-discurso-indirecto"  
-  nivel: "C1"  
-  tags: ["sagen", "gehen"]  
-pasos:  
-  - "Reconocer que 'sagen' requiere Konjunktiv I."  
-  - "Usar la forma correcta de 'gehen' en subjuntivo."  
-enunciado: "Er sagte, dass sie ___ um elf Uhr nach Hause gegangen wäre."  
-tipo: completar  
-respuestas_validas:  
-  - "wäre"  
-  - "Wäre"  
-explicacion: "El verbo 'gehen' en Konjunktiv I del pretérito perfecto es 'wäre gegangen'. Después de 'sagen', se usa el subjuntivo para expresar una acción hipotética."  
+### 12 — Función
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "konjunktiv-i-discurso-indirecto"
+  nivel: "C1"
+  tags: ["konjunktiv-i"]
+
+respuesta: "Que se reproducen palabras de otro, con distancia"
+tipo: "mc"
+opciones_explicitas: ["Que se reproducen palabras de otro, con distancia", "Que el hecho es irreal", "Que es una orden"]
+
+enunciado: "¿Qué indica el Konjunktiv I en una noticia?"
+
+explicacion: |
+  Distancia.
 ```
 
-### 17 — Elección del verbo correcto en Konjunktiv I  
-```  
-metadata:  
-  materia: "alemán"  
-  tema: "konjunktiv-i-discurso-indirecto"  
-  nivel: "C1"  
-  tags: ["zweifeln", "haben"]  
-pasos:  
-  - "Identificar que 'zweifeln' requiere Konjunktiv I."  
-  - "Seleccionar la forma correcta de 'haben' en subjuntivo."  
-enunciado: "Er zweifelte, dass sie ___ den Fehler nicht bemerkt hätte."  
-opciones_explicitas:
-  - "hätte"
-  - "hatte"
-  - "wäre"
-  - "gäbe"
-respuesta: "hätte"  
-tipo: mc  
-explicacion: "Después de 'zweifeln' (dudar), se usa Konjunktiv I. La forma correcta de 'haben' en pluscuamperfecto es 'hätte'. Las otras opciones son incorrectas por tensión o conjugación."  
+### 13 — wissen
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "konjunktiv-i-discurso-indirecto"
+  nivel: "C1"
+  tags: ["konjunktiv-i"]
+
+respuesta: "wisse"
+tipo: "mc"
+opciones_explicitas: ["wisse", "weiß", "wusste"]
+
+enunciado: "Sie behauptete, sie ___ nichts davon."
+
+explicacion: |
+  *Wissen → sie wisse*.
 ```
 
-### 18 — Uso del Konjunktiv I con verbos de recordar (variación)  
-```  
-metadata:  
-  materia: "alemán"  
-  tema: "konjunktiv-i-discurso-indirecto"  
-  nivel: "C1"  
-  tags: ["glauben", "sein"]  
-pasos:  
-  - "Reconocer que 'glauben' requiere Konjunktiv I."  
-  - "Usar la forma correcta de 'sein' en subjuntivo."  
-enunciado: "Sie glaubte, dass er ___ noch nicht krank wäre."  
-tipo: completar  
-respuestas_validas:  
-  - "wäre"  
-  - "Wäre"  
-explicacion: "El verbo 'sein' en Konjunktiv I del pretérito perfecto es 'wäre'. Después de 'glauben', se usa el subjuntivo para expresar una suposición sobre un estado."  
-```
+### 14 — Tiempo
 
-### 19 — Uso del Konjunktiv I con verbos de creer (variación)  
-```  
-metadata:  
-  materia: "alemán"  
-  tema: "konjunktiv-i-discurso-indirecto"  
-  nivel: "C1"  
-  tags: ["erklären", "verben regulares"]  
-pasos:  
-  - "Identificar que 'erklären' requiere Konjunktiv I en cláusula indirecta."  
-  - "Seleccionar la forma correcta del verbo 'machen'."  
-enunciado: "Er erklärte, dass sie ___ die Aufgabe nicht geschafft hätte."  
-tipo: completar  
-respuestas_validas:  
-  - "hätte"  
-  - "Hätte"  
-explicacion: "El verbo 'machen' en Konjunktiv I del pluscuamperfecto es 'hätte geschafft'. Después de 'erklären', se usa el subjuntivo para transmitir una explicación."  
 ```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "konjunktiv-i-discurso-indirecto"
+  nivel: "C1"
+  tags: ["konjunktiv-i"]
 
-### 20 — Elección del verbo correcto en Konjunktiv I  
-```  
-metadata:  
-  materia: "alemán"  
-  tema: "konjunktiv-i-discurso-indirecto"  
-  nivel: "C1"  
-  tags: ["sagen", "fühlen"]  
-pasos:  
-  - "Reconocer que 'sagen' requiere Konjunktiv I."  
-  - "Usar la forma correcta de 'fühlen' en subjuntivo."  
-enunciado: "Er sagte, dass sie ___ sich sehr müde fühlte."  
-tipo: completar  
-respuestas_validas:  
-  - "fühle"  
-  - "Fühle"  
-explicacion: "El verbo 'fühlen' en Konjunktiv I del pretérito es 'fühle'. Después de 'sagen', se usa el subjuntivo para expresar una percepción."  
-```
+respuesta: falso
+tipo: vf
 
-### 21 — Uso del Konjunktiv I con verbos de dudar (variación)  
-```  
-metadata:  
-  materia: "alemán"  
-  tema: "konjunktiv-i-discurso-indirecto"  
-  nivel: "C1"  
-  tags: ["berichten", "haben"]  
-pasos:  
-  - "Identificar que 'berichten' requiere Konjunktiv I."  
-  - "Seleccionar la forma correcta de 'haben' en subjuntivo."  
-enunciado: "Sie berichtete, dass er ___ den Fehler nicht bemerkt hätte."  
-opciones_explicitas:
-  - "hätte"
-  - "hatte"
-  - "wäre"
-  - "gäbe"
-respuesta: "hätte"  
-tipo: mc  
-explicacion: "Después de 'berichten' (informar), se usa Konjunktiv I. La forma correcta de 'haben' en pluscuamperfecto es 'hätte'. Las otras opciones son incorrectas por tensión o conjugación."  
-```
+enunciado: "En el Konjunktiv I el tiempo cambia según el verbo introductor esté en pasado."
 
-### 22 — Elección del verbo correcto en Konjunktiv I  
-```  
-metadata:  
-  materia: "alemán"  
-  tema: "konjunktiv-i-discurso-indirecto"  
-  nivel: "C1"  
-  tags: ["sagen", "erklären"]  
-pasos:  
-  - "Reconocer que 'sagen' requiere Konjunktiv I."  
-  - "Usar la forma correcta de 'erklären' en subjuntivo."  
-enunciado: "Er sagte, dass er ___ die Situation nicht erklärt hätte."  
-tipo: completar  
-respuestas_validas:  
-  - "hätte"  
-  - "Hätte"  
-explicacion: "El verbo 'erklären' en Konjunktiv I del pluscuamperfecto es 'hätte erklärt'. Después de 'sagen', se usa el subjuntivo para transmitir una explicación."  
-```
-
-### 23 — Uso del Konjunktiv I con verbos de recordar (variación)  
-```  
-metadata:  
-  materia: "alemán"  
-  tema: "konjunktiv-i-discurso-indirecto"  
-  nivel: "C1"  
-  tags: ["vermuten", "sein"]  
-pasos:  
-  - "Identificar que 'vermuten' requiere Konjunktiv I."  
-  - "Seleccionar la forma correcta de 'sein' en subjuntivo."  
-enunciado: "Er vermutete, dass sie ___ noch nicht da wäre."  
-tipo: completar  
-respuestas_validas:  
-  - "wäre"  
-  - "Wäre"  
-explicacion: "El verbo 'sein' en Konjunktiv I del pretérito perfecto es 'wäre'. Después de 'vermuten', se usa el subjuntivo para expresar una suposición sobre un estado."  
-```
-
-### 24 — Uso del Konjunktiv I con verbos de creer (variación)  
-```  
-metadata:  
-  materia: "alemán"  
-  tema: "konjunktiv-i-discurso-indirecto"  
-  nivel: "C1"  
-  tags: ["sagen", "machen"]  
-pasos:  
-  - "Reconocer que 'sagen' requiere Konjunktiv I."  
-  - "Usar la forma correcta de 'machen' en subjuntivo."  
-enunciado: "Er sagte, dass sie ___ die Arbeit noch nicht gemacht hätte."  
-tipo: completar  
-respuestas_validas:  
-  - "hätte"  
-  - "Hätte"  
-explicacion: "El verbo 'machen' en Konjunktiv I del pluscuamperfecto es 'hätte gemacht'. Después de 'sagen', se usa el subjuntivo para transmitir una acción hipotética."  
+explicacion: |
+  Falso: no depende del introductor.
 ```

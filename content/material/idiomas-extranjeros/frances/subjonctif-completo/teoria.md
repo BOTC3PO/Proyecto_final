@@ -1,49 +1,53 @@
-# Subjuntivo en francés: uso y diferencias con el español (Nivel B2)
+# El subjonctif en francés: usos completos (B2)
 
 > Tema del MAPA: `idiomas-extranjeros/frances/subjonctif-completo`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
-## 1. Introducción
-El **subjuntivo** es un modo verbal que expresa dudas, deseos, obligaciones o emociones subjetivas en francés. A nivel B2 del Marco Común Europeo de Referencia para las Lenguas (MCER), su dominio permite construir oraciones más complejas y precisas al hablar de situaciones hipotéticas, opiniones o exigencias. Su uso es clave para evitar ambigüedades en contextos como "Espero que vengas" (*J'espère que tu viennes*) o "Es necesario que estudies" (*Il faut que tu étudies*).
+## Introducción
+En el nivel B2 hay que dominar el **subjonctif présent** y el **subjonctif passé**, y distinguir con seguridad cuándo se usa y cuándo no.
 
-## 2. Explicación central
-El subjuntivo se forma con la **tercera persona del singular** de los tiempos compuestos (presente, imperfecto y pluscuamperfecto) y se usa tras ciertas conjunciones o expresiones que indican duda, deseo, obligación o emoción.
+## Explicación central
+### Subjonctif passé
+*avoir/être* en subjuntivo + participio: *que j'**aie fini**, qu'elle **soit partie***. Indica una acción **anterior**: *Je suis content que tu **aies réussi**.*
 
-### Ejemplos reales:
-- **Deseos:** *Je veux que tu parles moins fort.* (Quiero que hables más bajo.)
-  → El subjuntivo "parles" se usa tras *que* después de un verbo de deseo (*vouloir, désirer*).
-- **Obligaciones:** *Il faut que vous soyez là à 8h.* (Es necesario que estén allí a las 8.)
-  → El subjuntivo "soyez" sigue a *il faut que*.
-- **Dudas:** *Je doute qu’il sache la réponse.* (Dudo que sepa la respuesta.)
-  → Tras verbos de duda (*douter, craindre*), el subjuntivo es obligatorio.
+### Verbos y expresiones que lo exigen
+- **Voluntad**: *vouloir, exiger, demander, souhaiter, préférer, accepter, refuser que*.
+- **Sentimiento**: *être content/triste/surpris que, avoir peur que (ne), regretter que, s'étonner que*.
+- **Necesidad/posibilidad**: *il faut, il est important/nécessaire/possible que, il se peut que*.
+- **Duda, negación**: *douter que, il est peu probable que, ne pas penser/croire que, ne pas être sûr que*.
+- **Conjunciones**: *pour que, afin que, bien que, quoique, avant que (ne), à moins que (ne), à condition que, pourvu que, sans que, jusqu'à ce que, de peur que (ne)*.
+- **Superlativo y *le seul, le premier, l'unique***: *C'est le meilleur film que j'**aie** vu.*
+- Relativa con antecedente buscado: *Je cherche quelqu'un qui **sache** le russe.*
 
-**Nota:** Algunos verbos usan directamente el **infinitivo** tras *que*, como en:
-- *Je pense qu’il viendra.* (Creo que vendrá.) → Aquí no se usa el subjuntivo (*viendra* es infinitivo).
+### Indicativo, no subjuntivo
+- *penser, croire, trouver, être sûr que* **afirmativos**: *Je crois qu'il **a** raison.*
+- ***espérer que***: indicativo.
+- ***il est probable que***: indicativo (*il est **peu** probable que*: subjuntivo).
+- ***après que***: indicativo (en el uso cuidado): *après qu'il **est** parti*.
+- ***parce que, pendant que, alors que, depuis que***: indicativo.
 
-## 3. Errores comunes de hispanohablantes
-Los hablantes de español suelen aplicar reglas del subjuntivo de su lengua, lo que puede generar errores:
-- **Exceso de uso:** En francés, no se usa el subjuntivo tras expresiones neutras como *Je crois que* (Creo que). Ejemplo incorrecto: *Je crois qu’il vienne.* → Correcto: *Je crois qu’il vient*.
-- **Confusión con el infinitivo:** No siempre es necesario el subjuntivo. Error: *Il faut que tu ailles au cinéma.* → Correcto: *Il faut que tu ailles* (subjuntivo) o *Il faut aller au cinéma* (infinitivo).
-- **Formas incorrectas:** Uso de tiempos del indicativo en lugar del subjuntivo. Error: *Je veux qu’il vienne.* → Correcto: *Je veux qu’il vienne* (subjuntivo presente).
+### ¿Infinitivo o subjuntivo?
+Mismo sujeto → infinitivo: *Je suis content **d'être** là. Je travaille **pour réussir**.* (❌ *pour que je réussisse*)
 
-## 4. Comparación con el español
-En español, el subjuntivo se usa tras una mayor variedad de expresiones y en más contextos. En francés, su uso es más limitado. Por ejemplo:
-- **Español:** *Espero que vengas.* → Uso del subjuntivo (*vengas*).
-- **Francés:** *J'espère que tu viennes.* → Subjuntivo presente (*viennes*), pero no se usa tras expresiones neutras como *Je crois que* (Creo que).
+### *Ne* expletivo
+Tras *avant que, à moins que, de peur que, avoir peur que* aparece en registro cuidado un *ne* que **no niega**: *Pars avant qu'il **ne** pleuve.*
 
-Otro punto de diferencia: en francés, el subjuntivo no se forma con la raíz del verbo + *-e* (como en español), sino con la tercera persona singular del indicativo. Por ejemplo:
-- **Español:** *Espero que él venga.* → *venga* (subjuntivo).
-- **Francés:** *J'espère qu'il vienne.* → *viennent* (subjuntivo presente de *venir*).
+## Errores comunes de hispanohablantes
+1. ❌ *Je pense qu'il soit malade* ✅ *Je pense qu'il est malade*.
+2. ❌ *Après qu'il soit parti* (muy extendido, pero censurado) ✅ *Après qu'il est parti*.
+3. ❌ *Bien qu'il est riche* ✅ *Bien qu'il soit riche*.
+4. ❌ *Il est probable qu'il vienne* ✅ *qu'il viendra*.
+5. Tomar el *ne* expletivo por negación.
 
-## 5. Ejemplo extendido en contexto
-**Situación:** Un profesor habla con un estudiante sobre una tarea.
-> **Profesor:** *Je veux que tu finisses ton devoir avant demain.* (Quiero que termines tu tarea antes de mañana.)
-> **Estudiante:** *D’accord, mais je doute qu’il y ait assez de temps.* (De acuerdo, pero dudo que haya suficiente tiempo.)
-> **Profesor:** *Il faut que vous soyez ponctuel·le si vous voulez réussir.* (Es necesario que seas puntual si quieres aprobar.)
+## Comparación con el español
+Coincide en voluntad, emoción, duda y finalidad. Difiere en *espérer* (indicativo en francés), *après que* (indicativo) y *il est probable que* (indicativo). Y el francés no tiene un subjuntivo imperfecto de uso diario: «quería que **vinieras**» = *je voulais que tu **viennes***.
 
-Este diálogo muestra el uso del subjuntivo tras *que* (*finisses, y ait, soyez*) para expresar deseos, dudas y obligaciones. Nota cómo no se usa en *Je crois que* o *Je pense que*, donde siempre se emplea el infinitivo.
+## Ejemplo extendido en contexto
+*Bien que le projet **soit** difficile, il faut que nous le **finissions** avant que le directeur **ne** revienne. Je ne pense pas qu'il **ait compris** nos problèmes, mais j'espère qu'il nous **aidera**. C'est le projet le plus complexe que j'**aie** jamais **dirigé**.*
