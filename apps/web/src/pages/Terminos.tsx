@@ -19,7 +19,7 @@ const SECCIONES: Record<"es" | "en", Seccion[]> = {
     {
       titulo: "1. Aceptación de los términos",
       parrafos: [
-        `Estos Términos y Condiciones (los "Términos") regulan el acceso y uso de Virtual Book (la "Plataforma"), operada por ${responsableTexto}, con domicilio legal en Argentina (el "Operador", "nosotros").`,
+        `Estos Términos y Condiciones (los "Términos") regulan el acceso y uso de Virtual Book (la "Plataforma"), operada por ${responsableTexto} (el "Operador", "nosotros").`,
         "Al crear una cuenta o usar la Plataforma aceptás estos Términos. Si actuás en representación de una escuela o institución, declarás tener facultades para obligarla a estos Términos. Si sos menor de 18 años, sólo podés usar la Plataforma dentro de un aula gestionada por tu escuela y con la supervisión de un docente, directivo o familiar responsable de tu cuenta.",
       ],
     },
@@ -94,7 +94,7 @@ const SECCIONES: Record<"es" | "en", Seccion[]> = {
     {
       titulo: "1. Acceptance of these Terms",
       parrafos: [
-        `These Terms and Conditions (the "Terms") govern access to and use of Virtual Book (the "Platform"), operated by ${responsableTexto}, legally domiciled in Argentina (the "Operator", "we").`,
+        `These Terms and Conditions (the "Terms") govern access to and use of Virtual Book (the "Platform"), operated by ${responsableTexto} (the "Operator", "we").`,
         "By creating an account or using the Platform, you accept these Terms. If you act on behalf of a school or institution, you represent that you have authority to bind it to these Terms. If you are under 18, you may only use the Platform within a classroom managed by your school and under the supervision of a teacher, school administrator, or the family member responsible for your account.",
       ],
     },
