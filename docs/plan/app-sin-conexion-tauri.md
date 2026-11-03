@@ -18,8 +18,8 @@ Expo sigue igual para el uso con red: avisos al celular, mensajes y pagos.
 | Consultar el diccionario de los idiomas descargados | Renovar el permiso de 3 meses |
 | Ver el progreso, los logros y el historial de intentos | Vincular un usuario local a una cuenta de la plataforma |
 
-Quedan fuera: aulas, tareas de docentes, mensajes, pagos y exámenes que arma un docente. Todo eso depende de otras
-personas y sigue en la web y en la app Expo.
+La app está pensada para alumnos, pero también tiene en cuenta a padres o tutores y a docentes (ver «Padres, tutores
+y docentes»). Quedan fuera: mensajes, pagos y la gestión completa de aulas, que siguen en la web y en la app Expo.
 
 Varias personas pueden usar el mismo dispositivo (tablets compartidas de una escuela). Cada una tiene su perfil, y
 el contenido descargado se comparte entre todas.
@@ -40,6 +40,44 @@ el contenido descargado se comparte entre todas.
     por dispositivo.
 - **Motor de preguntas:** `@vb/vblang` ya corre en la web y corre igual en la app. Cada intento guarda la semilla,
   la versión del cuestionario y las respuestas, así el servidor lo puede volver a corregir.
+
+## Padres, tutores y docentes
+
+El permiso firmado lleva los roles de la persona y sus vínculos confirmados por el servidor: los hijos de un padre o
+tutor, y los alumnos de las aulas de un docente. En el dispositivo, cada rol solo ve los perfiles con los que tiene
+un vínculo confirmado o los usuarios locales que creó.
+
+### Padres o tutores
+- **Seguimiento sin red.** Si el hijo usa el mismo dispositivo, el tutor ve su progreso, sus notas y su tiempo de
+  estudio al momento. Si usa otro, ve la última copia que bajó en la sincronización, con su fecha.
+- **Perfiles de los hijos.** En el modo autónomo, o con `usuariosLocales`, el tutor crea usuarios locales para sus
+  hijos y queda como responsable. Así un menor no se registra solo; es lo que pide el Código Civil y Comercial,
+  art. 26.
+- **Recuperar la contraseña.** Sin red no se puede mandar un correo. El tutor puede poner una contraseña nueva a sus
+  hijos en ese dispositivo.
+- **Compartir el dispositivo.** Un modo «dispositivo familiar» deja entrar a varios hermanos con un mismo tutor
+  responsable.
+
+### Docentes
+- **Preparar y dar clase sin red.** El docente lee los módulos con las resoluciones de las evaluaciones visibles.
+  También tiene un **modo clase** para proyectar la teoría y las herramientas.
+- **Dispositivos del aula.** En tablets o computadoras de la escuela, el docente puede:
+  - dar de alta a los alumnos de su aula en el dispositivo, una sola vez y con red;
+  - crear usuarios locales para quien no tiene cuenta;
+  - poner una contraseña nueva a un alumno;
+  - ver el progreso de todos los perfiles del dispositivo.
+- **Asignar sin red.** El docente marca qué módulos y evaluaciones oficiales tiene que hacer el aula, con una fecha.
+  Los alumnos lo ven en el dispositivo. Al sincronizar, la asignación pasa a ser una tarea del aula en la web, y los
+  intentos de los alumnos quedan asociados a ella.
+- **Sin internet en la escuela.** El docente exporta los resultados de los alumnos a un archivo, firmado y cifrado
+  con la clave del aula. Después lo importa desde la web en su casa, y el servidor vuelve a corregir cada intento
+  igual que en una sincronización normal. A la inversa, puede llevar en un archivo las asignaciones y los alumnos
+  nuevos.
+- **Exámenes propios del docente:** en esta versión no se descargan, porque las respuestas quedarían en dispositivos
+  de alumnos. Se pueden agregar más adelante como opción del docente, con la misma regla de la nueva corrección en
+  el servidor.
+
+Los directivos y los administradores no tienen funciones especiales en la app: si entran, la usan como un docente.
 
 ## Cuentas y verificación
 
@@ -163,8 +201,10 @@ Para la Ley 25.326 es lo más simple: si los datos no salen del dispositivo, la 
 | 5 | Sincronización en las dos direcciones, nueva corrección en el servidor, vinculación de usuarios locales | 4 a 5 |
 | 6 | Distribución: APK firmado, instaladores de escritorio, paquete completo | 1 a 2 |
 | 7 | Pruebas (modo avión, permiso vencido, cuenta dada de baja, intentos repetidos, notas que no coinciden) y documentación (manual, política de privacidad) | 3 |
+| 8 | Padres o tutores: seguimiento, perfiles de los hijos, contraseña nueva, dispositivo familiar | 2 a 3 |
+| 9 | Docentes: resoluciones y modo clase, alumnos del aula en el dispositivo, asignaciones, exportar e importar por archivo | 5 a 6 |
 
-**Total estimado: 23 a 30 días de trabajo.** Las fases 0 a 4 ya dan una app usable sin red; la sincronización se
+**Total estimado: 30 a 39 días de trabajo** (23 a 30 la parte de alumnos). Las fases 0 a 4 ya dan una app usable sin red; la sincronización se
 puede entregar después.
 
 ## Riesgos
