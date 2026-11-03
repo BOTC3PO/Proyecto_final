@@ -1,5 +1,8 @@
 # Plan: modo sin conexión de la app de Android (L8)
 
+> **Reemplazado** el 3 de noviembre de 2026 por [app-sin-conexion-tauri.md](app-sin-conexion-tauri.md): la app sin
+> conexión va a ser una app aparte hecha con Tauri. Este plan queda como referencia.
+
 Pedido de Javier (2026-10-29): una versión de la app que solo necesite conexión con la API para iniciar sesión, y
 que guarde la cuenta en el dispositivo para las veces siguientes. Este plan lo baja a fases que se pueden
 entregar por separado. Fecha: 3 de noviembre de 2026.
