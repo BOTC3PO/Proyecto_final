@@ -32,13 +32,14 @@ el contenido descargado se comparte entre todas.
 - **API local dentro de la app.** Las páginas de la web piden datos con `apiGet` y `apiPost`. En la app, esas
   llamadas las atiende una API local que responde lo mismo que el servidor, con los mismos formatos, leyendo de
   SQLite. Así las páginas no se reescriben: cambia de dónde salen los datos. Unas pruebas comparan las respuestas
-  locales con las del servidor para que no se separen.
+  locales con las del servidor para que no se separen. La API local se escribe en Rust, para que sirva también en el
+  «modo navegador» de Huayra 5 y 6 (ver «Computadoras del Estado»).
 - **Almacenamiento:**
-  - El contenido y los diccionarios van en SQLite (`tauri-plugin-sql`).
+  - El contenido y los diccionarios van en SQLite, manejado desde Rust (`rusqlite` con SQLite incluido).
   - Las imágenes y el audio van en archivos dentro de la carpeta de datos de la app.
   - Los datos de cada persona (perfil, intentos, progreso, cola de sincronización) van en una base SQLite aparte
     por dispositivo.
-- **Motor de preguntas:** `@vb/vblang` ya corre en la web y corre igual en la app. Cada intento guarda la semilla,
+- **Motor de preguntas:** `@vb/vblang` ya corre en la web y corre igual en la app (en el visor o en el navegador). Cada intento guarda la semilla,
   la versión del cuestionario y las respuestas, así el servidor lo puede volver a corregir.
 
 ## Padres, tutores y docentes
@@ -78,6 +79,56 @@ un vínculo confirmado o los usuarios locales que creó.
   el servidor.
 
 Los directivos y los administradores no tienen funciones especiales en la app: si entran, la usan como un docente.
+
+## Computadoras del Estado (público principal)
+
+Revisión del 4 de noviembre de 2026. El público principal son las computadoras que el Estado entregó a escuelas y
+alumnos. Fuentes: notas de prensa y documentación pública de los programas; no hay una ficha oficial única por lote,
+así que antes de publicar hay que probar en equipos reales.
+
+| Programa | Años | Equipo | Sistema |
+|---|---|---|---|
+| Conectar Igualdad (primeras generaciones) | 2010–2015 | Atom N450/N455 con 1 a 2 GB; después Celeron N2600/N2806 con 2 a 4 GB | Windows 7 u 8.1 y Huayra 1 a 4 (Debian 7 a 9) o Ubuntu |
+| Plan Federal Juana Manso y Conectar Igualdad relanzado | 2021–2023 | Celeron N4020, 4 GB DDR4, SSD de 240 GB, pantalla de 11,6" (1366×768) | Huayra 5 (Debian 10) o Huayra 6 (Debian 11); algunos lotes con Windows 10 en arranque doble |
+| Conectar Igualdad Bonaerense | 2023–2024 | 4 GB DDR4, SSD de 120 GB | Windows 11 (según una fuente sin confirmar) |
+
+El programa nacional se dejó de financiar en 2024; Huayra quedó en la 6.5 «Ráfaga» (Debian 12, febrero de 2024) y no
+tuvo versiones nuevas.
+
+### Qué puede correr cada uno
+
+- **Windows 10 y 11: sí.** Tauri usa WebView2, que viene en Windows 11 y se instala en Windows 10. Como muchas
+  escuelas no tienen internet, el instalador tiene que llevar WebView2 adentro (`webviewInstallMode` en modo
+  `offlineInstaller`, unos 130 MB más) en lugar de descargarlo.
+- **Windows 7 y 8.1: no conviene.** La última versión de WebView2 para esos sistemas es la 109 (enero de 2023), sin
+  actualizaciones de seguridad.
+- **Huayra 6.5 (Debian 12): sí.** Tiene `libwebkit2gtk-4.1`, que es lo que pide Tauri 2.
+- **Huayra 5 y 6 (Debian 10 y 11): no, con Tauri 2.** Esas versiones solo tienen `libwebkit2gtk-4.0`, y Tauri 2
+  necesita la 4.1. Tampoco sirve un AppImage armado en Debian 12, porque pide una versión de glibc más nueva que la de
+  Debian 11. Es el caso más común en las netbooks de 2021 a 2023.
+- **Netbooks de 2010 a 2015:** quedan afuera de la app de escritorio (1 a 2 GB de memoria y sistemas sin soporte).
+
+El hardware de 2021 en adelante alcanza: el visor web usa entre 200 y 400 MB de memoria, el contenido de una materia
+pesa pocos megabytes y la web ya funciona en 1366×768.
+
+### Solución para Huayra 5 y 6: «modo navegador»
+
+La misma app, sin visor propio. El programa de la app (en Rust) se compila **estático** (destino
+`x86_64-unknown-linux-musl`, sin depender de las bibliotecas del sistema), levanta un servidor solo en `127.0.0.1` y
+abre la app en el navegador que trae Huayra (Firefox ESR o Chromium). Los datos quedan en la misma base SQLite.
+
+Esto ordena la arquitectura: la **API local** (sección «Cómo está hecha») se escribe en Rust y no en JavaScript, para
+que sirva igual a las tres formas de usar la app:
+- en Android y en Windows o Huayra 6.5, la web le habla por los comandos de Tauri;
+- en Huayra 5 y 6, por HTTP a `127.0.0.1`.
+
+Cuidado con el navegador: una netbook que nunca se actualizó puede tener Firefox ESR 102 o anterior, y la web hoy se
+compila para navegadores más nuevos. El paquete de Huayra se compila con un destino más viejo (`es2020`) y se prueba
+en Firefox ESR 102.
+
+### Pruebas antes de publicar
+- Máquinas virtuales con Huayra 6.0 (Debian 11), Huayra 6.5 (Debian 12) y Windows 10, con 4 GB de memoria y sin red.
+- Al menos una netbook real Juana Manso o Conectar Igualdad 2022.
 
 ## Cuentas y verificación
 
@@ -209,12 +260,12 @@ Para la Ley 25.326 es lo más simple: si los datos no salen del dispositivo, la 
 | 3 | Paquetes: generación en el servidor, descarga, importación desde archivo, diccionario por idioma | 4 a 5 |
 | 4 | Módulos, prácticas y evaluaciones locales; progreso y logros en el dispositivo | 4 a 5 |
 | 5 | Sincronización en las dos direcciones, nueva corrección en el servidor, vinculación de usuarios locales | 4 a 5 |
-| 6 | Distribución: APK firmado, instaladores de escritorio, paquete completo | 1 a 2 |
+| 6 | Distribución: APK firmado, instaladores de escritorio (Windows con WebView2 incluido), «modo navegador» para Huayra 5 y 6, paquete completo | 3 a 4 |
 | 7 | Pruebas (modo avión, permiso vencido, cuenta dada de baja, intentos repetidos, notas que no coinciden) y documentación (manual, política de privacidad) | 3 |
 | 8 | Padres o tutores: seguimiento, perfiles de los hijos, contraseña nueva, dispositivo familiar | 2 a 3 |
 | 9 | Docentes: resoluciones y modo clase, alumnos del aula en el dispositivo, asignaciones, exportar e importar por archivo | 5 a 6 |
 
-**Total estimado: 30 a 39 días de trabajo** (23 a 30 la parte de alumnos). Las fases 0 a 4 ya dan una app usable sin red; la sincronización se
+**Total estimado: 32 a 41 días de trabajo** (25 a 32 la parte de alumnos). Las fases 0 a 4 ya dan una app usable sin red; la sincronización se
 puede entregar después.
 
 ## Riesgos
