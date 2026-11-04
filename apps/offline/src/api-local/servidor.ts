@@ -3,7 +3,7 @@
  * conexión responde 503 con `code: "SIN_CONEXION"`, y la web lo muestra como un error común.
  */
 import type { Contexto } from "./contexto";
-import { cerrarSesion, iniciarSesion, listarPerfiles, registrarLocal, renovar, segundoPasoDeIngreso, yo } from "./cuentas";
+import { cerrarSesion, iniciarSesion, listarPerfiles, registrarLocal, renovar, segundoPasoDeIngreso, vincular, yo } from "./cuentas";
 import { json, sinConexion } from "./http";
 import { buscar, idiomas, prefijo, salud } from "./diccionario";
 import { crearIntento, entregar, eventosDeIntento, listarIntentos, responder, resumenDeIntentos, verIntento } from "./intentos";
@@ -13,6 +13,7 @@ import { cambiarPerfil, solicitarRol } from "./perfil";
 import {
   listarFavoritos, listarProgreso, marcarFavorito, perfilPropio, progresoEstudiante, quitarFavorito, tareas, valoraciones,
 } from "./progreso";
+import { estadoDeSincronizacion, sincronizarAhora } from "./sincronizacion";
 import { modulosParaPadres, perfilesParaPadres, teoriaParaPadres } from "./vista-padre";
 
 type Manejador = (ctx: Contexto, req: Request, ...params: string[]) => Promise<Response> | Response;
@@ -27,6 +28,9 @@ const RUTAS: [string, RegExp, Manejador][] = [
   ["GET", /^\/api\/offline\/perfiles$/, listarPerfiles],
   ["PATCH", /^\/api\/offline\/perfil$/, cambiarPerfil],
   ["POST", /^\/api\/solicitar-rol$/, solicitarRol],
+  ["POST", /^\/api\/offline\/vincular$/, vincular],
+  ["POST", /^\/api\/offline\/sincronizar$/, sincronizarAhora],
+  ["GET", /^\/api\/offline\/sincronizacion$/, estadoDeSincronizacion],
   ["GET", /^\/api\/offline\/paquetes$/, listarPaquetes],
   ["POST", /^\/api\/offline\/paquetes\/importar$/, importarPaquete],
   ["POST", /^\/api\/offline\/paquetes\/([^/]+)\/descargar$/, descargarPaquete],

@@ -707,7 +707,9 @@ quizAttempts.get(
           score: a.score,
           maxScore: a.maxScore,
           attemptNo: a.attemptNo ?? null,
-          seed: a.seed ?? null
+          seed: a.seed ?? null,
+          // L8 — hecho en la app sin conexión (el historial lo muestra así).
+          sinConexion: Boolean(safeJsonParse<{ sinConexion?: unknown }>(a.grading as string | null | undefined, {}).sinConexion)
         };
       });
       res.json({ items, total: totalIntentos });
@@ -1356,6 +1358,13 @@ quizAttempts.patch(
 // materializable server-side (generadoresV2): en ese caso NO se auto-cierra,
 // el intento queda `in_progress` (mismo comportamiento previo a PLAN-D).
 type MaterializeSubmitResult = { status: number; body: Record<string, unknown> };
+type MaterializeOptions = {
+  auto?: boolean;
+  /** L8 — intento hecho en la app sin conexión: la hora de la entrega es la del dispositivo, no la de la sincronización. */
+  ahora?: Date;
+  /** L8 — lo que corrigió el dispositivo; si la nota no coincide, el intento queda marcado para revisión. */
+  sinConexion?: { dispositivo: string; scoreLocal: number; maxScoreLocal: number; sorteo: string };
+};
 
 function buildAlreadySubmittedBody(attempt: QuizAttemptRecord): Record<string, unknown> {
   // PLAN-D §1 (riesgo "doble envío") — un intento que ya no está
@@ -1383,7 +1392,7 @@ async function materializeSubmit(
   userId: string,
   attempt: QuizAttemptRecord,
   payload: QuizAttemptSubmit,
-  options: { auto?: boolean } = {}
+  options: MaterializeOptions = {}
 ): Promise<MaterializeSubmitResult | null> {
       const { quiz: collectionQuiz, version, module, versionMissing } = await fetchQuizFromCollections(
         attempt.quizId,
@@ -1412,7 +1421,8 @@ async function materializeSubmit(
       const submitEvalConfig = parseEvaluacionConfig(version?.settings, submitQuizTipo);
       const tiempoCheck = validarTiempoLimite(
         attempt.startedAt as unknown as string,
-        submitEvalConfig.timerSegundos
+        submitEvalConfig.timerSegundos,
+        options.ahora
       );
 
       const normalizedQuizVersion = QuizVersionSchema.parse(
@@ -1590,10 +1600,18 @@ async function materializeSubmit(
       if (priorEvents) {
         (grading as Record<string, unknown>).events = priorEvents;
       }
+      // L8 — «hecho sin conexión»: vale la nota del servidor; si no coincide con la del dispositivo, se marca.
+      if (options.sinConexion) {
+        const { dispositivo, scoreLocal, maxScoreLocal, sorteo } = options.sinConexion;
+        (grading as Record<string, unknown>).sinConexion = {
+          dispositivo, scoreLocal, maxScoreLocal, ...(sorteo !== userId ? { sorteo } : {}),
+          revisar: scoreLocal !== score || maxScoreLocal !== maxScore
+        };
+      }
       const hasPendingManual = manual.length > 0;
       const status = hasPendingManual ? "pending_review" : "submitted";
 
-      const updatedAt = new Date();
+      const updatedAt = options.ahora ?? new Date();
       // H17 — se reclama el intento con una condición: si llegan dos envíos a la vez, solo el primero que escribe
       // lo corrige; el otro recibe lo ya guardado, igual que un reenvío (antes ganaba el último y pisaba la nota).
       const reclamo = await prisma.quizAttempt.updateMany({
@@ -2223,3 +2241,122 @@ quizAttempts.get(
     return res.json({ quizId, aulaId, ranking });
   }
 );
+
+/** L8 — un intento hecho en la app sin conexión, tal como lo sube `POST /api/offline/sync`. */
+export type IntentoSinConexion = {
+  id: string;
+  quizId: string;
+  quizVersionId: string;
+  seed: string | null;
+  attemptNo: number;
+  /** Con qué identificador se sortearon las preguntas: el del usuario local si después se vinculó a la cuenta. */
+  sorteo: string;
+  startedAt: string;
+  submittedAt: string;
+  answers: Record<string, string | string[]>;
+  presentedIds?: string[];
+  generatedQuestions?: QuizAttemptSubmit["generatedQuestions"];
+  score: number;
+  maxScore: number;
+  events?: Record<string, unknown>;
+};
+
+export type ResultadoSinConexion =
+  | { estado: "corregido" | "ya_estaba"; score: number; maxScore: number; status: string; revisar: boolean }
+  | { estado: "rechazado"; motivo: string };
+
+const ID_INTENTO = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
+
+const resultadoGuardado = (a: { score: number | null; maxScore: number | null; status: string; grading: string | null }, estado: "corregido" | "ya_estaba"): ResultadoSinConexion => ({
+  estado,
+  score: a.score ?? 0,
+  maxScore: a.maxScore ?? 0,
+  status: a.status,
+  revisar: safeJsonParse<{ sinConexion?: { revisar?: boolean } }>(a.grading, {}).sinConexion?.revisar === true,
+});
+
+/**
+ * L8 — vuelve a corregir en el servidor un intento hecho sin conexión, con su semilla, su versión y sus respuestas, y
+ * recién ahí acredita monedas y progreso, igual que una entrega de la web (`materializeSubmit`). Vale la nota del
+ * servidor; si no coincide con la del dispositivo, el intento queda marcado para revisión. Aplicar dos veces el mismo
+ * intento no lo vuelve a corregir.
+ */
+export async function corregirIntentoSinConexion(
+  userId: string,
+  dispositivo: string,
+  i: IntentoSinConexion
+): Promise<ResultadoSinConexion> {
+  if (!ID_INTENTO.test(i.id)) return { estado: "rechazado", motivo: "identificador inválido" };
+  const existente = await prisma.quizAttempt.findFirst({ where: { id: i.id } });
+  if (existente) {
+    return existente.userId === userId
+      ? resultadoGuardado(existente, "ya_estaba")
+      : { estado: "rechazado", motivo: "identificador inválido" };
+  }
+  // El módulo sale del cuestionario del servidor, nunca del dispositivo: si no, un intento aprobado de un módulo
+  // completaría otro.
+  const moduleId = (await prisma.quiz.findFirst({ where: { id: i.quizId }, select: { moduleId: true } }))?.moduleId ?? null;
+  const { quiz: collectionQuiz, version, versionMissing } = await fetchQuizFromCollections(
+    i.quizId,
+    moduleId ?? undefined,
+    i.quizVersionId
+  );
+  if (versionMissing || !version?.id) return { estado: "rechazado", motivo: "la versión del cuestionario no está en la plataforma" };
+  if (!collectionQuiz) return { estado: "rechazado", motivo: "el cuestionario no está en la plataforma" };
+
+  // La hora la pone el dispositivo; una entrega «del futuro» o anterior al inicio se acota.
+  const ahora = Date.now();
+  const inicio = Math.min(Date.parse(i.startedAt) || ahora, ahora);
+  const fin = Math.min(Math.max(Date.parse(i.submittedAt) || ahora, inicio), ahora);
+  const startedAt = new Date(inicio).toISOString();
+  try {
+    await prisma.quizAttempt.create({
+      data: {
+        id: i.id,
+        quizId: i.quizId,
+        quizVersionId: version.id,
+        userId,
+        seed: i.seed,
+        answers: JSON.stringify({}),
+        feedback: JSON.stringify({}),
+        grading: i.events ? JSON.stringify({ events: i.events }) : null,
+        score: 0,
+        maxScore: i.maxScore,
+        status: "in_progress",
+        startedAt,
+        submittedAt: null,
+        attemptNo: i.attemptNo,
+        seedPolicy: collectionQuiz.seedPolicy !== undefined ? Number(collectionQuiz.seedPolicy) : undefined,
+      }
+    });
+  } catch (e: unknown) {
+    // Dos sincronizaciones a la vez: la otra ya lo creó.
+    if ((e as { code?: string } | null)?.code === "P2002") {
+      const otro = await prisma.quizAttempt.findFirst({ where: { id: i.id, userId } });
+      if (otro) return resultadoGuardado(otro, "ya_estaba");
+    }
+    throw e;
+  }
+  const attempt: QuizAttemptRecord = {
+    id: i.id, moduleId, quizId: i.quizId, quizVersionId: version.id,
+    // Las preguntas se sortean con el mismo identificador que usó el dispositivo.
+    userId: i.sorteo, schoolId: null, seed: i.seed, answers: {},
+    grading: i.events ? JSON.stringify({ events: i.events }) : null,
+    score: 0, maxScore: i.maxScore, status: "in_progress",
+    startedAt: startedAt as unknown as Date, submittedAt: null, attemptNo: i.attemptNo,
+  };
+  const payload = QuizAttemptSubmitSchema.parse({
+    answers: i.answers, presentedIds: i.presentedIds, generatedQuestions: i.generatedQuestions,
+  });
+  await materializeSubmit(i.id, userId, attempt, payload, {
+    ahora: new Date(fin),
+    sinConexion: { dispositivo, scoreLocal: i.score, maxScoreLocal: i.maxScore, sorteo: i.sorteo },
+  });
+  const guardado = await prisma.quizAttempt.findFirst({ where: { id: i.id, userId } });
+  if (!guardado || guardado.status === "in_progress") {
+    // No se pudo corregir (por ejemplo, un generador que vive en la web): no queda un intento a medias.
+    await prisma.quizAttempt.deleteMany({ where: { id: i.id, userId, status: "in_progress" } });
+    return { estado: "rechazado", motivo: "no se pudo corregir en la plataforma" };
+  }
+  return resultadoGuardado(guardado, "corregido");
+}

@@ -140,6 +140,6 @@ describe("esquema", () => {
   it("preparar dos veces no repite migraciones", async () => {
     await prepararBases(ctx.almacen);
     const [v] = await ctx.almacen.consulta("progreso", "SELECT valor FROM meta WHERE clave = 'version'");
-    expect(v.valor).toBe("3");
+    expect(v.valor).toBe("4");
   });
 });

@@ -935,6 +935,7 @@
   "moduloDetail.enProgreso": "进行中",
   "moduloDetail.puntaje": "分数：",
   "moduloDetail.sinPuntajeRegistrado": "尚未记录任何分数",
+  "moduloDetail.hechoSinConexion": "离线完成",
   "moduloDetail.comoFamiliarPodesVerEste": "作为家属，您可以查看此测验，但不能参加。",
   "moduloDetail.iniciando": "正在启动...",
   "moduloDetail.continuarIntento": "继续尝试",

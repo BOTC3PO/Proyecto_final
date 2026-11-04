@@ -937,6 +937,7 @@
   "moduloDetail.enProgreso": "В процессе",
   "moduloDetail.puntaje": "Баллы:",
   "moduloDetail.sinPuntajeRegistrado": "Баллы не зарегистрированы",
+  "moduloDetail.hechoSinConexion": "Выполнено без подключения",
   "moduloDetail.comoFamiliarPodesVerEste": "Как родитель вы можете просмотреть этот тест, но не можете его пройти.",
   "moduloDetail.iniciando": "Запуск...",
   "moduloDetail.continuarIntento": "Продолжить попытку",

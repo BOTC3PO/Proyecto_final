@@ -935,6 +935,7 @@
   "moduloDetail.enProgreso": "進行中",
   "moduloDetail.puntaje": "スコア:",
   "moduloDetail.sinPuntajeRegistrado": "スコアは登録されていません",
+  "moduloDetail.hechoSinConexion": "オフラインで実施",
   "moduloDetail.comoFamiliarPodesVerEste": "保護者の方は、このクイズを閲覧できますが、受験することはできません。",
   "moduloDetail.iniciando": "開始中...",
   "moduloDetail.continuarIntento": "試行を続ける",

@@ -935,6 +935,7 @@
   "moduloDetail.enProgreso": "진행 중",
   "moduloDetail.puntaje": "점수:",
   "moduloDetail.sinPuntajeRegistrado": "점수가 기록되지 않았습니다.",
+  "moduloDetail.hechoSinConexion": "오프라인에서 응시",
   "moduloDetail.comoFamiliarPodesVerEste": "보호자님은 이 퀴즈를 볼 수 있지만 응시할 수 없습니다.",
   "moduloDetail.iniciando": "시작 중...",
   "moduloDetail.continuarIntento": "시도 계속",

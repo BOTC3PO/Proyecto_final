@@ -11,6 +11,7 @@ import { interpolar } from "../i18n/interpolar";
 import { resolveMateria, MATERIA_FALLBACK } from "../domain/module/materia";
 import LogroCard, { getTier } from "../ui/LogroCard";
 import { esAppSinConexion } from "../lib/sinConexion";
+import SincronizacionCard from "../components/SincronizacionCard";
 
 type TipoDestino = "ALUMNO" | "PRINCIPAL" | "PADRE" | "ALUMNO_HIJO";
 
@@ -364,6 +365,8 @@ export default function Perfil() {
                     </a>
                   </div>
                 )}
+
+                {esAppSinConexion && <SincronizacionCard />}
 
                 <DosPasosCard recomendado={perfil.role === "ADMIN" || perfil.role === "DIRECTIVO"} />
 

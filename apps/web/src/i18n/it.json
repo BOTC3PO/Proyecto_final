@@ -935,6 +935,7 @@
   "moduloDetail.enProgreso": "In corso",
   "moduloDetail.puntaje": "Punteggio:",
   "moduloDetail.sinPuntajeRegistrado": "Nessun punteggio registrato",
+  "moduloDetail.hechoSinConexion": "Svolto offline",
   "moduloDetail.comoFamiliarPodesVerEste": "Come genitore, puoi visualizzare questo quiz ma non puoi svolgerlo.",
   "moduloDetail.iniciando": "Inizio...",
   "moduloDetail.continuarIntento": "Continua tentativo",

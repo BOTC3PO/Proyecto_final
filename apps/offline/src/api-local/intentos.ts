@@ -51,6 +51,7 @@ import { perfilDeSesion } from "./cuentas";
 import { aplicaCandado, candadosDe } from "./desbloqueo";
 import { error, json, leerJson } from "./http";
 import { registrarProgreso } from "./progreso";
+import { sincronizarPerfil } from "./sincronizacion";
 
 // El servidor usa el umbral de `QuizUmbral` (60 si no hay); los paquetes no lo traen.
 const UMBRAL = 60;
@@ -59,7 +60,11 @@ type FilaIntento = {
   id: string; perfil_id: string; modulo_id: string | null; quiz_id: string; version_id: string; semilla: string | null;
   numero: number; estado: string; respuestas: string; feedback: string; grading: string | null; entrega: string | null;
   score: number; max_score: number; inicio: string; fin: string | null;
+  sorteo_id: string | null; origen: string; servidor: string | null;
 };
+
+/** Con qué identificador se sortean las preguntas: el del usuario local que hizo el intento, si después se vinculó. */
+const sorteoDe = (i: FilaIntento) => i.sorteo_id ?? i.perfil_id;
 type FilaQuiz = { id: string; modulo_id: string; titulo: string; version_id: string; settings: string; questions: string; seed_policy: number | null };
 
 type Cuestionario = { quiz: ModuleQuiz; fila: FilaQuiz; tipo: string; scoringConfig: ScoringConfig | undefined };
@@ -94,7 +99,7 @@ const codigoDe = (ctx: Contexto): CodigoDePlantilla => async (id) =>
   (await ctx.almacen.consulta<{ codigo_dsl: string }>("contenido", "SELECT codigo_dsl FROM plantillas WHERE id = ?", [id]))[0]?.codigo_dsl;
 
 const paraCorregir = (i: FilaIntento): IntentoACorregir => ({
-  quizId: i.quiz_id, userId: i.perfil_id, seed: i.semilla, quizVersionId: i.version_id, attemptNo: i.numero,
+  quizId: i.quiz_id, userId: sorteoDe(i), seed: i.semilla, quizVersionId: i.version_id, attemptNo: i.numero,
 });
 
 async function intentoPropio(ctx: Contexto, p: Perfil, id: string) {
@@ -177,8 +182,19 @@ const resumen = (i: FilaIntento, titulos: Map<string, { quiz: string; modulo: st
   id: i.id, quizId: i.quiz_id, quizVersionId: i.version_id, quizTitle: titulos.get(i.quiz_id)?.quiz,
   moduleId: i.modulo_id ?? titulos.get(i.quiz_id)?.moduloId ?? null, moduleTitle: titulos.get(i.quiz_id)?.modulo ?? undefined,
   userId: i.perfil_id, status: i.estado, startedAt: i.inicio, submittedAt: i.fin, score: i.score, maxScore: i.max_score,
-  attemptNo: i.numero, seed: i.semilla, sinConexion: true,
+  attemptNo: i.numero, seed: i.semilla, sinConexion: i.origen === "app", ...revisionDelServidor(i),
 });
+
+/** Lo que dijo la plataforma al volver a corregir (después de sincronizar). */
+function revisionDelServidor(i: FilaIntento) {
+  const s = safeJsonParse<{ estado?: string; score?: number; maxScore?: number; revisar?: boolean; motivo?: string } | null>(i.servidor, null);
+  if (!s) return { sincronizado: i.origen === "web" };
+  return {
+    sincronizado: true,
+    ...(s.estado === "rechazado" ? { rechazadoPorPlataforma: s.motivo ?? true } : {}),
+    ...(s.revisar ? { notaPlataforma: { score: s.score, maxScore: s.maxScore }, paraRevisar: true } : {}),
+  };
+}
 
 /** GET /api/quiz-attempts?moduleId=...|quizId=... — los intentos propios. */
 export async function listarIntentos(ctx: Contexto, req: Request) {
@@ -265,7 +281,7 @@ export async function verIntento(ctx: Contexto, req: Request, id: string) {
   const nativas = tienePreguntas(c.quiz.preguntas)
     ? await materializarPreguntasNativas(
         parseCuestionarioPreguntas(c.quiz.preguntas),
-        contextoSorteoPreguntas(c.quiz, i.quiz_id, i.perfil_id, i.numero),
+        contextoSorteoPreguntas(c.quiz, i.quiz_id, sorteoDe(i), i.numero),
         codigoDe(ctx),
       )
     : null;
@@ -282,7 +298,7 @@ export async function verIntento(ctx: Contexto, req: Request, id: string) {
   }
   return json({
     id: i.id, attemptId: i.id, moduleId: i.modulo_id ?? undefined, quizId: i.quiz_id, quizTitle: c.quiz.title ?? "Quiz",
-    status: i.estado, score: i.score, maxScore: i.max_score, ...nota,
+    status: i.estado, score: i.score, maxScore: i.max_score, ...nota, sinConexion: i.origen === "app", ...revisionDelServidor(i),
     timerSegundos: ev.timerSegundos, deadline: calcularDeadline(i.inicio, ev.timerSegundos),
     questions: preguntas,
     answers: safeJsonParse(i.respuestas, {}), feedback: safeJsonParse(i.feedback, {}),
@@ -436,5 +452,7 @@ export async function entregar(ctx: Contexto, req: Request, id: string) {
     const [ahora] = await ctx.almacen.consulta<FilaIntento>("progreso", "SELECT * FROM intentos WHERE id = ?", [id]);
     return json(yaEnviado(ahora ?? i));
   }
+  // Con red, la plataforma lo vuelve a corregir enseguida.
+  if (p.tipo === "plataforma") ctx.segundoPlano(sincronizarPerfil(ctx, p.id));
   return json(resultado);
 }

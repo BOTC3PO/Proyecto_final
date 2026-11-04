@@ -9,6 +9,7 @@ import { error, json, leerJson } from "./http";
 import { verificarPermiso } from "./permiso";
 import { actualizarEscuela } from "./escuela";
 import { activar, segundoPaso, type Resultado } from "./plataforma";
+import { sincronizarPerfil } from "./sincronizacion";
 
 const DIAS_SESION = 30;
 const USUARIO_VALIDO = /^[a-zA-Z0-9._-]{3,40}$/;
@@ -101,10 +102,11 @@ type FilaIngreso = Perfil & {
   estado: string; fallos: number; espera_hasta: string | null;
 };
 
-// Entró una cuenta de la plataforma con red: de paso se actualizan los módulos de su escuela.
+// Entró una cuenta de la plataforma con red: de paso se sincroniza y se actualizan los módulos de su escuela.
 const terminar = async (ctx: Contexto, r: Resultado) => {
   if (!("perfil" in r)) return r.respuesta;
   ctx.segundoPlano(actualizarEscuela(ctx, r.perfil.id));
+  ctx.segundoPlano(sincronizarPerfil(ctx, r.perfil.id));
   return json(await abrirSesion(ctx, r.perfil));
 };
 const incorrectos = () => error(401, "Usuario o contraseña incorrectos.");
@@ -150,6 +152,15 @@ export async function iniciarSesion(ctx: Contexto, req: Request) {
     if ("perfil" in r) return terminar(ctx, r);
     return error(403, "Esta cuenta está suspendida o fue dada de baja en la plataforma.", { code: "CUENTA_BLOQUEADA" });
   }
+  if (fila.estado === "contrasena") {
+    // La sincronización vio que la contraseña cambió en la web: hace falta la nueva, con red.
+    const r = await activar(ctx, identificador, b.password);
+    if ("perfil" in r) return terminar(ctx, r);
+    if (r.respuesta.status === 503) {
+      return error(403, "Tu contraseña cambió en la plataforma. Conectate a internet y entrá con la nueva.", { code: "CONTRASENA_CAMBIADA" });
+    }
+    return r.respuesta.status === 401 ? incorrectos() : r.respuesta;
+  }
 
   const coincide = iguales(await huella(b.password, fila.sal, fila.iteraciones), fila.hash);
   if (!coincide) {
@@ -177,6 +188,8 @@ export async function iniciarSesion(ctx: Contexto, req: Request) {
     }
     return terminar(ctx, r);
   }
+  // Si hay red, sube lo pendiente y renueva el permiso; si no, no pasa nada.
+  ctx.segundoPlano(sincronizarPerfil(ctx, fila.id));
   return json(await abrirSesion(ctx, fila));
 }
 
@@ -211,4 +224,60 @@ export async function cerrarSesion(ctx: Contexto, req: Request) {
 export async function listarPerfiles(ctx: Contexto) {
   const filas = await ctx.almacen.consulta<Perfil>("progreso", `SELECT ${CAMPOS} FROM perfiles ORDER BY nombre`);
   return json({ items: filas.map((p) => ({ id: p.id, nombre: p.nombre, username: p.username, rol: p.rol, tipo: p.tipo })) });
+}
+
+// Vinculaciones con verificación en dos pasos a medio hacer: desafío → usuario local. Solo en memoria y por 5 minutos.
+const vinculando = new Map<string, { local: string; vence: number }>();
+
+/**
+ * POST /api/offline/vincular — un usuario local pasa a ser una cuenta de la plataforma: `{ identifier, password }` (y,
+ * si la cuenta tiene verificación en dos pasos, después `{ desafio, codigo }`). Su historial, su progreso y sus
+ * favoritos pasan a la cuenta; al sincronizar, el servidor vuelve a corregir cada intento con el sorteo que tuvo acá.
+ * El usuario local deja de existir.
+ */
+export async function vincular(ctx: Contexto, req: Request) {
+  const local = await perfilDeSesion(ctx, req);
+  if (!local) return error(401, "No autenticado");
+  if (local.tipo !== "local") return error(400, "Esta cuenta ya es de la plataforma.");
+  const b = await leerJson<{ identifier?: string; password?: string; desafio?: string; codigo?: string }>(req);
+  let r: Resultado;
+  if (typeof b.desafio === "string") {
+    const v = vinculando.get(b.desafio);
+    if (!v || v.local !== local.id || v.vence < Date.now()) return error(401, "La vinculación venció. Empezá de nuevo.", { code: "DESAFIO_VENCIDO" });
+    r = await segundoPaso(ctx, b.desafio, String(b.codigo ?? ""));
+    if ("perfil" in r) vinculando.delete(b.desafio);
+  } else {
+    if (typeof b.identifier !== "string" || typeof b.password !== "string") return error(400, "Missing identifier or password");
+    r = await activar(ctx, b.identifier.trim(), b.password, { reemplaza: local.id });
+  }
+  if (!("perfil" in r)) {
+    const cuerpo = await r.respuesta.clone().json().catch(() => ({}));
+    if (cuerpo?.requiere2fa && typeof cuerpo.desafio === "string") {
+      vinculando.set(cuerpo.desafio, { local: local.id, vence: Date.now() + 5 * 60_000 });
+    }
+    return r.respuesta;
+  }
+  const destino = r.perfil.id;
+  await ctx.almacen.lote("progreso", [
+    // Las preguntas de cada intento se sortearon con el identificador local: el servidor las vuelve a sortear igual.
+    { sql: "UPDATE intentos SET sorteo_id = COALESCE(sorteo_id, perfil_id), perfil_id = ? WHERE perfil_id = ?", params: [destino, local.id] },
+    // El progreso se combina quedándose con el mayor avance.
+    {
+      sql: `INSERT INTO progreso_modulos (perfil_id, modulo_id, estado, progreso, actualizado)
+            SELECT ?, modulo_id, estado, progreso, actualizado FROM progreso_modulos WHERE perfil_id = ? AND true
+            ON CONFLICT(perfil_id, modulo_id) DO UPDATE SET estado = excluded.estado, progreso = excluded.progreso,
+              actualizado = excluded.actualizado
+            WHERE excluded.estado = 'completado' AND progreso_modulos.estado != 'completado'`,
+      params: [destino, local.id],
+    },
+    { sql: "INSERT OR IGNORE INTO desbloqueos (perfil_id, modulo_id, origen, creado) SELECT ?, modulo_id, origen, creado FROM desbloqueos WHERE perfil_id = ?", params: [destino, local.id] },
+    { sql: "INSERT OR IGNORE INTO favoritos (perfil_id, modulo_id, creado) SELECT ?, modulo_id, creado FROM favoritos WHERE perfil_id = ?", params: [destino, local.id] },
+    // Suben los intentos; el progreso local no se acredita en la plataforma (sale de la nueva corrección).
+    { sql: "UPDATE eventos SET perfil_id = ? WHERE perfil_id = ? AND tipo = 'intento'", params: [destino, local.id] },
+    { sql: "DELETE FROM eventos WHERE perfil_id = ?", params: [local.id] },
+    { sql: "DELETE FROM perfiles WHERE id = ?", params: [local.id] },
+  ]);
+  // Los módulos que armó un profesor local pasan a ser de la cuenta.
+  await ctx.almacen.ejecutar("contenido", "UPDATE modulos SET owner_user_id = ? WHERE owner_user_id = ?", [destino, local.id]);
+  return terminar(ctx, r);
 }

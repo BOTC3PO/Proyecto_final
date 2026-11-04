@@ -935,6 +935,7 @@
   "moduloDetail.enProgreso": "En cours",
   "moduloDetail.puntaje": "Score :",
   "moduloDetail.sinPuntajeRegistrado": "Aucun score enregistré",
+  "moduloDetail.hechoSinConexion": "Fait hors ligne",
   "moduloDetail.comoFamiliarPodesVerEste": "En tant que parent, vous pouvez consulter ce questionnaire, mais pas le passer.",
   "moduloDetail.iniciando": "Démarrage...",
   "moduloDetail.continuarIntento": "Continuer la tentative",

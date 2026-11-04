@@ -17,6 +17,7 @@ import LangSelector from "../../components/vblang/LangSelector";
 import { DeterministicPrng } from "../../generadoresV2/core/prng";
 import type { Ejercicio, GeneratorDescriptor, Dificultad } from "../../generadoresV2/core/types";
 import { getDescriptoresBasic } from "../../generadoresV2/basic/banco";
+import { esAppSinConexion } from "../../lib/sinConexion";
 import { useI18n } from "../../i18n/I18nContext";
 import { markdownATextoPlano } from "../../lib/teoriaTextoPlano";
 
@@ -170,6 +171,11 @@ type QuizAttemptSummary = {
   maxScore?: number;
   completedAt?: string;
   createdAt?: string;
+  submittedAt?: string | null;
+  // L8 — hecho en la app sin conexión; en la app, además, lo que dijo la plataforma al volver a corregirlo.
+  sinConexion?: boolean;
+  paraRevisar?: boolean;
+  notaPlataforma?: { score?: number; maxScore?: number };
 };
 
 export default function ModuloDetail() {
@@ -1011,9 +1017,18 @@ export default function ModuloDetail() {
                               ) : (
                                 <span className="italic text-[var(--c-muted)]">{t("moduloDetail.sinPuntajeRegistrado")}</span>
                               )}
-                              {(attempt.completedAt ?? attempt.createdAt) ? (
+                              {attempt.sinConexion && !esAppSinConexion && (
+                                <span className="rounded bg-[var(--c-surface-3)] px-1.5 py-0.5 text-[10px] font-semibold">{t("moduloDetail.hechoSinConexion")}</span>
+                              )}
+                              {esAppSinConexion && attempt.paraRevisar && (
+                                // Solo en la app, en castellano como sus otras pantallas propias.
+                                <span className="rounded bg-[var(--c-surface-3)] px-1.5 py-0.5 text-[10px] font-semibold" title="La plataforma lo volvió a corregir y su nota no coincide con la del dispositivo. Vale la de la plataforma.">
+                                  Plataforma: {attempt.notaPlataforma?.score ?? "?"}{attempt.notaPlataforma?.maxScore != null ? `/${attempt.notaPlataforma.maxScore}` : ""}
+                                </span>
+                              )}
+                              {(attempt.submittedAt ?? attempt.completedAt ?? attempt.createdAt) ? (
                                 <span className="ml-auto text-[var(--c-muted)]">
-                                  {new Date(attempt.completedAt ?? attempt.createdAt ?? "").toLocaleDateString(lang)}
+                                  {new Date(attempt.submittedAt ?? attempt.completedAt ?? attempt.createdAt ?? "").toLocaleDateString(lang)}
                                 </span>
                               ) : null}
                               {/* WO-T2a — "Revisar" abre el intento ya finalizado en modo

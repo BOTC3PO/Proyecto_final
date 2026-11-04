@@ -935,6 +935,7 @@
   "moduloDetail.enProgreso": "In progress",
   "moduloDetail.puntaje": "Score:",
   "moduloDetail.sinPuntajeRegistrado": "No score recorded",
+  "moduloDetail.hechoSinConexion": "Done offline",
   "moduloDetail.comoFamiliarPodesVerEste": "As a family member, you can view this quiz but cannot take it.",
   "moduloDetail.iniciando": "Starting...",
   "moduloDetail.continuarIntento": "Continue attempt",

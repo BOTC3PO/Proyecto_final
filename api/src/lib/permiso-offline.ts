@@ -28,7 +28,16 @@ export type Permiso = {
   dispositivo: string;
   emitido: string;
   vence: string;
+  /** Huella de la contraseña vigente al emitirlo: si la cambian en la web, la sincronización pide la nueva. */
+  cred?: string;
 };
+
+/**
+ * Huella de la huella guardada de la contraseña (no de la contraseña): cambia cuando cambia la contraseña y no sirve
+ * para adivinarla.
+ */
+export const huellaDeCredencial = (passwordHash: string | null | undefined): string =>
+  crypto.createHash("sha256").update(`vb-permiso-offline:${passwordHash ?? ""}`).digest("base64url").slice(0, 22);
 
 let cache: { archivo: string; clave: crypto.KeyObject } | null = null;
 

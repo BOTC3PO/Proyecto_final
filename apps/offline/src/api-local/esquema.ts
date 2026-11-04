@@ -99,7 +99,7 @@ const MIGRACIONES: Record<Base, string[][]> = {
       `ALTER TABLE perfiles ADD COLUMN permiso TEXT`,
       `ALTER TABLE perfiles ADD COLUMN firma TEXT`,
       `ALTER TABLE perfiles ADD COLUMN vence TEXT`,
-      `ALTER TABLE perfiles ADD COLUMN estado TEXT NOT NULL DEFAULT 'activo'`, // activo | bloqueado
+      `ALTER TABLE perfiles ADD COLUMN estado TEXT NOT NULL DEFAULT 'activo'`, // activo | bloqueado | contrasena (desde la fase 5)
       `ALTER TABLE perfiles ADD COLUMN fallos INTEGER NOT NULL DEFAULT 0`,
       `ALTER TABLE perfiles ADD COLUMN espera_hasta TEXT`,
     ],
@@ -125,6 +125,17 @@ const MIGRACIONES: Record<Base, string[][]> = {
         modulo_id TEXT NOT NULL, creado TEXT NOT NULL,
         PRIMARY KEY (perfil_id, modulo_id)
       )`,
+    ],
+    // Fase 5: sincronización. `sorteo_id` es con qué identificador se sortearon las preguntas (el del usuario local
+    // si después se vinculó a una cuenta); `servidor`, lo que respondió la plataforma al volver a corregir.
+    [
+      `ALTER TABLE intentos ADD COLUMN sorteo_id TEXT`,
+      `ALTER TABLE intentos ADD COLUMN origen TEXT NOT NULL DEFAULT 'app'`, // app | web
+      `ALTER TABLE intentos ADD COLUMN servidor TEXT`,
+      `ALTER TABLE eventos ADD COLUMN resultado TEXT`,
+      `ALTER TABLE perfiles ADD COLUMN sync_cursor TEXT`,
+      `ALTER TABLE perfiles ADD COLUMN sync_ultima TEXT`,
+      `ALTER TABLE perfiles ADD COLUMN sync_error TEXT`,
     ],
   ],
 };

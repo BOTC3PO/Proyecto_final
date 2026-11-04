@@ -9,11 +9,14 @@ import { aleatorio, huella } from "./claves";
 import type { Contexto, Perfil } from "./contexto";
 import { error, json } from "./http";
 import { rolPrincipal, verificarPermiso } from "./permiso";
+import { subirAntesDeBloquear } from "./sincronizacion";
 
 const ESPERA_RED_MS = 10_000;
 const DESAFIO_MS = 5 * 60_000;
 
 export type Resultado = { perfil: Perfil } | { respuesta: Response };
+/** `reemplaza`: el usuario local que se está vinculando a la cuenta (puede tener el mismo nombre de usuario). */
+type Opciones = { reemplaza?: string };
 
 const sinRed = () =>
   error(503, "Para usar tu cuenta de la plataforma en este dispositivo, conectate a internet una vez.", { code: "SIN_CONEXION" });
@@ -57,20 +60,24 @@ async function pedir(ctx: Contexto, ruta: string, cuerpo: unknown, token?: strin
 
 // Ingresos con verificación en dos pasos a medio hacer: el servidor da un desafío y la contraseña hace falta otra
 // vez después del código, para la huella. Solo en memoria y por 5 minutos.
-const pendientes = new Map<string, { contrasena: string; vence: number }>();
+const pendientes = new Map<string, { contrasena: string; vence: number; opciones: Opciones }>();
 
 /** Inicia sesión en el servidor y activa (o renueva) la cuenta en el dispositivo. */
-export async function activar(ctx: Contexto, identificador: string, contrasena: string): Promise<Resultado> {
+export async function activar(ctx: Contexto, identificador: string, contrasena: string, opciones: Opciones = {}): Promise<Resultado> {
   if (!ctx.config.clavePublica) return { respuesta: error(401, "Usuario o contraseña incorrectos.") };
   const r = await pedir(ctx, "/api/auth/login", { identifier: identificador, password: contrasena });
   if (!r) return { respuesta: sinRed() };
-  if (r.status === 403 && r.body?.code === "BANNED") await bloquear(ctx, identificador);
+  if (r.status === 403 && r.body?.code === "BANNED") {
+    // Los intentos pendientes se suben antes de bloquear el perfil.
+    await subirAntesDeBloquear(ctx, identificador);
+    await bloquear(ctx, identificador);
+  }
   if (r.status !== 200) return { respuesta: json(r.body, r.status) };
   if (r.body?.requiere2fa && typeof r.body.desafio === "string") {
-    pendientes.set(r.body.desafio, { contrasena, vence: Date.now() + DESAFIO_MS });
+    pendientes.set(r.body.desafio, { contrasena, vence: Date.now() + DESAFIO_MS, opciones });
     return { respuesta: json({ requiere2fa: true, desafio: r.body.desafio }) };
   }
-  return completar(ctx, r.body?.accessToken, contrasena);
+  return completar(ctx, r.body?.accessToken, contrasena, opciones);
 }
 
 /** POST /api/auth/2fa/login durante una activación. */
@@ -84,10 +91,10 @@ export async function segundoPaso(ctx: Contexto, desafio: string, codigo: string
   if (!r) return { respuesta: sinRed() };
   if (r.status !== 200) return { respuesta: json(r.body, r.status) };
   pendientes.delete(desafio);
-  return completar(ctx, r.body?.accessToken, p.contrasena);
+  return completar(ctx, r.body?.accessToken, p.contrasena, p.opciones);
 }
 
-async function completar(ctx: Contexto, token: unknown, contrasena: string): Promise<Resultado> {
+async function completar(ctx: Contexto, token: unknown, contrasena: string, opciones: Opciones): Promise<Resultado> {
   if (typeof token !== "string") return { respuesta: error(502, "El servidor respondió algo inesperado.") };
   const dispositivo = await idDelDispositivo(ctx);
   const r = await pedir(ctx, "/api/offline/permiso", { dispositivo }, token);
@@ -99,8 +106,16 @@ async function completar(ctx: Contexto, token: unknown, contrasena: string): Pro
   }
 
   const username = datos.username || datos.email || datos.sub;
-  const [otro] = await ctx.almacen.consulta("progreso", "SELECT 1 AS x FROM perfiles WHERE username = ? AND id <> ?", [username, datos.sub]);
+  const [otro] = await ctx.almacen.consulta("progreso", "SELECT 1 AS x FROM perfiles WHERE username = ? AND id <> ? AND id <> ?", [
+    username, datos.sub, opciones.reemplaza ?? "",
+  ]);
   if (otro) return { respuesta: error(409, "Ya hay un usuario local con ese nombre en este dispositivo.") };
+  // El usuario local que se vincula deja libre su nombre (después se borra).
+  if (opciones.reemplaza) {
+    await ctx.almacen.ejecutar("progreso", "UPDATE perfiles SET username = ? WHERE id = ? AND tipo = 'local'", [
+      `${opciones.reemplaza}#vinculado`, opciones.reemplaza,
+    ]);
+  }
 
   const sal = aleatorio(16);
   const perfil: Perfil = {

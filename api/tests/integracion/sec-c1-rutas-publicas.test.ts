@@ -61,6 +61,8 @@ const PUBLICAS = new Set<string>([
   "GET /api/offline/paquetes/archivo/:archivo",
   // L8 — módulos de la escuela: sin sesión de la web, pero exige el permiso firmado de la app (lo valida el handler).
   "GET /api/offline/escuela",
+  // L8 — sincronización de la app: también con el permiso firmado.
+  "POST /api/offline/sync",
 ]);
 
 /** Prefijos cuyas rutas son catálogos públicos de solo lectura (GET); cualquier otro método debe estar protegido. */

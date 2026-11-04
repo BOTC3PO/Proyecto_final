@@ -937,6 +937,7 @@
   "moduloDetail.enProgreso": "قيد التقدم",
   "moduloDetail.puntaje": "النتيجة:",
   "moduloDetail.sinPuntajeRegistrado": "لا توجد نتيجة مسجّلة",
+  "moduloDetail.hechoSinConexion": "أُنجز دون اتصال",
   "moduloDetail.comoFamiliarPodesVerEste": "بصفتك ولي أمر، يمكنك مشاهدة هذا الاختبار ولكن لا يمكنك تأديته.",
   "moduloDetail.iniciando": "جارٍ البدء...",
   "moduloDetail.continuarIntento": "متابعة المحاولة",

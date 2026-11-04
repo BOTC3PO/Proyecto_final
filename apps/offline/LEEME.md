@@ -64,12 +64,33 @@ Con el mismo temario sale el mismo archivo (y el mismo hash). La API los sirve d
 
 Los intentos se corrigen en el dispositivo con la misma corrección del servidor (`api/src/lib/quiz-correccion.ts`),
 así la nota se ve al instante. Cada intento guarda la semilla, la versión del cuestionario, las respuestas y lo que
-mandó la web al entregar: al sincronizar (fase 5), el servidor lo vuelve a corregir con eso. El progreso y los logros
+mandó la web al entregar: al sincronizar, el servidor lo vuelve a corregir con eso. El progreso y los logros
 salen de los cuestionarios formales aprobados; no hay forma de marcar un módulo como completado a mano.
+
+## Sincronización
+
+Cada cambio local queda en la cola `eventos`. Las cuentas de la plataforma la mandan a `POST /api/offline/sync`
+(`src/api-local/sincronizacion.ts`) al entrar con red, después de cada entrega y con «Sincronizar ahora» en el
+perfil. Se autentica con el permiso firmado, sin tokens de la web.
+
+- **Subida:** el servidor vuelve a corregir cada intento y recién ahí acredita monedas y progreso. Vale su nota; si
+  no coincide con la del dispositivo, el intento queda para revisar (se ve en el historial y en el perfil). El
+  progreso que calcula el dispositivo no se acredita en la plataforma.
+- **Bajada:** el progreso de la cuenta (se queda el mayor avance) y los intentos hechos en la web, de a tandas.
+- **Renovación:** cada sincronización trae un permiso nuevo por 3 meses, con los roles de hoy. Si la contraseña
+  cambió en la web, el perfil pide la nueva; si la cuenta está suspendida o dada de baja, se bloquea después de subir
+  lo pendiente.
+- **Usuarios locales:** sus datos no salen del dispositivo hasta que se vinculan a una cuenta (`POST
+  /api/offline/vincular`, desde el perfil). Su historial, su progreso y sus favoritos pasan a la cuenta, y el servidor
+  corrige cada intento con el sorteo que tuvo como usuario local.
+
+En el historial de la web, los intentos que subieron desde la app figuran como «hecho sin conexión».
 
 ## Comandos
 
 - `pnpm test` y `pnpm tipos`: pruebas y tipos de la API local.
+- `api/tests/integracion-pg/offline-sync.pg.test.ts`: la sincronización de punta a punta contra Postgres (corre con
+  `PG_TEST_DATABASE_URL` apuntando a una base `*_test`).
 - `cargo test -p vb-nucleo`: pruebas de las bases.
 - `pnpm android:apk-prueba`: APK de prueba para el emulador (x86_64).
 - `pnpm android:apk`: APK firmado para teléfonos (ARM). La firma sale de `keystore.properties` fuera del
