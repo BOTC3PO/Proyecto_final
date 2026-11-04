@@ -8,7 +8,7 @@ import { useCanActAsLearner, useHasRole } from "../auth/use-roles";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getClassroomStatusLabelKey, normalizeClassroomStatus } from "../domain/classroom/classroom.types";
 import { fetchClassroomDetail } from "../services/aulas";
-import { createPublication, updatePublication, deletePublication, fetchPublications, fetchComments, createComment, type Publication, type Comment } from "../services/publicaciones";
+import { createPublication, updatePublication, deletePublication, fetchPublications, fijarPublication, fetchComments, createComment, type Publication, type Comment } from "../services/publicaciones";
 import { fetchLeaderboard, type LeaderboardEntry } from "../services/leaderboard";
 import { fetchUpcomingActivities, type UpcomingActivity } from "../services/actividades";
 import { fetchResourceLinks, type ResourceLink, type ResourceLinkType } from "../services/resource-links";
@@ -21,6 +21,8 @@ import AulaActionsBar from "../components/aula/AulaActionsBar";
 import AsignarModulosModal from "../components/profesor/AsignarModulosModal";
 import MatrizProgreso from "../components/profesor/MatrizProgreso";
 import { useI18n } from "../i18n/I18nContext";
+import { useAvisoError } from "../ui/useAvisoError";
+import ReventaTickets from "../components/aula/ReventaTickets";
 
 type ProgressItem = {
   moduloId: string;
@@ -67,6 +69,7 @@ function getAvatarColor(initials: string): string {
 
 export default function Aula() {
   const { t, lang } = useI18n();
+  const { aviso, mostrar } = useAvisoError();
   const { user } = useAuth();
   // MULTIROL-02: leer cada rol por helper centralizado (mirando
   // `roles[]` con fallback al singular). El `user.role` se mantiene
@@ -363,7 +366,7 @@ export default function Aula() {
         if (!active) return;
         setMisPujas(pujaMap);
       })
-      .catch(() => {});
+      .catch((e) => mostrar(e, t("comun.noSePudoCargar")));
     return () => { active = false; };
   }, [classroomId, user?.id]);
 
@@ -530,11 +533,14 @@ export default function Aula() {
   const inputCls = "rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]";
 
   return (
+    <>
+      {aviso}
     <main className="flex-1 bg-[var(--c-bg)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* Banner */}
         <header className="bg-[var(--c-primary)] text-white rounded-xl h-28 relative">
-          <h1 className="sr-only">{classroom?.name ?? "Aula"}</h1>
+          {/* El nombre del aula estaba solo para lectores de pantalla: la cabecera quedaba sin título. */}
+          <h1 className="absolute left-5 right-5 top-11 truncate text-xl font-bold">{classroom?.name ?? "Aula"}</h1>
           <span className="absolute left-5 top-3 rounded-full bg-white/20 px-3 py-1 text-xs uppercase tracking-wide">
             {t(getClassroomStatusLabelKey(classroom?.status))}
           </span>
@@ -730,11 +736,28 @@ export default function Aula() {
                       {publication.authorInitials ?? "?"}
                     </div>
                     <div className="min-w-0 flex-1">
-                      <div className="font-semibold text-sm text-[var(--c-text)]">{publication.title}</div>
+                      <div className="font-semibold text-sm text-[var(--c-text)]">
+                        {publication.isPinned && (
+                          <span className="mr-1.5 rounded-full bg-[var(--c-warning-soft)] px-2 py-0.5 text-[10px] font-semibold text-[var(--c-warning)]">
+                            {t("aula.fijada")}
+                          </span>
+                        )}
+                        {publication.title}
+                      </div>
                       {publication.authorName && (
                         <div className="text-xs text-[var(--c-muted)]">{publication.authorName}</div>
                       )}
                     </div>
+                    {isTeacherOfClass && classroomId && (
+                      <button
+                        type="button"
+                        className="text-xs text-[var(--c-muted)] hover:text-[var(--c-primary)] px-2 py-1 shrink-0"
+                        onClick={async () => {
+                          await fijarPublication(classroomId, publication.id, !publication.isPinned);
+                          setPublications(await fetchPublications(classroomId, lang));
+                        }}
+                      >{publication.isPinned ? t("aula.desfijar") : t("aula.fijar")}</button>
+                    )}
                     {publication.isOwn && editingPublicationId !== publication.id && (
                       <div className="flex items-center gap-1 shrink-0">
                         <button
@@ -1140,6 +1163,9 @@ export default function Aula() {
                 })}
               </div>
             )}
+
+            {/* J8 — reventa de tickets de examen entre alumnos (se oculta si no hay nada para mostrar). */}
+            {classroomId && <ReventaTickets aulaId={classroomId} className={cardCls} />}
           </aside>
         </div>
       </div>
@@ -1151,5 +1177,6 @@ export default function Aula() {
         />
       )}
     </main>
+    </>
   );
 }

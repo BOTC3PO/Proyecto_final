@@ -12,7 +12,7 @@
 
 Un imán es un material que posee la capacidad de atraer ciertos objetos metálicos, como hierro, níquel o cobalto. Su propiedad fundamental radica en los **polos magnéticos**, las regiones donde la fuerza magnética es más intensa. Cada imán tiene dos polos: uno norte y otro sur. Estos polos interactúan entre sí según una regla simple: los polos opuestos se atraen (norte con sur), mientras que los polos iguales se repelen (norte con norte, sur con sur). Esta característica permite el uso de imanes en aplicaciones prácticas como compases, motores o sistemas de frenado.
 
-![Diagrama de un imán con sus polos marcados y líneas de campo magnético alrededor](https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/VFPt_cylindermagnet_field-representations.svg/960px-VFPt_cylindermagnet_field-representations.svg.png)
+![Diagrama de un imán con sus polos marcados y líneas de campo magnético alrededor](/temario/imagenes/vfpt-cylindermagnet-field-representations.webp)
 
 *Imagen: «VFPt cylindermagnet field-representations», Geek3, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:VFPt_cylindermagnet_field-representations.svg).*
 
@@ -36,7 +36,7 @@ Un electroimán es un dispositivo que aprovecha la relación entre electricidad 
 
 Al pasar corriente por la bobina, se genera un campo magnético que se intensifica gracias al núcleo ferromagnético. La ventaja principal del electroimán es que su campo puede ser encendido o apagado simplemente conectando o desconectando la corriente, lo que lo hace útil en aplicaciones como grúas magnéticas, relés o motores eléctricos.
 
-![Esquema de un electroimán con bobina, núcleo y dirección del campo magnético](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Solenoid-with-core.JPG/960px-Solenoid-with-core.JPG)
+![Esquema de un electroimán con bobina, núcleo y dirección del campo magnético](/temario/imagenes/solenoid-with-core.webp)
 
 *Imagen: «Solenoid-with-core», Svjo, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Solenoid-with-core.JPG).*
 

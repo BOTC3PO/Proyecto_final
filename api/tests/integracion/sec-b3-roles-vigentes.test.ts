@@ -48,6 +48,22 @@ describe("roles vigentes", () => {
     }
   });
 
+  // H17 (2026-11-01) — con TODAS las membresías revocadas se volvía a los roles guardados en el usuario.
+  test("si se le revocan todas las membresías, pierde el rol de escuela", async () => {
+    seedUser({ id: U, role: "DIRECTIVO", schoolId: ESC_A });
+    membresia(ESC_A, "DIRECTIVO", "revocada");
+    const r = await quien(tokenFor({ id: U, role: "DIRECTIVO", roles: ["DIRECTIVO"], schoolId: ESC_A }));
+    assert.deepEqual((r.body as { roles: string[] }).roles, []);
+    assert.equal((r.body as { schoolId: string | null }).schoolId, null);
+  });
+
+  test("un alumno sin membresías vigentes sigue como alumno independiente", async () => {
+    seedUser({ id: U, role: "USER", schoolId: ESC_A });
+    membresia(ESC_A, "STUDENT", "revocada");
+    const r = await quien(tokenFor({ id: U, role: "USER", roles: ["USER"], schoolId: ESC_A }));
+    assert.deepEqual((r.body as { roles: string[] }).roles, ["USER"]);
+  });
+
   test("sin cambios, el pedido lleva los roles del token", async () => {
     seedUser({ id: U, role: "TEACHER", schoolId: ESC_A });
     membresia(ESC_A, "TEACHER");

@@ -15,6 +15,7 @@ import {
   updateClassroom,
   type ClassroomProgressSnapshot
 } from "../services/aulas";
+import { useAvisoError } from "../ui/useAvisoError";
 
 const formatAccessKey = (accessType: Classroom["accessType"]) => (accessType === "publica" ? "comun.publica" : "comun.privada");
 const formatPercent = (value: number) => `${Math.round(value)}%`;
@@ -22,7 +23,7 @@ const formatPercent = (value: number) => `${Math.round(value)}%`;
 const emptyForm = {
   name: "",
   description: "",
-  accessType: "publica" as Classroom["accessType"],
+  accessType: "privada" as Classroom["accessType"],
   status: "ACTIVE" as Classroom["status"],
   institutionId: "",
   category: ""
@@ -30,6 +31,7 @@ const emptyForm = {
 
 export default function ProfesorAulas() {
   const { t, lang } = useI18n();
+  const { aviso, mostrar } = useAvisoError();
   const { onInvalid, onInput } = makeValidityMessageHandlers(t);
   const { user } = useAuth();
   // MULTIROL-02: leer cada rol por helper centralizado. Un USER
@@ -115,7 +117,7 @@ export default function ProfesorAulas() {
           setForm((f) => ({ ...f, institutionId: items[0].id }));
         }
       })
-      .catch(() => {});
+      .catch((e) => mostrar(e, t("comun.noSePudoCargar")));
   }, []);
 
   // PLAN-A §1 — la escuela efectiva del aula a crear: la elegida en el
@@ -335,6 +337,8 @@ export default function ProfesorAulas() {
       );
 
   return (
+    <>
+      {aviso}
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div>
@@ -504,11 +508,15 @@ export default function ProfesorAulas() {
                     {classroom.institutionId && <span>Institución: {classroom.institutionId}</span>}
                   </div>
                   <div className="mt-4 flex items-center justify-between text-xs text-[var(--c-muted)]">
-                    <span>
-                      {/* FIX-TEST4-X05B-NOMBRES — mostrar nombre del
-                          docente en lugar del ID crudo. */}
-                      {t('profesorAulas.creadaPor')} {classroom.createdByName ?? classroom.createdBy}
-                    </span>
+                    {/* FIX-TEST4-X05B-NOMBRES — mostrar nombre del docente en lugar del ID crudo. Sin creador
+                        conocido no se muestra la etiqueta sola. */}
+                    {(classroom.createdByName ?? classroom.createdBy) ? (
+                      <span>
+                        {t('profesorAulas.creadaPor')} {classroom.createdByName ?? classroom.createdBy}
+                      </span>
+                    ) : (
+                      <span />
+                    )}
                     <span>{new Date(classroom.updatedAt).toLocaleDateString(lang)}</span>
                   </div>
                   <div className="mt-4 rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] p-4 text-xs text-[var(--c-muted)]">
@@ -630,6 +638,7 @@ export default function ProfesorAulas() {
            )}
          </section>
        </div>
+    </>
    );
 }
 

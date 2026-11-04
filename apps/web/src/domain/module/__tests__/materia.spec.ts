@@ -45,10 +45,15 @@ describe("resolveMateria", () => {
     expect(resolveMateria(undefined)).toBe(MATERIA_FALLBACK);
   });
 
-  it("ignora whitespace-only subject (no es válido pero cae)", () => {
-    // El helper no hace trim (eso es responsabilidad del front);
-    // pero "   " es truthy en JS, así que se mantiene.
-    expect(resolveMateria({ subject: "   " })).toBe("   ");
+  it("un subject de solo espacios cae al fallback", () => {
+    expect(resolveMateria({ subject: "   " })).toBe("Sin materia");
+  });
+
+  it("muestra el nombre de la materia en lugar del identificador del temario", () => {
+    expect(resolveMateria({ subject: "fisica" })).toBe("Física");
+    expect(resolveMateria({ subject: "historia-argentina" })).toBe("Historia argentina");
+    expect(resolveMateria({ subject: "Matemática" })).toBe("Matemática");
+    expect(resolveMateria({ subject: "materia-nueva" })).toBe("Materia nueva");
   });
 });
 

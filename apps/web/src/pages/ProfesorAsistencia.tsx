@@ -11,6 +11,7 @@ import {
   type AlumnoAsistencia,
   type EstadoAsistencia,
 } from "../services/asistencia";
+import { useAvisoError } from "../ui/useAvisoError";
 
 const ESTADOS: Array<{ value: EstadoAsistencia; label: string }> = [
   { value: "presente", label: "Presente" },
@@ -25,6 +26,7 @@ type FilaEditable = AlumnoAsistencia & { notasBorrador: string };
 
 export default function ProfesorAsistencia() {
   const { t } = useI18n();
+  const { aviso, mostrar } = useAvisoError();
   const { user } = useAuth();
   const [searchParams] = useSearchParams();
   const presetAulaId = searchParams.get("aulaId") ?? "";
@@ -55,7 +57,7 @@ export default function ProfesorAsistencia() {
         }
         if (items[0]) setAulaId(getAulaId(items[0]));
       })
-      .catch(() => {});
+      .catch((e) => mostrar(e, t("comun.noSePudoCargar")));
   }, [user?.id, presetAulaId]);
 
   // Cargar la planilla del aula/fecha seleccionada
@@ -122,6 +124,8 @@ export default function ProfesorAsistencia() {
   };
 
   return (
+    <>
+      {aviso}
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
       <div>
         <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("profesorAsistencia.asistencia")}</h1>
@@ -158,7 +162,7 @@ export default function ProfesorAsistencia() {
           <button
             type="button"
             onClick={marcarTodosPresentes}
-            className="rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm text-[var(--c-text)] hover:bg-[var(--c-bg)]"
+            className="rounded-lg border border-[var(--c-border-strong)] bg-[var(--c-surface)] px-3 py-2 text-sm font-medium text-[var(--c-text)] shadow-sm hover:bg-[var(--c-hover)]"
           >{t("profesorAsistencia.marcarTodosPresentes")}</button>
         )}
       </div>
@@ -242,5 +246,6 @@ export default function ProfesorAsistencia() {
         )}
       </section>
     </div>
+    </>
   );
 }

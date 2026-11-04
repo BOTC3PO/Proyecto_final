@@ -299,8 +299,6 @@ test("WO-13: POST /api/libros/:id/duplicar del dueno crea copia con provenance",
 });
 
 test("WO-13: POST /api/libros/:id/duplicar requiere poder LEER el libro (canReadLibro)", async () => {
-
-test("WO-13: POST /api/libros/:id/duplicar requiere poder LEER el libro (canReadLibro)", async () => {
   // Un alumno de OTRA escuela no puede duplicar un libro escuela
   // porque ni siquiera puede leerlo.
   seedLibro({ id: BOOK_ESC, visibility: "escuela", schoolId: SCHOOL_A });

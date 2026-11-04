@@ -38,6 +38,7 @@ Esquema de salida (el que autodetecta sqliteDictionary.ts):
 """
 
 import argparse
+import re
 import gzip
 import json
 import sqlite3
@@ -71,6 +72,14 @@ SOURCES: list[tuple[str, str, set[str]]] = [
     ("en", BASE + "raw-wiktextract-data.jsonl.gz", {"en", "eo", "la", "ar", "hi"}),
 ]
 
+# E4 — árabe e hindi con definiciones en su propio idioma (ver wikidump_ar_hi.py). Se suman a las glosas en
+# inglés de la edición inglesa y van primero.
+WIKIDUMPS: list[tuple[str, str]] = [
+    ("ar-wiki", "https://dumps.wikimedia.org/arwiktionary/latest/arwiktionary-latest-pages-articles.xml.bz2"),
+    ("hi-wiki", "https://dumps.wikimedia.org/hiwiktionary/latest/hiwiktionary-latest-pages-articles.xml.bz2"),
+]
+PUNTAJE_NATIVO = 10_000
+
 ALL_LANGS = {"es", "en", "pt", "fr", "it", "de", "ja", "ko", "zh", "ru", "eo", "la", "ar", "hi"}
 
 MAX_DEFS = 10
@@ -80,7 +89,14 @@ MAX_SYNS = 20
 # ── Descarga con resume ────────────────────────────────────────────────────────
 
 def download(url: str, dest: Path) -> None:
-    existing = dest.stat().st_size if dest.exists() else 0
+    """Baja `url` a `dest`. Un archivo ya descargado NO se toca: antes se "reanudaba" con Range sobre el archivo
+    completo y, si la fuente había cambiado, se le pegaba al final un pedazo de la versión nueva (archivo roto).
+    La descarga va a `dest.parcial` (esa sí se reanuda) y se renombra al terminar."""
+    if dest.exists():
+        print(f"  ✓ ya descargado: {dest.name} (borralo para bajar la versión nueva)")
+        return
+    parcial = dest.with_name(dest.name + ".parcial")
+    existing = parcial.stat().st_size if parcial.exists() else 0
     req = Request(url, headers={"User-Agent": "VirtualBook-Dict/1.0"})
     if existing:
         req.add_header("Range", f"bytes={existing}-")
@@ -88,22 +104,19 @@ def download(url: str, dest: Path) -> None:
         resp_ctx = urlopen(req, timeout=60)
     except HTTPError as e:
         if e.code == 416 and existing:
-            # Range desde el final del archivo = ya está completo.
-            print(f"  ✓ ya descargado: {dest.name}")
+            parcial.rename(dest)
+            print(f"  ✓ descargado: {dest.name}")
             return
         raise
     with resp_ctx as resp:
         if existing and resp.status == 200:
             existing = 0  # el server no soporta resume: arrancar de cero
         total = int(resp.headers.get("Content-Length", 0)) + existing
-        if existing and existing == total:
-            print(f"  ✓ ya descargado: {dest.name}")
-            return
         dest.parent.mkdir(parents=True, exist_ok=True)
         mode = "ab" if existing else "wb"
         done = existing
         last = time.time()
-        with open(dest, mode) as f:
+        with open(parcial, mode) as f:
             while True:
                 chunk = resp.read(1 << 20)
                 if not chunk:
@@ -115,7 +128,8 @@ def download(url: str, dest: Path) -> None:
                     print(f"\r  bajando {dest.name}: {done // (1 << 20)}MB{pct}   ",
                           end="", flush=True)
                     last = time.time()
-        print(f"\r  ✓ descargado: {dest.name} ({done // (1 << 20)}MB){' ' * 20}")
+    parcial.rename(dest)
+    print(f"\r  ✓ descargado: {dest.name} ({done // (1 << 20)}MB){' ' * 20}")
 
 
 # ── Parseo de una línea wiktextract ────────────────────────────────────────────
@@ -164,7 +178,74 @@ def parse_line(d: dict, target_langs: set[str]) -> tuple[str, str, list, list, d
 
     if not defs:
         return None
-    return lang, word, defs, syns, trans
+    return lang, word, defs, syns, trans, puntaje_entrada(d, defs)
+
+
+def traducciones_invertidas(d: dict) -> list[tuple]:
+    palabra_en = d.get("word")
+    if not palabra_en or len(palabra_en) > 64:
+        return []
+    por_idioma: dict[str, str] = {}
+    for t in d.get("translations") or []:
+        code = t.get("lang_code") or t.get("code")
+        w = (t.get("word") or "").strip()
+        if code in ALL_LANGS and code != "en" and w and len(w) < 64 and code not in por_idioma:
+            por_idioma[code] = w
+    filas = []
+    for code, w in por_idioma.items():
+        trans = {"en": palabra_en, **{c: x for c, x in por_idioma.items() if c != code}}
+        filas.append((code, w, "[]", None, json.dumps(trans, ensure_ascii=False), -1e9))
+    return filas
+
+
+# E4 — orden de las entradas de una misma palabra (homógrafos y categorías). Antes se mezclaban en el orden del
+# archivo: en portugués «cão» empezaba por «cruel, brutal» y en japonés «犬» por su lectura «いぬ。».
+# Primero la que trae traducciones, después la que tiene más acepciones; las formas flexionadas («plural de»,
+# «feminino de»...) al final.
+FORMA_DE = re.compile(
+    r"^(?:\(.*?\)\s*)?(?:(?:primera|segunda|tercera|primeira|segunda|terceira)\s+persona\s+)?"
+    r"(?:plural|feminin[oa]|femenin[oa]|masculin[oa]|féminin|femminile|pluriel|plurale|forma|flexión|inflexión|"
+    r"variante|participio|particípio|gerundio|gerúndio|diminutivo|aumentativo|Plural|Nominativ|Genitiv|Dativ|"
+    r"Akkusativ|Partizip|form of|plural of|alternative form|inflection of|past tense|present participle)\b",
+    re.IGNORECASE,
+)
+
+
+def puntaje_entrada(d: dict, defs: list[str]) -> float:
+    senses = d.get("senses") or []
+    forma = bool(senses) and all(
+        s.get("form_of") or s.get("alt_of") or set(s.get("tags") or []) & {"form-of", "alt-of", "inflection-of"}
+        for s in senses
+    )
+    if not forma and defs and all(FORMA_DE.match(g) for g in defs):
+        forma = True
+    # La entrada principal es la que tiene más acepciones de uso general (sin marca de registro, región o sentido
+    # figurado): en español «perro» sustantivo va antes que el adjetivo coloquial «desdichado, indigno», aunque este
+    # tenga más acepciones. Pesa sobre todo que la PRIMERA acepción sea de uso general; después, cuántas lo son, la
+    # tabla de traducciones y la cantidad total.
+    neutras = sum(1 for s in senses if es_neutra(s))
+    primera_neutra = bool(senses) and es_neutra(senses[0])
+    tiene_traducciones = bool(d.get("translations")) or any(s.get("translations") for s in senses)
+    return (1000 if primera_neutra else 0) + 10 * neutras + (5 if tiene_traducciones else 0) + len(defs) - (10_000 if forma else 0)
+
+
+MARCAS = {
+    "colloquial", "informal", "slang", "vulgar", "derogatory", "pejorative", "offensive", "figuratively",
+    "figurative", "archaic", "obsolete", "dated", "rare", "humorous", "literary", "outdated", "lunfardismo", "euphemistic", "regional", "dialectal",
+    "coloquial", "figurado", "despectivo", "anticuado", "desusado", "poco usado", "vulgar", "jerga", "lunfardo",
+    "figuré", "familier", "populaire", "vieilli", "figurato", "familiare", "antiquato", "umgangssprachlich",
+    "übertragen", "veraltet", "abwertend", "разговорное", "переносное", "устаревшее", "隠語", "俗語", "比喩",
+}
+
+
+def es_neutra(s: dict) -> bool:
+    # En `tags` (normalizadas) las regiones van con mayúscula («Spain», «Río-de-la-Plata»); en `raw_tags` las
+    # mayúsculas suelen ser temas («Bebidas»), así que ahí solo cuentan las marcas conocidas.
+    for t in s.get("tags") or []:
+        t = str(t)
+        if t.lower() in MARCAS or t[:1].isupper():
+            return False
+    return not any(str(t).lower() in MARCAS for t in s.get("raw_tags") or [])
 
 
 # ── Base de salida ─────────────────────────────────────────────────────────────
@@ -182,7 +263,7 @@ def open_db(path: Path) -> sqlite3.Connection:
     # staging con la tabla real.
     conn.execute("""
         CREATE TABLE IF NOT EXISTS _staging (
-            l TEXT NOT NULL, w TEXT NOT NULL, d TEXT, s TEXT, t TEXT
+            l TEXT NOT NULL, w TEXT NOT NULL, d TEXT, s TEXT, t TEXT, o REAL
         )
     """)
     conn.execute("""
@@ -211,11 +292,15 @@ def process_source(conn: sqlite3.Connection, gz_path: Path, target_langs: set[st
             except json.JSONDecodeError:
                 skipped += 1
                 continue
+            # E4 — las tablas de traducción de la edición inglesa, al revés: «cat» lista ja 猫, es gato… y eso le da a
+            # 猫 sus traducciones (en «cat», es «gato»...). Solo completan: no crean palabras ni cambian definiciones.
+            if "en" in target_langs and d.get("lang_code") == "en":
+                batch.extend(traducciones_invertidas(d))
             parsed = parse_line(d, target_langs)
             if not parsed:
                 skipped += 1
                 continue
-            lang, word, defs, syns, trans = parsed
+            lang, word, defs, syns, trans, puntaje = parsed
             if limit and per_lang.get(lang, 0) >= limit:
                 continue
             per_lang[lang] = per_lang.get(lang, 0) + 1
@@ -224,9 +309,10 @@ def process_source(conn: sqlite3.Connection, gz_path: Path, target_langs: set[st
                 json.dumps(defs, ensure_ascii=False),
                 json.dumps(syns, ensure_ascii=False) if syns else None,
                 json.dumps(trans, ensure_ascii=False) if trans else None,
+                puntaje,
             ))
             if len(batch) >= 2000:
-                conn.executemany("INSERT INTO _staging VALUES (?,?,?,?,?)", batch)
+                conn.executemany("INSERT INTO _staging VALUES (?,?,?,?,?,?)", batch)
                 conn.commit()
                 ins += len(batch)
                 batch.clear()
@@ -237,11 +323,32 @@ def process_source(conn: sqlite3.Connection, gz_path: Path, target_langs: set[st
                 break
 
     if batch:
-        conn.executemany("INSERT INTO _staging VALUES (?,?,?,?,?)", batch)
+        conn.executemany("INSERT INTO _staging VALUES (?,?,?,?,?,?)", batch)
         conn.commit()
         ins += len(batch)
     print(f"\r  ✓ {ins:,} filas de staging ({time.time() - start:.0f}s){' ' * 25}")
     return ins
+
+
+def process_wikidump(conn: sqlite3.Connection, code: str, path: Path, limit: int | None) -> int:
+    """E4 — árabe/hindi desde el volcado de su propia Wiktionary (definiciones en el idioma)."""
+    import wikidump_ar_hi as wd
+    lector = wd.leer_ar if code == "ar-wiki" else wd.leer_hi
+    batch = []
+    for n, (lang, word, defs, syns, trans) in enumerate(lector(str(path)), 1):
+        if limit and n > limit:
+            break
+        batch.append((
+            lang, word,
+            json.dumps(defs, ensure_ascii=False),
+            json.dumps(syns, ensure_ascii=False) if syns else None,
+            json.dumps(trans, ensure_ascii=False) if trans else None,
+            PUNTAJE_NATIVO + len(defs),
+        ))
+    conn.executemany("INSERT INTO _staging VALUES (?,?,?,?,?,?)", batch)
+    conn.commit()
+    print(f"  ✓ {len(batch):,} filas de staging ({code})")
+    return len(batch)
 
 
 def merge(conn: sqlite3.Connection) -> int:
@@ -260,10 +367,12 @@ def merge(conn: sqlite3.Connection) -> int:
         nonlocal written
         if key is None:
             return
+        if not defs:
+            return  # solo había traducciones invertidas: la palabra no existe en el diccionario de ese idioma
         merged_syns = list(dict.fromkeys(syns))[:MAX_SYNS]
         batch.append((
             key[0], key[1],
-            json.dumps(defs[:MAX_DEFS], ensure_ascii=False),
+            json.dumps(list(dict.fromkeys(defs))[:MAX_DEFS], ensure_ascii=False),
             json.dumps(merged_syns, ensure_ascii=False) if merged_syns else None,
             json.dumps(trans, ensure_ascii=False) if trans else None,
         ))
@@ -274,7 +383,8 @@ def merge(conn: sqlite3.Connection) -> int:
             batch.clear()
             print(f"\r  palabras: {written:,}   ", end="", flush=True)
 
-    for l, w, d, s, t in read.execute("SELECT l, w, d, s, t FROM _staging ORDER BY l, w"):
+    # Dentro de cada palabra, primero la entrada de mayor puntaje (ver puntaje_entrada).
+    for l, w, d, s, t in read.execute("SELECT l, w, d, s, t FROM _staging ORDER BY l, w, o DESC, rowid"):
         if (l, w) != key:
             flush()
             key = (l, w)
@@ -292,6 +402,36 @@ def merge(conn: sqlite3.Connection) -> int:
     conn.execute("DROP TABLE _staging")
     conn.commit()
     return written
+
+
+KANA_REMISION = re.compile(r"^([\u3041-\u3096\u30A1-\u30FA\u30FC]+)[。.]?$")
+
+
+def resolver_remisiones_ja(conn: sqlite3.Connection) -> int:
+    """E4 — en la Wiktionary japonesa la entrada completa está bajo la lectura en kana («いぬ»): la del kanji
+    («犬») solo dice «いぬ。». Esas remisiones toman las acepciones y traducciones de la entrada en kana."""
+    cambios = []
+    for word, defs_json, trans_json in conn.execute("SELECT word, definitions, translations FROM words WHERE lang = 'ja'"):
+        defs = json.loads(defs_json or "[]")
+        if not defs:
+            continue
+        m = KANA_REMISION.match(defs[0].strip())
+        if not m or m.group(1) == word:
+            continue
+        destino = conn.execute(
+            "SELECT definitions, translations FROM words WHERE lang = 'ja' AND word = ?", (m.group(1),)
+        ).fetchone()
+        if not destino:
+            continue
+        nuevas = list(dict.fromkeys(json.loads(destino[0] or "[]") + defs[1:]))[:MAX_DEFS]
+        trans = json.loads(trans_json) if trans_json else {}
+        for code, w in (json.loads(destino[1]) if destino[1] else {}).items():
+            trans.setdefault(code, w)
+        cambios.append((json.dumps(nuevas, ensure_ascii=False), json.dumps(trans, ensure_ascii=False) if trans else None, word))
+    conn.executemany("UPDATE words SET definitions = ?, translations = ? WHERE lang = 'ja' AND word = ?", cambios)
+    conn.commit()
+    print(f"  ✓ {len(cambios):,} remisiones japonesas resueltas (kanji → kana)")
+    return len(cambios)
 
 
 def finalize(conn: sqlite3.Connection, out: Path):
@@ -335,7 +475,7 @@ def main():
     args = ap.parse_args()
 
     wanted = {code.strip() for code in args.langs.split(",") if code.strip()}
-    unknown = wanted - {src[0] for src in SOURCES}
+    unknown = wanted - {src[0] for src in SOURCES} - {c for c, _ in WIKIDUMPS} - {"ar", "hi"}
     if unknown:
         print(f"ERROR: ediciones desconocidas: {', '.join(sorted(unknown))}")
         sys.exit(1)
@@ -356,8 +496,17 @@ def main():
         download(url, gz_path)
         total += process_source(conn, gz_path, target_langs, args.limit)
 
+    for code, url in WIKIDUMPS:
+        if code.split("-")[0] not in wanted and code not in wanted and "en" not in wanted:
+            continue
+        print(f"\n── {code} " + "─" * 40)
+        dump_path = args.workdir / url.rsplit("/", 1)[-1]
+        download(url, dump_path)
+        total += process_wikidump(conn, code, dump_path, args.limit)
+
     print(f"\nTotal staging: {total:,} filas")
     merge(conn)
+    resolver_remisiones_ja(conn)
     finalize(conn, args.out)
     conn.close()
     print("\n✓ Listo. Copiá el archivo a api/src/diccionarios/Diccionario.sqlite "

@@ -15,8 +15,11 @@ import { leerPagina, recortar } from "../lib/paginacion";
 import {
   COMISION_PCT_RANGO_AR,
   COMISION_PCT_RANGO_INTL,
-  DEFAULT_COMISION_PCT_AR,
   DEFAULT_COMISION_PCT_INTL,
+  cargarParamsComision,
+  contarAlumnosEscuela,
+  normalizarParamsComision,
+  pctEscalonado,
 } from "../lib/comisiones";
 import { hasRole } from "../lib/roles";
 import { recordAuditLog } from "../lib/audit-log";
@@ -84,12 +87,22 @@ comisiones.get(
     const { items: transacciones, ...paginacion } = recortar(txPagina, pagina);
     const { items: liquidaciones, hasMore: liquidacionesHasMore } = recortar(liqPagina, pagina);
 
+    const [alumnos, params] = await Promise.all([contarAlumnosEscuela(escuelaId), cargarParamsComision()]);
     return res.json({
       escuela: {
         id: escuela.id,
         name: escuela.name,
-        comisionPct: escuela.comisionPct ?? DEFAULT_COMISION_PCT_AR,
+        // null = comisión escalonada; un número = acuerdo particular fijado por el administrador.
+        comisionPct: escuela.comisionPct,
         comisionPctIntl: escuela.comisionPctIntl ?? DEFAULT_COMISION_PCT_INTL,
+        comisionPctAportes: escuela.comisionPctAportes,
+      },
+      escalonada: {
+        alumnos,
+        params,
+        // Lo que paga hoy la escuela según el valor de la cuota.
+        pctHastaUmbral: pctEscalonado(params.umbralCuota, alumnos, params),
+        pctSobreUmbral: pctEscalonado(params.umbralCuota + 1, alumnos, params),
       },
       resumen: {
         periodo,
@@ -107,21 +120,19 @@ comisiones.get(
 );
 
 // ── POST /api/comisiones/escuela/:escuelaId/comision ────────────
-// Fijar el % de comisión (doméstico/MercadoPago y/o internacional/Cryptomus).
-// Admin o directivo de esa escuela. Cada valor se clampa a su rango real.
+// Acuerdo particular de comisión con una escuela (doméstico/MercadoPago y/o internacional/Cryptomus).
+// Sólo el administrador de la plataforma: es lo que factura VB, la escuela no lo decide. `comisionPct: null`
+// vuelve a la comisión escalonada. Cada valor se clampa a su rango real.
 comisiones.post(
   "/api/comisiones/escuela/:escuelaId/comision",
+  requireAdmin,
   async (req, res) => {
-    const { escuelaId } = req.params;
-    const user = getUserFromReq(req as never);
-    const esDirectivoDeEscuela =
-      hasRole(user, "DIRECTIVO") && getSchoolId(req as never) === escuelaId;
-    if (!hasRole(user, "ADMIN") && !esDirectivoDeEscuela) {
-      return res.status(403).json({ error: "Sin permiso" });
-    }
+    const escuelaId = req.params.escuelaId as string;
     const body = req.body as { comisionPct?: unknown; comisionPctIntl?: unknown };
-    const data: { comisionPct?: number; comisionPctIntl?: number } = {};
-    if (typeof body.comisionPct === "number" && Number.isFinite(body.comisionPct)) {
+    const data: { comisionPct?: number | null; comisionPctIntl?: number } = {};
+    if (body.comisionPct === null) {
+      data.comisionPct = null;
+    } else if (typeof body.comisionPct === "number" && Number.isFinite(body.comisionPct)) {
       data.comisionPct = Math.min(
         Math.max(body.comisionPct, COMISION_PCT_RANGO_AR.min),
         COMISION_PCT_RANGO_AR.max,
@@ -207,7 +218,7 @@ comisiones.get("/api/comisiones/admin", requireAdmin, async (req, res) => {
     return {
       escuelaId: e.id,
       name: e.name,
-      comisionPct: e.comisionPct ?? DEFAULT_COMISION_PCT_AR,
+      comisionPct: e.comisionPct,
       comisionPctIntl: e.comisionPctIntl ?? DEFAULT_COMISION_PCT_INTL,
       cobrosTotal: t?._sum?.montoTotal ?? 0,
       comisionTotal: t?._sum?.comisionVB ?? 0,
@@ -218,6 +229,32 @@ comisiones.get("/api/comisiones/admin", requireAdmin, async (req, res) => {
   });
 
   return res.json({ items, ...paginacion });
+});
+
+// ── GET/PUT /api/comisiones/admin/config ───────────────────────
+// Parámetros de la comisión escalonada (base, mínimo, umbrales y tope por cuota).
+comisiones.get("/api/comisiones/admin/config", requireAdmin, async (_req, res) => {
+  return res.json(await cargarParamsComision());
+});
+
+comisiones.put("/api/comisiones/admin/config", requireAdmin, async (req, res) => {
+  const antes = await cargarParamsComision();
+  const params = normalizarParamsComision({ ...antes, ...(req.body ?? {}) });
+  const json = JSON.stringify(params);
+  const updatedAt = new Date().toISOString();
+  await prisma.comisionConfig.upsert({
+    where: { id: "default" },
+    create: { id: "default", json, updatedAt },
+    update: { json, updatedAt },
+  });
+  await recordAuditLog({
+    actorId: getActorId(req as never),
+    action: "comision.config_actualizada",
+    targetType: "ComisionConfig",
+    targetId: "default",
+    metadata: { antes, despues: params },
+  });
+  return res.json(params);
 });
 
 // ── POST /api/comisiones/admin/liquidar ─────────────────────────

@@ -2,15 +2,17 @@
  * PLAN-B Fase 5 — cliente para el dominio "cobros escuela→familias"
  * (api/src/routes/cobros.ts, api/src/routes/escuela-pasarelas.ts).
  */
-import { apiGet, apiPatch, apiPost } from "../lib/api";
+import { apiGet, apiPatch, apiPost, apiPut } from "../lib/api";
 
 export type EstadoCobro = "borrador" | "publicado" | "cerrado";
 export type EstadoCuota = "pendiente" | "en_proceso" | "pagada" | "vencida" | "anulada";
 export type ProviderPasarela = "mercadopago" | "cryptomus";
+export type TipoCobro = "cuota" | "cooperadora" | "aporte_solidario";
 
 export interface CobroEscuela {
   id: string;
   escuelaId: string;
+  tipo?: TipoCobro;
   concepto: string;
   descripcion?: string | null;
   montoUnitario: number;
@@ -30,6 +32,10 @@ export interface CuotaAlumno {
   pagadorId?: string | null;
   estado: EstadoCuota;
   montoFinal: number;
+  /** Interés por mora al día de hoy (solo en /api/cuotas/mias). */
+  interesMora?: number;
+  diasAtraso?: number;
+  montoAPagar?: number;
   pagoId?: string | null;
   createdAt: string;
   updatedAt: string;
@@ -38,6 +44,8 @@ export interface CuotaAlumno {
 
 export interface EscuelaPasarelaResumen {
   provider: ProviderPasarela;
+  /** De quién es la cuenta: la escuela o su cooperadora. */
+  titular?: "escuela" | "cooperadora";
   cuentaConectadaId: string | null;
   activa: boolean;
   configurada: boolean;
@@ -47,6 +55,7 @@ export interface EscuelaPasarelaResumen {
 export const fetchCobros = () => apiGet<{ items: CobroEscuela[] }>("/api/cobros");
 
 export const crearCobro = (data: {
+  tipo?: TipoCobro;
   concepto: string;
   descripcion?: string | null;
   montoUnitario: number;
@@ -73,6 +82,26 @@ export const iniciarCheckout = (cuotaId: string, provider?: string) =>
 export const confirmarPagoManual = (cuotaId: string) =>
   apiPost<{ ok: boolean }>(`/api/cuotas/${cuotaId}/confirmar-pago`, {});
 
+export interface ConfigCobrosEscuela {
+  moraActiva: boolean;
+  moraTasa: number;
+  moraPeriodo: "mensual" | "anual";
+  moraDiasGracia: number;
+  comisionPctAportes: number;
+  topeAporteLegal: number | null;
+  limites: {
+    moraTasaMax: { mensual: number; anual: number };
+    moraDiasGraciaMax: number;
+    comisionPctAportes: { min: number; max: number };
+  };
+}
+
+export const fetchConfigCobros = (escuelaId: string) =>
+  apiGet<ConfigCobrosEscuela>(`/api/escuelas/${escuelaId}/config-cobros`);
+
+export const guardarConfigCobros = (escuelaId: string, data: Partial<Omit<ConfigCobrosEscuela, "limites">>) =>
+  apiPut<ConfigCobrosEscuela>(`/api/escuelas/${escuelaId}/config-cobros`, data);
+
 export const fetchPasarelas = (escuelaId: string) =>
   apiGet<{ items: EscuelaPasarelaResumen[] }>(`/api/escuelas/${escuelaId}/pasarelas`);
 
@@ -89,8 +118,10 @@ export const conectarPasarela = (
 export const togglePasarela = (escuelaId: string, provider: ProviderPasarela, activa: boolean) =>
   apiPatch<EscuelaPasarelaResumen>(`/api/escuelas/${escuelaId}/pasarelas/${provider}`, { activa });
 
-export const iniciarAutorizacionMercadoPago = (escuelaId: string) =>
-  apiGet<{ url: string }>(`/api/escuelas/${escuelaId}/pasarelas/mercadopago/authorize`);
+export const iniciarAutorizacionMercadoPago = (escuelaId: string, titular: "escuela" | "cooperadora" = "escuela") =>
+  apiGet<{ url: string }>(
+    `/api/escuelas/${escuelaId}/pasarelas/mercadopago/authorize${titular === "cooperadora" ? "?titular=cooperadora" : ""}`
+  );
 
 /**
  * PLAN-roles-v3 D2 — delegación de cobros.

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { interpolar } from "../i18n/interpolar";
 import { useI18n } from "../i18n/I18nContext";
 
 export default function Footer() {
@@ -7,7 +8,7 @@ export default function Footer() {
     <footer className="bg-blue-600 text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="py-6 text-center text-sm space-y-3">
-          <p>{t("footer.copyright")}</p>
+          <p>{interpolar(t("footer.copyright"), { anio: new Date().getFullYear() })}</p>
           <div className="flex justify-center gap-6">
             <Link className="hover:underline" to="/terminos">{t("nav.terminos")}</Link>
             <Link className="hover:underline" to="/privacidad">{t("nav.privacidad")}</Link>

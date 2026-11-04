@@ -14,6 +14,8 @@ export type Publication = {
   links?: { label: string; href: string }[];
   publishedAt: string;
   publishedAtLabel: string;
+  /** Fijada por el docente: va arriba del tablón. */
+  isPinned?: boolean;
   archivos?: PublicationAttachment[];
 };
 
@@ -46,6 +48,9 @@ export async function fetchPublications(classroomId?: string, lang = "es-AR"): P
   const response = await apiGet<PublicationsResponse>(publicationsPath(classroomId));
   return response.items.map((item) => ({ ...item, publishedAtLabel: formatPublishedAt(item.publishedAt, lang) }));
 }
+
+export const fijarPublication = (classroomId: string, publicationId: string, fijada: boolean) =>
+  apiPost<{ ok: boolean; fijada: boolean }>(`${publicationsPath(classroomId)}/${encodeURIComponent(publicationId)}/fijar`, { fijada });
 
 type CreatePublicationPayload = {
   contenido: string;

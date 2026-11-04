@@ -55,6 +55,18 @@ export type AulaHijo = {
   grado: string | null;
 };
 
+// L3 — asistencia del hijo (resumen por estado y días con novedad).
+export type AsistenciaHijo = {
+  desde: string;
+  total: number;
+  resumen: { presente: number; ausente: number; tarde: number; justificado: number };
+  novedades: Array<{ fecha: string; estado: string; aula: string; notas: string | null }>;
+};
+
+export async function fetchAsistenciaHijo(hijoId: string): Promise<AsistenciaHijo> {
+  return apiGet<AsistenciaHijo>(`/api/padres/hijos/${hijoId}/asistencia`);
+}
+
 export async function fetchAulasHijo(hijoId: string): Promise<AulaHijo[]> {
   const data = await apiGet<{ aulas: AulaHijo[] }>(
     `/api/padres/hijos/${hijoId}/aulas`

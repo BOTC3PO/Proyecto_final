@@ -16,7 +16,7 @@ La Edad Media Plena, aproximadamente entre los siglos XI y XIII, se caracteriza 
 
 El motor de esta transformación fue la innovación técnica en el campo. La introducción del arado de vertedera, pesado y con ruedas, permitió cultivar las tierras pesadas y húmedas del norte de Europa, antes difíciles de trabajar. Junto con la adopción del arnés de hombro para los caballos y la generalización del herrado, la fuerza animal se volvió mucho más eficiente.
 
-![Representación de un campo con el sistema de rotación trienal, mostrando los surcos profundos del arado de vertedera](https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Three_Field_System_be.svg/960px-Three_Field_System_be.svg.png)
+![Representación de un campo con el sistema de rotación trienal, mostrando los surcos profundos del arado de vertedera](/temario/imagenes/three-field-system-be.webp)
 
 *Imagen: «Three Field System be», Original uploader was MScharwies, derivative work, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Three_Field_System_be.svg).*
 
@@ -32,7 +32,7 @@ En el Mediterráneo, las repúblicas marineras de Venecia, Génova y Pisa domina
 
 La estructura social medieval se consolidó en torno a tres órdenes funcionales: los que oran (*oratores*), los que luchan (*bellatores*) y los que trabajan (*laboratores*). Sin embargo, en las ciudades, este esquema rígido se flexibilizó con la aparición de la burguesía, una clase social basada en la riqueza móvil (comercio y artesanía) más que en la tierra. Los gremios de oficios organizaron la producción urbana, regulando precios, calidad y formación de aprendices, actuando como un amortiguador social y económico.
 
-![Miniatura medieval con canteros tallando bloques frente a un templo gótico en construcción y una grúa de rueda en lo alto](https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Construction_du_Temple_de_J%C3%A9rusalem.jpg/960px-Construction_du_Temple_de_J%C3%A9rusalem.jpg)
+![Miniatura medieval con canteros tallando bloques frente a un templo gótico en construcción y una grúa de rueda en lo alto](/temario/imagenes/construction-du-temple-de-jerusalem.webp)
 
 *Imagen: «Construction du Temple de Jérusalem», Jean Fouquet, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Construction_du_Temple_de_J%C3%A9rusalem.jpg).*
 

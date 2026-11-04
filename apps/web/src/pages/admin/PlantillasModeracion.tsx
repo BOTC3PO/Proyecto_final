@@ -11,6 +11,7 @@ import type {
   PlantillaListItem,
   PlantillaListResponse,
 } from "../../domain/vblang/plantilla.types";
+import { nombreMateria } from "../../lib/nombreMateria";
 
 type Status = "loading" | "ready" | "error";
 
@@ -85,7 +86,7 @@ export default function PlantillasModeracion() {
                     <p className="text-xs text-[var(--c-muted,#64748b)] mt-0.5">
                       por {p.ownerName ?? p.ownerUserId} ·{" "}
                       {new Date(p.updatedAt).toLocaleDateString(lang)}
-                      {p.materia ? ` · ${p.materia}` : ""}
+                      {p.materia ? ` · ${nombreMateria(p.materia)}` : ""}
                     </p>
                     {p.descripcion && (
                       // FIX-TEST4-X-03 — antes usaba `text-slate-600`

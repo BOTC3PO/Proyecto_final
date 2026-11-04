@@ -11,6 +11,7 @@ import {
 } from '../services/tienda';
 import type { ThemeOption } from '../theme/ThemeContext';
 import { useI18n } from "../i18n/I18nContext";
+import { useAvisoError } from "../ui/useAvisoError";
 
 type SaldoResponse = {
   saldo: number;
@@ -158,6 +159,7 @@ function ThemeCard({
 
 export default function TiendaTemas() {
   const { t } = useI18n();
+  const { aviso, mostrar } = useAvisoError();
   const { user } = useAuth();
   const { theme, setTheme, availableThemes, markThemeOwned } = useTheme();
 
@@ -204,7 +206,7 @@ export default function TiendaTemas() {
     let active = true;
     apiGet<SaldoResponse>(`/api/economia/saldos?usuarioId=${user.id}`)
       .then((res) => { if (active) setEconomy((prev) => ({ ...prev, coins: res.saldo })); })
-      .catch(() => {});
+      .catch((e) => mostrar(e, t("comun.noSePudoCargar")));
     return () => { active = false; };
   }, [user?.id]);
 
@@ -236,7 +238,7 @@ export default function TiendaTemas() {
           ),
         }));
       })
-      .catch(() => {})
+      .catch((e) => mostrar(e, t("comun.noSePudoCargar")))
       .finally(() => { if (!active) return; setTiendaLoading(false); });
     return () => { active = false; };
   }, [user?.id]);
@@ -299,6 +301,8 @@ export default function TiendaTemas() {
   };
 
   return (
+    <>
+      {aviso}
     <div className="page-root min-h-screen bg-[var(--c-bg)]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
 
@@ -536,5 +540,6 @@ export default function TiendaTemas() {
         )}
       </div>
     </div>
+    </>
   );
 }

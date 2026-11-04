@@ -63,6 +63,7 @@ import {
 } from "../../ui";
 import Progress from "../../ui/Progress";
 import { useI18n } from "../../i18n/I18nContext";
+import { useAvisoError } from "../../ui/useAvisoError";
 
 function parseVisualContext(detail: string | undefined): VisualSpec | null {
   if (!detail) return null;
@@ -89,6 +90,10 @@ type QuizAttemptResponse = {
   quizTitle?: string;
   status?: string;
   /** WO-T2a — score/maxScore persistidos, para el resumen en modo revisión. */
+  notaDisplay?: string | null;
+  notaCanonical10?: number | null;
+  aprobado?: boolean;
+  porcentaje?: number;
   score?: number;
   maxScore?: number;
   questions?: ModuleQuizQuestion[];
@@ -199,6 +204,7 @@ const normalizeAnswers = (
 
 export default function QuizAttempt() {
   const { t } = useI18n();
+  const { aviso, mostrar } = useAvisoError();
   const { attemptId } = useParams();
   const navigate = useNavigate();
   const [attempt, setAttempt] = useState<QuizAttemptResponse | null>(null);
@@ -241,7 +247,15 @@ export default function QuizAttempt() {
         const finished = data.status !== undefined && data.status !== "in_progress";
         if (finished) {
           setSubmitStatus("submitted");
-          setResult({ score: data.score, maxScore: data.maxScore });
+          // SM-04 — también la nota (antes la revisión mostraba solo el puntaje).
+          setResult({
+            score: data.score,
+            maxScore: data.maxScore,
+            notaDisplay: data.notaDisplay ?? null,
+            notaCanonical10: data.notaCanonical10 ?? null,
+            ...(typeof data.aprobado === "boolean" ? { aprobado: data.aprobado } : {}),
+            ...(typeof data.porcentaje === "number" ? { porcentaje: data.porcentaje } : {})
+          });
           setTiempoInicio(null);
           setHasStarted(true);
           setFullscreenWarning(false);
@@ -320,7 +334,7 @@ export default function QuizAttempt() {
           }
           setGeneratedQuestions(out);
         })
-        .catch(() => {});
+        .catch((e) => mostrar(e, t("quizAttempt.noSePudieronGenerar")));
       return () => {
         cancelled = true;
       };
@@ -367,7 +381,7 @@ export default function QuizAttempt() {
         });
         setGeneratedQuestions(ejercicios.map(ejercicioToQuestion));
       })
-      .catch(() => {});
+      .catch((e) => mostrar(e, t("quizAttempt.noSePudieronGenerar")));
   }, [attempt]);
 
   useEffect(() => {
@@ -1233,6 +1247,8 @@ export default function QuizAttempt() {
 
   // ── Main quiz view ───────────────────────────────────────────────────────
   return (
+    <>
+      {aviso}
     <main
       style={{
         minHeight: "100vh",
@@ -1753,5 +1769,6 @@ export default function QuizAttempt() {
         </div>
       </div>
     </main>
+    </>
   );
 }

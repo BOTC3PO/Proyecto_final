@@ -302,4 +302,38 @@ describe("reventa entre alumnos", () => {
     assert.equal(saldoDe(VENDEDOR), 90);
     assert.deepEqual([tickets(VENDEDOR), tickets(COMPRADOR)], [0, 1]);
   });
+
+  // J8 (2026-11-01) — pantalla del alumno: a quién ofrecer (nombre reducido) y cancelar/rechazar.
+  test("opciones: compañeros alumnos con nombre reducido y módulos con tickets libres", async () => {
+    darTicket(VENDEDOR, 2, 0);
+    (prisma.usuario.rows.find((u) => u.id === COMPRADOR) as Record<string, unknown>).fullName = "María Laura Gómez";
+    const r = await jsonRequest(baseUrl, "GET", `/api/economia/tickets/reventa/opciones?aulaId=${AULA}`, { token: tAlumno(VENDEDOR) });
+    assert.equal(r.status, 200, JSON.stringify(r.body));
+    const body = r.body as { companeros: Array<{ id: string; nombre: string }>; modulos: Array<{ moduloId: string; libres: number; titulo: string }> };
+    assert.ok(!body.companeros.some((c) => c.id === VENDEDOR), "no se incluye a sí mismo");
+    assert.ok(!body.companeros.some((c) => c.id === DOCENTE), "solo alumnos");
+    assert.equal(body.companeros.find((c) => c.id === COMPRADOR)?.nombre, "María G.");
+    assert.deepEqual(body.modulos.map((m) => [m.moduloId, m.libres, m.titulo]), [[MOD, 2, "Examen"]]);
+    const fuera = await jsonRequest(baseUrl, "GET", `/api/economia/tickets/reventa/opciones?aulaId=${AULA}`, { token: tAlumno("nadie") });
+    assert.equal(fuera.status, 403);
+  });
+
+  test("la lista muestra la contraparte con nombre reducido; vendedor cancela y comprador rechaza", async () => {
+    darTicket(VENDEDOR, 2, 0); fondear(COMPRADOR, 500);
+    (prisma.usuario.rows.find((u) => u.id === VENDEDOR) as Record<string, unknown>).fullName = "Juan Pérez";
+    const o1 = (await ofrecer(40)).body as { id: string };
+    const lista = await jsonRequest(baseUrl, "GET", "/api/economia/tickets/reventa", { token: tAlumno(COMPRADOR) });
+    const item = (lista.body as { items: Array<{ id: string; contraparte: string; soyVendedor: boolean; moduloTitulo: string }> }).items[0];
+    assert.deepEqual([item.contraparte, item.soyVendedor, item.moduloTitulo], ["Juan P.", false, "Examen"]);
+
+    const ajeno = await jsonRequest(baseUrl, "POST", `/api/economia/tickets/reventa/${o1.id}/cancelar`, { token: tAlumno("st-a3") });
+    assert.equal(ajeno.status, 403);
+    assert.equal((await jsonRequest(baseUrl, "POST", `/api/economia/tickets/reventa/${o1.id}/cancelar`, { token: tAlumno(COMPRADOR) })).status, 200);
+    assert.equal((await aceptar(o1.id)).status, 409, "una oferta rechazada ya no se acepta");
+
+    const o2 = (await ofrecer(40)).body as { id: string };
+    assert.equal((await jsonRequest(baseUrl, "POST", `/api/economia/tickets/reventa/${o2.id}/cancelar`, { token: tAlumno(VENDEDOR) })).status, 200);
+    assert.equal((await jsonRequest(baseUrl, "POST", `/api/economia/tickets/reventa/${o2.id}/cancelar`, { token: tAlumno(VENDEDOR) })).status, 409);
+    assert.deepEqual([tickets(VENDEDOR), saldoDe(COMPRADOR)], [2, 500], "cancelar no mueve tickets ni dinero");
+  });
 });

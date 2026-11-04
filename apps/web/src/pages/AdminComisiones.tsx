@@ -2,18 +2,93 @@
  * Fase 5.1 — Panel admin de comisiones por escuela.
  * Sistema autogestionado: la escuela cobra con su propia cuenta conectada,
  * VB nunca maneja los fondos. Lista cobros/comisión/saldo por escuela,
- * permite ajustar el % (doméstico/internacional), liquidar el saldo
+ * permite fijar un acuerdo particular por escuela (vacío = comisión
+ * escalonada), editar los parámetros de la escalonada, liquidar el saldo
  * pendiente y exportar el registro contable a CSV.
  */
 import { Fragment, useCallback, useEffect, useState } from "react";
-import { apiGet, apiPost, apiGetText } from "../lib/api";
+import { apiGet, apiPost, apiPut, apiGetText } from "../lib/api";
 import { Card, CardHead, CardBody, Button } from "../components/ui";
 import { useI18n } from "../i18n/I18nContext";
+
+interface ParamsComision {
+  basePct: number;
+  minimoPct: number;
+  umbralCuota: number;
+  umbralAlumnos: number;
+  umbralAlumnosGrande: number;
+  topeMonto: number;
+  inflacionAnualPct: number;
+}
+
+const CAMPOS_PARAMS: Array<{ clave: keyof ParamsComision; label: string; step: number }> = [
+  { clave: "basePct", label: "adminComisiones.pBase", step: 0.1 },
+  { clave: "minimoPct", label: "adminComisiones.pMinimo", step: 0.1 },
+  { clave: "umbralCuota", label: "adminComisiones.pUmbralCuota", step: 1000 },
+  { clave: "umbralAlumnos", label: "adminComisiones.pAlumnos", step: 1 },
+  { clave: "umbralAlumnosGrande", label: "adminComisiones.pAlumnosGrande", step: 1 },
+  { clave: "topeMonto", label: "adminComisiones.pTope", step: 1000 },
+  { clave: "inflacionAnualPct", label: "adminComisiones.pInflacion", step: 1 },
+];
+
+/** Parámetros de la comisión escalonada (los mismos para todas las escuelas sin acuerdo particular). */
+function ParametrosEscalonada() {
+  const { t } = useI18n();
+  const [params, setParams] = useState<ParamsComision | null>(null);
+  const [guardando, setGuardando] = useState(false);
+  const [msg, setMsg] = useState<string | null>(null);
+
+  useEffect(() => {
+    apiGet<ParamsComision>("/api/comisiones/admin/config").then(setParams).catch(() => setParams(null));
+  }, []);
+
+  if (!params) return null;
+  const guardar = async () => {
+    setGuardando(true);
+    setMsg(null);
+    try {
+      setParams(await apiPut<ParamsComision>("/api/comisiones/admin/config", params));
+      setMsg(t("enterpriseCobros.configGuardada"));
+    } catch {
+      setMsg(t("adminComisiones.noSePudoGuardarEl"));
+    } finally {
+      setGuardando(false);
+    }
+  };
+
+  return (
+    <Card>
+      <CardHead><h2 className="text-sm font-bold">{t("adminComisiones.parametrosTitulo")}</h2></CardHead>
+      <CardBody className="space-y-3">
+        <div className="grid gap-3 sm:grid-cols-3">
+          {CAMPOS_PARAMS.map((c) => (
+            <label key={c.clave} className="flex flex-col gap-1">
+              <span className="text-xs font-medium text-[var(--c-text-3)]">{t(c.label)}</span>
+              <input
+                type="number"
+                min={0}
+                step={c.step}
+                value={params[c.clave]}
+                onChange={(e) => setParams({ ...params, [c.clave]: Number(e.target.value) })}
+                className="rounded-[var(--r-md)] border border-[var(--c-border-strong)] bg-[var(--c-surface)] px-3 py-1.5 text-sm"
+              />
+            </label>
+          ))}
+        </div>
+        <Button size="sm" onClick={() => void guardar()} disabled={guardando}>
+          {guardando ? t("comun.guardando") : t("enterpriseCobros.guardarConfig")}
+        </Button>
+        {msg && <p role="status" aria-live="polite" className="text-sm text-[var(--c-info)]">{msg}</p>}
+      </CardBody>
+    </Card>
+  );
+}
 
 interface AdminItem {
   escuelaId: string;
   name: string;
-  comisionPct: number;
+  /** null = comisión escalonada; número = acuerdo particular. */
+  comisionPct: number | null;
   comisionPctIntl: number;
   cobrosTotal: number;
   comisionTotal: number;
@@ -33,7 +108,7 @@ export default function AdminComisiones() {
   const [msg, setMsg] = useState<string | null>(null);
   const [liquidando, setLiquidando] = useState<string | null>(null);
   const [editando, setEditando] = useState<string | null>(null);
-  const [pctArDraft, setPctArDraft] = useState(6);
+  const [pctArDraft, setPctArDraft] = useState("");
   const [pctIntlDraft, setPctIntlDraft] = useState(1.5);
   const [guardandoComision, setGuardandoComision] = useState(false);
 
@@ -70,7 +145,7 @@ export default function AdminComisiones() {
 
   const empezarEdicion = (item: AdminItem) => {
     setEditando(item.escuelaId);
-    setPctArDraft(item.comisionPct);
+    setPctArDraft(item.comisionPct != null ? String(item.comisionPct) : "");
     setPctIntlDraft(item.comisionPctIntl);
     setMsg(null);
   };
@@ -80,7 +155,7 @@ export default function AdminComisiones() {
     setMsg(null);
     try {
       await apiPost(`/api/comisiones/escuela/${escuelaId}/comision`, {
-        comisionPct: pctArDraft,
+        comisionPct: pctArDraft.trim() === "" ? null : Number(pctArDraft),
         comisionPctIntl: pctIntlDraft,
       });
       setEditando(null);
@@ -116,6 +191,8 @@ export default function AdminComisiones() {
         </div>
         <Button variant="ghost" size="sm" onClick={() => void exportarCsv()}>{t("adminComisiones.exportarCsv")}</Button>
       </header>
+
+      <ParametrosEscalonada />
 
       {msg && (
         <p role="status" aria-live="polite" className="text-sm text-[var(--c-info)]">
@@ -154,7 +231,9 @@ export default function AdminComisiones() {
                   <Fragment key={it.escuelaId}>
                     <tr className="border-t border-[var(--c-border)]">
                       <td className="py-1.5 font-medium text-[var(--c-text)]">{it.name}</td>
-                      <td className="py-1.5">{it.comisionPct}%</td>
+                      <td className="py-1.5">
+                        {it.comisionPct != null ? `${it.comisionPct}%` : t("adminComisiones.escalonada")}
+                      </td>
                       <td className="py-1.5">{it.comisionPctIntl}%</td>
                       <td className="py-1.5">{money(it.cobrosTotal)}</td>
                       <td className="py-1.5">{money(it.comisionTotal)}</td>
@@ -180,13 +259,15 @@ export default function AdminComisiones() {
                               <span className="text-xs font-medium text-[var(--c-text-3)]">{t("adminComisiones.comisionVb")}</span>
                               <input
                                 type="number"
-                                min={5}
+                                min={3}
                                 max={7}
                                 step={0.1}
                                 value={pctArDraft}
-                                onChange={(e) => setPctArDraft(Number(e.target.value))}
+                                placeholder={t("adminComisiones.escalonada")}
+                                onChange={(e) => setPctArDraft(e.target.value)}
                                 className="rounded-[var(--r-md)] border border-[var(--c-border-strong)] bg-[var(--c-surface)] px-3 py-1.5 text-sm"
                               />
+                              <span className="text-[11px] text-[var(--c-text-3)]">{t("adminComisiones.acuerdoAyuda")}</span>
                             </label>
                             <label className="flex flex-col gap-1">
                               <span className="text-xs font-medium text-[var(--c-text-3)]">{t("adminComisiones.comisionVbIntl")}</span>

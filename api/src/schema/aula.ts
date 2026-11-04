@@ -37,11 +37,13 @@ const ClassroomMemberSchema = z.object({
 export const ClassroomBaseSchema = z.object({
   id: z.string().min(1),
   name: z.string().min(1),
-  description: z.string().min(1),
+  // Puede venir vacía: el formulario permite dejarla en blanco.
+  description: z.string().max(2000).optional(),
+  grade: z.string().max(60).optional(),
   institutionId: z.string().min(1).optional(),
   schoolId: z.string().min(1).optional(),
   category: z.string().min(1).optional(),
-  accessType: ClassroomAccessSchema,
+  accessType: ClassroomAccessSchema.optional(),
   status: ClassroomStatusSchema,
   classCode: z.string().min(1).optional(),
   // Tarea 14 — ajuste del aula: habilita/deshabilita que los alumnos

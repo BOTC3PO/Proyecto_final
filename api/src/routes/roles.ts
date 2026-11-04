@@ -47,6 +47,10 @@ roles.post("/api/solicitar-rol", requireUser, async (req, res) => {
     });
   }
 
+  if (typeof motivo === "string" && motivo.length > 2000) {
+    return res.status(400).json({ error: "El motivo admite hasta 2000 caracteres." });
+  }
+
   // Leer el user para chequear birthdate y rol actual.
   const user = await prisma.usuario.findFirst({
     where: { id: userId },

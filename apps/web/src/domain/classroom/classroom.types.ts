@@ -28,6 +28,8 @@ export type Classroom = {
   description: string;
   institutionId?: string;
   category?: string;
+  /** Grado o curso (ej. «3.º año»). */
+  grade?: string;
   accessType: ClassroomAccess;
   status: ClassroomStatus;
   classCode?: string;

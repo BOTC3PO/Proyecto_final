@@ -12,7 +12,7 @@
 
 El Business Model Canvas es una herramienta visual que permite describir, analizar y diseñar un modelo de negocio en nueve bloques interconectados. Cada bloque representa un aspecto clave del funcionamiento de una empresa: desde quiénes son sus clientes hasta cómo genera ingresos. Su utilidad está en simplificar la complejidad de un negocio al organizar ideas en un formato gráfico, facilitando su comprensión y modificación.
 
-![esquema con los nueve bloques del canvas etiquetados](https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Business_Model_Canvas.png/960px-Business_Model_Canvas.png)
+![esquema con los nueve bloques del canvas etiquetados](/temario/imagenes/business-model-canvas.webp)
 
 *Imagen: «Business Model Canvas», Business Model Alchemist and pharma industry, CC BY-SA 1.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Business_Model_Canvas.png).*
 

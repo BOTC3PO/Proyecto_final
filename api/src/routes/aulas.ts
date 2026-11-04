@@ -255,7 +255,11 @@ aulas.get("/api/aulas", requireUser, requirePolicy("aulas/list"), async (req, re
         // nombre resuelto. El front usa `…Name` cuando está y
         // cae al ID como fallback.
         createdByName: rest.createdBy ? (nameMap.get(rest.createdBy) ?? null) : null,
-        teacherName: rest.teacherId ? (nameMap.get(rest.teacherId) ?? null) : null,
+        // Sin teacherId (aulas creadas por el directivo o por carga de datos), el docente es el primer miembro
+        // con rol TEACHER: antes el alumno veía «Docente asignado» en vez del nombre.
+        teacherName: rest.teacherId
+          ? (nameMap.get(rest.teacherId) ?? null)
+          : (members.find((m) => m.roleInClass === "TEACHER")?.name ?? null),
         teacherOfRecordName: rest.teacherOfRecord ? (nameMap.get(rest.teacherOfRecord) ?? null) : null,
         // FIX-ENTERPRISE-AULAS-DOCENTES — un co-titular agregado vía
         // `clase_miembros` (rolEnClase=TEACHER) y no via
@@ -393,10 +397,14 @@ aulas.get(
     }
     // FIX-TEST4-X05B-NOMBRES — resolver IDs de docentes a nombres
     // humanos en el detail también.
+    const primerDocente = (classroom.members as Array<{ userId?: string; roleInClass?: string }> | undefined)?.find(
+      (m) => m.roleInClass === "TEACHER"
+    )?.userId;
     const nameMap = await resolveUserNames([
       classroom.createdBy as string | undefined,
       classroom.teacherId as string | undefined,
       classroom.teacherOfRecord as string | undefined,
+      primerDocente,
     ]);
     res.json({
       ...classroom,
@@ -406,7 +414,9 @@ aulas.get(
         : null,
       teacherName: classroom.teacherId
         ? (nameMap.get(classroom.teacherId as string) ?? null)
-        : null,
+        : primerDocente
+          ? (nameMap.get(primerDocente) ?? null)
+          : null,
       teacherOfRecordName: classroom.teacherOfRecord
         ? (nameMap.get(classroom.teacherOfRecord as string) ?? null)
         : null,
@@ -470,7 +480,13 @@ aulas.post("/api/aulas", requireUser, requirePolicy("aulas/create"), ...bodyLimi
 
     const schoolId = derivedSchoolId;
 
-    const grade = parsed.category ?? (parsed as { subject?: string }).subject ?? "General";
+    const grade = parsed.grade || parsed.category || (parsed as { subject?: string }).subject || "General";
+    // Quien crea el aula queda como creador y miembro (docente si es docente). Antes no se guardaba nada de
+    // eso: el aula no tenía docente, «Creada por» salía vacío y el docente no figuraba entre los miembros.
+    // Los demás miembros del cuerpo se ignoran: los alumnos entran con el código y los docentes se suman
+    // como titulares.
+    const creadorId = getRequesterId(req);
+    const creadorEsDocente = hasRole(req.user as never, "TEACHER");
 
     // FIX-TEST4-CLASSCODE — generar código único si el front no lo
     // mandó. Antes esto quedaba en null y el alumno no podía unirse.
@@ -483,14 +499,24 @@ aulas.post("/api/aulas", requireUser, requirePolicy("aulas/create"), ...bodyLimi
         escuelaId: schoolId,
         name: parsed.name,
         grade,
+        description: parsed.description || null,
+        category: parsed.category ?? null,
+        accessType: parsed.accessType ?? "privada",
         code: finalClassCode,
         classCode: finalClassCode,
         isDeleted: parsed.isDeleted ?? false,
         status: normalizedStatus,
+        createdBy: creadorId ?? null,
+        teacherId: creadorEsDocente ? (creadorId ?? null) : null,
         createdAt: parsed.createdAt,
         updatedAt: parsed.updatedAt
       }
     });
+    if (creadorId) {
+      await prisma.claseMiembro.create({
+        data: { claseId: created.id, usuarioId: creadorId, rolEnClase: creadorEsDocente ? "TEACHER" : "ADMIN" }
+      });
+    }
 
     res.status(201).json({ id: created.id, classroomId: created.id, classCode: finalClassCode });
   } catch (e: any) {
@@ -577,6 +603,11 @@ aulas.put(
         updateData.classCode = parsed.classCode;
       }
       if (parsed.allowComments !== undefined) updateData.allowComments = parsed.allowComments;
+      // L1 — estos campos llegaban del formulario y se descartaban.
+      if (parsed.description !== undefined) updateData.description = parsed.description || null;
+      if (parsed.category !== undefined) updateData.category = parsed.category || null;
+      if (parsed.grade !== undefined && parsed.grade.trim()) updateData.grade = parsed.grade.trim();
+      if (parsed.accessType !== undefined) updateData.accessType = parsed.accessType;
       const result = await prisma.clase.updateMany({
         where: { id, isDeleted: { not: true } },
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -670,6 +701,11 @@ aulas.patch(
         updateData.classCode = parsed.classCode;
       }
       if (parsed.allowComments !== undefined) updateData.allowComments = parsed.allowComments;
+      // L1 — estos campos llegaban del formulario y se descartaban.
+      if (parsed.description !== undefined) updateData.description = parsed.description || null;
+      if (parsed.category !== undefined) updateData.category = parsed.category || null;
+      if (parsed.grade !== undefined && parsed.grade.trim()) updateData.grade = parsed.grade.trim();
+      if (parsed.accessType !== undefined) updateData.accessType = parsed.accessType;
       const result = await prisma.clase.updateMany({
         where: { id, isDeleted: { not: true } },
         // eslint-disable-next-line @typescript-eslint/no-explicit-any

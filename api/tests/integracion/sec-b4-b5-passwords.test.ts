@@ -98,7 +98,7 @@ describe("registro y login", () => {
 
   const registrar = (password: string, username = "usuariopw", email = "usuariopw@test.local") =>
     jsonRequest(baseUrl, "POST", "/api/auth/register", {
-      body: { username, email, fullName: "Usuario Prueba", password },
+      body: { username, email, fullName: "Usuario Prueba", password, birthdate: "1990-05-10T00:00:00.000Z", consents: { privacyConsent: true, termsAccepted: true } },
     });
   const login = (identifier: string, password: string) =>
     jsonRequest(baseUrl, "POST", "/api/auth/login", { body: { identifier, password } });

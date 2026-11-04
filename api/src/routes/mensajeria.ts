@@ -1,4 +1,5 @@
 import type { Prisma } from "@prisma/client";
+import { enviarMensajeDirecto } from "../lib/mensaje-directo";
 import { Router } from "express";
 import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
@@ -316,58 +317,13 @@ mensajeria.post("/api/mensajeria/hilos", requireUser, async (req, res) => {
     return res.status(403).json({ error: "Solo podés enviar mensajes a miembros de tu escuela." });
   }
 
-  const now = new Date().toISOString();
-  const escuelaId = check.escuelaId!;
-  const destId = String(destinatarioId);
-
-  // Buscar hilo existente (en cualquier orden)
-  let hilo = await prisma.hilo.findFirst({
-    where: {
-      escuelaId,
-      OR: [
-        { usuarioA: userId, usuarioB: destId },
-        { usuarioA: destId, usuarioB: userId },
-      ],
-    },
+  const { hiloId, msgId } = await enviarMensajeDirecto({
+    escuelaId: check.escuelaId!,
+    remitenteId: userId,
+    destinatarioId: String(destinatarioId),
+    body
   });
-
-  if (!hilo) {
-    hilo = await prisma.hilo.create({
-      data: {
-        id: genId("hilo"),
-        escuelaId,
-        usuarioA: userId,
-        usuarioB: destId,
-        ultimoMsg: body.trim().slice(0, 80),
-        ultimoAt: now,
-        createdAt: now,
-      },
-    });
-  }
-
-  const msgId = genId("msg");
-  await prisma.mensajeDirecto.create({
-    data: {
-      id: msgId,
-      hiloId: hilo.id,
-      senderId: userId,
-      body: body.trim(),
-      leido: 0,
-      createdAt: now,
-    },
-  });
-
-  // Actualizar preview y no_leidos del receptor
-  const noLeidosIncrement = hilo.usuarioA === userId
-    ? { noLeidosB: { increment: 1 } }
-    : { noLeidosA: { increment: 1 } };
-
-  await prisma.hilo.update({
-    where: { id: hilo.id },
-    data: { ultimoMsg: body.trim().slice(0, 80), ultimoAt: now, ...noLeidosIncrement },
-  });
-
-  return res.status(201).json({ hiloId: hilo.id, msgId, ok: true });
+  return res.status(201).json({ hiloId, msgId, ok: true });
 });
 
 // ── GET /api/mensajeria/no-leidos ────────────────────────────

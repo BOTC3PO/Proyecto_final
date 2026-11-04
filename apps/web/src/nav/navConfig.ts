@@ -58,6 +58,12 @@ export const NAV_BY_ROLE: NavMap = {
     { id: 'datasets',     label: 'datasets',     to: '/datasets',              exact: true },
     { id: 'evaluaciones', label: 'evaluaciones', to: '/profesor/evaluaciones', exact: true },
     { id: 'materiales',   label: 'materiales',   to: '/profesor/materiales',   exact: true },
+    // Sección «Gestión» del menú lateral: estaba definida pero vacía porque estos ítems no figuraban acá.
+    { id: 'tareas',       label: 'tareas',       to: '/profesor/tareas',       exact: true },
+    { id: 'asistencia',   label: 'asistencia',   to: '/profesor/asistencia',   exact: true },
+    { id: 'calificaciones', label: 'calificaciones', to: '/profesor/calificaciones', exact: true },
+    { id: 'encuestas',    label: 'encuestas',    to: '/profesor/encuestas',    exact: true },
+    { id: 'reportes',     label: 'reportes',     to: '/profesor/reportes',     exact: true },
     { id: 'calendario',   label: 'calendario',   to: '/profesor/calendario',   exact: true },
     { id: 'mensajes',     label: 'mensajes',     to: '/mensajes',              exact: true },
   ],

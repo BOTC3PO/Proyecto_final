@@ -27,10 +27,9 @@ Un sistema con realimentación opera dentro de un *lazo de control cerrado*, don
 
 Estos componentes forman una cadena continua: la salida se vuelve entrada, lo que permite corregir en tiempo real cualquier desviación.
 
-![diagrama de un sistema de control con sensor, comparador, controlador y actuador](https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Simple_feedback_control_loop.svg/960px-Simple_feedback_control_loop.svg.png)
+![diagrama de un sistema de control con sensor, comparador, controlador y actuador](/temario/imagenes/simple-feedback-control-loop.webp)
 
-*Imagen: «Simple feedback control loop», Simple_feedback_control_loop.png: en:User:Ap
-deriv, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Simple_feedback_control_loop.svg).*
+*Imagen: «Simple feedback control loop», Ap (obra derivada), CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Simple_feedback_control_loop.svg).*
 
 ---
 

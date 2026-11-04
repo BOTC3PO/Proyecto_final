@@ -110,7 +110,7 @@ export default function MisClases() {
             value={codigo}
             onChange={(e) => setCodigo(e.target.value.toUpperCase())}
             onKeyDown={(e) => { if (e.key === "Enter") void handleJoin(); }}
-            className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)] uppercase tracking-widest w-36"
+            className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)] uppercase tracking-widest placeholder:normal-case placeholder:tracking-normal w-44"
             maxLength={8}
             autoFocus={aulas.length === 0}
             aria-label={t("misClases.codigoDeAula")}
@@ -176,7 +176,7 @@ export default function MisClases() {
         {!loading && !error && aulas.length > 0 && aulasFiltradas.length === 0 && (
           <div className="rounded-xl border border-dashed border-[var(--c-border)] p-10 text-center">
             <p className="text-sm text-[var(--c-muted)]">
-              {t("misClases.noHayAulas")} {filtro === "activas" ? t("misClases.activas").toLowerCase() : t("misClases.archivadas").toLowerCase()}.
+              {filtro === "activas" ? t("misClases.noHayAulasActivas") : t("misClases.noHayAulasArchivadas")}
             </p>
           </div>
         )}
@@ -224,7 +224,10 @@ export default function MisClases() {
                     )}
                     {aula.members && (
                       <span className="text-[10px] text-[var(--c-muted)] ml-auto">
-                        {aula.members.filter((m) => m.roleInClass === "STUDENT").length} {t("misClases.alumnos")}
+                        {(() => {
+                          const n = aula.members.filter((m) => m.roleInClass === "STUDENT").length;
+                          return `${n} ${t(n === 1 ? "misClases.alumno" : "misClases.alumnos")}`;
+                        })()}
                       </span>
                     )}
                   </div>

@@ -1832,6 +1832,17 @@ quizAttempts.get(
       : sanitizeQuestionsForStudent(questionsBase, currentAttempt.quizVersionId ?? currentAttempt.quizId, {
           revealSolution: currentAttempt.status !== "in_progress"
         });
+  const notaRevision: Record<string, unknown> = {};
+  const scoreRev = typeof currentAttempt.score === "number" ? currentAttempt.score : null;
+  const maxRev = typeof currentAttempt.maxScore === "number" ? currentAttempt.maxScore : 0;
+  if ((currentAttempt.status === "submitted" || currentAttempt.status === "graded") && scoreRev !== null && maxRev > 0) {
+    const umbralRow = await prisma.quizUmbral.findUnique({ where: { quizId: currentAttempt.quizId }, select: { umbral: true } });
+    const nota = gradeFromConfig(scoreRev / maxRev, resolveScoringConfig(module?.scoringConfig, umbralRow?.umbral ?? 60));
+    notaRevision.notaDisplay = nota.display;
+    notaRevision.notaCanonical10 = nota.canonical10;
+    notaRevision.aprobado = nota.passing === true;
+    notaRevision.porcentaje = Math.round((scoreRev / maxRev) * 100);
+  }
   res.json({
     id: currentAttempt.id,
     attemptId: currentAttempt.id,
@@ -1844,6 +1855,9 @@ quizAttempts.get(
     // depender del response efímero del submit.
     score: currentAttempt.score,
     maxScore: currentAttempt.maxScore,
+    // SM-04 — la nota del intento terminado, con la misma escala que al entregarlo (antes la revisión mostraba
+    // el puntaje pero no la nota). Sin nota mientras haya preguntas sin corregir.
+    ...notaRevision,
     timerSegundos: getEvalConfig.timerSegundos,
     deadline: getDeadline,
     questions: questionsForResponse,
@@ -2372,8 +2386,10 @@ async function materializeSubmit(
       const status = hasPendingManual ? "pending_review" : "submitted";
 
       const updatedAt = new Date();
-      await prisma.quizAttempt.updateMany({
-        where: { id: idParam },
+      // H17 — se reclama el intento con una condición: si llegan dos envíos a la vez, solo el primero que escribe
+      // lo corrige; el otro recibe lo ya guardado, igual que un reenvío (antes ganaba el último y pisaba la nota).
+      const reclamo = await prisma.quizAttempt.updateMany({
+        where: { id: idParam, submittedAt: null },
         data: {
           answers: JSON.stringify(payload.answers),
           feedback: JSON.stringify(feedback),
@@ -2384,6 +2400,10 @@ async function materializeSubmit(
           submittedAt: updatedAt.toISOString()
         }
       });
+      if (reclamo.count !== 1) {
+        const guardado = (await prisma.quizAttempt.findFirst({ where: { id: idParam } })) as QuizAttemptRecord | null;
+        return { status: 200, body: guardado ? buildAlreadySubmittedBody(guardado) : { alreadySubmitted: true } };
+      }
 
       // Monedas por completar un cuestionario POR PRIMERA VEZ (mismo
       // alumno + mismo quiz). Sólo en el submit inmediato (sin ítems

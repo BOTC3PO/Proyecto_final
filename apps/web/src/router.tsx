@@ -16,6 +16,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 import RecuperarContrasena from "./pages/RecuperarContrasena";
+import RestablecerContrasena from "./pages/RestablecerContrasena";
+import VerificarEmail from "./pages/VerificarEmail";
 
 // Herramientas educativas — sólo sobrevive el editor de mapas; el hub y los
 // stubs en blanco están en `archive/web/stubs/herramientas.tsx`.
@@ -81,6 +83,8 @@ const Progreso                  = lazyWithRetry(() => import("./pages/Progreso")
 const ProfesorCalificaciones    = lazyWithRetry(() => import("./pages/ProfesorCalificaciones"));
 const ProfesorIntentoDetalle    = lazyWithRetry(() => import("./pages/profesor/IntentoDetalle"));
 const ProfesorAsistencia        = lazyWithRetry(() => import("./pages/ProfesorAsistencia"));
+const ProfesorTareas            = lazyWithRetry(() => import("./pages/ProfesorTareas"));
+const TareaDetalle              = lazyWithRetry(() => import("./pages/TareaDetalle"));
 const EnterpriseDashboard       = lazyWithRetry(() => import("./pages/EnterpriseDashboard"));
 const EnterpriseReportes        = lazyWithRetry(() => import("./pages/EnterpriseReportes"));
 const EnterpriseAulas           = lazyWithRetry(() => import("./pages/EnterpriseAulas"));
@@ -104,7 +108,6 @@ const Terminos                  = lazyWithRetry(() => import("./pages/Terminos")
 const Creditos                  = lazyWithRetry(() => import("./pages/Creditos")); // huevo de pascua, sin link en ningún nav
 const Privacidad                = lazyWithRetry(() => import("./pages/Privacidad"));
 const Mensajeria                = lazyWithRetry(() => import("./pages/Mensajeria"));
-const PerfilPublico             = lazyWithRetry(() => import("./pages/PerfilPublico"));
 const Economia                  = lazyWithRetry(() => import("./pages/Economia"));
 const TiendaTemas               = lazyWithRetry(() => import("./pages/TiendaTemas"));
 const OnboardingTema            = lazyWithRetry(() => import("./pages/OnboardingTema"));
@@ -150,6 +153,8 @@ export const router = createBrowserRouter([
           { path: "login",      element: <Login /> },
           { path: "register",   element: <Register /> },
           { path: "recuperar",  element: <RecuperarContrasena /> },
+          { path: "restablecer", element: <RestablecerContrasena /> },
+          { path: "verificar-email", element: <VerificarEmail /> },
 
           { path: "contact",          element: withSuspense(<Contact />) },
           { path: "terminos",         element: withSuspense(<Terminos />) },
@@ -157,7 +162,6 @@ export const router = createBrowserRouter([
           { path: "privacidad",       element: withSuspense(<Privacidad />) },
           { path: "metodologia",      element: withSuspense(<Metodologia />) },
           { path: "onboarding/tema",     element: withSuspense(<OnboardingTema />) },
-          { path: "u/:username",         element: withSuspense(<PerfilPublico />) },
 
           // Herramientas Educativas (public) — sólo el editor de mapas; el
           // resto de rutas /herramientas/* se archivó (stubs en blanco).
@@ -206,6 +210,10 @@ export const router = createBrowserRouter([
           {
             path: 'tareas',
             element: withSuspense(<Tareas />),
+          },
+          {
+            path: 'tareas/:id',
+            element: withSuspense(<TareaDetalle />),
           },
           {
             path: 'encuestas',
@@ -305,6 +313,14 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute allow={['TEACHER']}>
                 {withSuspense(<ProfesorEncuestas />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'profesor/tareas',
+            element: (
+              <ProtectedRoute allow={['TEACHER']}>
+                {withSuspense(<ProfesorTareas />)}
               </ProtectedRoute>
             ),
           },

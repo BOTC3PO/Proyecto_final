@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchProgresoEstudiante, type ProgresoEstudianteResponse } from "../services/progreso";
 import { useI18n } from "../i18n/I18nContext";
+import { interpolar } from "../i18n/interpolar";
 
 type AvanceModulo = {
   id: string;
@@ -141,7 +142,7 @@ export default function Progreso() {
             <p className="text-sm text-[var(--c-muted)] mt-1">
               {data.sugerencia.kind === "vacio" ? t("progreso.exploraLosModulosDisponibles")
                 : data.sugerencia.kind === "completo" ? t("progreso.excelenteTrabajoSigueExplorando")
-                : `${t("progreso.tienesNModulos")} ${data.sugerencia.restantes ?? 0} ${t("progreso.enProgresoSigueAdelante")}`}
+                : interpolar(t("progreso.tienesNEnProgreso"), { n: data.sugerencia.restantes ?? 0 })}
             </p>
           </div>
         )}

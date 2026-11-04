@@ -13,7 +13,17 @@ import { ENV } from "../lib/env";
 import { getProvider } from "../lib/pasarelas";
 import { accessTokenDesdeCredenciales } from "../lib/mercadopago-oauth";
 import { confirmarPago } from "../lib/cobros-confirmacion";
-import { CobroCreateSchema, CobroPublicarSchema } from "../schema/cobros";
+import { enviarPush } from "../lib/push";
+import { filtroTitular, titularDeCobro } from "../lib/pasarelas/titular";
+import { CobroCreateSchema, CobroPublicarSchema, ConfigCobrosEscuelaSchema } from "../schema/cobros";
+import { calcularMora, tasaEfectiva, topesMora, MORA_DIAS_GRACIA_MAX, type ConfigMora } from "../lib/mora";
+import {
+  calcularComision,
+  cargarParamsComision,
+  contarAlumnosEscuela,
+  esCobroVoluntario,
+  COMISION_PCT_RANGO_APORTES
+} from "../lib/comisiones";
 
 export const cobros = Router();
 
@@ -71,11 +81,33 @@ cobros.post("/api/cobros", requireUser, async (req, res) => {
     return res.status(400).json({ error: "payload inválido", issues: parsed.error.issues });
   }
 
+  const tipo = parsed.data.tipo ?? "cuota";
+  if (tipo === "cooperadora") {
+    const coop = await prisma.cooperadora.findFirst({ where: { escuelaId } });
+    if (!coop || coop.estadoVerificacion !== "verificada") {
+      return res.status(422).json({
+        error: "Para cobrar la cooperadora, primero registrala y esperá que la verifiquen.",
+        code: "COOPERADORA_NO_VERIFICADA"
+      });
+    }
+  }
+  if (esCobroVoluntario(tipo)) {
+    // Los aportes voluntarios no pueden superar lo que permite la ley de la jurisdicción.
+    const escuela = await prisma.escuela.findFirst({ where: { id: escuelaId }, select: { topeAporteLegal: true } });
+    if (escuela?.topeAporteLegal != null && parsed.data.montoUnitario > escuela.topeAporteLegal) {
+      return res.status(422).json({
+        error: `el aporte voluntario no puede superar el tope legal de ${escuela.topeAporteLegal}`,
+        code: "SUPERA_TOPE_APORTE"
+      });
+    }
+  }
+
   const nowIso = now();
   const cobro = await prisma.cobroEscuela.create({
     data: {
       id: randomUUID(),
       escuelaId,
+      tipo,
       concepto: parsed.data.concepto,
       descripcion: parsed.data.descripcion ?? null,
       montoUnitario: parsed.data.montoUnitario,
@@ -235,6 +267,11 @@ cobros.post("/api/cobros/:id/publicar", requireUser, async (req, res) => {
   if (cuotasCreadas === null) {
     return res.status(409).json({ error: "el cobro ya fue publicado" });
   }
+  // L4 — aviso a quien paga (familia vinculada o el propio alumno), sin montos ni nombres.
+  void enviarPush(
+    [...alumnoIds].map((id) => pagadorPorAlumno.get(id) ?? id),
+    { titulo: "Virtual Book", cuerpo: "Hay una cuota nueva para pagar.", data: { pantalla: "pagos" } }
+  );
 
   res.json({ ok: true, cobroId: cobro.id, cuotasCreadas });
 });
@@ -269,13 +306,27 @@ cobros.get("/api/cuotas/mias", requireUser, async (req, res) => {
     ? await prisma.cobroEscuela.findMany({ where: { id: { in: cobroIds } } })
     : [];
   const cobroPorId = new Map(cobrosDocs.map((c) => [c.id, c]));
+  const moraPorEscuela = await configMoraDe([...new Set(cobrosDocs.map((c) => c.escuelaId))]);
+  const topes = await topesVigentes();
 
-  res.json({
-    items: cuotas.map((c) => ({
+  const items = cuotas.map((c) => {
+    const cobro = cobroPorId.get(c.cobroId) ?? null;
+    const abierta = c.estado === "pendiente" || c.estado === "vencida" || c.estado === "en_proceso";
+    const mora =
+      cobro && abierta
+        ? calcularMora(c.montoFinal, cobro.vencimiento, moraPorEscuela.get(cobro.escuelaId), { tipo: cobro.tipo, topes })
+        : null;
+    return {
       ...c,
-      cobro: cobroPorId.get(c.cobroId) ?? null
-    }))
+      estado: mora?.vencida && c.estado === "pendiente" ? "vencida" : c.estado,
+      interesMora: mora?.interesMora ?? 0,
+      diasAtraso: mora?.diasAtraso ?? 0,
+      montoAPagar: mora?.montoAPagar ?? c.montoFinal,
+      cobro
+    };
   });
+  await marcarVencidas(items.filter((c, i) => c.estado === "vencida" && cuotas[i].estado === "pendiente").map((c) => c.id));
+  res.json({ items });
 });
 
 // POST /api/cuotas/:id/checkout — crea (o reutiliza) el intento de pago
@@ -310,12 +361,28 @@ cobros.post("/api/cuotas/:id/checkout", requireUser, async (req, res) => {
 
   const cobro = await prisma.cobroEscuela.findFirst({ where: { id: cuota.cobroId } });
   if (!cobro) return res.status(404).json({ error: "cobro no encontrado" });
+  // El interés se congela acá: lo que se le pide a la familia es la cuota más la mora de hoy.
+  const configMora = (await configMoraDe([cobro.escuelaId])).get(cobro.escuelaId);
+  const mora = calcularMora(cuota.montoFinal, cobro.vencimiento, configMora, { tipo: cobro.tipo, topes: await topesVigentes() });
+  const montoAPagar = mora.montoAPagar;
+  const desglose =
+    mora.interesMora > 0
+      ? { montoOriginal: cuota.montoFinal, interesMora: mora.interesMora }
+      : { montoOriginal: null, interesMora: null };
 
   const checkout = validarCuerpo(CuotaCheckoutSchema, req, res);
   if (!checkout) return;
   const preferido = checkout.provider || null;
+  // La plata de la cooperadora va a la cuenta de la cooperadora (asociación con CUIT propio), nunca a la de la
+  // escuela; si la cooperadora no conectó su cuenta, el pago queda manual.
+  const titular = titularDeCobro(cobro.tipo);
   const pasarelaCruda = await prisma.escuelaPasarela.findFirst({
-    where: { escuelaId: cobro.escuelaId, activa: true, ...(preferido ? { provider: preferido } : {}) }
+    where: {
+      escuelaId: cobro.escuelaId,
+      activa: true,
+      ...filtroTitular(titular),
+      ...(titular === "cooperadora" ? { provider: "mercadopago" } : preferido ? { provider: preferido } : {})
+    }
   });
   // Cryptomus sólo si el admin de plataforma lo habilitó para ESTA escuela:
   // es el único camino donde VB custodia fondos de terceros (liquida con
@@ -339,12 +406,19 @@ cobros.post("/api/cuotas/:id/checkout", requireUser, async (req, res) => {
       const escuela = adapter ? await prisma.escuela.findFirst({ where: { id: cobro.escuelaId } }) : null;
       if (adapter && escuela) {
         try {
+          // La comisión se calcula sobre la cuota sin la mora: el interés es todo de la escuela.
+          const comision = calcularComision(cuota.montoFinal, adapter.nombre, escuela, {
+            alumnos: await contarAlumnosEscuela(escuela.id),
+            tipo: cobro.tipo,
+            params: await cargarParamsComision()
+          });
           const checkout = await adapter.createCheckout({
-            cuota: { id: cuota.id, montoFinal: cuota.montoFinal, moneda: cobro.moneda, concepto: cobro.concepto },
+            cuota: { id: cuota.id, montoFinal: montoAPagar, moneda: cobro.moneda, concepto: cobro.concepto },
             escuela: {
               id: escuela.id,
               nombre: escuela.name,
-              comisionPct: escuela.comisionPct ?? 0,
+              comisionPct: comision.comisionPct,
+              comisionMonto: comision.comisionVB,
               cuentaConectadaId: pasarela.cuentaConectadaId,
               accessToken: accessTokenDesdeCredenciales(pasarela.credencialesCifradas)
             },
@@ -371,12 +445,20 @@ cobros.post("/api/cuotas/:id/checkout", requireUser, async (req, res) => {
   if (cuota.pagoId) {
     const existente = await prisma.pago.findFirst({ where: { id: cuota.pagoId } });
     if (existente && (existente.estado === "pendiente" || existente.estado === "en_proceso")) {
+      // Si pasaron días, la mora creció: el pago vigente se actualiza al monto de hoy.
+      const conMontoAlDia =
+        Math.abs(existente.montoBruto - montoAPagar) > 0.001
+          ? await prisma.pago.update({
+              where: { id: existente.id },
+              data: { montoBruto: montoAPagar, ...desglose, updatedAt: now() }
+            })
+          : existente;
       if (existente.provider === "manual") {
-        return res.json({ pago: existente, url: null });
+        return res.json({ pago: conMontoAlDia, url: null });
       }
       const fresh = await armarCheckout();
       if (!fresh.url) {
-        return res.json({ pago: existente, url: null });
+        return res.json({ pago: conMontoAlDia, url: null });
       }
       const actualizado = await prisma.pago.update({
         where: { id: existente.id },
@@ -394,7 +476,8 @@ cobros.post("/api/cuotas/:id/checkout", requireUser, async (req, res) => {
       provider,
       providerRef,
       estado: "pendiente",
-      montoBruto: cuota.montoFinal,
+      montoBruto: montoAPagar,
+      ...desglose,
       createdAt: nowIso,
       updatedAt: nowIso
     }
@@ -448,6 +531,103 @@ cobros.post("/api/cuotas/:id/confirmar-pago", requireUser, async (req, res) => {
     actorId: getRequesterId(user) ?? "staff:desconocido"
   });
   res.json({ ok: true, ...resultado });
+});
+
+// Topes de la mora según la inflación anual de referencia que carga el administrador.
+const topesVigentes = async () => topesMora((await cargarParamsComision()).inflacionAnualPct);
+
+// Configuración de mora de varias escuelas de una vez (para listar cuotas de distintas escuelas).
+const configMoraDe = async (escuelaIds: string[]): Promise<Map<string, ConfigMora>> => {
+  if (escuelaIds.length === 0) return new Map();
+  const filas = await prisma.escuela.findMany({
+    where: { id: { in: escuelaIds } },
+    select: { id: true, moraActiva: true, moraTasa: true, moraPeriodo: true, moraDiasGracia: true }
+  });
+  return new Map(filas.map((e) => [e.id, e]));
+};
+
+// Las cuotas pendientes que pasaron el vencimiento quedan "vencida" al leerlas (no hay tarea programada).
+const marcarVencidas = async (ids: string[]) => {
+  if (ids.length === 0) return;
+  await prisma.cuotaAlumno.updateMany({
+    where: { id: { in: ids }, estado: "pendiente" },
+    data: { estado: "vencida", updatedAt: now() }
+  });
+};
+
+type ConfigCobrosEscuela = ConfigMora & { comisionPctAportes: number; topeAporteLegal: number | null };
+
+const configCobrosRespuesta = (e: ConfigCobrosEscuela, topes: ReturnType<typeof topesMora>) => {
+  const { tasa, periodo } = tasaEfectiva(e, topes);
+  return {
+    moraActiva: e.moraActiva,
+    moraTasa: tasa,
+    moraPeriodo: periodo,
+    moraDiasGracia: e.moraDiasGracia,
+    comisionPctAportes: e.comisionPctAportes,
+    topeAporteLegal: e.topeAporteLegal,
+    limites: {
+      moraTasaMax: topes,
+      moraDiasGraciaMax: MORA_DIAS_GRACIA_MAX,
+      comisionPctAportes: COMISION_PCT_RANGO_APORTES
+    }
+  };
+};
+
+// GET /api/escuelas/:escuelaId/config-cobros — interés por mora y aportes voluntarios de la escuela.
+cobros.get("/api/escuelas/:escuelaId/config-cobros", requireUser, async (req, res) => {
+  const user = req.user as ReqUser | undefined;
+  const escuelaId = req.params.escuelaId as string;
+  if (!puedeGestionarEscuela(user, escuelaId)) return res.status(403).json({ error: "forbidden" });
+  const escuela = await prisma.escuela.findFirst({ where: { id: escuelaId } });
+  if (!escuela) return res.status(404).json({ error: "escuela no encontrada" });
+  res.json(configCobrosRespuesta(escuela, await topesVigentes()));
+});
+
+// PUT /api/escuelas/:escuelaId/config-cobros — la dirección fija la mora (tasa mensual o anual, con tope) y
+// la comisión de cooperadoras y aportes (0 a 1 %). Cambia lo que pagan las familias: queda auditado.
+cobros.put("/api/escuelas/:escuelaId/config-cobros", requireUser, async (req, res) => {
+  const user = req.user as ReqUser | undefined;
+  const escuelaId = req.params.escuelaId as string;
+  if (!puedeGestionarEscuela(user, escuelaId)) return res.status(403).json({ error: "forbidden" });
+  const parsed = ConfigCobrosEscuelaSchema.safeParse(req.body);
+  if (!parsed.success) return res.status(400).json({ error: "payload inválido", issues: parsed.error.issues });
+  const previo = await prisma.escuela.findFirst({ where: { id: escuelaId } });
+  if (!previo) return res.status(404).json({ error: "escuela no encontrada" });
+
+  const periodo = parsed.data.moraPeriodo ?? (previo.moraPeriodo === "anual" ? "anual" : "mensual");
+  const tasa = parsed.data.moraTasa ?? previo.moraTasa;
+  const topes = await topesVigentes();
+  if (tasa > topes[periodo]) {
+    return res.status(422).json({
+      error: `la tasa ${periodo} no puede superar el ${topes[periodo]} % (60 % anual o 2 veces la inflación anual, lo que sea mayor)`,
+      code: "MORA_TASA_EXCEDIDA"
+    });
+  }
+  if ((parsed.data.moraDiasGracia ?? 0) > MORA_DIAS_GRACIA_MAX) {
+    return res.status(422).json({ error: `los días de gracia no pueden superar ${MORA_DIAS_GRACIA_MAX}` });
+  }
+  const d = parsed.data;
+  const actualizado = await prisma.escuela.update({
+    where: { id: escuelaId },
+    data: {
+      moraTasa: tasa,
+      moraPeriodo: periodo,
+      ...(d.moraActiva !== undefined ? { moraActiva: d.moraActiva } : {}),
+      ...(d.moraDiasGracia !== undefined ? { moraDiasGracia: d.moraDiasGracia } : {}),
+      ...(d.comisionPctAportes !== undefined ? { comisionPctAportes: d.comisionPctAportes } : {}),
+      ...(d.topeAporteLegal !== undefined ? { topeAporteLegal: d.topeAporteLegal } : {}),
+      updatedAt: now()
+    }
+  });
+  await recordAuditLog({
+    actorId: getRequesterId(user) ?? "desconocido",
+    action: "escuela.config_cobros_actualizada",
+    targetType: "Escuela",
+    targetId: escuelaId,
+    metadata: { antes: configCobrosRespuesta(previo, topes), despues: configCobrosRespuesta(actualizado, topes) }
+  });
+  res.json(configCobrosRespuesta(actualizado, topes));
 });
 
 // POST /api/pasarelas/webhook/:provider — webhook real de cada pasarela

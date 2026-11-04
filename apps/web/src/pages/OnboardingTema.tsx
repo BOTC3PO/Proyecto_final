@@ -1,6 +1,7 @@
 import { useNavigate, useLocation, useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useI18n } from "../i18n/I18nContext";
+import { interpolar } from "../i18n/interpolar";
 
 const TEMAS_USER = [
   {
@@ -145,7 +146,7 @@ export default function OnboardingTema() {
             VB
           </div>
           <h1 className="text-2xl font-semibold" style={{ color: tema.text }}>
-            {t("onboardingTema.bienvenido")} {nombre}!
+            {interpolar(t("onboardingTema.bienvenidoNombre"), { nombre })}
           </h1>
           <p className="text-sm" style={{ color: tema.muted }}>{t("onboardingTema.elegiComoQueresQueSe")}</p>
         </div>

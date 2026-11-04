@@ -12,7 +12,7 @@
 
 Los fósiles transicionales son registros de organismos que presentan características intermedias entre dos grupos distintos, permitiendo reconstruir etapas clave en la historia evolutiva. Un ejemplo clásico es *Archaeopteryx*, cuyas alas con plumas y huesos reptilianos conectan aves y dinosaurios terópodos. Estos casos no son simples "intermedios" sino evidencias de procesos graduales: cambios morfológicos que responden a presiones ambientales o funcionales a lo largo de generaciones.
 
-![Comparación entre Archaeopteryx, reptil y ave moderna con resaltado de características intermedias](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Berlin_Archaeopteryx.jpg/960px-Berlin_Archaeopteryx.jpg)
+![Comparación entre Archaeopteryx, reptil y ave moderna con resaltado de características intermedias](/temario/imagenes/berlin-archaeopteryx.webp)
 
 *Imagen: «Berlin Archaeopteryx», Emily Willoughby (emily.a.willoughby@gmail.com), CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Berlin_Archaeopteryx.jpg).*
 
@@ -24,7 +24,7 @@ La existencia de estos fósiles refuta la idea de especies estáticas. Por ejemp
 
 El registro fósil de los equinos ilustra una transformación espectacular en respuesta a cambios ambientales. Desde *Eohippus*, un pequeño mamífero con varios dedos (cuatro en las patas delanteras, tres en las traseras) y dientes adaptables, hasta *Equus* (el caballo actual), se observa una progresión clara. Aumenta el tamaño corporal, los dedos se reducen a uno solo y los dientes se especializan para pastar hierbas. Estas modificaciones no ocurrieron de forma abrupta, sino que se desarrollaron a lo largo de millones de años, adaptándose al cambio de bosques densos a praderas abiertas.
 
-![Secuencia evolutiva de équidos desde Eohippus hasta Equus con escalas de tiempo](https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Horseevolution.svg/960px-Horseevolution.svg.png)
+![Secuencia evolutiva de équidos desde Eohippus hasta Equus con escalas de tiempo](/temario/imagenes/horseevolution.webp)
 
 *Imagen: «Horseevolution», Original:  Mcy jerry Vector:  SchlurcherBotPixelsq, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Horseevolution.svg).*
 
@@ -36,7 +36,7 @@ Este caso es relevante para la selección natural porque muestra cómo las presi
 
 La migración del agua a la tierra es uno de los eventos evolutivos más significativos. Fósiles como *Tiktaalik* o *Acanthostega* muestran cómo los primeros tetrápodos desarrollaron estructuras que les permitieron moverse en suelos húmedos: extremidades con articulaciones, pulmones y un sistema nervioso adaptado. Estas innovaciones no surgieron de la nada; se basaron en características previas de peces lobo (como el arco branquial), reutilizadas para funciones nuevas.
 
-![Esqueleto comparativo entre pez lobiforme, Tiktaalik y tetrápodo primitivo](https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Tiktaalik_fossil.JPG/960px-Tiktaalik_fossil.JPG)
+![Esqueleto comparativo entre pez lobiforme, Tiktaalik y tetrápodo primitivo](/temario/imagenes/tiktaalik-fossil.webp)
 
 *Imagen: «Tiktaalik fossil», Conty, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tiktaalik_fossil.JPG).*
 

@@ -34,8 +34,20 @@ import {
   LoginSchema,
   RefreshTokenSchema,
   RegisterSchema,
-  ForgotPasswordSchema
+  ForgotPasswordSchema,
+  ResetPasswordSchema
 } from "../schema/auth";
+import { enviarCorreo } from "../lib/mailer";
+import {
+  cifrarSecreto,
+  descifrarSecreto,
+  generarCodigosRecuperacion,
+  generarSecreto,
+  hashRecuperacion,
+  urlOtpauth,
+  verificarCodigo
+} from "../lib/totp";
+import { motivoPasswordDebil } from "../lib/password-policy";
 
 export const auth = Router();
 
@@ -127,6 +139,7 @@ auth.post("/api/auth/bootstrap-admin", async (req, res) => {
                 esAdminPrincipal: true,
                 passwordHash: bootstrapPasswordHash,
                 isDeleted: false,
+                emailVerificadoAt: now,
                 createdAt: now,
                 updatedAt: now
               }
@@ -179,6 +192,7 @@ auth.post("/api/admins", requireAdmin, async (req, res) => {
         roles: ["ADMIN"],
         passwordHash: await hashPassword(parsed.password),
         isDeleted: false,
+        emailVerificadoAt: now,
         createdAt: now,
         updatedAt: now
       }
@@ -189,6 +203,19 @@ auth.post("/api/admins", requireAdmin, async (req, res) => {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
 });
+
+/** Edad mínima para registrarse por cuenta propia; por debajo, el alta la hace la escuela (Ley 25.326, CCyC art. 26). */
+export const EDAD_MINIMA_REGISTRO = 13;
+
+export function edadEnAnios(nacimientoIso: string, ahora = new Date()): number {
+  const n = new Date(nacimientoIso);
+  if (Number.isNaN(n.getTime())) return -1;
+  let edad = ahora.getUTCFullYear() - n.getUTCFullYear();
+  const antesDelCumple =
+    ahora.getUTCMonth() < n.getUTCMonth() || (ahora.getUTCMonth() === n.getUTCMonth() && ahora.getUTCDate() < n.getUTCDate());
+  if (antesDelCumple) edad -= 1;
+  return edad;
+}
 
 auth.post("/api/auth/register", authLimiter, async (req, res) => {
   try {
@@ -207,6 +234,26 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
       email: body.email.trim().toLowerCase(),
       username: typeof body.username === "string" ? body.username.trim().toLowerCase() : body.username
     });
+    // Ley 25.326 — el consentimiento tiene que ser expreso (art. 5): no alcanza con que lo marque la web.
+    if (parsed.role !== "GUEST" && (parsed.consents?.privacyConsent !== true || parsed.consents?.termsAccepted !== true)) {
+      res.status(400).json({ error: "Para crear la cuenta tenés que aceptar la Política de Privacidad y los Términos.", code: "SIN_CONSENTIMIENTO" });
+      return;
+    }
+    // Menores: sin fecha de nacimiento no se puede saber la edad. Por debajo de 13 años el alta la hace la escuela
+    // (que tiene la relación con la familia), no la propia persona.
+    if (parsed.role !== "GUEST") {
+      if (!parsed.birthdate) {
+        res.status(400).json({ error: "Indicá tu fecha de nacimiento.", code: "FALTA_NACIMIENTO" });
+        return;
+      }
+      if (edadEnAnios(parsed.birthdate) < EDAD_MINIMA_REGISTRO) {
+        res.status(403).json({
+          error: `Si tenés menos de ${EDAD_MINIMA_REGISTRO} años, tu cuenta la crea tu escuela. Pedile el alta a tu docente o a la dirección.`,
+          code: "MENOR_SIN_ESCUELA"
+        });
+        return;
+      }
+    }
     const existingEmail = await prisma.usuario.findFirst({
       where: {
         email: parsed.email,
@@ -295,6 +342,7 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
         birthdate: parsed.birthdate ? new Date(parsed.birthdate).toISOString() : null,
         passwordHash: await hashPassword(parsed.password),
         isDeleted: false,
+        emailVerificadoAt: ENV.EMAIL_VERIFICACION ? null : now,
         createdAt: now,
         updatedAt: now,
         ...consentsData
@@ -336,7 +384,11 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
         return;
       }
     }
-    res.status(201).json({ id: result.id });
+    // B9 — enlace para confirmar el correo. Si el envío falla, la persona lo puede pedir de nuevo al iniciar sesión.
+    if (ENV.EMAIL_VERIFICACION) {
+      await enviarEnlaceDeVerificacion({ id: result.id, email: parsed.email, nombre: parsed.fullName });
+    }
+    res.status(201).json({ id: result.id, verificacionPendiente: ENV.EMAIL_VERIFICACION });
   } catch (e: any) {
     if (e instanceof ZodError) {
       // Un problema con la contraseña se informa con su texto (el formulario lo muestra tal cual);
@@ -617,6 +669,178 @@ auth.post("/api/auth/refresh", authLimiter, async (req, res) => {
   }
 });
 
+// ── E1 — recuperación de contraseña ─────────────────────────────────────────
+// El token viaja solo en el correo; en la base queda su hash. Vence en PASSWORD_RESET_TTL_MINUTES y sirve
+// una vez. La respuesta es siempre la misma, exista o no la cuenta, para no revelar qué correos están dados
+// de alta.
+const hashToken = (token: string) => crypto.createHash("sha256").update(token).digest("hex");
+
+async function enviarEnlaceDeRecuperacion(usuario: { id: string; email: string; nombre?: string | null }) {
+  const ahora = new Date();
+  // Pedir un enlace nuevo invalida los anteriores que no se usaron.
+  await prisma.passwordResetToken.updateMany({
+    where: { usuarioId: usuario.id, usedAt: null },
+    data: { usedAt: ahora.toISOString() }
+  });
+  const token = crypto.randomBytes(32).toString("base64url");
+  await prisma.passwordResetToken.create({
+    data: {
+      id: crypto.randomUUID(),
+      usuarioId: usuario.id,
+      tokenHash: hashToken(token),
+      expiresAt: new Date(ahora.getTime() + ENV.PASSWORD_RESET_TTL_MINUTES * 60_000).toISOString(),
+      createdAt: ahora.toISOString()
+    }
+  });
+  const enlace = `${ENV.APP_URL.replace(/\/$/, "")}/restablecer?token=${encodeURIComponent(token)}`;
+  const saludo = usuario.nombre ? `Hola, ${usuario.nombre}:` : "Hola:";
+  const minutos = ENV.PASSWORD_RESET_TTL_MINUTES;
+  await enviarCorreo({
+    para: usuario.email,
+    asunto: "Restablecer tu contraseña de Virtual Book",
+    texto: [
+      saludo,
+      "",
+      "Recibimos un pedido para restablecer tu contraseña. Para elegir una nueva, abrí este enlace:",
+      enlace,
+      "",
+      `El enlace vence en ${minutos} minutos y sirve una sola vez.`,
+      "Si no lo pediste, ignorá este correo: tu contraseña no cambia."
+    ].join("\n")
+  });
+}
+
+// ── B9 — confirmación del correo ────────────────────────────────────────────
+async function enviarEnlaceDeVerificacion(usuario: { id: string; email: string; nombre?: string | null }) {
+  const ahora = new Date();
+  await prisma.emailVerificacion.updateMany({
+    where: { usuarioId: usuario.id, usedAt: null },
+    data: { usedAt: ahora.toISOString() }
+  });
+  const token = crypto.randomBytes(32).toString("base64url");
+  const horas = ENV.EMAIL_VERIFICACION_TTL_HORAS;
+  await prisma.emailVerificacion.create({
+    data: {
+      id: crypto.randomUUID(),
+      usuarioId: usuario.id,
+      tokenHash: hashToken(token),
+      expiresAt: new Date(ahora.getTime() + horas * 3_600_000).toISOString(),
+      createdAt: ahora.toISOString()
+    }
+  });
+  const enlace = `${ENV.APP_URL.replace(/\/$/, "")}/verificar-email?token=${encodeURIComponent(token)}`;
+  await enviarCorreo({
+    para: usuario.email,
+    asunto: "Confirmá tu correo en Virtual Book",
+    texto: [
+      usuario.nombre ? `Hola, ${usuario.nombre}:` : "Hola:",
+      "",
+      "Para terminar de crear tu cuenta, confirmá tu correo abriendo este enlace:",
+      enlace,
+      "",
+      `El enlace vence en ${horas} horas y sirve una sola vez.`,
+      "Si no creaste una cuenta en Virtual Book, ignorá este correo."
+    ].join("\n")
+  });
+}
+
+auth.post("/api/auth/verificar-email", authLimiter, async (req, res) => {
+  const token = typeof req.body?.token === "string" ? req.body.token : "";
+  const invalido = () =>
+    res.status(400).json({ error: "El enlace venció o ya se usó. Pedí uno nuevo desde el inicio de sesión.", code: "TOKEN_INVALIDO" });
+  if (!token || token.length > 200) return invalido();
+  const ahora = new Date().toISOString();
+  const fila = await prisma.emailVerificacion.findFirst({ where: { tokenHash: hashToken(token) } });
+  if (!fila || fila.usedAt || fila.expiresAt <= ahora) return invalido();
+  const reclamo = await prisma.emailVerificacion.updateMany({ where: { id: fila.id, usedAt: null }, data: { usedAt: ahora } });
+  if (reclamo.count !== 1) return invalido();
+  const actualizado = await prisma.usuario.updateMany({
+    where: { id: fila.usuarioId, isDeleted: { not: true } },
+    data: { emailVerificadoAt: ahora, updatedAt: ahora }
+  });
+  if (actualizado.count !== 1) return invalido();
+  await recordAuditLog({
+    actorId: fila.usuarioId,
+    action: "auth.email_verificado",
+    targetType: "Usuario",
+    targetId: fila.usuarioId,
+    metadata: {}
+  });
+  res.json({ ok: true });
+});
+
+// Reenvía el enlace. Siempre responde lo mismo, exista o no la cuenta.
+// Acepta el correo o el nombre de usuario (lo que la persona escribió al intentar entrar); el enlace va
+// siempre al correo registrado.
+auth.post("/api/auth/reenviar-verificacion", authLimiter, async (req, res) => {
+  const crudo = req.body?.identifier ?? req.body?.email;
+  const identifier = typeof crudo === "string" ? crudo.trim().toLowerCase() : "";
+  if (ENV.EMAIL_VERIFICACION && identifier && identifier.length <= 320) {
+    const usuario = await prisma.usuario.findFirst({
+      where: { OR: [{ email: identifier }, { username: identifier }], isDeleted: { not: true } }
+    });
+    if (usuario?.email && !usuario.emailVerificadoAt) {
+      await enviarEnlaceDeVerificacion({ id: usuario.id, email: usuario.email, nombre: usuario.fullName });
+    }
+  }
+  res.json({ ok: true });
+});
+
+auth.post("/api/auth/reset-password", authLimiter, async (req, res) => {
+  const parsed = ResetPasswordSchema.safeParse(req.body ?? {});
+  if (!parsed.success) {
+    res.status(400).json({ error: "La contraseña no cumple los requisitos o el enlace no es válido." });
+    return;
+  }
+  const ahora = new Date().toISOString();
+  const fila = await prisma.passwordResetToken.findFirst({ where: { tokenHash: hashToken(parsed.data.token) } });
+  if (!fila || fila.usedAt || fila.expiresAt <= ahora) {
+    res.status(400).json({ error: "El enlace venció o ya se usó. Pedí uno nuevo.", code: "TOKEN_INVALIDO" });
+    return;
+  }
+  const usuario = await prisma.usuario.findFirst({ where: { id: fila.usuarioId, isDeleted: { not: true } } });
+  if (!usuario) {
+    res.status(400).json({ error: "El enlace venció o ya se usó. Pedí uno nuevo.", code: "TOKEN_INVALIDO" });
+    return;
+  }
+  const debil = motivoPasswordDebil(parsed.data.password, {
+    username: usuario.username ?? undefined,
+    email: usuario.email ?? undefined
+  });
+  if (debil) {
+    res.status(400).json({ error: debil, code: "PASSWORD_DEBIL" });
+    return;
+  }
+  // Se marca usado con una condición: dos pedidos simultáneos con el mismo enlace no cambian la clave dos veces.
+  const reclamo = await prisma.passwordResetToken.updateMany({
+    where: { id: fila.id, usedAt: null },
+    data: { usedAt: ahora }
+  });
+  if (reclamo.count !== 1) {
+    res.status(400).json({ error: "El enlace venció o ya se usó. Pedí uno nuevo.", code: "TOKEN_INVALIDO" });
+    return;
+  }
+  await prisma.usuario.update({
+    where: { id: usuario.id },
+    data: {
+      passwordHash: await hashPassword(parsed.data.password),
+      updatedAt: ahora,
+      // Abrir el enlace del correo prueba que la casilla es suya (B9).
+      ...(usuario.emailVerificadoAt ? {} : { emailVerificadoAt: ahora })
+    }
+  });
+  // Cambiar la contraseña cierra las sesiones abiertas (por si alguien más la tenía).
+  await prisma.refreshToken.updateMany({ where: { userId: usuario.id, revoked: false }, data: { revoked: true } });
+  await recordAuditLog({
+    actorId: usuario.id,
+    action: "auth.password_restablecida",
+    targetType: "Usuario",
+    targetId: usuario.id,
+    metadata: {}
+  });
+  res.json({ ok: true });
+});
+
 auth.post("/api/auth/forgot-password", authLimiter, async (req, res) => {
   try {
     const body = req.body ?? {};
@@ -645,12 +869,7 @@ auth.post("/api/auth/forgot-password", authLimiter, async (req, res) => {
       // para mutar roles (Fase 2), este chequeo se puede migrar a
       // `!hasRole(user, "GUEST")` para que un `roles: ["GUEST",
       // "TEACHER"]` también caiga en esta rama.
-      if (ENV.NODE_ENV !== "production") {
-        console.info("[auth/forgot-password] Password reset request received", {
-          userId: user.id.toString(),
-          email: user.email
-        });
-      }
+      await enviarEnlaceDeRecuperacion({ id: user.id.toString(), email: user.email ?? parsed.email, nombre: user.fullName });
     }
 
     res.status(200).json({
@@ -665,6 +884,180 @@ auth.post("/api/auth/forgot-password", authLimiter, async (req, res) => {
     }
     res.status(500).json({ error: "Internal server error" });
   }
+});
+
+
+// Emite la sesión (token de acceso + refresh) para un usuario ya autenticado. La usan el login y el segundo
+// paso de la verificación en dos pasos.
+type UsuarioSesion = NonNullable<Awaited<ReturnType<typeof prisma.usuario.findFirst>>>;
+async function emitirSesion(res: Response, user: UsuarioSesion) {
+  // PLAN-multirol Fase 2 — la sesión arranca en la escuela activa y con
+  // los roles DE ESA ESCUELA (no la unión de todas). Ver sesion-escuela.ts.
+  const sesion = await resolverSesionEscuela(user as never);
+  const accessToken = createAccessToken({
+    id: user.id.toString(),
+    email: user.email,
+    username: user.username,
+    role: sesion.rolPrincipal ?? resolvePrimaryRole(user) ?? undefined,
+    roles: sesion.roles.length > 0 ? sesion.roles : undefined,
+    guestOnboardingStatus: user.guestOnboardingStatus ?? null,
+    schoolId: normalizeSchoolId(sesion.escuelaId),
+    fullName: user.fullName ?? null
+  });
+  const refreshToken = createRefreshToken({ id: user.id.toString() });
+  if (refreshToken?.jti) {
+    await prisma.refreshToken.create({
+      data: {
+        jti: refreshToken.jti,
+        userId: user.id.toString(),
+        familyId: refreshToken.familyId,
+        revoked: false,
+        expiresAt: new Date(refreshToken.expiresAt)
+      }
+    });
+  }
+  res.status(200).json({
+    id: user.id,
+    username: user.username,
+    email: user.email,
+    fullName: user.fullName,
+    role: sesion.rolPrincipal ?? resolvePrimaryRole(user) ?? undefined,
+    roles: sesion.roles.length > 0 ? sesion.roles : undefined,
+    guestOnboardingStatus: user.guestOnboardingStatus ?? null,
+    schoolId: normalizeSchoolId(sesion.escuelaId),
+    escuelas: await escuelasDisponiblesPara(user.id.toString()),
+    accessToken: accessToken.token,
+    expiresAt: accessToken.expiresAt,
+    expiresIn: accessToken.expiresIn,
+    ...(refreshToken
+      ? {
+          refreshToken: refreshToken.token,
+          refreshExpiresAt: refreshToken.expiresAt,
+          refreshExpiresIn: refreshToken.expiresIn
+        }
+      : {})
+  });
+}
+
+// ── B13 — verificación en dos pasos ─────────────────────────────────────────
+const DESAFIO_2FA_MS = 5 * 60 * 1000;
+const firmaDesafio = (datos: string) => crypto.createHmac("sha256", ENV.JWT_SECRET).update(`2fa:${datos}`).digest("base64url");
+
+function crearDesafio2fa(userId: string) {
+  const datos = `${userId}.${Date.now() + DESAFIO_2FA_MS}`;
+  return `${Buffer.from(datos).toString("base64url")}.${firmaDesafio(datos)}`;
+}
+
+function leerDesafio2fa(desafio: string): string | null {
+  const [b64, firma] = String(desafio).split(".");
+  if (!b64 || !firma) return null;
+  const datos = Buffer.from(b64, "base64url").toString();
+  const esperada = Buffer.from(firmaDesafio(datos));
+  const recibida = Buffer.from(firma);
+  if (esperada.length !== recibida.length || !crypto.timingSafeEqual(esperada, recibida)) return null;
+  const punto = datos.lastIndexOf(".");
+  const userId = datos.slice(0, punto);
+  const vence = Number(datos.slice(punto + 1));
+  return Number.isFinite(vence) && vence > Date.now() ? userId : null;
+}
+
+/** Valida un código TOTP o uno de recuperación y deja registrado su uso. */
+async function validarSegundoFactor(user: UsuarioSesion, codigo: string): Promise<boolean> {
+  const u = user as UsuarioSesion & { totpSecreto: string | null; totpUltimoPaso: number | null; totpRecuperacion: string | null };
+  if (!u.totpSecreto) return false;
+  const paso = verificarCodigo(descifrarSecreto(u.totpSecreto), codigo, u.totpUltimoPaso ?? null);
+  if (paso !== null) {
+    const r = await prisma.usuario.updateMany({
+      where: { id: u.id, OR: [{ totpUltimoPaso: null }, { totpUltimoPaso: { lt: paso } }] },
+      data: { totpUltimoPaso: paso }
+    });
+    return r.count === 1;
+  }
+  const hashes: string[] = u.totpRecuperacion ? JSON.parse(u.totpRecuperacion) : [];
+  const h = hashRecuperacion(codigo);
+  if (!hashes.includes(h)) return false;
+  await prisma.usuario.update({ where: { id: u.id }, data: { totpRecuperacion: JSON.stringify(hashes.filter((x) => x !== h)) } });
+  await recordAuditLog({ actorId: u.id, action: "auth.2fa_codigo_recuperacion_usado", targetType: "Usuario", targetId: u.id, metadata: { quedan: hashes.length - 1 } });
+  return true;
+}
+
+const usuarioDeSesion = async (req: { user?: { id?: string; _id?: unknown } }) => {
+  const id = req.user?.id ?? (typeof req.user?._id === "string" ? req.user._id : null);
+  return id ? prisma.usuario.findFirst({ where: { id, isDeleted: { not: true } } }) : null;
+};
+
+auth.post("/api/auth/2fa/login", authLimiter, async (req, res) => {
+  const userId = leerDesafio2fa(String(req.body?.desafio ?? ""));
+  if (!userId) {
+    res.status(401).json({ error: "El ingreso venció. Volvé a escribir tu contraseña.", code: "DESAFIO_VENCIDO" });
+    return;
+  }
+  const user = await prisma.usuario.findFirst({ where: { id: userId, isDeleted: { not: true } } });
+  if (!user || estaBaneado(user as { isBanned?: boolean; bannedUntil?: string | null })) {
+    res.status(401).json({ error: "Invalid credentials" });
+    return;
+  }
+  if (!(await validarSegundoFactor(user, String(req.body?.codigo ?? "")))) {
+    res.status(401).json({ error: "El código no es correcto.", code: "CODIGO_2FA_INCORRECTO" });
+    return;
+  }
+  await emitirSesion(res, user);
+});
+
+auth.get("/api/auth/2fa", requireUser, async (req, res) => {
+  const user = await usuarioDeSesion(req as never);
+  if (!user) return res.status(401).json({ error: "no autenticado" });
+  const u = user as UsuarioSesion & { totpActivo: boolean; totpRecuperacion: string | null };
+  res.json({
+    activo: u.totpActivo === true,
+    codigosRecuperacionRestantes: u.totpRecuperacion ? (JSON.parse(u.totpRecuperacion) as string[]).length : 0
+  });
+});
+
+auth.post("/api/auth/2fa/configurar", requireUser, async (req, res) => {
+  const user = await usuarioDeSesion(req as never);
+  if (!user) return res.status(401).json({ error: "no autenticado" });
+  if ((user as { totpActivo?: boolean }).totpActivo) return res.status(409).json({ error: "La verificación ya está activa." });
+  const secreto = generarSecreto();
+  await prisma.usuario.update({ where: { id: user.id }, data: { totpSecreto: cifrarSecreto(secreto), totpUltimoPaso: null } });
+  res.json({ secreto, url: urlOtpauth(user.email || user.username, secreto) });
+});
+
+auth.post("/api/auth/2fa/activar", requireUser, async (req, res) => {
+  const user = await usuarioDeSesion(req as never);
+  if (!user) return res.status(401).json({ error: "no autenticado" });
+  const u = user as UsuarioSesion & { totpSecreto: string | null; totpActivo: boolean };
+  if (u.totpActivo) return res.status(409).json({ error: "La verificación ya está activa." });
+  if (!u.totpSecreto) return res.status(400).json({ error: "Primero configurá la aplicación." });
+  const paso = verificarCodigo(descifrarSecreto(u.totpSecreto), String(req.body?.codigo ?? ""), null);
+  if (paso === null) return res.status(400).json({ error: "El código no es correcto.", code: "CODIGO_2FA_INCORRECTO" });
+  const codigos = generarCodigosRecuperacion();
+  await prisma.usuario.update({
+    where: { id: u.id },
+    data: { totpActivo: true, totpUltimoPaso: paso, totpRecuperacion: JSON.stringify(codigos.map(hashRecuperacion)) }
+  });
+  await recordAuditLog({ actorId: u.id, action: "auth.2fa_activada", targetType: "Usuario", targetId: u.id, metadata: {} });
+  // Los códigos de recuperación se muestran una sola vez.
+  res.json({ ok: true, codigosRecuperacion: codigos });
+});
+
+auth.post("/api/auth/2fa/desactivar", requireUser, async (req, res) => {
+  const user = await usuarioDeSesion(req as never);
+  if (!user) return res.status(401).json({ error: "no autenticado" });
+  if (!(user as { totpActivo?: boolean }).totpActivo) return res.status(409).json({ error: "La verificación no está activa." });
+  const password = String(req.body?.password ?? "");
+  if (!user.passwordHash || !(await verifyPassword(password, user.passwordHash))) {
+    return res.status(403).json({ error: "La contraseña no es correcta.", code: "PASSWORD_INCORRECTA" });
+  }
+  if (!(await validarSegundoFactor(user, String(req.body?.codigo ?? "")))) {
+    return res.status(403).json({ error: "El código no es correcto.", code: "CODIGO_2FA_INCORRECTO" });
+  }
+  await prisma.usuario.update({
+    where: { id: user.id },
+    data: { totpActivo: false, totpSecreto: null, totpUltimoPaso: null, totpRecuperacion: null }
+  });
+  await recordAuditLog({ actorId: user.id, action: "auth.2fa_desactivada", targetType: "Usuario", targetId: user.id, metadata: {} });
+  res.json({ ok: true });
 });
 
 auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
@@ -731,6 +1124,15 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
       res.status(403).json(respuestaBaneado(user as { bannedUntil?: string | null }));
       return;
     }
+    // B9 — quien se registró solo tiene que confirmar el correo antes de entrar. Se responde después de
+    // verificar la contraseña, así este aviso no revela qué correos están registrados.
+    if (ENV.EMAIL_VERIFICACION && !(user as { emailVerificadoAt?: string | null }).emailVerificadoAt) {
+      res.status(403).json({
+        error: "Tenés que confirmar tu correo antes de iniciar sesión. Revisá tu bandeja de entrada.",
+        code: "EMAIL_NO_VERIFICADO"
+      });
+      return;
+    }
     // Hash viejo (menos iteraciones): se re-hashea con el costo actual ahora que se conoce la
     // contraseña. Si falla, el login sigue igual.
     if (passwordNeedsRehash(user.passwordHash)) {
@@ -743,52 +1145,13 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
         console.error("[auth/login] no se pudo actualizar el hash de la contraseña", error);
       }
     }
-    // PLAN-multirol Fase 2 — la sesión arranca en la escuela activa y con
-    // los roles DE ESA ESCUELA (no la unión de todas). Ver sesion-escuela.ts.
-    const sesion = await resolverSesionEscuela(user as never);
-    const accessToken = createAccessToken({
-      id: user.id.toString(),
-      email: user.email,
-      username: user.username,
-      role: sesion.rolPrincipal ?? resolvePrimaryRole(user) ?? undefined,
-      roles: sesion.roles.length > 0 ? sesion.roles : undefined,
-      guestOnboardingStatus: user.guestOnboardingStatus ?? null,
-      schoolId: normalizeSchoolId(sesion.escuelaId),
-      fullName: user.fullName ?? null
-    });
-    const refreshToken = createRefreshToken({ id: user.id.toString() });
-    if (refreshToken?.jti) {
-      await prisma.refreshToken.create({
-        data: {
-          jti: refreshToken.jti,
-          userId: user.id.toString(),
-          familyId: refreshToken.familyId,
-          revoked: false,
-          expiresAt: new Date(refreshToken.expiresAt)
-        }
-      });
+    // B13 — con la verificación en dos pasos activa, la contraseña sola no alcanza: se devuelve un desafío
+    // de corta duración y la sesión se emite en POST /api/auth/2fa/login con el código.
+    if ((user as { totpActivo?: boolean }).totpActivo) {
+      res.status(200).json({ requiere2fa: true, desafio: crearDesafio2fa(user.id.toString()) });
+      return;
     }
-    res.status(200).json({
-      id: user.id,
-      username: user.username,
-      email: user.email,
-      fullName: user.fullName,
-      role: sesion.rolPrincipal ?? resolvePrimaryRole(user) ?? undefined,
-      roles: sesion.roles.length > 0 ? sesion.roles : undefined,
-      guestOnboardingStatus: user.guestOnboardingStatus ?? null,
-      schoolId: normalizeSchoolId(sesion.escuelaId),
-      escuelas: await escuelasDisponiblesPara(user.id.toString()),
-      accessToken: accessToken.token,
-      expiresAt: accessToken.expiresAt,
-      expiresIn: accessToken.expiresIn,
-      ...(refreshToken
-        ? {
-            refreshToken: refreshToken.token,
-            refreshExpiresAt: refreshToken.expiresAt,
-            refreshExpiresIn: refreshToken.expiresIn
-          }
-        : {})
-    });
+    await emitirSesion(res, user);
   } catch (e: any) {
     if (e instanceof ZodError) {
       res.status(400).json({ error: e.message || "invalid payload" });

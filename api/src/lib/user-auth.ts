@@ -8,6 +8,7 @@ import { resolveRoles } from "./roles";
 import { normalizeSchoolId } from "./school-ids";
 import { estaBaneado, respuestaBaneado } from "./ban";
 import { rolesVigentes } from "./roles-vigentes";
+import { conCache } from "./cache-sesion";
 
 type AuthenticatedUser = Record<string, unknown> & {
   _id?: string;
@@ -35,6 +36,12 @@ export const requireUser = async (req: Request, res: Response, next: NextFunctio
     ) {
       return next();
     }
+    // Los webhooks de pago no traen sesión: se autentican con la firma de la pasarela, que valida cada
+    // handler. Sin esta excepción el `app.use(requireUser)` global los cortaba con 401 y MercadoPago nunca
+    // podía avisar un pago (solo quedaba la conciliación periódica).
+    if (req.method === "POST" && (url.startsWith("/api/pasarelas/webhook/") || url === "/api/payments/webhook")) {
+      return next();
+    }
 
     const token = extractTokenFromRequest(req);
     if (!token) {
@@ -57,7 +64,11 @@ export const requireUser = async (req: Request, res: Response, next: NextFunctio
       res.status(401).json({ error: "Invalid authentication token" });
       return;
     }
-    const user = await prisma.usuario.findFirst({ where: { id: objectId, isDeleted: { not: true } } }) as AuthenticatedUser | null;
+    const guardado = await conCache(`usuario:${objectId}`, () =>
+      prisma.usuario.findFirst({ where: { id: objectId, isDeleted: { not: true } } })
+    );
+    // Copia: los handlers reciben la fila en res.locals.userDoc y no deben poder cambiar la de la caché.
+    const user = (guardado ? { ...guardado } : null) as AuthenticatedUser | null;
     if (!user) {
       res.status(403).json({ error: "User not found" });
       return;
@@ -77,7 +88,9 @@ export const requireUser = async (req: Request, res: Response, next: NextFunctio
       role: vigentes.role,
       roles: vigentes.roles.length > 0 ? vigentes.roles : undefined,
       guestOnboardingStatus: (user as { guestOnboardingStatus?: string | null }).guestOnboardingStatus ?? null,
-      schoolId: vigentes.schoolId ?? normalizeSchoolId((user as { escuelaId?: unknown }).escuelaId) ?? null
+      schoolId: vigentes.sinEscuela
+        ? null
+        : (vigentes.schoolId ?? normalizeSchoolId((user as { escuelaId?: unknown }).escuelaId) ?? null)
     };
     const allowGuestPaths = new Set(["/api/auth/me", "/api/me"]);
     if (

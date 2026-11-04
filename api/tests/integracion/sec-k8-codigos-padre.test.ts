@@ -146,7 +146,7 @@ describe("canjear", () => {
 describe("registro como padre", () => {
   const registrar = (extra: Record<string, unknown>) =>
     jsonRequest(baseUrl, "POST", "/api/auth/register", {
-      body: { username: `padre-${Math.random().toString(36).slice(2, 8)}`, email: `p${Math.random().toString(36).slice(2, 8)}@x.test`, fullName: "Madre Nueva", password: "UnaClaveLarga#2026", role: "PARENT", ...extra }
+      body: { username: `padre-${Math.random().toString(36).slice(2, 8)}`, email: `p${Math.random().toString(36).slice(2, 8)}@x.test`, fullName: "Madre Nueva", password: "UnaClaveLarga#2026", role: "PARENT", birthdate: "1990-05-10T00:00:00.000Z", consents: { privacyConsent: true, termsAccepted: true }, ...extra }
     });
 
   test("sin código no se puede registrar como padre", async () => {

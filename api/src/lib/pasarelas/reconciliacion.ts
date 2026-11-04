@@ -9,6 +9,7 @@
  * mano vía `POST .../confirmar-pago`) — se saltean.
  */
 import { prisma } from "../prisma";
+import { filtroTitular, titularDeCobro } from "./titular";
 import { ENV } from "../env";
 import { getProvider } from "./index";
 import { accessTokenDesdeCredenciales } from "../mercadopago-oauth";
@@ -45,7 +46,7 @@ export const reconciliarPagosPendientes = async (maxAgeMinutes = ENV.RECONCILIAC
     let accessToken: string | null = null;
     if (pago.provider === "mercadopago" && cobro) {
       const pasarela = await prisma.escuelaPasarela.findFirst({
-        where: { escuelaId: cobro.escuelaId, provider: "mercadopago" }
+        where: { escuelaId: cobro.escuelaId, provider: "mercadopago", ...filtroTitular(titularDeCobro(cobro.tipo)) }
       });
       accessToken = accessTokenDesdeCredenciales(pasarela?.credencialesCifradas);
     }

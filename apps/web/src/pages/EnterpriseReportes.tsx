@@ -9,9 +9,11 @@ import {
   type EscuelaResponse, type BoletinResponse,
   type ProgresoResponse,
 } from "../services/reportes-v2";
+import { useAvisoError } from "../ui/useAvisoError";
 
 export default function EnterpriseReportes() {
   const { t } = useI18n();
+  const { aviso, mostrar } = useAvisoError();
   const { user } = useAuth();
   const schoolId = user?.schoolId ?? "";
   const [escuela, setEscuela] = useState<EscuelaResponse | null>(null);
@@ -61,12 +63,14 @@ export default function EnterpriseReportes() {
         setBoletin(b);
         setProgreso(p);
       })
-      .catch(() => {})
+      .catch((e) => mostrar(e, t("comun.noSePudoCargar")))
       .finally(() => { if (!active) return; setAulaLoading(false); });
     return () => { active = false; };
   }, [aulaId]);
 
   return (
+    <>
+      {aviso}
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-4">
       <div>
         <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("nav.reportes")}</h1>
@@ -204,5 +208,6 @@ export default function EnterpriseReportes() {
           </>
         )}
       </div>
+    </>
   );
 }

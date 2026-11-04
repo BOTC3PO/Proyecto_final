@@ -4,9 +4,11 @@ import { Award, Clock3, GraduationCap, Trophy } from "lucide-react";
 import { useAuth } from "../auth/use-auth";
 import { usePrimaryRole } from "../auth/use-roles";
 import { apiGet } from "../lib/api";
-import type { Module } from "../domain/module/module.types";
 import { fetchTareas, type TareaResumen } from "../services/tareas";
+import { fetchProgresoEstudiante } from "../services/progreso";
 import { useI18n } from "../i18n/I18nContext";
+import { interpolar } from "../i18n/interpolar";
+import { useAvisoError } from "../ui/useAvisoError";
 
 interface Student {
   name: string;
@@ -24,21 +26,6 @@ interface DashboardProps {
   nextClass: NextClassInfo;
 }
 
-type ProgressItem = {
-  moduloId: string;
-  status: "iniciado" | "en_progreso" | "completado";
-};
-
-type ProgressUnlock = {
-  moduloId: string;
-  isLocked: boolean;
-  missingDependencies: string[];
-};
-
-type ProgressResponse = {
-  items: ProgressItem[];
-  unlocks: ProgressUnlock[];
-};
 
 const ROLE_LABEL_KEY: Record<string, string> = {
   TEACHER: "perfil.docente",
@@ -145,6 +132,7 @@ const TareaRow: React.FC<{ tarea: TareaResumen }> = ({ tarea }) => {
 
 export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass }) => {
   const { t, lang } = useI18n();
+  const { aviso, mostrar } = useAvisoError();
   const { user } = useAuth();
   const [completedModules, setCompletedModules] = useState(0);
   const [progressPercent, setProgressPercent] = useState(0);
@@ -167,17 +155,14 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
     }
     setProgressStatus("loading");
     setProgressError(null);
-    Promise.all([
-      apiGet<{ items: Module[] }>("/api/modulos"),
-      apiGet<ProgressResponse>(`/api/progreso?usuarioId=${user.id}`)
-    ])
-      .then(([modulesResponse, progressResponse]) => {
+    // Misma fuente que la página Progreso: los módulos del alumno (los de sus aulas y los que empezó). Antes
+    // se contaban los completados solo entre la primera página del catálogo público, y el inicio decía
+    // «0 módulos completados» mientras Progreso y el perfil mostraban 2.
+    fetchProgresoEstudiante()
+      .then((progreso) => {
         if (!active) return;
-        const completedSet = new Set(
-          progressResponse.items.filter((item) => item.status === "completado").map((item) => item.moduloId)
-        );
-        const total = modulesResponse.items.length;
-        const completedCount = modulesResponse.items.filter((module) => completedSet.has(module.id)).length;
+        const total = progreso.avances.length;
+        const completedCount = progreso.avances.filter((a) => a.progreso === "100%").length;
         setCompletedModules(completedCount);
         setModulesCount(total);
         setProgressPercent(total === 0 ? 0 : Math.round((completedCount / total) * 100));
@@ -200,7 +185,7 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
     let active = true;
     fetchTareas()
       .then((data) => { if (active) setTareas(data); })
-      .catch(() => {})
+      .catch((e) => mostrar(e, t("comun.noSePudoCargar")))
       .finally(() => { if (active) setTareasLoading(false); });
     return () => { active = false; };
   }, []);
@@ -226,6 +211,7 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
 
   return (
     <div className="page-root min-h-screen bg-[var(--c-bg)]">
+      {aviso}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
 
         {/* Saludo */}
@@ -233,10 +219,10 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
           <p className="text-xs uppercase tracking-widest text-[var(--c-muted)] mb-1">
             {new Date().toLocaleDateString(lang, { weekday: "long", day: "numeric", month: "long", year: "numeric" })}
           </p>
-          <h1 className="text-2xl font-semibold text-[var(--c-text)]">{t("menualumno.bienvenido")}<span className="text-[var(--c-primary)]">{student.name}</span>
+          <h1 className="text-2xl font-semibold text-[var(--c-text)]">{t("menualumno.bienvenido")}{" "}<span className="text-[var(--c-primary)]">{student.name}</span>
           </h1>
           <p className="text-sm text-[var(--c-muted)] mt-1">
-            {t("matrizProgreso.alumno")} · {completedModules} {t("perfilPublico.modulosCompletados")}
+            {t("matrizProgreso.alumno")} · {interpolar(t("menualumno.nModulosCompletados"), { n: completedModules })}
           </p>
         </div>
 
@@ -261,7 +247,7 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
             icon={<Trophy className="w-5 h-5" />}
             value={completedModules}
             label={t("comun.modulosCompletados")}
-            hint={progressStatus === "loading" ? t("comun.cargando2") : `${t("menualumno.deLabel")} ${modulesCount} ${t("menualumno.enTotal")}`}
+            hint={progressStatus === "loading" ? t("comun.cargando2") : interpolar(t("menualumno.deNEnTotal"), { n: modulesCount })}
             hintColor="muted"
           />
           <StatCard
@@ -275,7 +261,7 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
             icon={<Clock3 className="w-5 h-5" />}
             value={tareas.length}
             label={t("menualumno.tareasPendientes")}
-            hint={tareasUrgentes > 0 ? `${tareasUrgentes} ${tareasUrgentes > 1 ? t("tareas.vencenHoy") : t("tareas.venceHoy")}` : t("profesorAulas.alDia")}
+            hint={tareasUrgentes > 0 ? tareasUrgentes > 1 ? interpolar(t("tareas.nVencenHoy"), { n: tareasUrgentes }) : t("tareas.unaVenceHoy") : t("profesorAulas.alDia")}
             hintColor={tareasUrgentes > 0 ? "warning" : "success"}
           />
           <StatCard
@@ -309,7 +295,7 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
               <div>
                 <ModuloRow
                   nombre={t("comun.modulosCompletados")}
-                  meta={`${completedModules} ${t("menualumno.deLabel")} ${modulesCount}`}
+                  meta={interpolar(t("menualumno.nDeM"), { n: completedModules, m: modulesCount })}
                   pct={progressPercent}
                   icon={<Trophy className="w-4 h-4" />}
                 />

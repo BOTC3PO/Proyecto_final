@@ -152,3 +152,26 @@ test("DELETE: un alumno ajeno no puede borrar la publicación de otro", async ()
   const row = prisma.publicacion.rows.find((r: { id: string }) => r.id === pubId);
   assert.equal(row?.isDeleted, false);
 });
+
+// Documento 17 (2026-10-29) — el docente fija una publicación y queda primera; un alumno no puede fijar.
+test("el docente fija una publicación y queda arriba del tablón; un alumno no puede", async () => {
+  const vieja = seedPublicacion(TEACHER);
+  (prisma.publicacion.rows.find((p) => p.id === vieja) as { publishedAt: string }).publishedAt = "2026-01-01T00:00:00.000Z";
+  seedPublicacion(TEACHER);
+  const alumno = await jsonRequest(baseUrl, "POST", `/api/aulas/${AULA}/publicaciones/${vieja}/fijar`, {
+    token: tokenFor({ id: STUDENT_A, role: "USER", schoolId: SCHOOL }),
+    body: { fijada: true },
+  });
+  assert.equal(alumno.status, 403);
+  const docente = await jsonRequest(baseUrl, "POST", `/api/aulas/${AULA}/publicaciones/${vieja}/fijar`, {
+    token: tokenFor({ id: TEACHER, role: "TEACHER", schoolId: SCHOOL }),
+    body: { fijada: true },
+  });
+  assert.equal(docente.status, 200);
+  const lista = await jsonRequest(baseUrl, "GET", `/api/aulas/${AULA}/publicaciones`, {
+    token: tokenFor({ id: STUDENT_A, role: "USER", schoolId: SCHOOL }),
+  });
+  const items = (lista.body as { items: Array<{ id: string; isPinned: boolean }> }).items;
+  assert.equal(items[0].id, vieja, "la fijada va primera aunque sea más vieja");
+  assert.equal(items[0].isPinned, true);
+});

@@ -48,10 +48,6 @@ const resolveSchoolId = (req: { user?: { schoolId?: string | null } }, res: any)
   return schoolId;
 };
 
-const buildSchoolFilters = (schoolId: string) => {
-  return { escuelaFilter: { escuelaId: schoolId }, escuelaObjectId: schoolId };
-};
-
 enterprise.get("/api/enterprise/entitlements", requireUser, async (req, res) => {
   const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
   if (!schoolId) return;
@@ -66,29 +62,35 @@ enterprise.get(
   async (req, res) => {
     const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
     if (!schoolId) return;
-    const { escuelaFilter } = buildSchoolFilters(schoolId);
+    // Los miembros salen de las membresías activas, no de `usuarios.escuela_id`: ese campo es la escuela
+    // ACTIVA del usuario, así que un docente de dos escuelas desaparecía de la lista de la otra (y los
+    // usuarios dados de alta solo con membresía no aparecían en ninguna).
     const pagina = leerPagina(req.query);
     const { items, ...paginacion } = recortar(
-      await prisma.usuario.findMany({
-        where: {
-          ...escuelaFilter,
-          isDeleted: { not: true }
-        },
-        select: { id: true, fullName: true, roles: true, escuelaId: true, username: true },
-        orderBy: [{ fullName: "asc" }, { id: "asc" }],
+      await prisma.membresia.findMany({
+        where: { escuelaId: schoolId, estado: "activa" },
+        select: { usuarioId: true, rol: true },
+        orderBy: [{ usuarioId: "asc" }, { rol: "asc" }],
         take: pagina.take,
         skip: pagina.skip
       }),
       pagina
     );
-    // PLAN-multirol Fase 3 — ya no hay cuentas espejo que sacar del roster.
+    const usuarios = items.length
+      ? await prisma.usuario.findMany({
+          where: { id: { in: [...new Set(items.map((m) => m.usuarioId))] }, isDeleted: { not: true } },
+          select: { id: true, fullName: true, username: true }
+        })
+      : [];
+    const porId = new Map(usuarios.map((u) => [u.id, u]));
+    // El front agrupa por rol de plataforma: la membresía de alumno es "STUDENT" y el rol es "USER".
     const staff = items
-      .map((item) => ({
-      id: item.id ?? "",
-      name: item.fullName ?? item.username ?? "Sin nombre",
-      role: resolvePrimaryRole(item) ?? "USER",
-      schoolId: normalizeSchoolId(item.escuelaId) ?? schoolId
-    }));
+      .filter((m) => porId.has(m.usuarioId))
+      .map((m) => {
+        const u = porId.get(m.usuarioId)!;
+        return { id: u.id, name: u.fullName ?? u.username ?? "Sin nombre", role: m.rol === "STUDENT" ? "USER" : m.rol, schoolId };
+      })
+      .sort((a, b) => a.name.localeCompare(b.name, "es"));
     res.json({ staff, ...paginacion });
   }
 );
@@ -101,14 +103,15 @@ enterprise.get(
     const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
     if (!schoolId) return;
     const entitlements = await getSchoolEntitlements(schoolId);
-    const { escuelaFilter } = buildSchoolFilters(schoolId);
-    const staffCount = await prisma.usuario.count({
-      where: {
-        ...escuelaFilter,
-        roles: { hasSome: ["ADMIN", "TEACHER"] },
-        isDeleted: { not: true }
-      }
+    const equipo = await prisma.membresia.findMany({
+      where: { escuelaId: schoolId, estado: "activa", rol: { in: ["TEACHER", "DIRECTIVO", "ADMIN_ESCUELA"] } },
+      select: { usuarioId: true }
     });
+    const staffCount = equipo.length
+      ? await prisma.usuario.count({
+          where: { id: { in: [...new Set(equipo.map((m) => m.usuarioId))] }, isDeleted: { not: true } }
+        })
+      : 0;
     const activeClassroomCount = await prisma.clase.count({
       where: { escuelaId: schoolId, status: { in: Array.from(CLASSROOM_ACTIVE_STATUS_VALUES) } }
     });
@@ -236,8 +239,18 @@ enterprise.post(
       res.status(400).json({ error: "admin role invalid" });
       return;
     }
-    const adminSchoolId = normalizeSchoolId(adminUser.escuelaId);
-    if (adminSchoolId !== schoolId) {
+    // La pertenencia a la escuela se mira en las membresías activas (no en la escuela activa del usuario,
+    // que en un usuario de varias escuelas puede ser otra).
+    const membresias = await prisma.membresia.findMany({
+      where: { usuarioId: { in: lookupIds }, escuelaId: schoolId, estado: "activa" },
+      select: { usuarioId: true, rol: true }
+    });
+    const rolesEnEscuela = (id: string) => membresias.filter((m) => m.usuarioId === id).map((m) => m.rol);
+    const adminEsDeLaEscuela =
+      adminRole === "ADMIN" ||
+      normalizeSchoolId(adminUser.escuelaId) === schoolId ||
+      rolesEnEscuela(adminId).some((r) => r === "DIRECTIVO" || r === "TEACHER" || r === "ADMIN_ESCUELA");
+    if (!adminEsDeLaEscuela) {
       res.status(403).json({ error: "admin school mismatch" });
       return;
     }
@@ -251,8 +264,9 @@ enterprise.post(
         res.status(400).json({ error: "teacher role invalid" });
         return;
       }
-      const teacherSchoolId = normalizeSchoolId(teacherUser.escuelaId);
-      if (teacherSchoolId !== schoolId) {
+      const docenteDeLaEscuela =
+        normalizeSchoolId(teacherUser.escuelaId) === schoolId || rolesEnEscuela(teacherId).includes("TEACHER");
+      if (!docenteDeLaEscuela) {
         res.status(403).json({ error: "teacher school mismatch" });
         return;
       }

@@ -6,6 +6,47 @@ import type { Classroom } from "../domain/classroom/classroom.types";
 import { getAulaId } from "../lib/aula-id";
 import CorreccionesPendientes from "../components/profesor/CorreccionesPendientes";
 import { useI18n } from "../i18n/I18nContext";
+import { useAvisoError } from "../ui/useAvisoError";
+
+type EstadisticaPregunta = { clave: string; etiqueta: string; respondidas: number; correctas: number; porcentajeAcierto: number };
+
+/** L6 — acierto por pregunta del cuestionario (se carga al abrirlo). Las de menor acierto se marcan en rojo. */
+function AciertoPorPregunta({ quizId }: { quizId: string }) {
+  const { t } = useI18n();
+  const [abierto, setAbierto] = useState(false);
+  const [preguntas, setPreguntas] = useState<EstadisticaPregunta[] | null>(null);
+  useEffect(() => {
+    if (!abierto || preguntas) return;
+    apiGet<{ preguntas: EstadisticaPregunta[] }>(`/api/estadisticas/cuestionarios/${quizId}/preguntas`)
+      .then((r) => setPreguntas(r.preguntas))
+      .catch(() => setPreguntas([]));
+  }, [abierto, preguntas, quizId]);
+  return (
+    <div className="mt-2">
+      <button type="button" onClick={() => setAbierto((v) => !v)} className="text-xs font-medium text-[var(--c-primary)]">
+        {abierto ? t("comun.ocultar") : t("profesorCalificaciones.aciertoPorPregunta")}
+      </button>
+      {abierto && preguntas && (
+        preguntas.length === 0 ? (
+          <p className="mt-1 text-xs text-[var(--c-muted)]">{t("profesorCalificaciones.sinDatosPorPregunta")}</p>
+        ) : (
+          <ul className="mt-2 space-y-1">
+            {preguntas.map((p) => (
+              <li key={p.clave} className="flex items-center gap-2 text-xs">
+                <span className="w-24 shrink-0 text-[var(--c-text)]">{p.etiqueta}</span>
+                <span className="h-2 flex-1 rounded-full bg-[var(--c-border)]">
+                  <span className={`block h-2 rounded-full ${p.porcentajeAcierto < 50 ? "bg-[var(--c-danger)]" : "bg-[var(--c-success)]"}`}
+                    style={{ width: `${p.porcentajeAcierto}%` }} />
+                </span>
+                <span className="w-28 shrink-0 text-right text-[var(--c-muted)]">{p.porcentajeAcierto}% ({p.correctas}/{p.respondidas})</span>
+              </li>
+            ))}
+          </ul>
+        )
+      )}
+    </div>
+  );
+}
 
 type QuizAttemptResult = {
   id: string;
@@ -29,6 +70,7 @@ type QuizAttemptResult = {
 
 export default function ProfesorCalificaciones() {
   const { t, lang } = useI18n();
+  const { aviso, mostrar } = useAvisoError();
   const { user } = useAuth();
   const [aulas, setAulas] = useState<Classroom[]>([]);
   const [aulaId, setAulaId] = useState("");
@@ -49,7 +91,7 @@ export default function ProfesorCalificaciones() {
         setAulas(misAulas);
         if (misAulas[0]) setAulaId(getAulaId(misAulas[0]));
       })
-      .catch(() => {});
+      .catch((e) => mostrar(e, t("comun.noSePudoCargar")));
   }, [user?.id]);
 
   useEffect(() => {
@@ -103,6 +145,8 @@ export default function ProfesorCalificaciones() {
   );
 
   return (
+    <>
+      {aviso}
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
         <div>
           <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("profesorCalificaciones.calificaciones")}</h1>
@@ -190,6 +234,7 @@ export default function ProfesorCalificaciones() {
                     )}
                   </div>
                 </div>
+                <AciertoPorPregunta quizId={quizId} />
                 <div className="mt-3 space-y-1.5">
                   {lista.slice(0, 10).map((a) => (
                     <div key={a.id}
@@ -230,5 +275,6 @@ export default function ProfesorCalificaciones() {
           </div>
         </section>
       </div>
+    </>
   );
 }

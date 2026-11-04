@@ -22,6 +22,7 @@ import {
   type CuestionarioListItem,
   type QuizMetaTipo,
 } from "../domain/quiz/quizPreguntasApi";
+import { nombreMateria } from "../lib/nombreMateria";
 
 const TIPO_LABEL_KEY: Record<QuizMetaTipo, string> = {
   practica: "profesorEvaluaciones.practica",
@@ -67,7 +68,7 @@ function CuestionarioCard({
             {item.title}
           </h3>
           {item.materia && (
-            <p className="text-xs text-[var(--c-muted,#64748b)]">{item.materia}</p>
+            <p className="text-xs text-[var(--c-muted,#64748b)]">{nombreMateria(item.materia)}</p>
           )}
         </Link>
         <span

@@ -543,7 +543,7 @@ erDiagram
 ```
 
 > El nivel de acceso por estado de suscripción (`active`/`read_only`/`disabled`) y la política de
-> mora están en [`auth-y-roles.md`](./auth-y-roles.md) y [`../politica-mora.md`](../politica-mora.md).
+> mora están en [`auth-y-roles.md`](./auth-y-roles.md) y [`../pagos/comision.md`](../pagos/comision.md).
 > El detalle del modelo de comisión (Fase 5.1) está en [`../pagos/`](../pagos/).
 
 ### 7.1 Cobros escuela→familias y pasarelas 🆕 (PLAN-B, julio 2026)
@@ -594,7 +594,7 @@ erDiagram
 > propia cuenta de pasarela; VB sólo registra/concilia (`TransaccionEscuela`/`LiquidacionEscuela`,
 > §7). Comisión VB: 5-7% en pagos domésticos (MercadoPago/Argentina), 1-2% en pagos
 > internacionales (Cryptomus) — Stripe se sacó como pasarela. Detalle en
-> [`../pagos/comision-roadmap-v2.md`](../pagos/comision-roadmap-v2.md).
+> [`../pagos/comision.md`](../pagos/comision.md).
 
 ---
 

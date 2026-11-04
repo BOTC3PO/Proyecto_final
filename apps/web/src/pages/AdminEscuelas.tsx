@@ -12,6 +12,9 @@ import { useI18n } from "../i18n/I18nContext";
 import {
   fetchSolicitudes,
   verificarEscuela,
+  fetchCooperadorasPendientes,
+  verificarCooperadora,
+  type Cooperadora,
   habilitarCryptomus,
   reasignarDirectivoPrincipal,
   type EscuelaPendiente,
@@ -169,6 +172,57 @@ export default function AdminEscuelas() {
           ))}
         </CardBody>
       </Card>
+
+      <CooperadorasPendientes />
     </div>
+  );
+}
+
+/** Cooperadoras registradas por las escuelas que esperan verificación (CUIT propio, cuenta propia). */
+function CooperadorasPendientes() {
+  const { t } = useI18n();
+  const [items, setItems] = useState<Cooperadora[]>([]);
+  const [msg, setMsg] = useState<string | null>(null);
+  const cargar = () => {
+    fetchCooperadorasPendientes().then((r) => setItems(r.items)).catch(() => setItems([]));
+  };
+  useEffect(cargar, []);
+  const decidir = async (c: Cooperadora, estado: "verificada" | "rechazada") => {
+    const motivo = estado === "rechazada" ? window.prompt(t("adminEscuelas.motivoRechazo")) ?? "" : undefined;
+    if (estado === "rechazada" && !motivo) return;
+    try {
+      await verificarCooperadora(c.id, estado, motivo);
+      cargar();
+    } catch (err) {
+      setMsg(err instanceof Error ? err.message : "error");
+    }
+  };
+  return (
+    <Card>
+      <CardHead>
+        <h2 className="text-sm font-bold">{t("cooperadora.porVerificar")}</h2>
+      </CardHead>
+      <CardBody>
+        {items.length === 0 ? (
+          <p className="text-sm text-[var(--c-muted)]">{t("cooperadora.ningunaPendiente")}</p>
+        ) : (
+          <ul className="space-y-2">
+            {items.map((c) => (
+              <li key={c.id} className="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-[var(--c-border)] p-3 text-sm">
+                <span className="text-[var(--c-text)]">
+                  <strong>{c.nombre}</strong> · CUIT {c.cuit} · {c.escuelaNombre}
+                  {c.contactoEmail ? ` · ${c.contactoEmail}` : ""}
+                </span>
+                <span className="flex gap-2">
+                  <Button size="sm" onClick={() => void decidir(c, "verificada")}>{t("adminEscuelas.verificar")}</Button>
+                  <Button size="sm" variant="ghost" onClick={() => void decidir(c, "rechazada")}>{t("adminEscuelas.rechazar")}</Button>
+                </span>
+              </li>
+            ))}
+          </ul>
+        )}
+        {msg && <p role="alert" className="text-sm text-[var(--c-danger)]">{msg}</p>}
+      </CardBody>
+    </Card>
   );
 }

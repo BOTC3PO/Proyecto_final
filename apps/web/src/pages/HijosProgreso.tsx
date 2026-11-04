@@ -6,7 +6,10 @@ import {
   fetchActividadesHijo, fetchBoletinHijo, fetchAulasHijo,
   fetchLimitesHijo, actualizarLimitesHijo, revocarVinculoHijo,
   type ActividadHijo, type MateriaBoletin, type AulaHijo, type LimitesHijo,
+  fetchAsistenciaHijo,
+  type AsistenciaHijo,
 } from "../services/padres";
+import { nombreMateria } from "../lib/nombreMateria";
 
 export default function HijosProgreso() {
   const { t, lang } = useI18n();
@@ -22,7 +25,8 @@ export default function HijosProgreso() {
   const [aulas, setAulas] = useState<AulaHijo[]>([]);
   const [actividadesLoading, setActividadesLoading] = useState(false);
   const [boletinLoading, setBoletinLoading] = useState(false);
-  const [tab, setTab] = useState<"modulos" | "actividades" | "boletin" | "configuracion">("modulos");
+  const [tab, setTab] = useState<"modulos" | "actividades" | "boletin" | "asistencia" | "configuracion">("modulos");
+  const [asistencia, setAsistencia] = useState<AsistenciaHijo | null>(null);
   const [limites, setLimites] = useState<LimitesHijo | null>(null);
   const [limitesLoading, setLimitesLoading] = useState(false);
   const [guardandoLimites, setGuardandoLimites] = useState(false);
@@ -53,6 +57,9 @@ export default function HijosProgreso() {
     let active = true;
     setActividadesLoading(true);
     setBoletinLoading(true);
+    fetchAsistenciaHijo(seleccionado)
+      .then((data) => { if (active) setAsistencia(data); })
+      .catch(() => { if (active) setAsistencia(null); });
     fetchActividadesHijo(seleccionado)
       .then((data) => { if (!active) return; setActividades(data); })
       .catch(() => { if (!active) return; setActividades([]); })
@@ -253,6 +260,7 @@ export default function HijosProgreso() {
                 { key: "modulos", label: t("nav.modulos") },
                 { key: "actividades", label: t("hijosProgreso.proximasActividades") },
                 { key: "boletin", label: t("hijosProgreso.boletin") },
+                { key: "asistencia", label: t("nav.asistencia") },
                 { key: "configuracion", label: t("hijosProgreso.configuracion") },
               ] as const).map((t) => (
                 <button
@@ -356,6 +364,40 @@ export default function HijosProgreso() {
               </div>
             )}
 
+            {tab === "asistencia" && (
+              <div className="mt-5 space-y-4">
+                {!asistencia || asistencia.total === 0 ? (
+                  <p className="text-sm text-[var(--c-muted)]">{t("hijosProgreso.sinAsistencia")}</p>
+                ) : (
+                  <>
+                    <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                      {(["presente", "tarde", "ausente", "justificado"] as const).map((estado) => (
+                        <div key={estado} className="rounded-xl border border-[var(--c-border)] px-4 py-3">
+                          <p className="text-2xl font-semibold text-[var(--c-text)]">{asistencia.resumen[estado]}</p>
+                          <p className="text-xs text-[var(--c-muted)]">{t(`hijosProgreso.asistencia_${estado}`)}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <p className="text-xs text-[var(--c-muted)]">
+                      {t("hijosProgreso.asistenciaDesde")} {asistencia.desde.split("-").reverse().join("/")}
+                    </p>
+                    {asistencia.novedades.length > 0 && (
+                      <ul className="divide-y divide-[var(--c-border)] rounded-xl border border-[var(--c-border)]">
+                        {asistencia.novedades.map((n) => (
+                          <li key={`${n.fecha}-${n.aula}`} className="flex items-center justify-between gap-3 px-4 py-2 text-sm">
+                            <span className="text-[var(--c-text)]">{n.fecha.split("-").reverse().join("/")} · {n.aula}</span>
+                            <span className="text-xs text-[var(--c-muted)]">
+                              {t(`hijosProgreso.asistencia_${n.estado}`)}{n.notas ? ` — ${n.notas}` : ""}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </>
+                )}
+              </div>
+            )}
+
             {tab === "boletin" && (
               <div className="mt-5 space-y-3">
                 {boletinLoading && (
@@ -371,7 +413,7 @@ export default function HijosProgreso() {
                   <div key={materia.materia}
                     className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4">
                     <div className="flex items-center justify-between gap-3">
-                      <h3 className="text-sm font-semibold text-[var(--c-text)]">{materia.materia}</h3>
+                      <h3 className="text-sm font-semibold text-[var(--c-text)]">{nombreMateria(materia.materia)}</h3>
                       {materia.promedio !== null && (
                         <span className={`rounded-full px-3 py-1 text-xs font-semibold ${
                           materia.promedio >= 7

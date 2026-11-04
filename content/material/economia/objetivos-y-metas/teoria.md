@@ -34,7 +34,7 @@ Una meta útil debe cumplir con los criterios **SMART**:
 - **Relevante**: Debe estar alineada con los objetivos más amplios y con las necesidades del sistema económico.
 - **Tiempo definido**: Toda meta debe tener un plazo claro para evitar que se prolongue indefinidamente.
 
-![Infografía de los 5 criterios SMART, con ejemplos en cada punto](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Smart_criteria.svg/960px-Smart_criteria.svg.png)
+![Infografía de los 5 criterios SMART, con ejemplos en cada punto](/temario/imagenes/smart-criteria.webp)
 
 *Imagen: «Smart criteria», TealComet, CC0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Smart_criteria.svg).*
 

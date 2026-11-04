@@ -12,7 +12,7 @@
 
 El fin de la Primera Guerra Mundial no solo marcó el colapso del Imperio Otomano, sino que reconfiguró radicalmente el mapa político de Asia Occidental. La conferencia de paz de Sèvres (1920) y, posteriormente, los acuerdos de Lausana (1923), consolidaron la disolución del *statu quo* otomano. Sin embargo, la verdadera transformación estructural ocurrió bajo el paraguas del sistema de mandatos de la Sociedad de Naciones. Gran Bretaña y Francia, actuando bajo los lineamientos de los acuerdos secretos Sykes-Picot (1916) y la Declaración Balfour (1917), trazaron fronteras artificiales que ignoraban la compleja topografía étnica, sectaria y tribal de la región.
 
-![Mapa comparativo de las fronteras otomanas previas a 1918 y las nuevas fronteras de los mandatos británico y francés](https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Sykes_Picot_Agreement_Map_signed_8_May_1916.jpg/960px-Sykes_Picot_Agreement_Map_signed_8_May_1916.jpg)
+![Mapa comparativo de las fronteras otomanas previas a 1918 y las nuevas fronteras de los mandatos británico y francés](/temario/imagenes/sykes-picot-agreement-map-signed-8-may-1916.webp)
 
 *Imagen: «Sykes Picot Agreement Map signed 8 May 1916», Yonside.com, CC BY 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sykes_Picot_Agreement_Map_signed_8_May_1916.jpg).*
 

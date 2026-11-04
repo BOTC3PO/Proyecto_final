@@ -7,6 +7,8 @@ import type { Classroom } from "../domain/classroom/classroom.types";
 import { getAulaId } from "../lib/aula-id";
 import { resolveMateria } from "../domain/module/materia";
 import { useI18n } from "../i18n/I18nContext";
+import { nombreMateria } from "../lib/nombreMateria";
+import { useAvisoError } from "../ui/useAvisoError";
 
 type ModuloItem = {
   id: string;
@@ -27,6 +29,7 @@ type EstadisticaModulo = {
 
 export default function ProfesorEstadisticas() {
   const { t } = useI18n();
+  const { aviso, mostrar } = useAvisoError();
   const { user } = useAuth();
   const [searchParams] = useSearchParams();
   const presetAulaId = searchParams.get("aulaId") ?? "";
@@ -51,7 +54,7 @@ export default function ProfesorEstadisticas() {
         }
         if (misAulas[0]) setAulaId(getAulaId(misAulas[0]));
       })
-      .catch(() => {});
+      .catch((e) => mostrar(e, t("comun.noSePudoCargar")));
   }, [user?.id, presetAulaId]);
 
   useEffect(() => {
@@ -95,6 +98,8 @@ export default function ProfesorEstadisticas() {
   }, [aulaId]);
 
   return (
+    <>
+      {aviso}
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
         <div>
           <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("profesorEstadisticas.estadisticas")}</h1>
@@ -140,7 +145,7 @@ export default function ProfesorEstadisticas() {
                   <h2 className="text-base font-semibold text-[var(--c-text)]">
                     {e.titulo}
                   </h2>
-                  <p className="text-xs text-[var(--c-muted)]">{e.materia}</p>
+                  <p className="text-xs text-[var(--c-muted)]">{nombreMateria(e.materia)}</p>
                 </div>
                 <div className="flex gap-2 text-xs">
                   <span className="rounded-full bg-emerald-100 px-2 py-0.5 font-semibold text-emerald-700">
@@ -171,5 +176,6 @@ export default function ProfesorEstadisticas() {
           </div>
         </section>
       </div>
+    </>
   );
 }
