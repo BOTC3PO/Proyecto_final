@@ -2,3 +2,5 @@
 /src-tauri/target
 /src-tauri/gen/schemas
 /src-tauri/gen/android/app/src/main/res/raw/virtualbook_ca.crt
+# El lockfile de Rust se versiona (versiones exactas); el .gitignore de la raíz ignora *.lock.
+!/src-tauri/Cargo.lock
