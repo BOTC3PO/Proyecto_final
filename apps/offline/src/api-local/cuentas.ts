@@ -6,11 +6,17 @@
 import { aleatorio, huella, iguales } from "./claves";
 import type { Contexto, Perfil } from "./contexto";
 import { error, json, leerJson } from "./http";
+import { verificarPermiso } from "./permiso";
+import { activar, segundoPaso, type Resultado } from "./plataforma";
 
 const DIAS_SESION = 30;
 const USUARIO_VALIDO = /^[a-zA-Z0-9._-]{3,40}$/;
 const ROLES_LOCALES = new Set(["USER", "TEACHER"]);
 const CAMPOS = "id, tipo, rol, roles, username, nombre, email, school_id, menor, mostrar_a_padres";
+// Tras 5 contraseñas incorrectas seguidas, una espera que se duplica en cada fallo (30 s, 1 min, 2 min...), hasta 1 hora.
+const FALLOS_SIN_ESPERA = 5;
+const ESPERA_INICIAL_S = 30;
+const ESPERA_MAXIMA_S = 3600;
 
 export async function perfilDeSesion(ctx: Contexto, req: Request): Promise<Perfil | null> {
   const token = req.headers.get("Authorization")?.replace(/^Bearer\s+/i, "");
@@ -58,14 +64,20 @@ async function abrirSesion(ctx: Contexto, p: Perfil) {
   };
 }
 
-/** POST /api/auth/register — crea un usuario local. Rol: alumno (USER, por defecto) o profesor (TEACHER). */
+/**
+ * POST /api/auth/register — crea un usuario local: alumno (USER, por defecto) o profesor (TEACHER). Acepta `role`
+ * (lo que manda el alta de la web) o `rol`. El correo, la fecha de nacimiento y los consentimientos de la web no
+ * hacen falta: los datos no salen del dispositivo.
+ */
 export async function registrarLocal(ctx: Contexto, req: Request) {
-  const b = await leerJson<{ username?: string; password?: string; fullName?: string; rol?: string }>(req);
+  if (!ctx.config.usuariosLocales) return error(403, "En esta app no se pueden crear usuarios locales.");
+  const b = await leerJson<{ username?: string; password?: string; fullName?: string; rol?: string; role?: string }>(req);
   const username = String(b.username ?? "").trim();
   const nombre = String(b.fullName ?? "").trim() || username;
-  const rol = b.rol ?? "USER";
+  const rol = b.rol ?? b.role ?? "USER";
   if (!USUARIO_VALIDO.test(username)) return error(400, "El usuario tiene que tener de 3 a 40 letras, números, puntos o guiones.");
   if (typeof b.password !== "string" || b.password.length < 8) return error(400, "La contraseña tiene que tener al menos 8 caracteres.");
+  if (rol === "PARENT") return error(400, "Los padres y tutores no necesitan usuario: usan «Ver como padre o tutor».");
   if (!ROLES_LOCALES.has(rol)) return error(400, "Un usuario local puede ser alumno o profesor.");
   const [existe] = await ctx.almacen.consulta("progreso", "SELECT 1 AS x FROM perfiles WHERE username = ?", [username]);
   if (existe) return error(409, "Ya hay un perfil con ese usuario en este dispositivo.");
@@ -83,20 +95,89 @@ export async function registrarLocal(ctx: Contexto, req: Request) {
   return json(await abrirSesion(ctx, p), 201);
 }
 
-/** POST /api/auth/login — `{ identifier, password }`, igual que el servidor. */
+type FilaIngreso = Perfil & {
+  hash: string; sal: string; iteraciones: number; permiso: string | null; firma: string | null; vence: string | null;
+  estado: string; fallos: number; espera_hasta: string | null;
+};
+
+const terminar = async (ctx: Contexto, r: Resultado) => ("perfil" in r ? json(await abrirSesion(ctx, r.perfil)) : r.respuesta);
+const incorrectos = () => error(401, "Usuario o contraseña incorrectos.");
+
+async function anotarFallo(ctx: Contexto, fila: FilaIngreso) {
+  const fallos = fila.fallos + 1;
+  const extra = fallos - FALLOS_SIN_ESPERA;
+  const espera = extra >= 0 ? Math.min(ESPERA_INICIAL_S * 2 ** extra, ESPERA_MAXIMA_S) : 0;
+  await ctx.almacen.ejecutar("progreso", "UPDATE perfiles SET fallos = ?, espera_hasta = ? WHERE id = ?", [
+    fallos, espera ? new Date(ctx.ahora().getTime() + espera * 1000).toISOString() : null, fila.id,
+  ]);
+}
+
+/**
+ * POST /api/auth/login — `{ identifier, password }`, igual que el servidor.
+ *
+ * - Usuario local: se compara con la huella guardada.
+ * - Cuenta de la plataforma ya activada: huella, firma del permiso y vencimiento (salvo en modo autónomo). Si el
+ *   permiso venció, se renueva con red; sin red hay que conectarse una vez. Si la contraseña no coincide, puede ser
+ *   que la hayan cambiado en la web: con red se prueba contra el servidor y se actualiza la huella.
+ * - Cuenta que el dispositivo no conoce: se activa con red.
+ */
 export async function iniciarSesion(ctx: Contexto, req: Request) {
   const b = await leerJson<{ identifier?: string; password?: string }>(req);
   if (typeof b.identifier !== "string" || typeof b.password !== "string") return error(400, "Missing identifier or password");
-  const [fila] = await ctx.almacen.consulta<Perfil & { hash: string; sal: string; iteraciones: number }>(
+  const identificador = b.identifier.trim();
+  const [fila] = await ctx.almacen.consulta<FilaIngreso>(
     "progreso",
-    `SELECT ${CAMPOS}, hash, sal, iteraciones FROM perfiles WHERE username = ? OR (email IS NOT NULL AND email = ? COLLATE NOCASE)`,
-    [b.identifier.trim(), b.identifier.trim()],
+    `SELECT ${CAMPOS}, hash, sal, iteraciones, permiso, firma, vence, estado, fallos, espera_hasta FROM perfiles
+     WHERE username = ? OR (email IS NOT NULL AND email = ? COLLATE NOCASE)`,
+    [identificador, identificador],
   );
-  // Misma respuesta para usuario inexistente y contraseña incorrecta.
-  if (!fila || !iguales(await huella(b.password, fila.sal, fila.iteraciones), fila.hash)) {
-    return error(401, "Usuario o contraseña incorrectos.");
+  if (!fila) return ctx.remoto && !ctx.config.modoAutonomo ? terminar(ctx, await activar(ctx, identificador, b.password)) : incorrectos();
+
+  const ahora = ctx.ahora();
+  if (fila.espera_hasta && new Date(fila.espera_hasta) > ahora) {
+    const segundos = Math.ceil((new Date(fila.espera_hasta).getTime() - ahora.getTime()) / 1000);
+    return error(429, "Demasiados intentos con la contraseña incorrecta", { code: "DEMASIADOS_INTENTOS", retryAfterSeconds: segundos });
+  }
+  if (fila.estado === "bloqueado") {
+    // Si la plataforma la volvió a habilitar, con red se activa de nuevo.
+    const r = await activar(ctx, identificador, b.password);
+    if ("perfil" in r) return terminar(ctx, r);
+    return error(403, "Esta cuenta está suspendida o fue dada de baja en la plataforma.", { code: "CUENTA_BLOQUEADA" });
+  }
+
+  const coincide = iguales(await huella(b.password, fila.sal, fila.iteraciones), fila.hash);
+  if (!coincide) {
+    if (fila.tipo === "plataforma") {
+      const r = await activar(ctx, identificador, b.password);
+      // Con red y la contraseña nueva de la web, la activación actualiza la huella.
+      if ("perfil" in r || (r.respuesta.status !== 401 && r.respuesta.status !== 503)) return terminar(ctx, r);
+    }
+    await anotarFallo(ctx, fila);
+    return incorrectos();
+  }
+  if (fila.fallos > 0) await ctx.almacen.ejecutar("progreso", "UPDATE perfiles SET fallos = 0, espera_hasta = NULL WHERE id = ?", [fila.id]);
+  if (fila.tipo === "local") return json(await abrirSesion(ctx, fila));
+
+  const datos = await verificarPermiso(ctx.config.clavePublica, fila.permiso ?? "", fila.firma ?? "");
+  if (!datos || datos.sub !== fila.id) {
+    return error(403, "El permiso de esta cuenta no es válido. Conectate a internet y volvé a entrar.", { code: "PERMISO_INVALIDO" });
+  }
+  if (!ctx.config.modoAutonomo && new Date(datos.vence) < ahora) {
+    const r = await activar(ctx, identificador, b.password);
+    if ("respuesta" in r && r.respuesta.status === 503) {
+      return error(403, "Pasaron más de 3 meses sin conectarte. Conectate a internet una vez para seguir usando esta cuenta.", {
+        code: "PERMISO_VENCIDO",
+      });
+    }
+    return terminar(ctx, r);
   }
   return json(await abrirSesion(ctx, fila));
+}
+
+/** POST /api/auth/2fa/login — segundo paso de una activación con verificación en dos pasos. */
+export async function segundoPasoDeIngreso(ctx: Contexto, req: Request) {
+  const b = await leerJson<{ desafio?: string; codigo?: string }>(req);
+  return terminar(ctx, await segundoPaso(ctx, String(b.desafio ?? ""), String(b.codigo ?? "")));
 }
 
 /** GET /api/auth/me */

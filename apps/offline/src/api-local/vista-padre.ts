@@ -12,7 +12,7 @@ import { error, json } from "./http";
 async function alumnoVisible(ctx: Contexto, perfilId: string): Promise<Perfil | null> {
   const [p] = await ctx.almacen.consulta<Perfil>(
     "progreso",
-    "SELECT id, tipo, rol, roles, username, nombre, email, school_id, menor, mostrar_a_padres FROM perfiles WHERE id = ? AND rol = 'USER' AND (tipo = 'local' OR mostrar_a_padres = 1)",
+    "SELECT id, tipo, rol, roles, username, nombre, email, school_id, menor, mostrar_a_padres FROM perfiles WHERE id = ? AND EXISTS (SELECT 1 FROM json_each(roles) WHERE value = 'USER') AND (tipo = 'local' OR mostrar_a_padres = 1)",
     [perfilId],
   );
   return p ?? null;
@@ -21,7 +21,7 @@ async function alumnoVisible(ctx: Contexto, perfilId: string): Promise<Perfil | 
 /** GET /api/offline/vista-padre */
 export async function perfilesParaPadres(ctx: Contexto) {
   const perfiles = await ctx.almacen.consulta<{ id: string; nombre: string; tipo: string }>(
-    "progreso", "SELECT id, nombre, tipo FROM perfiles WHERE rol = 'USER' AND (tipo = 'local' OR mostrar_a_padres = 1) ORDER BY nombre",
+    "progreso", "SELECT id, nombre, tipo FROM perfiles WHERE EXISTS (SELECT 1 FROM json_each(roles) WHERE value = 'USER') AND (tipo = 'local' OR mostrar_a_padres = 1) ORDER BY nombre",
   );
   const resumen = await ctx.almacen.consulta<{ perfil_id: string; completados: number; en_progreso: number }>(
     "progreso",

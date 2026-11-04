@@ -82,6 +82,15 @@ const MIGRACIONES: Record<Base, string[][]> = {
         creado TEXT NOT NULL, enviado INTEGER NOT NULL DEFAULT 0
       )`,
     ],
+    // Fase 2: cuentas de la plataforma activadas (permiso firmado) y espera tras varios intentos fallidos.
+    [
+      `ALTER TABLE perfiles ADD COLUMN permiso TEXT`,
+      `ALTER TABLE perfiles ADD COLUMN firma TEXT`,
+      `ALTER TABLE perfiles ADD COLUMN vence TEXT`,
+      `ALTER TABLE perfiles ADD COLUMN estado TEXT NOT NULL DEFAULT 'activo'`, // activo | bloqueado
+      `ALTER TABLE perfiles ADD COLUMN fallos INTEGER NOT NULL DEFAULT 0`,
+      `ALTER TABLE perfiles ADD COLUMN espera_hasta TEXT`,
+    ],
   ],
 };
 

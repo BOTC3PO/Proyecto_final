@@ -22,6 +22,8 @@ const entradaSinConexion = (): Plugin => ({
 
 export default defineConfig({
   root: web,
+  // Las variables VITE_* salen de apps/offline (.env.local), no de la web.
+  envDir: aqui,
   plugins: [react(), tailwindcss(), entradaSinConexion()],
   optimizeDeps: { exclude: ["archive"] },
   build: {

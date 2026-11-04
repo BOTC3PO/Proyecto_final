@@ -14,6 +14,18 @@ import { cargarManifiesto } from "./api-local/temario";
 const BASE = String(import.meta.env.VITE_API_BASE_URL ?? "").replace(/\/$/, "");
 const fetchOriginal = window.fetch.bind(window);
 
+// Configuración de la compilación (ver apps/offline/LEEME.md):
+// - VITE_API_REMOTA: la API de la plataforma, para activar cuentas; vacía = sin cuentas de la plataforma.
+// - VITE_OFFLINE_CLAVE_PUBLICA: clave pública Ed25519 que verifica los permisos (la da generar_clave_permiso.ts).
+// - VITE_MODO_AUTONOMO=true: la plataforma dejó de estar en producción; los permisos no vencen.
+// - VITE_USUARIOS_LOCALES=false: no se pueden crear usuarios locales.
+const REMOTA = String(import.meta.env.VITE_API_REMOTA ?? "").replace(/\/$/, "");
+const CONFIG = {
+  modoAutonomo: import.meta.env.VITE_MODO_AUTONOMO === "true",
+  usuariosLocales: import.meta.env.VITE_USUARIOS_LOCALES !== "false",
+  clavePublica: String(import.meta.env.VITE_OFFLINE_CLAVE_PUBLICA ?? "") || null,
+};
+
 function elegirAlmacen(): Almacen {
   // En Tauri, por comandos de Rust; en el «modo navegador» (Huayra 5 y 6), por HTTP al programa en 127.0.0.1.
   return "__TAURI_INTERNALS__" in window ? almacenTauri(invoke) : almacenHttp("/__almacen", fetchOriginal);
@@ -32,7 +44,10 @@ async function cargarMuestra(ctx: Contexto) {
   console.info("Contenido de muestra cargado:", resultado);
 }
 
-const ctx = crearContexto(elegirAlmacen());
+const ctx = crearContexto(elegirAlmacen(), {
+  config: CONFIG,
+  remoto: REMOTA && !CONFIG.modoAutonomo ? { base: REMOTA, fetch: fetchOriginal } : null,
+});
 const listo = (async () => {
   await prepararBases(ctx.almacen);
   await cargarMuestra(ctx);
