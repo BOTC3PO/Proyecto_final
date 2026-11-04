@@ -99,7 +99,11 @@ un vínculo confirmado o los usuarios locales que creó.
   de alumnos. Se pueden agregar más adelante como opción del docente, con la misma regla de la nueva corrección en
   el servidor.
 
-La app no es para directivos ni administradores. Pueden usarla sin conexión con su rol de alumno, como de costumbre.
+La app no es para directivos ni administradores. Una misma cuenta puede tener varios roles: la app ofrece solo los
+de alumno, profesor y padre o tutor que tenga la cuenta, y deja afuera los de directivo y administrador. Una cuenta
+de directivo o administrador que también es profesor o padre usa la app con ese rol. Si la cuenta no tiene ninguno
+de esos tres roles, la app le pide agregarse el de alumno desde la web (la plataforma ya lo permite) antes de
+activarla.
 
 ## Computadoras del Estado (público principal)
 
