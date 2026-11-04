@@ -30,12 +30,21 @@ el contenido descargado se comparte entre todas.
   computación). La interfaz reutiliza los componentes y las páginas de `apps/web`: módulos, cuestionarios,
   diccionario y progreso.
 - **API local dentro de la app.** Las páginas de la web piden datos con `apiGet` y `apiPost`. En la app, esas
-  llamadas las atiende una API local que responde lo mismo que el servidor, con los mismos formatos, leyendo de
-  SQLite. Así las páginas no se reescriben: cambia de dónde salen los datos. Unas pruebas comparan las respuestas
-  locales con las del servidor para que no se separen. La API local se escribe en Rust, para que sirva también en el
-  «modo navegador» de Huayra 5 y 6 (ver «Computadoras del Estado»).
+  llamadas las atiende una API local que responde lo mismo que el servidor, con los mismos formatos. Así las páginas
+  no se reescriben: cambia de dónde salen los datos.
+  - Está escrita en **TypeScript** y corre dentro de la propia web: un interceptor de `fetch` desvía a la API local
+    las llamadas a `/api/...`. Reutiliza la lógica del servidor que no depende de Node (formatos de respuesta,
+    candados por dependencias, motor de preguntas). La web usa 222 rutas: se implementan solo las que hacen falta sin
+    conexión, por fases.
+  - Revisión del 4 de noviembre de 2026: antes estaba prevista en Rust. Se cambió porque obligaba a reescribir y
+    mantener dos veces la lógica del servidor.
+  - **Rust** queda para lo que el navegador no puede hacer solo: la base SQLite, los paquetes, el diccionario y los
+    ZIP. En Tauri se llama con comandos; en el «modo navegador» de Huayra 5 y 6, el mismo programa atiende esas
+    operaciones por HTTP en `127.0.0.1`.
 - **Almacenamiento:**
   - El contenido y los diccionarios van en SQLite, manejado desde Rust (`rusqlite` con SQLite incluido).
+  - Arquitecturas: 64 y 32 bits (x86_64 e i686 en Windows y Linux; arm64 y armv7 en Android). Hay computadoras de
+    prueba de los dos tipos.
   - Las imágenes y el audio van en archivos dentro de la carpeta de datos de la app.
   - Los datos de cada persona (perfil, intentos, progreso, cola de sincronización) van en una base SQLite aparte
     por dispositivo.
@@ -48,7 +57,9 @@ El permiso firmado lleva los roles de la persona y sus vínculos confirmados por
 tutor, y los alumnos de las aulas de un docente. En el dispositivo, cada rol solo ve los perfiles con los que tiene
 un vínculo confirmado o los usuarios locales que creó.
 
-### Padres o tutores
+### Padres, tutores y acompañantes
+- **Acceso a la teoría.** Pueden leer la teoría y las herramientas de todos los módulos descargados en el dispositivo,
+  para explicarle al alumno si lo necesita. No rinden evaluaciones ni suman progreso.
 - **Seguimiento sin red.** Si el hijo usa el mismo dispositivo, el tutor ve su progreso, sus notas y su tiempo de
   estudio al momento. Si usa otro, ve la última copia que bajó en la sincronización, con su fecha.
 - **Perfiles de los hijos.** En el modo autónomo, o con `usuariosLocales`, el tutor crea usuarios locales para sus
@@ -60,6 +71,16 @@ un vínculo confirmado o los usuarios locales que creó.
   responsable.
 
 ### Docentes
+- **Crear módulos y aulas sin red.** El docente arma módulos (teoría, herramientas, preguntas) y aulas en el
+  dispositivo, con los mismos editores de la web. Al sincronizar se suben a la plataforma como suyos.
+- **Qué no está sin red:** lo que depende de otras personas o del servidor. Responder mensajes y el chat del aula,
+  anuncios, encuestas, calendario compartido, economía del aula (subastas, tickets), pagos, invitar a otros
+  docentes y unir alumnos por código. La web muestra esas funciones deshabilitadas, con el aviso «Necesita
+  conexión».
+- **Exportar a ZIP.** Los módulos que crea el docente se exportan a un archivo ZIP (teoría, herramientas, preguntas,
+  imágenes y un `modulo.json` con la versión del formato). Otra instalación de la app los importa. Así la función
+  sigue sirviendo aunque la plataforma deje de estar en producción. El formato del ZIP es el mismo que el de
+  `temario-oficial`, para que un módulo se pueda sumar a ese repositorio.
 - **Preparar y dar clase sin red.** El docente lee los módulos con las resoluciones de las evaluaciones visibles.
   También tiene un **modo clase** para proyectar la teoría y las herramientas.
 - **Dispositivos del aula.** En tablets o computadoras de la escuela, el docente puede:
@@ -67,8 +88,8 @@ un vínculo confirmado o los usuarios locales que creó.
   - crear usuarios locales para quien no tiene cuenta;
   - poner una contraseña nueva a un alumno;
   - ver el progreso de todos los perfiles del dispositivo.
-- **Asignar sin red.** El docente marca qué módulos y evaluaciones oficiales tiene que hacer el aula, con una fecha.
-  Los alumnos lo ven en el dispositivo. Al sincronizar, la asignación pasa a ser una tarea del aula en la web, y los
+- **Asignar sin red.** El docente marca qué módulos y evaluaciones tiene que hacer el aula, con una fecha. Los
+  alumnos lo ven en el dispositivo. Al sincronizar, la asignación pasa a ser una tarea del aula en la web, y los
   intentos de los alumnos quedan asociados a ella.
 - **Sin internet en la escuela.** El docente exporta los resultados de los alumnos a un archivo, firmado y cifrado
   con la clave del aula. Después lo importa desde la web en su casa, y el servidor vuelve a corregir cada intento
@@ -117,9 +138,8 @@ La misma app, sin visor propio. El programa de la app (en Rust) se compila **est
 `x86_64-unknown-linux-musl`, sin depender de las bibliotecas del sistema), levanta un servidor solo en `127.0.0.1` y
 abre la app en el navegador que trae Huayra (Firefox ESR o Chromium). Los datos quedan en la misma base SQLite.
 
-Esto ordena la arquitectura: la **API local** (sección «Cómo está hecha») se escribe en Rust y no en JavaScript, para
-que sirva igual a las tres formas de usar la app:
-- en Android y en Windows o Huayra 6.5, la web le habla por los comandos de Tauri;
+La API local es la misma en todos los casos (TypeScript dentro de la web). Lo que cambia es cómo llega a la base:
+- en Android y en Windows o Huayra 6.5, por los comandos de Tauri;
 - en Huayra 5 y 6, por HTTP a `127.0.0.1`.
 
 Cuidado con el navegador: una netbook que nunca se actualizó puede tener Firefox ESR 102 o anterior, y la web hoy se
@@ -200,6 +220,13 @@ Para la Ley 25.326 es lo más simple: si los datos no salen del dispositivo, la 
 - Todo el temario tiene 2382 módulos y 2130 cuestionarios. Pesa unos 39 MB de texto, que comprimido queda en 6 a
   8 MB, más 17 MB de imágenes y 29 MB de audio. Una materia sola pesa pocos megabytes.
 
+### Módulos de la escuela
+- Además del temario oficial, el alumno puede descargar los módulos que crearon los docentes de **su escuela**,
+  incluidos los asignados en sus aulas, que se descargan solos. El servidor solo entrega los de las escuelas donde el
+  alumno está registrado. Los exámenes propios de los docentes siguen sin descargarse (ver «Docentes»).
+- Se arman a pedido, con el mismo formato que los paquetes oficiales, y llevan la fecha de la última modificación
+  para saber si cambiaron.
+
 ### Diccionario
 - Un paquete por idioma; el diccionario entero pesa 1,35 GB y no entra cómodo en un celular.
 - Tamaño de los datos sin comprimir, sin contar índices:
@@ -257,15 +284,15 @@ Para la Ley 25.326 es lo más simple: si los datos no salen del dispositivo, la 
 | 0 | Prueba: instalar Rust, el SDK y el NDK de Android; envolver la web en un APK; certificado propio; probar en un celular real | 1 a 2 |
 | 1 | Esqueleto de `apps/offline`, API local sobre SQLite, perfiles por dispositivo | 3 a 4 |
 | 2 | Activación con permiso firmado, huella de contraseña, plazo de 90 días, usuarios locales, modo autónomo | 3 a 4 |
-| 3 | Paquetes: generación en el servidor, descarga, importación desde archivo, diccionario por idioma | 4 a 5 |
+| 3 | Paquetes: generación en el servidor, descarga, importación desde archivo, diccionario por idioma, módulos de la escuela del alumno | 5 a 6 |
 | 4 | Módulos, prácticas y evaluaciones locales; progreso y logros en el dispositivo | 4 a 5 |
 | 5 | Sincronización en las dos direcciones, nueva corrección en el servidor, vinculación de usuarios locales | 4 a 5 |
 | 6 | Distribución: APK firmado, instaladores de escritorio (Windows con WebView2 incluido), «modo navegador» para Huayra 5 y 6, paquete completo | 3 a 4 |
 | 7 | Pruebas (modo avión, permiso vencido, cuenta dada de baja, intentos repetidos, notas que no coinciden) y documentación (manual, política de privacidad) | 3 |
-| 8 | Padres o tutores: seguimiento, perfiles de los hijos, contraseña nueva, dispositivo familiar | 2 a 3 |
-| 9 | Docentes: resoluciones y modo clase, alumnos del aula en el dispositivo, asignaciones, exportar e importar por archivo | 5 a 6 |
+| 8 | Padres, tutores y acompañantes: teoría de los módulos, seguimiento, perfiles de los hijos, contraseña nueva, dispositivo familiar | 2 a 3 |
+| 9 | Docentes: crear módulos y aulas sin red, exportar e importar módulos en ZIP, funciones con red deshabilitadas, resoluciones y modo clase, alumnos del aula en el dispositivo, asignaciones, resultados por archivo | 9 a 11 |
 
-**Total estimado: 32 a 41 días de trabajo** (25 a 32 la parte de alumnos). Las fases 0 a 4 ya dan una app usable sin red; la sincronización se
+**Total estimado: 37 a 47 días de trabajo** (26 a 33 la parte de alumnos). Las fases 0 a 4 ya dan una app usable sin red; la sincronización se
 puede entregar después.
 
 ## Riesgos
