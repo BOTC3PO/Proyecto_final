@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Confía en la CA propia del servidor (mientras no haya dominio con certificado público) además de las del sistema.
+     El archivo res/raw/virtualbook_ca.crt lo copia scripts/preparar-android.sh desde la configuración del servidor. -->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="@raw/virtualbook_ca" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

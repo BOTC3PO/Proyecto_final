@@ -1,0 +1,4 @@
+/dist-web
+/src-tauri/target
+/src-tauri/gen/schemas
+/src-tauri/gen/android/app/src/main/res/raw/virtualbook_ca.crt

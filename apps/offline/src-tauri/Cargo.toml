@@ -1,0 +1,23 @@
+[package]
+name = "virtualbook-offline"
+version = "0.1.0"
+description = "Virtual Book sin conexión"
+edition = "2021"
+rust-version = "1.99"
+
+[lib]
+name = "virtualbook_offline_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "=2.7.3", features = [] }
+
+[dependencies]
+tauri = { version = "=2.12.4", features = [] }
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"
+panic = "abort"
+strip = true

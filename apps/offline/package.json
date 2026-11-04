@@ -1,0 +1,15 @@
+{
+  "name": "offline",
+  "version": "0.1.0",
+  "private": true,
+  "description": "App sin conexión de Virtual Book (Tauri 2): envuelve la web compilada.",
+  "scripts": {
+    "web": "VITE_API_BASE_URL=${VB_API_URL:-https://192.168.0.28} pnpm --filter web exec vite build --outDir ../offline/dist-web --emptyOutDir",
+    "tauri": "tauri",
+    "android:apk": "scripts/preparar-android.sh && pnpm run web && tauri android build --apk --target aarch64",
+    "android:apk-prueba": "scripts/preparar-android.sh && pnpm run web && tauri android build --debug --apk --target x86_64"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "2.12.3"
+  }
+}
