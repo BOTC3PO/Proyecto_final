@@ -68,13 +68,17 @@ un vínculo confirmado o los usuarios locales que creó.
   en la web:
   - los usuarios locales se ven siempre;
   - los perfiles de cuentas de la plataforma se ven si su dueño lo deja activado («Mostrar mi progreso en la vista de
-    padre»; activado por defecto en menores de 18);
-  - en las computadoras de la escuela, un profesor del dispositivo puede apagar la vista de padre.
+    padre»; activado por defecto en menores de 18).
+  - La vista no se puede apagar: las computadoras de destino son personales (aprobado el 4 de noviembre de 2026).
   Un padre o tutor con cuenta de la plataforma sigue pudiendo entrar con ella para ver a sus hijos aunque usen otro
   dispositivo.
 - **Recuperar la contraseña.** Sin red no se puede mandar un correo. La contraseña de un usuario local la cambia un
   profesor de ese dispositivo; la de una cuenta de la plataforma, el padre o tutor con vínculo confirmado, o la propia
   persona al volver a tener red.
+- **Exportar el progreso.** Todo el progreso (módulos, intentos, notas, logros y tiempo de estudio) queda en una
+  base propia del dispositivo, separada del contenido. Desde la vista de padre o desde el perfil se exporta a un
+  archivo (JSON dentro de un ZIP, con la versión del formato) para guardarlo, pasarlo a otra computadora o
+  imprimir un resumen. Otra instalación de la app lo importa. Sirve también después del cese del servicio.
 - **Compartir el dispositivo.** Un modo «dispositivo familiar» deja entrar a varios hermanos con un mismo tutor
   responsable.
 
