@@ -62,11 +62,19 @@ un vínculo confirmado o los usuarios locales que creó.
   para explicarle al alumno si lo necesita. No rinden evaluaciones ni suman progreso.
 - **Seguimiento sin red.** Si el hijo usa el mismo dispositivo, el tutor ve su progreso, sus notas y su tiempo de
   estudio al momento. Si usa otro, ve la última copia que bajó en la sincronización, con su fecha.
-- **Perfiles de los hijos.** En el modo autónomo, o con `usuariosLocales`, el tutor crea usuarios locales para sus
-  hijos y queda como responsable. Así un menor no se registra solo; es lo que pide el Código Civil y Comercial,
-  art. 26.
-- **Recuperar la contraseña.** Sin red no se puede mandar un correo. El tutor puede poner una contraseña nueva a sus
-  hijos en ese dispositivo.
+- **Vista de padre sin iniciar sesión.** En la pantalla de entrada, «Ver como padre o tutor» abre, sin usuario ni
+  contraseña, el progreso de los perfiles del dispositivo y la teoría de los módulos descargados. Es solo lectura: no
+  rinde, no edita y no ve contraseñas ni mensajes. Como todo queda en el dispositivo, se puede ser más permisivo que
+  en la web:
+  - los usuarios locales se ven siempre;
+  - los perfiles de cuentas de la plataforma se ven si su dueño lo deja activado («Mostrar mi progreso en la vista de
+    padre»; activado por defecto en menores de 18);
+  - en las computadoras de la escuela, un profesor del dispositivo puede apagar la vista de padre.
+  Un padre o tutor con cuenta de la plataforma sigue pudiendo entrar con ella para ver a sus hijos aunque usen otro
+  dispositivo.
+- **Recuperar la contraseña.** Sin red no se puede mandar un correo. La contraseña de un usuario local la cambia un
+  profesor de ese dispositivo; la de una cuenta de la plataforma, el padre o tutor con vínculo confirmado, o la propia
+  persona al volver a tener red.
 - **Compartir el dispositivo.** Un modo «dispositivo familiar» deja entrar a varios hermanos con un mismo tutor
   responsable.
 
@@ -78,8 +86,11 @@ un vínculo confirmado o los usuarios locales que creó.
   docentes y unir alumnos por código. La web muestra esas funciones deshabilitadas, con el aviso «Necesita
   conexión».
 - **Exportar a ZIP.** Los módulos que crea el docente se exportan a un archivo ZIP (teoría, herramientas, preguntas,
-  imágenes y un `modulo.json` con la versión del formato). Otra instalación de la app los importa. Así la función
-  sigue sirviendo aunque la plataforma deje de estar en producción. El formato del ZIP es el mismo que el de
+  imágenes y un `modulo.json` con la versión del formato).
+- **Importar ZIP.** La app importa esos ZIP sin conexión, desde un archivo o un pendrive, con «Importar módulo». El
+  módulo queda disponible para todos los perfiles del dispositivo; si ya existe uno con el mismo identificador, la app
+  ofrece reemplazarlo o guardarlo como copia. Así crear y compartir módulos sigue funcionando aunque la plataforma
+  deje de estar en producción. El formato del ZIP es el mismo que el de
   `temario-oficial`, para que un módulo se pueda sumar a ese repositorio.
 - **Preparar y dar clase sin red.** El docente lee los módulos con las resoluciones de las evaluaciones visibles.
   También tiene un **modo clase** para proyectar la teoría y las herramientas.
@@ -110,8 +121,9 @@ con ese rol. Si no tiene ninguno de esos tres, la app le pide agregarse el de al
   aprueba un administrador en la plataforma, y el rol nuevo aparece en la app en la sincronización siguiente. Las
   reglas son las del servidor (por ejemplo, ser mayor de 18 años).
 - **Administrador:** solo lo otorga otro administrador desde la plataforma; no pasa por la app.
-- **Usuarios locales:** en el modo autónomo no hay servidor que apruebe, así que se elige el rol (alumno, profesor o
-  padre o tutor) al crear el usuario.
+- **Usuarios locales:** hay dos tipos, **alumno** y **profesor**, y se elige al crear el usuario (no hay servidor
+  que apruebe). Como no se guardan en la base de la plataforma, no necesitan sus reglas: no piden correo, fecha de
+  nacimiento ni aprobación. El padre o tutor no necesita usuario local: usa la vista de padre sin iniciar sesión.
 
 ## Computadoras del Estado (público principal)
 
@@ -184,7 +196,8 @@ El plazo sale de una variable del servidor, `OFFLINE_PERMISO_DIAS=90`. La app ta
 ### Si la plataforma deja de estar en producción («modo autónomo»)
 Se publica una versión de la app con `modoAutonomo: true`, sin cambiar el código. En ese modo:
 - los permisos ya emitidos no vencen;
-- se pueden crear **usuarios locales**: nombre, usuario y contraseña que existen solo en ese dispositivo;
+- se pueden crear **usuarios locales** de alumno o de profesor: nombre, usuario y contraseña que existen solo en ese
+  dispositivo;
 - se descargan los paquetes desde un archivo, porque ya no hay servidor (ver «Distribución»).
 
 ### Usuarios locales mientras la plataforma está en producción
