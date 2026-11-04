@@ -105,8 +105,8 @@ Se publica una versión de la app con `modoAutonomo: true`, sin cambiar el códi
 - se descargan los paquetes desde un archivo, porque ya no hay servidor (ver «Distribución»).
 
 ### Usuarios locales mientras la plataforma está en producción
-También se pueden permitir desde el primer día, con el interruptor `usuariosLocales`. Sirven para quien no tiene
-cuenta o no quiere crearla:
+Decidido el 4 de noviembre de 2026: la opción existe desde el primer día, con el interruptor `usuariosLocales`.
+Sirven para quien no tiene cuenta o no quiere crearla:
 - sus datos no salen del dispositivo;
 - más adelante se pueden **vincular** a una cuenta de la plataforma, y entonces su historial sube y el servidor lo
   vuelve a corregir.
@@ -173,9 +173,19 @@ Para la Ley 25.326 es lo más simple: si los datos no salen del dispositivo, la 
 - Para los idiomas grandes conviene ofrecer también una versión **reducida**: las 100.000 palabras más usadas,
   sin formas flexionadas. Ronda los 15 a 30 MB.
 
+### Fuente: el repositorio `temario-oficial`
+- La teoría y los exámenes viven también en un repositorio git aparte, `temario-oficial`, versión **1.0**, con la
+  etiqueta `v1.0`. Tiene solo teoría, cuestionarios, herramientas, dependencias, exámenes jefe, libros e
+  imágenes: 4501 archivos, 71 MB.
+- Lo genera `install/copiar_temario_oficial.py` desde `content/material`. El manifiesto que se arma desde la copia
+  es idéntico byte a byte al que se arma desde el repositorio principal.
+- Los paquetes de la app salen de ese repositorio y llevan su versión. Para actualizar el temario se corrige ahí,
+  se sube la versión (1.1 para correcciones, 2.0 si cambian temas o exámenes) y se regeneran los paquetes. Si la
+  plataforma deja de estar en producción, ese repositorio alcanza para seguir manteniendo el contenido.
+
 ### Formato
 - Cada paquete es un archivo SQLite comprimido, con su versión y su hash.
-- Se generan en el servidor con un script, `config/generar-paquetes.sh`, a partir de la base y de
+- Se generan en el servidor con un script, `config/generar-paquetes.sh`, a partir de `temario-oficial` y de
   `Diccionario.sqlite`. La API los sirve en `GET /api/offline/paquetes` (lista) y `GET /api/offline/paquetes/:id`
   (descarga).
 - **Descarga desde un archivo:** la app también puede importar un paquete desde un archivo, por ejemplo copiado de
