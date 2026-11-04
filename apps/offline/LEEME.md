@@ -39,6 +39,22 @@ Para habilitarlo en un servidor:
 
 Cambiar la clave invalida los permisos de todos los dispositivos: cada cuenta tiene que volver a conectarse.
 
+## Paquetes
+
+Cada paquete es una base SQLite comprimida con gzip (formato en `nucleo/src/paquetes.rs`): una materia del temario
+oficial o el diccionario de un idioma. Se bajan desde «Mi perfil → Contenido sin conexión» o se importan desde un
+archivo (pendrive). Los módulos de la escuela se piden aparte, con el permiso firmado, y se actualizan solos cada vez
+que una cuenta de la plataforma entra con red. La app trae Antropología incluida para el primer uso.
+
+Para generarlos (en el servidor lo hace `config/generar-paquetes.sh`):
+
+```bash
+pnpm paquetes --salida DIR --temario ~/proyectos/temario-oficial [--materias fisica,quimica] \
+  [--diccionario RUTA/Diccionario.sqlite] [--idiomas es,en] [--sin-temario]
+```
+
+Con el mismo temario sale el mismo archivo (y el mismo hash). La API los sirve desde `OFFLINE_PAQUETES_DIR`.
+
 ## Comandos
 
 - `pnpm test` y `pnpm tipos`: pruebas y tipos de la API local.

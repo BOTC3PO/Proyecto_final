@@ -36,6 +36,16 @@ const MIGRACIONES: Record<Base, string[][]> = {
       `CREATE INDEX quizzes_modulo ON quizzes(modulo_id)`,
       `CREATE TABLE libros (id TEXT PRIMARY KEY, json TEXT NOT NULL, updated_at TEXT NOT NULL)`,
     ],
+    // Fase 3: paquetes instalados (contenido y diccionarios).
+    [
+      `CREATE TABLE paquetes_instalados (
+        id TEXT PRIMARY KEY,
+        tipo TEXT NOT NULL,              -- contenido | diccionario | escuela
+        version TEXT NOT NULL, titulo TEXT NOT NULL, idioma TEXT, origen TEXT,
+        sha256 TEXT, bytes INTEGER, modulos INTEGER,
+        instalado TEXT NOT NULL
+      )`,
+    ],
   ],
   progreso: [
     [
@@ -95,16 +105,19 @@ const MIGRACIONES: Record<Base, string[][]> = {
 };
 
 export async function prepararBases(almacen: Almacen): Promise<void> {
-  for (const base of ["contenido", "progreso"] as const) {
-    await almacen.ejecutar(base, "CREATE TABLE IF NOT EXISTS meta (clave TEXT PRIMARY KEY, valor TEXT NOT NULL)");
-    const [fila] = await almacen.consulta<{ valor: string }>(base, "SELECT valor FROM meta WHERE clave = 'version'");
-    const actual = fila ? Number(fila.valor) : 0;
-    const pendientes = MIGRACIONES[base].slice(actual);
-    for (const [i, sentencias] of pendientes.entries()) {
-      await almacen.lote(base, [
-        ...sentencias.map((sql) => ({ sql })),
-        { sql: "INSERT INTO meta (clave, valor) VALUES ('version', ?) ON CONFLICT(clave) DO UPDATE SET valor = excluded.valor", params: [String(actual + i + 1)] },
-      ]);
-    }
+  for (const base of ["contenido", "progreso"] as const) await prepararBase(almacen, base);
+}
+
+/** Una sola base; el generador de paquetes arma así la base de contenido de cada paquete. */
+export async function prepararBase(almacen: Almacen, base: Base): Promise<void> {
+  await almacen.ejecutar(base, "CREATE TABLE IF NOT EXISTS meta (clave TEXT PRIMARY KEY, valor TEXT NOT NULL)");
+  const [fila] = await almacen.consulta<{ valor: string }>(base, "SELECT valor FROM meta WHERE clave = 'version'");
+  const actual = fila ? Number(fila.valor) : 0;
+  const pendientes = MIGRACIONES[base].slice(actual);
+  for (const [i, sentencias] of pendientes.entries()) {
+    await almacen.lote(base, [
+      ...sentencias.map((sql) => ({ sql })),
+      { sql: "INSERT INTO meta (clave, valor) VALUES ('version', ?) ON CONFLICT(clave) DO UPDATE SET valor = excluded.valor", params: [String(actual + i + 1)] },
+    ]);
   }
 }

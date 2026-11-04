@@ -57,3 +57,26 @@ export function firmarPermiso(datos: Permiso, clave: crypto.KeyObject): { permis
   const firma = crypto.sign(null, Buffer.from(permiso), clave).toString("base64url");
   return { permiso, firma };
 }
+
+/**
+ * Lee el encabezado `Authorization: Permiso <permiso>.<firma>` con el que la app pide lo suyo sin una sesión de la
+ * web (por ejemplo, los módulos de la escuela). Devuelve los datos si la firma es de este servidor y no venció.
+ */
+export function leerPermiso(encabezado: string | undefined, ahora = Date.now()): Permiso | null {
+  const m = /^Permiso ([A-Za-z0-9_-]+)\.([A-Za-z0-9_-]+)$/.exec(encabezado ?? "");
+  let clave: crypto.KeyObject | null = null;
+  try {
+    clave = m ? clavePrivada() : null;
+  } catch {
+    return null;
+  }
+  if (!m || !clave) return null;
+  const [, permiso, firma] = m;
+  if (!crypto.verify(null, Buffer.from(permiso), crypto.createPublicKey(clave), Buffer.from(firma, "base64url"))) return null;
+  try {
+    const datos = JSON.parse(Buffer.from(permiso, "base64url").toString("utf8")) as Permiso;
+    return datos.v === VERSION_PERMISO && Date.parse(datos.vence) > ahora ? datos : null;
+  } catch {
+    return null;
+  }
+}

@@ -172,6 +172,8 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   // activar) y días de validez de cada permiso.
   OFFLINE_PERMISO_CLAVE_ARCHIVO: process.env.OFFLINE_PERMISO_CLAVE_ARCHIVO ?? "",
   OFFLINE_PERMISO_DIAS: Number(process.env.OFFLINE_PERMISO_DIAS ?? 90),
+  // Carpeta con los paquetes que genera `apps/offline/scripts/generar-paquetes.ts` (indice.json y los .sqlite.gz).
+  OFFLINE_PAQUETES_DIR: process.env.OFFLINE_PAQUETES_DIR ?? "",
 };
 
 /**

@@ -10,12 +10,16 @@ use rusqlite::types::{Value as ValorSql, ValueRef};
 use rusqlite::{params_from_iter, Connection, OpenFlags};
 use serde::{Deserialize, Serialize};
 use serde_json::{Map, Number, Value};
-use std::path::Path;
+use std::collections::HashMap;
+use std::path::{Path, PathBuf};
 use std::sync::Mutex;
 
 pub struct Almacen {
-    contenido: Mutex<Connection>,
+    pub(crate) carpeta: PathBuf,
+    pub(crate) contenido: Mutex<Connection>,
     progreso: Mutex<Connection>,
+    /// Diccionarios instalados, abiertos a medida que se consultan (ver `paquetes.rs`).
+    pub(crate) diccionarios: Mutex<HashMap<String, Connection>>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -66,7 +70,7 @@ fn a_json(v: ValueRef) -> Value {
     }
 }
 
-fn consultar(c: &Connection, sql: &str, params: &[Value]) -> Result<Vec<Map<String, Value>>, String> {
+pub(crate) fn consultar(c: &Connection, sql: &str, params: &[Value]) -> Result<Vec<Map<String, Value>>, String> {
     let mut st = c.prepare_cached(sql).map_err(|e| e.to_string())?;
     let nombres: Vec<String> = st.column_names().iter().map(|n| n.to_string()).collect();
     let mut filas = st.query(params_from_iter(params.iter().map(a_sql))).map_err(|e| e.to_string())?;
@@ -93,8 +97,10 @@ impl Almacen {
     pub fn abrir(carpeta: &Path) -> Result<Self, String> {
         std::fs::create_dir_all(carpeta).map_err(|e| e.to_string())?;
         Ok(Self {
+            carpeta: carpeta.to_path_buf(),
             contenido: Mutex::new(abrir(&carpeta.join("contenido.sqlite"))?),
             progreso: Mutex::new(abrir(&carpeta.join("progreso.sqlite"))?),
+            diccionarios: Mutex::new(HashMap::new()),
         })
     }
 

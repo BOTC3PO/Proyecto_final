@@ -9,7 +9,7 @@ import { almacenHttp, almacenTauri, type Almacen } from "./api-local/almacen";
 import { crearContexto, type Contexto } from "./api-local/contexto";
 import { prepararBases } from "./api-local/esquema";
 import { crearServidorLocal } from "./api-local/servidor";
-import { cargarManifiesto } from "./api-local/temario";
+import { instalarDesde, type Disponible } from "./api-local/paquetes";
 
 const BASE = String(import.meta.env.VITE_API_BASE_URL ?? "").replace(/\/$/, "");
 const fetchOriginal = window.fetch.bind(window);
@@ -32,16 +32,21 @@ function elegirAlmacen(): Almacen {
 }
 
 /**
- * Provisorio hasta la fase 3 (paquetes): si el dispositivo no tiene contenido, carga la materia de muestra que viene
- * con la app (`/paquetes/muestra.json`, el manifiesto de una materia del temario oficial).
+ * La primera vez, instala los paquetes que vienen dentro de la app (`/paquetes/indice.json`, armados por
+ * `scripts/generar-paquetes.ts` al compilar), así hay algo para estudiar antes de bajar nada.
  */
-async function cargarMuestra(ctx: Contexto) {
-  const [hay] = await ctx.almacen.consulta("contenido", "SELECT 1 AS x FROM modulos LIMIT 1");
+async function instalarIncluidos(ctx: Contexto) {
+  const [hay] = await ctx.almacen.consulta("contenido", "SELECT 1 AS x FROM paquetes_instalados LIMIT 1");
   if (hay) return;
-  const r = await fetchOriginal("/paquetes/muestra.json");
+  const r = await fetchOriginal("/paquetes/indice.json");
   if (!r.ok) return;
-  const resultado = await cargarManifiesto(ctx, await r.json(), { origen: "oficial", paquete: "muestra" });
-  console.info("Contenido de muestra cargado:", resultado);
+  const { paquetes } = (await r.json()) as { paquetes: Disponible[] };
+  for (const p of paquetes) {
+    const archivo = await fetchOriginal(`/paquetes/${p.archivo}`);
+    if (!archivo.ok || !archivo.body) continue;
+    const inst = await instalarDesde(ctx, p.id, archivo.body, { esperado: p.id, sha256: p.sha256 });
+    console.info("Paquete incluido instalado:", inst.titulo, inst.modulos);
+  }
 }
 
 const ctx = crearContexto(elegirAlmacen(), {
@@ -50,7 +55,7 @@ const ctx = crearContexto(elegirAlmacen(), {
 });
 const listo = (async () => {
   await prepararBases(ctx.almacen);
-  await cargarMuestra(ctx);
+  await instalarIncluidos(ctx);
 })().catch((e) => console.error("No se pudo preparar la base de la app:", e));
 const atender = crearServidorLocal(ctx);
 

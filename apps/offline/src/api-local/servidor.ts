@@ -5,7 +5,9 @@
 import type { Contexto } from "./contexto";
 import { cerrarSesion, iniciarSesion, listarPerfiles, registrarLocal, renovar, segundoPasoDeIngreso, yo } from "./cuentas";
 import { json, sinConexion } from "./http";
+import { buscar, idiomas, prefijo, salud } from "./diccionario";
 import { listarModulos, verModulo } from "./modulos";
+import { actualizarMiEscuela, descargarPaquete, importarPaquete, listarPaquetes, quitarPaquete } from "./paquetes";
 import { cambiarPerfil, solicitarRol } from "./perfil";
 import { modulosParaPadres, perfilesParaPadres, teoriaParaPadres } from "./vista-padre";
 
@@ -21,6 +23,15 @@ const RUTAS: [string, RegExp, Manejador][] = [
   ["GET", /^\/api\/offline\/perfiles$/, listarPerfiles],
   ["PATCH", /^\/api\/offline\/perfil$/, cambiarPerfil],
   ["POST", /^\/api\/solicitar-rol$/, solicitarRol],
+  ["GET", /^\/api\/offline\/paquetes$/, listarPaquetes],
+  ["POST", /^\/api\/offline\/paquetes\/importar$/, importarPaquete],
+  ["POST", /^\/api\/offline\/paquetes\/([^/]+)\/descargar$/, descargarPaquete],
+  ["DELETE", /^\/api\/offline\/paquetes\/([^/]+)$/, quitarPaquete],
+  ["POST", /^\/api\/offline\/escuela\/actualizar$/, actualizarMiEscuela],
+  ["GET", /^\/api\/dictionary\/languages$/, idiomas],
+  ["GET", /^\/api\/dictionary\/health$/, salud],
+  ["GET", /^\/api\/dictionary\/lookup$/, buscar],
+  ["GET", /^\/api\/dictionary\/prefix$/, prefijo],
   ["GET", /^\/api\/modulos$/, listarModulos],
   ["GET", /^\/api\/modulos\/([^/]+)$/, verModulo],
   ["GET", /^\/api\/offline\/vista-padre$/, perfilesParaPadres],

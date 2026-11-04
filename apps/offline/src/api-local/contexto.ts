@@ -20,6 +20,8 @@ export type Contexto = {
   /** Iteraciones de PBKDF2 para las contraseñas nuevas (las pruebas usan menos). */
   iteraciones: number;
   ahora: () => Date;
+  /** Tareas que no frenan la respuesta (por ejemplo, actualizar los módulos de la escuela al entrar). */
+  segundoPlano: (tarea: Promise<unknown>) => void;
 };
 
 export const CONFIG_POR_DEFECTO: Configuracion = { modoAutonomo: false, usuariosLocales: true, clavePublica: null };
@@ -30,6 +32,7 @@ export const crearContexto = (almacen: Almacen, opciones: Partial<Omit<Contexto,
   remoto: opciones.remoto ?? null,
   iteraciones: opciones.iteraciones ?? ITERACIONES,
   ahora: opciones.ahora ?? (() => new Date()),
+  segundoPlano: opciones.segundoPlano ?? ((t) => void t.catch((e) => console.info("API local, en segundo plano:", e))),
 });
 
 export type Perfil = {

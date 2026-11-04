@@ -65,7 +65,7 @@ import { instrumentos } from "./routes/instrumentos";
 import { pedagogico } from "./routes/pedagogico";
 import { boletin } from "./routes/boletin";
 import { sync } from "./routes/sync";
-import { offline } from "./routes/offline";
+import { offline, offlinePublico } from "./routes/offline";
 import { calendario } from "./routes/calendario";
 import { quizBanco } from "./routes/quiz-banco";
 import { membresias } from "./routes/membresias";
@@ -207,6 +207,7 @@ app.use("/api/maps/provincias", provinciasRouter);
 app.use(soloSusRutas(geonamesRouter));
 app.use(soloSusRutas(auth));
 app.use(soloSusRutas(registro));
+app.use(soloSusRutas(offlinePublico));
 
 app.use(requireUser);
 

@@ -73,6 +73,7 @@ const AdminModeracion           = lazyWithRetry(() => import("./pages/AdminModer
 const PlantillasModeracion      = lazyWithRetry(() => import("./pages/admin/PlantillasModeracion"));
 const AdminReportesGlobal       = lazyWithRetry(() => import("./pages/AdminReportesGlobal"));
 const Perfil                    = lazyWithRetry(() => import("./pages/Perfil"));
+const ContenidoSinConexion      = lazyWithRetry(() => import("./pages/ContenidoSinConexion"));
 const Tareas                    = lazyWithRetry(() => import("./pages/Tareas"));
 const Progreso                  = lazyWithRetry(() => import("./pages/Progreso"));
 // FIX-TEST4-PROF-01 — antes había `ProfesorCursos` y
@@ -589,6 +590,11 @@ export const router = createBrowserRouter([
           {
             path: 'perfil',
             element: withSuspense(<Perfil />),
+          },
+          // L8 — solo tiene sentido dentro de la app sin conexión (la página lo avisa si no).
+          {
+            path: 'sin-conexion',
+            element: withSuspense(<ContenidoSinConexion />),
           },
           {
             path: 'menualumno',

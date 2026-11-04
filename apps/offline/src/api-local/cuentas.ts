@@ -7,6 +7,7 @@ import { aleatorio, huella, iguales } from "./claves";
 import type { Contexto, Perfil } from "./contexto";
 import { error, json, leerJson } from "./http";
 import { verificarPermiso } from "./permiso";
+import { actualizarEscuela } from "./escuela";
 import { activar, segundoPaso, type Resultado } from "./plataforma";
 
 const DIAS_SESION = 30;
@@ -100,7 +101,12 @@ type FilaIngreso = Perfil & {
   estado: string; fallos: number; espera_hasta: string | null;
 };
 
-const terminar = async (ctx: Contexto, r: Resultado) => ("perfil" in r ? json(await abrirSesion(ctx, r.perfil)) : r.respuesta);
+// Entró una cuenta de la plataforma con red: de paso se actualizan los módulos de su escuela.
+const terminar = async (ctx: Contexto, r: Resultado) => {
+  if (!("perfil" in r)) return r.respuesta;
+  ctx.segundoPlano(actualizarEscuela(ctx, r.perfil.id));
+  return json(await abrirSesion(ctx, r.perfil));
+};
 const incorrectos = () => error(401, "Usuario o contraseña incorrectos.");
 
 async function anotarFallo(ctx: Contexto, fila: FilaIngreso) {

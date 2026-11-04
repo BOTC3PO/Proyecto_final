@@ -28,24 +28,31 @@ export async function idDelDispositivo(ctx: Contexto): Promise<string> {
   return guardado.valor;
 }
 
-/** POST al servidor. `null` si no hay red (o no hay servidor en modo autónomo). */
-async function pedir(ctx: Contexto, ruta: string, cuerpo: unknown, token?: string): Promise<{ status: number; body: any } | null> {
+/**
+ * Pedido al servidor de la plataforma. `null` si no hay red (o no hay servidor, como en el modo autónomo). La espera
+ * corta solo hasta que llega la respuesta: una descarga larga sigue.
+ */
+export async function remoto(ctx: Contexto, ruta: string, init: RequestInit = {}): Promise<Response | null> {
   if (!ctx.remoto || ctx.config.modoAutonomo) return null;
   const corte = new AbortController();
   const reloj = setTimeout(() => corte.abort(), ESPERA_RED_MS);
   try {
-    const r = await ctx.remoto.fetch(`${ctx.remoto.base}${ruta}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", ...(token ? { Authorization: `Bearer ${token}` } : {}) },
-      body: JSON.stringify(cuerpo),
-      signal: corte.signal,
-    });
-    return { status: r.status, body: await r.json().catch(() => ({})) };
+    return await ctx.remoto.fetch(`${ctx.remoto.base}${ruta}`, { ...init, signal: corte.signal });
   } catch {
     return null;
   } finally {
     clearTimeout(reloj);
   }
+}
+
+/** POST con JSON al servidor. `null` si no hay red. */
+async function pedir(ctx: Contexto, ruta: string, cuerpo: unknown, token?: string): Promise<{ status: number; body: any } | null> {
+  const r = await remoto(ctx, ruta, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...(token ? { Authorization: `Bearer ${token}` } : {}) },
+    body: JSON.stringify(cuerpo),
+  });
+  return r ? { status: r.status, body: await r.json().catch(() => ({})) } : null;
 }
 
 // Ingresos con verificación en dos pasos a medio hacer: el servidor da un desafío y la contraseña hace falta otra
