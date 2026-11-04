@@ -58,12 +58,12 @@ tutor, y los alumnos de las aulas de un docente. En el dispositivo, cada rol sol
 un vínculo confirmado o los usuarios locales que creó.
 
 ### Padres, tutores y acompañantes
-- **Acceso a la teoría.** Pueden leer la teoría y las herramientas de todos los módulos descargados en el dispositivo,
-  para explicarle al alumno si lo necesita. No rinden evaluaciones ni suman progreso.
+- **Acceso a la teoría.** Pueden leer la teoría y las herramientas de los módulos que el alumno ya desbloqueó, para
+  explicarle si lo necesita (ver «Solo lo desbloqueado» en «Evaluaciones sin conexión»). No rinden evaluaciones ni suman progreso.
 - **Seguimiento sin red.** Si el hijo usa el mismo dispositivo, el tutor ve su progreso, sus notas y su tiempo de
   estudio al momento. Si usa otro, ve la última copia que bajó en la sincronización, con su fecha.
 - **Vista de padre sin iniciar sesión.** En la pantalla de entrada, «Ver como padre o tutor» abre, sin usuario ni
-  contraseña, el progreso de los perfiles del dispositivo y la teoría de los módulos descargados. Es solo lectura: no
+  contraseña, el progreso de los perfiles del dispositivo y la teoría de los módulos que desbloqueó cada uno. Es solo lectura: no
   rinde, no edita y no ve contraseñas ni mensajes. Como todo queda en el dispositivo, se puede ser más permisivo que
   en la web:
   - los usuarios locales se ven siempre;
@@ -219,6 +219,18 @@ Para la Ley 25.326 es lo más simple: si los datos no salen del dispositivo, la 
     recién ahí acredita monedas, progreso oficial y ranking. Si las notas no coinciden, vale la del servidor y el
     intento queda marcado para revisión.
   - En el historial de la web, los intentos hechos en la app figuran como «hecho sin conexión».
+- **Solo lo desbloqueado.** Sin conexión, cada perfil ve únicamente los módulos que ya desbloqueó (por sus
+  prerrequisitos o porque se los habilitó un docente). El resto aparece con candado: se ve el título, pero no la
+  teoría, las herramientas ni las preguntas. Así no se puede leer de antemano lo que viene ni preparar una
+  evaluación mirando las preguntas.
+  - La API local aplica el candado en cada respuesta, no solo en la pantalla: un módulo bloqueado no devuelve su
+    contenido aunque se pida directo.
+  - Los paquetes guardan el contenido aparte del índice, y solo se lee el de los módulos desbloqueados.
+  - La vista de padre sin iniciar sesión sigue la misma regla: muestra la teoría de los módulos que desbloqueó el
+    perfil que se elige, no la de todos.
+  - Un profesor local ve las resoluciones solo de los módulos que creó o importó él. Las de los módulos oficiales y
+    de la escuela las ve un profesor con cuenta de la plataforma, porque un usuario local de profesor lo puede crear
+    cualquiera.
 - Exámenes jefe: se pueden rendir sin red como el resto, con la misma regla.
 - Los exámenes que arma un docente para su aula no se descargan.
 
