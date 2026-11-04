@@ -99,11 +99,19 @@ un vínculo confirmado o los usuarios locales que creó.
   de alumnos. Se pueden agregar más adelante como opción del docente, con la misma regla de la nueva corrección en
   el servidor.
 
-La app no es para directivos ni administradores. Una misma cuenta puede tener varios roles: la app ofrece solo los
-de alumno, profesor y padre o tutor que tenga la cuenta, y deja afuera los de directivo y administrador. Una cuenta
-de directivo o administrador que también es profesor o padre usa la app con ese rol. Si la cuenta no tiene ninguno
-de esos tres roles, la app le pide agregarse el de alumno desde la web (la plataforma ya lo permite) antes de
-activarla.
+La app no es para directivos ni administradores. Los roles salen de la base de datos de la plataforma, y una misma
+cuenta puede tener varios: la app usa los de alumno, profesor y padre o tutor que tenga la cuenta y deja afuera los
+de directivo y administrador. Una cuenta de directivo o administrador que también es profesor o padre usa la app
+con ese rol. Si no tiene ninguno de esos tres, la app le pide agregarse el de alumno desde la web antes de activarla.
+
+- **Roles al día:** la app toma los roles en la activación y los vuelve a leer en cada sincronización.
+- **Pedir otro rol (padre o tutor, profesor o directivo):** la app ofrece el mismo pedido que la web
+  (`POST /api/solicitar-rol`). Sin red, el pedido queda en la cola y se manda en la próxima sincronización. Lo
+  aprueba un administrador en la plataforma, y el rol nuevo aparece en la app en la sincronización siguiente. Las
+  reglas son las del servidor (por ejemplo, ser mayor de 18 años).
+- **Administrador:** solo lo otorga otro administrador desde la plataforma; no pasa por la app.
+- **Usuarios locales:** en el modo autónomo no hay servidor que apruebe, así que se elige el rol (alumno, profesor o
+  padre o tutor) al crear el usuario.
 
 ## Computadoras del Estado (público principal)
 
