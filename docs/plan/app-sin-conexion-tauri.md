@@ -99,7 +99,13 @@ un vínculo confirmado o los usuarios locales que creó.
   de alumnos. Se pueden agregar más adelante como opción del docente, con la misma regla de la nueva corrección en
   el servidor.
 
-Los directivos y los administradores no tienen funciones especiales en la app: si entran, la usan como un docente.
+### Roles de la app
+La app tiene tres tipos de usuario: **alumno**, **padre o tutor** (incluye acompañantes) y **profesor**. Es el mismo
+alcance que la app de Android, con funciones sin red.
+
+Directivos y administradores no tienen versión sin conexión: su trabajo es gestionar escuelas, grupos y usuarios, y
+sin servidor no hay nada que gestionar. Si una de esas cuentas se activa en la app, entra como **alumno**. Para armar
+módulos sin red se usa una cuenta de profesor.
 
 ## Computadoras del Estado (público principal)
 
