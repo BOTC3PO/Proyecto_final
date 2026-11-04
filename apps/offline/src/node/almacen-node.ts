@@ -59,7 +59,7 @@ export function almacenNode(rutas: Partial<Record<Base, string>> = {}): Almacen 
       if (o.esperado && o.esperado !== meta.id) throw new Error("el paquete no es el que se pidió");
       const r: Instalado = {
         id: meta.id, tipo: meta.tipo as Instalado["tipo"], version: meta.version, titulo: meta.titulo, idioma: meta.idioma ?? null,
-        origen: meta.origen ?? null, sha256, bytes: comprimido.length, modulos: null,
+        origen: meta.origen ?? null, sha256, bytes: comprimido.length, modulos: null, requiere: meta.requiere ?? null,
       };
       if (r.tipo === "diccionario") {
         diccionarios.get(meta.idioma)?.close();

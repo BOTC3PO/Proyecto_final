@@ -6,9 +6,13 @@ import type { Contexto } from "./contexto";
 import { cerrarSesion, iniciarSesion, listarPerfiles, registrarLocal, renovar, segundoPasoDeIngreso, yo } from "./cuentas";
 import { json, sinConexion } from "./http";
 import { buscar, idiomas, prefijo, salud } from "./diccionario";
-import { listarModulos, verModulo } from "./modulos";
+import { crearIntento, entregar, eventosDeIntento, listarIntentos, responder, resumenDeIntentos, verIntento } from "./intentos";
+import { listarModulos, verModulo, verPlantilla } from "./modulos";
 import { actualizarMiEscuela, descargarPaquete, importarPaquete, listarPaquetes, quitarPaquete } from "./paquetes";
 import { cambiarPerfil, solicitarRol } from "./perfil";
+import {
+  listarFavoritos, listarProgreso, marcarFavorito, perfilPropio, progresoEstudiante, quitarFavorito, tareas, valoraciones,
+} from "./progreso";
 import { modulosParaPadres, perfilesParaPadres, teoriaParaPadres } from "./vista-padre";
 
 type Manejador = (ctx: Contexto, req: Request, ...params: string[]) => Promise<Response> | Response;
@@ -34,6 +38,22 @@ const RUTAS: [string, RegExp, Manejador][] = [
   ["GET", /^\/api\/dictionary\/prefix$/, prefijo],
   ["GET", /^\/api\/modulos$/, listarModulos],
   ["GET", /^\/api\/modulos\/([^/]+)$/, verModulo],
+  ["GET", /^\/api\/plantillas\/([^/]+)$/, verPlantilla],
+  ["POST", /^\/api\/quiz-attempts$/, crearIntento],
+  ["GET", /^\/api\/quiz-attempts$/, listarIntentos],
+  ["GET", /^\/api\/quiz-attempts\/summary$/, resumenDeIntentos],
+  ["GET", /^\/api\/quiz-attempts\/([^/]+)$/, verIntento],
+  ["POST", /^\/api\/quiz-attempts\/([^/]+)\/answer$/, responder],
+  ["PATCH", /^\/api\/quiz-attempts\/([^/]+)$/, eventosDeIntento],
+  ["POST", /^\/api\/quiz-attempts\/([^/]+)\/submit$/, entregar],
+  ["GET", /^\/api\/progreso$/, listarProgreso],
+  ["GET", /^\/api\/progreso\/estudiante$/, progresoEstudiante],
+  ["GET", /^\/api\/perfil$/, perfilPropio],
+  ["GET", /^\/api\/modulos-favoritos$/, listarFavoritos],
+  ["PUT", /^\/api\/modulos-favoritos\/([^/]+)$/, marcarFavorito],
+  ["DELETE", /^\/api\/modulos-favoritos\/([^/]+)$/, quitarFavorito],
+  ["GET", /^\/api\/modulos-valoraciones$/, valoraciones],
+  ["GET", /^\/api\/tareas$/, tareas],
   ["GET", /^\/api\/offline\/vista-padre$/, perfilesParaPadres],
   ["GET", /^\/api\/offline\/vista-padre\/([^/]+)\/modulos$/, modulosParaPadres],
   ["GET", /^\/api\/offline\/vista-padre\/([^/]+)\/modulos\/([^/]+)$/, teoriaParaPadres],

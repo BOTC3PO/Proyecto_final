@@ -36,16 +36,22 @@ function elegirAlmacen(): Almacen {
  * `scripts/generar-paquetes.ts` al compilar), así hay algo para estudiar antes de bajar nada.
  */
 async function instalarIncluidos(ctx: Contexto) {
-  const [hay] = await ctx.almacen.consulta("contenido", "SELECT 1 AS x FROM paquetes_instalados LIMIT 1");
-  if (hay) return;
+  const ya = new Set((await ctx.almacen.consulta<{ id: string }>("contenido", "SELECT id FROM paquetes_instalados")).map((f) => f.id));
   const r = await fetchOriginal("/paquetes/indice.json");
   if (!r.ok) return;
   const { paquetes } = (await r.json()) as { paquetes: Disponible[] };
+  // Cada paquete incluido se instala una sola vez: si la persona lo quita, no vuelve en el arranque siguiente.
+  const marca = "incluidos-instalados";
+  const [fila] = await ctx.almacen.consulta<{ valor: string }>("contenido", "SELECT valor FROM meta WHERE clave = ?", [marca]);
+  const hechos = new Set<string>(fila ? (JSON.parse(fila.valor) as string[]) : []);
   for (const p of paquetes) {
+    if (ya.has(p.id) || hechos.has(p.id)) continue;
     const archivo = await fetchOriginal(`/paquetes/${p.archivo}`);
     if (!archivo.ok || !archivo.body) continue;
     const inst = await instalarDesde(ctx, p.id, archivo.body, { esperado: p.id, sha256: p.sha256 });
     console.info("Paquete incluido instalado:", inst.titulo, inst.modulos);
+    hechos.add(p.id);
+    await ctx.almacen.ejecutar("contenido", "INSERT OR REPLACE INTO meta (clave, valor) VALUES (?, ?)", [marca, JSON.stringify([...hechos])]);
   }
 }
 

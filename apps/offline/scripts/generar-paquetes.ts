@@ -76,6 +76,20 @@ function sellar(ruta: string, meta: Record<string, string>) {
   db.close();
 }
 
+/**
+ * Prerrequisitos que son de otra materia (Antropología pide «Hominización», de Historia). Viajan en el paquete: la
+ * app los nombra aunque esa materia no esté instalada y, al bajar una materia, baja también las que necesita.
+ */
+async function prerrequisitosExternos(almacen: ReturnType<typeof almacenNode>, temas: Map<string, { titulo: string; materia: string }>) {
+  const filas = await almacen.consulta<{ id: string; dependencies: string }>("contenido", "SELECT id, dependencies FROM modulos");
+  const propios = new Set(filas.map((f) => f.id));
+  const ids = new Set(filas.flatMap((f) => (JSON.parse(f.dependencies) as { id: string }[]).map((d) => d.id)).filter((d) => !propios.has(d)));
+  return [...ids].sort().flatMap((dep) => {
+    const t = temas.get(dep);
+    return t ? [{ id: dep, titulo: t.titulo, materia: t.materia, paquete: `temario-${slug(t.materia)}` }] : [];
+  });
+}
+
 async function paquetesDelTemario(o: ReturnType<typeof argumentos>, tmp: string): Promise<Disponible[]> {
   const exportador = o.temario
     ? path.join(o.temario, "temario/_herramientas/exportar_manifiesto.py")
@@ -91,6 +105,7 @@ async function paquetesDelTemario(o: ReturnType<typeof argumentos>, tmp: string)
     .filter((m) => !o.materias || o.materias.includes(m))
     .sort();
 
+  const temas = new Map((manifiesto.temas as { id: string; titulo: string; materia: string }[]).map((t) => [t.id, t]));
   const salida: Disponible[] = [];
   for (const materia of materias) {
     const id = `temario-${slug(materia)}`;
@@ -100,13 +115,15 @@ async function paquetesDelTemario(o: ReturnType<typeof argumentos>, tmp: string)
     const ctx = crearContexto(almacen, { ahora: () => fecha });
     const r = await cargarManifiesto(ctx, manifiesto, { origen: "oficial", paquete: id, materias: [materia] });
     if (r.errores.length) console.warn(`${materia}: ${r.errores.length} errores en el cuestionario`, r.errores.slice(0, 3));
+    const externos = await prerrequisitosExternos(almacen, temas);
     almacen.bases.contenido.close();
     almacen.bases.progreso.close();
     const titulo = nombreMateria(materia);
-    sellar(base, { id, tipo: "contenido", origen: "oficial", version, titulo, materia });
+    sellar(base, { id, tipo: "contenido", origen: "oficial", version, titulo, materia, requiere: JSON.stringify(externos) });
     const archivo = `${id}-${version}.sqlite.gz`;
     const { bytes, sha256 } = await comprimir(base, path.join(o.salida, archivo));
-    salida.push({ id, tipo: "contenido", titulo, version, archivo, bytes, sha256, materia, modulos: r.modulos });
+    const requiere = [...new Set(externos.map((e) => e.paquete))].sort();
+    salida.push({ id, tipo: "contenido", titulo, version, archivo, bytes, sha256, materia, modulos: r.modulos, requiere });
     console.log(`${archivo}: ${r.modulos} módulos, ${(bytes / 1e6).toFixed(1)} MB`);
   }
   return salida;

@@ -12,7 +12,7 @@ import { apiDelete, apiGet, apiPost, apiRequest } from "../lib/api";
 import { esAppSinConexion } from "../lib/sinConexion";
 
 type Instalado = { id: string; tipo: "contenido" | "diccionario" | "escuela"; titulo: string; version: string; bytes: number | null; modulos: number | null; instalado: string };
-type Disponible = { id: string; tipo: "contenido" | "diccionario"; titulo: string; version: string; bytes: number; modulos?: number; palabras?: number; estado: "disponible" | "instalado" | "actualizable" };
+type Disponible = { id: string; tipo: "contenido" | "diccionario"; titulo: string; version: string; bytes: number; modulos?: number; palabras?: number; requiere?: string[]; estado: "disponible" | "instalado" | "actualizable" };
 type Estado = { instalados: Instalado[]; disponibles: Disponible[] | null; conexion: boolean; enCurso: Record<string, { recibidos: number; total: number }> };
 
 const tamano = (bytes: number | null | undefined) =>
@@ -62,8 +62,11 @@ export default function ContenidoSinConexion() {
 
   const descargar = (p: Disponible) =>
     hacer(p.id, async () => {
-      await apiPost(`/api/offline/paquetes/${encodeURIComponent(p.id)}/descargar`, {});
-      return `«${p.titulo}» quedó en el dispositivo.`;
+      const r = await apiPost<{ tambien?: string[] }>(`/api/offline/paquetes/${encodeURIComponent(p.id)}/descargar`, {});
+      const tambien = r.tambien ?? [];
+      return tambien.length
+        ? `«${p.titulo}» quedó en el dispositivo, con las materias que necesita: ${tambien.join(", ")}.`
+        : `«${p.titulo}» quedó en el dispositivo.`;
     });
 
   const quitar = (p: Instalado) =>
@@ -177,6 +180,11 @@ export default function ContenidoSinConexion() {
                           .join(" · ")}
                         {avance && avance.total > 0 ? ` · ${Math.round((avance.recibidos / avance.total) * 100)} %` : ""}
                       </p>
+                      {!!p.requiere?.length && (
+                        <p className="text-xs text-[var(--c-muted)]">
+                          Necesita: {p.requiere.map((r) => estado?.disponibles?.find((d) => d.id === r)?.titulo ?? r).join(", ")} (se bajan juntas)
+                        </p>
+                      )}
                     </div>
                     <div className="flex gap-2">
                       {p.estado !== "instalado" && (

@@ -209,6 +209,9 @@ importers:
       '@tauri-apps/api':
         specifier: 2.12.4
         version: 2.12.4
+      '@vb/vblang':
+        specifier: workspace:*
+        version: link:../../packages/vblang
     devDependencies:
       '@tailwindcss/vite':
         specifier: 4.1.18

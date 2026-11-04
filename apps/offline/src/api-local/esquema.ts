@@ -46,6 +46,8 @@ const MIGRACIONES: Record<Base, string[][]> = {
         instalado TEXT NOT NULL
       )`,
     ],
+    // Fase 4: prerrequisitos de otras materias que trae cada paquete.
+    [`ALTER TABLE paquetes_instalados ADD COLUMN requiere TEXT`],
   ],
   progreso: [
     [
@@ -100,6 +102,29 @@ const MIGRACIONES: Record<Base, string[][]> = {
       `ALTER TABLE perfiles ADD COLUMN estado TEXT NOT NULL DEFAULT 'activo'`, // activo | bloqueado
       `ALTER TABLE perfiles ADD COLUMN fallos INTEGER NOT NULL DEFAULT 0`,
       `ALTER TABLE perfiles ADD COLUMN espera_hasta TEXT`,
+    ],
+    // Fase 4: intentos con los mismos datos que `QuizAttempt` del servidor (la tabla de la fase 1 nunca se usó) y
+    // módulos favoritos.
+    [
+      `DROP TABLE intentos`,
+      `CREATE TABLE intentos (
+        id TEXT PRIMARY KEY, perfil_id TEXT NOT NULL REFERENCES perfiles(id) ON DELETE CASCADE,
+        modulo_id TEXT, quiz_id TEXT NOT NULL, version_id TEXT NOT NULL,
+        semilla TEXT, numero INTEGER NOT NULL,
+        estado TEXT NOT NULL,            -- in_progress | submitted | pending_review | aborted
+        respuestas TEXT NOT NULL DEFAULT '{}', feedback TEXT NOT NULL DEFAULT '{}', grading TEXT,
+        -- Lo que mandó la web al entregar (preguntas presentadas y generadas): el servidor vuelve a corregir con eso.
+        entrega TEXT,
+        score REAL NOT NULL DEFAULT 0, max_score REAL NOT NULL DEFAULT 0,
+        inicio TEXT NOT NULL, fin TEXT,
+        sincronizado INTEGER NOT NULL DEFAULT 0
+      )`,
+      `CREATE INDEX intentos_perfil_quiz ON intentos(perfil_id, quiz_id)`,
+      `CREATE TABLE favoritos (
+        perfil_id TEXT NOT NULL REFERENCES perfiles(id) ON DELETE CASCADE,
+        modulo_id TEXT NOT NULL, creado TEXT NOT NULL,
+        PRIMARY KEY (perfil_id, modulo_id)
+      )`,
     ],
   ],
 };

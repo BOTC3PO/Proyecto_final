@@ -20,14 +20,16 @@ const dsl = `tipo: multiple-choice\nenunciado: "¿2 + 2?"\nopciones: ["4", "5"]\
 const tema = (id: string, deps: string[] = []) => ({ id, materia: "matematica", ruta: id, titulo: id, teoria: `Teoría ${id}`, nivel: "1", dependencias: deps, preguntas: [{ titulo: "p", dsl }] });
 
 /** Arma un paquete igual que `scripts/generar-paquetes.ts`. */
-async function paqueteDeTemario(id: string, temas: ReturnType<typeof tema>[]) {
+async function paqueteDeTemario(id: string, temas: ReturnType<typeof tema>[], o: { materias?: string[]; titulo?: string; requiere?: unknown[] } = {}) {
   const archivo = path.join(fs.mkdtempSync(path.join(os.tmpdir(), "vb-paq-")), "p.sqlite");
   const a = almacenNode({ contenido: archivo });
   await prepararBase(a, "contenido");
-  await cargarManifiesto(crearContexto(a), { temas } as never, { origen: "oficial", paquete: id });
+  await cargarManifiesto(crearContexto(a), { temas } as never, { origen: "oficial", paquete: id, materias: o.materias });
   const db = a.bases.contenido;
   db.exec("CREATE TABLE paquete (clave TEXT PRIMARY KEY, valor TEXT NOT NULL)");
-  for (const [k, v] of Object.entries({ formato: "1", id, tipo: "contenido", origen: "oficial", version: "1.0", titulo: "Matemática" })) {
+  const meta = { formato: "1", id, tipo: "contenido", origen: "oficial", version: "1.0", titulo: o.titulo ?? "Matemática",
+    ...(o.requiere ? { requiere: JSON.stringify(o.requiere) } : {}) };
+  for (const [k, v] of Object.entries(meta)) {
     db.prepare("INSERT INTO paquete VALUES (?, ?)").run(k, v);
   }
   db.close();
@@ -57,6 +59,8 @@ let escuela: { status: number; cuerpo: unknown };
 let token: string;
 /** Si está, el servidor manda estos bytes en lugar del archivo del índice. */
 let dañado: Buffer | null;
+/** Paquetes que se agregan al índice en algunas pruebas. */
+let extra: Record<string, unknown>[];
 
 const pedir = async (metodo: string, ruta: string, cuerpo?: unknown, crudo?: BodyInit) => {
   const r = await atender(new Request(`${BASE}${ruta}`, {
@@ -70,6 +74,7 @@ const pedir = async (metodo: string, ruta: string, cuerpo?: unknown, crudo?: Bod
 beforeEach(async () => {
   red = true;
   dañado = null;
+  extra = [];
   archivos = {
     "temario-matematica-1.0.sqlite.gz": await paqueteDeTemario("temario-matematica", [tema("cont-mat--a"), tema("cont-mat--b", ["cont-mat--a"])]),
     "diccionario-eo-2026-11-04.sqlite.gz": paqueteDeDiccionario("eo", [["hundo", '["perro"]'], ["hundino", '["perra"]'], ["kato", '["gato"]']]),
@@ -82,6 +87,7 @@ beforeEach(async () => {
         bytes: archivos["temario-matematica-1.0.sqlite.gz"].length, sha256: sha(archivos["temario-matematica-1.0.sqlite.gz"]) },
       { id: "diccionario-eo", tipo: "diccionario", titulo: "Esperanto", version: "2026-11-04", archivo: "diccionario-eo-2026-11-04.sqlite.gz",
         bytes: archivos["diccionario-eo-2026-11-04.sqlite.gz"].length, sha256: sha(archivos["diccionario-eo-2026-11-04.sqlite.gz"]), idioma: "eo" },
+      ...extra,
     ],
   });
   const servidor = async (url: RequestInfo | URL) => {
@@ -145,6 +151,43 @@ describe("paquetes", () => {
   it("hace falta iniciar sesión", async () => {
     token = "otro";
     expect((await pedir("GET", "/api/offline/paquetes")).status).toBe(401);
+  });
+});
+
+describe("prerrequisitos de otras materias", () => {
+  const temas = [
+    { ...tema("cont-historia--hominizacion"), materia: "historia", titulo: "Hominización" },
+    { ...tema("cont-antropologia--cultura", ["cont-historia--hominizacion"]), materia: "antropologia", titulo: "Cultura" },
+  ];
+  const externo = { id: "cont-historia--hominizacion", titulo: "Hominización", materia: "historia", paquete: "temario-historia" };
+
+  beforeEach(async () => {
+    archivos["temario-historia-1.0.sqlite.gz"] = await paqueteDeTemario("temario-historia", temas, { materias: ["historia"], titulo: "Historia" });
+    archivos["temario-antropologia-1.0.sqlite.gz"] = await paqueteDeTemario("temario-antropologia", temas, {
+      materias: ["antropologia"], titulo: "Antropología", requiere: [externo],
+    });
+    extra = ["historia", "antropologia"].map((m) => {
+      const archivo = `temario-${m}-1.0.sqlite.gz`;
+      return { id: `temario-${m}`, tipo: "contenido", titulo: m, version: "1.0", archivo, bytes: archivos[archivo].length, sha256: sha(archivos[archivo]),
+        requiere: m === "antropologia" ? ["temario-historia"] : [] };
+    });
+  });
+
+  it("bajar una materia baja también las que necesita", async () => {
+    const d = await pedir("POST", "/api/offline/paquetes/temario-antropologia/descargar");
+    expect(d.datos).toMatchObject({ id: "temario-antropologia", tambien: ["historia"] });
+    const ids = (await pedir("GET", "/api/offline/paquetes")).datos.instalados.map((i: { id: string }) => i.id).sort();
+    expect(ids).toEqual(["temario-antropologia", "temario-historia"]);
+  });
+
+  it("sin la otra materia, el módulo sigue bloqueado y nombra lo que falta", async () => {
+    await pedir("POST", "/api/offline/paquetes/importar", undefined, new Blob([new Uint8Array(archivos["temario-antropologia-1.0.sqlite.gz"])]));
+    const m = await pedir("GET", "/api/modulos/cont-antropologia--cultura");
+    expect(m.datos.isLocked).toBe(true);
+    expect(m.datos.theoryItems).toEqual([]);
+    expect(m.datos.missingDependencies).toEqual([
+      { id: "cont-historia--hominizacion", title: "Hominización (Historia, sin bajar)", sinInstalar: true, paquete: "temario-historia" },
+    ]);
   });
 });
 

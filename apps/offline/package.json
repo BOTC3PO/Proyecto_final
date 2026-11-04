@@ -4,7 +4,7 @@
   "private": true,
   "description": "App sin conexión de Virtual Book (Tauri 2): envuelve la web compilada.",
   "scripts": {
-    "web": "VITE_API_BASE_URL=https://api.virtualbook.local VITE_APP_SIN_CONEXION=true vite build && tsx scripts/generar-paquetes.ts --salida dist-web/paquetes --materias antropologia",
+    "web": "VITE_API_BASE_URL=https://api.virtualbook.local VITE_APP_SIN_CONEXION=true vite build && tsx scripts/generar-paquetes.ts --salida dist-web/paquetes --materias matematica",
     "tauri": "tauri",
     "android:apk": "scripts/preparar-android.sh && pnpm run web && tauri android build --apk --target aarch64 armv7",
     "android:apk-prueba": "scripts/preparar-android.sh && pnpm run web && tauri android build --debug --apk --target x86_64",
@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@noble/ed25519": "3.2.0",
-    "@tauri-apps/api": "2.12.4"
+    "@tauri-apps/api": "2.12.4",
+    "@vb/vblang": "workspace:*"
   }
 }

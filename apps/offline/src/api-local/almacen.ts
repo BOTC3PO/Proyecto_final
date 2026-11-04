@@ -21,6 +21,8 @@ export type Instalado = {
   sha256: string;
   bytes: number;
   modulos: number | null;
+  /** Prerrequisitos de otras materias, en JSON (ver `Externo` en `modulos.ts`). */
+  requiere: string | null;
 };
 
 export interface Almacen {

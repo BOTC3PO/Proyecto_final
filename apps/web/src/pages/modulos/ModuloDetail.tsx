@@ -281,7 +281,7 @@ export default function ModuloDetail() {
   };
 
   const detenerTTS = () => {
-    window.speechSynthesis.cancel();
+    window.speechSynthesis?.cancel();
     setTtsEstado("idle");
     setTtsBlockId(null);
   };
@@ -359,8 +359,9 @@ export default function ModuloDetail() {
     return [String(d)];
   };
 
+  // El WebView de Android no trae `speechSynthesis`: sin el `?.` salir del módulo rompía la página.
   useEffect(() => {
-    return () => { window.speechSynthesis.cancel(); };
+    return () => { window.speechSynthesis?.cancel(); };
   }, []);
 
   const handleStartAttempt = async (quizId: string) => {

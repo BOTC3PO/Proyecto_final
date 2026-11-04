@@ -44,7 +44,12 @@ Cambiar la clave invalida los permisos de todos los dispositivos: cada cuenta ti
 Cada paquete es una base SQLite comprimida con gzip (formato en `nucleo/src/paquetes.rs`): una materia del temario
 oficial o el diccionario de un idioma. Se bajan desde «Mi perfil → Contenido sin conexión» o se importan desde un
 archivo (pendrive). Los módulos de la escuela se piden aparte, con el permiso firmado, y se actualizan solos cada vez
-que una cuenta de la plataforma entra con red. La app trae Antropología incluida para el primer uso.
+que una cuenta de la plataforma entra con red. La app trae Matemática incluida para el primer uso (no depende de otras materias).
+
+Muchas materias tienen prerrequisitos en otras (Antropología pide «Hominización», de Historia). Cada paquete lleva esa
+lista: al bajar una materia se bajan también las que necesita, y un módulo bloqueado nombra el prerrequisito aunque
+su materia no esté en el dispositivo. Un prerrequisito que falta cuenta como no hecho: quitar una materia no desbloquea
+nada.
 
 Para generarlos (en el servidor lo hace `config/generar-paquetes.sh`):
 
@@ -54,6 +59,13 @@ pnpm paquetes --salida DIR --temario ~/proyectos/temario-oficial [--materias fis
 ```
 
 Con el mismo temario sale el mismo archivo (y el mismo hash). La API los sirve desde `OFFLINE_PAQUETES_DIR`.
+
+## Prácticas y evaluaciones
+
+Los intentos se corrigen en el dispositivo con la misma corrección del servidor (`api/src/lib/quiz-correccion.ts`),
+así la nota se ve al instante. Cada intento guarda la semilla, la versión del cuestionario, las respuestas y lo que
+mandó la web al entregar: al sincronizar (fase 5), el servidor lo vuelve a corregir con eso. El progreso y los logros
+salen de los cuestionarios formales aprobados; no hay forma de marcar un módulo como completado a mano.
 
 ## Comandos
 

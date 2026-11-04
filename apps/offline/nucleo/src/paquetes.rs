@@ -37,6 +37,8 @@ pub struct Instalado {
     pub bytes: u64,
     /// Módulos que quedaron en la base (solo contenido).
     pub modulos: Option<i64>,
+    /// Prerrequisitos de otras materias (JSON con id, título, materia y paquete), si el paquete los trae.
+    pub requiere: Option<String>,
 }
 
 fn id_valido(id: &str) -> Result<(), String> {
@@ -157,6 +159,7 @@ impl Almacen {
             sha256: hash,
             bytes,
             modulos: None,
+            requiere: datos.get("requiere").cloned(),
         };
         match instalado.tipo.as_str() {
             "contenido" => instalado.modulos = Some(self.fusionar_contenido(&id, instalado.origen.as_deref().unwrap_or("oficial"), sqlite)?),

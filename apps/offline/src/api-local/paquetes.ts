@@ -31,6 +31,8 @@ export type Disponible = {
   idioma?: string;
   modulos?: number;
   palabras?: number;
+  /** Paquetes de otras materias con prerrequisitos de este. */
+  requiere?: string[];
 };
 
 /** Descargas en curso: bytes recibidos y total, para la barra de avance. */
@@ -70,9 +72,9 @@ async function recibir(ctx: Contexto, recibido: string, cuerpo: ReadableStream<U
 async function registrar(ctx: Contexto, i: Instalado) {
   await ctx.almacen.ejecutar(
     "contenido",
-    `INSERT OR REPLACE INTO paquetes_instalados (id, tipo, version, titulo, idioma, origen, sha256, bytes, modulos, instalado)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    [i.id, i.tipo, i.version, i.titulo, i.idioma, i.origen, i.sha256, i.bytes, i.modulos, ctx.ahora().toISOString()],
+    `INSERT OR REPLACE INTO paquetes_instalados (id, tipo, version, titulo, idioma, origen, sha256, bytes, modulos, requiere, instalado)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    [i.id, i.tipo, i.version, i.titulo, i.idioma, i.origen, i.sha256, i.bytes, i.modulos, i.requiere ?? null, ctx.ahora().toISOString()],
   );
 }
 
@@ -109,7 +111,40 @@ export async function listarPaquetes(ctx: Contexto, req: Request) {
   return json({ instalados, disponibles: disponibles ?? null, conexion: indice !== null, enCurso: Object.fromEntries(enCurso) });
 }
 
-/** POST /api/offline/paquetes/:id/descargar */
+async function bajar(ctx: Contexto, p: Disponible) {
+  enCurso.set(p.id, { recibidos: 0, total: p.bytes });
+  try {
+    const r = await remoto(ctx, `/api/offline/paquetes/archivo/${encodeURIComponent(p.archivo)}`);
+    if (!r?.ok || !r.body) return null;
+    return await instalarDesde(ctx, p.id, r.body, { esperado: p.id, sha256: p.sha256 }, (n) => enCurso.set(p.id, { recibidos: n, total: p.bytes }));
+  } finally {
+    enCurso.delete(p.id);
+  }
+}
+
+/** Las materias que necesita un paquete (y las que necesitan esas) y todavía no están en el dispositivo. */
+async function faltantes(ctx: Contexto, p: Disponible, indice: Disponible[]) {
+  const instalados = new Set((await ctx.almacen.consulta<{ id: string }>("contenido", "SELECT id FROM paquetes_instalados")).map((f) => f.id));
+  const porId = new Map(indice.map((x) => [x.id, x]));
+  const vistos = new Set([p.id]);
+  const orden: Disponible[] = [];
+  const visitar = (x: Disponible) => {
+    for (const r of x.requiere ?? []) {
+      const dep = porId.get(r);
+      if (!dep || vistos.has(r)) continue;
+      vistos.add(r);
+      visitar(dep);
+      if (!instalados.has(r)) orden.push(dep);
+    }
+  };
+  visitar(p);
+  return orden;
+}
+
+/**
+ * POST /api/offline/paquetes/:id/descargar — baja también las materias con prerrequisitos de esta: sin ellas, sus
+ * primeros módulos quedarían bloqueados.
+ */
 export async function descargarPaquete(ctx: Contexto, req: Request, id: string) {
   if (!(await perfilDeSesion(ctx, req))) return error(401, "No autenticado");
   if (enCurso.has(id)) return error(409, "Ese paquete ya se está descargando.");
@@ -117,15 +152,17 @@ export async function descargarPaquete(ctx: Contexto, req: Request, id: string) 
   if (!indice) return error(503, "Para bajar paquetes hace falta conexión. Sin red, importalos desde un archivo.", { code: "SIN_CONEXION" });
   const p = indice.find((x) => x.id === id);
   if (!p) return error(404, "Ese paquete no existe.");
-  enCurso.set(id, { recibidos: 0, total: p.bytes });
+  const sinConexion = () => error(503, "No se pudo bajar el paquete. Probá de nuevo.", { code: "SIN_CONEXION" });
   try {
-    const r = await remoto(ctx, `/api/offline/paquetes/archivo/${encodeURIComponent(p.archivo)}`);
-    if (!r?.ok || !r.body) return error(503, "No se pudo bajar el paquete. Probá de nuevo.", { code: "SIN_CONEXION" });
-    return json(await instalarDesde(ctx, id, r.body, { esperado: id, sha256: p.sha256 }, (n) => enCurso.set(id, { recibidos: n, total: p.bytes })));
+    const tambien: string[] = [];
+    for (const dep of await faltantes(ctx, p, indice)) {
+      if (!(await bajar(ctx, dep))) return sinConexion();
+      tambien.push(dep.titulo);
+    }
+    const inst = await bajar(ctx, p);
+    return inst ? json({ ...inst, tambien }) : sinConexion();
   } catch (e) {
     return error(400, mensaje(e));
-  } finally {
-    enCurso.delete(id);
   }
 }
 
