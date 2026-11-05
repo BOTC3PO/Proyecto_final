@@ -1,0 +1,185 @@
+# L8 — instaladores de la app sin conexión (Windows, Linux de escritorio y «modo navegador»).
+#
+# Se corre a mano (Actions → «App sin conexión» → Run workflow) o al subir una etiqueta `app-v*`. El resultado es el
+# artefacto «instaladores»: se baja, se le suma el APK firmado (que se compila en el servidor, con la clave propia) y
+# se publica con `cd apps/offline && pnpm descargas --instaladores DIR --salida DIR [--paquetes DIR]`.
+#
+# No usa secretos. La dirección de la API y la clave pública de los permisos (que no es secreta) salen de las
+# variables del repositorio OFFLINE_API_REMOTA y OFFLINE_CLAVE_PUBLICA; sin ellas, la app solo tiene usuarios locales.
+name: App sin conexión
+
+on:
+  workflow_dispatch:
+    inputs:
+      modo_autonomo:
+        description: "Modo autónomo (la plataforma dejó de estar en producción: los permisos no vencen)"
+        type: boolean
+        default: false
+  push:
+    tags: ["app-v*"]
+
+permissions:
+  contents: read
+
+env:
+  RUST: "1.99.1"
+  PNPM: "12.3.4"
+  ZIG: "0.15.2"
+  ZIG_SHA256: "02aa270f183da276e5b5920b1dac44a63f1a49e55050ebde3aecc9eb82f93239"
+  CARGO_ZIGBUILD: "0.23.4"
+
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install -g pnpm@${{ env.PNPM }}
+      - run: pnpm install --frozen-lockfile
+      - name: Web de la app (con Matemática incluida)
+        run: pnpm --filter offline run web
+        env:
+          VITE_API_REMOTA: ${{ vars.OFFLINE_API_REMOTA }}
+          VITE_OFFLINE_CLAVE_PUBLICA: ${{ vars.OFFLINE_CLAVE_PUBLICA }}
+          VITE_MODO_AUTONOMO: ${{ inputs.modo_autonomo && 'true' || 'false' }}
+      - name: Pruebas de la API local
+        run: pnpm --filter offline test
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist-web
+          path: apps/offline/dist-web
+          retention-days: 7
+
+  windows:
+    needs: web
+    runs-on: windows-latest
+    timeout-minutes: 60
+    strategy:
+      matrix:
+        target: [x86_64-pc-windows-msvc, i686-pc-windows-msvc]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist-web
+          path: apps/offline/dist-web
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install -g pnpm@${{ env.PNPM }}
+      - run: pnpm install --frozen-lockfile --filter offline
+      - name: Rust
+        run: |
+          rustup toolchain install ${{ env.RUST }} --profile minimal --target ${{ matrix.target }}
+          rustup default ${{ env.RUST }}
+      # NSIS con WebView2 adentro (`webviewInstallMode: offlineInstaller` en tauri.conf.json): las escuelas sin
+      # internet no lo pueden bajar.
+      - name: Instalador
+        working-directory: apps/offline
+        run: pnpm tauri build --ci --target ${{ matrix.target }} --bundles nsis
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows-${{ matrix.target }}
+          path: apps/offline/target/${{ matrix.target }}/release/bundle/nsis/*-setup.exe
+          if-no-files-found: error
+          retention-days: 7
+
+  # Huayra 6.5 (Debian 12) tiene la libwebkit2gtk-4.1 de Tauri 2. Se compila en Debian 12 para no pedir una glibc
+  # más nueva que la del sistema.
+  linux-escritorio:
+    needs: web
+    runs-on: ubuntu-latest
+    container: debian:12
+    timeout-minutes: 60
+    steps:
+      - name: Dependencias de compilación
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends ca-certificates curl git build-essential file pkg-config python3 xz-utils \
+            libwebkit2gtk-4.1-dev libssl-dev librsvg2-dev libayatana-appindicator3-dev
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist-web
+          path: apps/offline/dist-web
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install -g pnpm@${{ env.PNPM }}
+      - run: pnpm install --frozen-lockfile --filter offline
+      - name: Rust
+        run: |
+          curl -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal --default-toolchain ${{ env.RUST }}
+          echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
+      - name: Paquete .deb
+        working-directory: apps/offline
+        run: pnpm tauri build --ci --bundles deb
+      - uses: actions/upload-artifact@v4
+        with:
+          name: linux-escritorio
+          path: apps/offline/target/release/bundle/deb/*.deb
+          if-no-files-found: error
+          retention-days: 7
+
+  # Huayra 5 y 6 (Debian 10 y 11): «modo navegador», un programa estático (musl) que abre la app en el navegador.
+  linux-navegador:
+    needs: web
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      matrix:
+        arq: [x86_64, i686]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist-web
+          path: apps/offline/dist-web
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Rust, zig y cargo-zigbuild
+        run: |
+          rustup toolchain install ${{ env.RUST }} --profile minimal --target ${{ matrix.arq }}-unknown-linux-musl
+          rustup default ${{ env.RUST }}
+          curl -sSfL -o zig.tar.xz "https://ziglang.org/download/${ZIG}/zig-x86_64-linux-${ZIG}.tar.xz"
+          echo "${ZIG_SHA256}  zig.tar.xz" | sha256sum -c
+          mkdir -p "$HOME/zig" && tar -xf zig.tar.xz -C "$HOME/zig" --strip-components=1
+          echo "$HOME/zig" >> "$GITHUB_PATH"
+          cargo install --locked cargo-zigbuild --version "${CARGO_ZIGBUILD}"
+      - name: Pruebas del programa
+        working-directory: apps/offline
+        run: cargo test -p vb-navegador -p vb-nucleo
+      - name: Paquetes .tar.gz y .deb
+        working-directory: apps/offline
+        run: scripts/empaquetar-navegador.sh ${{ matrix.arq }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: linux-navegador-${{ matrix.arq }}
+          path: |
+            apps/offline/dist/*.tar.gz
+            apps/offline/dist/*.deb
+          if-no-files-found: error
+          retention-days: 7
+
+  instaladores:
+    needs: [windows, linux-escritorio, linux-navegador]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: todo
+      - name: Juntar en una carpeta
+        run: |
+          mkdir instaladores
+          find todo -type f \( -name '*.exe' -o -name '*.deb' -o -name '*.tar.gz' \) -exec cp {} instaladores/ \;
+          (cd instaladores && sha256sum * > SHA256SUMS.txt && cat SHA256SUMS.txt)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: instaladores
+          path: instaladores
+          retention-days: 30

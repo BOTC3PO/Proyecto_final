@@ -26,9 +26,28 @@ const CONFIG = {
   clavePublica: String(import.meta.env.VITE_OFFLINE_CLAVE_PUBLICA ?? "") || null,
 };
 
+const enTauri = "__TAURI_INTERNALS__" in window;
+
 function elegirAlmacen(): Almacen {
   // En Tauri, por comandos de Rust; en el «modo navegador» (Huayra 5 y 6), por HTTP al programa en 127.0.0.1.
-  return "__TAURI_INTERNALS__" in window ? almacenTauri(invoke) : almacenHttp("/__almacen", fetchOriginal);
+  return enTauri ? almacenTauri(invoke) : almacenHttp("/__almacen", fetchOriginal);
+}
+
+/**
+ * «Modo navegador»: el programa se cierra solo si nadie lo usa (ver `navegador/src/servidor.rs`); mientras la
+ * pestaña está abierta, le avisa cada 2 minutos.
+ */
+function latidos() {
+  const latir = () => void fetchOriginal("/__almacen/latido", { method: "POST" }).catch(() => undefined);
+  window.setInterval(latir, 2 * 60 * 1000);
+}
+
+/** Sin la llave (se abrió la dirección a mano, o se borraron las cookies), la base no responde: se explica qué hacer. */
+function avisarSinLlave() {
+  document.body.innerHTML =
+    '<main style="font-family:sans-serif;max-width:32rem;margin:3rem auto;padding:0 1rem">' +
+    '<h1 style="font-size:1.3rem">Virtual Book sin conexión</h1>' +
+    "<p>Abrí Virtual Book desde el menú de aplicaciones: así el navegador puede usar los datos de este equipo.</p></main>";
 }
 
 /**
@@ -59,10 +78,15 @@ const ctx = crearContexto(elegirAlmacen(), {
   config: CONFIG,
   remoto: REMOTA && !CONFIG.modoAutonomo ? { base: REMOTA, fetch: fetchOriginal } : null,
 });
+if (!enTauri) latidos();
 const listo = (async () => {
   await prepararBases(ctx.almacen);
   await instalarIncluidos(ctx);
-})().catch((e) => console.error("No se pudo preparar la base de la app:", e));
+})().catch((e) => {
+  // Para entonces la web ya se montó: el aviso la reemplaza.
+  if (!enTauri && (e as { code?: string }).code === "SIN_LLAVE") avisarSinLlave();
+  console.error("No se pudo preparar la base de la app:", e);
+});
 const atender = crearServidorLocal(ctx);
 
 window.fetch = async (entrada: RequestInfo | URL, init?: RequestInit) => {

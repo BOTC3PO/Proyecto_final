@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Virtual Book sin conexión
+GenericName=Estudiar sin internet
+Comment=Módulos, prácticas y evaluaciones de Virtual Book sin internet
+Exec=@EXEC@
+Icon=@ICONO@
+Terminal=false
+Categories=Education;
+Keywords=virtual;book;estudiar;escuela;
+StartupNotify=false

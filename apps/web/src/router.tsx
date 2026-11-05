@@ -28,6 +28,7 @@ const HomePage            = lazyWithRetry(() => import("./pages/Home"));
 const Contact             = lazyWithRetry(() => import("./pages/Contact"));
 const Explorar            = lazyWithRetry(() => import("./pages/Explorar"));
 const Metodologia         = lazyWithRetry(() => import("./pages/metodologia"));
+const Descargas           = lazyWithRetry(() => import("./pages/Descargas"));
 const MenuAlumno          = lazyWithRetry(() => import("./pages/menu-alumno"));
 const Clases              = lazyWithRetry(() => import("./pages/aula"));
 const AulaMapaModulos     = lazyWithRetry(() => import("./pages/AulaMapaModulos"));
@@ -162,6 +163,7 @@ export const router = createBrowserRouter([
           { path: "creditos",        element: withSuspense(<Creditos />) }, // huevo de pascua, no linkear en nav/footer
           { path: "privacidad",       element: withSuspense(<Privacidad />) },
           { path: "metodologia",      element: withSuspense(<Metodologia />) },
+          { path: "descargas",        element: withSuspense(<Descargas />) },
           { path: "onboarding/tema",     element: withSuspense(<OnboardingTema />) },
 
           // Herramientas Educativas (public) — sólo el editor de mapas; el

@@ -1,0 +1,17 @@
+[package]
+name = "vb-navegador"
+version = "0.1.0"
+description = "Virtual Book sin conexión, «modo navegador»: atiende la app en 127.0.0.1 para abrirla en el navegador del sistema"
+edition = "2021"
+rust-version = "1.99"
+
+[[bin]]
+name = "virtualbook-sin-conexion"
+path = "src/main.rs"
+
+[dependencies]
+getrandom = "=0.3.4"
+serde = "1"
+serde_json = "1"
+tiny_http = "=0.12.0"
+vb-nucleo = { path = "../nucleo" }

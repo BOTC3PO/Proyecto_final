@@ -132,6 +132,53 @@ offlinePublico.get("/api/offline/paquetes/archivo/:archivo", limitePaquetes, (re
   });
 });
 
+type Descarga = { archivo: string; plataforma: string; arquitectura?: string | null; bytes?: number; sha256?: string };
+const TIPOS_DE_DESCARGA: Record<string, string> = {
+  ".apk": "application/vnd.android.package-archive",
+  ".exe": "application/vnd.microsoft.portable-executable",
+  ".deb": "application/vnd.debian.binary-package",
+  ".gz": "application/gzip",
+  ".zip": "application/zip",
+};
+
+function leerDescargas(): { formato: number; version: string | null; generado: string | null; archivos: Descarga[] } {
+  const vacio = { formato: 1, version: null, generado: null, archivos: [] };
+  if (!ENV.OFFLINE_DESCARGAS_DIR) return vacio;
+  try {
+    const d = JSON.parse(fs.readFileSync(path.join(ENV.OFFLINE_DESCARGAS_DIR, "descargas.json"), "utf8"));
+    return { ...vacio, ...d, archivos: Array.isArray(d.archivos) ? d.archivos : [] };
+  } catch {
+    return vacio;
+  }
+}
+
+const limiteDescargas = createRateLimiter({ windowMs: 15 * 60 * 1000, limit: 60 });
+
+/**
+ * L8 — instaladores de la app sin conexión (Android, Windows, Linux y el paquete completo), para la página pública
+ * `/descargas`. Los arma `apps/offline/scripts/armar-descargas.ts` en `OFFLINE_DESCARGAS_DIR`.
+ */
+offlinePublico.get("/api/offline/descargas", limiteDescargas, (_req, res) => {
+  res.setHeader("Cache-Control", "no-cache");
+  res.json(leerDescargas());
+});
+
+offlinePublico.get("/api/offline/descargas/archivo/:archivo", limiteDescargas, (req, res) => {
+  // Como con los paquetes: solo lo que está en el índice.
+  const entrada = leerDescargas().archivos.find((a) => a.archivo === req.params.archivo);
+  if (!entrada) return res.status(404).json({ error: "not found" });
+  const nombre = path.basename(entrada.archivo);
+  // Sin `immutable`: si se vuelve a armar la misma versión (una corrección), el archivo cambia con el mismo nombre.
+  res.sendFile(nombre, {
+    root: path.resolve(ENV.OFFLINE_DESCARGAS_DIR),
+    maxAge: "1d",
+    headers: {
+      "Content-Type": TIPOS_DE_DESCARGA[path.extname(nombre).toLowerCase()] ?? "application/octet-stream",
+      "Content-Disposition": `attachment; filename="${nombre.replace(/[^A-Za-z0-9._-]/g, "_")}"`,
+    },
+  });
+});
+
 /**
  * L8 — GET /api/offline/escuela: los módulos de las escuelas de la persona (visibilidad «escuela») y los asignados a
  * sus aulas o a las de sus hijos, con su teoría. No van los del temario oficial (vienen en los paquetes) ni los

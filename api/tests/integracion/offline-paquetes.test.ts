@@ -32,6 +32,17 @@ before(async () => {
   ({ firmarPermiso } = await import("../../src/lib/permiso-offline"));
   ENV.OFFLINE_PERMISO_CLAVE_ARCHIVO = path.join(carpeta, "clave.pem");
   ENV.OFFLINE_PAQUETES_DIR = path.join(carpeta, "paquetes");
+  fs.mkdirSync(path.join(carpeta, "descargas"));
+  fs.writeFileSync(path.join(carpeta, "descargas", "virtualbook-0.1.0-android.apk"), "apk-de-prueba");
+  fs.writeFileSync(path.join(carpeta, "descargas", "sin-indice.exe"), "no figura en el índice");
+  fs.writeFileSync(
+    path.join(carpeta, "descargas", "descargas.json"),
+    JSON.stringify({
+      formato: 1, version: "0.1.0", generado: "2026-11-05T00:00:00.000Z",
+      archivos: [{ archivo: "virtualbook-0.1.0-android.apk", plataforma: "android", arquitectura: "arm", bytes: 13, sha256: "x" }],
+    }),
+  );
+  ENV.OFFLINE_DESCARGAS_DIR = path.join(carpeta, "descargas");
   const { offlinePublico } = await import("../../src/routes/offline");
   ({ baseUrl, close } = await startServer([offlinePublico]));
 });
@@ -70,6 +81,29 @@ test("L8: el índice y los archivos de los paquetes son públicos; solo se sirve
   assert.match(archivo.headers.get("cache-control") ?? "", /immutable/);
   assert.equal((await fetch(`${baseUrl}/api/offline/paquetes/archivo/indice.json`)).status, 404);
   assert.equal((await fetch(`${baseUrl}/api/offline/paquetes/archivo/..%2Fsecreto.txt`)).status, 404);
+});
+
+test("L8: las descargas de la app son públicas; solo se sirve lo que está en descargas.json", async () => {
+  const indice = await (await fetch(`${baseUrl}/api/offline/descargas`)).json();
+  assert.equal(indice.version, "0.1.0");
+  assert.equal(indice.archivos[0].plataforma, "android");
+  const apk = await fetch(`${baseUrl}/api/offline/descargas/archivo/virtualbook-0.1.0-android.apk`);
+  assert.equal(apk.status, 200);
+  assert.equal(await apk.text(), "apk-de-prueba");
+  assert.equal(apk.headers.get("content-type"), "application/vnd.android.package-archive");
+  assert.match(apk.headers.get("content-disposition") ?? "", /^attachment; filename="virtualbook-0\.1\.0-android\.apk"$/);
+  for (const otro of ["sin-indice.exe", "descargas.json", "..%2Fsecreto.txt"]) {
+    assert.equal((await fetch(`${baseUrl}/api/offline/descargas/archivo/${otro}`)).status, 404, otro);
+  }
+
+  // Sin carpeta configurada: lista vacía, no un error.
+  const antes = ENV.OFFLINE_DESCARGAS_DIR;
+  ENV.OFFLINE_DESCARGAS_DIR = "";
+  try {
+    assert.deepEqual((await (await fetch(`${baseUrl}/api/offline/descargas`)).json()).archivos, []);
+  } finally {
+    ENV.OFFLINE_DESCARGAS_DIR = antes;
+  }
 });
 
 test("L8: los módulos de la escuela salen con el permiso firmado", async () => {

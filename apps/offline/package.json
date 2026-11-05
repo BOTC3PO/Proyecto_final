@@ -10,7 +10,9 @@
     "android:apk-prueba": "scripts/preparar-android.sh && pnpm run web && tauri android build --debug --apk --target x86_64",
     "test": "vitest run",
     "tipos": "tsc -p .",
-    "paquetes": "tsx scripts/generar-paquetes.ts"
+    "paquetes": "tsx scripts/generar-paquetes.ts",
+    "linux:navegador": "pnpm run web && scripts/empaquetar-navegador.sh x86_64 && scripts/empaquetar-navegador.sh i686",
+    "descargas": "tsx scripts/armar-descargas.ts"
   },
   "devDependencies": {
     "@tailwindcss/vite": "4.1.18",

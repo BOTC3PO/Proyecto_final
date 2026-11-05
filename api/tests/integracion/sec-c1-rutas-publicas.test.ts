@@ -56,9 +56,12 @@ const PUBLICAS = new Set<string>([
   "GET /api/registro/opciones",
   // Mapas y geografía (catálogos).
   "GET /api/maps/geonames/buscar",
-  // L8 — app sin conexión: paquetes del temario oficial y del diccionario (públicos, como prevé el modo autónomo).
+  // L8 — app sin conexión: paquetes del temario oficial y del diccionario (públicos, como prevé el modo autónomo) e
+  // instaladores de la app (página /descargas).
   "GET /api/offline/paquetes",
   "GET /api/offline/paquetes/archivo/:archivo",
+  "GET /api/offline/descargas",
+  "GET /api/offline/descargas/archivo/:archivo",
   // L8 — módulos de la escuela: sin sesión de la web, pero exige el permiso firmado de la app (lo valida el handler).
   "GET /api/offline/escuela",
   // L8 — sincronización de la app: también con el permiso firmado.

@@ -174,6 +174,8 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   OFFLINE_PERMISO_DIAS: Number(process.env.OFFLINE_PERMISO_DIAS ?? 90),
   // Carpeta con los paquetes que genera `apps/offline/scripts/generar-paquetes.ts` (indice.json y los .sqlite.gz).
   OFFLINE_PAQUETES_DIR: process.env.OFFLINE_PAQUETES_DIR ?? "",
+  // Carpeta con los instaladores de la app y su `descargas.json` (los arma `apps/offline/scripts/armar-descargas.ts`).
+  OFFLINE_DESCARGAS_DIR: process.env.OFFLINE_DESCARGAS_DIR ?? "",
 };
 
 /**

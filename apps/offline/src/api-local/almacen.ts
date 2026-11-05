@@ -65,6 +65,10 @@ export function almacenTauri(invocar: Invocar): Almacen {
 
 /** «Modo navegador» (Huayra 5 y 6): el mismo programa en Rust atiende el almacén en 127.0.0.1. */
 export function almacenHttp(base = "/__almacen", fetchOriginal: typeof fetch = fetch): Almacen {
+  const fallo = (r: Response, d: unknown) => {
+    const { error, code } = (d ?? {}) as { error?: string; code?: string };
+    return Object.assign(new Error(error ?? `almacén: ${r.status}`), { code });
+  };
   const llamar = async (operacion: string, cuerpo: unknown) => {
     const r = await fetchOriginal(`${base}/${operacion}`, {
       method: "POST",
@@ -72,7 +76,7 @@ export function almacenHttp(base = "/__almacen", fetchOriginal: typeof fetch = f
       body: JSON.stringify(cuerpo),
     });
     const datos = await r.json();
-    if (!r.ok) throw new Error((datos as { error?: string }).error ?? `almacén: ${r.status}`);
+    if (!r.ok) throw fallo(r, datos);
     return datos;
   };
   return {
@@ -86,7 +90,7 @@ export function almacenHttp(base = "/__almacen", fetchOriginal: typeof fetch = f
         body: datos as BodyInit,
       });
       const d = await r.json();
-      if (!r.ok) throw new Error((d as { error?: string }).error ?? `almacén: ${r.status}`);
+      if (!r.ok) throw fallo(r, d);
       return d as number;
     },
     instalarPaquete: (recibido, o = {}) => llamar("paquete-instalar", { recibido, esperado: o.esperado ?? null, sha256: o.sha256 ?? null }),

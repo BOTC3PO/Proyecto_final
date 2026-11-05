@@ -10,6 +10,7 @@ La misma web de Virtual Book, con una API local que responde dentro del disposit
   contesta 503 con `code: "SIN_CONEXION"`.
 - `nucleo/`: las dos bases SQLite del dispositivo (`contenido` y `progreso`), en Rust y sin depender de Tauri.
 - `src-tauri/`: la app de escritorio y de Android.
+- `navegador/`: el «modo navegador» para Huayra 5 y 6 (ver «Distribución»).
 
 ## Configuración de la compilación
 
@@ -35,7 +36,8 @@ Para habilitarlo en un servidor:
 2. En `api/.env`: `OFFLINE_PERMISO_CLAVE_ARCHIVO=/ruta/segura/permiso-offline.pem` (y, si se quiere otro plazo,
    `OFFLINE_PERMISO_DIAS`). Reiniciar la API.
 3. Poner la clave pública que mostró el paso 1 en `VITE_OFFLINE_CLAVE_PUBLICA` y compilar la app.
-4. La API tiene que aceptar el origen de la app en `CORS_ORIGIN` (`http://tauri.localhost` en Android y Windows).
+4. La API tiene que aceptar el origen de la app en `CORS_ORIGIN`: `http://tauri.localhost` (Android y Windows),
+   `tauri://localhost` (Linux de escritorio) y `http://127.0.0.1:47811` (modo navegador).
 
 Cambiar la clave invalida los permisos de todos los dispositivos: cada cuenta tiene que volver a conectarse.
 
@@ -86,12 +88,52 @@ perfil. Se autentica con el permiso firmado, sin tokens de la web.
 
 En el historial de la web, los intentos que subieron desde la app figuran como «hecho sin conexión».
 
+## Distribución
+
+| Sistema | Qué se instala | Cómo se arma |
+|---|---|---|
+| Android 8 o posterior | APK firmado (ARM de 64 y 32 bits) | `pnpm android:apk`, en el servidor |
+| Windows 10 y 11 | Instalador NSIS con WebView2 adentro (no necesita internet), de 64 y 32 bits | GitHub Actions |
+| Huayra 6.5 y Debian 12 | `.deb` de la app de escritorio (compilado en Debian 12) | GitHub Actions |
+| Huayra 5 y 6, otros Linux | «Modo navegador»: `.tar.gz` (sin contraseña de administrador) y `.deb`, de 64 y 32 bits | `pnpm linux:navegador` o GitHub Actions |
+
+**Modo navegador.** Huayra 5 y 6 no tienen la `libwebkit2gtk-4.1` que pide Tauri 2. `navegador/` es un programa
+estático (musl, sin bibliotecas del sistema) que atiende la web y el almacén en `http://127.0.0.1:47811` y abre la app
+en el navegador del equipo. Usa la misma carpeta de datos que la app de escritorio (`~/.local/share/ar.virtualbook.offline`)
+y se cierra solo a los 20 minutos sin uso (la web le manda un latido cada 2).
+
+- El almacén solo atiende al navegador que entró con un código de un solo uso, que el programa le pasa al abrirlo
+  (vence a los 2 minutos) y se cambia por una cookie `HttpOnly` y `SameSite=Strict` con la llave del dispositivo
+  (`navegador.llave`, permisos 600). Además se rechazan los pedidos a otro `Host` (DNS que apunta a 127.0.0.1) y con
+  otro `Origin`. Si la app se abre con la dirección escrita a mano, sin la cookie, pide abrirla desde el menú.
+- Si ya está abierto, abrirlo otra vez pide un código a la copia que corre y abre otra pestaña.
+- El puerto es fijo porque la web guarda su sesión por origen y la plataforma lo acepta en `CORS_ORIGIN`.
+- Para compilarlo estático hace falta `cargo-zigbuild` con zig (los dos destinos) o `musl-tools` (solo 64 bits).
+- Probado con Chromium. Falta probarlo en Firefox ESR 102 y en una netbook con Huayra 5 o 6.
+
+**GitHub Actions** (`.github/workflows/app-sin-conexion.yml`): se corre a mano o con una etiqueta `app-v*`. Compila la
+web, los instaladores de Windows (en `windows-latest`), el `.deb` de escritorio (en un contenedor Debian 12) y el modo
+navegador, y deja todo en el artefacto «instaladores». La dirección de la API y la clave pública salen de las
+variables del repositorio `OFFLINE_API_REMOTA` y `OFFLINE_CLAVE_PUBLICA`. Los instaladores de Windows no están
+firmados: Windows SmartScreen avisa la primera vez.
+
+**Publicación.** `pnpm descargas --instaladores DIR --salida DIR [--paquetes DIR]` (`scripts/armar-descargas.ts`)
+copia los instaladores con nombres claros (`virtualbook-0.1.0-windows-x64.exe`), calcula sus hashes y escribe
+`descargas.json`. Con `--paquetes` arma además el **paquete completo** para el modo autónomo: un `.zip` con todos los
+instaladores, todos los paquetes, un `LEEME.txt` y `SHA256SUMS.txt`, para copiar a un pendrive. La API sirve la
+carpeta desde `OFFLINE_DESCARGAS_DIR` en `GET /api/offline/descargas`, y la web la muestra en `/descargas`.
+
+Para el modo autónomo (la plataforma ya no está en producción), compilar con `VITE_MODO_AUTONOMO=true` (en Actions,
+la opción «Modo autónomo») antes de armar el paquete completo.
+
 ## Comandos
 
 - `pnpm test` y `pnpm tipos`: pruebas y tipos de la API local.
 - `api/tests/integracion-pg/offline-sync.pg.test.ts`: la sincronización de punta a punta contra Postgres (corre con
   `PG_TEST_DATABASE_URL` apuntando a una base `*_test`).
-- `cargo test -p vb-nucleo`: pruebas de las bases.
+- `cargo test -p vb-nucleo -p vb-navegador`: pruebas de las bases y del modo navegador.
+- `pnpm linux:navegador`: los paquetes del modo navegador de 64 y 32 bits, en `dist/`.
+- `pnpm descargas ...`: la carpeta de descargas y el paquete completo (ver «Distribución»).
 - `pnpm android:apk-prueba`: APK de prueba para el emulador (x86_64).
 - `pnpm android:apk`: APK firmado para teléfonos (ARM). La firma sale de `keystore.properties` fuera del
   repositorio (`VB_KEYSTORE_PROPS` cambia la ruta).
