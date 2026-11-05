@@ -117,6 +117,11 @@ navegador, y deja todo en el artefacto «instaladores». La dirección de la API
 variables del repositorio `OFFLINE_API_REMOTA` y `OFFLINE_CLAVE_PUBLICA`. Los instaladores de Windows no están
 firmados: Windows SmartScreen avisa la primera vez.
 
+Con una etiqueta `app-vX.Y.Z` también publica una **Release de GitHub** con los instaladores (mismos nombres que
+`/descargas`) y `SHA256SUMS.txt`. La etiqueta tiene que coincidir con la versión de `src-tauri/tauri.conf.json`; si
+no, el paso falla sin publicar. El APK no sale de Actions (necesita la clave propia): se agrega después con
+`gh release upload app-vX.Y.Z virtualbook-X.Y.Z-android.apk`.
+
 **Publicación.** `pnpm descargas --instaladores DIR --salida DIR [--paquetes DIR]` (`scripts/armar-descargas.ts`)
 copia los instaladores con nombres claros (`virtualbook-0.1.0-windows-x64.exe`), calcula sus hashes y escribe
 `descargas.json`. Con `--paquetes` arma además el **paquete completo** para el modo autónomo: un `.zip` con todos los

@@ -3,6 +3,7 @@
 # Se corre a mano (Actions → «App sin conexión» → Run workflow) o al subir una etiqueta `app-v*`. El resultado es el
 # artefacto «instaladores»: se baja, se le suma el APK firmado (que se compila en el servidor, con la clave propia) y
 # se publica con `cd apps/offline && pnpm descargas --instaladores DIR --salida DIR [--paquetes DIR]`.
+# Con una etiqueta, además, se publica una Release de GitHub con los instaladores (el APK se sube después a mano).
 #
 # No usa secretos. La dirección de la API y la clave pública de los permisos (que no es secreta) salen de las
 # variables del repositorio OFFLINE_API_REMOTA y OFFLINE_CLAVE_PUBLICA; sin ellas, la app solo tiene usuarios locales.
@@ -183,3 +184,54 @@ jobs:
           name: instaladores
           path: instaladores
           retention-days: 30
+
+  # Solo con una etiqueta `app-vX.Y.Z`: la Release lleva los mismos nombres que la página /descargas.
+  release:
+    if: startsWith(github.ref, 'refs/tags/app-v')
+    needs: instaladores
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: instaladores
+          path: instaladores
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install -g pnpm@${{ env.PNPM }}
+      - run: pnpm install --frozen-lockfile --filter offline
+      - name: Versión de la etiqueta y de la app
+        id: version
+        run: |
+          ETIQUETA="${GITHUB_REF_NAME#app-v}"
+          APP="$(node -p 'require("./apps/offline/src-tauri/tauri.conf.json").version')"
+          if [ "$ETIQUETA" != "$APP" ]; then
+            echo "La etiqueta dice $ETIQUETA y tauri.conf.json dice $APP: subí la versión de la app antes de etiquetar." >&2
+            exit 1
+          fi
+          echo "version=$APP" >> "$GITHUB_OUTPUT"
+      - name: Nombres claros y hashes
+        working-directory: apps/offline
+        run: |
+          pnpm -s descargas --instaladores "$GITHUB_WORKSPACE/instaladores" --salida "$GITHUB_WORKSPACE/release"
+          cd "$GITHUB_WORKSPACE/release" && rm descargas.json && sha256sum * > SHA256SUMS.txt
+      - name: Publicar
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          cat > notas.md <<NOTAS
+          Virtual Book sin conexión $VERSION.
+
+          - **Windows 10 y 11:** \`virtualbook-$VERSION-windows-x64.exe\` (64 bits) o \`-x86.exe\` (32 bits). Trae WebView2: no hace falta internet para instalarla.
+          - **Huayra 6.5 y Debian 12:** \`virtualbook-$VERSION-linux-escritorio-amd64.deb\`.
+          - **Huayra 5 y 6, y otros Linux:** \`virtualbook-$VERSION-linux-navegador-*\` (se abre en el navegador del equipo). El \`.tar.gz\` se instala sin contraseña de administrador; el \`.deb\`, para todo el equipo. amd64 es 64 bits; i386, 32 bits.
+          - **Android:** el APK firmado se agrega aparte.
+
+          Para comprobar los archivos: \`sha256sum -c SHA256SUMS.txt\`.
+          NOTAS
+          gh release create "$GITHUB_REF_NAME" release/* --title "Virtual Book sin conexión $VERSION" --notes-file notas.md --verify-tag
