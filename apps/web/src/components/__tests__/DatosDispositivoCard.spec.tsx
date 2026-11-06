@@ -18,7 +18,7 @@ vi.mock("../../lib/api", () => ({
   apiRequest: (...a: unknown[]) => apiRequest(...a),
 }));
 vi.mock("../../auth/use-auth", () => ({ useAuth: () => ({ logout }) }));
-vi.mock("react-router-dom", () => ({ useNavigate: () => navigate }));
+Object.defineProperty(window, "location", { value: { ...window.location, replace: navigate }, writable: true });
 
 describe("DatosDispositivoCard (L8)", () => {
   beforeEach(() => {
@@ -41,7 +41,7 @@ describe("DatosDispositivoCard (L8)", () => {
     await waitFor(() => expect(logout).toHaveBeenCalled());
     expect(JSON.parse(apiRequest.mock.calls[1][1].body)).toEqual({ password: "clave", descartarPendientes: true });
     expect(apiRequest.mock.calls[1][1].method).toBe("DELETE");
-    expect(navigate).toHaveBeenCalledWith("/login", { replace: true });
+    expect(navigate).toHaveBeenCalledWith("/login");
   });
 
   it("con la contraseña equivocada muestra el error y no cierra la sesión", async () => {

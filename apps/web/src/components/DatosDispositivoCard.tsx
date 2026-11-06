@@ -7,7 +7,6 @@
  * - Borrar el perfil del dispositivo con todo lo que guardó. La cuenta de la plataforma no se toca.
  */
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import { ApiError, apiGet, apiRequest } from "../lib/api";
 
@@ -38,7 +37,6 @@ export async function borrarPerfil(cuerpo: { identifier?: string; password: stri
 
 export default function DatosDispositivoCard({ tipo }: { tipo: "local" | "plataforma" }) {
   const { logout } = useAuth();
-  const navigate = useNavigate();
   const [abierta, setAbierta] = useState(false);
   const [password, setPassword] = useState("");
   const [pendientes, setPendientes] = useState<number | null>(null);
@@ -65,7 +63,9 @@ export default function DatosDispositivoCard({ tipo }: { tipo: "local" | "plataf
         return;
       }
       logout();
-      navigate("/login", { replace: true });
+      // Recarga directa: con `navigate`, la ruta protegida ve la sesión cerrada antes de cambiar de página y el login
+      // guarda `returnTo=/perfil` de un perfil que ya no existe.
+      window.location.replace("/login");
     } catch (e) {
       setMsg(e instanceof Error ? e.message : "No se pudo borrar el perfil.");
     } finally {
