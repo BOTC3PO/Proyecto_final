@@ -330,7 +330,7 @@ Para la Ley 25.326 es lo más simple: si los datos no salen del dispositivo, la 
 | 5 | Sincronización en las dos direcciones, nueva corrección en el servidor, vinculación de usuarios locales | 4 a 5 |
 | 6 | Distribución: APK firmado, instaladores de escritorio (Windows con WebView2 incluido), «modo navegador» para Huayra 5 y 6, paquete completo | 3 a 4 |
 | 7 | Pruebas (modo avión, permiso vencido, cuenta dada de baja, intentos repetidos, notas que no coinciden) y documentación (manual, política de privacidad) | 3 |
-| 8 | Padres, tutores y acompañantes: teoría de los módulos, seguimiento, perfiles de los hijos, contraseña nueva, dispositivo familiar | 2 a 3 |
+| 8 | Padres, tutores y acompañantes: teoría de los módulos, seguimiento, perfiles de los hijos, contraseña nueva, dispositivo familiar. Al tener pantalla, sumar la vista de padre al punto 9 de la política de privacidad y a `MANUAL.md` | 2 a 3 |
 | 9 | Docentes: crear módulos y aulas sin red, exportar e importar módulos en ZIP, funciones con red deshabilitadas, resoluciones y modo clase, alumnos del aula en el dispositivo, asignaciones, resultados por archivo | 9 a 11 |
 
 **Total estimado: 37 a 47 días de trabajo** (26 a 33 la parte de alumnos). Las fases 0 a 4 ya dan una app usable sin red; la sincronización se

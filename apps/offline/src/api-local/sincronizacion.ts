@@ -10,6 +10,7 @@
  *
  * Se autentica con el permiso firmado: la app no guarda tokens de la web.
  */
+import { borrarPerfilDelDispositivo } from "./borrado";
 import type { Contexto } from "./contexto";
 import { perfilDeSesion } from "./cuentas";
 import { error, json } from "./http";
@@ -47,7 +48,7 @@ type Respuesta = {
 
 export type Resumen =
   | { estado: "ok"; subidos: number; bajados: number; paraRevisar: number; pendientes: number }
-  | { estado: "sin-red" | "no-aplica" | "permiso-vencido" | "contrasena" | "bloqueado" | "en-curso"; pendientes: number; mensaje?: string };
+  | { estado: "sin-red" | "no-aplica" | "permiso-vencido" | "contrasena" | "bloqueado" | "baja" | "en-curso"; pendientes: number; mensaje?: string };
 
 const parse = <T>(s: string | null | undefined, porDefecto: T): T => {
   try {
@@ -216,6 +217,11 @@ export async function sincronizarPerfil(ctx: Contexto, perfilId: string): Promis
       }
       if (r.status === 401) {
         return { estado: "permiso-vencido", pendientes: await pendientes(ctx, perfilId), mensaje: "Volvé a entrar con tu contraseña para sincronizar." };
+      }
+      if (r.status === 403 && body.code === "CUENTA_BAJA") {
+        // La persona pidió la baja en la plataforma: lo que quedaba de ella en el dispositivo también se borra.
+        await borrarPerfilDelDispositivo(ctx, perfil);
+        return { estado: "baja", pendientes: 0, mensaje: "La cuenta fue dada de baja en la plataforma: se borraron sus datos de este dispositivo." };
       }
       if (r.status === 403) {
         await cerrarPerfil(ctx, perfilId, "bloqueado");

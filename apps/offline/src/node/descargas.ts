@@ -71,7 +71,8 @@ export function leemeDelCompleto(version: string, archivos: string[]): string {
 =========================================================
 
 Todo lo necesario para usar Virtual Book sin internet: los instaladores y los paquetes
-de contenido (materias y diccionarios). Se puede copiar a un pendrive.
+de contenido (materias y diccionarios). Se puede copiar a un pendrive. Cómo usar la app y
+qué hacer con cada mensaje: MANUAL.md (se abre con cualquier editor de texto).
 
 1. Instalar la app
 ------------------
@@ -110,6 +111,8 @@ export type Opciones = {
   version: string;
   /** Carpeta de los paquetes (con `indice.json`): si viene, se arma el paquete completo. */
   paquetes?: string | null;
+  /** El manual de uso (`MANUAL.md`), que va en la raíz del paquete completo. */
+  manual?: string | null;
   ahora?: Date;
 };
 
@@ -157,6 +160,10 @@ export function armarDescargas(o: Opciones): { indice: IndiceDeDescargas; ignora
         listado.push(`Paquetes/${n}`);
       }
       fs.copyFileSync(path.join(o.paquetes, "indice.json"), path.join(raiz, "Paquetes", "indice.json"));
+      if (o.manual) {
+        fs.copyFileSync(o.manual, path.join(raiz, "MANUAL.md"));
+        listado.push("MANUAL.md");
+      }
       fs.writeFileSync(path.join(raiz, "LEEME.txt"), leemeDelCompleto(o.version, listado));
       const sumas = listado.map((r) => `${sha256De(path.join(raiz, r))}  ${r}`).join("\n");
       fs.writeFileSync(path.join(raiz, "SHA256SUMS.txt"), `${sumas}\n`);

@@ -61,10 +61,12 @@ describe("armarDescargas", () => {
     expect(fs.readdirSync(salida).sort()).toEqual([...indice.archivos.map((a) => a.archivo), "descargas.json"].sort());
   });
 
-  it("arma el paquete completo con los instaladores, los paquetes, el LEEME y las sumas", () => {
+  it("arma el paquete completo con los instaladores, los paquetes, el LEEME, el manual y las sumas", () => {
     const { inst, paq } = preparar();
     const salida = temporal();
-    const { indice } = armarDescargas({ instaladores: inst, salida, version: "0.1.0", paquetes: paq });
+    const manual = path.join(temporal(), "MANUAL.md");
+    fs.writeFileSync(manual, "# Manual");
+    const { indice } = armarDescargas({ instaladores: inst, salida, version: "0.1.0", paquetes: paq, manual });
     const completo = indice.archivos.find((a) => a.plataforma === "completo")!;
     expect(completo.archivo).toBe("virtualbook-0.1.0-completo.zip");
     const listado = execFileSync("python3", ["-m", "zipfile", "-l", path.join(salida, completo.archivo)], { encoding: "utf8" });
@@ -75,6 +77,7 @@ describe("armarDescargas", () => {
       "VirtualBook-sin-conexion-0.1.0/Paquetes/temario-fisica-1.0.sqlite.gz",
       "VirtualBook-sin-conexion-0.1.0/Paquetes/indice.json",
       "VirtualBook-sin-conexion-0.1.0/LEEME.txt",
+      "VirtualBook-sin-conexion-0.1.0/MANUAL.md",
       "VirtualBook-sin-conexion-0.1.0/SHA256SUMS.txt",
     ]) expect(listado).toContain(r);
   });

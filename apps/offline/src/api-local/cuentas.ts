@@ -3,6 +3,7 @@
  * activadas en el dispositivo. Responde con el mismo formato que `/api/auth/*` del servidor, así la pantalla de
  * inicio de sesión de la web funciona sin cambios.
  */
+import { borrarPerfilDelDispositivo } from "./borrado";
 import { aleatorio, huella, iguales } from "./claves";
 import type { Contexto, Perfil } from "./contexto";
 import { error, json, leerJson } from "./http";
@@ -280,4 +281,53 @@ export async function vincular(ctx: Contexto, req: Request) {
   // Los módulos que armó un profesor local pasan a ser de la cuenta.
   await ctx.almacen.ejecutar("contenido", "UPDATE modulos SET owner_user_id = ? WHERE owner_user_id = ?", [destino, local.id]);
   return terminar(ctx, r);
+}
+
+/**
+ * DELETE /api/offline/perfil — borra el perfil de este dispositivo con todo lo que guardó. No hace falta red y no toca
+ * la cuenta de la plataforma: esa se descarga o se da de baja desde la web.
+ *
+ * - Con la sesión iniciada: `{ password }`.
+ * - Sin sesión (por ejemplo, un perfil bloqueado porque suspendieron la cuenta): `{ identifier, password }`.
+ *
+ * Si una cuenta de la plataforma tiene intentos o pedidos sin subir, responde 409 `PENDIENTES` con cuántos son: se
+ * perderían. Con `descartarPendientes: true` se borra igual.
+ */
+export async function eliminarPerfil(ctx: Contexto, req: Request) {
+  const sesion = await perfilDeSesion(ctx, req);
+  const b = await leerJson<{ identifier?: unknown; password?: unknown; descartarPendientes?: unknown }>(req);
+  if (typeof b.password !== "string" || !b.password) return error(400, "Falta la contraseña.");
+  if (!sesion && (typeof b.identifier !== "string" || !b.identifier.trim())) return error(400, "Falta el usuario.");
+  const campos = `${CAMPOS}, hash, sal, iteraciones, permiso, firma, vence, estado, fallos, espera_hasta`;
+  const [fila] = sesion
+    ? await ctx.almacen.consulta<FilaIngreso>("progreso", `SELECT ${campos} FROM perfiles WHERE id = ?`, [sesion.id])
+    : await ctx.almacen.consulta<FilaIngreso>(
+        "progreso",
+        `SELECT ${campos} FROM perfiles WHERE username = ? OR (email IS NOT NULL AND email = ? COLLATE NOCASE)`,
+        [String(b.identifier).trim(), String(b.identifier).trim()],
+      );
+  if (!fila) return incorrectos();
+  const ahora = ctx.ahora();
+  if (fila.espera_hasta && new Date(fila.espera_hasta) > ahora) {
+    const segundos = Math.ceil((new Date(fila.espera_hasta).getTime() - ahora.getTime()) / 1000);
+    return error(429, "Demasiados intentos con la contraseña incorrecta", { code: "DEMASIADOS_INTENTOS", retryAfterSeconds: segundos });
+  }
+  if (!iguales(await huella(b.password, fila.sal, fila.iteraciones), fila.hash)) {
+    await anotarFallo(ctx, fila);
+    return sesion ? error(401, "La contraseña no es correcta.", { code: "CONTRASENA_INCORRECTA" }) : incorrectos();
+  }
+  if (fila.tipo === "plataforma" && b.descartarPendientes !== true) {
+    const [{ n }] = await ctx.almacen.consulta<{ n: number }>(
+      "progreso",
+      "SELECT COUNT(*) AS n FROM eventos WHERE perfil_id = ? AND enviado = 0",
+      [fila.id],
+    );
+    if (n > 0) {
+      return error(409, "Hay cosas sin subir a la plataforma: conectate y sincronizá antes, o borralas igual.", {
+        code: "PENDIENTES", pendientes: n,
+      });
+    }
+  }
+  await borrarPerfilDelDispositivo(ctx, fila);
+  return json({ ok: true });
 }

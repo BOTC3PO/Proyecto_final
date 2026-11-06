@@ -33,7 +33,7 @@ const manifiesto = {
   ],
 };
 
-type Cuenta = { id: string; username: string; password: string; roles: string[]; baneada?: boolean; credencial: string };
+type Cuenta = { id: string; username: string; password: string; roles: string[]; baneada?: boolean; borrada?: boolean; credencial: string };
 type Servidor = {
   red: boolean;
   cuentas: Cuenta[];
@@ -87,7 +87,7 @@ function servidorFalso() {
     const auth = String(new Headers(init?.headers).get("Authorization") ?? "");
     if (ruta === "/api/auth/login") {
       const c = srv.cuentas.find((x) => x.username === b.identifier);
-      if (!c || c.password !== b.password) return responder({ error: "Invalid credentials" }, 401);
+      if (!c || c.borrada || c.password !== b.password) return responder({ error: "Invalid credentials" }, 401);
       if (c.baneada) return responder({ error: "Account suspended", code: "BANNED" }, 403);
       const t = crypto.randomUUID();
       tokens.set(t, c);
@@ -102,6 +102,7 @@ function servidorFalso() {
       if (!m || !crypto.verify(null, Buffer.from(m[1]), publicKey, Buffer.from(m[2], "base64url"))) return responder({ code: "PERMISO_INVALIDO" }, 401);
       const datos = JSON.parse(Buffer.from(m[1], "base64url").toString("utf8"));
       const c = srv.cuentas.find((x) => x.id === datos.sub)!;
+      if (c.borrada) return responder({ error: "La cuenta fue dada de baja.", code: "CUENTA_BAJA" }, 403);
       if (datos.cred !== c.credencial) return responder({ code: "CONTRASENA_CAMBIADA" }, 401);
       const resultados: Record<string, unknown> = {};
       for (const e of b.eventos) {
@@ -297,6 +298,47 @@ describe("sincronización", () => {
     expect(p.estado).toBe("bloqueado");
     expect((await pedir("GET", "/api/auth/me", undefined, r.datos.accessToken)).status).toBe(401);
     expect((await entrar()).datos.code).toBe("CUENTA_BLOQUEADA");
+  });
+
+  it("si la cuenta se dio de baja en la plataforma, sus datos se borran del dispositivo", async () => {
+    const token = (await entrar()).datos.accessToken;
+    srv.red = false;
+    await rendir(token, "u-ana", "cont-mat--sumar", true);
+    srv.red = true;
+    srv.cuentas[0].borrada = true;
+    const s = await pedir("POST", "/api/offline/sincronizar", {}, token);
+    expect(s.datos.estado).toBe("baja");
+    // No se sube nada: la persona pidió que se borraran sus datos.
+    expect(srv.intentos.size).toBe(0);
+    for (const tabla of ["perfiles", "intentos", "eventos", "progreso_modulos", "sesiones"]) {
+      const [{ n }] = await ctx.almacen.consulta<{ n: number }>("progreso", `SELECT COUNT(*) AS n FROM ${tabla}`);
+      expect(n, tabla).toBe(0);
+    }
+    expect((await entrar()).status).toBe(401);
+  });
+
+  it("borrar el perfil avisa si quedan intentos sin subir", async () => {
+    const token = (await entrar()).datos.accessToken;
+    srv.red = false;
+    await rendir(token, "u-ana", "cont-mat--sumar", true);
+    const r = await pedir("DELETE", "/api/offline/perfil", { password: "clave-de-la-web" }, token);
+    expect(r.status).toBe(409);
+    // El intento y el progreso que dejó.
+    expect(r.datos).toMatchObject({ code: "PENDIENTES", pendientes: 2 });
+    expect((await pedir("DELETE", "/api/offline/perfil", { password: "clave-de-la-web", descartarPendientes: true }, token)).status).toBe(200);
+    expect((await pedir("GET", "/api/offline/perfiles")).datos.items).toEqual([]);
+  });
+
+  it("un perfil bloqueado se puede quitar del dispositivo sin entrar", async () => {
+    await entrar();
+    srv.cuentas[0].baneada = true;
+    await entrar();
+    srv.red = false;
+    expect((await entrar()).datos.code).toBe("CUENTA_BLOQUEADA");
+    const mal = await pedir("DELETE", "/api/offline/perfil", { identifier: "ana", password: "otra" });
+    expect(mal.status).toBe(401);
+    expect((await pedir("DELETE", "/api/offline/perfil", { identifier: "ana", password: "clave-de-la-web" })).status).toBe(200);
+    expect((await pedir("GET", "/api/offline/perfiles")).datos.items).toEqual([]);
   });
 
   it("los usuarios locales no se sincronizan", async () => {

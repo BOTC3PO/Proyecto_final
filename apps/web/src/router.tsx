@@ -29,6 +29,7 @@ const Contact             = lazyWithRetry(() => import("./pages/Contact"));
 const Explorar            = lazyWithRetry(() => import("./pages/Explorar"));
 const Metodologia         = lazyWithRetry(() => import("./pages/metodologia"));
 const Descargas           = lazyWithRetry(() => import("./pages/Descargas"));
+const QuitarPerfil        = lazyWithRetry(() => import("./pages/QuitarPerfil"));
 const MenuAlumno          = lazyWithRetry(() => import("./pages/menu-alumno"));
 const Clases              = lazyWithRetry(() => import("./pages/aula"));
 const AulaMapaModulos     = lazyWithRetry(() => import("./pages/AulaMapaModulos"));
@@ -164,6 +165,8 @@ export const router = createBrowserRouter([
           { path: "privacidad",       element: withSuspense(<Privacidad />) },
           { path: "metodologia",      element: withSuspense(<Metodologia />) },
           { path: "descargas",        element: withSuspense(<Descargas />) },
+          // L8 — solo en la app sin conexión (la página lo avisa si no).
+          { path: "quitar-perfil",    element: withSuspense(<QuitarPerfil />) },
           { path: "onboarding/tema",     element: withSuspense(<OnboardingTema />) },
 
           // Herramientas Educativas (public) — sólo el editor de mapas; el

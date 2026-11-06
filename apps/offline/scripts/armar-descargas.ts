@@ -31,7 +31,10 @@ if (!instaladores || !salida) {
 const version =
   valor("version") ?? (JSON.parse(fs.readFileSync(path.join(aqui, "../src-tauri/tauri.conf.json"), "utf8")) as { version: string }).version;
 
-const { indice, ignorados } = armarDescargas({ instaladores, salida, version, paquetes: ruta(valor("paquetes")) });
+const manual = path.join(aqui, "../MANUAL.md");
+const { indice, ignorados } = armarDescargas({
+  instaladores, salida, version, paquetes: ruta(valor("paquetes")), manual: fs.existsSync(manual) ? manual : null,
+});
 for (const f of ignorados) console.warn(`No se publica (no es un instalador conocido): ${f}`);
 for (const d of indice.archivos) console.info(`${d.archivo}: ${(d.bytes / 1e6).toFixed(1)} MB`);
 console.info(`${indice.archivos.length} descargas en ${salida} (versión ${version}).`);

@@ -2,6 +2,7 @@ import { useState, type ChangeEvent, type FormEvent } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import { apiPost } from "../lib/api";
+import { esAppSinConexion } from "../lib/sinConexion";
 import { useI18n } from "../i18n/I18nContext";
 import BrandMark from "../components/Brand";
 import { homePathForRole } from "../routing/homePath";
@@ -269,6 +270,12 @@ export default function Login() {
                     {t("login.registrate")}
                   </Link>
                 </p>
+                {esAppSinConexion && (
+                  // L8 — solo en la app, en castellano como sus otras pantallas propias.
+                  <p className="text-center text-xs">
+                    <Link to="/quitar-perfil" className="text-gray-500 hover:text-gray-700 underline">Quitar un perfil de este dispositivo</Link>
+                  </p>
+                )}
               </form>
               )}
             </div>

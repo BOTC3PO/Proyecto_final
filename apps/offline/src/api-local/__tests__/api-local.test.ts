@@ -128,6 +128,42 @@ describe("vista de padre sin iniciar sesión", () => {
   });
 });
 
+describe("los datos del perfil en el dispositivo", () => {
+  it("se descargan en JSON, sin la huella de la contraseña", async () => {
+    const ana = await crearUsuario("ana");
+    await pedir("PUT", "/api/modulos-favoritos/cont-mat--sumar", undefined, ana.accessToken);
+    const r = await pedir("GET", "/api/offline/mis-datos", undefined, ana.accessToken);
+    expect(r.status).toBe(200);
+    expect(r.datos.perfil).toMatchObject({ username: "ana", tipo: "local", roles: ["USER"] });
+    expect(r.datos.favoritos.map((f: { modulo_id: string }) => f.modulo_id)).toEqual(["cont-mat--sumar"]);
+    const texto = JSON.stringify(r.datos);
+    for (const campo of ["hash", "sal", "firma", "permiso"]) expect(texto).not.toContain(`"${campo}"`);
+  });
+
+  it("borrar el perfil pide la contraseña y no deja nada de esa persona", async () => {
+    const ana = await crearUsuario("ana");
+    const beto = await crearUsuario("beto");
+    await pedir("PUT", "/api/modulos-favoritos/cont-mat--sumar", undefined, ana.accessToken);
+    await pedir("PUT", "/api/modulos-favoritos/cont-mat--sumar", undefined, beto.accessToken);
+    expect((await pedir("DELETE", "/api/offline/perfil", { password: "otra" }, ana.accessToken)).status).toBe(401);
+    expect((await pedir("DELETE", "/api/offline/perfil", { password: "contraseña-larga" }, ana.accessToken)).status).toBe(200);
+    expect((await pedir("GET", "/api/auth/me", undefined, ana.accessToken)).status).toBe(401);
+    const perfiles = (await pedir("GET", "/api/offline/perfiles")).datos.items.map((p: { username: string }) => p.username);
+    expect(perfiles).toEqual(["beto"]);
+    const [{ n }] = await ctx.almacen.consulta<{ n: number }>("progreso", "SELECT COUNT(*) AS n FROM favoritos WHERE perfil_id = ?", [ana.id]);
+    expect(n).toBe(0);
+    // El contenido descargado es de todo el dispositivo: sigue ahí.
+    expect((await pedir("GET", "/api/modulos/cont-mat--sumar", undefined, beto.accessToken)).status).toBe(200);
+  });
+
+  it("los fallos al borrar cuentan para la espera, como al entrar", async () => {
+    const ana = await crearUsuario("ana");
+    for (let i = 0; i < 5; i++) await pedir("DELETE", "/api/offline/perfil", { password: "otra" }, ana.accessToken);
+    const r = await pedir("DELETE", "/api/offline/perfil", { password: "contraseña-larga" }, ana.accessToken);
+    expect(r.status).toBe(429);
+  });
+});
+
 describe("lo que necesita conexión", () => {
   it("responde 503 con código SIN_CONEXION", async () => {
     const { accessToken } = await crearUsuario("ana");

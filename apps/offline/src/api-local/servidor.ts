@@ -3,13 +3,13 @@
  * conexión responde 503 con `code: "SIN_CONEXION"`, y la web lo muestra como un error común.
  */
 import type { Contexto } from "./contexto";
-import { cerrarSesion, iniciarSesion, listarPerfiles, registrarLocal, renovar, segundoPasoDeIngreso, vincular, yo } from "./cuentas";
+import { cerrarSesion, eliminarPerfil, iniciarSesion, listarPerfiles, registrarLocal, renovar, segundoPasoDeIngreso, vincular, yo } from "./cuentas";
 import { json, sinConexion } from "./http";
 import { buscar, idiomas, prefijo, salud } from "./diccionario";
 import { crearIntento, entregar, eventosDeIntento, listarIntentos, responder, resumenDeIntentos, verIntento } from "./intentos";
 import { listarModulos, verModulo, verPlantilla } from "./modulos";
 import { actualizarMiEscuela, descargarPaquete, importarPaquete, listarPaquetes, quitarPaquete } from "./paquetes";
-import { cambiarPerfil, solicitarRol } from "./perfil";
+import { cambiarPerfil, misDatos, solicitarRol } from "./perfil";
 import {
   listarFavoritos, listarProgreso, marcarFavorito, perfilPropio, progresoEstudiante, quitarFavorito, tareas, valoraciones,
 } from "./progreso";
@@ -27,6 +27,8 @@ const RUTAS: [string, RegExp, Manejador][] = [
   ["GET", /^\/api\/(?:auth\/)?me$/, yo],
   ["GET", /^\/api\/offline\/perfiles$/, listarPerfiles],
   ["PATCH", /^\/api\/offline\/perfil$/, cambiarPerfil],
+  ["DELETE", /^\/api\/offline\/perfil$/, eliminarPerfil],
+  ["GET", /^\/api\/offline\/mis-datos$/, misDatos],
   ["POST", /^\/api\/solicitar-rol$/, solicitarRol],
   ["POST", /^\/api\/offline\/vincular$/, vincular],
   ["POST", /^\/api\/offline\/sincronizar$/, sincronizarAhora],

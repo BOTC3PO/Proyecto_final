@@ -12,6 +12,7 @@ import { resolveMateria, MATERIA_FALLBACK } from "../domain/module/materia";
 import LogroCard, { getTier } from "../ui/LogroCard";
 import { esAppSinConexion } from "../lib/sinConexion";
 import SincronizacionCard from "../components/SincronizacionCard";
+import DatosDispositivoCard from "../components/DatosDispositivoCard";
 
 type TipoDestino = "ALUMNO" | "PRINCIPAL" | "PADRE" | "ALUMNO_HIJO";
 
@@ -307,7 +308,7 @@ export default function Perfil() {
                 )}
 
                 {/* Mi cuenta de alumno — espejo opt-in (solo PARENT) */}
-                {perfil.role === "PARENT" && (
+                {perfil.role === "PARENT" && !esAppSinConexion && (
                   <MiCuentaAlumnoCard
                     tieneEspejo={perfil.cuentaVinculada?.tipoDestino === "ALUMNO"}
                   />
@@ -316,7 +317,7 @@ export default function Perfil() {
                 {/* FASE 4 — Mi cuenta de alumno (staff): crear o vincular una
                     existente. Resuelve el caso del staff sin espejo, que al
                     "Ver como alumno" caía a /login. */}
-                {(perfil.role === "TEACHER" || perfil.role === "DIRECTIVO" || perfil.role === "ADMIN") && (
+                {(perfil.role === "TEACHER" || perfil.role === "DIRECTIVO" || perfil.role === "ADMIN") && !esAppSinConexion && (
                   <MiCuentaAlumnoStaffCard
                     tieneEspejo={perfil.cuentaVinculada?.tipoDestino === "ALUMNO"}
                   />
@@ -368,9 +369,15 @@ export default function Perfil() {
 
                 {esAppSinConexion && <SincronizacionCard />}
 
-                <DosPasosCard recomendado={perfil.role === "ADMIN" || perfil.role === "DIRECTIVO"} />
-
-                <PrivacidadCard />
+                {/* L8 — en la app, los dos pasos y la baja de la cuenta necesitan el servidor: se hacen desde la web. */}
+                {esAppSinConexion ? (
+                  <DatosDispositivoCard tipo={perfil.id.startsWith("local-") ? "local" : "plataforma"} />
+                ) : (
+                  <>
+                    <DosPasosCard recomendado={perfil.role === "ADMIN" || perfil.role === "DIRECTIVO"} />
+                    <PrivacidadCard />
+                  </>
+                )}
               </div>
             )}
 

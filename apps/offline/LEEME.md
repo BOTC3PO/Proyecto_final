@@ -1,7 +1,8 @@
 # App sin conexión (Tauri)
 
 La misma web de Virtual Book, con una API local que responde dentro del dispositivo. El plan completo está en
-`docs/plan/app-sin-conexion-tauri.md`.
+`docs/plan/app-sin-conexion-tauri.md`; el manual para quien usa la app, en `MANUAL.md` (va también en el paquete
+completo).
 
 ## Partes
 
@@ -80,13 +81,29 @@ perfil. Se autentica con el permiso firmado, sin tokens de la web.
   progreso que calcula el dispositivo no se acredita en la plataforma.
 - **Bajada:** el progreso de la cuenta (se queda el mayor avance) y los intentos hechos en la web, de a tandas.
 - **Renovación:** cada sincronización trae un permiso nuevo por 3 meses, con los roles de hoy. Si la contraseña
-  cambió en la web, el perfil pide la nueva; si la cuenta está suspendida o dada de baja, se bloquea después de subir
-  lo pendiente.
+  cambió en la web, el perfil pide la nueva; si la cuenta está suspendida, se bloquea después de subir lo pendiente.
+  Si la cuenta se dio de baja (`CUENTA_BAJA`), no se sube nada y el perfil se borra del dispositivo.
 - **Usuarios locales:** sus datos no salen del dispositivo hasta que se vinculan a una cuenta (`POST
   /api/offline/vincular`, desde el perfil). Su historial, su progreso y sus favoritos pasan a la cuenta, y el servidor
   corrige cada intento con el sorteo que tuvo como usuario local.
 
 En el historial de la web, los intentos que subieron desde la app figuran como «hecho sin conexión».
+
+## Lo que se ve en la app
+
+La web se compila con `VITE_APP_SIN_CONEXION=true`. Así, el menú no muestra lo que depende del servidor o de otras
+personas (clases, tareas, pagos, mensajes, calendario, monedas, encuestas, gestión de aulas: `SOLO_CON_RED` en
+`apps/web/src/nav/navConfig.ts`), y el perfil cambia la verificación en dos pasos y «Descargar mis datos / Dar de baja»
+por «Tus datos en este dispositivo». La política de privacidad tiene un punto propio para la app (el 9).
+
+## Datos del dispositivo
+
+- `GET /api/offline/mis-datos`: todo lo que el dispositivo guarda del perfil, en JSON, sin la huella ni el permiso.
+- `DELETE /api/offline/perfil`: borra el perfil con todo lo suyo (`src/api-local/borrado.ts`); el contenido descargado
+  queda. Con sesión pide `{ password }`; sin sesión, `{ identifier, password }` (pantalla «Quitar un perfil de este
+  dispositivo», para un perfil bloqueado). Si una cuenta de la plataforma tiene eventos sin subir, responde 409
+  `PENDIENTES`; con `descartarPendientes: true` borra igual. Los fallos de contraseña cuentan para la espera, como al
+  entrar.
 
 ## Distribución
 
@@ -136,6 +153,9 @@ la opción «Modo autónomo») antes de armar el paquete completo.
 - `pnpm test` y `pnpm tipos`: pruebas y tipos de la API local.
 - `api/tests/integracion-pg/offline-sync.pg.test.ts`: la sincronización de punta a punta contra Postgres (corre con
   `PG_TEST_DATABASE_URL` apuntando a una base `*_test`).
+- `api/tests/integracion-pg/offline-escenarios.pg.test.ts`: los casos difíciles, también contra Postgres: modo avión,
+  intentos repetidos (con una respuesta de sincronización perdida), notas que no coinciden (y un cuestionario que se
+  actualizó mientras tanto), permiso vencido, cuenta suspendida y cuenta dada de baja.
 - `cargo test -p vb-nucleo -p vb-navegador`: pruebas de las bases y del modo navegador.
 - `pnpm linux:navegador`: los paquetes del modo navegador de 64 y 32 bits, en `dist/`.
 - `pnpm descargas ...`: la carpeta de descargas y el paquete completo (ver «Distribución»).

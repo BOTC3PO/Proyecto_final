@@ -2,6 +2,7 @@
  * Opciones del propio perfil y pedidos que esperan la sincronización.
  */
 import { aleatorio } from "./claves";
+import type { Fila } from "./almacen";
 import type { Contexto } from "./contexto";
 import { perfilDeSesion } from "./cuentas";
 import { error, json, leerJson } from "./http";
@@ -54,4 +55,33 @@ export async function solicitarRol(ctx: Contexto, req: Request) {
     id, p.id, JSON.stringify(datos), ctx.ahora().toISOString(),
   ]);
   return json({ id, pendienteDeEnvio: true, message: "Solicitud guardada. Se manda a la plataforma la próxima vez que te conectes." }, 201);
+}
+
+/**
+ * GET /api/offline/mis-datos — todo lo que este dispositivo guarda del perfil, en JSON (derecho de acceso, Ley 25.326,
+ * art. 14). Sin la huella de la contraseña ni la firma del permiso. Lo que guarda la plataforma se descarga desde la web.
+ */
+export async function misDatos(ctx: Contexto, req: Request) {
+  const p = await perfilDeSesion(ctx, req);
+  if (!p) return error(401, "No autenticado");
+  const de = <T extends Fila = Fila>(sql: string) => ctx.almacen.consulta<T>("progreso", sql, [p.id]);
+  const [perfil] = await de(
+    `SELECT id, tipo, rol, roles, username, nombre, email, school_id, menor, mostrar_a_padres, creado, vence, estado,
+            sync_ultima FROM perfiles WHERE id = ?`,
+  );
+  const intentos = await de<Record<string, string | null>>(
+    `SELECT id, modulo_id, quiz_id, version_id, numero, estado, respuestas, score, max_score, inicio, fin, sincronizado,
+            origen, servidor FROM intentos WHERE perfil_id = ? ORDER BY inicio`,
+  );
+  const leer = (v: string | null) => (v ? JSON.parse(v) : null);
+  return json({
+    generado: ctx.ahora().toISOString(),
+    guardadoEn: "este dispositivo",
+    perfil: { ...perfil, roles: JSON.parse(String(perfil.roles)), menor: perfil.menor === 1, mostrar_a_padres: perfil.mostrar_a_padres === 1 },
+    progreso: await de("SELECT modulo_id, estado, progreso, actualizado FROM progreso_modulos WHERE perfil_id = ? ORDER BY modulo_id"),
+    desbloqueos: await de("SELECT modulo_id, origen, creado FROM desbloqueos WHERE perfil_id = ? ORDER BY modulo_id"),
+    favoritos: await de("SELECT modulo_id, creado FROM favoritos WHERE perfil_id = ? ORDER BY creado"),
+    intentos: intentos.map((i) => ({ ...i, respuestas: leer(i.respuestas), servidor: leer(i.servidor) })),
+    sinSubir: (await de<{ tipo: string; creado: string }>("SELECT tipo, creado FROM eventos WHERE perfil_id = ? AND enviado = 0 ORDER BY creado")),
+  });
 }
