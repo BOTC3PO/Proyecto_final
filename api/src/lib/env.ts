@@ -41,6 +41,14 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   // Compresión de las respuestas de la API. "off" cuando Nginx comprime (con `proxy_set_header Accept-Encoding ""` hacia
   // la API): ahorra el costo del middleware y evita que Node comprima con Brotli. Niveles bajos = más pedidos por segundo
   // (medido: Brotli q4 → ~350 pedidos/s, q1 → ~720 pedidos/s por instancia en /api/modulos).
+  // Cuánto espera una instancia a los pedidos en curso al recibir SIGTERM antes de salir igual (ms).
+  SHUTDOWN_TIMEOUT_MS: Number(process.env.SHUTDOWN_TIMEOUT_MS ?? 10_000),
+  // Ventana de drenaje del apagado: sigue atendiendo avisando `Connection: close` antes de dejar de aceptar (ms).
+  SHUTDOWN_DRAIN_MS: Number(process.env.SHUTDOWN_DRAIN_MS ?? 2_000),
+  // Tiempo que Node mantiene abierta una conexión keep-alive inactiva. Debe ser MAYOR que el `keepalive_timeout` del
+  // upstream de Nginx (60 s): con el default de Node (5 s) Node cierra una conexión justo cuando Nginx la reutiliza y
+  // esos pedidos fallan con 502 (los POST no se reintentan).
+  KEEP_ALIVE_TIMEOUT_MS: Number(process.env.KEEP_ALIVE_TIMEOUT_MS ?? 65_000),
   COMPRESSION: (process.env.COMPRESSION ?? "on").toLowerCase(),
   COMPRESSION_BROTLI_QUALITY: Number(process.env.COMPRESSION_BROTLI_QUALITY ?? 1),
   COMPRESSION_GZIP_LEVEL: Number(process.env.COMPRESSION_GZIP_LEVEL ?? 1),

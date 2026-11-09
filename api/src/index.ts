@@ -6,6 +6,7 @@ import { scheduleReconciliacionJob } from "./lib/pasarelas/reconciliacion";
 import { scheduleRetencionMensajesJob } from "./lib/retencion-mensajes";
 import { markUsersWithoutUsablePasswordForReset } from "./lib/password-health";
 import { prisma } from "./lib/prisma";
+import { crearApagadoOrdenado } from "./lib/apagado-ordenado";
 
 const runStartupDataChecks = async () => {
   try {
@@ -42,15 +43,25 @@ const bootstrap = async () => {
   // Antes de aceptar un solo request: si hay pasarelas configuradas,
   // los secretos que las hacen seguras no pueden faltar.
   assertSecretosDePago();
-  if (httpsCreds) {
-    createHttpsServer(httpsCreds, app).listen(ENV.PORT, process.env.HOST || "::", () => {
-      console.log(`API on https://localhost:${ENV.PORT}`);
-    });
-  } else {
-    app.listen(ENV.PORT, process.env.HOST || "::", () => {
-      console.log(`API on http://localhost:${ENV.PORT}`);
-    });
-  }
+  const servidor = httpsCreds
+    ? createHttpsServer(httpsCreds, app).listen(ENV.PORT, process.env.HOST || "::", () => {
+        console.log(`API on https://localhost:${ENV.PORT}`);
+      })
+    : app.listen(ENV.PORT, process.env.HOST || "::", () => {
+        console.log(`API on http://localhost:${ENV.PORT}`);
+      });
+  servidor.keepAliveTimeout = ENV.KEEP_ALIVE_TIMEOUT_MS;
+  servidor.headersTimeout = ENV.KEEP_ALIVE_TIMEOUT_MS + 1_000;
+  // SIGTERM (systemctl stop/restart, baja automática de una instancia) y SIGINT: terminar lo pendiente antes de salir.
+  const apagar = crearApagadoOrdenado(servidor, {
+    drenajeMs: ENV.SHUTDOWN_DRAIN_MS,
+    esperaMaximaMs: ENV.SHUTDOWN_TIMEOUT_MS,
+    alCerrar: () => prisma.$disconnect(),
+    salir: (codigo) => process.exit(codigo),
+    log: (m) => console.log(m)
+  });
+  process.on("SIGTERM", () => apagar("SIGTERM"));
+  process.on("SIGINT", () => apagar("SIGINT"));
   scheduleReconciliacionJob();
   scheduleRetencionMensajesJob();
   void runStartupDataChecks();
