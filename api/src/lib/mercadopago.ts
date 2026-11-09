@@ -136,6 +136,7 @@ export function verificarWebhookMP(
   }
   try {
     const { createHmac, timingSafeEqual } =
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
       require("crypto") as typeof import("crypto");
     // x-signature real de MP: "ts=1704908010,v1=abc123..."  (coma)
     const parts = xSignature.split(",");

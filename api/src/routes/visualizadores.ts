@@ -4,7 +4,7 @@ import path from "path";
 
 const visualizadoresRouter = Router();
 const EJEMPLOS_DIR = path.resolve(__dirname, "../visualizadores/ejemplos");
-const SAFE_ID_REGEX = /^[a-z0-9\-]+$/i;
+const SAFE_ID_REGEX = /^[a-z0-9-]+$/i;
 
 type VisualizadorPayload = {
   id: string;

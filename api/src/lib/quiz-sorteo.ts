@@ -42,7 +42,6 @@
 import { DeterministicPrng } from "./quiz-composition";
 import {
   DIFICULTADES_VALIDAS,
-  coerceDificultad,
   dificultadIndice,
   dificultadVecina,
   type CuestionarioPosiciones,

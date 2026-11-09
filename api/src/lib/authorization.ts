@@ -293,7 +293,7 @@ export const canManageClassroom = ({
     !!classroomSchoolId &&
     requesterSchoolId === classroomSchoolId;
   // "admin de las aulas" se refiere a un directivo o a un profesor, no literalmente a un admin
-  const hasAdminMembership = !!requesterId
+  const hasAdminMembership = requesterId
     ? (classroomMembers ?? []).some(
         (member) =>
           member.userId === requesterId &&

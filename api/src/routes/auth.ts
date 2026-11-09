@@ -22,7 +22,7 @@ import { markUsersWithoutUsablePasswordForReset } from "../lib/password-health";
 import { recordAuditLog } from "../lib/audit-log";
 import { createRateLimiter } from "../lib/rate-limit";
 import { normalizeSchoolId } from "../lib/school-ids";
-import { resolveRoles, isStaffInRoles, resolvePrimaryRole } from "../lib/roles";
+import { resolveRoles, resolvePrimaryRole } from "../lib/roles";
 import { acreditarSaldoInicial } from "../lib/economia-alta";
 import { requireUser } from "../lib/user-auth";
 import { estaBaneado, respuestaBaneado } from "../lib/ban";
@@ -52,18 +52,6 @@ import { secretosIguales } from "../lib/secret-compare";
 
 export const auth = Router();
 
-type DbUser = {
-  id: string;
-  email?: string | null;
-  username?: string | null;
-  role?: string | null;
-  guestOnboardingStatus?: string | null;
-  escuelaId?: string | null;
-  fullName?: string | null;
-  passwordHash?: string | null;
-  passwordResetRequired?: boolean;
-  isDeleted?: boolean;
-};
 
 const isProduction = ENV.NODE_ENV === "production";
 
@@ -654,7 +642,7 @@ auth.post("/api/auth/refresh", authLimiter, async (req, res) => {
           data: { revoked: true, replacedBy: nextRefreshToken.jti }
         });
       }
-    } catch (e) {
+    } catch {
       res.status(500).json({ error: "Could not rotate refresh token" });
       return;
     }
@@ -1171,20 +1159,6 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 });
-
-const ROLE_LANDING: Record<string, string> = {
-  ADMIN: "/admin",
-  DIRECTIVO: "/directivo",
-  TEACHER: "/profesor",
-  PARENT: "/padre",
-  USER: "/alumno",
-  GUEST: "/alumno"
-};
-
-const landingForRoles = (roles: string[]): string => {
-  const primary = resolvePrimaryRole({ roles });
-  return ROLE_LANDING[primary ?? "USER"] ?? "/alumno";
-};
 
 const sendAuthenticatedUser = async (res: Response) => {
   const user = res.locals.user as {

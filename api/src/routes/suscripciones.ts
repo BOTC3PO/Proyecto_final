@@ -36,7 +36,6 @@ const getRole = (req: { user?: { role?: string } }) =>
 
 const getUserFromReq = (req: { user?: { role?: string; roles?: string[] } }) => req.user ?? null;
 
-const genId = () => `sub-${randomUUID()}`;
 const genPayId = () => `pay-${randomUUID()}`;
 
 // ── GET /api/suscripciones/limites ──────────────────────────

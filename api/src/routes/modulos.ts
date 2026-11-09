@@ -25,6 +25,7 @@ const ModuleUpdateSchema = ModuleSchema.partial().omit({ id: true });
 
 type AnyDoc = Record<string, any>;
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 function withDefaultStatus<T extends AnyDoc>(module: T): T & { status: {} } {
   const status = module?.status ?? {};
   return {
@@ -306,7 +307,6 @@ function safeJsonParse<T>(value: string | null | undefined, fallback: T): T {
   }
 }
 
-const escapeRegex = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 const parseVisibilityList = (value: unknown) => {
   if (typeof value !== "string") return [];

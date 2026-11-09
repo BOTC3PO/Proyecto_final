@@ -60,7 +60,7 @@ export const requireAdmin = async (req: Request, res: Response, next: NextFuncti
     (req as { user?: typeof userContext }).user = userContext;
     res.locals.adminUser = userContext;
     next();
-  } catch (error) {
+  } catch {
     res.status(500).json({ error: "Admin authentication failed" });
   }
 };

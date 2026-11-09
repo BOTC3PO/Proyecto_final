@@ -35,7 +35,6 @@ const resolveParentId = (req: any): string | null => {
   return typeof raw === "string" ? raw : raw.toString?.() ?? null;
 };
 
-const escapeRegex = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 const normalizeUsername = (value: string) => value.trim().replace(/^@/, "");
 

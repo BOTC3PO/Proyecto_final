@@ -52,13 +52,6 @@ const MIME: Record<string, string> = {
   ".pdf": "application/pdf",
 };
 
-/** Extensión por defecto si el formato no se pudo determinar (no debería pasar tras validar la firma). */
-const EXTENSION_BY_KIND: Record<MediaKind, string> = {
-  image: "png",
-  audio: "mp3",
-  video: "mp4",
-  pdf: "pdf",
-};
 
 /**
  * Content-Types aceptados por kind. La idea es ser permisivo en
