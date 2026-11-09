@@ -47,7 +47,33 @@ function withDefaultStatus<T extends AnyDoc>(module: T): T & { status: {} } {
 // (la hipótesis original) sino de contrato entre este endpoint y el
 // front. `withDefaultStatus` se sigue aplicando después para no tocar
 // esa convención.
-function toModuleListItem(item: AnyDoc): AnyDoc {
+/** Cuántos bloques de teoría tiene el módulo, sin devolver el contenido (el listado mostraba solo la cantidad). */
+function contarTeoria(raw: unknown): number {
+  if (typeof raw !== "string" || raw === "") return 0;
+  const v = safeJsonParse(raw, [] as unknown[]);
+  return Array.isArray(v) ? v.length : 0;
+}
+
+/**
+ * Cantidad de bloques de teoría de varios módulos, contada por Postgres: así la columna (texto largo) no viaja a Node
+ * ni se parsea acá, que era ~15 % de la CPU del listado. `pg_input_is_valid` (Postgres 16+) evita que un JSON roto
+ * haga fallar la consulta: cuenta 0, igual que `contarTeoria`.
+ */
+async function conteosDeTeoria(ids: string[]): Promise<Map<string, number>> {
+  if (ids.length === 0) return new Map();
+  const filas = await prisma.$queryRaw<{ id: string; n: number }[]>`
+    SELECT id,
+           CASE WHEN theory_items IS NOT NULL AND pg_input_is_valid(theory_items, 'jsonb')
+                     AND jsonb_typeof(theory_items::jsonb) = 'array'
+                THEN jsonb_array_length(theory_items::jsonb) ELSE 0 END AS n
+    FROM modulos WHERE id = ANY(${ids}::text[])`;
+  return new Map((filas ?? []).map((f) => [f.id, Number(f.n)]));
+}
+
+// El listado NO devuelve `theoryItems` (el texto completo de la teoría): era el 93 % de la respuesta (86 KB por 20
+// módulos) y la apertura de la lista de la app móvil bajaba hasta ~8 MB. Devuelve `theoryCount`; quien necesite el
+// contenido lo pide con `?incluirTeoria=true` o trae el detalle (`GET /api/modulos/:id`).
+function toModuleListItem(item: AnyDoc, incluirTeoria = false, conteo?: number): AnyDoc {
   return {
     id: item.id,
     slug: item.slug ?? undefined,
@@ -57,7 +83,8 @@ function toModuleListItem(item: AnyDoc): AnyDoc {
     level: item.level ?? null,
     category: item.category ?? undefined,
     durationMinutes: item.durationMinutes ?? undefined,
-    theoryItems: item.theoryItems ? safeJsonParse(item.theoryItems, [] as unknown[]) : [],
+    theoryCount: conteo ?? contarTeoria(item.theoryItems),
+    ...(incluirTeoria ? { theoryItems: item.theoryItems ? safeJsonParse(item.theoryItems, [] as unknown[]) : [] } : {}),
     // Mapa de dependencias del editor (ver DependenciasFlowMap) — necesita
     // las dependencias de CADA módulo candidato para dibujar las aristas
     // entre ellos, no sólo las del módulo que se está editando.
@@ -398,6 +425,7 @@ modulos.get("/api/modulos", async (req, res) => {
   // espejo del filtro equivalente en `/api/modulos/buscar`
   // (línea 54-70 de este mismo archivo).
   const mine = req.query.mine === "true";
+  const incluirTeoria = req.query.incluirTeoria === "true" || req.query.incluirTeoria === "1";
   const safeOffset = Number.isNaN(offset) || offset < 0 ? 0 : offset;
 
   if (mine) {
@@ -428,6 +456,16 @@ modulos.get("/api/modulos", async (req, res) => {
   const conVisibilidad = (filtro: Record<string, unknown>): Record<string, unknown> =>
     visibilidadServidor ? { AND: [filtro, visibilidadServidor] } : filtro;
 
+  // Sin `?incluirTeoria` la consulta no trae la columna de teoría (`omit`) y la cantidad la cuenta la base.
+  const listarModulos = async (args: Record<string, unknown>) => {
+    const filas = (await prisma.modulo.findMany({
+      ...args,
+      ...(incluirTeoria ? {} : { omit: { theoryItems: true } }),
+    } as Parameters<typeof prisma.modulo.findMany>[0])) as AnyDoc[];
+    const conteos = await conteosDeTeoria(incluirTeoria ? [] : filas.filter((f) => f.theoryItems === undefined).map((f) => String(f.id)));
+    return filas.map((f) => toModuleListItem(f, incluirTeoria, conteos.get(String(f.id)))).map(withDefaultStatus);
+  };
+
   let items;
   if (aulaId) {
     // Nota: la asignación a una aula (`ClaseModulo`) YA es un camino de
@@ -444,28 +482,24 @@ modulos.get("/api/modulos", async (req, res) => {
       return res.json({ items: [], limit, offset });
     }
 
-    items = (
-      await prisma.modulo.findMany({
-        where: conVisibilidad({
-          id: { in: moduloIds },
-          ...(mine && requesterIdForMine ? { ownerUserId: requesterIdForMine } : {}),
-        }),
-        skip: safeOffset,
-        take: limit,
-        orderBy: { updatedAt: "desc" },
-      })
-    ).map(toModuleListItem).map(withDefaultStatus);
+    items = await listarModulos({
+      where: conVisibilidad({
+        id: { in: moduloIds },
+        ...(mine && requesterIdForMine ? { ownerUserId: requesterIdForMine } : {}),
+      }),
+      skip: safeOffset,
+      take: limit,
+      orderBy: { updatedAt: "desc" },
+    });
   } else {
-    items = (
-      await prisma.modulo.findMany({
-        where: mine && requesterIdForMine
-          ? { ownerUserId: requesterIdForMine }
-          : conVisibilidad(descatalogadoFilter),
-        skip: safeOffset,
-        take: limit,
-        orderBy: { updatedAt: "desc" },
-      })
-    ).map(toModuleListItem).map(withDefaultStatus);
+    items = await listarModulos({
+      where: mine && requesterIdForMine
+        ? { ownerUserId: requesterIdForMine }
+        : conVisibilidad(descatalogadoFilter),
+      skip: safeOffset,
+      take: limit,
+      orderBy: { updatedAt: "desc" },
+    });
   }
 
   return res.json({ items, limit, offset });

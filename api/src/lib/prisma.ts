@@ -2,8 +2,13 @@ import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { vaciarCacheSesion } from "./cache-sesion";
 
+// Conexiones a Postgres por instancia de la API. Con hasta 4 instancias son 40 de las 100 de `max_connections`
+// (que comparten el respaldo, las herramientas y otras sesiones). Subirlo solo si se baja el número de instancias.
+const POOL_MAX = Math.min(Math.max(Math.trunc(Number(process.env.DB_POOL_MAX ?? 10)) || 10, 1), 50);
+
 const adapter = new PrismaPg({
-  connectionString: process.env.DATABASE_URL!
+  connectionString: process.env.DATABASE_URL!,
+  max: POOL_MAX
 });
 
 const ESCRITURAS = new Set(["create", "createMany", "createManyAndReturn", "update", "updateMany", "updateManyAndReturn", "upsert", "delete", "deleteMany"]);

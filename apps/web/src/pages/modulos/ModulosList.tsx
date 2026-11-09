@@ -603,9 +603,9 @@ export default function ModulosList() {
                             )}
                             {/* Content counts */}
                             <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-3)" }}>
-                              {(module.theoryBlocks?.length ?? module.theoryItems?.length ?? 0) > 0 && (
+                              {(module.theoryCount ?? module.theoryBlocks?.length ?? module.theoryItems?.length ?? 0) > 0 && (
                                 <span style={{ fontSize: "var(--text-xs)", color: "var(--c-muted)" }}>
-                                  {module.theoryBlocks?.length ?? module.theoryItems?.length ?? 0} teoría
+                                  {module.theoryCount ?? module.theoryBlocks?.length ?? module.theoryItems?.length ?? 0} teoría
                                 </span>
                               )}
                               {(module.quizzes?.length ?? 0) > 0 && (

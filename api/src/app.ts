@@ -1,5 +1,6 @@
 import express, { type NextFunction, type Request, type Response } from "express";
 import compression from "compression";
+import { opcionesCompresion } from "./lib/compression-config";
 import { ocultarErroresInternos, respuestaDeError } from "./lib/safe-error";
 import { jsonPorRuta, reglasDeLimite } from "./lib/json-limits";
 import helmet from "helmet";
@@ -90,7 +91,12 @@ export const app = express();
 // Detrás de Nginx (mismo host): TRUST_PROXY=loopback para que req.ip sea el cliente real
 // (rate limit por IP) y no 127.0.0.1. Vacío = sin proxy (default).
 if (process.env.TRUST_PROXY) app.set("trust proxy", process.env.TRUST_PROXY);
-app.use(compression());
+// Las respuestas de /api llevan `Cache-Control: no-store`: nadie las revalida, así que calcular el ETag (un hash de
+// cada cuerpo, ~3 % de la CPU en /api/modulos) no sirve de nada. Los que lo necesitan (maps, plantillas, sendFile) lo
+// ponen a mano o lo hace `send`.
+app.set("etag", false);
+const opcionesGzip = opcionesCompresion(ENV);
+if (opcionesGzip) app.use(compression(opcionesGzip));
 app.use((req, res, next) => {
   // API responses — no cachear
   if (req.path.startsWith("/api/")) {

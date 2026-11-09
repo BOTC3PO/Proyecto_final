@@ -38,6 +38,12 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   CORS_ORIGIN: (process.env.CORS_ORIGIN ?? "http://localhost:5173").split(","),
   MAX_PAGE_MB: Number(process.env.MAX_PAGE_MB ?? 30),
   // Límite del cuerpo JSON en las rutas que no guardan contenido (ver lib/json-limits.ts).
+  // Compresión de las respuestas de la API. "off" cuando Nginx comprime (con `proxy_set_header Accept-Encoding ""` hacia
+  // la API): ahorra el costo del middleware y evita que Node comprima con Brotli. Niveles bajos = más pedidos por segundo
+  // (medido: Brotli q4 → ~350 pedidos/s, q1 → ~720 pedidos/s por instancia en /api/modulos).
+  COMPRESSION: (process.env.COMPRESSION ?? "on").toLowerCase(),
+  COMPRESSION_BROTLI_QUALITY: Number(process.env.COMPRESSION_BROTLI_QUALITY ?? 1),
+  COMPRESSION_GZIP_LEVEL: Number(process.env.COMPRESSION_GZIP_LEVEL ?? 1),
   MAX_JSON_BODY_MB: Number(process.env.MAX_JSON_BODY_MB ?? 1),
   // Tasa anual del plazo fijo: la fija el servidor, no el cliente (E6).
   PLAZO_FIJO_TASA_ANUAL: Number(process.env.PLAZO_FIJO_TASA_ANUAL ?? 75),
