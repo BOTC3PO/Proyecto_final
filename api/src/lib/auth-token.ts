@@ -115,6 +115,9 @@ export const verifyToken = (token: string, expectedType?: TokenType) => {
     return { ok: false as const, error: "Invalid authentication token" };
   }
   const payloadType = parsed.payload?.typ;
+  // Rechazo temprano, ANTES de calcular el HMAC: un token con `typ` presente y de otro tipo (p. ej. un
+  // refresh usado como access) se corta sin gastar CPU. No es redundante con el chequeo de más abajo:
+  // aquel es el definitivo (también rechaza `typ` ausente) y corre después de validar firma y vencimiento.
   if (expectedType && payloadType && (!isTokenType(payloadType) || payloadType !== expectedType)) {
     return { ok: false as const, error: "Invalid authentication token" };
   }

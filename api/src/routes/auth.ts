@@ -48,6 +48,7 @@ import {
   verificarCodigo
 } from "../lib/totp";
 import { motivoPasswordDebil } from "../lib/password-policy";
+import { secretosIguales } from "../lib/secret-compare";
 
 export const auth = Router();
 
@@ -81,6 +82,16 @@ const loginLimiter = createRateLimiter({
   message: { error: "Demasiados intentos de inicio de sesión. Intenta de nuevo en 15 minutos." }
 });
 
+// Segundo paso del ingreso con verificación en dos pasos: un desafío válido dura 5 minutos y el código
+// TOTP tiene 10^6 combinaciones (los de recuperación, menos entropía). Con el límite general (20/min)
+// alcanzaban ~100 intentos en esa ventana; este lo deja igual de estricto que el primer paso (10 / 15 min).
+const dosPasosLimiter = createRateLimiter({
+  windowMs: 15 * 60 * 1000,
+  limit: 10,
+  enabled: !ENV.AUTH_RATE_LIMIT_DISABLED,
+  message: { error: "Demasiados intentos con el código de verificación. Intenta de nuevo en 15 minutos." }
+});
+
 const switchLimiter = createRateLimiter({
   windowMs: 60 * 1000,
   limit: isProduction ? 10 : 100,
@@ -99,7 +110,7 @@ auth.post("/api/auth/bootstrap-admin", async (req, res) => {
       return;
     }
     const providedKey = req.header("x-bootstrap-key");
-    if (!providedKey || providedKey !== ENV.BOOTSTRAP_ADMIN_KEY) {
+    if (!providedKey || !secretosIguales(providedKey, ENV.BOOTSTRAP_ADMIN_KEY)) {
       res.status(401).json({ error: "Invalid bootstrap key" });
       return;
     }
@@ -490,7 +501,7 @@ auth.post("/api/auth/guest", authLimiter, async (req, res) => {
 // `resolverSesionEscuela`: si el usuario no tiene una membresía activa
 // ahí, el resolver la ignora y devuelve la que corresponda. Nunca se
 // concede un rol porque el cliente lo haya pedido.
-auth.post("/api/auth/escuela-activa", requireUser, async (req, res) => {
+auth.post("/api/auth/escuela-activa", switchLimiter, requireUser, async (req, res) => {
   const requester = (req as { user?: { id?: string } }).user;
   const userId = requester?.id;
   if (!userId) return res.status(401).json({ error: "no autenticado" });
@@ -986,7 +997,7 @@ const usuarioDeSesion = async (req: { user?: { id?: string; _id?: unknown } }) =
   return id ? prisma.usuario.findFirst({ where: { id, isDeleted: { not: true } } }) : null;
 };
 
-auth.post("/api/auth/2fa/login", authLimiter, async (req, res) => {
+auth.post("/api/auth/2fa/login", dosPasosLimiter, authLimiter, async (req, res) => {
   const userId = leerDesafio2fa(String(req.body?.desafio ?? ""));
   if (!userId) {
     res.status(401).json({ error: "El ingreso venció. Volvé a escribir tu contraseña.", code: "DESAFIO_VENCIDO" });

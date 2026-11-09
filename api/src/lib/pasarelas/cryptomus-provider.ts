@@ -16,6 +16,7 @@
  */
 import { createHash } from "node:crypto";
 import { ENV } from "../env";
+import { secretosIguales } from "../secret-compare";
 import {
   PasarelaNoConfiguradaError,
   type CheckoutResult,
@@ -93,7 +94,7 @@ export class CryptomusProvider implements PaymentProvider {
     if (!sign || !parsed.order_id) return null;
 
     const expected = firmar(JSON.stringify(rest), ENV.CRYPTOMUS_API_KEY);
-    if (sign !== expected) return null;
+    if (!secretosIguales(sign, expected)) return null;
 
     const estado = parsed.status === "paid" || parsed.status === "paid_over" ? "pagada" : parsed.status === "fail" ? "fallida" : "pendiente";
     return {
