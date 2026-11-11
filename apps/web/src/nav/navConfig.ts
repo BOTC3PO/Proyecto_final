@@ -1,4 +1,5 @@
 import type { Role } from '../auth/roles';
+import { esAppSinConexion } from '../lib/sinConexion';
 
 // `id` es la clave estable para matching/agrupación (nunca cambia con el
 // idioma); `label` es la clave de traducción en el namespace `nav.` del
@@ -26,7 +27,7 @@ const userBase: NavItem[] = [
 ];
 
 
-export const NAV_BY_ROLE: NavMap = {
+const NAV_COMPLETO: NavMap = {
   ADMIN: [
     { id: 'panel',            label: 'panel',            to: '/admin',             exact: true },
     { id: 'usuarios',         label: 'usuarios',         to: '/admin/usuarios',    exact: true },
@@ -106,7 +107,7 @@ export const NAV_BY_ROLE: NavMap = {
   ],
 };
 
-export const DROPDOWN_BY_ROLE: Record<Role, DropdownItem[]> = {
+const DROPDOWN_COMPLETO: Record<Role, DropdownItem[]> = {
   USER: [
     { kind: 'link', id: 'miPerfil',      label: 'miPerfil',      to: '/perfil',       icon: 'user'    },
     { kind: 'link', id: 'economia',       label: 'economia',       to: '/economia',     icon: 'coin'    },
@@ -152,3 +153,24 @@ export const DROPDOWN_BY_ROLE: Record<Role, DropdownItem[]> = {
   ],
   GUEST: [],
 };
+
+// L8 — en la app sin conexión no se muestra lo que depende del servidor o de otras personas (clases, tareas, pagos,
+// mensajes, calendario, economía, gestión de aulas...): la API local responde «necesita conexión». Eso sigue en la
+// web y en la app con red. Los docentes tienen su propia fase en el plan de la app.
+const SOLO_CON_RED = new Set([
+  'clases', 'tareas', 'pagos', 'calendario', 'mensajes', 'misHijos', 'agregarHijo', 'aulas', 'cuestionarios',
+  'plantillas', 'datasets', 'evaluaciones', 'materiales', 'asistencia', 'calificaciones', 'encuestas', 'reportes',
+  'economia', 'tiendaTemas', 'verComoPadre', 'verComoAlumno',
+]);
+
+const sinLoQueNecesitaRed = <T extends { id?: string }>(items: T[]) =>
+  items.filter((it) => !it.id || !SOLO_CON_RED.has(it.id));
+
+const porRol = <T>(mapa: Record<Role, T[]>, filtrar: (items: T[]) => T[]) =>
+  Object.fromEntries(Object.entries(mapa).map(([rol, items]) => [rol, filtrar(items as T[])])) as Record<Role, T[]>;
+
+export const NAV_BY_ROLE: NavMap = esAppSinConexion ? porRol(NAV_COMPLETO, sinLoQueNecesitaRed) : NAV_COMPLETO;
+
+export const DROPDOWN_BY_ROLE: Record<Role, DropdownItem[]> = esAppSinConexion
+  ? porRol(DROPDOWN_COMPLETO, (items) => sinLoQueNecesitaRed(items as { id?: string }[]) as DropdownItem[])
+  : DROPDOWN_COMPLETO;

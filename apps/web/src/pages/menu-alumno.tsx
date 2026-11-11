@@ -4,6 +4,7 @@ import { Award, Clock3, GraduationCap, Trophy } from "lucide-react";
 import { useAuth } from "../auth/use-auth";
 import { usePrimaryRole } from "../auth/use-roles";
 import { apiGet } from "../lib/api";
+import { esAppSinConexion } from "../lib/sinConexion";
 import { fetchTareas, type TareaResumen } from "../services/tareas";
 import { fetchProgresoEstudiante } from "../services/progreso";
 import { useI18n } from "../i18n/I18nContext";
@@ -182,6 +183,8 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
   }, [user?.id]);
 
   useEffect(() => {
+    // L8 — en la app sin conexión no hay tareas ni monedas (dependen del servidor y del aula).
+    if (esAppSinConexion) return;
     let active = true;
     fetchTareas()
       .then((data) => { if (active) setTareas(data); })
@@ -191,7 +194,7 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
   }, []);
 
   useEffect(() => {
-    if (!user?.id) return;
+    if (!user?.id || esAppSinConexion) return;
     let active = true;
     apiGet<{ saldo: number }>(`/api/economia/saldos?usuarioId=${user.id}`)
       .then((res) => { if (active) setCoins(res.saldo); })
@@ -226,7 +229,8 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
           </p>
         </div>
 
-        {/* Próxima clase */}
+        {/* Próxima clase (no en la app sin conexión: las clases dependen del servidor) */}
+        {!esAppSinConexion && (
         <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl px-5 py-4 flex items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-1.5 mb-1.5">
@@ -240,9 +244,10 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
             <p className="text-3xl font-semibold text-[var(--c-text)] tracking-tight">{nextClass.time}</p>
           </div>
         </div>
+        )}
 
         {/* Stats */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div className={`grid grid-cols-2 gap-3 ${esAppSinConexion ? "" : "sm:grid-cols-4"}`}>
           <StatCard
             icon={<Trophy className="w-5 h-5" />}
             value={completedModules}
@@ -257,6 +262,7 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
             hint={progressPercent >= 50 ? t("perfil.enCamino") : t("menualumno.seguiAsi")}
             hintColor={progressPercent >= 50 ? "success" : "warning"}
           />
+          {!esAppSinConexion && (<>
           <StatCard
             icon={<Clock3 className="w-5 h-5" />}
             value={tareas.length}
@@ -271,10 +277,11 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
             hint={t("menualumno.cicloEconomicoActivo")}
             hintColor="muted"
           />
+          </>)}
         </div>
 
         {/* Dos columnas: módulos + tareas */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div className={`grid grid-cols-1 gap-4 ${esAppSinConexion ? "" : "lg:grid-cols-2"}`}>
 
           {/* Módulos */}
           <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
@@ -304,6 +311,7 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
           </div>
 
           {/* Tareas */}
+          {!esAppSinConexion && (
           <div>
             <div className="flex items-center justify-between mb-3">
               <p className="text-sm font-medium text-[var(--c-text)]">{t("tareas.tareasPendientes")}</p>
@@ -325,6 +333,7 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
               </div>
             )}
           </div>
+          )}
 
         </div>
       </div>

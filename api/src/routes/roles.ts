@@ -33,22 +33,19 @@ const VALID_TARGET_ROLES = new Set([
  * semántica: sin birthdate ⇒ menor (rechazo).
  */
 
-// POST /api/solicitar-rol — pedir cambio de rol
-roles.post("/api/solicitar-rol", requireUser, async (req, res) => {
-  const userId = (req as { user?: { _id?: { toString?: () => string }; id?: string } }).user?._id?.toString?.()
-    ?? (req as { user?: { id?: string } }).user?.id
-    ?? "";
-  if (!userId) return res.status(401).json({ error: "no autenticado" });
+type Respuesta = { status: number; body: Record<string, unknown> };
 
-  const { target_role, motivo } = req.body as Record<string, unknown>;
+/**
+ * El pedido de cambio de rol, sin Express: lo usan `POST /api/solicitar-rol` y la sincronización de la app sin conexión
+ * (L8), que manda los pedidos que quedaron en su cola.
+ */
+export async function solicitarCambioDeRol(userId: string, target_role: unknown, motivo: unknown): Promise<Respuesta> {
   if (typeof target_role !== "string" || !VALID_TARGET_ROLES.has(target_role)) {
-    return res.status(400).json({
-      error: "target_role inválido. Debe ser TEACHER, PARENT, DIRECTIVO o ADMIN."
-    });
+    return { status: 400, body: { error: "target_role inválido. Debe ser TEACHER, PARENT, DIRECTIVO o ADMIN." } };
   }
 
   if (typeof motivo === "string" && motivo.length > 2000) {
-    return res.status(400).json({ error: "El motivo admite hasta 2000 caracteres." });
+    return { status: 400, body: { error: "El motivo admite hasta 2000 caracteres." } };
   }
 
   // Leer el user para chequear birthdate y rol actual.
@@ -57,17 +54,13 @@ roles.post("/api/solicitar-rol", requireUser, async (req, res) => {
     select: { id: true, roles: true, birthdate: true, isDeleted: true },
   });
   if (!user || user.isDeleted) {
-    return res.status(404).json({ error: "usuario no encontrado" });
+    return { status: 404, body: { error: "usuario no encontrado" } };
   }
   if (isMinor(user.birthdate)) {
-    return res.status(403).json({
-      error: "Necesitás ser mayor de 18 años para solicitar un cambio de rol."
-    });
+    return { status: 403, body: { error: "Necesitás ser mayor de 18 años para solicitar un cambio de rol." } };
   }
   if (resolvePrimaryRole(user) === target_role) {
-    return res.status(409).json({
-      error: `Ya tenés el rol ${target_role}.`
-    });
+    return { status: 409, body: { error: `Ya tenés el rol ${target_role}.` } };
   }
 
   // FIX-TEST4-ROLE-02 — si ya tiene una solicitud pendiente
@@ -81,11 +74,10 @@ roles.post("/api/solicitar-rol", requireUser, async (req, res) => {
     },
   });
   if (existing) {
-    return res.json({
-      id: existing.id,
-      alreadyPending: true,
-      message: "Ya tenés una solicitud pendiente. El admin la revisará pronto.",
-    });
+    return {
+      status: 200,
+      body: { id: existing.id, alreadyPending: true, message: "Ya tenés una solicitud pendiente. El admin la revisará pronto." },
+    };
   }
 
   const id = randomUUID();
@@ -112,10 +104,20 @@ roles.post("/api/solicitar-rol", requireUser, async (req, res) => {
         status: "PENDING",
       },
     });
-    res.status(201).json({ id, message: "Solicitud enviada. El admin la revisará." });
+    return { status: 201, body: { id, message: "Solicitud enviada. El admin la revisará." } };
   } catch (err) {
-    res.status(500).json({
-      error: err instanceof Error ? err.message : "internal server error"
-    });
+    return { status: 500, body: { error: err instanceof Error ? err.message : "internal server error" } };
   }
+}
+
+// POST /api/solicitar-rol — pedir cambio de rol
+roles.post("/api/solicitar-rol", requireUser, async (req, res) => {
+  const userId = (req as { user?: { _id?: { toString?: () => string }; id?: string } }).user?._id?.toString?.()
+    ?? (req as { user?: { id?: string } }).user?.id
+    ?? "";
+  if (!userId) return res.status(401).json({ error: "no autenticado" });
+
+  const { target_role, motivo } = req.body as Record<string, unknown>;
+  const r = await solicitarCambioDeRol(userId, target_role, motivo);
+  res.status(r.status).json(r.body);
 });

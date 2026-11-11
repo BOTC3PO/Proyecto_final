@@ -74,7 +74,16 @@ const SECCIONES: Record<"es" | "en", Seccion[]> = {
       ],
     },
     {
-      titulo: "9. Cambios a esta política",
+      titulo: "9. App sin conexión",
+      parrafos: [
+        "La app sin conexión de Virtual Book (Android, Windows y Linux) guarda en el propio dispositivo lo necesario para funcionar sin internet: el perfil de cada persona que la usa en ese equipo (usuario, nombre y rol; en las cuentas de la Plataforma, también el correo, la escuela y si es menor de edad), una huella de la contraseña (nunca la contraseña), el permiso firmado que habilita la cuenta sin conexión por 90 días, y su progreso, sus intentos con las respuestas y sus módulos favoritos. Los materiales y diccionarios descargados son de todo el dispositivo.",
+        "Cuando hay internet, la app sube a la Plataforma los intentos hechos sin conexión y los pedidos de cambio de rol, y baja el progreso y los intentos hechos en la web. La Plataforma vuelve a corregir cada intento y vale su nota. Los usuarios locales (creados en el dispositivo, sin cuenta de la Plataforma) no envían ningún dato: sus datos salen del dispositivo sólo si se los vincula a una cuenta.",
+        "La base de datos de la app no está cifrada: en Android sólo la puede leer la propia app; en una computadora, la cuenta del sistema operativo con la que se usa. Por eso conviene un bloqueo de pantalla o una cuenta del sistema por persona. Después de 5 contraseñas incorrectas seguidas, la app hace esperar cada vez más.",
+        "Los datos quedan en el dispositivo hasta que se borra el perfil, desde «Mi perfil → Tus datos en este dispositivo» o, sin iniciar sesión, con «Quitar un perfil de este dispositivo» en la pantalla de ingreso. En «Mi perfil» también se pueden descargar en un archivo JSON. Borrar el perfil elimina todo lo que el dispositivo guarda de esa persona y no afecta la cuenta de la Plataforma. Si la cuenta se da de baja en la Plataforma, la app borra sus datos del dispositivo la próxima vez que se conecta; si la cuenta se suspende, el perfil queda bloqueado en el dispositivo. Desinstalar la app en Android borra todos sus datos; en una computadora, la carpeta de datos puede quedar, así que conviene borrar los perfiles antes.",
+      ],
+    },
+    {
+      titulo: "10. Cambios a esta política",
       parrafos: [
         "Podemos actualizar esta Política de Privacidad para reflejar cambios en la Plataforma o en la normativa aplicable. Publicaremos la versión vigente en esta misma página junto con su fecha de actualización, y cuando cambie te lo avisaremos dentro de la Plataforma la próxima vez que ingreses.",
       ],
@@ -141,7 +150,16 @@ const SECCIONES: Record<"es" | "en", Seccion[]> = {
       ],
     },
     {
-      titulo: "9. Changes to This Policy",
+      titulo: "9. Offline App",
+      parrafos: [
+        "The Virtual Book offline app (Android, Windows and Linux) stores on the device itself what it needs to work without internet: the profile of each person who uses it on that device (username, name and role; for Platform accounts, also the email, the school and whether they are a minor), a fingerprint of the password (never the password itself), the signed permit that enables the account offline for 90 days, and their progress, their attempts with the answers and their favorite modules. Downloaded materials and dictionaries belong to the whole device.",
+        "When there is internet, the app uploads to the Platform the attempts made offline and role-change requests, and downloads the progress and attempts made on the web. The Platform grades each attempt again and its grade is the one that counts. Local users (created on the device, without a Platform account) send no data at all: their data leaves the device only if they are linked to an account.",
+        "The app's database is not encrypted: on Android only the app itself can read it; on a computer, the operating-system account it is used with. That is why a screen lock or one system account per person is advisable. After 5 wrong passwords in a row, the app makes you wait longer each time.",
+        "The data stays on the device until the profile is deleted, from \"My profile → Your data on this device\" or, without signing in, with \"Remove a profile from this device\" on the sign-in screen. In \"My profile\" you can also download it as a JSON file. Deleting the profile removes everything the device stores about that person and does not affect the Platform account. If the account is deleted on the Platform, the app deletes its data from the device the next time it connects; if the account is suspended, the profile is blocked on the device. Uninstalling the app on Android deletes all its data; on a computer, the data folder may remain, so it is advisable to delete the profiles first.",
+      ],
+    },
+    {
+      titulo: "10. Changes to This Policy",
       parrafos: [
         "We may update this Privacy Policy to reflect changes to the Platform or to applicable regulations. We will publish the current version on this same page along with its update date, and when it changes we will let you know inside the Platform the next time you sign in.",
       ],

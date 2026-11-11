@@ -1,0 +1,91 @@
+/**
+ * L8 — permiso de la app sin conexión.
+ *
+ * Al activar la app, el servidor firma con Ed25519 quién es la persona, qué roles usa en la app y hasta cuándo.
+ * La app trae la clave pública y comprueba la firma sin red; la privada queda solo en el servidor
+ * (`OFFLINE_PERMISO_CLAVE_ARCHIVO`).
+ *
+ * Formato: `permiso` es el JSON en base64url y `firma` es la firma de esos mismos caracteres, también en base64url.
+ * Se firma el texto ya codificado para que la app no tenga que reproducir el JSON byte a byte.
+ */
+import crypto from "node:crypto";
+import fs from "node:fs";
+import { ENV } from "./env";
+
+export const VERSION_PERMISO = 1;
+// La app usa estos roles; directivo y administrador quedan afuera (ver docs/plan/app-sin-conexion-tauri.md).
+export const ROLES_DE_LA_APP = ["USER", "TEACHER", "PARENT"] as const;
+
+export type Permiso = {
+  v: number;
+  sub: string;
+  username: string | null;
+  nombre: string | null;
+  email: string | null;
+  roles: string[];
+  schoolId: string | null;
+  menor: boolean;
+  dispositivo: string;
+  emitido: string;
+  vence: string;
+  /** Huella de la contraseña vigente al emitirlo: si la cambian en la web, la sincronización pide la nueva. */
+  cred?: string;
+};
+
+/**
+ * Huella de la huella guardada de la contraseña (no de la contraseña): cambia cuando cambia la contraseña y no sirve
+ * para adivinarla.
+ */
+export const huellaDeCredencial = (passwordHash: string | null | undefined): string =>
+  crypto.createHash("sha256").update(`vb-permiso-offline:${passwordHash ?? ""}`).digest("base64url").slice(0, 22);
+
+let cache: { archivo: string; clave: crypto.KeyObject } | null = null;
+
+/** La clave privada, o null si no está configurada. La lee una vez por archivo. */
+export function clavePrivada(archivo = ENV.OFFLINE_PERMISO_CLAVE_ARCHIVO): crypto.KeyObject | null {
+  if (!archivo) return null;
+  if (cache?.archivo === archivo) return cache.clave;
+  const clave = crypto.createPrivateKey(fs.readFileSync(archivo));
+  if (clave.asymmetricKeyType !== "ed25519") throw new Error("OFFLINE_PERMISO_CLAVE_ARCHIVO no es una clave Ed25519");
+  cache = { archivo, clave };
+  return clave;
+}
+
+/** Clave pública en crudo (32 bytes, base64url), la que se compila en la app. */
+export function clavePublicaCruda(privada: crypto.KeyObject): string {
+  const der = crypto.createPublicKey(privada).export({ type: "spki", format: "der" });
+  return der.subarray(der.length - 32).toString("base64url");
+}
+
+export function rolesParaLaApp(roles: readonly string[]): string[] {
+  return ROLES_DE_LA_APP.filter((r) => roles.includes(r));
+}
+
+export function firmarPermiso(datos: Permiso, clave: crypto.KeyObject): { permiso: string; firma: string } {
+  const permiso = Buffer.from(JSON.stringify(datos)).toString("base64url");
+  const firma = crypto.sign(null, Buffer.from(permiso), clave).toString("base64url");
+  return { permiso, firma };
+}
+
+/**
+ * Lee el encabezado `Authorization: Permiso <permiso>.<firma>` con el que la app pide lo suyo sin una sesión de la
+ * web (por ejemplo, los módulos de la escuela). Devuelve los datos si la firma es de este servidor y no venció.
+ */
+export function leerPermiso(encabezado: string | undefined, ahora = Date.now()): Permiso | null {
+  const m = /^Permiso ([A-Za-z0-9_-]+)\.([A-Za-z0-9_-]+)$/.exec(encabezado ?? "");
+  let clave: crypto.KeyObject | null = null;
+  try {
+    clave = m ? clavePrivada() : null;
+  } catch {
+    return null;
+  }
+  if (!m || !clave) return null;
+  const [, permiso, firma] = m;
+  if (!crypto.verify(null, Buffer.from(permiso), crypto.createPublicKey(clave), Buffer.from(firma, "base64url"))) return null;
+  try {
+    const datos = JSON.parse(Buffer.from(permiso, "base64url").toString("utf8")) as Permiso;
+    return datos.v === VERSION_PERMISO && Date.parse(datos.vence) > ahora ? datos : null;
+  } catch {
+    return null;
+  }
+}

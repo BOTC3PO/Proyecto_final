@@ -21,6 +21,8 @@ export function reglasDeLimite(opts: { contenidoMb: number; defectoMb: number })
       },
       // Respuestas y entrega de cuestionarios.
       { patron: /^\/api\/quiz-attempts(\/|$)/, mb: 2 },
+      // L8 — sincronización de la app sin conexión: intentos con sus respuestas (la app los manda en tandas).
+      { patron: /^\/api\/offline\/sync$/, mb: 5 },
       // Enlaces de recursos del aula.
       { patron: /^\/api\/aulas\/[^/]+\/resource-links(\/|$)/, mb: 5 },
       // Configuración de aulas y altas de hijos.
