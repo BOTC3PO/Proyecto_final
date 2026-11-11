@@ -3,7 +3,7 @@
  *  1-2. Comparación de secretos en tiempo constante (clave de arranque y firma de Cryptomus).
  *  3.   `canXxx` da lo mismo con un rol suelto que con un objeto (ADMIN_ESCUELA es staff en ambos).
  *  4.   El limitador de cambio de escuela está conectado a la ruta.
- *  5.   El segundo paso de 2FA tiene el mismo tope estricto que el primero.
+ *  5.   (El límite del segundo paso de 2FA pasó a ser por persona; ver login-por-cuenta-e-ip.test.ts.)
  *
  * Los limitadores quedan ACTIVOS acá (no se define AUTH_RATE_LIMIT_DISABLED): cada archivo de test corre
  * en su propio proceso, así que no afecta a los demás.
@@ -122,14 +122,5 @@ test("escuela-activa: pasada la cuota por minuto responde 429 (el limitador est�
   assert.ok(codigos.slice(100).every((c) => c === 429), `después de la cuota debe cortar: ${codigos.slice(98, 105).join(",")}`);
 });
 
-// ── 5 · segundo paso de 2FA ─────────────────────────────────────────────────
-
-test("2fa/login: tope de 10 intentos por ventana (el desafío roto da 401 hasta el tope y 429 después)", async () => {
-  const codigos: number[] = [];
-  for (let i = 0; i < 13; i++) {
-    const r = await jsonRequest(baseUrl, "POST", "/api/auth/2fa/login", { body: { desafio: "desafio-invalido", codigo: "000000" } });
-    codigos.push(r.status);
-  }
-  assert.deepEqual(codigos.slice(0, 10), Array(10).fill(401), `primeros 10: ${codigos.join(",")}`);
-  assert.deepEqual(codigos.slice(10), [429, 429, 429], `después del tope: ${codigos.join(",")}`);
-});
+// ── 5 · segundo paso de 2FA ─────────────────────────────────────────────────────────────────────────────────────────
+// El tope de intentos del código de 2FA ahora es POR PERSONA (y no por IP): se prueba en login-por-cuenta-e-ip.test.ts.

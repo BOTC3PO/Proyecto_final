@@ -158,13 +158,12 @@ app.use(jsonPorRuta(
   }
 ));
 // VUL-3: rate limiters específicos para endpoints sensibles
-app.use(
-  "/api/auth/login",
-  createRateLimiter({ windowMs: 15 * 60 * 1000, limit: 10 })
-);
+// El ingreso (/api/auth/login y el segundo factor) NO se limita acá por IP: tiene su propio límite por cuenta y por IP en
+// lib/login-guard.ts. Un límite de 10 por IP bloqueaba a una escuela entera (30 alumnos desde la misma IP: entraban 10).
+// Registro: por IP, pero con margen para que una clase se registre (30 por hora; antes 5).
 app.use(
   "/api/auth/register",
-  createRateLimiter({ windowMs: 60 * 60 * 1000, limit: 5 })
+  createRateLimiter({ windowMs: 60 * 60 * 1000, limit: 30 })
 );
 app.use(
   "/api/sync/push",
@@ -183,9 +182,10 @@ app.use(
   "/api/payments/webhook",
   createRateLimiter({ windowMs: 60 * 1000, limit: 120 })
 );
+// Recuperar contraseña: por IP un tope amplio (30 por hora) y, además, 5 por hora por correo (dentro de la ruta).
 app.use(
   "/api/auth/forgot-password",
-  createRateLimiter({ windowMs: 60 * 60 * 1000, limit: 5 })
+  createRateLimiter({ windowMs: 60 * 60 * 1000, limit: 30 })
 );
 
 // Rate limiter global

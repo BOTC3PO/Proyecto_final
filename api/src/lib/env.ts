@@ -49,6 +49,7 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   // upstream de Nginx (60 s): con el default de Node (5 s) Node cierra una conexión justo cuando Nginx la reutiliza y
   // esos pedidos fallan con 502 (los POST no se reintentan).
   KEEP_ALIVE_TIMEOUT_MS: Number(process.env.KEEP_ALIVE_TIMEOUT_MS ?? 65_000),
+  // Los límites de ingreso (LOGIN_*, SEGUNDO_FACTOR_MAX) se leen en lib/login-guard-instancia.ts directamente del entorno.
   COMPRESSION: (process.env.COMPRESSION ?? "on").toLowerCase(),
   COMPRESSION_BROTLI_QUALITY: Number(process.env.COMPRESSION_BROTLI_QUALITY ?? 1),
   COMPRESSION_GZIP_LEVEL: Number(process.env.COMPRESSION_GZIP_LEVEL ?? 1),
