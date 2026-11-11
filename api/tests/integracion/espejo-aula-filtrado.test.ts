@@ -21,7 +21,6 @@ import {
   prisma,
   resetPrisma,
   seedUser,
-  seedVinculacion,
   tokenFor,
   startServer,
   jsonRequest,

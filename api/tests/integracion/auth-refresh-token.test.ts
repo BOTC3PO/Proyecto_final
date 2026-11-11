@@ -70,11 +70,6 @@ after(async () => {
 
 // ─── Helpers ───
 
-const registerUser = async (email: string, username: string, password: string) => {
-  return jsonRequest(baseUrl, "POST", "/api/auth/register", {
-    body: { email, username, password, fullName: "Test User" },
-  });
-};
 
 const loginUser = async (identifier: string, password: string) => {
   return jsonRequest(baseUrl, "POST", "/api/auth/login", {

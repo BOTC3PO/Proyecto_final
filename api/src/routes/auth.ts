@@ -1,5 +1,5 @@
 import crypto from "node:crypto";
-import type { Response } from "express";
+import type { Request, Response } from "express";
 import { Router } from "express";
 import { ZodError } from "zod";
 import { requireAdmin } from "../lib/admin-auth";
@@ -21,8 +21,11 @@ import {
 import { markUsersWithoutUsablePasswordForReset } from "../lib/password-health";
 import { recordAuditLog } from "../lib/audit-log";
 import { createRateLimiter } from "../lib/rate-limit";
+import { claveIp, cookieDispositivo, dispositivoConocido, huella, limitarIntentos, type ContextoLogin, type Decision } from "../lib/login-guard";
+import { almacenLimites, guardaLogin, limitarHash, limitesHabilitados, segundoFactorMax } from "../lib/login-guard-instancia";
+import { ColaLlena } from "../lib/concurrencia";
 import { normalizeSchoolId } from "../lib/school-ids";
-import { resolveRoles, isStaffInRoles, resolvePrimaryRole } from "../lib/roles";
+import { resolveRoles, resolvePrimaryRole } from "../lib/roles";
 import { acreditarSaldoInicial } from "../lib/economia-alta";
 import { requireUser } from "../lib/user-auth";
 import { estaBaneado, respuestaBaneado } from "../lib/ban";
@@ -48,38 +51,51 @@ import {
   verificarCodigo
 } from "../lib/totp";
 import { motivoPasswordDebil } from "../lib/password-policy";
+import { secretosIguales } from "../lib/secret-compare";
 
 export const auth = Router();
 
-type DbUser = {
-  id: string;
-  email?: string | null;
-  username?: string | null;
-  role?: string | null;
-  guestOnboardingStatus?: string | null;
-  escuelaId?: string | null;
-  fullName?: string | null;
-  passwordHash?: string | null;
-  passwordResetRequired?: boolean;
-  isDeleted?: boolean;
-};
 
 const isProduction = ENV.NODE_ENV === "production";
 
+// Límite general de los endpoints anónimos de auth (registro, invitado, verificar correo, restablecer contraseña…).
+// Cuenta por IP, y una escuela entera sale con una sola IP pública: 20 por minuto se agotaban con una clase. 120 por
+// minuto (2 por segundo) sigue frenando el abuso sin bloquear a una escuela. El ingreso (login y segundo factor) NO usa
+// este límite: tiene el suyo por cuenta y por IP (lib/login-guard.ts).
 const authLimiter = createRateLimiter({
   windowMs: 60 * 1000,
-  limit: isProduction ? 20 : 100,
+  limit: isProduction ? 120 : 100,
   enabled: !ENV.AUTH_RATE_LIMIT_DISABLED,
   message: { error: "Too many requests" }
 });
 
-// Limitador estricto solo para intentos de login: 10 intentos / 15 min por IP
-const loginLimiter = createRateLimiter({
-  windowMs: 15 * 60 * 1000,
-  limit: 10,
+// Renovar la sesión (refresh): cada alumno lo hace aproximadamente a la misma hora (el token vence a la hora de
+// entrar), así que por IP una escuela se bloqueaba sola. Se cuenta por la persona dueña del refresh token (verificado
+// con la firma, sin ir a la base); con un token inválido, por IP.
+const refreshLimiter = createRateLimiter({
+  windowMs: 60 * 1000,
+  limit: isProduction ? 30 : 100,
   enabled: !ENV.AUTH_RATE_LIMIT_DISABLED,
-  message: { error: "Demasiados intentos de inicio de sesión. Intenta de nuevo en 15 minutos." }
+  message: { error: "Too many requests" },
+  keyGenerator: (req) => {
+    const token = (req.body as { refreshToken?: unknown } | undefined)?.refreshToken;
+    if (typeof token === "string" && token) {
+      const v = verifyToken(token, "refresh");
+      if (v.ok && v.payload.sub) return `refresh:${v.payload.sub}`;
+    }
+    return req.ip ?? "unknown";
+  }
 });
+
+/** Respuesta 429 de los límites de ingreso. No dice qué regla saltó (no se le da una pista a quien ataca). */
+const rechazarPorLimite = (req: Request, res: Response, d: Extract<Decision, { permitido: false }>) => {
+  if (ENV.NODE_ENV !== "test") console.warn(`[login-guard] bloqueo motivo=${d.motivo} ip=${claveIp(req.ip)} reintentar=${d.reintentarSeg}s`);
+  res.setHeader("Retry-After", String(d.reintentarSeg));
+  res.status(429).json({
+    error: "Demasiados intentos de inicio de sesión. Probá de nuevo en unos minutos.",
+    retryAfterSeconds: d.reintentarSeg
+  });
+};
 
 const switchLimiter = createRateLimiter({
   windowMs: 60 * 1000,
@@ -99,7 +115,7 @@ auth.post("/api/auth/bootstrap-admin", async (req, res) => {
       return;
     }
     const providedKey = req.header("x-bootstrap-key");
-    if (!providedKey || providedKey !== ENV.BOOTSTRAP_ADMIN_KEY) {
+    if (!providedKey || !secretosIguales(providedKey, ENV.BOOTSTRAP_ADMIN_KEY)) {
       res.status(401).json({ error: "Invalid bootstrap key" });
       return;
     }
@@ -490,7 +506,7 @@ auth.post("/api/auth/guest", authLimiter, async (req, res) => {
 // `resolverSesionEscuela`: si el usuario no tiene una membresía activa
 // ahí, el resolver la ignora y devuelve la que corresponda. Nunca se
 // concede un rol porque el cliente lo haya pedido.
-auth.post("/api/auth/escuela-activa", requireUser, async (req, res) => {
+auth.post("/api/auth/escuela-activa", switchLimiter, requireUser, async (req, res) => {
   const requester = (req as { user?: { id?: string } }).user;
   const userId = requester?.id;
   if (!userId) return res.status(401).json({ error: "no autenticado" });
@@ -540,7 +556,7 @@ auth.post("/api/auth/escuela-activa", requireUser, async (req, res) => {
   });
 });
 
-auth.post("/api/auth/refresh", authLimiter, async (req, res) => {
+auth.post("/api/auth/refresh", refreshLimiter, async (req, res) => {
   try {
     const parsed = RefreshTokenSchema.parse(req.body ?? {});
     const verification = verifyToken(parsed.refreshToken, "refresh");
@@ -643,7 +659,7 @@ auth.post("/api/auth/refresh", authLimiter, async (req, res) => {
           data: { revoked: true, replacedBy: nextRefreshToken.jti }
         });
       }
-    } catch (e) {
+    } catch {
       res.status(500).json({ error: "Could not rotate refresh token" });
       return;
     }
@@ -853,12 +869,20 @@ auth.post("/api/auth/forgot-password", authLimiter, async (req, res) => {
       email: body.email.trim().toLowerCase()
     });
 
-    const user = await prisma.usuario.findFirst({
-      where: {
-        email: parsed.email,
-        isDeleted: { not: true }
-      }
-    });
+    // Por correo: 5 pedidos por hora. El límite por IP solo no sirve (una escuela comparte IP) ni protege a quien recibe los
+    // mails. Pasado el cupo se responde igual que siempre, sin enviar nada: no se revela nada ni se puede inundar a nadie.
+    const cupoCorreo = limitesHabilitados
+      ? await limitarIntentos(almacenLimites, `lg:fp:${huella(`correo|${parsed.email}`, ENV.JWT_SECRET)}`, 5, 60 * 60 * 1000)
+      : { permitido: true, reintentarSeg: 0 };
+
+    const user = cupoCorreo.permitido
+      ? await prisma.usuario.findFirst({
+          where: {
+            email: parsed.email,
+            isDeleted: { not: true }
+          }
+        })
+      : null;
 
     if (user?.id && resolvePrimaryRole(user) !== "GUEST") {
       // MULTIROL-01: con multi-rol, un usuario puede haber sido guest
@@ -986,11 +1010,31 @@ const usuarioDeSesion = async (req: { user?: { id?: string; _id?: unknown } }) =
   return id ? prisma.usuario.findFirst({ where: { id, isDeleted: { not: true } } }) : null;
 };
 
-auth.post("/api/auth/2fa/login", authLimiter, async (req, res) => {
+auth.post("/api/auth/2fa/login", async (req, res) => {
+  const ventanaMs = 15 * 60 * 1000;
+  const claveIpDos = `lg:2fa:i:${claveIp(req.ip)}`;
+  let claveUsuarioDos: string | undefined;
+  if (limitesHabilitados) {
+    // Por IP un tope amplio (una escuela entera comparte IP): lo que protege el código es el límite por persona, de abajo.
+    const porIp = await limitarIntentos(almacenLimites, claveIpDos, 120, ventanaMs);
+    if (!porIp.permitido) {
+      rechazarPorLimite(req, res, { permitido: false, motivo: "ip-volumen", reintentarSeg: porIp.reintentarSeg });
+      return;
+    }
+  }
   const userId = leerDesafio2fa(String(req.body?.desafio ?? ""));
   if (!userId) {
     res.status(401).json({ error: "El ingreso venció. Volvé a escribir tu contraseña.", code: "DESAFIO_VENCIDO" });
     return;
+  }
+  if (limitesHabilitados) {
+    // Por persona: un código TOTP son 10^6 combinaciones; pocos intentos por ventana (SEGUNDO_FACTOR_MAX).
+    claveUsuarioDos = `lg:2fa:u:${huella(`cuenta|u:${userId}`, ENV.JWT_SECRET)}`;
+    const porUsuario = await limitarIntentos(almacenLimites, claveUsuarioDos, segundoFactorMax, ventanaMs);
+    if (!porUsuario.permitido) {
+      rechazarPorLimite(req, res, { permitido: false, motivo: "cuenta", reintentarSeg: porUsuario.reintentarSeg });
+      return;
+    }
   }
   const user = await prisma.usuario.findFirst({ where: { id: userId, isDeleted: { not: true } } });
   if (!user || estaBaneado(user as { isBanned?: boolean; bannedUntil?: string | null })) {
@@ -1001,6 +1045,9 @@ auth.post("/api/auth/2fa/login", authLimiter, async (req, res) => {
     res.status(401).json({ error: "El código no es correcto.", code: "CODIGO_2FA_INCORRECTO" });
     return;
   }
+  // Ingreso completo: el intento no cuenta, y se recuerda este navegador para la cuenta.
+  if (limitesHabilitados && claveUsuarioDos) await Promise.all([almacenLimites.decr(claveUsuarioDos), almacenLimites.decr(claveIpDos)]);
+  res.append("Set-Cookie", cookieDispositivo(req.headers.cookie, `u:${user.id}`, ENV.JWT_SECRET, { seguro: req.secure }));
   await emitirSesion(res, user);
 });
 
@@ -1060,7 +1107,9 @@ auth.post("/api/auth/2fa/desactivar", requireUser, async (req, res) => {
   res.json({ ok: true });
 });
 
-auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
+auth.post("/api/auth/login", async (req, res) => {
+  // Se anota qué intento se está evaluando para poder devolverlo si el servidor está ocupado y no llega a evaluarse.
+  let intento: { ctx: ContextoLogin; cuenta: string; conocido: boolean } | undefined;
   try {
     const body = req.body ?? {};
     if (typeof body.identifier !== "string" || typeof body.password !== "string") {
@@ -1068,17 +1117,41 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
       return;
     }
 
+    // Primero el formato (barato): un pedido mal formado no tiene que consumir cupo de ningún límite.
     const parsed = LoginSchema.parse({
       ...body,
       identifier: body.identifier.trim().toLowerCase()
     });
     const identifier = parsed.identifier;
+
+    // Con los hashes ya saturados se rechaza ANTES de tocar la base o Redis: bajo una inundación de ingresos cada intento
+    // rechazado igual hacía una consulta y varias operaciones de Redis, y el resto de la API se resentía (medido:
+    // /api/me caía de ~1.900 a ~54 pedidos/s). Todavía no se contó nada, así que no hay nada que devolver.
+    if (limitarHash.saturado()) throw new ColaLlena();
+
+    // Límite por IP (antes de tocar la base ni calcular el hash): ver lib/login-guard.ts.
+    const ctx: ContextoLogin = { ip: req.ip ?? "", ua: String(req.headers["user-agent"] ?? "") };
+    const porIp = await guardaLogin.autorizarIp(ctx);
+    if (!porIp.permitido) {
+      rechazarPorLimite(req, res, porIp);
+      return;
+    }
     const user = await prisma.usuario.findFirst({
       where: {
         OR: [{ email: identifier }, { username: identifier }],
         isDeleted: { not: true }
       }
     });
+    // Límite por cuenta (por id, así entrar con el correo o con el usuario cuenta contra el mismo cupo). Un navegador que ya
+    // inició sesión con esta cuenta lleva una cookie firmada y tiene un cupo mayor.
+    const cuenta = user ? `u:${user.id}` : `i:${identifier}`;
+    const conocido = user ? dispositivoConocido(req.headers.cookie, cuenta, ENV.JWT_SECRET) : false;
+    const porCuenta = await guardaLogin.autorizarCuenta(cuenta, conocido);
+    if (!porCuenta.permitido) {
+      rechazarPorLimite(req, res, porCuenta);
+      return;
+    }
+    intento = { ctx, cuenta, conocido };
     if (user && resolveRoles(user).includes("GUEST")) {
       if (ENV.NODE_ENV !== "production") {
         console.warn("[auth/login] Guest account attempted password login", {
@@ -1086,6 +1159,7 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
           userId: user.id
         });
       }
+      await guardaLogin.registrarFallo(ctx, cuenta);
       res.status(403).json({
         error: "Guest accounts cannot log in with password. Please complete onboarding to create credentials."
       });
@@ -1105,11 +1179,12 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
         });
       }
       // Misma demora que con un usuario real, para que el tiempo de respuesta no delate si el correo existe.
-      await verificarContraFalso(parsed.password);
+      await limitarHash(() => verificarContraFalso(parsed.password));
+      await guardaLogin.registrarFallo(ctx, cuenta);
       res.status(401).json({ error: "Invalid credentials" });
       return;
     }
-    const isValid = await verifyPassword(parsed.password, user.passwordHash);
+    const isValid = await limitarHash(() => verifyPassword(parsed.password, user.passwordHash as string));
     if (!isValid) {
       if (ENV.NODE_ENV !== "production") {
         console.warn("[auth/login] Invalid credentials: password mismatch", {
@@ -1117,9 +1192,12 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
           userId: user.id
         });
       }
+      await guardaLogin.registrarFallo(ctx, cuenta);
       res.status(401).json({ error: "Invalid credentials" });
       return;
     }
+    // La contraseña es correcta: el intento no cuenta contra la cuenta ni contra la IP (una escuela que entra bien no se frena).
+    await guardaLogin.registrarAcierto(ctx, cuenta, conocido);
     if (estaBaneado(user as { isBanned?: boolean; bannedUntil?: string | null })) {
       res.status(403).json(respuestaBaneado(user as { bannedUntil?: string | null }));
       return;
@@ -1151,8 +1229,17 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
       res.status(200).json({ requiere2fa: true, desafio: crearDesafio2fa(user.id.toString()) });
       return;
     }
+    // Se recuerda este navegador para esta cuenta (cookie firmada): afloja el límite de fallos si alguien más le bloquea la cuenta.
+    res.append("Set-Cookie", cookieDispositivo(req.headers.cookie, cuenta, ENV.JWT_SECRET, { seguro: req.secure }));
     await emitirSesion(res, user);
   } catch (e: any) {
+    if (e instanceof ColaLlena) {
+      // Demasiados hashes en curso: no es culpa de quien intentó, se le devuelve el intento y se pide reintentar.
+      if (intento) await guardaLogin.anular(intento.ctx, intento.cuenta, intento.conocido).catch(() => undefined);
+      res.setHeader("Retry-After", "3");
+      res.status(503).json({ error: "El servidor está ocupado. Probá de nuevo en unos segundos.", retryAfterSeconds: 3 });
+      return;
+    }
     if (e instanceof ZodError) {
       res.status(400).json({ error: e.message || "invalid payload" });
       return;
@@ -1160,20 +1247,6 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 });
-
-const ROLE_LANDING: Record<string, string> = {
-  ADMIN: "/admin",
-  DIRECTIVO: "/directivo",
-  TEACHER: "/profesor",
-  PARENT: "/padre",
-  USER: "/alumno",
-  GUEST: "/alumno"
-};
-
-const landingForRoles = (roles: string[]): string => {
-  const primary = resolvePrimaryRole({ roles });
-  return ROLE_LANDING[primary ?? "USER"] ?? "/alumno";
-};
 
 const sendAuthenticatedUser = async (res: Response) => {
   const user = res.locals.user as {

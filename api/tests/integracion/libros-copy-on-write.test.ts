@@ -43,7 +43,6 @@ const SCHOOL_A = "school-A";
 const SCHOOL_B = "school-B";
 
 const BOOK_ESC = "libro-cow-esc-1";
-const BOOK_PUB = "libro-cow-pub-1";
 const BOOK_PRIV = "libro-cow-priv-1";
 
 function bookPayload(id: string, title: string) {

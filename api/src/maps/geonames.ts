@@ -49,7 +49,7 @@ export const DEFAULT_GEONAMES_SQLITE_PATH = path.resolve(
 let cachedCtor: BetterSqlite3Ctor | null = null;
 const getBetterSqlite3 = (): BetterSqlite3Ctor => {
   if (cachedCtor) return cachedCtor;
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   cachedCtor = require("better-sqlite3") as BetterSqlite3Ctor;
   return cachedCtor;
 };

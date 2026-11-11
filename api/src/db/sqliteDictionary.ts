@@ -17,7 +17,7 @@ let cachedBetterSqlite3: BetterSqlite3Ctor | null = null;
 
 const getBetterSqlite3 = (): BetterSqlite3Ctor => {
   if (cachedBetterSqlite3) return cachedBetterSqlite3;
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   cachedBetterSqlite3 = require("better-sqlite3") as BetterSqlite3Ctor;
   return cachedBetterSqlite3;
 };

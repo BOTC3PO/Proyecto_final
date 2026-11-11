@@ -32,7 +32,6 @@ import {
   validarLimiteIntentos,
   validarTiempoLimite,
   type IntentoPolicy,
-  type PoliticaNota
 } from "../lib/quiz-intentos";
 import {
   mergeAttemptEvents,
@@ -1140,7 +1139,7 @@ quizAttempts.post(
     const quiz = collectionQuiz ?? findQuiz(module, payload.quizId);
     if (!quiz) return res.status(404).json({ error: "quiz not found" });
     const quizVersionSource = version?.version ?? quiz.generatorVersion ?? 1;
-    const quizVersion = QuizVersionSchema.parse(quizVersionSource);
+    QuizVersionSchema.parse(quizVersionSource);
     const userId =
       typeof req.user?._id?.toString === "function"
         ? req.user._id.toString()
@@ -2207,7 +2206,7 @@ async function materializeSubmit(
         submitEvalConfig.timerSegundos
       );
 
-      const normalizedQuizVersion = QuizVersionSchema.parse(
+      QuizVersionSchema.parse(
         version?.version ?? quiz?.generatorVersion ?? 1
       );
       // I-2 — construir el set de preguntas a corregir según el tipo de quiz:

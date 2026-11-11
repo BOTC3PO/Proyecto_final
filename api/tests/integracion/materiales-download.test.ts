@@ -15,7 +15,6 @@
  */
 
 import {
-  jsonRequest,
   resetPrisma,
   seedUser,
   startServer,
