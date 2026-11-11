@@ -7,8 +7,12 @@ const { apiRequest, logout, navigate, ApiError } = vi.hoisted(() => ({
   logout: vi.fn(),
   navigate: vi.fn(),
   ApiError: class ApiError extends Error {
-    constructor(message: string, public status: number, public payload?: unknown) {
+    status: number;
+    payload?: unknown;
+    constructor(message: string, status: number, payload?: unknown) {
       super(message);
+      this.status = status;
+      this.payload = payload;
     }
   },
 }));
