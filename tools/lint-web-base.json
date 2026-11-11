@@ -1,0 +1,285 @@
+{
+  "scripts/screenshot.mjs": {
+    "@typescript-eslint/no-unused-vars": 1
+  },
+  "src/blocks/renderers/ChartBlockRenderer.tsx": {
+    "react-hooks/static-components": 1
+  },
+  "src/blocks/stats/tableFormulas.ts": {
+    "no-useless-escape": 3
+  },
+  "src/blocks/v2/state/useBlockEditor.ts": {
+    "react-hooks/refs": 3
+  },
+  "src/bookEditor/BookReaderOverlay.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/bookEditor/services/ids.ts": {
+    "@typescript-eslint/no-explicit-any": 1,
+    "prefer-const": 1
+  },
+  "src/bookEditor/services/migrate.ts": {
+    "@typescript-eslint/no-explicit-any": 1
+  },
+  "src/bookEditor/services/validate.ts": {
+    "@typescript-eslint/no-explicit-any": 3
+  },
+  "src/bookEditor/state/useBookEditor.ts": {
+    "@typescript-eslint/no-explicit-any": 1,
+    "react-hooks/refs": 3
+  },
+  "src/components/materiales/InsertarMaterialGuardado.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/components/modulos/BancoCuestionarios.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/components/modulos/BancoCuestionariosMulti.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/components/modulos/GeneradorSelector.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/components/modulos/PosicionesCanvas.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/components/modulos/QuizEditorGenerated.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/components/modulos/QuizGeneratedPreview.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/components/modulos/QuizPosicionesEditor.tsx": {
+    "react-hooks/preserve-manual-memoization": 2
+  },
+  "src/components/modulos/QuizPreguntasNativasPreview.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/components/modulos/SlidePresenter.tsx": {
+    "@typescript-eslint/no-unused-expressions": 1
+  },
+  "src/components/modulos/TheorySlideEditor.tsx": {
+    "no-extra-boolean-cast": 1,
+    "react-hooks/set-state-in-effect": 3
+  },
+  "src/components/modulos/VarianteEditor.tsx": {
+    "react-hooks/set-state-in-effect": 2
+  },
+  "src/components/modulos/VisualizerRenderer.tsx": {
+    "react-hooks/error-boundaries": 1
+  },
+  "src/components/profesor/AsignarModulosModal.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/components/profesor/CorreccionesPendientes.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/components/profesor/MatrizProgreso.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/components/quiz-renderers/MarcarMapaRenderer.tsx": {
+    "react-hooks/refs": 1
+  },
+  "src/components/vblang/CodeEditor.tsx": {
+    "react/no-danger": 1
+  },
+  "src/components/vblang/DatasetExplorer.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/components/vblang/GeneradorDocsPanel.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/components/vblang/PalabraCombobox.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/components/vblang/PlantillaEditorSchema.tsx": {
+    "react-hooks/set-state-in-effect": 2
+  },
+  "src/components/vblang/PlantillaSelectorModal.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/components/vblang/VariableCard.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/domain/book/book.types.ts": {
+    "@typescript-eslint/no-explicit-any": 2
+  },
+  "src/domain/materia/useMaterias.ts": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/editor/fields/VariablesField.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/generadoresV2/__tests__/algebra-equivalencia.spec.ts": {
+    "@typescript-eslint/no-explicit-any": 1
+  },
+  "src/generadoresV2/__tests__/analisis-equivalencia.spec.ts": {
+    "@typescript-eslint/no-explicit-any": 1,
+    "no-useless-escape": 2
+  },
+  "src/generadoresV2/__tests__/aritmetica-3a-ola-equivalencia.spec.ts": {
+    "@typescript-eslint/no-explicit-any": 1
+  },
+  "src/generadoresV2/__tests__/calculo-equivalencia.spec.ts": {
+    "@typescript-eslint/no-explicit-any": 1
+  },
+  "src/generadoresV2/__tests__/economia-equivalencia.spec.ts": {
+    "@typescript-eslint/no-explicit-any": 1
+  },
+  "src/generadoresV2/__tests__/porting-equivalencia.spec.ts": {
+    "@typescript-eslint/no-explicit-any": 1
+  },
+  "src/generadoresV2/__tests__/porting-fisica-dinamica-equivalencia.spec.ts": {
+    "@typescript-eslint/no-explicit-any": 1
+  },
+  "src/generadoresV2/__tests__/porting-fisica-electricidad-equivalencia.spec.ts": {
+    "@typescript-eslint/no-explicit-any": 1
+  },
+  "src/generadoresV2/__tests__/porting-fisica-energia-equivalencia.spec.ts": {
+    "@typescript-eslint/no-explicit-any": 1
+  },
+  "src/generadoresV2/__tests__/porting-fisica-equivalencia.spec.ts": {
+    "@typescript-eslint/no-explicit-any": 1
+  },
+  "src/generadoresV2/__tests__/porting-fisica-fluidos-equivalencia.spec.ts": {
+    "@typescript-eslint/no-explicit-any": 1
+  },
+  "src/generadoresV2/__tests__/porting-fisica-ondas-equivalencia.spec.ts": {
+    "@typescript-eslint/no-explicit-any": 1
+  },
+  "src/generadoresV2/__tests__/porting-fisica-termodinamica-equivalencia.spec.ts": {
+    "@typescript-eslint/no-explicit-any": 1
+  },
+  "src/generadoresV2/__tests__/quimica-equivalencia.spec.ts": {
+    "@typescript-eslint/no-explicit-any": 1
+  },
+  "src/generadoresV2/matematicas/Aritmetica.ts": {
+    "prefer-const": 1
+  },
+  "src/hooks/__tests__/useCountdown.spec.tsx": {
+    "react-hooks/globals": 2,
+    "react-hooks/immutability": 1
+  },
+  "src/hooks/__tests__/useFullscreen.spec.tsx": {
+    "react-hooks/globals": 2
+  },
+  "src/hooks/__tests__/usePlantillaCompilation.spec.tsx": {
+    "react-hooks/globals": 1,
+    "react-hooks/immutability": 1
+  },
+  "src/hooks/useCountdown.ts": {
+    "react-hooks/refs": 1
+  },
+  "src/hooks/useFlushCounter.ts": {
+    "react-hooks/refs": 1
+  },
+  "src/hooks/useFlushOnHidden.ts": {
+    "react-hooks/refs": 1
+  },
+  "src/hooks/useFullscreen.ts": {
+    "react-hooks/refs": 1
+  },
+  "src/hooks/useMisEscuelas.ts": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/hooks/usePlantillaCompilation.ts": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/hooks/usePlantillaPreview.ts": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/lib/maps/__tests__/useViewBoxZoom.spec.tsx": {
+    "@typescript-eslint/no-explicit-any": 8,
+    "react-hooks/globals": 1,
+    "react-hooks/immutability": 1
+  },
+  "src/nav/AlumnoNavbar.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/nav/Navbar.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/pages/AdminReportesGlobal.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/pages/AulaMapaModulos.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/pages/EnterpriseAulas.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/pages/EnterpriseMiembros.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/pages/EnterpriseModulos.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/pages/EnterpriseReportes.tsx": {
+    "react-hooks/set-state-in-effect": 2
+  },
+  "src/pages/HijosProgreso.tsx": {
+    "@typescript-eslint/no-explicit-any": 1
+  },
+  "src/pages/Perfil.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/pages/PlantillasIndex.tsx": {
+    "react-hooks/preserve-manual-memoization": 1,
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/pages/ProfesorCalificaciones.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/pages/ProfesorEstadisticas.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/pages/ProfesorEvaluaciones.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/pages/ProfesorMateriales.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/pages/ProfesorReportes.tsx": {
+    "react-hooks/set-state-in-effect": 2
+  },
+  "src/pages/VblangDatasetsIndex.tsx": {
+    "react-hooks/preserve-manual-memoization": 1,
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/pages/aula.tsx": {
+    "no-unsafe-finally": 1
+  },
+  "src/pages/herramientas/__tests__/MapaEditorFull.buscarLugar.spec.tsx": {
+    "@typescript-eslint/no-explicit-any": 2
+  },
+  "src/pages/herramientas/__tests__/MapaEditorFull.geojson.spec.tsx": {
+    "@typescript-eslint/no-explicit-any": 3
+  },
+  "src/pages/herramientas/__tests__/MapaEditorFull.leyenda.spec.tsx": {
+    "@typescript-eslint/no-explicit-any": 2
+  },
+  "src/pages/herramientas/__tests__/MapaEditorFull.style.spec.tsx": {
+    "@typescript-eslint/no-explicit-any": 2
+  },
+  "src/pages/herramientas/__tests__/MapaEditorFull.tools.spec.tsx": {
+    "@typescript-eslint/no-explicit-any": 2
+  },
+  "src/pages/herramientas/__tests__/MapaEditorFull.zonaBloqueada.spec.tsx": {
+    "@typescript-eslint/no-explicit-any": 2
+  },
+  "src/pages/menu-alumno.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/pages/modulos/__tests__/ModuloEditor.mapaOverlay.spec.tsx": {
+    "@typescript-eslint/no-explicit-any": 2
+  },
+  "src/pages/profesor/IntentoDetalle.tsx": {
+    "react-hooks/set-state-in-effect": 1
+  },
+  "src/services/enterprise.ts": {
+    "@typescript-eslint/no-explicit-any": 3
+  },
+  "src/vblang/__tests__/bridge.spec.ts": {
+    "@typescript-eslint/no-unused-expressions": 1
+  }
+}

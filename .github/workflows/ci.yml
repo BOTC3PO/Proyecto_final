@@ -1,4 +1,5 @@
-# G4 — integración continua: tipos, pruebas (API, web y contra Postgres real) y compuerta de seguridad.
+# G4 — integración continua: tipos, lint, pruebas (API, web, app sin conexión y contra Postgres real) y compuerta
+# de seguridad.
 # No hay secretos: las claves de las pruebas son valores descartables.
 name: CI
 
@@ -43,6 +44,8 @@ jobs:
       - run: pnpm --filter api exec prisma generate
       - name: Tipos de la API
         run: pnpm --filter api typecheck
+      - name: Lint de la API (falla con errores; los avisos no cuentan)
+        run: pnpm --filter api lint
       - name: Migraciones desde cero (base vacía)
         run: pnpm --filter api exec prisma migrate deploy
       - name: Que ninguna prueba quede fuera de la lista
@@ -66,8 +69,34 @@ jobs:
         run: pnpm --filter web build
         env:
           VITE_API_BASE_URL: https://ci.invalid
+      # La web tiene errores de lint heredados: la compuerta falla solo ante errores nuevos (tools/lint-web-base.json).
+      - name: Lint de la web (sin errores nuevos)
+        run: node tools/lint-gate.mjs
       - name: Pruebas de la web
         run: pnpm --filter web test
+
+  sin-conexion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install -g pnpm@12.3.4
+      - run: pnpm install --frozen-lockfile
+      - name: Tipos de la app sin conexión
+        run: pnpm --filter offline tipos
+      - name: Pruebas de la API local
+        run: pnpm --filter offline test
+      - name: Rust
+        run: |
+          rustup toolchain install 1.99.1 --profile minimal
+          rustup default 1.99.1
+      # Solo el núcleo (base y archivos): no depende de Tauri ni de bibliotecas del sistema.
+      - name: Pruebas del núcleo (Rust)
+        run: cargo test --locked -p vb-nucleo
+        working-directory: apps/offline
 
   seguridad:
     runs-on: ubuntu-latest
