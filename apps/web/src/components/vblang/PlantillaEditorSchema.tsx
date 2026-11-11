@@ -262,6 +262,7 @@ function FieldControl({
   plantilla: Plantilla;
   onChange: (next: Plantilla) => void;
 }) {
+  const lang = useContext(LangContext);
   const id = useId();
 
   if (field.kind === "text") {
@@ -410,7 +411,6 @@ function FieldControl({
     plantilla.tipoInferido === "identificar_palabras";
 
   const items = readListStrings(plantilla, lf);
-  const lang = useContext(LangContext);
   return (
     <AccessibleList<string>
       items={items}
