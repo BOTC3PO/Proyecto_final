@@ -41,12 +41,13 @@ cada fallo.
 La primera vez que se entra puede aparecer el aviso de la política de privacidad: la política se lee sin internet,
 desde el pie de la página.
 
-## 3. Bajar materias y diccionarios
+## 3. Materias y diccionarios
 
-La app trae Matemática. Para sumar más: **Mi perfil → Contenido sin conexión**.
+La app trae todas las materias del temario oficial y el diccionario de español. Los diccionarios de otros idiomas se
+suman desde **Mi perfil → Contenido sin conexión** (o desde la página de descargas, para llevarlos en un pendrive).
 
-- **Bajar:** con internet, cada materia y cada diccionario se baja por separado. Si una materia necesita temas de otra
-  (por ejemplo, Antropología pide un tema de Historia), se baja también esa otra.
+- **Bajar:** con internet, cada diccionario se baja por separado. Si se quitó una materia, se vuelve a bajar desde
+  ahí; si necesita temas de otra (por ejemplo, Antropología pide un tema de Historia), se baja también esa otra.
 - **Actualizar:** aparece cuando hay una versión más nueva del contenido.
 - **Importar desde un archivo:** sin internet, desde un archivo copiado de un pendrive o del paquete completo
   (carpeta `Paquetes`). Cada materia y cada diccionario es un archivo.

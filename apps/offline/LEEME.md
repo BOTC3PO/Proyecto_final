@@ -47,7 +47,9 @@ Cambiar la clave invalida los permisos de todos los dispositivos: cada cuenta ti
 Cada paquete es una base SQLite comprimida con gzip (formato en `nucleo/src/paquetes.rs`): una materia del temario
 oficial o el diccionario de un idioma. Se bajan desde «Mi perfil → Contenido sin conexión» o se importan desde un
 archivo (pendrive). Los módulos de la escuela se piden aparte, con el permiso firmado, y se actualizan solos cada vez
-que una cuenta de la plataforma entra con red. La app trae Matemática incluida para el primer uso (no depende de otras materias).
+que una cuenta de la plataforma entra con red. La app trae incluidos todo el temario oficial y el diccionario de español
+(`scripts/paquetes-de-la-app.ts`, al compilar: los baja de la API publicada con `PAQUETES_DESDE`, o los genera del
+repositorio y de `DICCIONARIO_SQLITE`); los demás diccionarios se bajan aparte.
 
 Muchas materias tienen prerrequisitos en otras (Antropología pide «Hominización», de Historia). Cada paquete lleva esa
 lista: al bajar una materia se bajan también las que necesita, y un módulo bloqueado nombra el prerrequisito aunque

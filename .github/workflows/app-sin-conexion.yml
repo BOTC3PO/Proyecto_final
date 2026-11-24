@@ -40,9 +40,14 @@ jobs:
           node-version: 22
       - run: npm install -g pnpm@${{ env.PNPM }}
       - run: pnpm install --frozen-lockfile
-      - name: Web de la app (con Matemática incluida)
+      # Todo el temario oficial y el diccionario de español van dentro de la app. Se bajan de la API publicada
+      # (OFFLINE_API_REMOTA) para que la app traiga los mismos archivos que ofrece el servidor; en una versión
+      # etiquetada, sin el diccionario la compilación falla. Sin la variable, el temario sale del repositorio.
+      - name: Web de la app (con el temario y el diccionario de español)
         run: pnpm --filter offline run web
         env:
+          PAQUETES_DESDE: ${{ vars.OFFLINE_API_REMOTA }}
+          EXIGIR_DICCIONARIO: ${{ startsWith(github.ref, 'refs/tags/app-v') && 'true' || 'false' }}
           VITE_API_REMOTA: ${{ vars.OFFLINE_API_REMOTA }}
           VITE_OFFLINE_CLAVE_PUBLICA: ${{ vars.OFFLINE_CLAVE_PUBLICA }}
           VITE_MODO_AUTONOMO: ${{ inputs.modo_autonomo && 'true' || 'false' }}
