@@ -17,6 +17,22 @@ sin tocar producción. Comprobado:
 - Memoria: API ~220–240 MB por réplica (tope 1 GB), Postgres ~110 MB, Redis ~5 MB.
 - Una réplica que termina con error se reinicia sola; la otra sigue atendiendo. Apagado ordenado en 3 s.
 
+**Carga comparada (2026-11-24)**, una réplica contra una instancia en el sistema como la de hoy (`tsx`), misma copia de
+`virtualbook_test`, 300 usuarios, 6 s por paso, generador en otros núcleos:
+
+| Escenario | Concurrencia | Sistema | Docker | Diferencia |
+|---|---|---|---|---|
+| `/api/me` | 16 | 6680/s (p99 8 ms) | 6545/s (p99 7 ms) | −2 % |
+| `/api/me` | 64 | 7778/s (p99 14 ms) | 7577/s (p99 15 ms) | −3 % |
+| `/api/modulos?limit=20` | 16 | 1356/s (p99 28 ms) | 1272/s (p99 38 ms) | −6 % |
+| `/api/modulos?limit=20` | 64 | 1387/s (p99 69 ms) | 1073/s (p99 94 ms) | −23 % |
+
+Sin errores en ninguno. Memoria: 590 MB en el sistema contra 275 MB en el contenedor (el contenedor no carga lo que
+`tsx` compila en el arranque fuera de la imagen). El costo aparece con respuestas grandes y mucha concurrencia: el
+reenvío de puertos de Docker sin root (`rootlesskit`, en espacio de usuario) copia cada byte. Con la demanda esperada
+(muy por debajo de 1000 pedidos/s) no se nota. Para recuperarlo, si hiciera falta: red `pasta` de rootlesskit
+(paquete `passt`, sudo) o que nginx hable con la API por un socket Unix (cambio chico en `src/index.ts`).
+
 Falta: que el servicio de Docker arranque con la máquina (`systemctl --user enable docker`), adaptar respaldo,
 restauración, vigilancia, escalador y despliegue, y una prueba de carga comparada con la instalación actual.
 
