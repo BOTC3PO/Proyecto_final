@@ -1,0 +1,18 @@
+**/node_modules
+**/dist
+**/dist-web
+**/target
+**/.env
+**/.env.*
+!**/.env.example
+.git
+apps/offline/src-tauri
+apps/mobile/android
+apps/mobile/ios
+content
+archive
+audits
+docs
+auto docs
+api/media
+api/src/diccionarios/*.sqlite*
