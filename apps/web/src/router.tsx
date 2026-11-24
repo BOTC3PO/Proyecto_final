@@ -28,6 +28,8 @@ const HomePage            = lazyWithRetry(() => import("./pages/Home"));
 const Contact             = lazyWithRetry(() => import("./pages/Contact"));
 const Explorar            = lazyWithRetry(() => import("./pages/Explorar"));
 const Metodologia         = lazyWithRetry(() => import("./pages/metodologia"));
+const Descargas           = lazyWithRetry(() => import("./pages/Descargas"));
+const QuitarPerfil        = lazyWithRetry(() => import("./pages/QuitarPerfil"));
 const MenuAlumno          = lazyWithRetry(() => import("./pages/menu-alumno"));
 const Clases              = lazyWithRetry(() => import("./pages/aula"));
 const AulaMapaModulos     = lazyWithRetry(() => import("./pages/AulaMapaModulos"));
@@ -73,6 +75,7 @@ const AdminModeracion           = lazyWithRetry(() => import("./pages/AdminModer
 const PlantillasModeracion      = lazyWithRetry(() => import("./pages/admin/PlantillasModeracion"));
 const AdminReportesGlobal       = lazyWithRetry(() => import("./pages/AdminReportesGlobal"));
 const Perfil                    = lazyWithRetry(() => import("./pages/Perfil"));
+const ContenidoSinConexion      = lazyWithRetry(() => import("./pages/ContenidoSinConexion"));
 const Tareas                    = lazyWithRetry(() => import("./pages/Tareas"));
 const Progreso                  = lazyWithRetry(() => import("./pages/Progreso"));
 // FIX-TEST4-PROF-01 — antes había `ProfesorCursos` y
@@ -161,6 +164,9 @@ export const router = createBrowserRouter([
           { path: "creditos",        element: withSuspense(<Creditos />) }, // huevo de pascua, no linkear en nav/footer
           { path: "privacidad",       element: withSuspense(<Privacidad />) },
           { path: "metodologia",      element: withSuspense(<Metodologia />) },
+          { path: "descargas",        element: withSuspense(<Descargas />) },
+          // L8 — solo en la app sin conexión (la página lo avisa si no).
+          { path: "quitar-perfil",    element: withSuspense(<QuitarPerfil />) },
           { path: "onboarding/tema",     element: withSuspense(<OnboardingTema />) },
 
           // Herramientas Educativas (public) — sólo el editor de mapas; el
@@ -589,6 +595,11 @@ export const router = createBrowserRouter([
           {
             path: 'perfil',
             element: withSuspense(<Perfil />),
+          },
+          // L8 — solo tiene sentido dentro de la app sin conexión (la página lo avisa si no).
+          {
+            path: 'sin-conexion',
+            element: withSuspense(<ContenidoSinConexion />),
           },
           {
             path: 'menualumno',

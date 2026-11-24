@@ -10,6 +10,9 @@ import { useI18n } from "../i18n/I18nContext";
 import { interpolar } from "../i18n/interpolar";
 import { resolveMateria, MATERIA_FALLBACK } from "../domain/module/materia";
 import LogroCard, { getTier } from "../ui/LogroCard";
+import { esAppSinConexion } from "../lib/sinConexion";
+import SincronizacionCard from "../components/SincronizacionCard";
+import DatosDispositivoCard from "../components/DatosDispositivoCard";
 
 type TipoDestino = "ALUMNO" | "PRINCIPAL" | "PADRE" | "ALUMNO_HIJO";
 
@@ -305,7 +308,7 @@ export default function Perfil() {
                 )}
 
                 {/* Mi cuenta de alumno — espejo opt-in (solo PARENT) */}
-                {perfil.role === "PARENT" && (
+                {perfil.role === "PARENT" && !esAppSinConexion && (
                   <MiCuentaAlumnoCard
                     tieneEspejo={perfil.cuentaVinculada?.tipoDestino === "ALUMNO"}
                   />
@@ -314,7 +317,7 @@ export default function Perfil() {
                 {/* FASE 4 — Mi cuenta de alumno (staff): crear o vincular una
                     existente. Resuelve el caso del staff sin espejo, que al
                     "Ver como alumno" caía a /login. */}
-                {(perfil.role === "TEACHER" || perfil.role === "DIRECTIVO" || perfil.role === "ADMIN") && (
+                {(perfil.role === "TEACHER" || perfil.role === "DIRECTIVO" || perfil.role === "ADMIN") && !esAppSinConexion && (
                   <MiCuentaAlumnoStaffCard
                     tieneEspejo={perfil.cuentaVinculada?.tipoDestino === "ALUMNO"}
                   />
@@ -350,9 +353,31 @@ export default function Perfil() {
                   </div>
                 )}
 
-                <DosPasosCard recomendado={perfil.role === "ADMIN" || perfil.role === "DIRECTIVO"} />
+                {esAppSinConexion && (
+                  // L8 — solo en la app sin conexión. Solo en castellano, como el resto de sus pantallas propias.
+                  <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4 flex flex-wrap items-center justify-between gap-2">
+                    <div>
+                      <p className="text-sm font-medium text-[var(--c-text)]">Contenido sin conexión</p>
+                      <p className="text-xs text-[var(--c-muted)]">Materias, diccionarios y módulos de tu escuela en este dispositivo.</p>
+                    </div>
+                    <a href="/sin-conexion" onClick={(e) => { e.preventDefault(); navigate("/sin-conexion"); }}
+                      className="rounded-lg border border-[var(--c-border-strong)] px-3 py-1.5 text-xs font-semibold text-[var(--c-text)] hover:bg-[var(--c-hover)]">
+                      Administrar
+                    </a>
+                  </div>
+                )}
 
-                <PrivacidadCard />
+                {esAppSinConexion && <SincronizacionCard />}
+
+                {/* L8 — en la app, los dos pasos y la baja de la cuenta necesitan el servidor: se hacen desde la web. */}
+                {esAppSinConexion ? (
+                  <DatosDispositivoCard tipo={perfil.id.startsWith("local-") ? "local" : "plataforma"} />
+                ) : (
+                  <>
+                    <DosPasosCard recomendado={perfil.role === "ADMIN" || perfil.role === "DIRECTIVO"} />
+                    <PrivacidadCard />
+                  </>
+                )}
               </div>
             )}
 

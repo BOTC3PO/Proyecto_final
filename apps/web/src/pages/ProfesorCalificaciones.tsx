@@ -66,6 +66,8 @@ type QuizAttemptResult = {
   startedAt?: string;
   userId?: string;
   userName?: string;
+  // L8 — hecho en la app sin conexión (la nota es la que volvió a calcular el servidor).
+  sinConexion?: boolean;
 };
 
 export default function ProfesorCalificaciones() {
@@ -251,6 +253,11 @@ export default function ProfesorCalificaciones() {
                             ? new Date(a.submittedAt ?? a.startedAt ?? "").toLocaleDateString(lang)
                             : "—"}
                         </span>
+                        {a.sinConexion && (
+                          <span className="rounded bg-[var(--c-surface-3)] px-1.5 py-0.5 text-[10px] font-semibold text-[var(--c-muted)] shrink-0">
+                            {t("moduloDetail.hechoSinConexion")}
+                          </span>
+                        )}
                       </span>
                       <span className="flex items-center gap-2">
                         <span className={`font-semibold ${

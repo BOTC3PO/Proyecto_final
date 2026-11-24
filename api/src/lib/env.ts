@@ -183,6 +183,14 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   USUARIOS_BORRADOS_ANONIMIZAR_DIAS: Number(process.env.USUARIOS_BORRADOS_ANONIMIZAR_DIAS ?? 30),
   // Años que algo queda marcado como borrado antes de la purga definitiva (lib/purga-borrados.ts). 0 = nunca.
   BORRADOS_PURGA_ANOS: Number(process.env.BORRADOS_PURGA_ANOS ?? 4),
+  // L8 — permiso de la app sin conexión: archivo PEM con la clave privada Ed25519 (vacío = la app no se puede
+  // activar) y días de validez de cada permiso.
+  OFFLINE_PERMISO_CLAVE_ARCHIVO: process.env.OFFLINE_PERMISO_CLAVE_ARCHIVO ?? "",
+  OFFLINE_PERMISO_DIAS: Number(process.env.OFFLINE_PERMISO_DIAS ?? 90),
+  // Carpeta con los paquetes que genera `apps/offline/scripts/generar-paquetes.ts` (indice.json y los .sqlite.gz).
+  OFFLINE_PAQUETES_DIR: process.env.OFFLINE_PAQUETES_DIR ?? "",
+  // Carpeta con los instaladores de la app y su `descargas.json` (los arma `apps/offline/scripts/armar-descargas.ts`).
+  OFFLINE_DESCARGAS_DIR: process.env.OFFLINE_DESCARGAS_DIR ?? "",
 };
 
 /**

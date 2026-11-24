@@ -16,3 +16,5 @@ overrides:
   body-parser: '>=2.4.0'
   # PostCSS (path traversal por sourceMappingURL, XSS en stringify): llega por vite, tailwind y metro (Expo).
   postcss: 8.5.31
+  # effect (ReDoS en Schema.TemplateLiteral, GHSA-7589-6fvf-x4pw): llega por @prisma/config, que fija 3.20.0.
+  effect: 3.22.4

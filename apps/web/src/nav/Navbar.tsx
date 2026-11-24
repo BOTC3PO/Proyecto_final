@@ -21,6 +21,7 @@ import { NavLink, Link, useLocation } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import { useCanActAsLearner, usePrimaryRole } from "../auth/use-roles";
 import { NAV_BY_ROLE, DROPDOWN_BY_ROLE } from "./navConfig";
+import { esAppSinConexion } from "../lib/sinConexion";
 import { apiGet } from "../lib/api";
 import { prefetchRoute } from "../routing/prefetch";
 import { Avatar, Menu, NavItem, type MenuTriggerProps } from "../ui";
@@ -499,7 +500,7 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2">
-          {canActAsLearner && user?.id && <CoinBadge userId={user.id} />}
+          {!esAppSinConexion && canActAsLearner && user?.id && <CoinBadge userId={user.id} />}
           {user ? (
             <Menu
               align="end"

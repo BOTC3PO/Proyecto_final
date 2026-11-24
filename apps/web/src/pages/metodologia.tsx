@@ -1,7 +1,7 @@
 import { useDocumentMeta } from '../hooks/useDocumentMeta';
 import { useI18n } from '../i18n/I18nContext';
 
-export default function metodologia(){
+export default function Metodologia(){
   const { t } = useI18n();
   useDocumentMeta({
     title: t('metodologia.metodologiaDeEnsenanzaVirtualBook'),

@@ -11,6 +11,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../auth/use-auth';
 import { useCanActAsLearner, useHasRole } from '../auth/use-roles';
 import { NAV_BY_ROLE, DROPDOWN_BY_ROLE } from './navConfig';
+import { esAppSinConexion } from '../lib/sinConexion';
 import { useEffect, useState, type CSSProperties, type ReactNode } from 'react';
 import { NavItem, Avatar, Menu, type MenuTriggerProps } from '../ui';
 import { apiGet } from '../lib/api';
@@ -488,7 +489,7 @@ export default function AlumnoNavbar() {
             gap: 'var(--space-2)',
           }}
         >
-          {canActAsLearner && user?.id && <CoinBadge userId={user.id} />}
+          {!esAppSinConexion && canActAsLearner && user?.id && <CoinBadge userId={user.id} />}
 
           {esEspejo ? (
             <button type="button" onClick={handleVolver} style={VOLVER_STYLE}>
@@ -530,7 +531,7 @@ export default function AlumnoNavbar() {
                 {/* Alta de escuela: sólo para quien todavía no pertenece a
                     ninguna. Mostrárselo a un alumno de una escuela ya
                     existente es ruido — no es una acción que le corresponda. */}
-                {!user?.schoolId && (
+                {!user?.schoolId && !esAppSinConexion && (
                   <MenuRowLink to="/registrar-escuela" onClick={close}>
                     <span aria-hidden="true">🏫</span>
                     {t('dropdown.registrarEscuela')}

@@ -1,0 +1,33 @@
+Virtual Book sin conexión @VERSION@ — modo navegador para Linux
+================================================================
+
+Para Huayra 5 y 6 (Debian 10 y 11) y otros Linux. La app se abre en el navegador del
+equipo (Firefox o Chromium) y funciona sin internet.
+
+Instalar (sin contraseña de administrador)
+------------------------------------------
+1. Descomprimir este archivo.
+2. Abrir una terminal en la carpeta y escribir:  sh instalar.sh
+3. Abrir «Virtual Book sin conexión» desde el menú de aplicaciones (Educación).
+
+Cada usuario del equipo la instala por su cuenta. Para todo el equipo, usar el .deb.
+
+Probar sin instalar
+-------------------
+  ./virtualbook-sin-conexion
+
+Cómo funciona
+-------------
+- El programa atiende la app solo dentro del equipo (http://127.0.0.1:47811) y abre el
+  navegador. Si el navegador queda cerrado, el programa se cierra solo a los 20 minutos.
+- Hay que abrirla siempre desde el menú: la dirección escrita a mano no da acceso a los
+  datos.
+- Los datos (perfiles, progreso y paquetes) quedan en
+  ~/.local/share/ar.virtualbook.offline, los mismos que usa la app de escritorio.
+- Para más materias o diccionarios: «Mi perfil → Contenido sin conexión», bajándolos con
+  internet o importándolos desde un archivo (por ejemplo, de un pendrive).
+
+Desinstalar
+-----------
+  sh ~/.local/share/virtualbook-sin-conexion/desinstalar.sh
+  (con --borrar-datos se borran también perfiles, progreso y paquetes)
