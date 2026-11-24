@@ -3,8 +3,22 @@
 Objetivo: aislar Virtual Book de los otros proyectos de la máquina (red propia, límites de memoria y CPU, Postgres y
 Redis sin puertos expuestos) y desplegar con imágenes que se pueden probar antes y volver atrás.
 
-**Estado:** propuesta. Los archivos de esta carpeta todavía no se construyeron ni se probaron: Docker no está instalado
-en el servidor.
+**Estado (2026-11-24):** Docker 29.1.3 sin root instalado en el servidor. Imagen construida (55 s, 1,06 GB) y copia de
+prueba levantada en paralelo (`VB_PROYECTO=virtualbook-prueba`, puertos 5150–5151, base restaurada del respaldo del día),
+sin tocar producción. Comprobado:
+
+- 2 réplicas sanas; la base restaurada en 1 s (117 tablas, 58 migraciones, 2382 módulos).
+- Alta, ingreso en una réplica y sesión usada en la otra; módulos, tabla periódica y diccionario (montado de solo
+  lectura) responden.
+- Límites de ingreso compartidos por Redis entre réplicas: 5 fallos sobre una cuenta → 429 en las dos; 10 fallos desde
+  una IP → 429 para esa IP y otras IPs siguen entrando (la IP sale de `X-Forwarded-For`, como la manda nginx).
+- Aislamiento: Postgres sin puertos publicados y sin salida a internet («Network is unreachable»); la API sí sale
+  (Mercado Pago responde) pero no llega al Postgres del sistema.
+- Memoria: API ~220–240 MB por réplica (tope 1 GB), Postgres ~110 MB, Redis ~5 MB.
+- Una réplica que termina con error se reinicia sola; la otra sigue atendiendo. Apagado ordenado en 3 s.
+
+Falta: que el servicio de Docker arranque con la máquina (`systemctl --user enable docker`), adaptar respaldo,
+restauración, vigilancia, escalador y despliegue, y una prueba de carga comparada con la instalación actual.
 
 ## Qué queda dentro y qué fuera
 
