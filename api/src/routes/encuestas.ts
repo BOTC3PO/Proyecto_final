@@ -33,19 +33,6 @@ const requireStaff = (req: express.Request, res: express.Response, next: express
   next();
 };
 
-type SurveyDoc = {
-  _id?: string;
-  id?: string;
-  status?: string;
-  type?: string;
-  startAt?: string;
-  endAt?: string;
-  maxOptions?: number;
-  showResultsBeforeClose?: boolean;
-  showResultsRealtime?: boolean;
-  options?: Array<{ id: string; label: string }>;
-  classroomId?: string;
-};
 
 
 const SurveyUpdateSchema = SurveyBaseSchema.partial().omit({ id: true, createdAt: true, createdBy: true });

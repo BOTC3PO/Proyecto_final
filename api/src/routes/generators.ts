@@ -17,18 +17,6 @@ function loadGeneratorDocs(): GeneratorDocs {
 
 export const generators = Router();
 
-type GeneratorRow = {
-  id: string;
-  materia: string;
-  label: string;
-  description: string | null;
-  version: number;
-  subtipos: string;
-  enunciados: string;
-  limits: string;
-  variables_schema: string;
-  status: string;
-};
 
 function parseJson<T>(raw: string, fallback: T): T {
   try {

@@ -49,7 +49,6 @@ const SCHOOL_B = "school-B";
 
 const MOD_PUBLIC = "mod-public-1";
 const MOD_ESCUELA = "mod-escuela-1";
-const MOD_PRIV = "mod-priv-1";
 
 before(async () => {
   const { modulos } = await import("../../src/routes/modulos");

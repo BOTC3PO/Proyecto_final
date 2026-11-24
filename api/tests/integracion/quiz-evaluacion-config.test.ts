@@ -21,7 +21,6 @@ import {
   serializeEvaluacionConfig,
   mergeEvaluacionConfigIntoSettings,
   clampTimerSegundos,
-  TIMER_SEGUNDOS_MIN,
   TIMER_SEGUNDOS_MAX,
   DEFAULT_EVALUACION_CONFIG
 } from "../../src/lib/quiz-intentos";

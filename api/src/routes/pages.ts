@@ -38,6 +38,7 @@ pages.post("/api/pages", requireUser, requireStaff, limitePost, async (req, res)
     const now = new Date().toISOString();
     const result = await prisma.page.create({
       data: {
+        // eslint-disable-next-line @typescript-eslint/no-require-imports
         id: (parsed as any).id ?? require("crypto").randomUUID(),
         title: (parsed as any).title ?? null,
         content: typeof parsed === "object" ? JSON.stringify(parsed) : String(parsed),

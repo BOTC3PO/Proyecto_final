@@ -16,7 +16,6 @@ process.env.DATABASE_URL =
 import assert from "node:assert/strict";
 import { after, before, test } from "node:test";
 import {
-  prisma,
   seedUser,
   tokenFor,
   startServer,

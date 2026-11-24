@@ -118,13 +118,6 @@ type PujaDoc = {
   createdAt?: string;
 };
 
-type SaldoDoc = {
-  _id?: string;
-  usuarioId?: string;
-  saldo?: number;
-  moneda?: string;
-  updatedAt?: string;
-};
 
 economia.use(
   ["/api/economia", "/api/admin/economia"],
@@ -1025,13 +1018,6 @@ economia.post("/api/economia/intercambios", ...bodyLimitMB(ENV.MAX_PAGE_MB), asy
       return res.status(400).json({ error: "saldo insuficiente" });
     }
     const rangoDia = buildDayRange();
-    const totalHoy = await prisma.economiaIntercambio.count({
-      where: {
-        // intercambios are JSON blobs; use raw query approach via findMany+count
-        id: { not: "" }
-      }
-    });
-    // For JSON blob models, count by parsing; re-implemented below using findMany
     // Solo los intercambios de este creador dentro de la ventana de cancelaciones (7 días): alcanza para el límite
     // diario, el cooldown y la proporción de cancelados (antes se leían todos los intercambios de la plataforma).
     const inicioCancelaciones = new Date();

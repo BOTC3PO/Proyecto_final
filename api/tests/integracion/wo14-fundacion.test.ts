@@ -26,7 +26,6 @@ import {
   migrarCuestionario,
   parseCuestionario,
   validarCuestionario,
-  type Dificultad,
   type Variante,
 } from "../../src/lib/quiz-posiciones";
 import {

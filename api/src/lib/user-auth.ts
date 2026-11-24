@@ -106,7 +106,7 @@ export const requireUser = async (req: Request, res: Response, next: NextFunctio
     const hasAccess = await enforceSubscriptionAccess(req, res);
     if (!hasAccess) return;
     next();
-  } catch (error) {
+  } catch {
     res.status(500).json({ error: "Authentication failed" });
   }
 };

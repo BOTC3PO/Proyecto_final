@@ -15,14 +15,6 @@ import { ProgressSchema } from "../schema/progreso";
 
 export const progreso = Router();
 
-type ProgresoDoc = {
-  id?: string;
-  usuarioId?: string;
-  moduloId?: string;
-  status?: string;
-  aulaId?: string;
-  updatedAt?: string;
-};
 
 type ModuloDoc = {
   id?: string;
@@ -32,23 +24,7 @@ type ModuloDoc = {
   dependencies?: Array<{ type?: string; id?: string }>;
 };
 
-type VinculoDoc = {
-  id?: string;
-  parentId?: string;
-  childId?: string;
-  estado?: string;
-  nombre?: string | null;
-  usuario?: string | null;
-  grado?: string | null;
-};
 
-type ChildDoc = {
-  id?: string;
-  fullName?: string | null;
-  username?: string | null;
-  birthdate?: unknown;
-  isDeleted?: boolean;
-};
 
 const ProgressUpdateSchema = ProgressSchema.partial().omit({ usuarioId: true, moduloId: true });
 

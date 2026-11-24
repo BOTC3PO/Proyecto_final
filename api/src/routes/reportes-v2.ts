@@ -1,4 +1,3 @@
-import type { Prisma } from "@prisma/client";
 import { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
@@ -9,8 +8,6 @@ import { getResumenAsistenciaAula } from "./asistencia";
 
 export const reportesV2 = Router();
 
-const getId = (req: { user?: { id?: string; _id?: { toString?: () => string } } }) =>
-  req.user?.id ?? req.user?._id?.toString?.() ?? null;
 
 const getSchoolId = (req: { user?: { schoolId?: string | null } }) =>
   req.user?.schoolId ?? null;

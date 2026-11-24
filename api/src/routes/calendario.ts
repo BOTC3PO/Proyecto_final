@@ -18,8 +18,6 @@ const getId = (req: { user?: { id?: string; _id?: { toString?: () => string } } 
 const getSchoolId = (req: { user?: { schoolId?: string | null } }) =>
   req.user?.schoolId ?? null;
 
-const getRole = (req: { user?: { role?: string } }) =>
-  req.user?.role ?? null;
 
 // MULTIROL-01: helper local para chequear pertenencia a un set de
 // roles (mira primero el array `roles`, después el singular `role`).

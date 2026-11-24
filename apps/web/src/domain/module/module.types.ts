@@ -539,6 +539,8 @@ export type Module = {
   generatorRef?: ModuleGeneratorRef | null;
   theoryBlocks?: ModuleTheoryBlock[];
   theoryItems?: ModuleTheoryBlock[];
+  /** Cantidad de bloques de teoría: la devuelve el listado (`GET /api/modulos`), que no trae el contenido. */
+  theoryCount?: number;
   resources?: ModuleResource[];
   quizzes?: ModuleQuiz[];
   levels?: ModuleLevel[];

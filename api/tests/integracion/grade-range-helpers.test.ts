@@ -11,7 +11,6 @@ import { test } from "node:test";
 import {
   computeGradeRange,
   formatGradeRangeLabel,
-  type GradeRange
 } from "../../src/lib/gradeRange";
 
 const SCALE_0_100 = {

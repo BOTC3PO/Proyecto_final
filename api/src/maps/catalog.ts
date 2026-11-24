@@ -39,7 +39,7 @@ let cachedBetterSqlite3: BetterSqlite3Ctor | null = null;
 
 const getBetterSqlite3 = () => {
   if (cachedBetterSqlite3) return cachedBetterSqlite3;
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   cachedBetterSqlite3 = require("better-sqlite3") as BetterSqlite3Ctor;
   return cachedBetterSqlite3;
 };
@@ -123,7 +123,7 @@ export const computeManifestEtag = (assets: MapAssetRow[], version: string) => {
     digest.update(asset.id);
     digest.update(asset.sha256);
   }
-  return `\"${digest.digest("hex")}\"`;
+  return `"${digest.digest("hex")}"`;
 };
 
 export const readMapAssets = (db: SqliteDb, sourceVersion: string) => {

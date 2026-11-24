@@ -8,7 +8,7 @@ import { cargarContextoVisibilidad, whereVisibilidadModulos } from "./modulos";
 export const readonlyRouter = Router();
 
 const EJEMPLOS_DIR = path.resolve(__dirname, "../visualizadores/ejemplos");
-const SAFE_VISUALIZER_ID_REGEX = /^[a-z0-9\-]+$/i;
+const SAFE_VISUALIZER_ID_REGEX = /^[a-z0-9-]+$/i;
 
 type ReadonlyCatalogResponse = {
   modulosActivos: unknown[];

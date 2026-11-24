@@ -11,7 +11,7 @@ import { hashPassword } from "../lib/passwords";
 import { normalizeSchoolId } from "../lib/school-ids";
 import { acreditarSaldoInicial } from "../lib/economia-alta";
 import { sincronizarMembresia } from "../lib/memberships";
-import { isParentInRoles, isStaffInRoles, resolveRoles, resolvePrimaryRole } from "../lib/roles";
+import { isParentInRoles, resolveRoles, resolvePrimaryRole } from "../lib/roles";
 import { vincularHijoCore } from "../lib/vinculo-padre-hijo";
 import { requireUser } from "../lib/user-auth";
 import { serializeUsuario } from "../lib/user-serializer";

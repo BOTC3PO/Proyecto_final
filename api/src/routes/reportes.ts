@@ -2,7 +2,6 @@ import { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { isStaffRole, requirePolicy } from "../lib/authorization";
 import { ENTERPRISE_FEATURES, requireEnterpriseFeature } from "../lib/entitlements";
-import { toObjectId } from "../lib/ids";
 import { buildSimplePdf } from "../lib/pdf";
 import { getQueryString } from "../lib/query";
 import { requireUser } from "../lib/user-auth";
@@ -17,18 +16,12 @@ const getAuthenticatedUserId = (req: any) => {
   return String(userId);
 };
 
-const daysBetween = (start: Date, end: Date) => (end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24);
-
-const isMinor = (birthdate?: Date | null) => {
-  if (!birthdate) return false;
-  return daysBetween(birthdate, new Date()) < 365.25 * 18;
-};
 
 // NOTE: vinculos_padre_hijo, parent_invites, eventos_reportes_padres and
 // economia_transacciones are not yet in the Prisma schema. Their operations
 // are stubbed as no-ops until those models are added.
 
-const logReportePadre = async (params: {
+const logReportePadre = async (_params: {
   parentId: string;
   childId: string;
   tipo: "estadisticas" | "informe";
@@ -305,7 +298,6 @@ const buildReporteData = async (
   const allProgreso = await prisma.progresoModulo.findMany({ where: progresoWhere as any });
 
   const totalActividades = allProgreso.length;
-  const totalCompletadas = allProgreso.filter((p) => p.status === "completado").length;
   const scores = allProgreso.map((p) => (typeof p.score === "number" ? p.score : 0));
   const promedioGrupo = roundNumber(
     scores.length ? scores.reduce((a, b) => a + b, 0) / scores.length : 0,
@@ -395,7 +387,7 @@ const buildReporteData = async (
 const escapeCsvValue = (value: string | number) => {
   const raw = String(value ?? "");
   if (raw.includes("\"") || raw.includes(",") || raw.includes("\n")) {
-    return `"${raw.replace(/\"/g, "\"\"")}"`;
+    return `"${raw.replace(/"/g, "\"\"")}"`;
   }
   return raw;
 };
@@ -479,7 +471,7 @@ const handleReporte = (rol: "profesor" | "admin") => async (req: any, res: any) 
   if (formato !== "json") {
     const payload = await buildFilePayload(data, formato);
     res.setHeader("Content-Type", payload.contentType);
-    res.setHeader("Content-Disposition", `attachment; filename=\"reporte-${rol}.${payload.extension}\"`);
+    res.setHeader("Content-Disposition", `attachment; filename="reporte-${rol}.${payload.extension}"`);
     return res.send(payload.buffer);
   }
 
@@ -523,7 +515,6 @@ reportes.get(
     const aulaIds = aulas.map((aula) => aula.id).filter(Boolean);
 
     let totalUsuarios = 0;
-    let filteredUserIds: string[] = [];
 
     if (filtros.roles?.length) {
       const userWhere: Record<string, unknown> = {
@@ -532,13 +523,6 @@ reportes.get(
         isDeleted: { not: true }
       };
       totalUsuarios = await prisma.usuario.count({ where: userWhere as any });
-      const usuarios = await prisma.usuario.findMany({
-        where: userWhere as any,
-        select: { id: true },
-        skip: pagination.offset,
-        take: pagination.limit
-      });
-      filteredUserIds = uniqueIds(usuarios.map((u) => u.id));
     }
 
     // TODO: economia_transacciones is not yet in the Prisma schema.

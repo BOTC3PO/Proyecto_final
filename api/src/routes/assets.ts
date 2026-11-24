@@ -6,7 +6,7 @@ export const assetsRouter = Router();
 
 const ASSETS_ROOT = path.resolve(__dirname, "../assets");
 
-const SAFE_REGEX = /^[a-zA-Z0-9_\-]+$/;
+const SAFE_REGEX = /^[a-zA-Z0-9_-]+$/;
 
 const isSafePath = (target: string): boolean => {
   const normalized = path.resolve(ASSETS_ROOT, target);

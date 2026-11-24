@@ -32,7 +32,6 @@ let baseUrl: string;
 let close: () => Promise<void>;
 const ADMIN = "ban-admin";
 const ALUMNO = "ban-alumno";
-const nowIso = () => new Date().toISOString();
 const dias = (n: number) => new Date(Date.now() + n * 86_400_000).toISOString();
 
 before(async () => {

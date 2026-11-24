@@ -33,7 +33,6 @@ function randFloat(min, max, decimals = 2) {
   return parseFloat((rand() * (max - min) + min).toFixed(decimals));
 }
 
-const TIPOS = ["normal", "inflacion", "deflacion", "hiperinflacion"];
 
 // Pesos de transición desde cada tipo
 const TRANSICIONES = {

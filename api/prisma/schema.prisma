@@ -740,6 +740,8 @@ model Modulo {
   updatedAt            String   @default("") @map("updated_at")
   teoria               TeoriaJson? @relation(fields: [teoriaId], references: [id])
   quizzes              Quiz[]
+  /// El listado ordena por updated_at DESC con LIMIT: sin este índice recorre y ordena toda la tabla en cada pedido.
+  @@index([updatedAt(sort: Desc)], map: "modulos_updated_at_idx")
   @@map("modulos")
 }
 

@@ -2,12 +2,11 @@ import type { NextFunction, Request, Response } from "express";
 import { getCanonicalMembershipRole } from "./membership-roles";
 import { hasRole, isStaffInRoles, resolveRoles, type RoleUser } from "./roles";
 
-// MULTIROL-01 (Fase 1): `STAFF_ROLES` se mantiene como Set (legado)
-// pero los helpers públicos ahora aceptan un `RoleUser` (con `role`
-// y/o `roles`). El check interno mira primero `roles` y cae al
-// singular para compat. La equivalencia funcional con la versión
-// anterior (rol singular) se valida en los tests de Fase 1.
-const STAFF_ROLES = new Set(["ADMIN", "DIRECTIVO", "TEACHER"]);
+// MULTIROL-01 (Fase 1): los helpers públicos aceptan un `RoleUser` (con
+// `role` y/o `roles`) o un rol suelto. Antes el rol suelto se comparaba contra
+// un Set local que no incluía ADMIN_ESCUELA, y el objeto contra `isStaffInRoles`
+// (que sí): el mismo usuario daba distinto según cómo se llamara. Ahora ambos
+// caminos usan `isStaffInRoles`, única fuente de verdad de quién es staff.
 
 const toRoleUser = (input?: string | null | RoleUser): RoleUser => {
   if (input == null) return {};
@@ -17,12 +16,9 @@ const toRoleUser = (input?: string | null | RoleUser): RoleUser => {
 
 const staffFromInput = (input?: string | null | RoleUser): boolean => {
   if (input == null) return false;
-  if (typeof input === "string") return STAFF_ROLES.has(input);
+  if (typeof input === "string") return isStaffInRoles([input]);
   const roles = resolveRoles(input);
   if (roles.length === 0) return false;
-  // Compat: si solo trae `role` y no `roles`, la lógica vieja
-  // aplicaba `STAFF_ROLES.has(role)` directamente. Si trae `roles`
-  // miramos el array.
   return isStaffInRoles(roles);
 };
 
@@ -297,7 +293,7 @@ export const canManageClassroom = ({
     !!classroomSchoolId &&
     requesterSchoolId === classroomSchoolId;
   // "admin de las aulas" se refiere a un directivo o a un profesor, no literalmente a un admin
-  const hasAdminMembership = !!requesterId
+  const hasAdminMembership = requesterId
     ? (classroomMembers ?? []).some(
         (member) =>
           member.userId === requesterId &&
