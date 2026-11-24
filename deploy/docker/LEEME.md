@@ -27,8 +27,7 @@ sin tocar producción. Comprobado:
 | `/api/modulos?limit=20` | 16 | 1356/s (p99 28 ms) | 1272/s (p99 38 ms) | −6 % |
 | `/api/modulos?limit=20` | 64 | 1387/s (p99 69 ms) | 1073/s (p99 94 ms) | −23 % |
 
-Sin errores en ninguno. Memoria: 590 MB en el sistema contra 275 MB en el contenedor (el contenedor no carga lo que
-`tsx` compila en el arranque fuera de la imagen). El costo aparece con respuestas grandes y mucha concurrencia: el
+Sin errores en ninguno. Memoria medida por el generador: 590 MB en el sistema contra 275 MB en el contenedor (no se investigó la diferencia). El costo aparece con respuestas grandes y mucha concurrencia: el
 reenvío de puertos de Docker sin root (`rootlesskit`, en espacio de usuario) copia cada byte. Con la demanda esperada
 (muy por debajo de 1000 pedidos/s) no se nota. Para recuperarlo, si hiciera falta: red `pasta` de rootlesskit
 (paquete `passt`, sudo) o que nginx hable con la API por un socket Unix (cambio chico en `src/index.ts`).
