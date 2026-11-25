@@ -131,7 +131,7 @@ tolerancia_abs: 0
 enunciado: "({a} + {b}i) × ({c} + {d}i). ¿Cuál es la parte real del resultado?"
 
 pasos:
-  - "(ac − bd) = ({a}×{c}) − ({b}×{d}) = {a * c} − {b * d} = {a * c - b * d}"
+  - "(ac − bd) = ({a})×({c}) − ({b})×({d}) = ({a * c}) − ({b * d}) = {a * c - b * d}"
 
 explicacion: |
   La parte real es ac − bd (el −bd viene de que i² = −1).
@@ -159,7 +159,7 @@ tolerancia_abs: 0
 enunciado: "({a} + {b}i) × ({c} + {d}i). ¿Cuál es la parte imaginaria del resultado?"
 
 pasos:
-  - "(ad + bc) = ({a}×{d}) + ({b}×{c}) = {a * d} + {b * c} = {a * d + b * c}"
+  - "(ad + bc) = ({a})×({d}) + ({b})×({c}) = ({a * d}) + ({b * c}) = {a * d + b * c}"
 
 explicacion: |
   La parte imaginaria junta los dos términos cruzados: ad + bc.

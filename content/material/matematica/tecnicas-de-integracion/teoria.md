@@ -31,3 +31,27 @@ El arte de esta técnica reside en elegir correctamente qué parte será $u$ y c
 Las fracciones parciales sirven para integrar funciones racionales, es decir, cocientes de polinomios $\frac{P(x)}{Q(x)}$. El objetivo es descomponer la fracción compleja en una suma de fracciones más simples que ya conocemos integrar, como $\frac{1}{x}$ o $\frac{1}{x+1}$. Esto se hace factorizando el denominador $Q(x)$ y determinando los coeficientes desconocidos.
 
 Para ver cómo se aplican en la vida real, pensemos en un ejemplo de física argentina. Si calculás el trabajo realizado por un motor que varía su potencia según una función racional, deberás integrar esa función. O bien, en economía, si el ingreso marginal de una empresa local está dado por una fracción racional, para hallar el ingreso total acumulado durante un trimestre, deberás aplicar la técnica de fracciones parciales. Estas herramientas convierten problemas abstractos en cálculos precisos que permiten tomar decisiones reales, desde diseñar puentes hasta planificar presupuestos nacionales.
+
+## Ejemplo resuelto
+
+**Sustitución.** $\int 2x \cdot e^{x^2}\, dx$: con $u = x^2$, $du = 2x\, dx$.
+
+$$
+\int e^u\, du = e^u + C = e^{x^2} + C
+$$
+
+**Por partes.** $\int x \cdot e^x\, dx$: elegimos $u = x$ (se simplifica al derivar) y $dv = e^x\, dx$, así que
+$du = dx$ y $v = e^x$.
+
+$$
+\int x e^x\, dx = x e^x - \int e^x\, dx = x e^x - e^x + C = e^x (x - 1) + C
+$$
+
+**Fracciones parciales.** $\int \frac{1}{x(x+1)}\, dx$: se escribe $\frac{1}{x(x+1)} = \frac{A}{x} + \frac{B}{x+1}$.
+Multiplicando por $x(x+1)$: $1 = A(x+1) + Bx$. Con $x = 0$ sale $A = 1$; con $x = -1$ sale $B = -1$.
+
+$$
+\int \left( \frac{1}{x} - \frac{1}{x+1} \right) dx = \ln|x| - \ln|x+1| + C
+$$
+
+**Con números.** $\int_0^1 x e^x\, dx = \left[ e^x (x - 1) \right]_0^1 = e^1 \cdot 0 - e^0 \cdot (-1) = 1$.

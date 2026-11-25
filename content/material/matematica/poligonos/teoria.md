@@ -79,6 +79,22 @@ interior + exterior = 180°). Una propiedad notable: **la suma de los
 sin importar cuántos lados tenga. En un polígono regular, cada ángulo
 exterior mide `360° / n`.
 
+## Ejemplo resuelto
+
+**Un hexágono regular** (6 lados):
+
+```
+Diagonales:              n × (n − 3) / 2 = 6 × 3 / 2 = 9
+Suma de ángulos internos: (n − 2) × 180° = 4 × 180° = 720°
+Cada ángulo interior:     720° / 6 = 120°
+Cada ángulo exterior:     360° / 6 = 60°
+```
+
+Por eso las celdas de los panales encajan sin dejar huecos: tres ángulos de 120° suman justo 360°.
+
+**Al revés.** Si cada ángulo interior de un polígono regular mide 140°, cada exterior mide 180° − 140° = 40°, y el
+polígono tiene 360° / 40° = 9 lados.
+
 ## Para qué sirve
 
 Estas fórmulas permiten calcular ángulos y diagonales de cualquier

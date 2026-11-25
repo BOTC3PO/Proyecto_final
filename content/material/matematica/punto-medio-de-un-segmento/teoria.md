@@ -51,6 +51,23 @@ directa sobre las coordenadas. Por eso este módulo no depende de
 `../distancia-entre-dos-puntos/`, aunque los dos temas suelan aparecer
 juntos.
 
+## Ejemplo resuelto
+
+**Entre A(2, 5) y B(8, 1).**
+
+```
+M = ((2 + 8) / 2 ; (5 + 1) / 2) = (10 / 2 ; 6 / 2) = (5 ; 3)
+```
+
+**Encontrar un extremo.** Si el punto medio es M(4, 1) y un extremo es A(1, −2), el otro extremo B cumple
+(1 + x) / 2 = 4 y (−2 + y) / 2 = 1:
+
+```
+x = 2 × 4 − 1    = 7
+y = 2 × 1 − (−2) = 4
+B = (7 ; 4)
+```
+
 ## Para qué sirve
 
 Sirve para encontrar el centro exacto de un objeto o de un espacio (el

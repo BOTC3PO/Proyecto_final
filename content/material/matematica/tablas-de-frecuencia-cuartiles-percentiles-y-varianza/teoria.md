@@ -69,6 +69,27 @@ La raíz cuadrada de la varianza tiene su propio nombre y su propio
 módulo (`Dispersión: rango y desvío`, el que sigue): ahí se retoma
 para completar la idea.
 
+## Ejemplo resuelto
+
+**Notas de 8 alumnos, ordenadas:** 3, 5, 6, 6, 7, 8, 9, 10.
+
+```
+Q2 (mediana) = (6 + 7) / 2 = 6,5         (promedio de los dos del medio)
+Q1 = mediana de la mitad baja (3, 5, 6, 6) = (5 + 6) / 2 = 5,5
+Q3 = mediana de la mitad alta (7, 8, 9, 10) = (8 + 9) / 2 = 8,5
+IQR = Q3 − Q1 = 8,5 − 5,5 = 3
+```
+
+**Varianza de las mismas notas.** La media es 54 / 8 = 6,75.
+
+```
+Distancias al cuadrado: 14,06 · 3,06 · 0,56 · 0,56 · 0,06 · 1,56 · 5,06 · 10,56
+Suma ≈ 35,5
+Varianza ≈ 35,5 / 8 ≈ 4,44       Desvío estándar ≈ √4,44 ≈ 2,11
+```
+
+(Hay varias convenciones para calcular cuartiles; con pocos datos pueden dar valores un poco distintos.)
+
 ## Para qué sirve
 
 Es el paso intermedio real entre "un promedio simple" y "entender la forma

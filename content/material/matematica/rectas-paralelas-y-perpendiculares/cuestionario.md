@@ -120,7 +120,7 @@ enunciado: "Se busca la recta paralela a y = {m}x + 7, que además pasa por el p
 
 pasos:
   - "Misma pendiente: {m}"
-  - "{y0} = {m} × {x0} + b, entonces b = {y0} − {m}×{x0} = {y0 - (m * x0)}"
+  - "{y0} = ({m}) × {x0} + b, entonces b = {y0} − ({m})×{x0} = {y0 - (m * x0)}"
 
 explicacion: |
   Se usa la misma pendiente de la recta original, y se despeja b con el

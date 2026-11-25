@@ -83,6 +83,26 @@ puramente horizontal ni vertical), la forma práctica de sumarlos es:
 3. El resultado `(x_total, y_total)` son las componentes del vector
    suma; su **módulo** se calcula con Pitágoras, como siempre.
 
+## Ejemplo resuelto
+
+**Sumar dos fuerzas.** Sobre una caja actúan F₁ = (3, 2) N y F₂ = (1, −5) N.
+
+```
+F₁ + F₂ = (3 + 1, 2 + (−5)) = (4, −3) N
+|F₁ + F₂| = √(4² + (−3)²) = √(16 + 9) = 5 N
+```
+
+**Descomponer y sumar.** Dos personas tiran de un carro: una con 100 N hacia el este (0°) y otra con 100 N a 60°.
+
+```
+Primera: (100, 0)
+Segunda: (100 × cos 60°, 100 × sen 60°) = (50, 86,6)
+Suma:    (150, 86,6)
+Módulo:  √(150² + 86,6²) = √(22 500 + 7 500) ≈ 173,2 N
+```
+
+Juntas hacen unos 173 N, no 200: como no tiran en la misma dirección, parte del esfuerzo no se suma.
+
 ## Para qué sirve
 
 Sumar y descomponer vectores es la base de la dinámica. Cuando varias

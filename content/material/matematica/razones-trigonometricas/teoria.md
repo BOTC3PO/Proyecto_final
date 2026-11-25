@@ -83,6 +83,25 @@ conocidos, sin necesidad de calculadora — conviene memorizarlos:
 Nótese la simetría: `sen(30°) = cos(60°)`, y `sen(60°) = cos(30°)` — los
 ángulos que suman 90° "intercambian" seno y coseno.
 
+## Ejemplo resuelto
+
+**La escalera.** Una escalera de 5 m está apoyada en una pared y su pie queda a 3 m de la pared. La altura que alcanza
+es de 4 m (por Pitágoras: √(5² − 3²) = 4). Para el ángulo θ que forma con el piso:
+
+```
+sen(θ) = opuesto / hipotenusa  = 4 / 5 = 0,8
+cos(θ) = adyacente / hipotenusa = 3 / 5 = 0,6
+tan(θ) = opuesto / adyacente    = 4 / 3 ≈ 1,33
+```
+
+Con la calculadora, θ = arcsen(0,8) ≈ 53,1°.
+
+**Calcular un lado.** Una rampa de 10 m de largo sube con 30° de inclinación. ¿Qué altura alcanza?
+
+```
+altura = hipotenusa × sen(30°) = 10 × 0,5 = 5 m
+```
+
 ## Para qué sirve
 
 Conociendo un ángulo agudo y un lado de un triángulo rectángulo, las razones

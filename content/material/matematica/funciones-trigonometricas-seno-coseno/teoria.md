@@ -86,6 +86,24 @@ repitiéndose cada `2π`. Es la misma forma de onda (sinusoide) que aparece en
 sonido, luz y cualquier fenómeno oscilatorio, tema que se retoma más
 adelante en Física.
 
+## Ejemplo resuelto
+
+**Convertir.** 120° a radianes y 3π/4 rad a grados:
+
+```
+120° × (π / 180) = 2π/3 rad ≈ 2,094 rad
+3π/4 × (180 / π) = 135°
+```
+
+**Evaluar con periodicidad.** sen(7π/2): como el período es 2π, se le pueden restar vueltas completas.
+
+```
+7π/2 − 2π = 3π/2
+sen(3π/2) = −1
+```
+
+**Amplitud.** y = 3 · sen(x) oscila entre −3 y 3: en x = π/2 vale 3 · 1 = 3.
+
 ## Para qué sirve
 
 Medir en radianes y pensar en seno y coseno como funciones (no solo como

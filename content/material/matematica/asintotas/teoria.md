@@ -27,3 +27,14 @@ Mientras que la asíntota vertical nos dice qué pasa en un punto específico, l
 La **asíntota horizontal** es una recta $y = k$ a la que la función se acerca cuando $x$ tiende a infinito. Esto ocurre comúnmente en funciones racionales donde el grado del numerador es menor o igual al grado del denominador. Por ejemplo, si la función es $f(x) = \frac{3x+1}{x^2+1}$, al hacer $x$ muy grande, el valor de la función se acerca a $0$. Por lo tanto, el eje $X$ ($y=0$) es una asíntota horizontal.
 
 Por otro lado, la **asíntota oblicua** aparece cuando el grado del numerador es exactamente uno mayor que el grado del denominador. En este caso, la función no se estabiliza en un número, sino que crece (o decrece) siguiendo una recta inclinada de la forma $y = mx + n$. Para encontrarla, se realiza la división entera del polinomio del numerador entre el del denominador; el cociente (sin el resto) nos da la ecuación de esa recta oblicua. Es decir, cuando $x$ es muy grande, la función se comporta casi como esa línea recta.
+
+## Ejemplo resuelto
+
+**Las tres asíntotas de una función.** Tomemos $f(x) = \frac{2x + 1}{x - 3}$ y $g(x) = \frac{x^2 + 1}{x}$.
+
+- **Vertical de f:** el denominador se anula en $x = 3$ y el numerador ahí vale $7 \neq 0$, así que hay asíntota vertical
+  en $x = 3$. Por ejemplo, $f(3{,}01) = \frac{7{,}02}{0{,}01} = 702$: muy grande.
+- **Horizontal de f:** numerador y denominador tienen el mismo grado, así que $y$ se acerca al cociente de los
+  coeficientes principales: $y = \frac{2}{1} = 2$. Con $x = 1000$, $f(1000) = \frac{2001}{997} \approx 2{,}007$.
+- **Oblicua de g:** el numerador tiene un grado más. Dividiendo, $\frac{x^2 + 1}{x} = x + \frac{1}{x}$, y como
+  $\frac{1}{x} \to 0$, la asíntota oblicua es $y = x$. Con $x = 100$, $g(100) = 100{,}01$: casi sobre la recta.

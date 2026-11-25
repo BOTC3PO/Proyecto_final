@@ -30,7 +30,7 @@ tolerancia_abs: 0
 enunciado: "{a}x² + {b}x + {c} = 0. ¿Cuál es el discriminante (Δ)?"
 
 pasos:
-  - "Δ = {b}² − 4×{a}×{c} = {b ^ 2} − {4 * a * c} = {b ^ 2 - 4 * a * c}"
+  - "Δ = ({b})² − 4×{a}×({c}) = {b ^ 2} − ({4 * a * c}) = {b ^ 2 - 4 * a * c}"
 
 explicacion: |
   Δ = b² − 4ac.

@@ -55,6 +55,26 @@ cuál punto se llame "1" y cuál "2". Como las diferencias están elevadas al
 cuadrado, el resultado da exactamente igual sin importar el orden. Restar al
 revés solo cambia el signo de `Δx` y `Δy`, y el cuadrado elimina ese signo.
 
+## Ejemplo resuelto
+
+**Entre A(1, 2) y B(7, 10).**
+
+```
+Δx = 7 − 1 = 6
+Δy = 10 − 2 = 8
+d  = √(6² + 8²) = √(36 + 64) = √100 = 10
+```
+
+**Con coordenadas negativas.** Entre P(−2, 3) y Q(4, −5):
+
+```
+Δx = 4 − (−2) = 6
+Δy = −5 − 3  = −8
+d  = √(6² + (−8)²) = √(36 + 64) = 10
+```
+
+Al elevar al cuadrado el signo desaparece: por eso no importa el orden de los puntos.
+
 ## Para qué sirve
 
 Sirve para calcular distancias reales entre ubicaciones dadas por

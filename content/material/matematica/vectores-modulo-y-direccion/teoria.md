@@ -73,6 +73,22 @@ representa. Es la misma idea de traslación ya vista en
 - **Vector unitario**: módulo exactamente 1. Se usa para representar
   sólo una dirección, sin "peso" en la magnitud.
 
+## Ejemplo resuelto
+
+**Módulo y dirección de v = (3, 4).**
+
+```
+|v| = √(3² + 4²) = √(9 + 16) = √25 = 5
+θ   = arctan(4 / 3) ≈ 53,1°
+```
+
+**Al revés: de módulo y ángulo a componentes.** Un auto avanza 10 km en una dirección de 30° respecto del eje x:
+
+```
+x = 10 × cos(30°) ≈ 10 × 0,866 = 8,66 km   (hacia el este)
+y = 10 × sen(30°) = 10 × 0,5    = 5 km      (hacia el norte)
+```
+
 ## Para qué sirve
 
 Los vectores son el lenguaje de cualquier magnitud que combine "cuánto"

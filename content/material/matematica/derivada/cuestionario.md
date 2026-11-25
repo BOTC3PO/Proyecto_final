@@ -143,7 +143,7 @@ enunciado: "f(x) = {a}x² + {b}x + {c}. ¿Cuánto vale f'({punto})?"
 
 pasos:
   - "f'(x) = {2 * a}x + {b}"
-  - "f'({punto}) = {2 * a}×{punto} + {b} = {2 * a * punto + b}"
+  - "f'({punto}) = {2 * a}×({punto}) + {b} = {2 * a * punto + b}"
 
 explicacion: |
   Se deriva término a término y después se evalúa en {punto}.
