@@ -1,4 +1,4 @@
-# Matemática — Riesgo relativo vs. absoluto en una noticia de salud (cuestionario, 20 preguntas VBLang)
+# Matemática — Riesgo relativo vs. absoluto en una noticia de salud (cuestionario, 26 preguntas VBLang)
 
 > Tema: `S1`. Ver `teoria.md` en esta misma carpeta.
 
@@ -461,4 +461,170 @@ respuesta: "Para evaluar con criterio propio si un titular alarmante ('duplica e
 explicacion: |
   Es la misma familia de pensamiento crítico estadístico que
   `../grafico-eje-truncado/` y `../correlacion-no-es-causalidad/`.
+```
+
+### 21 — Riesgo absoluto
+
+```
+metadata:
+  materia: "matematica"
+  tema: "riesgo_relativo_vs_absoluto"
+  nivel: "basico"
+  tags: ["calculo", "riesgo_absoluto"]
+
+variables:
+  N: uno_de([1000, 2000, 5000, 10000])
+  k: random(5, 200)
+
+respuesta: k / N * 100
+tipo: input
+unidad: "%"
+tolerancia: 1%
+
+enunciado: "De {N} personas, {k} tuvieron cierta enfermedad en un año. ¿Cuál es el riesgo absoluto, en %? (podés redondear a dos decimales)"
+
+pasos:
+  - "riesgo = casos / total"
+  - "{k} / {N} = {k / N} → {k / N * 100 | 2} %"
+
+explicacion: |
+  El riesgo absoluto es la probabilidad del evento en ese grupo.
+```
+
+### 22 — Riesgo relativo
+
+```
+metadata:
+  materia: "matematica"
+  tema: "riesgo_relativo_vs_absoluto"
+  nivel: "basico"
+  tags: ["calculo", "riesgo_relativo"]
+
+variables:
+  pn: uno_de([1, 2, 4, 5])
+  rr: uno_de([1.5, 2, 3, 4])
+
+respuesta: rr
+tipo: input
+unidad: ""
+tolerancia: 1%
+
+enunciado: "En el grupo expuesto, el {pn * rr} % tuvo el problema; en el no expuesto, el {pn} %. ¿Cuál es el riesgo relativo?"
+
+pasos:
+  - "RR = riesgo expuesto / riesgo no expuesto"
+  - "RR = {pn * rr} / {pn} = {rr}"
+
+explicacion: |
+  RR = 2 significa el doble de riesgo; RR = 1, ninguna diferencia.
+```
+
+### 23 — Diferencia de riesgo absoluta
+
+```
+metadata:
+  materia: "matematica"
+  tema: "riesgo_relativo_vs_absoluto"
+  nivel: "intermedio"
+  tags: ["calculo", "diferencia_absoluta"]
+
+variables:
+  pn: uno_de([0.1, 0.5, 1, 5, 10])
+  rr: uno_de([2, 3])
+
+respuesta: pn * rr - pn
+tipo: input
+unidad: "puntos %"
+tolerancia: 1%
+
+enunciado: "Un hábito multiplica por {rr} el riesgo de una enfermedad. Sin el hábito, el riesgo es del {pn} %. ¿Cuántos puntos porcentuales aumenta el riesgo absoluto?"
+
+pasos:
+  - "Con el hábito: {pn} × {rr} = {pn * rr} %"
+  - "Aumento: {pn * rr} − {pn} = {pn * rr - pn} puntos"
+
+explicacion: |
+  El mismo «multiplica por tanto» es mucho o poco según el riesgo de partida.
+```
+
+### 24 — Número necesario a tratar
+
+```
+metadata:
+  materia: "matematica"
+  tema: "riesgo_relativo_vs_absoluto"
+  nivel: "avanzado"
+  tags: ["calculo", "nnt"]
+
+variables:
+  d: uno_de([0.5, 1, 2, 4, 5, 10])
+
+respuesta: 100 / d
+tipo: input
+unidad: "personas"
+tolerancia: 1%
+
+enunciado: "Un tratamiento baja el riesgo absoluto de un problema en {d} puntos porcentuales. ¿A cuántas personas hay que tratar, en promedio, para evitar un caso? (NNT = 100 / diferencia en puntos)"
+
+pasos:
+  - "NNT = 1 / diferencia absoluta = 100 / {d}"
+  - "NNT = {100 / d}"
+
+explicacion: |
+  El NNT traduce un porcentaje abstracto a algo concreto: cuántas personas tratar para que una se beneficie.
+```
+
+### 25 — El titular del diario
+
+```
+metadata:
+  materia: "matematica"
+  tema: "riesgo_relativo_vs_absoluto"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  base: uno_de([1, 2, 5, 10])
+  rrs: [2, 3]
+  verbos: ["duplica", "triplica"]
+  i: random(0, 1)
+  rr: rrs[i]
+
+respuesta: base * rr - base
+tipo: input
+unidad: "casos"
+tolerancia_abs: 0
+
+enunciado: "Un titular dice: «comer X {verbos[i]} el riesgo». En la población, la enfermedad afecta a {base} de cada 100 000 personas. ¿Cuántos casos más por cada 100 000 habría si todos comieran X?"
+
+pasos:
+  - "Con X: {base} × {rr} = {base * rr} por cada 100 000"
+  - "Casos extra: {base * rr} − {base} = {base * rr - base}"
+
+explicacion: |
+  «Duplica el riesgo» suena grave, pero si el riesgo base es muy bajo la cantidad real de casos extra es mínima.
+```
+
+### 26 — ¿Cambia mucho el riesgo?
+
+```
+metadata:
+  materia: "matematica"
+  tema: "riesgo_relativo_vs_absoluto"
+  nivel: "intermedio"
+  tags: ["interpretacion", "verdadero_falso"]
+
+variables:
+  pn: uno_de([0.001, 0.01, 5, 10, 20])
+
+respuesta: pn * 2 - pn >= 1
+tipo: vf
+
+enunciado: "Un factor duplica el riesgo (RR = 2) de un evento cuya probabilidad sin el factor es {pn} %. ¿El riesgo absoluto aumenta al menos 1 punto porcentual?"
+
+pasos:
+  - "Con el factor: {pn} × 2 = {pn * 2} %; aumento: {pn * 2 - pn} puntos"
+
+explicacion: |
+  Con un riesgo base muy chico, duplicarlo cambia muy poco en términos absolutos.
 ```

@@ -75,3 +75,22 @@ Permiten calcular distancias o alturas inaccesibles (un cerro, un edificio
 desde un ángulo incómodo, la distancia entre dos puntos separados por un
 obstáculo). Para eso alcanza con medir solo algunos ángulos y una distancia
 de referencia. El triángulo formado no necesita tener un ángulo recto.
+
+## Ejemplos resueltos
+
+**Teorema del coseno (LAL).** Dos lados de un terreno miden 30 m y 40 m y forman un ángulo de 60°. ¿Cuánto mide el
+tercer lado?
+
+```
+c² = 30² + 40² − 2 · 30 · 40 · cos(60°)
+c² = 900 + 1600 − 2400 · 0,5 = 2500 − 1200 = 1300
+c = √1300 ≈ 36,06 m
+```
+
+**Teorema del seno (ALA).** En un triángulo, A = 30°, B = 45° y el lado a = 10 cm. ¿Cuánto mide b?
+
+```
+b / sen(45°) = a / sen(30°)
+b = 10 · sen(45°) / sen(30°) = 10 · 0,7071 / 0,5 ≈ 14,14 cm
+```
+

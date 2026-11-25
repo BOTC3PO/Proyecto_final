@@ -1,4 +1,4 @@
-# Matemática — Teorema del seno y del coseno (cuestionario, 25 preguntas VBLang)
+# Matemática — Teorema del seno y del coseno (cuestionario, 31 preguntas VBLang)
 
 > Tema: `TRIG2`. Ver `teoria.md` en esta misma carpeta.
 
@@ -564,4 +564,174 @@ respuesta: "Para resolver cualquier triángulo, tenga o no un ángulo recto, seg
 explicacion: |
   Entre los dos, y sumados a Pitágoras para el caso rectángulo, cubren
   cualquier triángulo posible.
+```
+
+### 26 — Lado con el teorema del coseno
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "intermedio"
+  tags: ["calculo", "coseno"]
+
+variables:
+  a: random(3, 15)
+  b: random(3, 15)
+  C: uno_de([30, 45, 60, 100, 120])
+
+respuesta: sqrt(a ^ 2 + b ^ 2 - 2 * a * b * cos_deg(C))
+tipo: input
+unidad: "cm"
+tolerancia: 1%
+
+enunciado: "En un triángulo, dos lados miden {a} cm y {b} cm, y el ángulo entre ellos es de {C}°. ¿Cuánto mide el tercer lado? (podés redondear a dos decimales)"
+
+pasos:
+  - "c² = a² + b² − 2ab·cos(C)"
+  - "c² = {a ^ 2} + {b ^ 2} − 2 × {a} × {b} × {cos_deg(C) | 4} = {a ^ 2 + b ^ 2 - 2 * a * b * cos_deg(C) | 2}"
+  - "c = √{a ^ 2 + b ^ 2 - 2 * a * b * cos_deg(C) | 2} ≈ {sqrt(a ^ 2 + b ^ 2 - 2 * a * b * cos_deg(C)) | 2} cm"
+
+explicacion: |
+  Con dos lados y el ángulo comprendido (LAL) se usa el teorema del coseno.
+```
+
+### 27 — Lado con el teorema del seno
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "intermedio"
+  tags: ["calculo", "seno"]
+
+variables:
+  a: random(5, 20)
+  A: uno_de([30, 40, 50])
+  B: uno_de([45, 60, 70])
+
+respuesta: a * sin_deg(B) / sin_deg(A)
+tipo: input
+unidad: "cm"
+tolerancia: 1%
+
+enunciado: "En un triángulo, A = {A}°, B = {B}° y el lado a (opuesto a A) mide {a} cm. ¿Cuánto mide el lado b? (podés redondear a dos decimales)"
+
+pasos:
+  - "b / sen(B) = a / sen(A) → b = a · sen(B) / sen(A)"
+  - "b = {a} × {sin_deg(B) | 4} / {sin_deg(A) | 4} ≈ {a * sin_deg(B) / sin_deg(A) | 2} cm"
+
+explicacion: |
+  Con dos ángulos y un lado (ALA o AAL) se usa el teorema del seno.
+```
+
+### 28 — El tercer ángulo
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "basico"
+  tags: ["calculo", "angulos"]
+
+variables:
+  A: random(20, 80)
+  B: random(20, 80)
+
+respuesta: 180 - A - B
+tipo: input
+unidad: "°"
+tolerancia_abs: 0
+
+enunciado: "Dos ángulos de un triángulo miden {A}° y {B}°. ¿Cuánto mide el tercero?"
+
+pasos:
+  - "C = 180° − {A}° − {B}° = {180 - A - B}°"
+
+explicacion: |
+  Antes de aplicar el teorema del seno muchas veces hay que completar el ángulo que falta.
+```
+
+### 29 — Ángulo con los tres lados
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "avanzado"
+  tags: ["calculo", "coseno"]
+
+variables:
+  a: random(5, 10)
+  b: random(5, 10)
+  C: uno_de([40, 60, 75, 90, 110])
+  c: sqrt(a ^ 2 + b ^ 2 - 2 * a * b * cos_deg(C))
+
+respuesta: C
+tipo: input
+unidad: "°"
+tolerancia: 1%
+
+enunciado: "Un triángulo tiene lados a = {a}, b = {b} y c = {c | 3}. ¿Cuánto mide el ángulo C (opuesto a c), en grados?"
+
+pasos:
+  - "cos(C) = (a² + b² − c²) / (2ab)"
+  - "cos(C) = ({a ^ 2} + {b ^ 2} − {c ^ 2 | 2}) / {2 * a * b} ≈ {(a ^ 2 + b ^ 2 - c ^ 2) / (2 * a * b) | 4}"
+  - "C = arccos({(a ^ 2 + b ^ 2 - c ^ 2) / (2 * a * b) | 4}) ≈ {acos_deg((a ^ 2 + b ^ 2 - c ^ 2) / (2 * a * b)) | 1}°"
+
+explicacion: |
+  Con los tres lados (LLL) se despeja el coseno del ángulo y se usa el arcocoseno.
+```
+
+### 30 — La distancia entre dos casas
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  a: random(100, 500)
+  b: random(100, 500)
+  C: uno_de([50, 70, 90, 110, 130])
+
+respuesta: sqrt(a ^ 2 + b ^ 2 - 2 * a * b * cos_deg(C))
+tipo: input
+unidad: "m"
+tolerancia: 1%
+
+enunciado: "Desde la escuela, la casa de Ana está a {a} m y la de Leo a {b} m, y las dos direcciones forman un ángulo de {C}°. ¿Qué distancia hay en línea recta entre las dos casas? (podés redondear al metro)"
+
+pasos:
+  - "d² = {a}² + {b}² − 2 × {a} × {b} × cos({C}°)"
+  - "d² ≈ {a ^ 2 + b ^ 2 - 2 * a * b * cos_deg(C) | 0}; d ≈ {sqrt(a ^ 2 + b ^ 2 - 2 * a * b * cos_deg(C)) | 0} m"
+
+explicacion: |
+  Así se miden distancias que no se pueden recorrer en línea recta, como en topografía o navegación.
+```
+
+### 31 — ¿Pitágoras alcanza?
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "basico"
+  tags: ["interpretacion", "verdadero_falso"]
+
+variables:
+  C: uno_de([60, 90, 90, 120])
+
+respuesta: C == 90
+tipo: vf
+
+enunciado: "Se conocen dos lados de un triángulo y el ángulo entre ellos, que mide {C}°. ¿Se puede calcular el tercer lado solo con Pitágoras (c² = a² + b²)?"
+
+pasos:
+  - "cos({C}°) = {cos_deg(C) | 3}: el término −2ab·cos(C) desaparece solo si vale 0."
+
+explicacion: |
+  Pitágoras es el caso del teorema del coseno con C = 90°.
 ```

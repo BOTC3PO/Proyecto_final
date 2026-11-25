@@ -1,4 +1,4 @@
-# Matemática — Intervalo de confianza (cuestionario, 20 preguntas VBLang)
+# Matemática — Intervalo de confianza (cuestionario, 26 preguntas VBLang)
 
 > Tema: `D13`. Ver `teoria.md` en esta misma carpeta.
 
@@ -452,4 +452,169 @@ explicacion: |
   Es el fundamento de `../test-de-hipotesis/`, el módulo que sigue:
   ambos usan la misma maquinaria (error estándar + z*) para tomar
   decisiones estadísticas.
+```
+
+### 21 — Margen de error al 95 %
+
+```
+metadata:
+  materia: "matematica"
+  tema: "intervalo_de_confianza"
+  nivel: "basico"
+  tags: ["calculo", "margen_de_error"]
+
+variables:
+  ee: uno_de([0.5, 1, 1.5, 2, 2.5, 3])
+
+respuesta: 1.96 * ee
+tipo: input
+unidad: ""
+tolerancia: 1%
+
+enunciado: "Una muestra tiene un error estándar de {ee}. ¿Cuál es el margen de error con 95 % de confianza? (z* = 1,96)"
+
+pasos:
+  - "margen = z* × error estándar"
+  - "margen = 1,96 × {ee} = {1.96 * ee | 2}"
+
+explicacion: |
+  El margen de error es lo que se suma y se resta a la media muestral.
+```
+
+### 22 — Extremo superior del intervalo
+
+```
+metadata:
+  materia: "matematica"
+  tema: "intervalo_de_confianza"
+  nivel: "basico"
+  tags: ["calculo", "intervalo"]
+
+variables:
+  m: random(20, 90)
+  ee: uno_de([1, 2, 2.5, 4])
+
+respuesta: m + 1.96 * ee
+tipo: input
+unidad: ""
+tolerancia: 1%
+
+enunciado: "Una muestra tiene media {m} y error estándar {ee}. Con 95 % de confianza (z* = 1,96), ¿cuál es el extremo superior del intervalo?"
+
+pasos:
+  - "margen = 1,96 × {ee} = {1.96 * ee | 2}"
+  - "extremo superior = {m} + {1.96 * ee | 2} = {m + 1.96 * ee | 2}"
+
+explicacion: |
+  El intervalo va de media − margen a media + margen.
+```
+
+### 23 — Error estándar a partir de σ y n
+
+```
+metadata:
+  materia: "matematica"
+  tema: "intervalo_de_confianza"
+  nivel: "intermedio"
+  tags: ["calculo", "error_estandar"]
+
+variables:
+  s: uno_de([10, 12, 15, 20, 30])
+  n: uno_de([4, 9, 16, 25, 36, 100])
+
+respuesta: s / sqrt(n)
+tipo: input
+unidad: ""
+tolerancia: 1%
+
+enunciado: "Una población tiene desvío estándar σ = {s}. Se toma una muestra de n = {n}. ¿Cuál es el error estándar de la media?"
+
+pasos:
+  - "error estándar = σ / √n"
+  - "√{n} = {sqrt(n)}; error estándar = {s} / {sqrt(n)} = {s / sqrt(n) | 2}"
+
+explicacion: |
+  Con muestras más grandes el error estándar baja, y el intervalo se angosta.
+```
+
+### 24 — Intervalo al 99 %
+
+```
+metadata:
+  materia: "matematica"
+  tema: "intervalo_de_confianza"
+  nivel: "intermedio"
+  tags: ["calculo", "nivel_de_confianza"]
+
+variables:
+  m: random(30, 80)
+  ee: uno_de([1, 2, 3])
+
+respuesta: m - 2.576 * ee
+tipo: input
+unidad: ""
+tolerancia: 1%
+
+enunciado: "Con media muestral {m} y error estándar {ee}, ¿cuál es el extremo inferior del intervalo con 99 % de confianza? (z* = 2,576; podés redondear a dos decimales)"
+
+pasos:
+  - "margen = 2,576 × {ee} = {2.576 * ee | 3}"
+  - "extremo inferior = {m} − {2.576 * ee | 3} = {m - 2.576 * ee | 2}"
+
+explicacion: |
+  Más confianza exige un intervalo más ancho.
+```
+
+### 25 — La encuesta electoral
+
+```
+metadata:
+  materia: "matematica"
+  tema: "intervalo_de_confianza"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  p: random(25, 45)
+  me: uno_de([2, 2.5, 3, 3.5])
+
+respuesta: p + me
+tipo: input
+unidad: "%"
+tolerancia_abs: 0.01
+
+enunciado: "Una encuesta dice que un candidato tiene {p} % de intención de voto, con un margen de error de ±{me} puntos (95 % de confianza). ¿Cuál es el valor más alto del intervalo, en %?"
+
+pasos:
+  - "Intervalo: {p} ± {me}, es decir, de {p - me} % a {p + me} %"
+
+explicacion: |
+  Si dos candidatos están a menos de dos márgenes de distancia, la encuesta no permite decir quién va adelante.
+```
+
+### 26 — ¿Los intervalos se superponen?
+
+```
+metadata:
+  materia: "matematica"
+  tema: "intervalo_de_confianza"
+  nivel: "intermedio"
+  tags: ["interpretacion", "verdadero_falso", "cotidiano"]
+
+variables:
+  a: random(30, 40)
+  b: random(30, 45)
+  me: uno_de([2, 3])
+
+respuesta: abs(a - b) <= 2 * me
+tipo: vf
+
+enunciado: "Dos candidatos tienen {a} % y {b} % en una encuesta con margen de error ±{me} puntos. ¿Sus intervalos se superponen (empate técnico)?"
+
+pasos:
+  - "A: de {a - me} a {a + me}; B: de {b - me} a {b + me}"
+  - "Se superponen si la diferencia ({abs(a - b)}) no supera dos márgenes ({2 * me})."
+
+explicacion: |
+  Cuando los intervalos se superponen, la diferencia entre ellos puede deberse al azar de la muestra.
 ```

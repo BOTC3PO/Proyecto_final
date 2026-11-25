@@ -1,4 +1,4 @@
-# Matemática — Distribución normal (cuestionario, 20 preguntas VBLang)
+# Matemática — Distribución normal (cuestionario, 26 preguntas VBLang)
 
 > Tema: `D7`. Ver `teoria.md` en esta misma carpeta.
 
@@ -441,4 +441,174 @@ respuesta: "Para describir y predecir la proporción de datos que cae en cierto 
 explicacion: |
   Es la base de muestreo, intervalos de confianza y tests de
   hipótesis — todos los módulos que siguen en esta cadena.
+```
+
+### 21 — Calcular el z-score
+
+```
+metadata:
+  materia: "matematica"
+  tema: "distribucion_normal"
+  nivel: "basico"
+  tags: ["calculo", "z_score"]
+
+variables:
+  mu: random(50, 80)
+  s: uno_de([4, 5, 8, 10])
+  z: uno_de([-2, -1.5, -1, 0.5, 1, 2, 2.5])
+  x: mu + z * s
+
+respuesta: z
+tipo: input
+unidad: ""
+tolerancia_abs: 0.01
+
+enunciado: "Las notas de un examen tienen media {mu} y desvío estándar {s}. ¿Cuál es el z-score de una nota de {x}?"
+
+pasos:
+  - "z = (x − μ) / σ"
+  - "z = ({x} − {mu}) / {s} = {x - mu} / {s} = {z}"
+
+explicacion: |
+  El z-score dice a cuántos desvíos de la media está el valor; si es negativo, está por debajo.
+```
+
+### 22 — Del z-score al valor
+
+```
+metadata:
+  materia: "matematica"
+  tema: "distribucion_normal"
+  nivel: "intermedio"
+  tags: ["calculo", "z_score"]
+
+variables:
+  mu: random(150, 180)
+  s: uno_de([5, 6, 8])
+  z: uno_de([-2, -1, 1, 1.5, 2])
+
+respuesta: mu + z * s
+tipo: input
+unidad: "cm"
+tolerancia_abs: 0.01
+
+enunciado: "La altura de un grupo tiene media {mu} cm y desvío {s} cm. ¿Qué altura corresponde a un z-score de {z}?"
+
+pasos:
+  - "x = μ + z · σ"
+  - "x = {mu} + ({z}) × {s} = {mu} + ({z * s}) = {mu + z * s} cm"
+
+explicacion: |
+  Se despeja x de la fórmula del z-score.
+```
+
+### 23 — Regla empírica: el intervalo del 95 %
+
+```
+metadata:
+  materia: "matematica"
+  tema: "distribucion_normal"
+  nivel: "basico"
+  tags: ["calculo", "regla_empirica"]
+
+variables:
+  mu: random(40, 100)
+  s: random(2, 12)
+
+respuesta: mu + 2 * s
+tipo: input
+unidad: ""
+tolerancia_abs: 0
+
+enunciado: "Una variable con distribución normal tiene media {mu} y desvío {s}. Aproximadamente el 95 % de los datos está entre {mu - 2 * s} y cierto valor. ¿Cuál es ese valor máximo?"
+
+pasos:
+  - "El 95 % está en μ ± 2σ."
+  - "μ + 2σ = {mu} + 2 × {s} = {mu + 2 * s}"
+
+explicacion: |
+  68 % en ±1 desvío, 95 % en ±2 y 99,7 % en ±3.
+```
+
+### 24 — Cuántos alumnos en el rango
+
+```
+metadata:
+  materia: "matematica"
+  tema: "distribucion_normal"
+  nivel: "intermedio"
+  tags: ["calculo", "regla_empirica"]
+
+variables:
+  N: uno_de([100, 200, 500, 1000])
+  ks: [1, 2]
+  ps: [68, 95]
+  i: random(0, 1)
+
+respuesta: N * ps[i] / 100
+tipo: input
+unidad: "alumnos"
+tolerancia: 1%
+
+enunciado: "Las notas de {N} alumnos siguen una distribución normal. ¿Aproximadamente cuántos sacaron una nota a menos de {ks[i]} desvío(s) estándar de la media?"
+
+pasos:
+  - "Regla empírica: ±1 desvío → 68 %; ±2 desvíos → 95 %."
+  - "{N} × {ps[i]} / 100 = {N * ps[i] / 100}"
+
+explicacion: |
+  La regla empírica permite estimar cantidades sin tablas ni integrales.
+```
+
+### 25 — Comparar dos notas
+
+```
+metadata:
+  materia: "matematica"
+  tema: "distribucion_normal"
+  nivel: "intermedio"
+  tags: ["comparacion", "cotidiano", "verdadero_falso"]
+
+variables:
+  xm: random(60, 90)
+  xl: random(60, 90)
+
+respuesta: (xm - 60) / 10 > (xl - 70) / 5
+tipo: vf
+
+enunciado: "En Matemática la media fue 60 con desvío 10, y en Lengua la media fue 70 con desvío 5. Sofía sacó {xm} en Matemática y {xl} en Lengua. ¿Le fue relativamente mejor en Matemática?"
+
+pasos:
+  - "z Matemática = ({xm} − 60) / 10 = {(xm - 60) / 10}"
+  - "z Lengua = ({xl} − 70) / 5 = {(xl - 70) / 5}"
+
+explicacion: |
+  El z-score permite comparar notas de materias con medias y desvíos distintos.
+```
+
+### 26 — La talla de zapatillas
+
+```
+metadata:
+  materia: "matematica"
+  tema: "distribucion_normal"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  P: uno_de([1000, 2000, 5000])
+
+respuesta: P * 16 / 100
+tipo: input
+unidad: "pares"
+tolerancia: 1%
+
+enunciado: "Una fábrica sabe que la talla de pie de sus clientes es normal, con media 40 y desvío 2. Va a producir {P} pares. Si alrededor del 16 % de las personas calza más de 42 (más de un desvío por encima), ¿cuántos pares de talle mayor a 42 conviene fabricar?"
+
+pasos:
+  - "Entre 38 y 42 está el 68 %; el 32 % restante se reparte mitad arriba y mitad abajo: 16 %."
+  - "{P} × 16 / 100 = {P * 16 / 100}"
+
+explicacion: |
+  Así se planifica cuánto fabricar de cada talle sin tener que medir a todos los clientes.
 ```

@@ -1,4 +1,4 @@
-# Matemática — Teorema del binomio: expansión de (a+b)ⁿ (cuestionario, 20 preguntas VBLang)
+# Matemática — Teorema del binomio: expansión de (a+b)ⁿ (cuestionario, 26 preguntas VBLang)
 
 > Tema: `D18`. Ver `teoria.md` en esta misma carpeta.
 
@@ -445,4 +445,167 @@ respuesta: "Para expandir (a+b)ⁿ de forma directa (o calcular un único térmi
 explicacion: |
   Es el hermano algebraico de `../distribucion-binomial/`: mismo
   coeficiente, distinto propósito.
+```
+
+### 21 — Número combinatorio
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_del_binomio"
+  nivel: "basico"
+  tags: ["calculo", "combinatorio"]
+
+variables:
+  n: random(3, 8)
+  k: random(1, 3)
+
+respuesta: combinations(n, k)
+tipo: input
+unidad: ""
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto vale el número combinatorio C({n},{k})?"
+
+pasos:
+  - "C(n,k) = n! / (k! · (n − k)!)"
+  - "C({n},{k}) = {factorial(n)} / ({factorial(k)} × {factorial(n - k)}) = {combinations(n, k)}"
+
+explicacion: |
+  Es el coeficiente del término k de (a + b) elevado a la n.
+```
+
+### 22 — Coeficiente de un término
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_del_binomio"
+  nivel: "intermedio"
+  tags: ["calculo", "coeficiente"]
+
+variables:
+  n: random(3, 6)
+  b: random(2, 3)
+  p: random(1, 2)
+
+respuesta: combinations(n, n - p) * b ^ (n - p)
+tipo: input
+unidad: ""
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el coeficiente de x^{p} en el desarrollo de (x + {b})^{n}?"
+
+pasos:
+  - "Término general: C({n},k) · x^({n}−k) · {b}^k. Para x^{p}: k = {n} − {p} = {n - p}"
+  - "C({n},{n - p}) · {b}^{n - p} = {combinations(n, n - p)} × {b ^ (n - p)} = {combinations(n, n - p) * b ^ (n - p)}"
+
+explicacion: |
+  Se busca el k que da la potencia pedida y se multiplica el combinatorio por la potencia del número.
+```
+
+### 23 — Cantidad de términos
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_del_binomio"
+  nivel: "basico"
+  tags: ["calculo", "terminos"]
+
+variables:
+  n: random(2, 20)
+
+respuesta: n + 1
+tipo: input
+unidad: "términos"
+tolerancia_abs: 0
+
+enunciado: "¿Cuántos términos tiene el desarrollo de (a + b)^{n}?"
+
+pasos:
+  - "k va de 0 a {n}: son {n} + 1 = {n + 1} términos."
+
+explicacion: |
+  Siempre hay uno más que el exponente.
+```
+
+### 24 — Suma de los coeficientes
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_del_binomio"
+  nivel: "intermedio"
+  tags: ["calculo", "pascal"]
+
+variables:
+  n: random(2, 10)
+
+respuesta: 2 ^ n
+tipo: input
+unidad: ""
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto da la suma de todos los coeficientes del desarrollo de (a + b)^{n}?"
+
+pasos:
+  - "Con a = b = 1: (1 + 1)^{n} = 2^{n} = {2 ^ n}"
+
+explicacion: |
+  Reemplazar las letras por 1 deja solo los coeficientes sumados.
+```
+
+### 25 — Calcular una potencia de 11
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_del_binomio"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  n: random(2, 4)
+
+respuesta: 11 ^ n
+tipo: input
+unidad: ""
+tolerancia_abs: 0
+
+enunciado: "Usando (10 + 1)^{n} y el triángulo de Pascal, calculá 11^{n} sin calculadora."
+
+pasos:
+  - "(10 + 1)^{n}: los coeficientes de la fila {n} del triángulo de Pascal multiplican potencias de 10."
+  - "11^{n} = {11 ^ n}"
+
+explicacion: |
+  Para potencias chicas de 11, los dígitos son justo la fila del triángulo: 11² = 121, 11³ = 1331, 11⁴ = 14641.
+```
+
+### 26 — Las combinaciones de la pizza
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_del_binomio"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  n: random(4, 8)
+
+respuesta: 2 ^ n
+tipo: input
+unidad: "pizzas"
+tolerancia_abs: 0
+
+enunciado: "Una pizzería ofrece {n} ingredientes extra, y cada uno se puede poner o no. ¿Cuántas pizzas distintas se pueden armar (contando la que no lleva ninguno)?"
+
+pasos:
+  - "Pizzas con k ingredientes: C({n},k). Sumando k = 0 … {n}: C({n},0) + C({n},1) + … + C({n},{n})"
+  - "Esa suma es (1 + 1)^{n} = 2^{n} = {2 ^ n}"
+
+explicacion: |
+  La suma de una fila del triángulo de Pascal cuenta todos los subconjuntos posibles.
 ```

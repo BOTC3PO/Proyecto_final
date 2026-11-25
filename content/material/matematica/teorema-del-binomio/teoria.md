@@ -75,3 +75,19 @@ Permite calcular un término específico de una expansión (por ejemplo, "¿cuá
 es el coeficiente de `a³b²` en `(a+b)⁵`?") sin necesitar desarrollar todo el
 binomio a mano. Es, además, la razón algebraica detrás de por qué la fórmula
 de la distribución binomial tiene exactamente esa forma.
+
+## Ejemplos resueltos
+
+**Un coeficiente sin expandir todo.** ¿Cuál es el coeficiente de x² en (x + 3)⁴?
+
+```
+Término general: C(4,k) · x^(4−k) · 3^k
+Para x²: 4 − k = 2  →  k = 2
+C(4,2) · 3² = 6 · 9 = 54
+```
+
+El término es 54x², sin tener que multiplicar (x + 3) cuatro veces.
+
+**Con números.** (1 + 1)ⁿ = 2ⁿ: la suma de los coeficientes de una fila del triángulo de Pascal es una potencia de 2.
+Por ejemplo, 1 + 4 + 6 + 4 + 1 = 16 = 2⁴.
+

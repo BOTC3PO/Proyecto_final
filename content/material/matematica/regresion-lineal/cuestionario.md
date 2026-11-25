@@ -1,4 +1,4 @@
-# Matemática — Regresión lineal (cuestionario, 20 preguntas VBLang)
+# Matemática — Regresión lineal (cuestionario, 26 preguntas VBLang)
 
 > Tema: `D15`. Ver `teoria.md` en esta misma carpeta.
 
@@ -449,4 +449,174 @@ explicacion: |
   El paso siguiente, `../correlacion-no-es-causalidad/`, pone el
   límite crítico a esta herramienta: ajustar bien no es lo mismo que
   explicar por qué.
+```
+
+### 21 — Predecir con la recta
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regresion_lineal"
+  nivel: "basico"
+  tags: ["calculo", "prediccion"]
+
+variables:
+  m: uno_de([0.5, 1.5, 2, 3])
+  b: random(1, 20)
+  x: random(1, 15)
+
+respuesta: m * x + b
+tipo: input
+unidad: ""
+tolerancia_abs: 0.01
+
+enunciado: "La recta de regresión es y = {m}·x + {b}. ¿Qué valor de y predice para x = {x}?"
+
+pasos:
+  - "y = {m} × {x} + {b} = {m * x} + {b} = {m * x + b}"
+
+explicacion: |
+  Para predecir se reemplaza x en la ecuación de la recta.
+```
+
+### 22 — Calcular la pendiente con dos puntos
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regresion_lineal"
+  nivel: "intermedio"
+  tags: ["calculo", "pendiente"]
+
+variables:
+  m: uno_de([-3, -2, 0.5, 2, 4])
+  b: random(-5, 10)
+  x1: random(0, 5)
+  x2: random(6, 12)
+
+respuesta: m
+tipo: input
+unidad: ""
+tolerancia_abs: 0.01
+
+enunciado: "Una recta pasa por los puntos ({x1}; {m * x1 + b}) y ({x2}; {m * x2 + b}). ¿Cuál es su pendiente?"
+
+pasos:
+  - "m = (y2 − y1) / (x2 − x1)"
+  - "m = ({m * x2 + b} − ({m * x1 + b})) / ({x2} − {x1}) = {m * (x2 - x1)} / {x2 - x1} = {m}"
+
+explicacion: |
+  La pendiente es cuánto sube (o baja) y por cada unidad que avanza x.
+```
+
+### 23 — Calcular la ordenada al origen
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regresion_lineal"
+  nivel: "intermedio"
+  tags: ["calculo", "ordenada"]
+
+variables:
+  m: uno_de([0.5, 1, 2, 3])
+  b: random(-10, 20)
+  x: random(2, 10)
+
+respuesta: b
+tipo: input
+unidad: ""
+tolerancia_abs: 0.01
+
+enunciado: "Una recta de pendiente {m} pasa por el punto ({x}; {m * x + b}). ¿Cuál es su ordenada al origen b?"
+
+pasos:
+  - "y = m·x + b → b = y − m·x"
+  - "b = {m * x + b} − {m} × {x} = {m * x + b} − {m * x} = {b}"
+
+explicacion: |
+  La ordenada al origen es el valor de y cuando x vale 0.
+```
+
+### 24 — Despejar x
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regresion_lineal"
+  nivel: "intermedio"
+  tags: ["calculo", "despeje"]
+
+variables:
+  m: uno_de([2, 4, 5])
+  b: random(5, 30)
+  x: random(2, 20)
+
+respuesta: x
+tipo: input
+unidad: ""
+tolerancia_abs: 0.01
+
+enunciado: "Con la recta y = {m}·x + {b}, ¿qué valor de x da y = {m * x + b}?"
+
+pasos:
+  - "{m * x + b} = {m}·x + {b} → {m}·x = {m * x + b} − {b} = {m * x}"
+  - "x = {m * x} / {m} = {x}"
+
+explicacion: |
+  También se puede usar la recta al revés: qué x hace falta para llegar a cierto y.
+```
+
+### 25 — El consumo de la heladera
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regresion_lineal"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  m: uno_de([1.5, 2, 2.5])
+  b: uno_de([20, 25, 30])
+  t: random(18, 32)
+
+respuesta: m * t + b
+tipo: input
+unidad: "kWh"
+tolerancia_abs: 0.01
+
+enunciado: "Con datos de un año se ajustó: consumo mensual de la heladera (kWh) = {m} × temperatura media (°C) + {b}. ¿Qué consumo se predice para un mes con {t} °C de media?"
+
+pasos:
+  - "consumo = {m} × {t} + {b} = {m * t} + {b} = {m * t + b} kWh"
+
+explicacion: |
+  En verano la heladera trabaja más para mantener el frío: la pendiente positiva lo muestra.
+```
+
+### 26 — ¿Es extrapolación?
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regresion_lineal"
+  nivel: "basico"
+  tags: ["interpretacion", "verdadero_falso"]
+
+variables:
+  xmin: random(1, 5)
+  xmax: random(10, 20)
+  x: random(0, 30)
+
+respuesta: abs(2 * x - xmin - xmax) > xmax - xmin
+tipo: vf
+
+enunciado: "Una recta se ajustó con datos de x entre {xmin} y {xmax}. ¿Usarla para predecir con x = {x} es extrapolar?"
+
+pasos:
+  - "Rango observado: de {xmin} a {xmax}. ¿{x} está afuera?"
+
+explicacion: |
+  Extrapolar es predecir fuera del rango observado: la tendencia puede no seguir valiendo.
 ```

@@ -70,3 +70,18 @@ de estudio vs. nota, temperatura vs. consumo eléctrico. Pero ajustar
 bien una recta (r alto) **no prueba** que una variable cause la otra
 — esa distinción crucial es exactamente el tema del módulo que sigue,
 `../correlacion-no-es-causalidad/`.
+
+## Ejemplos resueltos
+
+**Predecir con la recta.** Un estudio con alumnos ajustó la recta `nota = 0,5 · horas + 4` (horas de estudio en la semana). ¿Qué nota se predice
+para alguien que estudió 8 horas?
+
+```
+nota = 0,5 × 8 + 4 = 4 + 4 = 8
+```
+
+- La pendiente 0,5 dice que cada hora extra de estudio suma, en promedio, medio punto.
+- La ordenada 4 es la nota predicha con 0 horas.
+- Si los datos se tomaron entre 2 y 12 horas, predecir para 30 horas sería extrapolar: la recta daría 19, una nota
+  que no existe.
+
