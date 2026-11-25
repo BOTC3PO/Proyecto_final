@@ -80,6 +80,19 @@ rozamiento). En la práctica, el rozamiento (`../plano-inclinado-y-rozamiento/`)
 siempre reduce la ventaja mecánica real por debajo de la ideal — parte
 del esfuerzo se "pierde" venciendo la fricción en vez de mover la carga.
 
+## Ejemplo resuelto
+
+**Levantar una piedra con una barreta.** Una barreta de 1,5 m se apoya en una piedra chica (el punto de apoyo) a 0,3 m
+de la piedra grande, de 900 N. El esfuerzo se hace en el otro extremo, a 1,2 m del apoyo:
+
+```
+VM = d_esfuerzo / d_carga = 1,2 / 0,3 = 4
+F_esfuerzo = carga / VM = 900 / 4 = 225 N
+```
+
+Con 225 N (lo que pesa algo de unos 23 kg) se levanta una piedra de 900 N. A cambio, la mano tiene que bajar 4 veces
+más de lo que sube la piedra.
+
 ## Para qué sirve
 
 Es el puente real entre la Física y los oficios. Un carpintero haciendo

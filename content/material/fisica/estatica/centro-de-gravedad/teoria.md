@@ -55,6 +55,18 @@ vertical hacia abajo, la que marca la plomada. Se repite desde un segundo
 punto distinto: la segunda vertical se cruza con la primera exactamente en
 el centro de gravedad.
 
+## Ejemplo resuelto
+
+**Una barra con dos pesas.** Sobre una barra liviana hay una pesa de 2 kg en x = 0 m y otra de 6 kg en x = 4 m.
+
+```
+x_cg = (m₁×x₁ + m₂×x₂) / (m₁ + m₂)
+x_cg = (2 × 0 + 6 × 4) / (2 + 6) = 24 / 8 = 3 m
+```
+
+El centro de gravedad queda a 3 m del primer extremo, más cerca de la pesa grande. Si se apoya la barra justo ahí,
+queda en equilibrio.
+
 ## Para qué sirve: estabilidad
 
 Un cuerpo apoyado se **vuelca** cuando su centro de gravedad queda

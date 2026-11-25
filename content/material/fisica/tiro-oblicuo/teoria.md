@@ -76,6 +76,20 @@ instintivamente.
 - `θ = 90°` (tiro vertical): `v₀ₓ = 0`, no hay avance horizontal —
   es exactamente `../tiro-vertical/`.
 
+## Ejemplo resuelto
+
+**Una pelota pateada.** Se patea una pelota a 20 m/s con 30° de inclinación (g = 10 m/s²):
+
+```
+v₀ₓ = 20 × cos(30°) ≈ 17,3 m/s        v₀ᵥ = 20 × sen(30°) = 10 m/s
+t_subida = 10 / 10 = 1 s
+h_max    = 10² / (2 × 10) = 5 m
+t_vuelo  = 2 × 1 = 2 s
+alcance  = 17,3 × 2 ≈ 34,6 m
+```
+
+Con la misma velocidad a 45° el alcance sería máximo: v₀ₓ = v₀ᵥ ≈ 14,1 m/s, t_vuelo ≈ 2,83 s y alcance ≈ 40 m.
+
 ## Para qué sirve
 
 Explica la trayectoria de **cualquier** objeto lanzado con ángulo: una

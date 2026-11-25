@@ -65,6 +65,20 @@ El mismo par fuerza-brazo puede dar momentos distintos según qué punto
 se elija como eje de giro — el momento **siempre se calcula respecto
 de un punto**, no es una propiedad de la fuerza sola.
 
+## Ejemplo resuelto
+
+**Abrir una puerta.** Se empuja una puerta con 20 N, en forma perpendicular, a 0,8 m de las bisagras:
+
+```
+M = F × d = 20 × 0,8 = 16 N·m
+```
+
+Empujando cerca de las bisagras, a 0,2 m, para lograr el mismo momento hace falta F = 16 / 0,2 = 80 N: cuatro veces
+más fuerza. Por eso el picaporte está lejos de las bisagras.
+
+**El subibaja.** Un chico de 300 N se sienta a 2 m del centro. Para equilibrarlo, otro de 400 N tiene que sentarse a
+d = 300 × 2 / 400 = 1,5 m del otro lado: los dos momentos valen 600 N·m.
+
 ## Para qué sirve
 
 Es la base de `../equilibrio-de-cuerpo-rigido/` (que combina momento

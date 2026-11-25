@@ -31,3 +31,19 @@ Cuando el positrón emitido choca con un electrón del tejido, ocurre un proceso
 La radioterapia utiliza haces de radiación ionizante, como rayos X de alta energía o partículas como protones, para destruir células cancerosas. El objetivo físico es depositar la mayor cantidad de energía en el tumor mientras se protege el tejido sano circundante. La física médica calcula la "dosis" absorbida, medida en Gray (Gy), que representa la energía depositada por kilogramo de masa.
 
 Para lograr esto, se emplean técnicas avanzadas de planificación computarizada. Se modela la interacción de la radiación con los tejidos usando algoritmos complejos que consideran la geometría del tumor y la ubicación de órganos vitales. La precisión es extrema; un error de milímetros puede significar daño a la médula espinal o a órganos críticos. Por ello, la verificación física del plan de tratamiento es un paso obligatorio antes de cualquier sesión, asegurando que la radiación siga la trayectoria diseñada y cumpla con los límites de seguridad establecidos.
+
+## Ejemplo resuelto
+
+**La dosis de radioterapia.** La dosis absorbida es la energía depositada por kilogramo: $D = E / m$, en gray
+(1 Gy = 1 J/kg). Si un tumor de 0,2 kg absorbe 0,4 J en una sesión:
+
+$$
+D = \frac{0{,}4\ \text{J}}{0{,}2\ \text{kg}} = 2\ \text{Gy}
+$$
+
+Un tratamiento típico reparte unos 60 Gy en 30 sesiones de 2 Gy, para que el tejido sano alcance a recuperarse entre
+una y otra.
+
+**Atenuación de los rayos X.** Si cierto espesor de tejido deja pasar la mitad del haz (la «capa hemirreductora»),
+dos capas dejan pasar $\frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4}$ y tres, $\frac{1}{8}$. Con un hueso que equivale a
+tres capas, sale el 12,5 % de la intensidad: por eso el hueso se ve blanco en la placa.

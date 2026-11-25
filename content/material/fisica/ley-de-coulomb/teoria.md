@@ -49,6 +49,20 @@ atractiva. En la práctica casi siempre se trabaja con la **magnitud**
 de la fuerza (el valor absoluto) y se indica la dirección (atrae/repele)
 por separado, en palabras.
 
+## Ejemplo resuelto
+
+**Dos cargas.** Dos cargas de 2 µC y 3 µC (0,000002 C y 0,000003 C) están a 0,3 m. Con k = 9 × 10⁹ N·m²/C²:
+
+```
+F = k × q₁ × q₂ / r²
+F = 9 × 10⁹ × 0,000002 × 0,000003 / 0,3²
+  = 9 × 10⁹ × 6 × 10⁻¹² / 0,09
+  = 0,054 / 0,09 = 0,6 N
+```
+
+Las dos son positivas, así que se repelen. Si una fuera negativa, la fuerza tendría el mismo valor pero sería de
+atracción. Y al triple de distancia (0,9 m), la fuerza se dividiría por 3² = 9: 0,6 / 9 ≈ 0,067 N.
+
 ## Para qué sirve
 
 Es la base de toda la electrostática: por qué un globo frotado se pega a la

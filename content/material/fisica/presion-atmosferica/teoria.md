@@ -88,3 +88,18 @@ zonas desérticas del planeta coinciden con **bandas de alta presión
 subtropical** permanente (aire que desciende, se comprime y se seca). Y
 buena parte de las lluvias tropicales coinciden con **bajas presiones
 ecuatoriales** (aire cálido y húmedo que asciende todo el año).
+
+## Ejemplo resuelto
+
+**El aire sobre una mano.** La presión atmosférica al nivel del mar es de unos 101 300 Pa. Sobre la palma de una mano
+(unos 0,01 m²):
+
+```
+F = P × A = 101 300 × 0,01 ≈ 1013 N
+```
+
+Es como tener un objeto de unos 100 kg encima. No lo sentimos porque el aire empuja igual desde todos lados, también
+desde abajo de la mano y desde adentro del cuerpo.
+
+**En la montaña.** Cada 100 m de subida, la presión baja más o menos 1200 Pa cerca del nivel del mar. A 1000 m de
+altura hay unos 101 300 − 12 000 ≈ 89 300 Pa (la cuenta exacta da un poco más, unos 90 000 Pa, porque la presión no baja en línea recta).

@@ -74,3 +74,17 @@ siendo neutro.
   distinta carga acumulada, o entre una nube y el suelo.
 - **Una pila o batería**: mantiene una diferencia de cargas entre sus
   dos extremos, que impulsa el movimiento de electrones por un circuito.
+
+## Ejemplo resuelto
+
+**Frotar un globo.** Un globo neutro tiene la misma cantidad de protones que de electrones. Al frotarlo con el pelo
+gana 3 000 000 000 000 de electrones (3 billones) que vienen del pelo:
+
+```
+carga_neta del globo = protones − electrones = −3 billones de cargas elementales   (queda negativo)
+carga_neta del pelo  = +3 billones de cargas elementales                             (queda positivo)
+```
+
+Cada carga elemental vale 0,00000000000000000016 C (1,6 × 10⁻¹⁹ C), así que el globo queda con
+3 × 10¹² × 1,6 × 10⁻¹⁹ = 4,8 × 10⁻⁷ C, menos de una millonésima de coulomb. Como el pelo y el globo quedaron con cargas
+opuestas, se atraen: por eso el pelo se levanta hacia el globo.

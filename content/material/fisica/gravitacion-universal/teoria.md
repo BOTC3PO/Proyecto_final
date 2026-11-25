@@ -70,6 +70,21 @@ Por eso `g` (9,8 m/s² en la Tierra) no es una constante universal como `G`.
 Depende de la masa y el radio de cada planeta, y por eso el peso de un mismo
 objeto es distinto en la Luna o en Marte.
 
+## Ejemplo resuelto
+
+**Tu peso en la Luna.** La Luna tiene una masa de 7,35 × 10²² kg y un radio de 1 737 000 m. Con
+G = 6,67 × 10⁻¹¹ N·m²/kg², la gravedad en su superficie es:
+
+```
+g_Luna = G × M / R² = 6,67 × 10⁻¹¹ × 7,35 × 10²² / (1,737 × 10⁶)²
+       = 4,90 × 10¹² / 3,02 × 10¹² ≈ 1,62 m/s²
+```
+
+Una persona de 60 kg pesa en la Tierra 60 × 9,8 = 588 N y en la Luna 60 × 1,62 ≈ 97 N: un sexto. Su masa sigue
+siendo 60 kg.
+
+**Al doble de distancia.** Si dos cuerpos se alejan al doble de distancia, la fuerza se divide por 2² = 4.
+
 ## Para qué sirve
 
 Es la misma ley que explica por qué la Luna orbita la Tierra, por qué los

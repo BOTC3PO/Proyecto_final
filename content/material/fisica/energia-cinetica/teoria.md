@@ -58,6 +58,19 @@ En ingeniería, se calcula para diseñar estructuras que resisten impactos (como
 
 ---
 
+## 5. Ejemplo resuelto
+
+**Un auto en la ruta.** Un auto de 1000 kg circula a 72 km/h. Primero se pasa la velocidad a m/s:
+$72 / 3{,}6 = 20\ \text{m/s}$.
+
+$$
+E_c = \frac{1}{2} \cdot 1000 \cdot 20^2 = \frac{1}{2} \cdot 1000 \cdot 400 = 200\,000\ \text{J}
+$$
+
+**El doble de velocidad.** A 144 km/h (40 m/s): $E_c = \frac{1}{2} \cdot 1000 \cdot 1600 = 800\,000\ \text{J}$. Al
+duplicar la velocidad, la energía se multiplica por cuatro: por eso un choque a alta velocidad es mucho más grave y el
+auto necesita cuatro veces más distancia para frenar.
+
 ## N. Conexión con lo que sigue
 
 Este tema se vincula con la energía potencial y su transformación en sistemas mecánicos (ver energia potencial), así como con el trabajo realizado por fuerzas durante desplazamientos (ver trabajo y energia).

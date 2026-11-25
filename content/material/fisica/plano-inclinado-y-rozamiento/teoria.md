@@ -81,6 +81,20 @@ Si esa diferencia es positiva, el objeto acelera deslizando hacia abajo;
 si el rozamiento estático máximo ya alcanza para igualar a `P∥`, el
 objeto se queda quieto.
 
+## Ejemplo resuelto
+
+**Una caja en una rampa.** Una caja de 10 kg (peso 98 N, con g = 9,8 m/s²) está en una rampa de 30°, y el
+coeficiente de rozamiento estático es μ_e = 0,4.
+
+```
+P∥ = 98 × sen(30°) = 98 × 0,5   = 49 N      (la empuja hacia abajo de la rampa)
+N  = 98 × cos(30°) = 98 × 0,866 ≈ 84,9 N
+f_estático_máx = 0,4 × 84,9 ≈ 34 N
+```
+
+Como 49 N es más que los 34 N que puede aguantar el rozamiento, la caja se desliza. En una rampa de 20° quedaría
+P∥ = 98 × 0,342 ≈ 33,5 N y f_máx = 0,4 × 98 × 0,940 ≈ 36,8 N: ahí se queda quieta.
+
 ## Para qué sirve
 
 Este bloque explica situaciones muy concretas. Por qué cuesta más empujar

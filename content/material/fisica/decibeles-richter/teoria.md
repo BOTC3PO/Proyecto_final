@@ -85,3 +85,23 @@ es la misma.
 - **Elegir protección auditiva** en un ambiente de trabajo ruidoso,
   sabiendo que unos pocos dB de diferencia importan mucho más de lo que
   el número sugiere a simple vista.
+
+## Ejemplo resuelto
+
+**Dos sonidos.** Un sonido 1000 veces más intenso que el umbral de audición (I / I₀ = 1000):
+
+```
+dB = 10 × log₁₀(1000) = 10 × 3 = 30 dB
+```
+
+Uno 1 000 000 veces más intenso: 10 × log₁₀(1 000 000) = 10 × 6 = 60 dB. Pasar de 30 a 60 dB no es «el doble»: es una
+intensidad mil veces mayor. Cada 10 dB más, la intensidad se multiplica por 10.
+
+**Dos terremotos.** Con log₁₀(E) = 4,8 + 1,5 × M, un sismo de magnitud 6 y otro de magnitud 7:
+
+```
+diferencia de log₁₀(E) = 1,5 × (7 − 6) = 1,5
+E₇ / E₆ = 10^1,5 ≈ 31,6
+```
+
+Un grado más en la escala Richter libera unas 32 veces más energía.

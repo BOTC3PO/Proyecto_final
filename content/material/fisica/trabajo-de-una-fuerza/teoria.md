@@ -86,6 +86,21 @@ conexión entre trabajo y energía se retoma con más profundidad en
 módulos futuros sobre energía; acá sólo se menciona como el "para qué"
 real del concepto de trabajo.
 
+## Ejemplo resuelto
+
+**Arrastrar una valija.** Se tira de una valija con una fuerza de 50 N, con la manija inclinada 60° respecto del piso,
+a lo largo de 20 m:
+
+```
+W = F × d × cos(θ) = 50 × 20 × cos(60°) = 50 × 20 × 0,5 = 500 J
+```
+
+Si se empujara en la misma dirección del movimiento (θ = 0°, cos = 1), con la misma fuerza el trabajo sería
+50 × 20 = 1000 J: tirar en ángulo «desperdicia» la parte de la fuerza que apunta hacia arriba.
+
+**Trabajo negativo.** El rozamiento de 30 N sobre esa misma valija actúa en contra del movimiento (θ = 180°,
+cos = −1): W = 30 × 20 × (−1) = −600 J. Le quita energía.
+
 ## Para qué sirve
 
 El trabajo es la magnitud que conecta fuerza, movimiento y energía. Permite
