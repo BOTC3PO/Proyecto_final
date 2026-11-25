@@ -1,4 +1,4 @@
-# Fisica — Cambios de estado calor latente (cuestionario, 25 preguntas VBLang)
+# Fisica — Cambios de estado calor latente (cuestionario, 31 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -459,4 +459,168 @@ respuestas_validas:
 enunciado: "El ____ es la energía necesaria para el cambio de estado, la cual no se refleja en un cambio de ____, sino en un cambio de la energía potencial de las partículas."
 
 respuesta: "calor latente"
+```
+
+### 26 — Calor para fundir hielo (Q = m · L)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "calor_latente"
+  nivel: "basico"
+  tags: ["calculo", "fusion"]
+
+variables:
+  m: uno_de([0.5, 1, 1.5, 2, 3])
+
+respuesta: m * 334000
+tipo: input
+unidad: "J"
+tolerancia: 1%
+
+enunciado: "¿Cuánto calor hace falta para derretir {m} kg de hielo que ya está a 0 °C? (calor latente de fusión del agua: 334 000 J/kg)"
+
+pasos:
+  - "Q = m · Lf"
+  - "Q = {m} kg × 334 000 J/kg = {m * 334000} J"
+
+explicacion: |
+  Durante el cambio de estado la temperatura no varía: el calor se usa para romper la estructura del hielo.
+```
+
+### 27 — Calor para evaporar agua
+
+```
+metadata:
+  materia: "fisica"
+  tema: "calor_latente"
+  nivel: "basico"
+  tags: ["calculo", "vaporizacion"]
+
+variables:
+  m: uno_de([0.1, 0.2, 0.5, 1])
+
+respuesta: m * 2260000
+tipo: input
+unidad: "J"
+tolerancia: 1%
+
+enunciado: "¿Cuánto calor hace falta para evaporar {m} kg de agua que ya está a 100 °C? (calor latente de vaporización: 2 260 000 J/kg)"
+
+pasos:
+  - "Q = m · Lv"
+  - "Q = {m} kg × 2 260 000 J/kg = {m * 2260000} J"
+
+explicacion: |
+  Evaporar requiere mucha más energía que derretir: por eso sudar enfría tanto el cuerpo.
+```
+
+### 28 — Calcular la masa que se fundió
+
+```
+metadata:
+  materia: "fisica"
+  tema: "calor_latente"
+  nivel: "intermedio"
+  tags: ["calculo", "masa"]
+
+variables:
+  m: uno_de([0.5, 1, 2, 4])
+  Q: m * 334000
+
+respuesta: m
+tipo: input
+unidad: "kg"
+tolerancia: 1%
+
+enunciado: "A un bloque de hielo a 0 °C se le dieron {Q} J y se derritió por completo. ¿Cuál era su masa, en kg? (Lf = 334 000 J/kg)"
+
+pasos:
+  - "De Q = m · Lf despejamos m = Q / Lf."
+  - "m = {Q} J / 334 000 J/kg = {m} kg"
+
+explicacion: |
+  Con el calor absorbido y el calor latente se puede averiguar cuánta sustancia cambió de estado.
+```
+
+### 29 — Calcular el calor latente
+
+```
+metadata:
+  materia: "fisica"
+  tema: "calor_latente"
+  nivel: "intermedio"
+  tags: ["calculo", "calor_latente"]
+
+variables:
+  m: uno_de([1, 2, 4, 5])
+  L: uno_de([25000, 64000, 105000, 207000])
+  Q: m * L
+
+respuesta: L
+tipo: input
+unidad: "J/kg"
+tolerancia: 1%
+
+enunciado: "Para fundir {m} kg de un metal que ya está en su punto de fusión hicieron falta {Q} J. ¿Cuál es su calor latente de fusión, en J/kg?"
+
+pasos:
+  - "De Q = m · L despejamos L = Q / m."
+  - "L = {Q} J / {m} kg = {L} J/kg"
+
+explicacion: |
+  El calor latente es propio de cada sustancia: cuánta energía hace falta por kilo para cambiar de estado.
+```
+
+### 30 — Los cubitos de la heladera
+
+```
+metadata:
+  materia: "fisica"
+  tema: "calor_latente"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  n: uno_de([10, 12, 20, 24])
+  g: uno_de([20, 25, 30])
+
+respuesta: n * g / 1000 * 334000
+tipo: input
+unidad: "J"
+tolerancia: 1%
+
+enunciado: "Una cubetera tiene {n} cubitos de {g} g cada uno, ya a 0 °C. ¿Cuánto calor absorben del vaso al derretirse todos, en joules? (Lf = 334 000 J/kg)"
+
+pasos:
+  - "Masa total: {n} × {g} g = {n * g} g = {n * g / 1000} kg"
+  - "Q = m · Lf = {n * g / 1000} × 334 000 = {n * g / 1000 * 334000 | 0} J"
+
+explicacion: |
+  Ese calor lo sacan de la bebida: por eso el hielo enfría mucho más que agua fría a 0 °C.
+```
+
+### 31 — Fundir o evaporar
+
+```
+metadata:
+  materia: "fisica"
+  tema: "calor_latente"
+  nivel: "basico"
+  tags: ["comparacion", "verdadero_falso"]
+
+variables:
+  m: uno_de([0.5, 1, 2])
+
+respuesta: (m * 2260000) > (m * 334000)
+tipo: vf
+
+enunciado: "¿Hace falta más calor para evaporar {m} kg de agua hirviendo que para derretir {m} kg de hielo a 0 °C? (Lv = 2 260 000 J/kg; Lf = 334 000 J/kg)"
+
+pasos:
+  - "Evaporar: {m} × 2 260 000 = {m * 2260000} J"
+  - "Derretir: {m} × 334 000 = {m * 334000} J"
+
+explicacion: |
+  El calor latente de vaporización del agua es casi siete veces el de fusión.
 ```

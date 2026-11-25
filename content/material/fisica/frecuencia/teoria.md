@@ -55,6 +55,16 @@ Un error común es confundir frecuencia con amplitud. La amplitud describe la in
 
 ---
 
+## 5. Ejemplos resueltos
+
+**El ventilador.** Las aspas de un ventilador dan 1200 vueltas en un minuto.
+
+- Frecuencia: $f = 1200\ \text{vueltas} / 60\ \text{s} = 20\ \text{Hz}$ (20 vueltas por segundo).
+- Período: $T = 1 / f = 1 / 20 = 0{,}05\ \text{s}$: cada vuelta dura cinco centésimas de segundo.
+
+**La radio.** Una emisora de FM transmite en 100 MHz, es decir, $100\,000\,000$ oscilaciones por segundo. Los
+prefijos ayudan: 1 kHz = 1000 Hz y 1 MHz = 1 000 000 Hz.
+
 ## N. Conexión con lo que sigue
 
 Este tema sirve de base para entender conceptos como el **comportamiento de ondas** en el siguiente tema, `propiedades_de_las_ondas`, donde se analizarán cómo varía la frecuencia en diferentes medios.

@@ -1,4 +1,4 @@
-# Fisica — Refraccion indice ley snell (cuestionario, 25 preguntas VBLang)
+# Fisica — Refraccion indice ley snell (cuestionario, 31 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -572,4 +572,168 @@ respuesta: verdadero
 tipo: vf
 explicacion: |
   Correcto. El índice de refracción n se define como c/v, donde c es la velocidad en el vacío y v es la velocidad en el medio. A mayor n, menor es la velocidad de la luz en ese medio.
+```
+
+### 26 — Índice de refracción (n = c / v)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "refraccion"
+  nivel: "basico"
+  tags: ["calculo", "indice"]
+
+variables:
+  v: uno_de([150000, 200000, 225000, 240000])
+
+respuesta: 300000 / v
+tipo: input
+unidad: ""
+tolerancia: 1%
+
+enunciado: "En un material la luz viaja a {v} km/s. Si en el vacío viaja a 300 000 km/s, ¿cuál es el índice de refracción del material?"
+
+pasos:
+  - "n = c / v"
+  - "n = 300 000 / {v} = {300000 / v | 2}"
+
+explicacion: |
+  El índice dice cuántas veces más lenta va la luz en el material que en el vacío; no tiene unidades.
+```
+
+### 27 — Velocidad de la luz en un material
+
+```
+metadata:
+  materia: "fisica"
+  tema: "refraccion"
+  nivel: "basico"
+  tags: ["calculo", "velocidad"]
+
+variables:
+  n: uno_de([1.2, 1.25, 1.5, 1.6, 2])
+
+respuesta: 300000 / n
+tipo: input
+unidad: "km/s"
+tolerancia: 1%
+
+enunciado: "Un material tiene un índice de refracción de {n}. ¿A qué velocidad viaja la luz en él, en km/s? (c = 300 000 km/s)"
+
+pasos:
+  - "De n = c / v despejamos v = c / n."
+  - "v = 300 000 / {n} = {300000 / n | 0} km/s"
+
+explicacion: |
+  A mayor índice, más lenta es la luz en ese material.
+```
+
+### 28 — Ángulo de refracción (ley de Snell)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "refraccion"
+  nivel: "avanzado"
+  tags: ["calculo", "snell"]
+
+variables:
+  a1: uno_de([20, 30, 40, 45, 60])
+  n2: uno_de([1.33, 1.5])
+
+respuesta: asin_deg(sin_deg(a1) / n2)
+tipo: input
+unidad: "°"
+tolerancia: 2%
+
+enunciado: "Un rayo de luz pasa del aire (n = 1) a un medio de índice {n2} con un ángulo de incidencia de {a1}°. ¿Cuál es el ángulo de refracción, en grados? (podés redondear a un decimal)"
+
+pasos:
+  - "Snell: n1 · sen(θ1) = n2 · sen(θ2), con n1 = 1."
+  - "sen(θ2) = sen({a1}°) / {n2} = {sin_deg(a1) | 3} / {n2} = {sin_deg(a1) / n2 | 3}"
+  - "θ2 = arcsen({sin_deg(a1) / n2 | 3}) ≈ {asin_deg(sin_deg(a1) / n2) | 1}°"
+
+explicacion: |
+  Al entrar a un medio de mayor índice, el rayo se acerca a la normal: el ángulo de refracción es menor.
+```
+
+### 29 — Se acerca o se aleja de la normal
+
+```
+metadata:
+  materia: "fisica"
+  tema: "refraccion"
+  nivel: "intermedio"
+  tags: ["snell", "verdadero_falso"]
+
+variables:
+  a1: uno_de([20, 30, 45])
+  n2: uno_de([1.33, 1.5, 2.4])
+
+respuesta: asin_deg(sin_deg(a1) / n2) < a1
+tipo: vf
+
+enunciado: "Un rayo pasa del aire a un material de índice {n2} con {a1}° de incidencia. ¿El ángulo de refracción es menor que {a1}°?"
+
+pasos:
+  - "sen(θ2) = sen({a1}°) / {n2} = {sin_deg(a1) / n2 | 3}; θ2 ≈ {asin_deg(sin_deg(a1) / n2) | 1}°"
+
+explicacion: |
+  Siempre que la luz entra a un medio más denso ópticamente (mayor n), se acerca a la normal.
+```
+
+### 30 — La pileta parece menos profunda
+
+```
+metadata:
+  materia: "fisica"
+  tema: "refraccion"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  h: uno_de([1.2, 1.5, 2, 2.5, 3])
+
+respuesta: h / 1.33
+tipo: input
+unidad: "m"
+tolerancia: 2%
+
+enunciado: "Mirando desde arriba, el fondo de una pileta de {h} m parece estar más cerca por la refracción. La profundidad aparente es la real dividida por el índice del agua (1,33). ¿A qué profundidad parece estar el fondo, en metros? (podés redondear a dos decimales)"
+
+pasos:
+  - "profundidad aparente = profundidad real / n"
+  - "{h} / 1,33 ≈ {h / 1.33 | 2} m"
+
+explicacion: |
+  La luz que sale del agua se desvía al pasar al aire, y el ojo ubica el fondo más arriba de donde está: por eso hay que tener cuidado al tirarse de cabeza.
+```
+
+### 31 — Calcular el índice con los ángulos
+
+```
+metadata:
+  materia: "fisica"
+  tema: "refraccion"
+  nivel: "avanzado"
+  tags: ["calculo", "snell", "indice"]
+
+variables:
+  a1: uno_de([30, 45, 60])
+  n2: uno_de([1.3, 1.4, 1.5, 1.6])
+  a2: asin_deg(sin_deg(a1) / n2)
+
+respuesta: n2
+tipo: input
+unidad: ""
+tolerancia: 2%
+
+enunciado: "Un rayo pasa del aire (n = 1) a un líquido. Entra con {a1}° y se refracta con {a2 | 1}°. ¿Cuál es el índice del líquido? (podés redondear a dos decimales)"
+
+pasos:
+  - "De Snell: n2 = n1 · sen(θ1) / sen(θ2)."
+  - "n2 = sen({a1}°) / sen({a2 | 1}°) = {sin_deg(a1) | 3} / {sin_deg(a2) | 3} ≈ {n2}"
+
+explicacion: |
+  Midiendo los dos ángulos se puede averiguar el índice de un material desconocido.
 ```

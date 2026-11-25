@@ -66,6 +66,18 @@ Donde $ n_1 > n_2 $. Por ejemplo, en el caso del agua ($ n_1 = 1.33 $) y el aire
 
 ---
 
+## 6. Ejemplos resueltos
+
+**Luz que entra al agua.** Un rayo de luz pasa del aire ($n_1 = 1$) al agua ($n_2 = 1{,}33$) con un ángulo de
+incidencia de 45° respecto de la normal.
+
+- Ley de Snell: $n_1 \cdot \sin(\theta_1) = n_2 \cdot \sin(\theta_2)$.
+- $\sin(\theta_2) = \frac{1 \cdot \sin(45°)}{1{,}33} = \frac{0{,}707}{1{,}33} \approx 0{,}532$.
+- $\theta_2 \approx 32{,}1°$: el rayo se acerca a la normal porque el agua tiene mayor índice.
+
+**Velocidad en el vidrio.** En un vidrio de índice $n = 1{,}5$ la luz viaja a $v = c / n = 300\,000 / 1{,}5 =
+200\,000\ \text{km/s}$.
+
 ## N. Conexión con lo que sigue
 
 Este tema conecta directamente con el estudio del **comportamiento de lentes y espejos** (ver optica geometrica), donde los índices de refracción y la ley de Snell se usan para determinar la formación de imágenes.

@@ -1,4 +1,4 @@
-# Fisica — Presion hidrostatica (cuestionario, 25 preguntas VBLang)
+# Fisica — Presion hidrostatica (cuestionario, 31 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -568,4 +568,165 @@ enunciado: "Ordena las profundidades de un buzo de menor a mayor presión hidros
 
 explicacion: |
   La presión hidrostática aumenta linealmente con la profundidad. Por lo tanto, el orden de menor a mayor presión corresponde al orden de menor a mayor profundidad.
+```
+
+### 26 — Presión a una profundidad (P = ρ · g · h)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_hidrostatica"
+  nivel: "basico"
+  tags: ["calculo", "presion"]
+
+variables:
+  h: random(1, 30)
+
+respuesta: 1000 * 10 * h
+tipo: input
+unidad: "Pa"
+tolerancia_abs: 0
+
+enunciado: "¿Qué presión hidrostática hay a {h} m de profundidad en agua dulce? (ρ = 1000 kg/m³, g = 10 m/s²)"
+
+pasos:
+  - "P = ρ · g · h"
+  - "P = 1000 × 10 × {h} = {1000 * 10 * h} Pa"
+
+explicacion: |
+  La presión del líquido crece en proporción con la profundidad.
+```
+
+### 27 — Calcular la profundidad
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_hidrostatica"
+  nivel: "intermedio"
+  tags: ["calculo", "profundidad"]
+
+variables:
+  h: random(2, 40)
+  P: 10000 * h
+
+respuesta: h
+tipo: input
+unidad: "m"
+tolerancia_abs: 0
+
+enunciado: "Un sensor en un lago mide una presión hidrostática de {P} Pa. ¿A qué profundidad está, en metros? (ρ = 1000 kg/m³, g = 10 m/s²)"
+
+pasos:
+  - "De P = ρ · g · h despejamos h = P / (ρ · g)."
+  - "h = {P} / (1000 × 10) = {h} m"
+
+explicacion: |
+  Midiendo la presión se puede saber la profundidad: así funcionan los profundímetros de los buzos.
+```
+
+### 28 — En el mar
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_hidrostatica"
+  nivel: "intermedio"
+  tags: ["calculo", "densidad"]
+
+variables:
+  h: random(2, 30)
+
+respuesta: 1030 * 10 * h
+tipo: input
+unidad: "Pa"
+tolerancia: 1%
+
+enunciado: "¿Qué presión hidrostática hay a {h} m de profundidad en el mar? (densidad del agua de mar: 1030 kg/m³, g = 10 m/s²)"
+
+pasos:
+  - "P = ρ · g · h con la densidad del agua salada."
+  - "P = 1030 × 10 × {h} = {1030 * 10 * h} Pa"
+
+explicacion: |
+  El agua salada es más densa que la dulce, así que a la misma profundidad hace un poco más de presión.
+```
+
+### 29 — Presión total
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_hidrostatica"
+  nivel: "intermedio"
+  tags: ["calculo", "presion_atmosferica"]
+
+variables:
+  h: random(1, 20)
+
+respuesta: 101300 + 10000 * h
+tipo: input
+unidad: "Pa"
+tolerancia: 1%
+
+enunciado: "¿Cuál es la presión total a {h} m de profundidad en una pileta, sumando la atmosférica (101 300 Pa)? (ρ = 1000 kg/m³, g = 10 m/s²)"
+
+pasos:
+  - "Presión del agua: 1000 × 10 × {h} = {10000 * h} Pa"
+  - "Presión total = atmosférica + hidrostática = 101 300 + {10000 * h} = {101300 + 10000 * h} Pa"
+
+explicacion: |
+  Sobre la superficie del agua ya actúa la atmósfera; la presión del líquido se suma a esa.
+```
+
+### 30 — El tanque de agua
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_hidrostatica"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  h: uno_de([3, 5, 6, 8, 10])
+
+respuesta: 1000 * 10 * h
+tipo: input
+unidad: "Pa"
+tolerancia_abs: 0
+
+enunciado: "El tanque de agua de una casa está {h} m más arriba que la ducha. ¿Qué presión tiene el agua en la ducha por esa altura, en pascales? (ρ = 1000 kg/m³, g = 10 m/s²)"
+
+pasos:
+  - "La altura de la columna de agua es h = {h} m."
+  - "P = 1000 × 10 × {h} = {1000 * 10 * h} Pa"
+
+explicacion: |
+  Por eso los tanques se ponen en lo alto: cuanto más arriba, más presión tiene el agua en las canillas.
+```
+
+### 31 — Más profundo, más presión
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_hidrostatica"
+  nivel: "basico"
+  tags: ["comparacion", "verdadero_falso"]
+
+variables:
+  h1: random(1, 10)
+  h2: random(11, 30)
+
+respuesta: (10000 * h2) > (10000 * h1)
+tipo: vf
+
+enunciado: "Un buzo baja de {h1} m a {h2} m de profundidad. ¿La presión del agua sobre él aumenta?"
+
+pasos:
+  - "A {h1} m: {10000 * h1} Pa; a {h2} m: {10000 * h2} Pa"
+
+explicacion: |
+  La presión hidrostática solo depende de la profundidad, la densidad y la gravedad: más abajo, más presión.
 ```

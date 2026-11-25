@@ -1,4 +1,4 @@
-# Fisica — Longitud onda velocidad propagacion (cuestionario, 25 preguntas VBLang)
+# Fisica — Longitud onda velocidad propagacion (cuestionario, 31 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -582,4 +582,169 @@ enunciado: "Para hallar la longitud de onda (λ) conociendo la velocidad (v) y l
 
 explicacion: |
   Partiendo de la fórmula v = λ · f, despejamos λ pasando la frecuencia a dividir al otro lado de la igualdad: λ = v / f.
+```
+
+### 26 — Calcular la velocidad (v = λ · f)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "longitud_onda"
+  nivel: "basico"
+  tags: ["calculo", "velocidad"]
+
+variables:
+  l: random(1, 10)
+  f: random(2, 30)
+
+respuesta: l * f
+tipo: input
+unidad: "m/s"
+tolerancia_abs: 0
+
+enunciado: "Una onda tiene una longitud de onda de {l} m y una frecuencia de {f} Hz. ¿Con qué velocidad se propaga, en m/s?"
+
+pasos:
+  - "v = λ · f"
+  - "v = {l} m × {f} Hz = {l * f} m/s"
+
+explicacion: |
+  En cada período la onda avanza una longitud de onda: por eso v = λ · f.
+```
+
+### 27 — Calcular la longitud de onda
+
+```
+metadata:
+  materia: "fisica"
+  tema: "longitud_onda"
+  nivel: "intermedio"
+  tags: ["calculo", "longitud_de_onda"]
+
+variables:
+  l: random(1, 12)
+  f: random(2, 20)
+  v: l * f
+
+respuesta: l
+tipo: input
+unidad: "m"
+tolerancia_abs: 0
+
+enunciado: "Una onda se propaga a {v} m/s con una frecuencia de {f} Hz. ¿Cuál es su longitud de onda, en metros?"
+
+pasos:
+  - "De v = λ · f despejamos λ = v / f."
+  - "λ = {v} m/s / {f} Hz = {l} m"
+
+explicacion: |
+  Con la misma velocidad, a más frecuencia la longitud de onda es más corta.
+```
+
+### 28 — Calcular la frecuencia
+
+```
+metadata:
+  materia: "fisica"
+  tema: "longitud_onda"
+  nivel: "intermedio"
+  tags: ["calculo", "frecuencia"]
+
+variables:
+  l: random(2, 10)
+  f: random(3, 25)
+  v: l * f
+
+respuesta: f
+tipo: input
+unidad: "Hz"
+tolerancia_abs: 0
+
+enunciado: "Una onda en una cuerda viaja a {v} m/s y su longitud de onda es de {l} m. ¿Cuál es su frecuencia, en hertz?"
+
+pasos:
+  - "De v = λ · f despejamos f = v / λ."
+  - "f = {v} / {l} = {f} Hz"
+
+explicacion: |
+  La frecuencia la fija la fuente que produce la onda; la velocidad, el medio.
+```
+
+### 29 — Una nota musical
+
+```
+metadata:
+  materia: "fisica"
+  tema: "longitud_onda"
+  nivel: "intermedio"
+  tags: ["calculo", "sonido", "cotidiano"]
+
+variables:
+  f: uno_de([220, 262, 330, 440, 880])
+
+respuesta: 340 / f
+tipo: input
+unidad: "m"
+tolerancia: 1%
+
+enunciado: "Una guitarra toca una nota de {f} Hz. Si el sonido viaja en el aire a 340 m/s, ¿cuál es su longitud de onda, en metros? (podés redondear a dos decimales)"
+
+pasos:
+  - "λ = v / f"
+  - "λ = 340 m/s / {f} Hz ≈ {340 / f | 2} m"
+
+explicacion: |
+  Las notas graves (baja frecuencia) tienen ondas largas; las agudas, cortas.
+```
+
+### 30 — Las ondas de radio
+
+```
+metadata:
+  materia: "fisica"
+  tema: "longitud_onda"
+  nivel: "avanzado"
+  tags: ["calculo", "ondas_electromagneticas", "cotidiano"]
+
+variables:
+  MHz: uno_de([88, 95, 100, 102.5, 106])
+
+respuesta: 300 / MHz
+tipo: input
+unidad: "m"
+tolerancia: 1%
+
+enunciado: "Una radio de FM transmite en {MHz} MHz. Las ondas de radio viajan a 300 000 000 m/s (la velocidad de la luz). ¿Cuál es su longitud de onda, en metros? (podés redondear a dos decimales)"
+
+pasos:
+  - "f = {MHz} MHz = {MHz} × 1 000 000 Hz"
+  - "λ = v / f = 300 000 000 / ({MHz} × 1 000 000) = 300 / {MHz} ≈ {300 / MHz | 2} m"
+
+explicacion: |
+  Simplificar los millones antes de dividir evita cuentas con números enormes: 300 000 000 / 1 000 000 = 300.
+```
+
+### 31 — Cambiar el medio
+
+```
+metadata:
+  materia: "fisica"
+  tema: "longitud_onda"
+  nivel: "intermedio"
+  tags: ["calculo", "medio", "verdadero_falso"]
+
+variables:
+  f: uno_de([200, 500, 1000])
+
+respuesta: (1480 / f) > (340 / f)
+tipo: vf
+
+enunciado: "Un sonido de {f} Hz pasa del aire (340 m/s) al agua (1480 m/s). La frecuencia no cambia. ¿Su longitud de onda en el agua es mayor que en el aire?"
+
+pasos:
+  - "En el aire: λ = 340 / {f} = {340 / f | 3} m"
+  - "En el agua: λ = 1480 / {f} = {1480 / f | 3} m"
+
+explicacion: |
+  Al cambiar de medio cambia la velocidad y con ella la longitud de onda; la frecuencia la mantiene la fuente.
 ```

@@ -50,6 +50,17 @@ En situaciones extremas, como en los océanos profundos, esta combinación puede
 
 ---
 
+## 5. Ejemplos resueltos
+
+**En la pileta.** ¿Qué presión hace el agua sobre un buzo a 3 m de profundidad? Con la densidad del agua
+$\rho = 1000\ \text{kg/m}^3$ y $g = 10\ \text{m/s}^2$:
+
+- $P = \rho \cdot g \cdot h = 1000 \cdot 10 \cdot 3 = 30\,000\ \text{Pa}$.
+- Sumando la presión atmosférica (unos $101\,300\ \text{Pa}$), la presión total es de unos $131\,300\ \text{Pa}$.
+
+Cada 10 m de agua la presión sube unos 100 000 Pa, más o menos una atmósfera: a 10 m de profundidad un buzo soporta
+el doble de presión que en la superficie.
+
 ## N. Conexión con lo que sigue
 
 Este concepto es fundamental para entender fenómenos como la **transmisión de presiones en fluidos** (principio de Pascal) y el funcionamiento de dispositivos como manómetros o barriles de agua, temas desarrollados en presion en fluidos y pascal.

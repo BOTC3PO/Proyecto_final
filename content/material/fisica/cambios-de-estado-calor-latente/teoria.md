@@ -45,6 +45,18 @@ La cantidad de calor latente necesaria es **directamente proporcional a la masa*
 
 ---
 
+## 5. Ejemplos resueltos
+
+**Derretir hielo.** ¿Cuánto calor hace falta para derretir 2 kg de hielo que ya está a 0 °C? El calor latente de fusión
+del agua es $L_f = 334\,000\ \text{J/kg}$.
+
+- $Q = m \cdot L_f = 2\ \text{kg} \cdot 334\,000\ \text{J/kg} = 668\,000\ \text{J}$.
+- Mientras se derrite, la temperatura se queda en 0 °C: todo ese calor se usa para cambiar de estado.
+
+**Evaporar agua.** Para evaporar 0,5 kg de agua que ya está hirviendo (a 100 °C) hace falta
+$Q = 0{,}5 \cdot 2\,260\,000 = 1\,130\,000\ \text{J}$, con el calor latente de vaporización $L_v = 2\,260\,000\ \text{J/kg}$:
+casi siete veces más que para derretir la misma masa de hielo.
+
 ## N. Conexión con lo que sigue
 
 Este tema sirve como base para entender cómo se calculan los intercambios energéticos en procesos industriales o naturales, como el funcionamiento de refrigeradores o la formación de nubes: aplicaciones del calor.

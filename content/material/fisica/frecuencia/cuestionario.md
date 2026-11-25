@@ -1,4 +1,4 @@
-# Fisica — Frecuencia (cuestionario, 25 preguntas VBLang)
+# Fisica — Frecuencia (cuestionario, 31 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -572,4 +572,166 @@ enunciado: "Un metrónomo marca una frecuencia de {f_val} Hz. Ordena los siguien
 
 explicacion: |
   Si f = 2 Hz, el período es T = 1/2 = 0.5 s. Los períodos correspondientes a frecuencias de 2Hz, 1Hz y 0.5Hz son 0.5s, 1s y 2s respectivamente.
+```
+
+### 26 — Frecuencia a partir de vueltas y tiempo
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia"
+  nivel: "basico"
+  tags: ["calculo", "frecuencia"]
+
+variables:
+  f: random(2, 30)
+  t: random(5, 60)
+  n: f * t
+
+respuesta: f
+tipo: input
+unidad: "Hz"
+tolerancia_abs: 0
+
+enunciado: "Una rueda da {n} vueltas en {t} segundos. ¿Cuál es su frecuencia, en hertz?"
+
+pasos:
+  - "f = cantidad de ciclos / tiempo"
+  - "f = {n} / {t} s = {f} Hz"
+
+explicacion: |
+  La frecuencia cuenta cuántos ciclos ocurren en cada segundo.
+```
+
+### 27 — Revoluciones por minuto a hertz
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia"
+  nivel: "basico"
+  tags: ["calculo", "unidades", "cotidiano"]
+
+variables:
+  rpm: uno_de([600, 900, 1200, 1500, 3000])
+
+respuesta: rpm / 60
+tipo: input
+unidad: "Hz"
+tolerancia_abs: 0
+
+enunciado: "El tambor de un lavarropas centrifuga a {rpm} revoluciones por minuto. ¿Cuál es su frecuencia, en hertz?"
+
+pasos:
+  - "Un minuto tiene 60 segundos: se divide por 60."
+  - "f = {rpm} / 60 = {rpm / 60} Hz"
+
+explicacion: |
+  Las rpm son vueltas por minuto; los hertz, vueltas por segundo.
+```
+
+### 28 — Período a partir de la frecuencia
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia"
+  nivel: "basico"
+  tags: ["calculo", "periodo"]
+
+variables:
+  f: uno_de([2, 4, 5, 8, 10, 25, 50])
+
+respuesta: 1 / f
+tipo: input
+unidad: "s"
+tolerancia: 1%
+
+enunciado: "Algo vibra con una frecuencia de {f} Hz. ¿Cuánto dura cada vibración, en segundos?"
+
+pasos:
+  - "T = 1 / f"
+  - "T = 1 / {f} = {1 / f | 3} s"
+
+explicacion: |
+  Período y frecuencia son inversos: a más frecuencia, cada ciclo dura menos.
+```
+
+### 29 — Kilohertz a hertz
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia"
+  nivel: "basico"
+  tags: ["unidades", "calculo"]
+
+variables:
+  k: uno_de([0.5, 1.5, 2, 4.4, 20])
+
+respuesta: k * 1000
+tipo: input
+unidad: "Hz"
+tolerancia_abs: 0
+
+enunciado: "Un sonido tiene una frecuencia de {k} kHz. ¿Cuántos hertz son?"
+
+pasos:
+  - "1 kHz = 1000 Hz"
+  - "{k} kHz × 1000 = {k * 1000} Hz"
+
+explicacion: |
+  El prefijo kilo multiplica por mil.
+```
+
+### 30 — La red eléctrica
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  t: random(2, 20)
+
+respuesta: 50 * t
+tipo: input
+unidad: "ciclos"
+tolerancia_abs: 0
+
+enunciado: "La corriente alterna de la red en Argentina tiene una frecuencia de 50 Hz. ¿Cuántos ciclos completos hace en {t} segundos?"
+
+pasos:
+  - "50 Hz = 50 ciclos por segundo."
+  - "ciclos = 50 × {t} = {50 * t}"
+
+explicacion: |
+  En Argentina la red es de 50 Hz; en otros países, como Estados Unidos, es de 60 Hz.
+```
+
+### 31 — Comparar dos frecuencias
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia"
+  nivel: "intermedio"
+  tags: ["comparacion", "verdadero_falso"]
+
+variables:
+  T1: uno_de([0.1, 0.2, 0.5])
+  T2: uno_de([0.25, 0.4, 1])
+
+respuesta: (1 / T1) > (1 / T2)
+tipo: vf
+
+enunciado: "El péndulo A tiene un período de {T1} s y el B, de {T2} s. ¿A tiene mayor frecuencia que B?"
+
+pasos:
+  - "fA = 1 / {T1} = {1 / T1 | 2} Hz; fB = 1 / {T2} = {1 / T2 | 2} Hz"
+
+explicacion: |
+  El que tiene menor período oscila más veces por segundo.
 ```
