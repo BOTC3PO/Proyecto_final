@@ -35,6 +35,16 @@ Un ejemplo común es el de dos coches que chocan: si se deforman y quedan pegado
 
 Los choques no son solo fenómenos teóricos. En ingeniería, se diseñan materiales que absorban impactos (como airbags o colchones en escaleras) para minimizar daños. En deportes, como el fútbol, los jugadores usan la física de choques para predecir trayectorias y evitar lesiones. La distinción entre ambos tipos también es clave en simulaciones computacionales de accidentes o en experimentos científicos con partículas subatómicas.  
 
+## 5. Ejemplos resueltos
+
+**Dos carritos que se enganchan.** Un carrito de 2 kg a 6 m/s choca con otro de 1 kg que está quieto, y quedan unidos
+(choque perfectamente inelástico).
+
+- Momento antes: $2 \cdot 6 + 1 \cdot 0 = 12\ \text{kg·m/s}$.
+- Después se mueven juntos, con masa $2 + 1 = 3\ \text{kg}$: $3 \cdot v = 12 \Rightarrow v = 4\ \text{m/s}$.
+- Energía cinética antes: $\frac{1}{2} \cdot 2 \cdot 6^2 = 36\ \text{J}$; después: $\frac{1}{2} \cdot 3 \cdot 4^2 = 24\ \text{J}$.
+  Se perdieron 12 J en deformación, calor y sonido: el momento se conservó, la energía cinética no.
+
 ## N. Conexión con lo que sigue
 
 Este tema prepara el terreno para analizar problemas numéricos de choques, como calcular velocidades finales o coeficientes de restitución, en calculos choques.

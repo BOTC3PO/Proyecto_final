@@ -1,4 +1,4 @@
-# Fisica — Principio de pascal prensa hidraulica (cuestionario, 27 preguntas VBLang)
+# Fisica — Principio de pascal prensa hidraulica (cuestionario, 33 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -607,4 +607,175 @@ enunciado: "Si el área del pistón de salida (A2) es {a2s[idx]} m² y el área 
 explicacion: |
   La relación de fuerzas es igual a la relación de áreas: F2/F1 = A2/A1.
   En este caso, el factor es {a2s[idx] / a1s[idx]}.
+```
+
+### 28 — Fuerza en el émbolo grande
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_pascal_prensa_hidraulica"
+  nivel: "basico"
+  tags: ["calculo", "prensa"]
+
+variables:
+  F1: random(10, 100)
+  A1: random(1, 10)
+  k: random(2, 20)
+  A2: A1 * k
+
+respuesta: F1 * k
+tipo: input
+unidad: "N"
+tolerancia_abs: 0
+
+enunciado: "En una prensa hidráulica se aplican {F1} N sobre un émbolo de {A1} cm². El otro émbolo tiene {A2} cm². ¿Qué fuerza se obtiene en él, en newtons?"
+
+pasos:
+  - "F1 / A1 = F2 / A2 → F2 = F1 · A2 / A1"
+  - "A2 / A1 = {A2} / {A1} = {k}"
+  - "F2 = {F1} × {k} = {F1 * k} N"
+
+explicacion: |
+  La presión se transmite igual a todo el líquido: el émbolo con más área recibe más fuerza.
+```
+
+### 29 — Fuerza que hay que hacer
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_pascal_prensa_hidraulica"
+  nivel: "intermedio"
+  tags: ["calculo", "prensa"]
+
+variables:
+  F1: random(20, 200)
+  k: random(5, 50)
+  F2: F1 * k
+  A1: random(2, 8)
+
+respuesta: F1
+tipo: input
+unidad: "N"
+tolerancia_abs: 0
+
+enunciado: "Se quiere levantar una carga de {F2} N con una prensa cuyo émbolo grande tiene {A1 * k} cm² y el chico {A1} cm². ¿Qué fuerza hay que hacer en el émbolo chico, en newtons?"
+
+pasos:
+  - "F1 = F2 · A1 / A2"
+  - "F1 = {F2} × {A1} / {A1 * k} = {F2} / {k} = {F1} N"
+
+explicacion: |
+  La prensa multiplica la fuerza tantas veces como el área grande contiene a la chica.
+```
+
+### 30 — Presión en el líquido
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_pascal_prensa_hidraulica"
+  nivel: "basico"
+  tags: ["calculo", "presion"]
+
+variables:
+  P: random(2, 30)
+  A: uno_de([0.01, 0.02, 0.05, 0.1])
+  F: P * 1000 * A
+
+respuesta: P * 1000
+tipo: input
+unidad: "Pa"
+tolerancia: 1%
+
+enunciado: "Sobre un émbolo de {A} m² se aplica una fuerza de {F} N. ¿Qué presión se transmite al líquido, en pascales?"
+
+pasos:
+  - "P = F / A"
+  - "P = {F} N / {A} m² = {P * 1000} Pa"
+
+explicacion: |
+  Esa misma presión llega a todos los puntos del líquido y a las paredes del recipiente.
+```
+
+### 31 — El gato hidráulico
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_pascal_prensa_hidraulica"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  m: uno_de([800, 1000, 1200, 1500])
+  k: uno_de([20, 25, 40, 50])
+
+respuesta: m * 10 / k
+tipo: input
+unidad: "N"
+tolerancia: 1%
+
+enunciado: "Un gato hidráulico levanta un auto de {m} kg (peso: {m * 10} N). Su émbolo grande tiene {k} veces el área del chico. ¿Qué fuerza hay que hacer en la palanca, sobre el émbolo chico, en newtons?"
+
+pasos:
+  - "F1 = F2 / (A2 / A1)"
+  - "F1 = {m * 10} / {k} = {m * 10 / k} N"
+
+explicacion: |
+  Con unos cientos de newtons (lo que hace un brazo) se levanta un auto entero.
+```
+
+### 32 — Recorrido de los émbolos
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_pascal_prensa_hidraulica"
+  nivel: "avanzado"
+  tags: ["calculo", "volumen"]
+
+variables:
+  k: uno_de([5, 10, 20, 25])
+  d2: uno_de([1, 2, 4])
+
+respuesta: d2 * k
+tipo: input
+unidad: "cm"
+tolerancia_abs: 0
+
+enunciado: "En una prensa, el émbolo grande tiene {k} veces el área del chico. Para subir el émbolo grande {d2} cm, ¿cuántos centímetros hay que bajar el chico?"
+
+pasos:
+  - "El volumen de líquido que sale de un lado entra en el otro: A1 · d1 = A2 · d2"
+  - "d1 = d2 · A2 / A1 = {d2} × {k} = {d2 * k} cm"
+
+explicacion: |
+  La prensa no regala energía: multiplica la fuerza, pero hay que recorrer más distancia.
+```
+
+### 33 — Los frenos del auto
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_pascal_prensa_hidraulica"
+  nivel: "basico"
+  tags: ["comparacion", "verdadero_falso", "cotidiano"]
+
+variables:
+  A1: uno_de([2, 3, 4])
+  A2: uno_de([10, 12, 16])
+
+respuesta: A2 > A1
+tipo: vf
+
+enunciado: "En los frenos de un auto, el pistón del pedal tiene {A1} cm² y el de cada rueda {A2} cm². ¿La fuerza en la rueda es mayor que la que hace el pie sobre el pistón?"
+
+pasos:
+  - "F2 = F1 · A2 / A1 = F1 × {A2} / {A1} = F1 × {A2 / A1 | 2}"
+
+explicacion: |
+  El pistón de la rueda es más grande, así que la fuerza del pie se multiplica.
 ```

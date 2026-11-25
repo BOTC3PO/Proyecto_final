@@ -42,6 +42,18 @@ Es común verlo escrito como kg·m/s o incluso kg m/s, pero el significado es el
 
 ---
 
+## 5. Ejemplos resueltos
+
+**Pelota y auto.** El momento lineal es $p = m \cdot v$.
+
+- Una pelota de fútbol de 0,4 kg pateada a 25 m/s: $p = 0{,}4 \cdot 25 = 10\ \text{kg·m/s}$.
+- Un auto de 1000 kg que avanza despacio, a 2 m/s: $p = 1000 \cdot 2 = 2000\ \text{kg·m/s}$.
+
+El auto lento tiene 200 veces más momento que la pelota rápida: por eso es mucho más difícil de frenar.
+
+**Ojo con las unidades.** Si la velocidad está en km/h hay que pasarla a m/s dividiendo por 3,6: un auto a 72 km/h va
+a $72 / 3{,}6 = 20\ \text{m/s}$.
+
 ## N. Conexión con lo que sigue
 
 El momento lineal se relaciona directamente con la **segunda ley de Newton** y los principios de conservación en choques, temas que se desarrollan en leyes de newton y conservacion del momento lineal.

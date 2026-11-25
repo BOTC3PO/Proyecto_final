@@ -48,6 +48,21 @@ Esto significa que **cuanto más alto esté un objeto, mayor será su capacidad 
 
 ---
 
+## 5. Ejemplos resueltos
+
+**La pelota que cae.** Una pelota de 0,5 kg se suelta desde 5 m de altura. Sin rozamiento con el aire, ¿con qué
+velocidad llega al suelo? (usamos $g = 10\ \text{m/s}^2$)
+
+- Arriba, quieta: $E_p = m \cdot g \cdot h = 0{,}5 \cdot 10 \cdot 5 = 25\ \text{J}$ y $E_c = 0$. Energía mecánica: 25 J.
+- Abajo, a altura cero: $E_p = 0$, así que toda la energía es cinética: $E_c = 25\ \text{J}$.
+- $\frac{1}{2} \cdot 0{,}5 \cdot v^2 = 25 \Rightarrow v^2 = 100 \Rightarrow v = 10\ \text{m/s}$.
+
+La masa se simplifica: $v = \sqrt{2 \cdot g \cdot h}$. Una pelota de tenis y una bola de bowling soltadas desde la misma
+altura llegan con la misma velocidad (si el aire no influye).
+
+**A mitad de camino.** A 2,5 m de altura la pelota tiene $E_p = 0{,}5 \cdot 10 \cdot 2{,}5 = 12{,}5\ \text{J}$; como el
+total sigue siendo 25 J, su energía cinética es $25 - 12{,}5 = 12{,}5\ \text{J}$.
+
 ## N. Conexión con lo que sigue
 
 Este tema es la base para entender qué pasa cuando sí hay fuerzas externas: cómo se transforma la energía mecánica en otras formas, como térmica o sonora, y por qué no siempre se conserva. Eso se verá en trabajo y energia.

@@ -1,4 +1,4 @@
-# Fisica — Principio de arquimedes empuje flotacion (cuestionario, 25 preguntas VBLang)
+# Fisica — Principio de arquimedes empuje flotacion (cuestionario, 31 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -555,4 +555,167 @@ explicacion: |
   1. Identificar el volumen desplazado.
   2. Multiplicar por la densidad del fluido (obteniendo la masa del fluido desplazado).
   3. Multiplicar por la gravedad para obtener la fuerza (peso del fluido).
+```
+
+### 26 — Empuje sobre un cuerpo sumergido (E = ρ · g · V)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_arquimedes_empuje_flotacion"
+  nivel: "basico"
+  tags: ["calculo", "empuje"]
+
+variables:
+  V: uno_de([0.001, 0.002, 0.005, 0.01, 0.02, 0.1])
+
+respuesta: 1000 * 10 * V
+tipo: input
+unidad: "N"
+tolerancia: 1%
+
+enunciado: "Un objeto de {V} m³ está totalmente sumergido en agua. ¿Qué empuje recibe, en newtons? (ρ agua = 1000 kg/m³, g = 10 m/s²)"
+
+pasos:
+  - "E = ρ · g · V"
+  - "E = 1000 × 10 × {V} = {1000 * 10 * V} N"
+
+explicacion: |
+  El empuje es el peso del agua que el cuerpo desaloja.
+```
+
+### 27 — Peso aparente dentro del agua
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_arquimedes_empuje_flotacion"
+  nivel: "intermedio"
+  tags: ["calculo", "peso_aparente"]
+
+variables:
+  m: random(3, 20)
+  Vl: uno_de([1, 2])
+
+respuesta: m * 10 - 10 * Vl
+tipo: input
+unidad: "N"
+tolerancia: 1%
+
+enunciado: "Una piedra de {m} kg y {Vl} litro(s) de volumen se sumerge en agua. ¿Cuánto parece pesar dentro del agua, en newtons? (1 litro de agua pesa 10 N; g = 10 m/s²)"
+
+pasos:
+  - "Peso real: {m} × 10 = {m * 10} N"
+  - "Empuje: desaloja {Vl} litro(s) de agua → {10 * Vl} N"
+  - "Peso aparente = {m * 10} − {10 * Vl} = {m * 10 - 10 * Vl} N"
+
+explicacion: |
+  Por eso en una pileta es más fácil levantar a alguien: el agua empuja hacia arriba.
+```
+
+### 28 — Volumen a partir del empuje
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_arquimedes_empuje_flotacion"
+  nivel: "intermedio"
+  tags: ["calculo", "volumen"]
+
+variables:
+  L: random(1, 50)
+  E: L * 10
+
+respuesta: L
+tipo: input
+unidad: "L"
+tolerancia_abs: 0
+
+enunciado: "Un objeto sumergido en agua recibe un empuje de {E} N. ¿Cuántos litros de agua desaloja? (1 litro de agua pesa 10 N)"
+
+pasos:
+  - "Cada litro desalojado aporta 10 N de empuje."
+  - "Litros = {E} / 10 = {L} L"
+
+explicacion: |
+  Midiendo el empuje se puede saber el volumen de un cuerpo de forma irregular.
+```
+
+### 29 — ¿Flota o se hunde?
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_arquimedes_empuje_flotacion"
+  nivel: "basico"
+  tags: ["densidad", "verdadero_falso"]
+
+variables:
+  d: uno_de([200, 500, 700, 900, 1200, 2700, 7800])
+
+respuesta: d < 1000
+tipo: vf
+
+enunciado: "Un material tiene una densidad de {d} kg/m³. ¿Un bloque macizo de ese material flota en agua dulce (1000 kg/m³)?"
+
+pasos:
+  - "Compará: {d} kg/m³ con 1000 kg/m³."
+
+explicacion: |
+  Un cuerpo macizo flota si es menos denso que el líquido y se hunde si es más denso.
+```
+
+### 30 — Parte sumergida de un bloque que flota
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_arquimedes_empuje_flotacion"
+  nivel: "avanzado"
+  tags: ["calculo", "flotacion"]
+
+variables:
+  d: uno_de([300, 400, 500, 600, 700, 800, 900])
+
+respuesta: d / 1000 * 100
+tipo: input
+unidad: "%"
+tolerancia_abs: 0
+
+enunciado: "Un bloque de madera de densidad {d} kg/m³ flota en agua (1000 kg/m³). ¿Qué porcentaje de su volumen queda bajo el agua?"
+
+pasos:
+  - "Al flotar, peso = empuje: ρ madera · V total = ρ agua · V sumergido"
+  - "V sumergido / V total = {d} / 1000 = {d / 1000}"
+  - "Porcentaje: {d / 1000} × 100 = {d / 1000 * 100} %"
+
+explicacion: |
+  La fracción sumergida es la razón entre las densidades: así el hielo (917 kg/m³) muestra solo una puntita fuera del agua.
+```
+
+### 31 — El salvavidas
+
+```
+metadata:
+  materia: "fisica"
+  tema: "principio_de_arquimedes_empuje_flotacion"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  L: uno_de([20, 30, 40, 50])
+
+respuesta: L * 10
+tipo: input
+unidad: "N"
+tolerancia_abs: 0
+
+enunciado: "Un salvavidas totalmente hundido desaloja {L} litros de agua. ¿Qué empuje máximo puede dar, en newtons? (1 litro de agua pesa 10 N; despreciá el peso del salvavidas)"
+
+pasos:
+  - "Empuje = peso del agua desalojada"
+  - "E = {L} × 10 = {L * 10} N"
+
+explicacion: |
+  Con ese empuje alcanza para mantener la cabeza de una persona fuera del agua: el cuerpo humano ya flota casi solo.
 ```

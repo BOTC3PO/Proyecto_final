@@ -1,4 +1,4 @@
-# Fisica — Momento lineal (cuestionario, 26 preguntas VBLang)
+# Fisica — Momento lineal (cuestionario, 32 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -591,4 +591,174 @@ tipo: mc
 
 explicacion: |
   Como p es directamente proporcional a la velocidad (p ∝ v), si la masa es constante y la velocidad se duplica, el momento lineal también se duplica.
+```
+
+### 27 — Calcular el momento lineal (p = m · v)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_lineal"
+  nivel: "basico"
+  tags: ["calculo", "momento"]
+
+variables:
+  m: random(2, 50)
+  v: random(2, 20)
+
+respuesta: m * v
+tipo: input
+unidad: "kg·m/s"
+tolerancia_abs: 0
+
+enunciado: "Un objeto de {m} kg se mueve a {v} m/s. ¿Cuál es su momento lineal, en kg·m/s?"
+
+pasos:
+  - "p = m · v"
+  - "p = {m} kg × {v} m/s = {m * v} kg·m/s"
+
+explicacion: |
+  El momento lineal crece con la masa y con la velocidad.
+```
+
+### 28 — Calcular la velocidad
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_lineal"
+  nivel: "intermedio"
+  tags: ["calculo", "velocidad"]
+
+variables:
+  m: random(2, 40)
+  v: random(2, 15)
+  p: m * v
+
+respuesta: v
+tipo: input
+unidad: "m/s"
+tolerancia_abs: 0
+
+enunciado: "Un carro de {m} kg tiene un momento lineal de {p} kg·m/s. ¿A qué velocidad se mueve, en m/s?"
+
+pasos:
+  - "De p = m · v despejamos v = p / m."
+  - "v = {p} / {m} = {v} m/s"
+
+explicacion: |
+  Si se conocen el momento y la masa, la velocidad sale dividiendo.
+```
+
+### 29 — Calcular la masa
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_lineal"
+  nivel: "intermedio"
+  tags: ["calculo", "masa"]
+
+variables:
+  m: random(2, 60)
+  v: random(2, 12)
+  p: m * v
+
+respuesta: m
+tipo: input
+unidad: "kg"
+tolerancia_abs: 0
+
+enunciado: "Un objeto que va a {v} m/s tiene un momento lineal de {p} kg·m/s. ¿Cuál es su masa, en kg?"
+
+pasos:
+  - "De p = m · v despejamos m = p / v."
+  - "m = {p} / {v} = {m} kg"
+
+explicacion: |
+  Masa, velocidad y momento están unidos por una sola fórmula: con dos de ellos sale el tercero.
+```
+
+### 30 — El colectivo
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_lineal"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano", "unidades"]
+
+variables:
+  kmh: uno_de([18, 36, 54, 72])
+  m: uno_de([8000, 10000, 12000])
+
+respuesta: m * kmh / 3.6
+tipo: input
+unidad: "kg·m/s"
+tolerancia: 1%
+
+enunciado: "Un colectivo de {m} kg circula a {kmh} km/h. ¿Cuál es su momento lineal, en kg·m/s?"
+
+pasos:
+  - "Pasamos la velocidad a m/s: {kmh} / 3,6 = {kmh / 3.6} m/s"
+  - "p = m · v = {m} × {kmh / 3.6} = {m * kmh / 3.6 | 0} kg·m/s"
+
+explicacion: |
+  Antes de multiplicar, la velocidad tiene que estar en m/s para que el resultado salga en kg·m/s.
+```
+
+### 31 — Cambio de momento al frenar
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_lineal"
+  nivel: "intermedio"
+  tags: ["calculo", "variacion"]
+
+variables:
+  m: uno_de([800, 1000, 1200, 1500])
+  v1: random(15, 30)
+  v2: random(5, 14)
+
+respuesta: m * (v1 - v2)
+tipo: input
+unidad: "kg·m/s"
+tolerancia_abs: 0
+
+enunciado: "Un auto de {m} kg frena de {v1} m/s a {v2} m/s. ¿Cuánto disminuye su momento lineal, en kg·m/s?"
+
+pasos:
+  - "Momento inicial: {m} × {v1} = {m * v1} kg·m/s"
+  - "Momento final: {m} × {v2} = {m * v2} kg·m/s"
+  - "Disminución: {m * v1} − {m * v2} = {m * (v1 - v2)} kg·m/s"
+
+explicacion: |
+  Para cambiar el momento de un cuerpo hace falta una fuerza que actúe durante un tiempo: los frenos.
+```
+
+### 32 — ¿Quién tiene más momento?
+
+```
+metadata:
+  materia: "fisica"
+  tema: "momento_lineal"
+  nivel: "basico"
+  tags: ["comparacion", "verdadero_falso", "cotidiano"]
+
+variables:
+  vb: random(10, 40)
+  vc: random(1, 3)
+
+respuesta: (0.4 * vb) > (8 * vc)
+tipo: vf
+
+enunciado: "Una pelota de fútbol de 0,4 kg vuela a {vb} m/s y un perro de 8 kg corre a {vc} m/s. ¿La pelota tiene más momento lineal que el perro?"
+
+pasos:
+  - "Pelota: 0,4 × {vb} = {0.4 * vb} kg·m/s"
+  - "Perro: 8 × {vc} = {8 * vc} kg·m/s"
+
+explicacion: |
+  Ir rápido no alcanza: en el momento lineal la masa pesa tanto como la velocidad.
 ```

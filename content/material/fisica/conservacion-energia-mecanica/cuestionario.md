@@ -1,4 +1,4 @@
-# Fisica — Conservacion energia mecanica (cuestionario, 25 preguntas VBLang)
+# Fisica — Conservacion energia mecanica (cuestionario, 31 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -576,4 +576,180 @@ enunciado: "Un sistema donde sólo actúan fuerzas conservativas (como la graved
 
 explicacion: |
   En sistemas ideales donde sólo actúan fuerzas conservativas, la energía mecánica total (Ec + Ep) se mantiene constante.
+```
+
+### 26 — Energía mecánica total
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "basico"
+  tags: ["calculo", "energia_mecanica"]
+
+variables:
+  m: random(1, 10)
+  h: random(2, 20)
+  v: uno_de([2, 4, 6])
+  Ep: m * 10 * h
+  Ec: m * v ^ 2 / 2
+
+respuesta: Ep + Ec
+tipo: input
+unidad: "J"
+tolerancia_abs: 0
+
+enunciado: "Un objeto de {m} kg está a {h} m de altura y se mueve a {v} m/s. ¿Cuál es su energía mecánica, en joules? (g = 10 m/s²)"
+
+pasos:
+  - "Ep = m · g · h = {m} × 10 × {h} = {Ep} J"
+  - "Ec = ½ · m · v² = ½ × {m} × {v}² = {Ec} J"
+  - "Em = Ep + Ec = {Ep} + {Ec} = {Ep + Ec} J"
+
+explicacion: |
+  La energía mecánica es la suma de la potencial y la cinética.
+```
+
+### 27 — Velocidad al llegar al suelo
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "intermedio"
+  tags: ["calculo", "caida"]
+
+variables:
+  v: uno_de([5, 10, 15, 20, 30])
+  h: v ^ 2 / 20
+
+respuesta: v
+tipo: input
+unidad: "m/s"
+tolerancia: 1%
+
+enunciado: "Se suelta una piedra desde {h} m de altura. Sin rozamiento, ¿con qué velocidad llega al suelo, en m/s? (g = 10 m/s²)"
+
+pasos:
+  - "Toda la energía potencial se vuelve cinética: m · g · h = ½ · m · v²"
+  - "La masa se simplifica: v = √(2 · g · h) = √(2 × 10 × {h}) = √{20 * h}"
+  - "v = {v} m/s"
+
+explicacion: |
+  La velocidad de llegada no depende de la masa, solo de la altura (si no hay rozamiento).
+```
+
+### 28 — Altura máxima de un tiro hacia arriba
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "intermedio"
+  tags: ["calculo", "altura"]
+
+variables:
+  v: random(4, 20)
+
+respuesta: v ^ 2 / 20
+tipo: input
+unidad: "m"
+tolerancia: 1%
+
+enunciado: "Se lanza una pelota hacia arriba a {v} m/s. Sin rozamiento, ¿qué altura máxima alcanza, en metros? (g = 10 m/s²)"
+
+pasos:
+  - "Toda la energía cinética se vuelve potencial: ½ · m · v² = m · g · h"
+  - "h = v² / (2 · g) = {v}² / 20 = {v ^ 2} / 20 = {v ^ 2 / 20} m"
+
+explicacion: |
+  En el punto más alto la pelota se detiene un instante: toda su energía es potencial.
+```
+
+### 29 — Energía cinética a mitad de la caída
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "intermedio"
+  tags: ["calculo", "transformacion"]
+
+variables:
+  m: random(1, 8)
+  h: random(5, 30)
+  h2: random(1, 4)
+
+respuesta: m * 10 * (h - h2)
+tipo: input
+unidad: "J"
+tolerancia_abs: 0
+
+enunciado: "Un objeto de {m} kg cae desde {h} m de altura, partiendo del reposo. Sin rozamiento, ¿qué energía cinética tiene cuando pasa a {h2} m del suelo, en joules? (g = 10 m/s²)"
+
+pasos:
+  - "Energía mecánica inicial: Ep = {m} × 10 × {h} = {m * 10 * h} J"
+  - "Energía potencial a {h2} m: {m} × 10 × {h2} = {m * 10 * h2} J"
+  - "Ec = {m * 10 * h} − {m * 10 * h2} = {m * 10 * (h - h2)} J"
+
+explicacion: |
+  La energía potencial que se pierde al bajar se gana como energía cinética.
+```
+
+### 30 — El tobogán
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  v: uno_de([4, 5, 6, 8])
+  h: v ^ 2 / 20
+
+respuesta: v
+tipo: input
+unidad: "m/s"
+tolerancia: 1%
+
+enunciado: "Un chico se tira por un tobogán de {h} m de alto, partiendo quieto. Si no hubiera rozamiento, ¿con qué velocidad llegaría abajo, en m/s? (g = 10 m/s²)"
+
+pasos:
+  - "m · g · h = ½ · m · v² → v = √(2 · g · h)"
+  - "v = √(2 × 10 × {h}) = √{20 * h} = {v} m/s"
+
+explicacion: |
+  En la realidad llega un poco más lento: el rozamiento con el tobogán convierte parte de la energía en calor.
+```
+
+### 31 — La montaña rusa
+
+```
+metadata:
+  materia: "fisica"
+  tema: "conservacion_energia_mecanica"
+  nivel: "avanzado"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  h1: random(30, 60)
+  h2: uno_de([5, 10, 15, 20])
+  v: sqrt(20 * (h1 - h2))
+
+respuesta: v
+tipo: input
+unidad: "m/s"
+tolerancia: 2%
+
+enunciado: "Un carrito de montaña rusa parte casi quieto desde {h1} m de altura y baja hasta un punto a {h2} m. Sin rozamiento, ¿qué velocidad tiene ahí, en m/s? (g = 10 m/s²; podés redondear a un decimal)"
+
+pasos:
+  - "Baja {h1} − {h2} = {h1 - h2} m: esa energía potencial se vuelve cinética."
+  - "½ · v² = g · ({h1 - h2}) → v = √(2 × 10 × {h1 - h2}) = √{20 * (h1 - h2)}"
+  - "v ≈ {v | 1} m/s"
+
+explicacion: |
+  Solo importa cuánto bajó, no la forma de la pista: por eso la primera bajada, la más alta, da la velocidad para todo el recorrido.
 ```

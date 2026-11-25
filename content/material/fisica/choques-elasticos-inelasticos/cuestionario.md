@@ -1,4 +1,4 @@
-# Fisica — Choques elasticos inelasticos (cuestionario, 25 preguntas VBLang)
+# Fisica — Choques elasticos inelasticos (cuestionario, 31 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -523,4 +523,182 @@ tipo: vf
 
 explicacion: |
   La energía cinética no puede aumentar espontáneamente en un choque; en los choques inelásticos, la energía cinética siempre disminuye o se mantiene (si fuera elástico).
+```
+
+### 26 — Velocidad después de quedar unidos
+
+```
+metadata:
+  materia: "fisica"
+  tema: "choques_elasticos_inelasticos"
+  nivel: "intermedio"
+  tags: ["calculo", "inelastico"]
+
+variables:
+  m1: random(1, 6)
+  m2: random(1, 6)
+  vf: random(1, 6)
+  v1: vf * (m1 + m2) / m1
+
+respuesta: vf
+tipo: input
+unidad: "m/s"
+tolerancia: 1%
+
+enunciado: "Un carrito de {m1} kg a {v1 | 2} m/s choca con otro de {m2} kg que está quieto, y quedan enganchados. ¿A qué velocidad se mueven juntos, en m/s?"
+
+pasos:
+  - "Momento antes: {m1} × {v1 | 2} + {m2} × 0 = {m1 * v1 | 2} kg·m/s"
+  - "Después: ({m1} + {m2}) · v = {m1 * v1 | 2}"
+  - "v = {m1 * v1 | 2} / {m1 + m2} = {vf} m/s"
+
+explicacion: |
+  En todo choque se conserva el momento lineal total; si quedan unidos, se mueven con una sola velocidad.
+```
+
+### 27 — Momento total antes del choque
+
+```
+metadata:
+  materia: "fisica"
+  tema: "choques_elasticos_inelasticos"
+  nivel: "basico"
+  tags: ["calculo", "momento"]
+
+variables:
+  m1: random(1, 10)
+  v1: random(1, 10)
+  m2: random(1, 10)
+  v2: random(1, 10)
+
+respuesta: m1 * v1 + m2 * v2
+tipo: input
+unidad: "kg·m/s"
+tolerancia_abs: 0
+
+enunciado: "Dos bloques se mueven en la misma dirección y sentido: uno de {m1} kg a {v1} m/s y otro de {m2} kg a {v2} m/s. ¿Cuál es el momento lineal total, en kg·m/s?"
+
+pasos:
+  - "p1 = {m1} × {v1} = {m1 * v1}; p2 = {m2} × {v2} = {m2 * v2}"
+  - "p total = {m1 * v1} + {m2 * v2} = {m1 * v1 + m2 * v2} kg·m/s"
+
+explicacion: |
+  Ese total es el mismo antes y después del choque.
+```
+
+### 28 — Energía perdida en el choque
+
+```
+metadata:
+  materia: "fisica"
+  tema: "choques_elasticos_inelasticos"
+  nivel: "avanzado"
+  tags: ["calculo", "energia", "inelastico"]
+
+variables:
+  m1: uno_de([1, 2, 3, 4])
+  m2: uno_de([1, 2, 3, 4])
+  vf: uno_de([1, 2, 3])
+  v1: vf * (m1 + m2) / m1
+  Ei: m1 * v1 ^ 2 / 2
+  Ef: (m1 + m2) * vf ^ 2 / 2
+
+respuesta: Ei - Ef
+tipo: input
+unidad: "J"
+tolerancia: 1%
+
+enunciado: "Un bloque de {m1} kg a {v1 | 2} m/s choca con otro de {m2} kg quieto y quedan pegados, moviéndose a {vf} m/s. ¿Cuánta energía cinética se perdió, en joules?"
+
+pasos:
+  - "Antes: ½ × {m1} × {v1 | 2}² = {Ei | 2} J"
+  - "Después: ½ × {m1 + m2} × {vf}² = {Ef | 2} J"
+  - "Perdida: {Ei | 2} − {Ef | 2} = {Ei - Ef | 2} J"
+
+explicacion: |
+  En un choque inelástico parte de la energía cinética se transforma en deformación, calor y sonido.
+```
+
+### 29 — Retroceso de un cañón de juguete
+
+```
+metadata:
+  materia: "fisica"
+  tema: "choques_elasticos_inelasticos"
+  nivel: "avanzado"
+  tags: ["calculo", "retroceso"]
+
+variables:
+  mb: uno_de([0.05, 0.1, 0.2])
+  vb: random(10, 40)
+  M: uno_de([1, 2, 4, 5])
+
+respuesta: mb * vb / M
+tipo: input
+unidad: "m/s"
+tolerancia: 1%
+
+enunciado: "Un cañón de juguete de {M} kg, quieto sobre ruedas, dispara una bolita de {mb} kg a {vb} m/s. ¿A qué velocidad retrocede el cañón, en m/s?"
+
+pasos:
+  - "Antes del disparo todo está quieto: momento total 0."
+  - "Después: {mb} × {vb} = {M} × v (en sentidos opuestos)"
+  - "v = {mb * vb | 2} / {M} = {mb * vb / M | 3} m/s"
+
+explicacion: |
+  La bolita y el cañón salen con momentos iguales y opuestos: la suma sigue siendo cero.
+```
+
+### 30 — El autito chocador
+
+```
+metadata:
+  materia: "fisica"
+  tema: "choques_elasticos_inelasticos"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  m1: uno_de([150, 180, 200])
+  m2: uno_de([150, 180, 200])
+  v1: uno_de([2, 3, 4])
+
+respuesta: m1 * v1 / (m1 + m2)
+tipo: input
+unidad: "m/s"
+tolerancia: 2%
+
+enunciado: "En el parque, un autito chocador de {m1} kg (con su conductor) va a {v1} m/s y choca de atrás a otro de {m2} kg que está quieto. Si quedan trabados, ¿a qué velocidad siguen juntos, en m/s? (podés redondear a dos decimales)"
+
+pasos:
+  - "Momento antes: {m1} × {v1} = {m1 * v1} kg·m/s"
+  - "v = {m1 * v1} / ({m1} + {m2}) = {m1 * v1} / {m1 + m2} ≈ {m1 * v1 / (m1 + m2) | 2} m/s"
+
+explicacion: |
+  Después del choque se mueven más despacio porque el mismo momento se reparte en más masa.
+```
+
+### 31 — ¿Elástico o inelástico?
+
+```
+metadata:
+  materia: "fisica"
+  tema: "choques_elasticos_inelasticos"
+  nivel: "intermedio"
+  tags: ["clasificacion", "verdadero_falso"]
+
+variables:
+  Ei: random(40, 100)
+  perdida: uno_de([0, 0, 10, 20])
+
+respuesta: perdida == 0
+tipo: vf
+
+enunciado: "En un choque, la energía cinética total era de {Ei} J antes y de {Ei - perdida} J después. ¿Fue un choque elástico?"
+
+pasos:
+  - "Diferencia de energía cinética: {Ei} − {Ei - perdida} = {perdida} J"
+
+explicacion: |
+  Es elástico si la energía cinética total se conserva (no se pierde nada); si disminuye, es inelástico.
 ```
