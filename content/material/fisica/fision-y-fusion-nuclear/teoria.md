@@ -47,6 +47,19 @@ En la **fisión**, el defecto de masa es el resultado del equilibrio entre los n
 
 ---
 
+## 5. Ejemplos resueltos
+
+**Un miligramo de masa.** ¿Cuánta energía se libera si en una reacción nuclear desaparece 1 mg de masa
+($0{,}000001\ \text{kg}$)? Con $c = 300\,000\,000\ \text{m/s}$, $c^2 = 90\,000\,000\,000\,000\,000$:
+
+- $E = m \cdot c^2 = 0{,}000001 \cdot 90\,000\,000\,000\,000\,000 = 90\,000\,000\,000\ \text{J}$.
+- Son 90 000 megajoules (MJ). Un hogar consume unos 300 kWh por mes, unos 1080 MJ: ese miligramo alcanzaría para
+  unos 83 meses, casi siete años.
+
+**Defecto de masa.** Si los núcleos iniciales suman 4,0320 u y los productos 4,0026 u, el defecto de masa es
+$4{,}0320 - 4{,}0026 = 0{,}0294\ \text{u}$. Cada unidad de masa atómica equivale a unos 931,5 MeV, así que se liberan
+$0{,}0294 \cdot 931{,}5 \approx 27{,}4\ \text{MeV}$.
+
 ## N. Conexión con lo que sigue
 
 Este tema conecta directamente con energia nuclear, donde se analizan las aplicaciones prácticas de estos procesos en la generación eléctrica y su impacto ambiental.

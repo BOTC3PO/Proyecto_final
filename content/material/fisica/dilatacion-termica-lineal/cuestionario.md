@@ -1,4 +1,4 @@
-# Fisica — Dilatacion termica lineal (cuestionario, 25 preguntas VBLang)
+# Fisica — Dilatacion termica lineal (cuestionario, 31 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -547,4 +547,173 @@ enunciado: "Ordena los siguientes eventos según ocurren de forma causal durante
 
 explicacion: |
   Primero aumenta la temperatura, lo que incrementa la energía cinética (vibración) de los átomos, resultando finalmente en un incremento de la longitud macroscópica.
+```
+
+### 26 — Alargamiento de una barra (ΔL = α · L0 · ΔT)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "dilatacion_termica_lineal"
+  nivel: "basico"
+  tags: ["calculo", "dilatacion"]
+
+variables:
+  L0: random(1, 50)
+  dT: random(10, 80)
+
+respuesta: 0.000012 * L0 * dT * 1000
+tipo: input
+unidad: "mm"
+tolerancia: 1%
+
+enunciado: "Una barra de acero de {L0} m se calienta {dT} °C. ¿Cuánto se alarga, en milímetros? (α acero = 0,000012 por °C)"
+
+pasos:
+  - "ΔL = α · L0 · ΔT = 0,000012 × {L0} × {dT} = {0.000012 * L0 * dT} m"
+  - "En milímetros: × 1000 = {0.000012 * L0 * dT * 1000 | 2} mm"
+
+explicacion: |
+  El alargamiento es proporcional a la longitud inicial y al cambio de temperatura.
+```
+
+### 27 — Con aluminio
+
+```
+metadata:
+  materia: "fisica"
+  tema: "dilatacion_termica_lineal"
+  nivel: "basico"
+  tags: ["calculo", "materiales"]
+
+variables:
+  L0: random(1, 20)
+  dT: random(10, 60)
+
+respuesta: 0.000024 * L0 * dT * 1000
+tipo: input
+unidad: "mm"
+tolerancia: 1%
+
+enunciado: "Un perfil de aluminio de {L0} m se calienta {dT} °C. ¿Cuánto se alarga, en milímetros? (α aluminio = 0,000024 por °C)"
+
+pasos:
+  - "ΔL = 0,000024 × {L0} × {dT} = {0.000024 * L0 * dT} m"
+  - "En milímetros: {0.000024 * L0 * dT * 1000 | 2} mm"
+
+explicacion: |
+  El aluminio se dilata el doble que el acero por cada grado.
+```
+
+### 28 — Longitud final
+
+```
+metadata:
+  materia: "fisica"
+  tema: "dilatacion_termica_lineal"
+  nivel: "intermedio"
+  tags: ["calculo", "longitud_final"]
+
+variables:
+  L0: random(10, 100)
+  dT: random(20, 50)
+
+respuesta: L0 + 0.000012 * L0 * dT
+tipo: input
+unidad: "m"
+tolerancia_abs: 0.001
+
+enunciado: "Un cable de acero mide {L0} m y su temperatura sube {dT} °C. ¿Cuánto mide después, en metros? (α = 0,000012 por °C; escribí al menos tres decimales)"
+
+pasos:
+  - "ΔL = 0,000012 × {L0} × {dT} = {0.000012 * L0 * dT | 4} m"
+  - "L = L0 + ΔL = {L0} + {0.000012 * L0 * dT | 4} = {L0 + 0.000012 * L0 * dT | 4} m"
+
+explicacion: |
+  La longitud final es la inicial más lo que se alargó.
+```
+
+### 29 — Calcular el coeficiente
+
+```
+metadata:
+  materia: "fisica"
+  tema: "dilatacion_termica_lineal"
+  nivel: "avanzado"
+  tags: ["calculo", "coeficiente"]
+
+variables:
+  a: uno_de([12, 17, 19, 24])
+  L0: uno_de([1, 2, 5])
+  dT: uno_de([50, 100])
+  dLmm: a * L0 * dT / 1000
+
+respuesta: a
+tipo: input
+unidad: "millonésimas por °C"
+tolerancia: 1%
+
+enunciado: "Una varilla de {L0} m se alarga {dLmm} mm al calentarse {dT} °C. ¿Cuál es su coeficiente de dilatación, en millonésimas por °C? (por ejemplo, 0,000012 son 12 millonésimas)"
+
+pasos:
+  - "α = ΔL / (L0 · ΔT), con ΔL en metros: {dLmm} mm = {dLmm / 1000} m"
+  - "α = {dLmm / 1000} / ({L0} × {dT}) = {a / 1000000}"
+  - "En millonésimas: {a}"
+
+explicacion: |
+  Midiendo cuánto se alarga una varilla se puede identificar el material: el acero da unos 12, el cobre 17, el bronce 19 y el aluminio 24.
+```
+
+### 30 — La junta del puente
+
+```
+metadata:
+  materia: "fisica"
+  tema: "dilatacion_termica_lineal"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  L0: uno_de([30, 40, 50, 60])
+  tmin: uno_de([-5, 0, 5])
+  tmax: uno_de([35, 40, 45])
+
+respuesta: 0.000012 * L0 * (tmax - tmin) * 1000
+tipo: input
+unidad: "mm"
+tolerancia: 1%
+
+enunciado: "Un tramo de puente de acero mide {L0} m. Entre el invierno ({tmin} °C) y el verano ({tmax} °C), ¿cuántos milímetros tiene que poder moverse la junta de dilatación? (α = 0,000012 por °C)"
+
+pasos:
+  - "ΔT = {tmax} − ({tmin}) = {tmax - tmin} °C"
+  - "ΔL = 0,000012 × {L0} × {tmax - tmin} = {0.000012 * L0 * (tmax - tmin) * 1000 | 1} mm"
+
+explicacion: |
+  Las juntas de dilatación (esas rejas metálicas que se ven en los puentes) dejan ese espacio para que el tramo se estire sin romperse.
+```
+
+### 31 — Los cables de la luz en verano
+
+```
+metadata:
+  materia: "fisica"
+  tema: "dilatacion_termica_lineal"
+  nivel: "basico"
+  tags: ["comparacion", "verdadero_falso", "cotidiano"]
+
+variables:
+  t1: random(0, 15)
+  t2: random(25, 40)
+
+respuesta: t2 > t1
+tipo: vf
+
+enunciado: "Un cable entre dos postes está a {t1} °C a la mañana y a {t2} °C a la tarde. ¿A la tarde está más largo (y cuelga más)?"
+
+pasos:
+  - "ΔT = {t2} − {t1} = {t2 - t1} °C > 0: el cable se dilata."
+
+explicacion: |
+  Por eso los cables se tienden un poco flojos: en invierno se contraen y, si estuvieran tensos, podrían cortarse.
 ```

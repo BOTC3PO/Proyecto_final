@@ -28,6 +28,19 @@ La **fuerza eléctrica** que actúa sobre una carga colocada dentro de un campo 
 
 La **dirección** del campo eléctrico siempre apunta hacia donde una carga positiva se movería si estuviera colocada allí. Si la carga que genera el campo es negativa, las líneas convergen hacia ella, y la dirección del campo es opuesta a la de la fuerza que sentiría una carga positiva. Esta relación es clave para entender fenómenos como la atracción entre cargas de signo opuesto.
 
+## 5. Ejemplos resueltos
+
+**Una carga en un campo.** En un punto el campo eléctrico vale $E = 500\ \text{N/C}$. Si ponemos ahí una carga de
+$q = 0{,}002\ \text{C}$:
+
+- $F = q \cdot E = 0{,}002 \cdot 500 = 1\ \text{N}$.
+- Con el doble de carga, la fuerza también se duplica (2 N): el campo es la fuerza por cada coulomb.
+
+**El campo de una carga puntual.** Una carga $Q$ crea a una distancia $r$ un campo $E = k \cdot Q / r^2$, con
+$k = 9\,000\,000\,000\ \text{N·m}^2/\text{C}^2$. Para una carga de 2 microcoulombs ($0{,}000002\ \text{C}$) a 3 m:
+$E = 9\,000\,000\,000 \cdot 0{,}000002 / 3^2 = 18\,000 / 9 = 2000\ \text{N/C}$. Al doble de distancia, el campo se
+reduce a la cuarta parte.
+
 ## N. Conexión con lo que sigue
 
 Este tema conecta con el estudio de **campos eléctricos generados por distribuciones de carga** y su aplicación en problemas de potencial eléctrico, cubiertos en potencial electrico.

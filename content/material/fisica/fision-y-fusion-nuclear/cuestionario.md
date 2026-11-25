@@ -1,4 +1,4 @@
-# Fisica — Fision y fusion nuclear (cuestionario, 25 preguntas VBLang)
+# Fisica — Fision y fusion nuclear (cuestionario, 31 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -542,4 +542,167 @@ enunciado: "Ordena los conceptos según el orden lógico en el que ocurren para 
 
 explicacion: |
   Primero tenemos la masa inicial, luego la diferencia (defecto) que se convierte en energía.
+```
+
+### 26 — Energía de una masa que desaparece (E = m · c²)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "fision_nuclear"
+  nivel: "intermedio"
+  tags: ["calculo", "einstein"]
+
+variables:
+  mg: random(1, 20)
+
+respuesta: mg * 90000
+tipo: input
+unidad: "MJ"
+tolerancia: 1%
+
+enunciado: "En una reacción nuclear desaparecen {mg} mg de masa. ¿Cuánta energía se libera, en megajoules (MJ)? (1 mg de masa equivale a 90 000 MJ)"
+
+pasos:
+  - "E = m · c²: cada miligramo da 0,000001 kg × 90 000 000 000 000 000 = 90 000 000 000 J = 90 000 MJ"
+  - "E = {mg} × 90 000 = {mg * 90000} MJ"
+
+explicacion: |
+  La constante c² es enorme: una masa diminuta equivale a muchísima energía.
+```
+
+### 27 — Masa convertida en energía
+
+```
+metadata:
+  materia: "fisica"
+  tema: "fision_nuclear"
+  nivel: "intermedio"
+  tags: ["calculo", "einstein"]
+
+variables:
+  mg: random(1, 50)
+  E: mg * 90000
+
+respuesta: mg
+tipo: input
+unidad: "mg"
+tolerancia: 1%
+
+enunciado: "Una central nuclear liberó {E} MJ de energía. ¿Cuántos miligramos de masa se convirtieron en energía? (1 mg equivale a 90 000 MJ)"
+
+pasos:
+  - "m = E / c², o sea, dividir por 90 000 MJ por miligramo."
+  - "m = {E} / 90 000 = {mg} mg"
+
+explicacion: |
+  Una central nuclear «gasta» apenas gramos de masa por año, aunque consume toneladas de combustible.
+```
+
+### 28 — Defecto de masa
+
+```
+metadata:
+  materia: "fisica"
+  tema: "fision_nuclear"
+  nivel: "intermedio"
+  tags: ["calculo", "defecto_de_masa"]
+
+variables:
+  mf: random_float(4, 240, 3)
+  d: random_float(0.01, 0.2, 3)
+  mi: mf + d
+
+respuesta: d
+tipo: input
+unidad: "u"
+tolerancia: 1%
+
+enunciado: "Antes de una reacción nuclear los núcleos suman {mi | 3} u y después, {mf | 3} u. ¿Cuál es el defecto de masa, en u?"
+
+pasos:
+  - "Defecto = masa inicial − masa final"
+  - "{mi | 3} − {mf | 3} = {d | 3} u"
+
+explicacion: |
+  Esa masa que «falta» se liberó como energía.
+```
+
+### 29 — Energía en MeV
+
+```
+metadata:
+  materia: "fisica"
+  tema: "fision_nuclear"
+  nivel: "avanzado"
+  tags: ["calculo", "defecto_de_masa"]
+
+variables:
+  d: uno_de([0.0189, 0.0294, 0.1, 0.2, 0.215])
+
+respuesta: d * 931.5
+tipo: input
+unidad: "MeV"
+tolerancia: 1%
+
+enunciado: "En una reacción el defecto de masa es de {d} u. ¿Cuánta energía se libera, en MeV? (1 u equivale a 931,5 MeV; podés redondear a un decimal)"
+
+pasos:
+  - "E = defecto × 931,5"
+  - "E = {d} × 931,5 ≈ {d * 931.5 | 1} MeV"
+
+explicacion: |
+  La fusión de hidrógeno da unos 17,6 o 27 MeV por reacción; la fisión de un núcleo de uranio, unos 200 MeV.
+```
+
+### 30 — Energía para una casa
+
+```
+metadata:
+  materia: "fisica"
+  tema: "fision_nuclear"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  mg: uno_de([1, 2, 3, 6, 12])
+
+respuesta: mg * 90000 / 1080
+tipo: input
+unidad: "meses"
+tolerancia: 2%
+
+enunciado: "Un hogar consume unos 1080 MJ de electricidad por mes. Si se pudiera aprovechar toda la energía de {mg} mg de masa (90 000 MJ por mg), ¿para cuántos meses alcanzaría? (podés redondear a un decimal)"
+
+pasos:
+  - "Energía: {mg} × 90 000 = {mg * 90000} MJ"
+  - "Meses: {mg * 90000} / 1080 ≈ {mg * 90000 / 1080 | 1}"
+
+explicacion: |
+  Una cantidad de masa más chica que un grano de arroz alcanzaría para años de electricidad de una casa.
+```
+
+### 31 — ¿Libera energía?
+
+```
+metadata:
+  materia: "fisica"
+  tema: "fision_nuclear"
+  nivel: "intermedio"
+  tags: ["defecto_de_masa", "verdadero_falso"]
+
+variables:
+  mi: random_float(200, 240, 2)
+  dif: uno_de([0.2, 0.15, -0.1])
+
+respuesta: dif > 0
+tipo: vf
+
+enunciado: "En una reacción nuclear, la masa total antes es {mi} u y después es {mi - dif | 2} u. ¿La reacción libera energía?"
+
+pasos:
+  - "Comparamos: antes {mi} u, después {mi - dif | 2} u."
+
+explicacion: |
+  Libera energía si la masa final es menor que la inicial: la diferencia se convirtió en energía según E = m · c².
 ```

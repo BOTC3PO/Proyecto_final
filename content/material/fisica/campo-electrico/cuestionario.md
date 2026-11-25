@@ -1,4 +1,4 @@
-# Fisica — Campo electrico (cuestionario, 25 preguntas VBLang)
+# Fisica — Campo electrico (cuestionario, 31 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -544,4 +544,177 @@ tipo: ordenar
 
 explicacion: |
   Primero se conocen las fuentes (cargas), luego se calcula la magnitud y dirección del campo en un punto, y finalmente se usa ese campo para hallar la fuerza sobre otra carga.
+```
+
+### 26 — Fuerza sobre una carga (F = q · E)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "campo_electrico"
+  nivel: "basico"
+  tags: ["calculo", "fuerza"]
+
+variables:
+  E: random(100, 2000)
+  q: uno_de([0.001, 0.002, 0.005, 0.01])
+
+respuesta: q * E
+tipo: input
+unidad: "N"
+tolerancia: 1%
+
+enunciado: "Una carga de {q} C está en un punto donde el campo eléctrico vale {E} N/C. ¿Qué fuerza recibe, en newtons?"
+
+pasos:
+  - "F = q · E"
+  - "F = {q} × {E} = {q * E} N"
+
+explicacion: |
+  La fuerza es proporcional a la carga y al campo.
+```
+
+### 27 — Calcular el campo (E = F / q)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "campo_electrico"
+  nivel: "basico"
+  tags: ["calculo", "campo"]
+
+variables:
+  E: random(100, 3000)
+  q: uno_de([0.001, 0.002, 0.004, 0.005])
+  F: q * E
+
+respuesta: E
+tipo: input
+unidad: "N/C"
+tolerancia: 1%
+
+enunciado: "Sobre una carga de prueba de {q} C actúa una fuerza eléctrica de {F} N. ¿Cuánto vale el campo en ese punto, en N/C?"
+
+pasos:
+  - "E = F / q"
+  - "E = {F} / {q} = {E} N/C"
+
+explicacion: |
+  El campo es la fuerza que recibiría cada coulomb de carga puesto en ese lugar.
+```
+
+### 28 — Calcular la carga
+
+```
+metadata:
+  materia: "fisica"
+  tema: "campo_electrico"
+  nivel: "intermedio"
+  tags: ["calculo", "carga"]
+
+variables:
+  E: uno_de([200, 400, 500, 1000])
+  qm: random(1, 20)
+  F: qm / 1000 * E
+
+respuesta: qm
+tipo: input
+unidad: "mC"
+tolerancia: 1%
+
+enunciado: "En un campo de {E} N/C, una carga recibe una fuerza de {F} N. ¿Cuánto vale la carga, en milicoulombs (mC)? (1 mC = 0,001 C)"
+
+pasos:
+  - "q = F / E"
+  - "q = {F} / {E} = {qm / 1000} C"
+  - "En milicoulombs: × 1000 = {qm} mC"
+
+explicacion: |
+  Con la fuerza y el campo se despeja la carga.
+```
+
+### 29 — Campo de una carga puntual
+
+```
+metadata:
+  materia: "fisica"
+  tema: "campo_electrico"
+  nivel: "avanzado"
+  tags: ["calculo", "coulomb"]
+
+variables:
+  Q: random(1, 10)
+  r: uno_de([1, 2, 3, 5])
+
+respuesta: 9000 * Q / r ^ 2
+tipo: input
+unidad: "N/C"
+tolerancia: 1%
+
+enunciado: "Una carga de {Q} microcoulombs (µC) está en el vacío. ¿Cuánto vale su campo a {r} m de distancia, en N/C? (k = 9 000 000 000 N·m²/C²; 1 µC = 0,000001 C)"
+
+pasos:
+  - "E = k · Q / r²"
+  - "k · Q = 9 000 000 000 × {Q} × 0,000001 = {9000 * Q}"
+  - "E = {9000 * Q} / {r}² = {9000 * Q} / {r ^ 2} = {9000 * Q / r ^ 2 | 1} N/C"
+
+explicacion: |
+  Multiplicar 9 000 000 000 por una millonésima da 9000: simplificar antes evita números enormes.
+```
+
+### 30 — Al doble de distancia
+
+```
+metadata:
+  materia: "fisica"
+  tema: "campo_electrico"
+  nivel: "intermedio"
+  tags: ["proporcionalidad", "calculo"]
+
+variables:
+  E: uno_de([400, 800, 1200, 3600])
+  n: uno_de([2, 3])
+
+respuesta: E / n ^ 2
+tipo: input
+unidad: "N/C"
+tolerancia: 1%
+
+enunciado: "El campo de una carga puntual vale {E} N/C a cierta distancia. ¿Cuánto vale a una distancia {n} veces mayor, en N/C?"
+
+pasos:
+  - "El campo es inversamente proporcional al cuadrado de la distancia."
+  - "E nuevo = {E} / {n}² = {E} / {n ^ 2} = {E / n ^ 2 | 1} N/C"
+
+explicacion: |
+  Si la distancia se multiplica por n, el campo se divide por n².
+```
+
+### 31 — La fotocopiadora
+
+```
+metadata:
+  materia: "fisica"
+  tema: "campo_electrico"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  E: uno_de([100000, 200000, 500000])
+  qn: uno_de([1, 2, 5])
+
+respuesta: qn * E / 1000000
+tipo: input
+unidad: "mN"
+tolerancia: 1%
+
+enunciado: "Dentro de una fotocopiadora, un campo eléctrico de {E} N/C atrae las partículas de tóner hacia el papel. Si un grupo de partículas tiene una carga de {qn} nanocoulombs (0,000000001 C cada uno), ¿qué fuerza recibe, en milinewtons (mN)? (1 mN = 0,001 N)"
+
+pasos:
+  - "q = {qn} × 0,000000001 C"
+  - "F = q · E = {qn} × 0,000000001 × {E} = {qn * E / 1000000000} N"
+  - "En milinewtons: × 1000 = {qn * E / 1000000} mN"
+
+explicacion: |
+  Las fotocopiadoras e impresoras láser usan campos eléctricos para pegar el tóner en las zonas cargadas del papel.
 ```

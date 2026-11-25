@@ -59,3 +59,17 @@ Este tema introduce las bases para analizar fenómenos como la **dilatación tem
 ## 7. Conexión con lo que sigue
 
 Este tema conecta con dilatacion temporal y equivalencia masa energia, donde se profundiza en las consecuencias de los postulados de Einstein.
+
+## 8. Ejemplos resueltos
+
+**El reloj de la nave.** Una nave viaja al 80 % de la velocidad de la luz ($v = 0{,}8\,c$). El factor que mide cuánto
+se estira el tiempo es
+
+$$
+\gamma = \frac{1}{\sqrt{1 - (v/c)^2}} = \frac{1}{\sqrt{1 - 0{,}64}} = \frac{1}{\sqrt{0{,}36}} = \frac{1}{0{,}6} \approx 1{,}67
+$$
+
+- Si en la nave pasan 3 años, en la Tierra pasan $3 \cdot 1{,}67 = 5$ años.
+- A velocidades de la vida diaria $\gamma$ es prácticamente 1: un avión a 900 km/h tiene $\gamma \approx 1{,}0000000000003$.
+  Por eso no notamos estos efectos.
+

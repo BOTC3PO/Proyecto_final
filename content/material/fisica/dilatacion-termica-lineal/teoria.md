@@ -51,6 +51,18 @@ Si no se considera, puede haber consecuencias graves: grietas en edificios, fall
 
 ---
 
+## 5. Ejemplos resueltos
+
+**El riel de acero.** Un riel de acero de 20 m pasa de 10 °C en una mañana de invierno a 40 °C al sol del verano.
+¿Cuánto se alarga? ($\alpha_{\text{acero}} = 0{,}000012\ ^\circ C^{-1}$)
+
+- $\Delta T = 40 - 10 = 30\ ^\circ C$.
+- $\Delta L = \alpha \cdot L_0 \cdot \Delta T = 0{,}000012 \cdot 20 \cdot 30 = 0{,}0072\ \text{m}$, es decir, 7,2 mm.
+- Longitud final: $20 + 0{,}0072 = 20{,}0072\ \text{m}$.
+
+Parece poco, pero si los rieles estuvieran pegados unos con otros, esos milímetros acumulados los deformarían: por eso
+se dejan juntas de dilatación.
+
 ## N. Conexión con lo que sigue
 
 Este tema conecta directamente con la **dilatación superficial y volumétrica**, donde se estudia cómo cambian el área y el volumen de los cuerpos ante variaciones de temperatura, usando coeficientes similares pero distintos. Ver: dilatacion termica superficial.

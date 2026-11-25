@@ -1,4 +1,4 @@
-# Fisica — Relatividad especial conceptual (cuestionario, 25 preguntas VBLang)
+# Fisica — Relatividad especial conceptual (cuestionario, 31 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -497,4 +497,166 @@ enunciado: "En la famosa ecuación de Einstein, la energía es igual a la masa p
 
 explicacion: |
   La relación es proporcional al cuadrado de la velocidad de la luz.
+```
+
+### 26 — Factor de dilatación del tiempo
+
+```
+metadata:
+  materia: "fisica"
+  tema: "relatividad_especial"
+  nivel: "avanzado"
+  tags: ["calculo", "gamma"]
+
+variables:
+  b: uno_de([0.6, 0.8, 0.866, 0.96, 0.99])
+
+respuesta: 1 / sqrt(1 - b ^ 2)
+tipo: input
+unidad: ""
+tolerancia: 2%
+
+enunciado: "Una nave viaja a {b} veces la velocidad de la luz. ¿Cuánto vale el factor γ = 1 / √(1 − (v/c)²)? (podés redondear a dos decimales)"
+
+pasos:
+  - "(v/c)² = {b}² = {b ^ 2 | 4}"
+  - "1 − {b ^ 2 | 4} = {1 - b ^ 2 | 4}; su raíz es {sqrt(1 - b ^ 2) | 4}"
+  - "γ = 1 / {sqrt(1 - b ^ 2) | 4} ≈ {1 / sqrt(1 - b ^ 2) | 2}"
+
+explicacion: |
+  γ dice cuántas veces más lento corre el reloj de la nave visto desde la Tierra.
+```
+
+### 27 — Tiempo en la Tierra
+
+```
+metadata:
+  materia: "fisica"
+  tema: "relatividad_especial"
+  nivel: "avanzado"
+  tags: ["calculo", "dilatacion_del_tiempo"]
+
+variables:
+  b: uno_de([0.6, 0.8])
+  g: 1 / sqrt(1 - b ^ 2)
+  t: random(1, 12)
+
+respuesta: t * g
+tipo: input
+unidad: "años"
+tolerancia: 2%
+
+enunciado: "Una astronauta viaja a {b} veces la velocidad de la luz (γ ≈ {g | 2}). Para ella pasan {t} años. ¿Cuántos años pasan en la Tierra? (podés redondear a un decimal)"
+
+pasos:
+  - "t Tierra = γ · t nave"
+  - "t Tierra = {g | 4} × {t} ≈ {t * g | 1} años"
+
+explicacion: |
+  Es la paradoja de los gemelos: al volver, quien viajó es más joven que su hermano.
+```
+
+### 28 — Tiempo en la nave
+
+```
+metadata:
+  materia: "fisica"
+  tema: "relatividad_especial"
+  nivel: "avanzado"
+  tags: ["calculo", "dilatacion_del_tiempo"]
+
+variables:
+  g: uno_de([1.25, 2, 2.5, 5])
+  t: uno_de([10, 20, 40])
+
+respuesta: t / g
+tipo: input
+unidad: "años"
+tolerancia: 1%
+
+enunciado: "Mientras en la Tierra pasan {t} años, una nave viaja tan rápido que su factor γ es {g}. ¿Cuántos años pasan para la tripulación?"
+
+pasos:
+  - "t nave = t Tierra / γ"
+  - "t nave = {t} / {g} = {t / g} años"
+
+explicacion: |
+  Para quien viaja rápido el tiempo transcurre más despacio que para quien se queda.
+```
+
+### 29 — Velocidad de la luz para todos
+
+```
+metadata:
+  materia: "fisica"
+  tema: "relatividad_especial"
+  nivel: "intermedio"
+  tags: ["postulado", "calculo"]
+
+variables:
+  v: uno_de([1000, 50000, 100000, 200000])
+
+respuesta: 300000
+tipo: input
+unidad: "km/s"
+tolerancia_abs: 0
+
+enunciado: "Una nave que viaja a {v} km/s enciende sus luces delanteras. ¿A qué velocidad, en km/s, mide esa luz alguien que está quieto en la Tierra? (c = 300 000 km/s)"
+
+pasos:
+  - "Segundo postulado: la luz va a c para cualquier observador, sin importar cómo se mueva la fuente."
+  - "No se suman las velocidades: sigue siendo 300 000 km/s."
+
+explicacion: |
+  Con objetos comunes las velocidades se suman, pero con la luz no: ese es el punto de partida de la relatividad.
+```
+
+### 30 — Los satélites del GPS
+
+```
+metadata:
+  materia: "fisica"
+  tema: "relatividad_especial"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  dias: random(1, 30)
+
+respuesta: dias * 38
+tipo: input
+unidad: "µs"
+tolerancia_abs: 0
+
+enunciado: "Los relojes de los satélites del GPS, por efectos de la relatividad, se adelantan unos 38 microsegundos (µs) por día respecto de los de la Tierra. Si no se corrigieran, ¿cuántos microsegundos se habrían adelantado en {dias} días?"
+
+pasos:
+  - "Adelanto = 38 µs por día × {dias} días = {dias * 38} µs"
+
+explicacion: |
+  Parece nada, pero cada microsegundo de error son unos 300 m en la posición: sin corregir la relatividad, el GPS se equivocaría en kilómetros por día.
+```
+
+### 31 — ¿Se nota en la vida diaria?
+
+```
+metadata:
+  materia: "fisica"
+  tema: "relatividad_especial"
+  nivel: "basico"
+  tags: ["conceptual", "verdadero_falso"]
+
+variables:
+  b: uno_de([0.0000003, 0.9])
+
+respuesta: (1 / sqrt(1 - b ^ 2)) > 1.01
+tipo: vf
+
+enunciado: "Algo se mueve a {b} veces la velocidad de la luz. ¿El tiempo para ese objeto se estira más de un 1 % (γ mayor que 1,01)?"
+
+pasos:
+  - "γ = 1 / √(1 − {b}²) ≈ {1 / sqrt(1 - b ^ 2) | 4}"
+
+explicacion: |
+  Solo cerca de la velocidad de la luz el efecto es grande; un avión (0,0000008 de c) ni se entera.
 ```

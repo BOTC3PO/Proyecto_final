@@ -1,4 +1,4 @@
-# Fisica — Semivida desintegracion exponencial (cuestionario, 25 preguntas VBLang)
+# Fisica — Semivida desintegracion exponencial (cuestionario, 31 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -575,4 +575,169 @@ explicacion: |
   Usamos la fórmula N(t) = N0 * (1/2)^(t/t_medio).
   N(20) = {m_i} * (1/2)^(20/10) = {m_i} * (1/2)^2 = {m_i} / 4.
   En el caso seleccionado: {m_i} / 4 = {respuesta_correcta}.
+```
+
+### 26 — Cuánto queda después de varias semividas
+
+```
+metadata:
+  materia: "fisica"
+  tema: "semivida_desintegracion_exponencial"
+  nivel: "basico"
+  tags: ["calculo", "semivida"]
+
+variables:
+  n: random(1, 5)
+  N0: uno_de([64, 128, 320, 640, 1600])
+
+respuesta: N0 / 2 ^ n
+tipo: input
+unidad: "g"
+tolerancia: 1%
+
+enunciado: "Una muestra de {N0} g de un isótopo radiactivo pasa {n} semivida(s). ¿Cuántos gramos quedan sin desintegrar?"
+
+pasos:
+  - "En cada semivida queda la mitad: N = N0 / 2ⁿ"
+  - "N = {N0} / 2^{n} = {N0} / {2 ^ n} = {N0 / 2 ^ n} g"
+
+explicacion: |
+  Cada semivida divide por dos lo que queda, no lo que había al principio.
+```
+
+### 27 — Con el tiempo en años
+
+```
+metadata:
+  materia: "fisica"
+  tema: "semivida_desintegracion_exponencial"
+  nivel: "intermedio"
+  tags: ["calculo", "semivida"]
+
+variables:
+  T: uno_de([5, 8, 10, 30])
+  n: random(1, 4)
+  N0: uno_de([80, 160, 400, 800])
+
+respuesta: N0 / 2 ^ n
+tipo: input
+unidad: "g"
+tolerancia: 1%
+
+enunciado: "Un isótopo tiene una semivida de {T} años. De una muestra de {N0} g, ¿cuántos gramos quedan después de {T * n} años?"
+
+pasos:
+  - "Cantidad de semividas: {T * n} / {T} = {n}"
+  - "N = {N0} / 2^{n} = {N0 / 2 ^ n} g"
+
+explicacion: |
+  Primero se cuentan cuántas semividas entran en el tiempo transcurrido.
+```
+
+### 28 — Porcentaje que queda
+
+```
+metadata:
+  materia: "fisica"
+  tema: "semivida_desintegracion_exponencial"
+  nivel: "intermedio"
+  tags: ["calculo", "porcentaje"]
+
+variables:
+  n: random(1, 6)
+
+respuesta: 100 / 2 ^ n
+tipo: input
+unidad: "%"
+tolerancia: 1%
+
+enunciado: "¿Qué porcentaje de la muestra original queda después de {n} semivida(s)?"
+
+pasos:
+  - "Porcentaje = 100 / 2ⁿ"
+  - "100 / 2^{n} = 100 / {2 ^ n} = {100 / 2 ^ n} %"
+
+explicacion: |
+  50 %, 25 %, 12,5 %, 6,25 %…: nunca llega exactamente a cero, pero se vuelve muy chico.
+```
+
+### 29 — Calcular la semivida
+
+```
+metadata:
+  materia: "fisica"
+  tema: "semivida_desintegracion_exponencial"
+  nivel: "avanzado"
+  tags: ["calculo", "semivida"]
+
+variables:
+  T: uno_de([2, 3, 6, 8, 12])
+  n: uno_de([2, 3, 4])
+  N0: uno_de([160, 320, 480])
+
+respuesta: T
+tipo: input
+unidad: "días"
+tolerancia_abs: 0
+
+enunciado: "Una muestra de {N0} mg de un isótopo se reduce a {N0 / 2 ^ n} mg en {T * n} días. ¿Cuál es su semivida, en días?"
+
+pasos:
+  - "{N0} / {N0 / 2 ^ n} = {2 ^ n} = 2^{n}: pasaron {n} semividas."
+  - "Semivida = {T * n} días / {n} = {T} días"
+
+explicacion: |
+  Contando cuántas veces se dividió por dos la muestra se averigua la semivida.
+```
+
+### 30 — Datación por carbono 14
+
+```
+metadata:
+  materia: "fisica"
+  tema: "semivida_desintegracion_exponencial"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano", "datacion"]
+
+variables:
+  n: random(1, 4)
+
+respuesta: 5730 * n
+tipo: input
+unidad: "años"
+tolerancia_abs: 0
+
+enunciado: "Un hueso encontrado en una excavación conserva el {100 / 2 ^ n} % del carbono 14 que tenía en vida. La semivida del carbono 14 es de 5730 años. ¿Qué antigüedad tiene?"
+
+pasos:
+  - "{100 / 2 ^ n} % = 100 / 2^{n}: pasaron {n} semividas."
+  - "Antigüedad = {n} × 5730 = {5730 * n} años"
+
+explicacion: |
+  Así se fechan restos de seres vivos de hasta unos 50 000 años.
+```
+
+### 31 — El yodo del hospital
+
+```
+metadata:
+  materia: "fisica"
+  tema: "semivida_desintegracion_exponencial"
+  nivel: "basico"
+  tags: ["calculo", "cotidiano", "verdadero_falso"]
+
+variables:
+  dias: uno_de([8, 16, 24, 40])
+
+respuesta: (100 / 2 ^ (dias / 8)) < 20
+tipo: vf
+
+enunciado: "El yodo 131, que se usa en medicina, tiene una semivida de 8 días. Después de {dias} días, ¿queda menos del 20 % de la dosis?"
+
+pasos:
+  - "Semividas: {dias} / 8 = {dias / 8}"
+  - "Queda: 100 / 2^{dias / 8} = {100 / 2 ^ (dias / 8) | 2} %"
+
+explicacion: |
+  Por eso se eligen isótopos de semivida corta para los tratamientos: dejan de emitir radiación en pocas semanas.
 ```
