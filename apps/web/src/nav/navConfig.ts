@@ -22,6 +22,7 @@ const userBase: NavItem[] = [
   { id: 'progreso',   label: 'progreso',   to: '/progreso' },
   { id: 'pagos',      label: 'pagos',      to: '/pagos',     exact: true },
   { id: 'modulos',    label: 'modulos',    to: '/modulos',   exact: true },
+  { id: 'mapaTemario', label: 'mapaTemario', to: '/mapa-temario', exact: true },
   { id: 'calendario', label: 'calendario', to: '/calendario', exact: true },
   { id: 'mensajes',   label: 'mensajes',   to: '/mensajes',  exact: true },
 ];
@@ -54,6 +55,7 @@ const NAV_COMPLETO: NavMap = {
     { id: 'panel',        label: 'panel',        to: '/profesor',              exact: true },
     { id: 'aulas',        label: 'aulas',        to: '/profesor/aulas',        exact: false },
     { id: 'modulos',      label: 'modulos',      to: '/modulos',               exact: true },
+    { id: 'mapaTemario',  label: 'mapaTemario',  to: '/mapa-temario',          exact: true },
     { id: 'cuestionarios', label: 'cuestionarios', to: '/cuestionarios',        exact: true },
     { id: 'plantillas',   label: 'plantillas',   to: '/plantillas',            exact: true },
     { id: 'datasets',     label: 'datasets',     to: '/datasets',              exact: true },

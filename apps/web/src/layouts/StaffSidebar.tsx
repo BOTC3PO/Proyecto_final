@@ -27,7 +27,7 @@ import { useI18n } from '../i18n/I18nContext';
 // traducción — ver namespaces `sidebar.` / `nav.` en i18n/es.json.
 const SIDEBAR_SECTIONS: Record<string, { label: string; items: string[] }[]> = {
   TEACHER: [
-    { label: 'academico', items: ['panel', 'aulas', 'materiales', 'modulos', 'cuestionarios', 'plantillas', 'datasets', 'evaluaciones'] },
+    { label: 'academico', items: ['panel', 'aulas', 'materiales', 'modulos', 'mapaTemario', 'cuestionarios', 'plantillas', 'datasets', 'evaluaciones'] },
     { label: 'gestion',   items: ['tareas', 'asistencia', 'calificaciones', 'encuestas', 'reportes'] },
     { label: 'escuela',   items: ['calendario', 'mensajes'] },
   ],

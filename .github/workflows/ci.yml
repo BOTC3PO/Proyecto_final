@@ -74,6 +74,11 @@ jobs:
         run: node tools/lint-gate.mjs
       - name: Pruebas de la web
         run: pnpm --filter web test
+      # El mapa del temario (apps/web/public/temario/mapa.json) sale de content/: si cambia el temario hay que regenerarlo.
+      - name: Mapa del temario al día
+        run: |
+          python3 content/material/_qa_tools/exportar_mapa.py /tmp/mapa.json
+          cmp /tmp/mapa.json apps/web/public/temario/mapa.json || { echo "Regenerar con: python3 content/material/_qa_tools/exportar_mapa.py"; exit 1; }
 
   sin-conexion:
     runs-on: ubuntu-latest

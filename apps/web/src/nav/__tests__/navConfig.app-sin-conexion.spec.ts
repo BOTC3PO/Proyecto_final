@@ -5,10 +5,10 @@ describe("navConfig (L8): en la app sin conexión", () => {
     vi.resetModules();
     vi.doMock("../../lib/sinConexion", () => ({ esAppSinConexion: true }));
     const { NAV_BY_ROLE, DROPDOWN_BY_ROLE } = await import("../navConfig");
-    expect(NAV_BY_ROLE.USER.map((i) => i.id)).toEqual(["inicio", "progreso", "modulos"]);
+    expect(NAV_BY_ROLE.USER.map((i) => i.id)).toEqual(["inicio", "progreso", "modulos", "mapaTemario"]);
     const menu = DROPDOWN_BY_ROLE.USER.map((i) => (i.kind === "link" ? i.id : i.kind));
     expect(menu).toEqual(["miPerfil", "divider", "logout"]);
-    expect(NAV_BY_ROLE.TEACHER.map((i) => i.id)).toEqual(["panel", "modulos"]);
+    expect(NAV_BY_ROLE.TEACHER.map((i) => i.id)).toEqual(["panel", "modulos", "mapaTemario"]);
     vi.doUnmock("../../lib/sinConexion");
   });
 

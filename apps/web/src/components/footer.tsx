@@ -14,6 +14,7 @@ export default function Footer() {
             <Link className="hover:underline" to="/terminos">{t("nav.terminos")}</Link>
             <Link className="hover:underline" to="/privacidad">{t("nav.privacidad")}</Link>
             <Link className="hover:underline" to="/contact">{t("nav.contacto")}</Link>
+            <Link className="hover:underline" to="/mapa-temario">{t("nav.mapaTemario")}</Link>
             {!esAppSinConexion && <Link className="hover:underline" to="/descargas">{t("nav.descargas")}</Link>}
           </div>
         </div>
