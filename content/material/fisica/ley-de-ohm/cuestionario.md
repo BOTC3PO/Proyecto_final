@@ -1,4 +1,4 @@
-# Fisica — Ley de ohm (cuestionario, 25 preguntas VBLang)
+# Fisica — Ley de ohm (cuestionario, 32 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -579,4 +579,210 @@ explicacion: |
   1. Identificar los datos conocidos.
   2. Seleccionar la fórmula adecuada (V=I·R, I=V/R o R=V/I).
   3. Realizar el cálculo matemático.
+```
+
+### 26 — Calcular la corriente (I = V / R)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ley_de_ohm"
+  nivel: "basico"
+  tags: ["calculo", "corriente"]
+
+variables:
+  R: random(2, 20)
+  I: random(1, 6)
+  V: R * I
+
+respuesta: I
+tipo: input
+unidad: "A"
+tolerancia_abs: 0
+
+enunciado: "Un resistor de {R} Ω se conecta a una fuente de {V} V. ¿Qué corriente circula, en amperios?"
+
+pasos:
+  - "Datos: V = {V} V, R = {R} Ω. Buscamos I."
+  - "De V = I · R despejamos I = V / R."
+  - "I = {V} V / {R} Ω = {I} A"
+
+explicacion: |
+  La corriente es la tensión dividida por la resistencia: $I = V / R$.
+```
+
+### 27 — Calcular la tensión (V = I · R)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ley_de_ohm"
+  nivel: "basico"
+  tags: ["calculo", "tension"]
+
+variables:
+  I: random_float(0.5, 3, 1)
+  R: random(10, 100)
+
+respuesta: I * R
+tipo: input
+unidad: "V"
+tolerancia: 1%
+
+enunciado: "Por un resistor de {R} Ω circula una corriente de {I} A. ¿Qué tensión hay entre sus extremos, en voltios?"
+
+pasos:
+  - "Datos: I = {I} A, R = {R} Ω. Buscamos V."
+  - "V = I · R"
+  - "V = {I} A × {R} Ω = {I * R | 2} V"
+
+explicacion: |
+  La Ley de Ohm da la tensión directamente: $V = I \cdot R$.
+```
+
+### 28 — Calcular la resistencia de una lamparita
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ley_de_ohm"
+  nivel: "basico"
+  tags: ["calculo", "resistencia", "cotidiano"]
+
+variables:
+  V: uno_de([3, 6, 9, 12])
+  I: uno_de([0.25, 0.5, 0.75, 1.5])
+
+respuesta: V / I
+tipo: input
+unidad: "Ω"
+tolerancia: 1%
+
+enunciado: "Una lamparita de linterna funciona con {V} V y por ella circulan {I} A. ¿Cuál es su resistencia, en ohmios?"
+
+pasos:
+  - "Datos: V = {V} V, I = {I} A. Buscamos R."
+  - "De V = I · R despejamos R = V / I."
+  - "R = {V} V / {I} A = {V / I | 2} Ω"
+
+explicacion: |
+  La resistencia es la tensión dividida por la corriente: $R = V / I$.
+```
+
+### 29 — La pava eléctrica
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ley_de_ohm"
+  nivel: "intermedio"
+  tags: ["calculo", "corriente", "cotidiano"]
+
+variables:
+  R: random(20, 60)
+
+respuesta: 220 / R
+tipo: input
+unidad: "A"
+tolerancia: 2%
+
+enunciado: "Una pava eléctrica se enchufa a la red de 220 V. Su resistencia es de {R} Ω. ¿Qué corriente toma, en amperios? (podés redondear a un decimal)"
+
+pasos:
+  - "Datos: V = 220 V (la tensión de la red en Argentina), R = {R} Ω. Buscamos I."
+  - "I = V / R"
+  - "I = 220 V / {R} Ω ≈ {220 / R | 1} A"
+
+explicacion: |
+  En casa la tensión es de 220 V. Con la resistencia del artefacto, la corriente sale de $I = V / R$.
+```
+
+### 30 — Si se multiplica la tensión
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ley_de_ohm"
+  nivel: "intermedio"
+  tags: ["proporcionalidad", "calculo"]
+
+variables:
+  I0: random(1, 5)
+  k: random(2, 4)
+
+respuesta: I0 * k
+tipo: input
+unidad: "A"
+tolerancia_abs: 0
+
+enunciado: "Con una tensión V, por un resistor circulan {I0} A. Si la tensión se multiplica por {k} y la resistencia no cambia, ¿qué corriente circula, en amperios?"
+
+pasos:
+  - "Con R fija, la corriente es proporcional a la tensión: I = V / R."
+  - "Si V se multiplica por {k}, I también se multiplica por {k}."
+  - "I = {I0} A × {k} = {I0 * k} A"
+
+explicacion: |
+  La Ley de Ohm dice que, con la resistencia constante, tensión y corriente son directamente proporcionales.
+```
+
+### 31 — Predecir con una medición
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ley_de_ohm"
+  nivel: "intermedio"
+  tags: ["calculo", "proporcionalidad"]
+
+variables:
+  R: random(2, 10)
+  I1: random(1, 4)
+  I2: random(5, 9)
+  V1: R * I1
+  V2: R * I2
+
+respuesta: I2
+tipo: input
+unidad: "A"
+tolerancia_abs: 0
+
+enunciado: "Al medir un resistor, con {V1} V circulan {I1} A. ¿Qué corriente circulará por el mismo resistor con {V2} V, en amperios?"
+
+pasos:
+  - "Primero, la resistencia: R = V / I = {V1} V / {I1} A = {R} Ω."
+  - "Con la nueva tensión: I = V / R = {V2} V / {R} Ω."
+  - "I = {I2} A"
+
+explicacion: |
+  Con la primera medición se obtiene R; como el resistor es el mismo, se usa esa R para la nueva tensión.
+```
+
+### 32 — La ducha eléctrica
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ley_de_ohm"
+  nivel: "intermedio"
+  tags: ["calculo", "resistencia", "cotidiano"]
+
+variables:
+  I: random(15, 30)
+
+respuesta: 220 / I
+tipo: input
+unidad: "Ω"
+tolerancia: 2%
+
+enunciado: "Una ducha eléctrica conectada a 220 V toma {I} A. ¿Cuál es la resistencia de su calentador, en ohmios? (podés redondear a un decimal)"
+
+pasos:
+  - "Datos: V = 220 V, I = {I} A. Buscamos R."
+  - "R = V / I"
+  - "R = 220 V / {I} A ≈ {220 / I | 1} Ω"
+
+explicacion: |
+  Cuanto menor es la resistencia, mayor es la corriente que toma el artefacto con la misma tensión: por eso la ducha,
+  que calienta mucho, tiene una resistencia baja.
 ```

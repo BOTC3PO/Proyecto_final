@@ -28,6 +28,24 @@ Estas unidades forman la base del análisis de circuitos y permiten calcular cua
 
 La **resistencia eléctrica** es una propiedad intrínseca de los materiales que opone resistencia al paso de la corriente. No depende del voltaje ni de la corriente, sino de factores como el material, su longitud, área transversal y temperatura. En la Ley de Ohm, $ R $ actúa como un factor constante que determina cómo se relacionan $ V $ e $ I $. Por ejemplo, un alambre más grueso reduce la resistencia, permitiendo mayor corriente para el mismo voltaje.
 
+## 5. Ejemplos resueltos
+
+**Una lamparita.** Una lamparita de 4 Ω se conecta a una batería de 12 V. ¿Qué corriente pasa?
+
+- Datos: $V = 12\ \text{V}$, $R = 4\ \Omega$. Buscamos $I$.
+- Despejamos de $V = I \cdot R$: $I = \frac{V}{R}$.
+- Reemplazamos: $I = \frac{12\ \text{V}}{4\ \Omega} = 3\ \text{A}$.
+
+**Una pava eléctrica.** Una pava conectada a 220 V toma una corriente de 10 A. ¿Cuál es su resistencia?
+
+- Datos: $V = 220\ \text{V}$, $I = 10\ \text{A}$. Buscamos $R$.
+- Despejamos: $R = \frac{V}{I}$.
+- Reemplazamos: $R = \frac{220\ \text{V}}{10\ \text{A}} = 22\ \Omega$.
+
+Para no equivocarse con el despeje, sirve el «triángulo de Ohm»: V arriba, I y R abajo. Tapando la magnitud que se busca
+queda la cuenta: V = I · R, I = V / R, R = V / I. Y siempre conviene revisar las unidades del resultado: voltios para
+la tensión, amperios para la corriente, ohmios para la resistencia.
+
 ## N. Conexión con lo que sigue
 
 Este tema conecta con el análisis de circuitos en serie y paralelo (ver circuito electrico), donde la Ley de Ohm se aplica para calcular tensiones, corrientes o resistencias en configuraciones más complejas.
