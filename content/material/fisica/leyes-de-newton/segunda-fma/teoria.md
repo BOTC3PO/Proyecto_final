@@ -76,3 +76,16 @@ La segunda ley es la fórmula central de la dinámica. Permite predecir cómo
 se va a mover un objeto (cuánto va a acelerar) con solo conocer la fuerza
 neta que actúa sobre él y su masa. Es la base de
 `../tercera-accion-reaccion/` y de todo el bloque de dinámica que sigue.
+
+## Ejemplos resueltos
+
+**Empujar un carrito.** Se empuja un carrito de supermercado de 20 kg con una fuerza neta de 30 N. ¿Con qué aceleración
+arranca?
+
+- Datos: $F = 30\ \text{N}$, $m = 20\ \text{kg}$. Buscamos $a$.
+- De $F = m \cdot a$ despejamos $a = F / m$.
+- $a = 30\ \text{N} / 20\ \text{kg} = 1{,}5\ \text{m/s}^2$.
+
+**La fuerza que hace falta.** Para que un auto de 1000 kg acelere a $2\ \text{m/s}^2$ hace falta una fuerza neta de
+$F = 1000\ \text{kg} \cdot 2\ \text{m/s}^2 = 2000\ \text{N}$.
+

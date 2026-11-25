@@ -1,4 +1,4 @@
-# Fisica — Energia potencial gravitatoria (cuestionario, 25 preguntas VBLang)
+# Fisica — Energia potencial gravitatoria (cuestionario, 31 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -572,4 +572,174 @@ enunciado: "Un dron de {m} kg vuela a una altura de {h} metros. Su energía pote
 explicacion: |
   Usando la fórmula Ep = m * g * h:
   Ep = {m} kg * 10 m/s² * {h} m = {m * 10 * h} J.
+```
+
+### 26 — Calcular la energía potencial (Ep = m · g · h)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_potencial_gravitatoria"
+  nivel: "basico"
+  tags: ["calculo", "energia_potencial"]
+
+variables:
+  m: random(1, 20)
+  h: random(1, 30)
+
+respuesta: m * 9.8 * h
+tipo: input
+unidad: "J"
+tolerancia: 1%
+
+enunciado: "Un objeto de {m} kg está a {h} m de altura. ¿Cuál es su energía potencial gravitatoria, en joules? (usá g = 9,8 m/s²)"
+
+pasos:
+  - "Ep = m · g · h"
+  - "Ep = {m} kg × 9,8 m/s² × {h} m = {m * 9.8 * h | 1} J"
+
+explicacion: |
+  La energía potencial crece en proporción con la masa y con la altura respecto del nivel de referencia.
+```
+
+### 27 — Calcular la altura
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_potencial_gravitatoria"
+  nivel: "intermedio"
+  tags: ["calculo", "altura"]
+
+variables:
+  m: random(1, 10)
+  h: random(2, 40)
+  Ep: m * 10 * h
+
+respuesta: h
+tipo: input
+unidad: "m"
+tolerancia_abs: 0
+
+enunciado: "Un objeto de {m} kg tiene {Ep} J de energía potencial gravitatoria. ¿A qué altura está, en metros? (usá g = 10 m/s²)"
+
+pasos:
+  - "De Ep = m · g · h despejamos h = Ep / (m · g)."
+  - "h = {Ep} J / ({m} kg × 10 m/s²) = {Ep} / {m * 10} = {h} m"
+
+explicacion: |
+  Conociendo la energía, la masa y la gravedad, se puede averiguar la altura.
+```
+
+### 28 — En la Luna
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_potencial_gravitatoria"
+  nivel: "intermedio"
+  tags: ["calculo", "gravedad"]
+
+variables:
+  m: random(2, 20)
+  h: random(1, 10)
+
+respuesta: m * 1.6 * h
+tipo: input
+unidad: "J"
+tolerancia: 1%
+
+enunciado: "Un astronauta sube una caja de {m} kg a {h} m de altura en la Luna (g = 1,6 m/s²). ¿Qué energía potencial gana la caja, en joules?"
+
+pasos:
+  - "Ep = m · g · h con la gravedad de la Luna."
+  - "Ep = {m} × 1,6 × {h} = {m * 1.6 * h | 1} J"
+
+explicacion: |
+  La misma caja a la misma altura tiene en la Luna unas seis veces menos energía potencial que en la Tierra.
+```
+
+### 29 — Subir la escalera
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_potencial_gravitatoria"
+  nivel: "basico"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  m: uno_de([40, 50, 60, 70])
+  pisos: random(1, 5)
+
+respuesta: m * 10 * pisos * 3
+tipo: input
+unidad: "J"
+tolerancia_abs: 0
+
+enunciado: "Una persona de {m} kg sube {pisos} piso(s) por escalera. Cada piso tiene 3 m de altura. ¿Cuánta energía potencial gana, en joules? (usá g = 10 m/s²)"
+
+pasos:
+  - "Altura total: h = {pisos} × 3 m = {pisos * 3} m"
+  - "Ep = m · g · h = {m} × 10 × {pisos * 3} = {m * 10 * pisos * 3} J"
+
+explicacion: |
+  Esa energía la aportan los músculos al subir; por eso cuesta más subir que caminar en llano.
+```
+
+### 30 — Cambiar el nivel de referencia
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_potencial_gravitatoria"
+  nivel: "intermedio"
+  tags: ["calculo", "nivel_de_referencia"]
+
+variables:
+  m: random(1, 5)
+  hpiso: random(3, 12)
+  hmesa: 1
+
+respuesta: m * 10 * hmesa
+tipo: input
+unidad: "J"
+tolerancia_abs: 0
+
+enunciado: "Un objeto de {m} kg está sobre una mesa de 1 m de alto, en un piso que está a {hpiso} m sobre la calle. Tomando el piso de la habitación como nivel cero, ¿cuál es su energía potencial, en joules? (g = 10 m/s²)"
+
+pasos:
+  - "La altura se mide desde el nivel cero elegido: el piso de la habitación. h = 1 m (la altura de la calle no cuenta)."
+  - "Ep = {m} × 10 × 1 = {m * 10} J"
+
+explicacion: |
+  La energía potencial depende del nivel de referencia: lo que importa en los cálculos son sus diferencias.
+```
+
+### 31 — Comparar dos objetos
+
+```
+metadata:
+  materia: "fisica"
+  tema: "energia_potencial_gravitatoria"
+  nivel: "basico"
+  tags: ["comparacion", "verdadero_falso"]
+
+variables:
+  m1: random(1, 10)
+  h1: random(1, 10)
+  m2: random(1, 10)
+  h2: random(1, 10)
+
+respuesta: (m1 * h1) > (m2 * h2)
+tipo: vf
+
+enunciado: "Un objeto A de {m1} kg está a {h1} m de altura y un objeto B de {m2} kg está a {h2} m. ¿A tiene más energía potencial que B?"
+
+pasos:
+  - "Con la misma g, alcanza con comparar m · h."
+  - "A: {m1} × {h1} = {m1 * h1}; B: {m2} × {h2} = {m2 * h2}"
+
+explicacion: |
+  La energía potencial depende del producto masa por altura; un objeto liviano muy alto puede tener más que uno pesado bajo.
 ```

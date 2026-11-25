@@ -50,6 +50,20 @@ También se observa en fenómenos naturales: al mover una brújula cerca de un c
 
 ---
 
+## 5. Ejemplos resueltos
+
+**Una espira en un campo que cambia.** Una bobina de 50 vueltas tiene un área de 0,02 m². El campo magnético que la
+atraviesa (perpendicular a la bobina) pasa de 0,1 T a 0,5 T en 0,2 s.
+
+- Flujo por vuelta al principio: $\Phi_1 = B_1 \cdot A = 0{,}1 \cdot 0{,}02 = 0{,}002\ \text{Wb}$; al final:
+  $\Phi_2 = 0{,}5 \cdot 0{,}02 = 0{,}01\ \text{Wb}$.
+- Variación: $\Delta\Phi = 0{,}01 - 0{,}002 = 0{,}008\ \text{Wb}$.
+- FEM inducida (en valor absoluto, con N vueltas): $|\varepsilon| = N \cdot \Delta\Phi / \Delta t = 50 \cdot 0{,}008 / 0{,}2
+  = 2\ \text{V}$.
+
+El signo menos de la ley de Faraday no cambia el valor: indica el sentido (Lenz): la corriente inducida se opone al
+aumento del flujo.
+
 ## N. Conexión con lo que sigue  
 
 Este tema prepara para entender cómo se construyen dispositivos como generadores o motores eléctricos, temas desarrollados en generadores y transformadores.

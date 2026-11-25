@@ -1,4 +1,4 @@
-# Física — Segunda ley de Newton: F = m·a (cuestionario, 26 preguntas VBLang)
+# Física — Segunda ley de Newton: F = m·a (cuestionario, 32 preguntas VBLang)
 
 > Tema: `NEWTON1b`. Ver `teoria.md` en esta misma carpeta.
 
@@ -578,4 +578,175 @@ respuesta: "Para calcular cuánto acelera un objeto dado la fuerza neta y su mas
 explicacion: |
   Es la fórmula que cuantifica lo que la primera ley sólo describía en
   palabras.
+```
+
+### 27 — Calcular la aceleración (a = F / m)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton"
+  nivel: "basico"
+  tags: ["calculo", "aceleracion"]
+
+variables:
+  m: random(2, 20)
+  a: random(1, 8)
+  F: m * a
+
+respuesta: a
+tipo: input
+unidad: "m/s²"
+tolerancia_abs: 0
+
+enunciado: "Sobre un cuerpo de {m} kg actúa una fuerza neta de {F} N. ¿Qué aceleración adquiere, en m/s²?"
+
+pasos:
+  - "De F = m · a despejamos a = F / m."
+  - "a = {F} N / {m} kg = {a} m/s²"
+
+explicacion: |
+  La aceleración es la fuerza neta dividida por la masa: a más masa, menos aceleración con la misma fuerza.
+```
+
+### 28 — Calcular la fuerza (F = m · a)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton"
+  nivel: "basico"
+  tags: ["calculo", "fuerza"]
+
+variables:
+  m: random(50, 1500)
+  a: random_float(0.5, 4, 1)
+
+respuesta: m * a
+tipo: input
+unidad: "N"
+tolerancia: 1%
+
+enunciado: "¿Qué fuerza neta hace falta para que un cuerpo de {m} kg acelere a {a} m/s²?"
+
+pasos:
+  - "F = m · a"
+  - "F = {m} kg × {a} m/s² = {m * a | 1} N"
+
+explicacion: |
+  Un newton es la fuerza que le da a 1 kg una aceleración de 1 m/s².
+```
+
+### 29 — Calcular la masa (m = F / a)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton"
+  nivel: "intermedio"
+  tags: ["calculo", "masa"]
+
+variables:
+  m: random(2, 50)
+  a: random(1, 5)
+  F: m * a
+
+respuesta: m
+tipo: input
+unidad: "kg"
+tolerancia_abs: 0
+
+enunciado: "Una fuerza neta de {F} N le da a un objeto una aceleración de {a} m/s². ¿Cuál es su masa, en kg?"
+
+pasos:
+  - "De F = m · a despejamos m = F / a."
+  - "m = {F} N / {a} m/s² = {m} kg"
+
+explicacion: |
+  Con la fuerza y la aceleración se puede averiguar la masa: es la resistencia del objeto a cambiar su movimiento.
+```
+
+### 30 — Fuerza neta con dos fuerzas opuestas
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton"
+  nivel: "intermedio"
+  tags: ["calculo", "fuerza_neta"]
+
+variables:
+  m: random(5, 20)
+  a: random(1, 4)
+  Fr: random(5, 40)
+  F: m * a + Fr
+
+respuesta: a
+tipo: input
+unidad: "m/s²"
+tolerancia_abs: 0
+
+enunciado: "Se empuja una caja de {m} kg con {F} N y el rozamiento la frena con {Fr} N. ¿Qué aceleración tiene la caja, en m/s²?"
+
+pasos:
+  - "Fuerza neta: F neta = {F} N − {Fr} N = {F - Fr} N"
+  - "a = F neta / m = {F - Fr} N / {m} kg = {a} m/s²"
+
+explicacion: |
+  La segunda ley usa la fuerza NETA: la suma de todas las fuerzas, con su sentido.
+```
+
+### 31 — Frenar el auto
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton"
+  nivel: "intermedio"
+  tags: ["calculo", "fuerza", "cotidiano"]
+
+variables:
+  m: uno_de([900, 1000, 1200, 1500])
+  a: uno_de([3, 4, 5, 6])
+
+respuesta: m * a
+tipo: input
+unidad: "N"
+tolerancia_abs: 0
+
+enunciado: "Un auto de {m} kg frena con una desaceleración de {a} m/s². ¿Qué fuerza neta hacen los frenos, en newtons?"
+
+pasos:
+  - "F = m · a (el sentido es contrario al movimiento)."
+  - "F = {m} kg × {a} m/s² = {m * a} N"
+
+explicacion: |
+  Un auto más pesado necesita más fuerza de frenado para detenerse con la misma desaceleración.
+```
+
+### 32 — La misma fuerza, el doble de masa
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton"
+  nivel: "intermedio"
+  tags: ["proporcionalidad", "calculo"]
+
+variables:
+  a: random(2, 10)
+
+respuesta: a / 2
+tipo: input
+unidad: "m/s²"
+tolerancia: 1%
+
+enunciado: "Una fuerza le da a un carrito una aceleración de {a} m/s². Si se le carga el doble de masa y se aplica la misma fuerza, ¿qué aceleración tiene, en m/s²?"
+
+pasos:
+  - "Con F fija, a = F / m: la aceleración es inversamente proporcional a la masa."
+  - "Si m se duplica, a se divide por 2: {a} / 2 = {a / 2} m/s²"
+
+explicacion: |
+  Masa y aceleración son inversamente proporcionales cuando la fuerza no cambia.
 ```

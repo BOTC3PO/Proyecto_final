@@ -24,6 +24,16 @@ La aceleración de la gravedad (g) varía según el lugar donde se encuentre el 
 
 El cálculo de la energía potencial gravitatoria siempre requiere definir un punto de referencia. Por convención, se suele tomar el suelo o el nivel del mar como cero. Sin embargo, cualquier otro plano puede usarse, siempre que sea consistente en los cálculos. Por ejemplo, si se elige el techo de un edificio como referencia para medir la energía de un objeto dentro del mismo, las alturas se expresarán negativas si están debajo de ese nivel. La elección no altera las diferencias energéticas entre posiciones, solo el valor absoluto.
 
+## 5. Ejemplos resueltos
+
+**Un libro en el estante.** Un libro de 2 kg está en un estante a 1,5 m del piso. Tomando el piso como nivel cero y
+$g = 9{,}8\ \text{m/s}^2$:
+
+- $E_p = m \cdot g \cdot h = 2\ \text{kg} \cdot 9{,}8\ \text{m/s}^2 \cdot 1{,}5\ \text{m} = 29{,}4\ \text{J}$.
+
+**El mismo libro en la Luna** ($g = 1{,}6\ \text{m/s}^2$): $E_p = 2 \cdot 1{,}6 \cdot 1{,}5 = 4{,}8\ \text{J}$. La masa y
+la altura son las mismas, pero la gravedad es unas seis veces menor, y la energía también.
+
 ## N. Conexión con lo que sigue
 
 Este concepto es fundamental para entender cómo la energía se transforma en sistemas mecánicos, como se desarrollará en teorema del trabajo y la energia.

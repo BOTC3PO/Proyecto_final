@@ -1,4 +1,4 @@
-# Fisica — Induccion electromagnetica faraday lenz (cuestionario, 25 preguntas VBLang)
+# Fisica — Induccion electromagnetica faraday lenz (cuestionario, 31 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -545,4 +545,173 @@ tipo: ordenar
 
 explicacion: |
   Primero se identifica cuánto cambia el flujo (ΔΦ), luego la tasa de cambio (dΦ/dt) y finalmente se escala por el número de vueltas (N) de la bobina.
+```
+
+### 26 — Flujo magnético (Φ = B · A)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica"
+  nivel: "basico"
+  tags: ["calculo", "flujo"]
+
+variables:
+  B: uno_de([0.1, 0.2, 0.4, 0.5, 0.8])
+  A: uno_de([0.01, 0.02, 0.05, 0.1])
+
+respuesta: B * A
+tipo: input
+unidad: "Wb"
+tolerancia: 1%
+
+enunciado: "Un campo magnético de {B} T atraviesa perpendicularmente una espira de {A} m². ¿Cuál es el flujo magnético, en webers?"
+
+pasos:
+  - "Con el campo perpendicular a la superficie: Φ = B · A"
+  - "Φ = {B} T × {A} m² = {B * A | 3} Wb"
+
+explicacion: |
+  El flujo mide cuánto campo atraviesa la superficie: crece con el campo y con el área.
+```
+
+### 27 — FEM inducida (Faraday)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica"
+  nivel: "intermedio"
+  tags: ["calculo", "fem"]
+
+variables:
+  dF: uno_de([0.02, 0.05, 0.1, 0.2])
+  dt: uno_de([0.1, 0.2, 0.5])
+
+respuesta: dF / dt
+tipo: input
+unidad: "V"
+tolerancia: 1%
+
+enunciado: "El flujo magnético a través de una espira cambia {dF} Wb en {dt} s. ¿Cuál es el valor de la FEM inducida, en voltios?"
+
+pasos:
+  - "Ley de Faraday (en valor absoluto): |ε| = ΔΦ / Δt"
+  - "|ε| = {dF} Wb / {dt} s = {dF / dt | 2} V"
+
+explicacion: |
+  Cuanto más rápido cambia el flujo, mayor es la FEM inducida.
+```
+
+### 28 — FEM en una bobina de varias vueltas
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica"
+  nivel: "intermedio"
+  tags: ["calculo", "fem", "bobina"]
+
+variables:
+  N: uno_de([10, 50, 100, 200])
+  dF: uno_de([0.001, 0.002, 0.005, 0.01])
+  dt: uno_de([0.1, 0.2, 0.5])
+
+respuesta: N * dF / dt
+tipo: input
+unidad: "V"
+tolerancia: 1%
+
+enunciado: "Una bobina de {N} vueltas tiene un flujo por vuelta que cambia {dF} Wb en {dt} s. ¿Qué FEM se induce, en voltios?"
+
+pasos:
+  - "Con N vueltas: |ε| = N · ΔΦ / Δt"
+  - "|ε| = {N} × {dF} / {dt} = {N * dF / dt | 2} V"
+
+explicacion: |
+  Cada vuelta suma su propia FEM: por eso los generadores y transformadores usan bobinas con muchas vueltas.
+```
+
+### 29 — Del campo a la FEM
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica"
+  nivel: "avanzado"
+  tags: ["calculo", "fem", "flujo"]
+
+variables:
+  A: uno_de([0.01, 0.02, 0.05])
+  B1: uno_de([0.1, 0.2])
+  B2: uno_de([0.5, 0.6, 0.8])
+  dt: uno_de([0.1, 0.2, 0.4])
+
+respuesta: (B2 - B1) * A / dt
+tipo: input
+unidad: "V"
+tolerancia: 1%
+
+enunciado: "Una espira de {A} m² está en un campo magnético perpendicular que pasa de {B1} T a {B2} T en {dt} s. ¿Qué FEM se induce, en voltios?"
+
+pasos:
+  - "ΔΦ = (B2 − B1) · A = ({B2} − {B1}) × {A} = {(B2 - B1) * A | 4} Wb"
+  - "|ε| = ΔΦ / Δt = {(B2 - B1) * A | 4} / {dt} = {(B2 - B1) * A / dt | 3} V"
+
+explicacion: |
+  Primero se calcula cuánto cambió el flujo y después se divide por el tiempo que tardó en cambiar.
+```
+
+### 30 — Más rápido, más FEM
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica"
+  nivel: "intermedio"
+  tags: ["proporcionalidad", "verdadero_falso"]
+
+variables:
+  dF: uno_de([0.05, 0.1, 0.2])
+  dt: uno_de([0.2, 0.4, 0.8])
+
+respuesta: (dF / (dt / 2)) > (dF / dt)
+tipo: vf
+
+enunciado: "Un imán se acerca a una bobina y el flujo cambia {dF} Wb en {dt} s. Si se repite moviendo el imán el doble de rápido (el mismo cambio en {dt / 2} s), ¿la FEM inducida es mayor?"
+
+pasos:
+  - "Lento: |ε| = {dF} / {dt} = {dF / dt | 2} V"
+  - "Rápido: |ε| = {dF} / {dt / 2} = {dF / (dt / 2) | 2} V"
+
+explicacion: |
+  La FEM depende de la rapidez con que cambia el flujo: el mismo cambio en la mitad de tiempo da el doble de FEM.
+```
+
+### 31 — Corriente inducida en una espira
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica"
+  nivel: "avanzado"
+  tags: ["calculo", "corriente", "ley_de_ohm"]
+
+variables:
+  e: uno_de([0.5, 1, 2, 3])
+  R: uno_de([0.5, 1, 2, 4])
+
+respuesta: e / R
+tipo: input
+unidad: "A"
+tolerancia: 1%
+
+enunciado: "En una espira de resistencia {R} Ω se induce una FEM de {e} V. ¿Qué corriente circula, en amperios?"
+
+pasos:
+  - "La FEM inducida actúa como una fuente: se aplica la Ley de Ohm."
+  - "I = ε / R = {e} V / {R} Ω = {e / R | 2} A"
+
+explicacion: |
+  La inducción genera una FEM; si el circuito está cerrado, circula una corriente según la Ley de Ohm.
 ```

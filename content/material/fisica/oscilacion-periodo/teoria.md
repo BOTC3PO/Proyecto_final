@@ -36,6 +36,18 @@ El periodo es una medida clave para entender cómo funciona un sistema oscilator
 
 ---
 
+## 5. Ejemplos resueltos
+
+**El columpio.** Un chico en una hamaca completa 12 idas y vueltas en 30 segundos.
+
+- Período (tiempo de una oscilación completa): $T = t / n = 30\ \text{s} / 12 = 2{,}5\ \text{s}$.
+- Frecuencia (oscilaciones por segundo): $f = 1 / T = 1 / 2{,}5\ \text{s} = 0{,}4\ \text{Hz}$.
+
+**El corazón.** Un corazón late 75 veces por minuto. Su frecuencia es $75 / 60 = 1{,}25\ \text{Hz}$ y el período
+entre latidos, $T = 1 / 1{,}25 = 0{,}8\ \text{s}$.
+
+Período y frecuencia son inversos: si uno se duplica, el otro se reduce a la mitad.
+
 ## N. Conexión con lo que sigue
 
 Este tema servirá para entender conceptos más avanzados, como el **movimiento armónico simple** o las **ondas**, donde el periodo se relaciona directamente con la velocidad de propagación y la longitud de onda (ver ondas y frecuencia).

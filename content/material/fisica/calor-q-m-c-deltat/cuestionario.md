@@ -1,4 +1,4 @@
-# Fisica — Calor q m c deltat (cuestionario, 25 preguntas VBLang)
+# Fisica — Calor q m c deltat (cuestionario, 31 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -578,4 +578,174 @@ enunciado: "Ordena los pasos lógicos para determinar el calor específico de un
 
 explicacion: |
   Para hallar 'c' en la fórmula Q = m·c·ΔT, primero necesitamos conocer la masa (m) y la variación de temperatura (ΔT).
+```
+
+### 26 — Calor para calentar agua
+
+```
+metadata:
+  materia: "fisica"
+  tema: "calor_q_m_c_deltat"
+  nivel: "basico"
+  tags: ["calculo", "calor"]
+
+variables:
+  m: uno_de([0.5, 1, 1.5, 2])
+  dT: random(10, 60)
+
+respuesta: m * 4186 * dT
+tipo: input
+unidad: "J"
+tolerancia: 1%
+
+enunciado: "¿Cuánto calor hay que darle a {m} kg de agua para que su temperatura suba {dT} °C? (calor específico del agua: 4186 J/(kg·°C))"
+
+pasos:
+  - "Q = m · c · ΔT"
+  - "Q = {m} kg × 4186 J/(kg·°C) × {dT} °C = {m * 4186 * dT | 0} J"
+
+explicacion: |
+  El calor necesario es proporcional a la masa, al calor específico y a la variación de temperatura.
+```
+
+### 27 — Variación de temperatura
+
+```
+metadata:
+  materia: "fisica"
+  tema: "calor_q_m_c_deltat"
+  nivel: "intermedio"
+  tags: ["calculo", "temperatura"]
+
+variables:
+  m: random(1, 5)
+  dT: random(5, 40)
+  c: uno_de([450, 900, 385])
+  Q: m * c * dT
+
+respuesta: dT
+tipo: input
+unidad: "°C"
+tolerancia_abs: 0
+
+enunciado: "A un bloque de metal de {m} kg (calor específico {c} J/(kg·°C)) se le dan {Q} J. ¿Cuántos grados sube su temperatura?"
+
+pasos:
+  - "De Q = m · c · ΔT despejamos ΔT = Q / (m · c)."
+  - "ΔT = {Q} J / ({m} kg × {c} J/(kg·°C)) = {Q} / {m * c} = {dT} °C"
+
+explicacion: |
+  Con la misma cantidad de calor, un material de calor específico bajo se calienta más.
+```
+
+### 28 — Calcular el calor específico
+
+```
+metadata:
+  materia: "fisica"
+  tema: "calor_q_m_c_deltat"
+  nivel: "intermedio"
+  tags: ["calculo", "calor_especifico"]
+
+variables:
+  m: random(1, 4)
+  dT: random(5, 25)
+  c: uno_de([128, 235, 385, 450, 900])
+  Q: m * c * dT
+
+respuesta: c
+tipo: input
+unidad: "J/(kg·°C)"
+tolerancia: 1%
+
+enunciado: "Para que {m} kg de un metal suban {dT} °C hicieron falta {Q} J. ¿Cuál es su calor específico, en J/(kg·°C)?"
+
+pasos:
+  - "De Q = m · c · ΔT despejamos c = Q / (m · ΔT)."
+  - "c = {Q} / ({m} × {dT}) = {Q} / {m * dT} = {c} J/(kg·°C)"
+
+explicacion: |
+  El calor específico identifica al material: por ejemplo, el cobre tiene unos 385 J/(kg·°C) y el aluminio unos 900.
+```
+
+### 29 — El mate
+
+```
+metadata:
+  materia: "fisica"
+  tema: "calor_q_m_c_deltat"
+  nivel: "basico"
+  tags: ["calculo", "calor", "cotidiano"]
+
+variables:
+  litros: uno_de([0.5, 1, 1.5])
+  Ti: uno_de([15, 18, 20, 22])
+
+respuesta: litros * 4186 * (80 - Ti)
+tipo: input
+unidad: "J"
+tolerancia: 1%
+
+enunciado: "Para el mate se calienta {litros} litro(s) de agua (1 litro de agua ≈ 1 kg) desde {Ti} °C hasta 80 °C. ¿Cuánto calor hace falta, en joules?"
+
+pasos:
+  - "ΔT = 80 − {Ti} = {80 - Ti} °C; m = {litros} kg"
+  - "Q = m · c · ΔT = {litros} × 4186 × {80 - Ti} = {litros * 4186 * (80 - Ti) | 0} J"
+
+explicacion: |
+  Para el mate el agua no debe hervir: a 80 °C alcanza y además se gasta menos energía.
+```
+
+### 30 — Comparar dos materiales
+
+```
+metadata:
+  materia: "fisica"
+  tema: "calor_q_m_c_deltat"
+  nivel: "intermedio"
+  tags: ["calor_especifico", "verdadero_falso"]
+
+variables:
+  m: random(1, 3)
+  Q: random(5000, 20000)
+
+respuesta: (Q / (m * 900)) < (Q / (m * 385))
+tipo: vf
+
+enunciado: "Se le dan {Q} J a {m} kg de aluminio (c = 900 J/(kg·°C)) y la misma cantidad de calor a {m} kg de cobre (c = 385 J/(kg·°C)). ¿El aluminio se calienta menos que el cobre?"
+
+pasos:
+  - "ΔT aluminio = {Q} / ({m} × 900) = {Q / (m * 900) | 1} °C"
+  - "ΔT cobre = {Q} / ({m} × 385) = {Q / (m * 385) | 1} °C"
+
+explicacion: |
+  A mayor calor específico, menos sube la temperatura con el mismo calor.
+```
+
+### 31 — Capacidad térmica
+
+```
+metadata:
+  materia: "fisica"
+  tema: "calor_q_m_c_deltat"
+  nivel: "basico"
+  tags: ["calculo", "capacidad_termica"]
+
+variables:
+  m: random(2, 10)
+  c: uno_de([450, 900, 4186])
+
+respuesta: m * c
+tipo: input
+unidad: "J/°C"
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es la capacidad térmica de {m} kg de un material con calor específico {c} J/(kg·°C)?"
+
+pasos:
+  - "C = m · c"
+  - "C = {m} kg × {c} J/(kg·°C) = {m * c} J/°C"
+
+explicacion: |
+  La capacidad térmica es cuánto calor hace falta para subir un grado ese objeto entero; depende de la masa.
 ```

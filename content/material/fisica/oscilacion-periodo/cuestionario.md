@@ -1,4 +1,4 @@
-# Fisica — Oscilacion periodo (cuestionario, 25 preguntas VBLang)
+# Fisica — Oscilacion periodo (cuestionario, 31 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -541,4 +541,167 @@ tipo: ordenar
 
 explicacion: |
   Un ciclo completo debe pasar por todos los puntos de la trayectoria y regresar al punto de partida para ser considerado una oscilación cerrada.
+```
+
+### 26 — Calcular el período
+
+```
+metadata:
+  materia: "fisica"
+  tema: "oscilacion_periodo"
+  nivel: "basico"
+  tags: ["calculo", "periodo"]
+
+variables:
+  T: random(1, 6)
+  n: random(5, 20)
+  t: T * n
+
+respuesta: T
+tipo: input
+unidad: "s"
+tolerancia_abs: 0
+
+enunciado: "Un péndulo completa {n} oscilaciones en {t} segundos. ¿Cuál es su período, en segundos?"
+
+pasos:
+  - "T = tiempo total / cantidad de oscilaciones"
+  - "T = {t} s / {n} = {T} s"
+
+explicacion: |
+  El período es el tiempo que tarda una sola oscilación completa.
+```
+
+### 27 — Frecuencia a partir del período
+
+```
+metadata:
+  materia: "fisica"
+  tema: "oscilacion_periodo"
+  nivel: "basico"
+  tags: ["calculo", "frecuencia"]
+
+variables:
+  T: uno_de([0.1, 0.2, 0.25, 0.5, 2, 4, 5])
+
+respuesta: 1 / T
+tipo: input
+unidad: "Hz"
+tolerancia: 1%
+
+enunciado: "Un objeto oscila con un período de {T} s. ¿Cuál es su frecuencia, en hertz?"
+
+pasos:
+  - "f = 1 / T"
+  - "f = 1 / {T} s = {1 / T | 2} Hz"
+
+explicacion: |
+  La frecuencia es la cantidad de oscilaciones por segundo; es el inverso del período.
+```
+
+### 28 — Período a partir de la frecuencia
+
+```
+metadata:
+  materia: "fisica"
+  tema: "oscilacion_periodo"
+  nivel: "basico"
+  tags: ["calculo", "periodo"]
+
+variables:
+  f: uno_de([2, 4, 5, 10, 20, 50])
+
+respuesta: 1 / f
+tipo: input
+unidad: "s"
+tolerancia: 1%
+
+enunciado: "Una lámina vibra con una frecuencia de {f} Hz. ¿Cuál es su período, en segundos?"
+
+pasos:
+  - "T = 1 / f"
+  - "T = 1 / {f} Hz = {1 / f | 3} s"
+
+explicacion: |
+  Si algo oscila muchas veces por segundo, cada oscilación dura muy poco.
+```
+
+### 29 — El corazón
+
+```
+metadata:
+  materia: "fisica"
+  tema: "oscilacion_periodo"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  lpm: uno_de([60, 72, 75, 90, 120])
+
+respuesta: 60 / lpm
+tipo: input
+unidad: "s"
+tolerancia: 1%
+
+enunciado: "Un corazón late {lpm} veces por minuto. ¿Cuántos segundos pasan entre un latido y el siguiente?"
+
+pasos:
+  - "Frecuencia: {lpm} latidos / 60 s = {lpm / 60 | 2} Hz"
+  - "Período: T = 1 / f = 60 / {lpm} = {60 / lpm | 2} s"
+
+explicacion: |
+  Las pulsaciones por minuto son una frecuencia; el tiempo entre latidos es su período.
+```
+
+### 30 — Oscilaciones en un tiempo dado
+
+```
+metadata:
+  materia: "fisica"
+  tema: "oscilacion_periodo"
+  nivel: "intermedio"
+  tags: ["calculo", "frecuencia"]
+
+variables:
+  f: random(2, 10)
+  t: random(5, 30)
+
+respuesta: f * t
+tipo: input
+unidad: "oscilaciones"
+tolerancia_abs: 0
+
+enunciado: "Un resorte oscila a {f} Hz. ¿Cuántas oscilaciones completas hace en {t} segundos?"
+
+pasos:
+  - "Frecuencia = oscilaciones por segundo."
+  - "n = f · t = {f} × {t} = {f * t}"
+
+explicacion: |
+  Multiplicando la frecuencia por el tiempo se obtiene la cantidad de oscilaciones.
+```
+
+### 31 — Si se duplica el período
+
+```
+metadata:
+  materia: "fisica"
+  tema: "oscilacion_periodo"
+  nivel: "intermedio"
+  tags: ["proporcionalidad", "verdadero_falso"]
+
+variables:
+  T: random(1, 5)
+
+respuesta: (1 / (2 * T)) < (1 / T)
+tipo: vf
+
+enunciado: "Un péndulo tiene un período de {T} s. Si se lo alarga hasta que su período pasa a ser {2 * T} s, ¿su frecuencia disminuye?"
+
+pasos:
+  - "Antes: f = 1 / {T} = {1 / T | 2} Hz"
+  - "Después: f = 1 / {2 * T} = {1 / (2 * T) | 2} Hz"
+
+explicacion: |
+  Período y frecuencia son inversos: si el período se duplica, la frecuencia queda a la mitad.
 ```
