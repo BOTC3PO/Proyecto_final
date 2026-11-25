@@ -1,4 +1,4 @@
-# Fisica — Circuitos en serie (cuestionario, 25 preguntas VBLang)
+# Fisica — Circuitos en serie (cuestionario, 31 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -602,4 +602,178 @@ enunciado: "Si la resistencia total de un circuito en serie es de {r_total} Ω y
 explicacion: |
   En serie: R_total = R1 + R2. Por lo tanto, R2 = R_total - R1.
   En este caso: {r_total} - {r1} = {r_total - r1}.
+```
+
+### 26 — Resistencia equivalente en serie
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "basico"
+  tags: ["calculo", "resistencia_equivalente"]
+
+variables:
+  R1: random(2, 30)
+  R2: random(2, 30)
+  R3: random(2, 30)
+
+respuesta: R1 + R2 + R3
+tipo: input
+unidad: "Ω"
+tolerancia_abs: 0
+
+enunciado: "Tres resistencias de {R1} Ω, {R2} Ω y {R3} Ω están conectadas en serie. ¿Cuál es la resistencia equivalente, en ohmios?"
+
+pasos:
+  - "En serie las resistencias se suman: Req = R1 + R2 + R3."
+  - "Req = {R1} + {R2} + {R3} = {R1 + R2 + R3} Ω"
+
+explicacion: |
+  En serie hay un solo camino: la corriente atraviesa todas las resistencias, así que se suman.
+```
+
+### 27 — Corriente en un circuito en serie
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "basico"
+  tags: ["calculo", "corriente"]
+
+variables:
+  R1: random(1, 10)
+  R2: random(1, 10)
+  I: random(1, 5)
+  V: (R1 + R2) * I
+
+respuesta: I
+tipo: input
+unidad: "A"
+tolerancia_abs: 0
+
+enunciado: "Una fuente de {V} V alimenta dos resistencias en serie de {R1} Ω y {R2} Ω. ¿Qué corriente circula, en amperios?"
+
+pasos:
+  - "Req = {R1} Ω + {R2} Ω = {R1 + R2} Ω"
+  - "I = V / Req = {V} V / {R1 + R2} Ω = {I} A"
+
+explicacion: |
+  Primero se reemplazan las resistencias por su equivalente y después se aplica la Ley de Ohm al circuito entero.
+```
+
+### 28 — Caída de tensión en una resistencia
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "intermedio"
+  tags: ["calculo", "tension"]
+
+variables:
+  R1: random(1, 10)
+  R2: random(1, 10)
+  I: random(1, 4)
+  V: (R1 + R2) * I
+
+respuesta: I * R2
+tipo: input
+unidad: "V"
+tolerancia_abs: 0
+
+enunciado: "Dos resistencias de {R1} Ω y {R2} Ω están en serie con una fuente de {V} V. ¿Qué tensión cae en la resistencia de {R2} Ω, en voltios?"
+
+pasos:
+  - "Req = {R1} + {R2} = {R1 + R2} Ω; I = {V} V / {R1 + R2} Ω = {I} A"
+  - "La corriente es la misma en toda la serie."
+  - "V2 = I · R2 = {I} A × {R2} Ω = {I * R2} V"
+
+explicacion: |
+  En serie la tensión se reparte en proporción a cada resistencia; la suma de las caídas da la tensión de la fuente.
+```
+
+### 29 — La tensión que falta
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "basico"
+  tags: ["calculo", "tension", "kirchhoff"]
+
+variables:
+  V1: random(1, 8)
+  V2: random(1, 8)
+  V3: random(1, 8)
+  V: V1 + V2 + V3
+
+respuesta: V3
+tipo: input
+unidad: "V"
+tolerancia_abs: 0
+
+enunciado: "En un circuito en serie alimentado con {V} V hay tres resistencias. En la primera caen {V1} V y en la segunda {V2} V. ¿Cuánto cae en la tercera, en voltios?"
+
+pasos:
+  - "En serie, las caídas de tensión suman la tensión de la fuente."
+  - "V3 = {V} − {V1} − {V2} = {V3} V"
+
+explicacion: |
+  La energía que entrega la fuente se reparte entre las resistencias: V = V1 + V2 + V3.
+```
+
+### 30 — Guirnalda de luces
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "intermedio"
+  tags: ["calculo", "tension", "cotidiano"]
+
+variables:
+  n: uno_de([10, 20, 22, 44])
+
+respuesta: 220 / n
+tipo: input
+unidad: "V"
+tolerancia: 1%
+
+enunciado: "Una guirnalda navideña tiene {n} lamparitas iguales conectadas en serie y se enchufa a 220 V. ¿Qué tensión recibe cada lamparita, en voltios?"
+
+pasos:
+  - "Las {n} lamparitas son iguales, así que la tensión se reparte en partes iguales."
+  - "V cada una = 220 V / {n} = {220 / n | 1} V"
+
+explicacion: |
+  Por eso, en las guirnaldas en serie, si se quema una lamparita se apagan todas: se corta el único camino.
+```
+
+### 31 — Agregar una resistencia en serie
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_serie"
+  nivel: "intermedio"
+  tags: ["calculo", "corriente", "verdadero_falso"]
+
+variables:
+  R1: random(2, 10)
+  R2: random(2, 10)
+  V: uno_de([6, 12, 24])
+
+respuesta: (V / (R1 + R2)) < (V / R1)
+tipo: vf
+
+enunciado: "Una fuente de {V} V alimenta una resistencia de {R1} Ω. Si se agrega en serie otra de {R2} Ω, ¿la corriente disminuye?"
+
+pasos:
+  - "Antes: I = {V} / {R1} = {V / R1 | 2} A"
+  - "Después: I = {V} / ({R1} + {R2}) = {V / (R1 + R2) | 2} A"
+
+explicacion: |
+  Agregar resistencias en serie aumenta la resistencia equivalente, y con la misma tensión la corriente baja.
 ```

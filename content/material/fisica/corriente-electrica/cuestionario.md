@@ -1,4 +1,4 @@
-# Fisica — Corriente electrica (cuestionario, 25 preguntas VBLang)
+# Fisica — Corriente electrica (cuestionario, 31 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -547,4 +547,175 @@ tipo: ordenar
 
 explicacion: |
   Para medir corriente, el multímetro debe formar parte del camino de la electricidad, por lo que el circuito debe interrumpirse para insertarlo en serie.
+```
+
+### 26 — Calcular la intensidad (I = Q / t)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "corriente_electrica"
+  nivel: "basico"
+  tags: ["calculo", "intensidad"]
+
+variables:
+  t: random(2, 20)
+  I: random(1, 9)
+  Q: I * t
+
+respuesta: I
+tipo: input
+unidad: "A"
+tolerancia_abs: 0
+
+enunciado: "Por un cable pasan {Q} C de carga en {t} s. ¿Cuál es la intensidad de la corriente, en amperios?"
+
+pasos:
+  - "Datos: Q = {Q} C, t = {t} s. Buscamos I."
+  - "I = Q / t"
+  - "I = {Q} C / {t} s = {I} A"
+
+explicacion: |
+  La intensidad es la carga que pasa por unidad de tiempo: I = Q / t. Un amperio es un coulomb por segundo.
+```
+
+### 27 — Calcular la carga (Q = I · t)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "corriente_electrica"
+  nivel: "basico"
+  tags: ["calculo", "carga"]
+
+variables:
+  I: random_float(0.5, 5, 1)
+  t: random(10, 120)
+
+respuesta: I * t
+tipo: input
+unidad: "C"
+tolerancia: 1%
+
+enunciado: "Por una resistencia circula una corriente de {I} A durante {t} s. ¿Cuánta carga pasó, en coulombs?"
+
+pasos:
+  - "Datos: I = {I} A, t = {t} s. Buscamos Q."
+  - "De I = Q / t despejamos Q = I · t."
+  - "Q = {I} A × {t} s = {I * t | 1} C"
+
+explicacion: |
+  Multiplicando la intensidad por el tiempo se obtiene la carga que atravesó el conductor.
+```
+
+### 28 — Calcular el tiempo (t = Q / I)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "corriente_electrica"
+  nivel: "intermedio"
+  tags: ["calculo", "tiempo"]
+
+variables:
+  I: random(2, 8)
+  t: random(5, 40)
+  Q: I * t
+
+respuesta: t
+tipo: input
+unidad: "s"
+tolerancia_abs: 0
+
+enunciado: "¿Cuántos segundos tardan en pasar {Q} C por un cable si la corriente es de {I} A?"
+
+pasos:
+  - "Datos: Q = {Q} C, I = {I} A. Buscamos t."
+  - "De I = Q / t despejamos t = Q / I."
+  - "t = {Q} C / {I} A = {t} s"
+
+explicacion: |
+  Si la corriente es constante, el tiempo es la carga dividida por la intensidad.
+```
+
+### 29 — Miliamperios a amperios
+
+```
+metadata:
+  materia: "fisica"
+  tema: "corriente_electrica"
+  nivel: "basico"
+  tags: ["unidades", "calculo"]
+
+variables:
+  mA: uno_de([50, 150, 250, 400, 750, 1200, 2500])
+
+respuesta: mA / 1000
+tipo: input
+unidad: "A"
+tolerancia: 1%
+
+enunciado: "Un cargador de celular entrega {mA} mA. ¿Cuántos amperios son?"
+
+pasos:
+  - "1 A = 1000 mA, así que se divide por 1000."
+  - "{mA} mA / 1000 = {mA / 1000 | 3} A"
+
+explicacion: |
+  El prefijo mili significa milésima: 1 mA = 0,001 A.
+```
+
+### 30 — La batería del celular
+
+```
+metadata:
+  materia: "fisica"
+  tema: "corriente_electrica"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  cap: uno_de([3000, 4000, 4500, 5000])
+  I: uno_de([500, 1000, 2000])
+
+respuesta: cap / I
+tipo: input
+unidad: "h"
+tolerancia: 2%
+
+enunciado: "Una batería de celular tiene {cap} mAh (miliamperios-hora). Si el teléfono consume en promedio {I} mA, ¿cuántas horas dura la carga?"
+
+pasos:
+  - "mAh significa: corriente en mA multiplicada por horas."
+  - "Horas = capacidad / corriente"
+  - "Horas = {cap} mAh / {I} mA = {cap / I | 1} h"
+
+explicacion: |
+  La capacidad de una batería se mide en carga (mAh). Dividiéndola por la corriente que se consume se obtiene cuánto dura.
+```
+
+### 31 — El fusible
+
+```
+metadata:
+  materia: "fisica"
+  tema: "corriente_electrica"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano", "verdadero_falso"]
+
+variables:
+  Imax: uno_de([10, 16, 20])
+  Q: random(400, 1500)
+
+respuesta: (Q / 60) > Imax
+tipo: vf
+
+enunciado: "Un fusible se corta si la corriente supera los {Imax} A. Si en un minuto pasan {Q} C por él, ¿se corta?"
+
+pasos:
+  - "Un minuto son 60 s: I = Q / t = {Q} C / 60 s = {Q / 60 | 1} A"
+  - "Se compara con el límite: {Q / 60 | 1} A contra {Imax} A."
+
+explicacion: |
+  Primero hay que pasar el tiempo a segundos para obtener la intensidad en amperios, y recién ahí comparar con el límite.
 ```

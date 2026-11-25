@@ -1,4 +1,4 @@
-# Fisica — Circuitos en paralelo (cuestionario, 25 preguntas VBLang)
+# Fisica — Circuitos en paralelo (cuestionario, 31 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -591,4 +591,176 @@ explicacion: |
   1. Primero verificas que la tensión sea la misma en todas las ramas.
   2. Calculas la resistencia equivalente o las corrientes individuales.
   3. Sumas las corrientes para obtener la corriente total del sistema.
+```
+
+### 26 — Resistencia equivalente de dos en paralelo
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_paralelo"
+  nivel: "basico"
+  tags: ["calculo", "resistencia_equivalente"]
+
+variables:
+  R1: uno_de([2, 3, 4, 6, 10, 12, 20])
+  R2: uno_de([3, 4, 6, 12, 15, 30])
+
+respuesta: R1 * R2 / (R1 + R2)
+tipo: input
+unidad: "Ω"
+tolerancia: 1%
+
+enunciado: "Dos resistencias de {R1} Ω y {R2} Ω están conectadas en paralelo. ¿Cuál es la resistencia equivalente, en ohmios? (podés redondear a dos decimales)"
+
+pasos:
+  - "Para dos en paralelo: Req = (R1 · R2) / (R1 + R2)."
+  - "Req = ({R1} × {R2}) / ({R1} + {R2}) = {R1 * R2} / {R1 + R2} = {R1 * R2 / (R1 + R2) | 2} Ω"
+
+explicacion: |
+  La resistencia equivalente en paralelo siempre es menor que la más chica de las resistencias.
+```
+
+### 27 — Resistencias iguales en paralelo
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_paralelo"
+  nivel: "basico"
+  tags: ["calculo", "resistencia_equivalente"]
+
+variables:
+  n: random(2, 5)
+  k: random(2, 10)
+  R: n * k
+
+respuesta: k
+tipo: input
+unidad: "Ω"
+tolerancia_abs: 0
+
+enunciado: "Se conectan en paralelo {n} resistencias iguales de {R} Ω cada una. ¿Cuál es la resistencia equivalente, en ohmios?"
+
+pasos:
+  - "Con n resistencias iguales en paralelo: Req = R / n."
+  - "Req = {R} Ω / {n} = {k} Ω"
+
+explicacion: |
+  Cada resistencia agrega un camino más para la corriente: con n caminos iguales, la resistencia se divide por n.
+```
+
+### 28 — Corriente en una rama
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_paralelo"
+  nivel: "basico"
+  tags: ["calculo", "corriente"]
+
+variables:
+  R1: random(2, 12)
+  I1: random(1, 5)
+  V: R1 * I1
+  R2: random(2, 12)
+
+respuesta: I1
+tipo: input
+unidad: "A"
+tolerancia_abs: 0
+
+enunciado: "Una fuente de {V} V alimenta dos resistencias en paralelo de {R1} Ω y {R2} Ω. ¿Qué corriente circula por la de {R1} Ω, en amperios?"
+
+pasos:
+  - "En paralelo todas las ramas tienen la misma tensión: {V} V."
+  - "I1 = V / R1 = {V} V / {R1} Ω = {I1} A"
+
+explicacion: |
+  La otra rama no cambia la tensión sobre esta: cada rama se calcula por separado con la tensión de la fuente.
+```
+
+### 29 — Corriente total
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_paralelo"
+  nivel: "intermedio"
+  tags: ["calculo", "corriente", "kirchhoff"]
+
+variables:
+  V: uno_de([6, 12, 24])
+  R1: uno_de([2, 3, 4, 6])
+  R2: uno_de([2, 3, 4, 6, 12])
+
+respuesta: V / R1 + V / R2
+tipo: input
+unidad: "A"
+tolerancia: 1%
+
+enunciado: "Una batería de {V} V alimenta dos resistencias en paralelo de {R1} Ω y {R2} Ω. ¿Qué corriente total entrega la batería, en amperios?"
+
+pasos:
+  - "I1 = {V} / {R1} = {V / R1 | 2} A"
+  - "I2 = {V} / {R2} = {V / R2 | 2} A"
+  - "Itotal = I1 + I2 = {V / R1 + V / R2 | 2} A"
+
+explicacion: |
+  La corriente que sale de la fuente se reparte entre las ramas y la suma de las ramas da la total (Kirchhoff).
+```
+
+### 30 — Enchufes de la cocina
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_paralelo"
+  nivel: "intermedio"
+  tags: ["calculo", "corriente", "cotidiano"]
+
+variables:
+  Ia: uno_de([4, 5, 6])
+  Ib: uno_de([2, 3])
+  Ic: uno_de([1, 2])
+
+respuesta: Ia + Ib + Ic
+tipo: input
+unidad: "A"
+tolerancia_abs: 0
+
+enunciado: "En la cocina están enchufados al mismo tiempo una pava que toma {Ia} A, una tostadora que toma {Ib} A y una heladera que toma {Ic} A. Los enchufes de la casa están en paralelo. ¿Qué corriente total pasa por el cable que los alimenta, en amperios?"
+
+pasos:
+  - "Los artefactos están en paralelo: cada uno toma su corriente y se suman."
+  - "Itotal = {Ia} + {Ib} + {Ic} = {Ia + Ib + Ic} A"
+
+explicacion: |
+  Por eso, si se enchufan muchos artefactos juntos, la corriente total puede superar lo que soporta el cable o la térmica.
+```
+
+### 31 — Agregar una rama en paralelo
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_en_paralelo"
+  nivel: "intermedio"
+  tags: ["resistencia_equivalente", "verdadero_falso"]
+
+variables:
+  R1: random(2, 20)
+  R2: random(2, 20)
+
+respuesta: (R1 * R2 / (R1 + R2)) < R1
+tipo: vf
+
+enunciado: "Hay una resistencia de {R1} Ω. Si se le conecta en paralelo otra de {R2} Ω, ¿la resistencia equivalente queda menor que {R1} Ω?"
+
+pasos:
+  - "Req = ({R1} × {R2}) / ({R1} + {R2}) = {R1 * R2 / (R1 + R2) | 2} Ω"
+  - "Se compara con {R1} Ω."
+
+explicacion: |
+  Siempre es verdadero: sumar un camino en paralelo deja pasar más corriente, así que la resistencia equivalente baja.
 ```

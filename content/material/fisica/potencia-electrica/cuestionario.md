@@ -1,4 +1,4 @@
-# Fisica — Potencia electrica (cuestionario, 25 preguntas VBLang)
+# Fisica — Potencia electrica (cuestionario, 31 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -593,4 +593,176 @@ enunciado: "Ordena los pasos lógicos para determinar la potencia eléctrica de 
 
 explicacion: |
   Para hallar la potencia P = V * I, primero debemos obtener los valores de la tensión (V) y la intensidad (I) mediante mediciones, luego realizar la multiplicación matemática y finalmente expresar el resultado en la unidad de potencia (W).
+```
+
+### 26 — Potencia con tensión y corriente (P = V · I)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_electrica"
+  nivel: "basico"
+  tags: ["calculo", "potencia"]
+
+variables:
+  V: uno_de([5, 9, 12, 24])
+  I: random_float(0.5, 4, 1)
+
+respuesta: V * I
+tipo: input
+unidad: "W"
+tolerancia: 1%
+
+enunciado: "Un aparato funciona con {V} V y toma {I} A. ¿Qué potencia consume, en watts?"
+
+pasos:
+  - "P = V · I"
+  - "P = {V} V × {I} A = {V * I | 1} W"
+
+explicacion: |
+  La potencia eléctrica es la tensión por la corriente; un watt es un voltio por un amperio.
+```
+
+### 27 — Corriente de un artefacto de 220 V
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_electrica"
+  nivel: "basico"
+  tags: ["calculo", "corriente", "cotidiano"]
+
+variables:
+  P: uno_de([1100, 1320, 1760, 2200])
+
+respuesta: P / 220
+tipo: input
+unidad: "A"
+tolerancia: 1%
+
+enunciado: "Una estufa eléctrica de {P} W se enchufa a 220 V. ¿Qué corriente toma, en amperios?"
+
+pasos:
+  - "De P = V · I despejamos I = P / V."
+  - "I = {P} W / 220 V = {P / 220} A"
+
+explicacion: |
+  Conocer la corriente sirve para saber si el enchufe o la térmica la soportan (los enchufes comunes, 10 A).
+```
+
+### 28 — Potencia en una resistencia (P = I² · R)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_electrica"
+  nivel: "intermedio"
+  tags: ["calculo", "potencia"]
+
+variables:
+  I: random(1, 5)
+  R: random(2, 20)
+
+respuesta: I ^ 2 * R
+tipo: input
+unidad: "W"
+tolerancia_abs: 0
+
+enunciado: "Por una resistencia de {R} Ω circulan {I} A. ¿Qué potencia disipa, en watts?"
+
+pasos:
+  - "Combinando P = V · I con V = I · R: P = I² · R."
+  - "P = {I}² × {R} = {I ^ 2} × {R} = {I ^ 2 * R} W"
+
+explicacion: |
+  Esta forma es útil cuando se conocen la corriente y la resistencia, pero no la tensión.
+```
+
+### 29 — Energía consumida en kWh
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_electrica"
+  nivel: "intermedio"
+  tags: ["calculo", "energia", "cotidiano"]
+
+variables:
+  P: uno_de([100, 600, 1000, 1500, 2000])
+  h: random(1, 8)
+
+respuesta: P * h / 1000
+tipo: input
+unidad: "kWh"
+tolerancia: 1%
+
+enunciado: "Un aparato de {P} W funciona {h} horas. ¿Cuánta energía consume, en kWh (kilowatt-hora)?"
+
+pasos:
+  - "Pasamos la potencia a kW: {P} W = {P / 1000 | 2} kW"
+  - "E = P · t = {P / 1000 | 2} kW × {h} h = {P * h / 1000 | 2} kWh"
+
+explicacion: |
+  El kWh es la unidad que figura en la boleta de luz: un aparato de 1000 W encendido una hora consume 1 kWh.
+```
+
+### 30 — La boleta de luz
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_electrica"
+  nivel: "intermedio"
+  tags: ["calculo", "energia", "cotidiano"]
+
+variables:
+  P: uno_de([1000, 1500, 2000])
+  h: random(1, 4)
+  dias: 30
+  precio: uno_de([120, 150, 180])
+
+respuesta: P / 1000 * h * dias * precio
+tipo: input
+unidad: "$"
+tolerancia: 1%
+
+enunciado: "Un aire acondicionado de {P} W se usa {h} horas por día durante {dias} días. Si el kWh cuesta ${precio}, ¿cuánto suma a la boleta de luz, en pesos?"
+
+pasos:
+  - "Energía por día: {P / 1000 | 1} kW × {h} h = {P / 1000 * h | 1} kWh"
+  - "En el mes: {P / 1000 * h | 1} kWh × {dias} = {P / 1000 * h * dias | 0} kWh"
+  - "Costo: {P / 1000 * h * dias | 0} kWh × ${precio} = ${P / 1000 * h * dias * precio | 0}"
+
+explicacion: |
+  Para estimar el costo de un aparato: potencia en kW, por horas de uso, por días, por el precio del kWh.
+```
+
+### 31 — ¿Qué lamparita consume menos?
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_electrica"
+  nivel: "basico"
+  tags: ["calculo", "energia", "cotidiano"]
+
+variables:
+  Pinc: uno_de([60, 75, 100])
+  Pled: uno_de([8, 10, 12])
+  h: random(3, 6)
+
+respuesta: (Pinc - Pled) * h * 30 / 1000
+tipo: input
+unidad: "kWh"
+tolerancia: 2%
+
+enunciado: "Una lamparita incandescente de {Pinc} W se reemplaza por una LED de {Pled} W que ilumina igual. Si está encendida {h} horas por día, ¿cuántos kWh se ahorran en 30 días?"
+
+pasos:
+  - "Diferencia de potencia: {Pinc} − {Pled} = {Pinc - Pled} W = {(Pinc - Pled) / 1000 | 3} kW"
+  - "Horas en el mes: {h} × 30 = {h * 30} h"
+  - "Ahorro: {(Pinc - Pled) / 1000 | 3} kW × {h * 30} h ≈ {(Pinc - Pled) * h * 30 / 1000 | 1} kWh"
+
+explicacion: |
+  La LED da la misma luz con mucha menos potencia: la diferencia, multiplicada por las horas, es la energía ahorrada.
 ```

@@ -41,6 +41,20 @@ Los circuitos mixtos son comunes en dispositivos electrónicos, como reguladores
 
 ---
 
+## 6. Ejemplos resueltos
+
+**Dos en paralelo y una en serie.** Una batería de 12 V alimenta dos resistencias de 6 Ω en paralelo, y ese conjunto
+está en serie con una resistencia de 3 Ω.
+
+- El tramo en paralelo: $R_p = (6 \cdot 6) / (6 + 6) = 36 / 12 = 3\ \Omega$.
+- Sumamos la que está en serie: $R_{eq} = 3\ \Omega + 3\ \Omega = 6\ \Omega$.
+- Corriente total: $I = V / R_{eq} = 12\ \text{V} / 6\ \Omega = 2\ \text{A}$.
+- Tensión en la de 3 Ω: $V_3 = 2\ \text{A} \cdot 3\ \Omega = 6\ \text{V}$; en el tramo en paralelo quedan los otros 6 V.
+- Como las dos ramas son iguales, la corriente se reparte por mitades: 1 A por cada una.
+
+El orden siempre es el mismo: reducir de adentro hacia afuera hasta tener una sola resistencia, calcular la corriente
+total y volver hacia atrás repartiendo tensiones y corrientes.
+
 ## N. Conexión con lo que sigue
 
 Este tema es base para entender cómo se calcula la **potencia eléctrica** en circuitos complejos, y cómo se aplican las leyes de Kirchhoff en redes no lineales (ver potencia en circuitos).

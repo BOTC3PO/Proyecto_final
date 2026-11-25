@@ -1,4 +1,4 @@
-# Fisica — Circuitos mixtos (cuestionario, 26 preguntas VBLang)
+# Fisica — Circuitos mixtos (cuestionario, 32 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -609,4 +609,188 @@ tipo: ordenar
 
 explicacion: |
   El método estándar consiste en reducir el circuito por partes, empezando por los nodos más internos (paralelos) para convertir el circuito en uno de serie simple.
+```
+
+### 27 — Resistencia equivalente de un circuito mixto
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "intermedio"
+  tags: ["calculo", "resistencia_equivalente"]
+
+variables:
+  Rp: uno_de([2, 3, 4, 6])
+  R3: random(1, 10)
+  R12: 2 * Rp
+
+respuesta: Rp + R3
+tipo: input
+unidad: "Ω"
+tolerancia_abs: 0
+
+enunciado: "Dos resistencias iguales de {R12} Ω están en paralelo, y ese conjunto está en serie con una resistencia de {R3} Ω. ¿Cuál es la resistencia equivalente, en ohmios?"
+
+pasos:
+  - "Dos iguales en paralelo: Rp = {R12} / 2 = {Rp} Ω"
+  - "Se suma la que está en serie: Req = {Rp} + {R3} = {Rp + R3} Ω"
+
+explicacion: |
+  Se resuelve primero el tramo en paralelo y después se suma lo que está en serie con él.
+```
+
+### 28 — Corriente total de un circuito mixto
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "intermedio"
+  tags: ["calculo", "corriente"]
+
+variables:
+  Rp: uno_de([2, 3, 4])
+  R3: random(1, 6)
+  I: random(1, 4)
+  V: (Rp + R3) * I
+  R12: 2 * Rp
+
+respuesta: I
+tipo: input
+unidad: "A"
+tolerancia_abs: 0
+
+enunciado: "Una fuente de {V} V alimenta dos resistencias de {R12} Ω en paralelo, conectadas en serie con una de {R3} Ω. ¿Qué corriente entrega la fuente, en amperios?"
+
+pasos:
+  - "Tramo en paralelo: {R12} / 2 = {Rp} Ω"
+  - "Req = {Rp} + {R3} = {Rp + R3} Ω"
+  - "I = {V} V / {Rp + R3} Ω = {I} A"
+
+explicacion: |
+  Con la resistencia equivalente del circuito entero se calcula la corriente total con la Ley de Ohm.
+```
+
+### 29 — Tensión en el tramo en paralelo
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "avanzado"
+  tags: ["calculo", "tension"]
+
+variables:
+  Rp: uno_de([2, 3, 4])
+  R3: random(1, 6)
+  I: random(1, 4)
+  V: (Rp + R3) * I
+  R12: 2 * Rp
+
+respuesta: I * Rp
+tipo: input
+unidad: "V"
+tolerancia_abs: 0
+
+enunciado: "En el mismo tipo de circuito, una fuente de {V} V alimenta dos resistencias de {R12} Ω en paralelo, en serie con una de {R3} Ω. ¿Qué tensión hay sobre el tramo en paralelo, en voltios?"
+
+pasos:
+  - "Req = {R12} / 2 + {R3} = {Rp + R3} Ω; I = {V} / {Rp + R3} = {I} A"
+  - "Tensión en el tramo en paralelo: Vp = I · Rp = {I} A × {Rp} Ω = {I * Rp} V"
+  - "(En la de {R3} Ω caen los otros {I * R3} V.)"
+
+explicacion: |
+  La corriente total atraviesa el tramo en paralelo como si fuera una sola resistencia Rp.
+```
+
+### 30 — Corriente por cada rama
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "avanzado"
+  tags: ["calculo", "corriente"]
+
+variables:
+  Rp: uno_de([2, 3, 4])
+  R3: random(1, 6)
+  k: random(1, 3)
+  I: 2 * k
+  V: (Rp + R3) * I
+  R12: 2 * Rp
+
+respuesta: k
+tipo: input
+unidad: "A"
+tolerancia_abs: 0
+
+enunciado: "Una fuente de {V} V alimenta dos resistencias iguales de {R12} Ω en paralelo, en serie con una de {R3} Ω. ¿Qué corriente pasa por cada una de las resistencias en paralelo, en amperios?"
+
+pasos:
+  - "Req = {Rp} + {R3} = {Rp + R3} Ω; I total = {V} / {Rp + R3} = {I} A"
+  - "Las dos ramas son iguales: la corriente se reparte por mitades."
+  - "I por rama = {I} / 2 = {k} A"
+
+explicacion: |
+  En el tramo en paralelo la corriente total se divide; si las ramas son iguales, en partes iguales.
+```
+
+### 31 — Tres en paralelo y una en serie
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "intermedio"
+  tags: ["calculo", "resistencia_equivalente"]
+
+variables:
+  Rp: random(1, 6)
+  R: 3 * Rp
+  R4: random(1, 10)
+
+respuesta: Rp + R4
+tipo: input
+unidad: "Ω"
+tolerancia_abs: 0
+
+enunciado: "Tres resistencias iguales de {R} Ω están en paralelo, y ese conjunto está en serie con una de {R4} Ω. ¿Cuál es la resistencia equivalente, en ohmios?"
+
+pasos:
+  - "Tres iguales en paralelo: {R} / 3 = {Rp} Ω"
+  - "Req = {Rp} + {R4} = {Rp + R4} Ω"
+
+explicacion: |
+  Con n resistencias iguales en paralelo el equivalente es R / n; después se suma la que está en serie.
+```
+
+### 32 — Las luces del pasillo
+
+```
+metadata:
+  materia: "fisica"
+  tema: "circuitos_mixtos"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  n: uno_de([2, 3, 4])
+  P: uno_de([10, 12, 20])
+
+respuesta: n * P / 220
+tipo: input
+unidad: "A"
+tolerancia: 2%
+
+enunciado: "En un pasillo hay {n} lámparas LED de {P} W conectadas en paralelo a 220 V, todas comandadas por un mismo interruptor en serie. ¿Qué corriente pasa por el interruptor cuando están encendidas, en amperios? (usá I = P / V; podés redondear a dos decimales)"
+
+pasos:
+  - "Cada lámpara toma I = P / V = {P} / 220 = {P / 220 | 3} A"
+  - "El interruptor está en serie con todo el tramo: lleva la suma de las {n} ramas."
+  - "I = {n} × {P / 220 | 3} ≈ {n * P / 220 | 2} A"
+
+explicacion: |
+  El interruptor está en serie con las lámparas, que están en paralelo entre sí: por él pasa la corriente de todas.
 ```
