@@ -57,3 +57,19 @@ Un catalizador **no** cambia si la reacción es espontánea, ni cambia el
 al mismo equilibrio, bajando la energía de activación por un camino
 alternativo. Al final de la reacción, el catalizador queda intacto (no
 se consume, aunque participe del mecanismo).
+
+## 5. Ejemplos resueltos
+
+**Velocidad media de una reacción.** En una reacción, la concentración de un reactivo baja de 0,80 M a 0,20 M en
+30 segundos.
+
+```
+velocidad = Δ[concentración] / Δt = (0,80 − 0,20) / 30 = 0,60 / 30 = 0,02 M/s
+```
+
+Cada segundo desaparecen, en promedio, 0,02 moles por litro de ese reactivo.
+
+**Regla práctica de la temperatura.** Para muchas reacciones, subir 10 °C la temperatura duplica más o menos la
+velocidad. De 20 °C a 40 °C (dos saltos de 10 °C), la reacción va unas 2 × 2 = 4 veces más rápido. Por eso la comida
+dura más en la heladera: a 5 °C en vez de 25 °C, las reacciones que la echan a perder van unas 4 veces más lento.
+

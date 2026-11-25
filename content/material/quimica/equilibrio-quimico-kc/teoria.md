@@ -61,3 +61,17 @@ dirección que **contrarresta** la perturbación:
   ese calor extra, ver `../termoquimica/`).
 - Aumentar la presión (en gases) → se desplaza hacia el lado con
   **menos moles de gas** (para achicar el volumen que ocupan).
+
+## 5. Ejemplos resueltos
+
+**Calcular Kc con concentraciones.** Para la reacción `N₂ + 3 H₂ ⇌ 2 NH₃`, en el equilibrio se miden
+[N₂] = 0,5 M, [H₂] = 1 M y [NH₃] = 0,2 M.
+
+```
+Kc = [NH₃]² / ([N₂] × [H₂]³) = 0,2² / (0,5 × 1³) = 0,04 / 0,5 = 0,08
+```
+
+Un Kc menor que 1 indica que en el equilibrio predominan los reactivos.
+
+**Una reacción simple.** Para `A ⇌ B` con [A] = 0,25 M y [B] = 1 M: Kc = 1 / 0,25 = 4. Predominan los productos.
+

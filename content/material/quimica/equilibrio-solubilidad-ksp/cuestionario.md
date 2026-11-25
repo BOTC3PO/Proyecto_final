@@ -1,4 +1,4 @@
-# Química — Equilibrio de solubilidad: Ksp (cuestionario, 20 preguntas VBLang)
+# Química — Equilibrio de solubilidad: Ksp (cuestionario, 26 preguntas VBLang)
 
 > Tema: `QKSP`. Ver `teoria.md` en esta misma carpeta.
 
@@ -399,4 +399,170 @@ enunciado: "Ksp siempre tiene las mismas unidades para cualquier tipo de sal, si
 
 explicacion: |
   Falso. Las unidades de Ksp dependen de los exponentes (coeficientes) de la sal: no es lo mismo M² (sal 1:1) que M³ (sal tipo AB2), por ejemplo.
+```
+
+### 21 — Ksp de una sal 1:1
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_solubilidad_ksp"
+  nivel: "intermedio"
+  tags: ["calculo", "ksp"]
+
+variables:
+  s: uno_de([0.001, 0.002, 0.003, 0.01])
+
+respuesta: s ^ 2 * 1000000
+tipo: input
+unidad: "millonésimas"
+tolerancia: 1%
+
+enunciado: "La solubilidad molar de una sal AB es s = {s} M. Para AB ⇌ A⁺ + B⁻, Ksp = s². ¿Cuánto vale Ksp, expresado en millonésimas? (por ejemplo, 0,000004 son 4 millonésimas)"
+
+pasos:
+  - "Ksp = s × s = {s}² = {s ^ 2}"
+  - "En millonésimas: × 1 000 000 = {s ^ 2 * 1000000 | 2}"
+
+explicacion: |
+  En una sal 1:1 cada unidad disuelta da un ion de cada tipo: las dos concentraciones valen s.
+```
+
+### 22 — Solubilidad a partir de Ksp
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_solubilidad_ksp"
+  nivel: "intermedio"
+  tags: ["calculo", "solubilidad"]
+
+variables:
+  sm: uno_de([1, 2, 3, 5, 10])
+
+respuesta: sm
+tipo: input
+unidad: "milésimas de M"
+tolerancia: 1%
+
+enunciado: "Una sal AB tiene Ksp = {sm ^ 2} millonésimas. ¿Cuál es su solubilidad molar, en milésimas de M? (Ksp = s²)"
+
+pasos:
+  - "s = √Ksp"
+  - "√({sm ^ 2} millonésimas) = {sm} milésimas de M"
+
+explicacion: |
+  La raíz cuadrada de una millonésima es una milésima: así las cuentas quedan con números chicos.
+```
+
+### 23 — Sal con coeficiente 2 (AB₂)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_solubilidad_ksp"
+  nivel: "avanzado"
+  tags: ["calculo", "coeficientes"]
+
+variables:
+  s: uno_de([0.01, 0.02, 0.05, 0.1])
+
+respuesta: 4 * s ^ 3 * 1000000
+tipo: input
+unidad: "millonésimas"
+tolerancia: 1%
+
+enunciado: "Una sal AB₂ tiene solubilidad molar s = {s} M. Como AB₂ ⇌ A²⁺ + 2 B⁻, Ksp = s × (2s)² = 4s³. ¿Cuánto vale Ksp, en millonésimas?"
+
+pasos:
+  - "s³ = {s}³ = {s ^ 3}"
+  - "Ksp = 4 × {s ^ 3} = {4 * s ^ 3}"
+  - "En millonésimas: {4 * s ^ 3 * 1000000 | 2}"
+
+explicacion: |
+  Por cada unidad disuelta salen dos iones B⁻: su concentración es 2s y va elevada al cuadrado.
+```
+
+### 24 — ¿Precipita?
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_solubilidad_ksp"
+  nivel: "intermedio"
+  tags: ["calculo", "precipitacion", "verdadero_falso"]
+
+variables:
+  a: uno_de([1, 2, 4, 5])
+  b: uno_de([1, 2, 3])
+  K: uno_de([1, 5, 10])
+
+respuesta: a * b > K
+tipo: vf
+
+enunciado: "Se mezclan soluciones y quedan [A⁺] = {a} milésimas de M y [B⁻] = {b} milésimas de M. El Ksp de AB es {K} millonésimas. ¿Se forma precipitado?"
+
+pasos:
+  - "Q = [A⁺] × [B⁻] = {a} × {b} = {a * b} millonésimas"
+  - "Precipita si Q > Ksp: comparar {a * b} con {K}."
+
+explicacion: |
+  Si el producto iónico supera al Ksp, la solución está sobresaturada y el exceso precipita.
+```
+
+### 25 — Gramos que se disuelven
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_solubilidad_ksp"
+  nivel: "avanzado"
+  tags: ["calculo", "masa"]
+
+variables:
+  sm: uno_de([1, 2, 5, 10])
+  M: uno_de([100, 143, 233])
+  V: uno_de([1, 2, 5])
+
+respuesta: sm / 1000 * M * V
+tipo: input
+unidad: "g"
+tolerancia: 1%
+
+enunciado: "Una sal de masa molar {M} g/mol tiene una solubilidad de {sm} milésimas de mol por litro. ¿Cuántos gramos se disuelven como máximo en {V} L de agua? (podés redondear a dos decimales)"
+
+pasos:
+  - "Moles por litro: {sm / 1000} mol/L; en {V} L: {sm / 1000 * V} mol"
+  - "Masa = {sm / 1000 * V} × {M} = {sm / 1000 * M * V | 2} g"
+
+explicacion: |
+  Con la solubilidad molar y la masa molar se pasa a gramos.
+```
+
+### 26 — El sarro de la pava
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_solubilidad_ksp"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  ca: uno_de([1, 2, 3])
+  co3: uno_de([1, 2, 4])
+
+respuesta: ca * co3
+tipo: input
+unidad: "millonésimas"
+tolerancia_abs: 0
+
+enunciado: "El sarro de la pava es carbonato de calcio (CaCO₃, Ksp ≈ 0,0034 millonésimas). Un agua dura tiene [Ca²⁺] = {ca} milésimas de M y, al calentarla, [CO₃²⁻] = {co3} milésimas de M. ¿Cuánto vale el producto iónico Q, en millonésimas?"
+
+pasos:
+  - "Q = [Ca²⁺] × [CO₃²⁻] = {ca} × {co3} = {ca * co3} millonésimas"
+  - "Q es mucho mayor que el Ksp: precipita CaCO₃ y se forma el sarro."
+
+explicacion: |
+  Por eso en las zonas con agua dura las pavas y los calefones se llenan de sarro.
 ```

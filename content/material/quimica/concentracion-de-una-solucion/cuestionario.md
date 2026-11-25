@@ -1,4 +1,4 @@
-# Química — Concentración de una solución (cuestionario, 26 preguntas VBLang)
+# Química — Concentración de una solución (cuestionario, 32 preguntas VBLang)
 
 > Tema: `Q3`. Ver `teoria.md` en esta misma carpeta.
 
@@ -581,4 +581,173 @@ respuesta: "Para dosificar correctamente medicamentos, productos de limpieza o b
 explicacion: |
   Desde el suero fisiológico hasta el límite legal de contaminantes en
   agua potable, todo se expresa en concentración.
+```
+
+### 27 — Calcular el %m/V
+
+```
+metadata:
+  materia: "quimica"
+  tema: "concentracion_de_una_solucion"
+  nivel: "basico"
+  tags: ["calculo", "m_v"]
+
+variables:
+  V: uno_de([100, 200, 250, 500])
+  c: random(1, 20)
+  m: c * V / 100
+
+respuesta: c
+tipo: input
+unidad: "%m/V"
+tolerancia: 1%
+
+enunciado: "Se disuelven {m} g de una sal en agua hasta completar {V} mL de solución. ¿Cuál es la concentración en %m/V?"
+
+pasos:
+  - "%m/V = (masa de soluto / volumen de solución) × 100"
+  - "%m/V = ({m} / {V}) × 100 = {c} %m/V"
+
+explicacion: |
+  El %m/V dice cuántos gramos de soluto hay en cada 100 mL de solución.
+```
+
+### 28 — Masa de soluto necesaria
+
+```
+metadata:
+  materia: "quimica"
+  tema: "concentracion_de_una_solucion"
+  nivel: "basico"
+  tags: ["calculo", "m_v"]
+
+variables:
+  V: uno_de([100, 250, 500, 1000])
+  c: uno_de([0.9, 2, 5, 10, 15])
+
+respuesta: c * V / 100
+tipo: input
+unidad: "g"
+tolerancia: 1%
+
+enunciado: "¿Cuántos gramos de soluto hacen falta para preparar {V} mL de una solución al {c} %m/V?"
+
+pasos:
+  - "masa = %m/V × volumen / 100"
+  - "masa = {c} × {V} / 100 = {c * V / 100} g"
+
+explicacion: |
+  Se despeja la masa de la fórmula del porcentaje.
+```
+
+### 29 — Calcular el %m/m
+
+```
+metadata:
+  materia: "quimica"
+  tema: "concentracion_de_una_solucion"
+  nivel: "intermedio"
+  tags: ["calculo", "m_m"]
+
+variables:
+  ms: random(5, 50)
+  mag: random(50, 400)
+
+respuesta: ms / (ms + mag) * 100
+tipo: input
+unidad: "%m/m"
+tolerancia: 1%
+
+enunciado: "Se disuelven {ms} g de soluto en {mag} g de agua. ¿Cuál es la concentración en %m/m? (podés redondear a un decimal)"
+
+pasos:
+  - "Masa de la solución = soluto + solvente = {ms} + {mag} = {ms + mag} g"
+  - "%m/m = ({ms} / {ms + mag}) × 100 ≈ {ms / (ms + mag) * 100 | 1} %m/m"
+
+explicacion: |
+  Ojo: se divide por la masa de la solución, no por la del agua sola.
+```
+
+### 30 — Alcohol en una bebida (%V/V)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "concentracion_de_una_solucion"
+  nivel: "basico"
+  tags: ["calculo", "v_v", "cotidiano"]
+
+variables:
+  V: uno_de([330, 473, 750, 1000])
+  g: uno_de([5, 12, 14, 40])
+
+respuesta: V * g / 100
+tipo: input
+unidad: "mL"
+tolerancia: 1%
+
+enunciado: "Una bebida de {V} mL tiene una graduación de {g} %V/V. ¿Cuántos mL de alcohol contiene?"
+
+pasos:
+  - "volumen de alcohol = %V/V × volumen total / 100"
+  - "{g} × {V} / 100 = {V * g / 100} mL"
+
+explicacion: |
+  La graduación alcohólica de las etiquetas es un %V/V.
+```
+
+### 31 — Partes por millón en el agua
+
+```
+metadata:
+  materia: "quimica"
+  tema: "concentracion_de_una_solucion"
+  nivel: "intermedio"
+  tags: ["calculo", "ppm", "cotidiano"]
+
+variables:
+  mg: random(1, 30)
+  L: uno_de([1, 2, 5, 10])
+
+respuesta: mg / L
+tipo: input
+unidad: "ppm"
+tolerancia: 1%
+
+enunciado: "En {L} litro(s) de agua de la canilla se encontraron {mg} mg de cloro. ¿Cuántas ppm de cloro tiene? (en agua, 1 ppm equivale a 1 mg por litro)"
+
+pasos:
+  - "1 L de agua pesa 1 kg = 1 000 000 mg, así que 1 mg/L = 1 ppm."
+  - "ppm = {mg} mg / {L} L = {mg / L} ppm"
+
+explicacion: |
+  Las normas de agua potable fijan los límites de cloro, arsénico o nitratos en ppm (mg/L).
+```
+
+### 32 — ¿Cuál está más concentrada?
+
+```
+metadata:
+  materia: "quimica"
+  tema: "concentracion_de_una_solucion"
+  nivel: "basico"
+  tags: ["comparacion", "verdadero_falso"]
+
+variables:
+  m1: random(5, 30)
+  V1: uno_de([100, 200])
+  m2: random(5, 30)
+  V2: uno_de([250, 500])
+
+respuesta: (m1 / V1) > (m2 / V2)
+tipo: vf
+
+enunciado: "La solución A tiene {m1} g de sal en {V1} mL; la B, {m2} g en {V2} mL. ¿A está más concentrada que B?"
+
+pasos:
+  - "A: {m1} / {V1} × 100 = {m1 / V1 * 100 | 2} %m/V"
+  - "B: {m2} / {V2} × 100 = {m2 / V2 * 100 | 2} %m/V"
+
+explicacion: |
+  Para comparar concentraciones hay que llevar las dos a la misma escala, no mirar solo los gramos.
 ```

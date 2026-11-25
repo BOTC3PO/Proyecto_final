@@ -1,4 +1,4 @@
-# Química — Energía libre de Gibbs: por qué una reacción es espontánea (cuestionario, 20 preguntas VBLang)
+# Química — Energía libre de Gibbs: por qué una reacción es espontánea (cuestionario, 26 preguntas VBLang)
 
 > Tema: `QGIBBS`. Ver `teoria.md` en esta misma carpeta.
 
@@ -381,4 +381,170 @@ enunciado: "Una reacción espontánea (ΔG < 0) siempre ocurre rápido, en la pr
 
 explicacion: |
   Falso. Espontaneidad (termodinámica) y velocidad (cinética) son cosas distintas — ver ../cinetica-reaccion/. La oxidación del hierro es espontánea pero muy lenta.
+```
+
+### 21 — Calcular ΔG
+
+```
+metadata:
+  materia: "quimica"
+  tema: "energia_libre_gibbs"
+  nivel: "intermedio"
+  tags: ["calculo", "gibbs"]
+
+variables:
+  H: random(-200, 100)
+  S: uno_de([-0.3, -0.1, 0.1, 0.2, 0.4])
+  T: uno_de([250, 298, 300, 400, 500])
+
+respuesta: H - T * S
+tipo: input
+unidad: "kJ"
+tolerancia_abs: 0.5
+
+enunciado: "Una reacción tiene ΔH = {H} kJ y ΔS = {S} kJ/K. ¿Cuánto vale ΔG a {T} K?"
+
+pasos:
+  - "ΔG = ΔH − T × ΔS"
+  - "T × ΔS = {T} × ({S}) = {T * S | 1} kJ"
+  - "ΔG = {H} − ({T * S | 1}) = {H - T * S | 1} kJ"
+
+explicacion: |
+  Si ΔG da negativo, la reacción es espontánea a esa temperatura.
+```
+
+### 22 — ¿Es espontánea?
+
+```
+metadata:
+  materia: "quimica"
+  tema: "energia_libre_gibbs"
+  nivel: "intermedio"
+  tags: ["calculo", "espontaneidad", "verdadero_falso"]
+
+variables:
+  H: uno_de([-150, -50, 40, 120])
+  S: uno_de([-0.2, 0.1, 0.3])
+  T: uno_de([200, 300, 600])
+
+respuesta: (H - T * S) < 0
+tipo: vf
+
+enunciado: "Con ΔH = {H} kJ y ΔS = {S} kJ/K, ¿la reacción es espontánea a {T} K?"
+
+pasos:
+  - "ΔG = {H} − {T} × ({S}) = {H - T * S | 1} kJ"
+
+explicacion: |
+  Espontánea si ΔG < 0; no espontánea si ΔG > 0.
+```
+
+### 23 — Temperatura de equilibrio
+
+```
+metadata:
+  materia: "quimica"
+  tema: "energia_libre_gibbs"
+  nivel: "avanzado"
+  tags: ["calculo", "temperatura"]
+
+variables:
+  T: uno_de([250, 300, 400, 500, 800])
+  S: uno_de([0.1, 0.2, 0.25])
+  H: T * S
+
+respuesta: T
+tipo: input
+unidad: "K"
+tolerancia: 1%
+
+enunciado: "Una reacción tiene ΔH = {H} kJ y ΔS = {S} kJ/K. ¿A qué temperatura ΔG vale cero?"
+
+pasos:
+  - "ΔG = 0 → ΔH = T × ΔS → T = ΔH / ΔS"
+  - "T = {H} / {S} = {T} K"
+
+explicacion: |
+  Esa es la temperatura a la que la reacción pasa de no espontánea a espontánea (o al revés).
+```
+
+### 24 — Pasar ΔS de J/K a kJ/K
+
+```
+metadata:
+  materia: "quimica"
+  tema: "energia_libre_gibbs"
+  nivel: "basico"
+  tags: ["unidades", "calculo"]
+
+variables:
+  S: uno_de([-250, -120, 45, 160, 300])
+
+respuesta: S / 1000
+tipo: input
+unidad: "kJ/K"
+tolerancia: 1%
+
+enunciado: "Una tabla da ΔS = {S} J/K. Para usarlo con ΔH en kJ, ¿cuánto vale en kJ/K?"
+
+pasos:
+  - "1 kJ = 1000 J: se divide por 1000."
+  - "{S} / 1000 = {S / 1000} kJ/K"
+
+explicacion: |
+  Mezclar kJ con J es el error más común en los cálculos de ΔG.
+```
+
+### 25 — El hielo que se derrite
+
+```
+metadata:
+  materia: "quimica"
+  tema: "energia_libre_gibbs"
+  nivel: "avanzado"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  tc: uno_de([-10, -5, 5, 10, 25])
+
+respuesta: 6.01 - (tc + 273) * 0.022
+tipo: input
+unidad: "kJ"
+tolerancia_abs: 0.05
+
+enunciado: "Para derretir hielo, ΔH = 6,01 kJ/mol y ΔS = 0,022 kJ/(mol·K). ¿Cuánto vale ΔG a {tc} °C? (escribí dos decimales)"
+
+pasos:
+  - "T = {tc} + 273 = {tc + 273} K"
+  - "ΔG = 6,01 − {tc + 273} × 0,022 = 6,01 − {(tc + 273) * 0.022 | 2} = {6.01 - (tc + 273) * 0.022 | 2} kJ"
+
+explicacion: |
+  Arriba de 0 °C da negativo (el hielo se derrite solo); abajo da positivo (no se derrite). A 0 °C es casi cero: equilibrio.
+```
+
+### 26 — Signos de ΔH y ΔS
+
+```
+metadata:
+  materia: "quimica"
+  tema: "energia_libre_gibbs"
+  nivel: "intermedio"
+  tags: ["conceptual", "verdadero_falso"]
+
+variables:
+  H: [-80, -80, 80, 80]
+  S: [0.1, -0.1, 0.1, -0.1]
+  siempre: [1, 0, 0, 0]
+  i: random(0, 3)
+
+respuesta: siempre[i] == 1
+tipo: vf
+
+enunciado: "Una reacción tiene ΔH = {H[i]} kJ y ΔS = {S[i]} kJ/K. ¿Es espontánea a cualquier temperatura?"
+
+pasos:
+  - "Solo si ΔH < 0 y ΔS > 0, el término −T × ΔS es negativo y ΔG queda negativo para toda T."
+
+explicacion: |
+  Exotérmica y con aumento del desorden: siempre espontánea. Los otros casos dependen de la temperatura o nunca lo son.
 ```

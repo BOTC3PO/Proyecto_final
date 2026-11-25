@@ -63,3 +63,18 @@ avanza más hacia los productos antes de llegar al equilibrio). En el
 equilibrio mismo, `ΔG = 0` — es el punto de "no hay más fuerza neta
 empujando en ninguna dirección", coherente con lo ya visto en
 `../equilibrio-quimico-kc/`.
+
+## 5. Ejemplos resueltos
+
+**¿Es espontánea?** Una reacción tiene ΔH = −100 kJ y ΔS = −0,2 kJ/K (el desorden disminuye).
+
+```
+A 300 K:  ΔG = −100 − 300 × (−0,2) = −100 + 60  = −40 kJ  → espontánea
+A 600 K:  ΔG = −100 − 600 × (−0,2) = −100 + 120 =  20 kJ  → no espontánea
+```
+
+**La temperatura de cambio.** El signo cambia cuando ΔG = 0, es decir, en T = ΔH / ΔS = −100 / −0,2 = 500 K. Por
+debajo de 500 K la reacción ocurre sola; por encima, no.
+
+Ojo con las unidades: ΔH suele estar en kJ y ΔS en J/K. Hay que pasar ΔS a kJ/K dividiendo por 1000 antes de restar.
+

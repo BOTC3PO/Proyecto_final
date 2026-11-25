@@ -1,4 +1,4 @@
-# Química — Equilibrio químico y Kc (cuestionario, 20 preguntas VBLang)
+# Química — Equilibrio químico y Kc (cuestionario, 26 preguntas VBLang)
 
 > Tema: `QP`. Ver `teoria.md` en esta misma carpeta.
 
@@ -382,4 +382,168 @@ enunciado: "Si se aumenta la temperatura en una reacción ENDOTÉRMICA en equili
 
 explicacion: |
   En una endotérmica, el calor "funciona" como reactivo. Subir la temperatura favorece que se consuma ese calor extra, desplazando el equilibrio hacia los productos — al revés que en una exotérmica.
+```
+
+### 21 — Kc de una reacción simple (A ⇌ B)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_quimico_kc"
+  nivel: "basico"
+  tags: ["calculo", "kc"]
+
+variables:
+  A: uno_de([0.1, 0.2, 0.25, 0.5, 1])
+  B: uno_de([0.1, 0.5, 1, 2])
+
+respuesta: B / A
+tipo: input
+unidad: ""
+tolerancia: 1%
+
+enunciado: "Para la reacción A ⇌ B, en el equilibrio [A] = {A} M y [B] = {B} M. ¿Cuánto vale Kc?"
+
+pasos:
+  - "Kc = [B] / [A]"
+  - "Kc = {B} / {A} = {B / A | 2}"
+
+explicacion: |
+  Productos arriba, reactivos abajo, cada uno elevado a su coeficiente (acá, 1).
+```
+
+### 22 — Kc con dos reactivos (A + B ⇌ C)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_quimico_kc"
+  nivel: "intermedio"
+  tags: ["calculo", "kc"]
+
+variables:
+  A: uno_de([0.2, 0.5, 1])
+  B: uno_de([0.1, 0.4, 2])
+  C: uno_de([0.2, 0.8, 1.6])
+
+respuesta: C / (A * B)
+tipo: input
+unidad: ""
+tolerancia: 1%
+
+enunciado: "Para A + B ⇌ C, en el equilibrio [A] = {A} M, [B] = {B} M y [C] = {C} M. ¿Cuánto vale Kc? (podés redondear a dos decimales)"
+
+pasos:
+  - "Kc = [C] / ([A] × [B])"
+  - "Kc = {C} / ({A} × {B}) = {C} / {A * B | 3} ≈ {C / (A * B) | 2}"
+
+explicacion: |
+  Las concentraciones de los reactivos se multiplican en el denominador.
+```
+
+### 23 — Kc con un coeficiente 2
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_quimico_kc"
+  nivel: "intermedio"
+  tags: ["calculo", "kc", "coeficientes"]
+
+variables:
+  A: uno_de([0.1, 0.2, 0.5])
+  B: uno_de([0.2, 0.3, 0.6])
+
+respuesta: B ^ 2 / A
+tipo: input
+unidad: ""
+tolerancia: 1%
+
+enunciado: "Para la reacción A ⇌ 2 B, en el equilibrio [A] = {A} M y [B] = {B} M. ¿Cuánto vale Kc? (podés redondear a dos decimales)"
+
+pasos:
+  - "Kc = [B]² / [A] (el coeficiente 2 pasa a ser exponente)"
+  - "Kc = {B}² / {A} = {B ^ 2 | 3} / {A} ≈ {B ^ 2 / A | 2}"
+
+explicacion: |
+  Los coeficientes de la ecuación balanceada son los exponentes de Kc.
+```
+
+### 24 — Concentración que falta
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_quimico_kc"
+  nivel: "avanzado"
+  tags: ["calculo", "kc"]
+
+variables:
+  K: uno_de([2, 4, 5, 10])
+  A: uno_de([0.1, 0.2, 0.5])
+
+respuesta: K * A
+tipo: input
+unidad: "M"
+tolerancia: 1%
+
+enunciado: "Para A ⇌ B, Kc = {K}. Si en el equilibrio [A] = {A} M, ¿cuánto vale [B]?"
+
+pasos:
+  - "Kc = [B] / [A] → [B] = Kc × [A]"
+  - "[B] = {K} × {A} = {K * A} M"
+
+explicacion: |
+  Conociendo Kc se puede predecir la concentración de equilibrio.
+```
+
+### 25 — Kc y el agua en el sólido
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_quimico_kc"
+  nivel: "intermedio"
+  tags: ["calculo", "solidos", "cotidiano"]
+
+variables:
+  co2: uno_de([0.01, 0.02, 0.05])
+
+respuesta: co2
+tipo: input
+unidad: ""
+tolerancia: 1%
+
+enunciado: "En un horno de cal, CaCO₃ (sólido) ⇌ CaO (sólido) + CO₂ (gas). En el equilibrio [CO₂] = {co2} M. ¿Cuánto vale Kc?"
+
+pasos:
+  - "Los sólidos puros no entran en Kc."
+  - "Kc = [CO₂] = {co2}"
+
+explicacion: |
+  Así se fabrica la cal: al sacar el CO₂ del horno, el equilibrio se desplaza y sigue produciendo CaO.
+```
+
+### 26 — ¿Predominan los productos?
+
+```
+metadata:
+  materia: "quimica"
+  tema: "equilibrio_quimico_kc"
+  nivel: "basico"
+  tags: ["interpretacion", "verdadero_falso"]
+
+variables:
+  K: uno_de([0.001, 0.05, 0.5, 20, 1000, 100000])
+
+respuesta: K > 1
+tipo: vf
+
+enunciado: "Una reacción tiene Kc = {K}. ¿En el equilibrio predominan los productos?"
+
+pasos:
+  - "Kc > 1: predominan los productos; Kc < 1: predominan los reactivos. Acá Kc = {K}."
+
+explicacion: |
+  Kc compara cuánto hay de productos con cuánto hay de reactivos en el equilibrio.
 ```

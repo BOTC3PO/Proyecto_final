@@ -69,3 +69,22 @@ V = nRT / P
 n = PV / RT
 T = PV / (nR)
 ```
+
+## 6. Ejemplos resueltos
+
+**Un globo.** ¿Qué volumen ocupan 2 moles de helio a 27 °C y 1 atm?
+
+```
+T = 27 + 273 = 300 K
+V = n × R × T / P = 2 × 0,0821 × 300 / 1 = 49,26 L
+```
+
+**Un tanque.** Un tanque de 10 L tiene 4 moles de gas a 300 K. ¿Qué presión hay adentro?
+
+```
+P = n × R × T / V = 4 × 0,0821 × 300 / 10 ≈ 9,85 atm
+```
+
+El error más común es usar los grados Celsius sin pasarlos a Kelvin: con 27 en vez de 300 el resultado daría diez
+veces menos.
+

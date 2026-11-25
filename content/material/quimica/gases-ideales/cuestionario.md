@@ -1,4 +1,4 @@
-# Química — Gases ideales: PV = nRT (cuestionario, 20 preguntas VBLang)
+# Química — Gases ideales: PV = nRT (cuestionario, 25 preguntas VBLang)
 
 > Tema: `QZ1`. Ver `teoria.md` en esta misma carpeta.
 
@@ -400,4 +400,174 @@ enunciado: "El estado de un gas ideal se puede describir completamente conociend
 
 explicacion: |
   Falso. Un mismo volumen de gas puede tener distinta cantidad de moles según la presión y la temperatura — hacen falta las 4 variables (P, V, n, T) relacionadas por PV=nRT.
+```
+
+### 20 — Volumen de un gas (V = n · R · T / P)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "gases_ideales"
+  nivel: "intermedio"
+  tags: ["calculo", "volumen"]
+
+variables:
+  n: random(1, 5)
+  tc: random(0, 50)
+  P: uno_de([1, 2, 4])
+
+respuesta: n * 0.0821 * (tc + 273) / P
+tipo: input
+unidad: "L"
+tolerancia: 1%
+
+enunciado: "¿Qué volumen ocupan {n} mol de un gas a {tc} °C y {P} atm? (R = 0,0821 L·atm/(mol·K); podés redondear a un decimal)"
+
+pasos:
+  - "T = {tc} + 273 = {tc + 273} K"
+  - "V = n · R · T / P = {n} × 0,0821 × {tc + 273} / {P} ≈ {n * 0.0821 * (tc + 273) / P | 1} L"
+
+explicacion: |
+  La temperatura siempre en Kelvin: sumale 273 a los grados Celsius.
+```
+
+### 21 — Presión de un gas
+
+```
+metadata:
+  materia: "quimica"
+  tema: "gases_ideales"
+  nivel: "intermedio"
+  tags: ["calculo", "presion"]
+
+variables:
+  n: random(1, 10)
+  T: uno_de([273, 300, 350, 400])
+  V: uno_de([5, 10, 20, 50])
+
+respuesta: n * 0.0821 * T / V
+tipo: input
+unidad: "atm"
+tolerancia: 1%
+
+enunciado: "Un recipiente de {V} L contiene {n} mol de gas a {T} K. ¿Qué presión tiene, en atm? (R = 0,0821 L·atm/(mol·K); podés redondear a dos decimales)"
+
+pasos:
+  - "P = n · R · T / V"
+  - "P = {n} × 0,0821 × {T} / {V} ≈ {n * 0.0821 * T / V | 2} atm"
+
+explicacion: |
+  Más moles o más temperatura aumentan la presión; más volumen la baja.
+```
+
+### 22 — Moles de gas
+
+```
+metadata:
+  materia: "quimica"
+  tema: "gases_ideales"
+  nivel: "intermedio"
+  tags: ["calculo", "moles"]
+
+variables:
+  P: uno_de([1, 2, 3])
+  V: uno_de([10, 22.4, 50, 100])
+  T: uno_de([273, 300])
+
+respuesta: P * V / (0.0821 * T)
+tipo: input
+unidad: "mol"
+tolerancia: 1%
+
+enunciado: "Un gas ocupa {V} L a {P} atm y {T} K. ¿Cuántos moles hay? (R = 0,0821 L·atm/(mol·K); podés redondear a dos decimales)"
+
+pasos:
+  - "n = P · V / (R · T)"
+  - "n = {P} × {V} / (0,0821 × {T}) = {P * V} / {0.0821 * T | 3} ≈ {P * V / (0.0821 * T) | 2} mol"
+
+explicacion: |
+  Con presión, volumen y temperatura se puede contar cuántas moléculas (moles) hay.
+```
+
+### 23 — Condiciones normales
+
+```
+metadata:
+  materia: "quimica"
+  tema: "gases_ideales"
+  nivel: "basico"
+  tags: ["calculo", "cnpt"]
+
+variables:
+  n: uno_de([0.5, 1, 2, 3, 5])
+
+respuesta: n * 22.4
+tipo: input
+unidad: "L"
+tolerancia: 1%
+
+enunciado: "¿Qué volumen ocupan {n} mol de un gas en condiciones normales (1 atm y 0 °C)?"
+
+pasos:
+  - "En CNPT, 1 mol de cualquier gas ocupa 22,4 L."
+  - "V = {n} × 22,4 = {n * 22.4} L"
+
+explicacion: |
+  En condiciones normales no hace falta la fórmula completa: alcanza con multiplicar por 22,4.
+```
+
+### 24 — La rueda de la bici al sol
+
+```
+metadata:
+  materia: "quimica"
+  tema: "gases_ideales"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  P1: uno_de([2, 3, 4])
+  t1: uno_de([10, 15, 20])
+  t2: uno_de([40, 45, 50])
+
+respuesta: P1 * (t2 + 273) / (t1 + 273)
+tipo: input
+unidad: "atm"
+tolerancia: 1%
+
+enunciado: "Una cámara de bici tiene {P1} atm a {t1} °C. Al sol llega a {t2} °C sin cambiar de volumen. ¿Qué presión tiene ahora, en atm? (podés redondear a dos decimales)"
+
+pasos:
+  - "Con volumen constante, P1 / T1 = P2 / T2 (en Kelvin)."
+  - "T1 = {t1 + 273} K; T2 = {t2 + 273} K"
+  - "P2 = {P1} × {t2 + 273} / {t1 + 273} ≈ {P1 * (t2 + 273) / (t1 + 273) | 2} atm"
+
+explicacion: |
+  Por eso no conviene inflar de más las ruedas en verano: el calor sube la presión.
+```
+
+### 25 — Celsius o Kelvin
+
+```
+metadata:
+  materia: "quimica"
+  tema: "gases_ideales"
+  nivel: "basico"
+  tags: ["unidades", "calculo"]
+
+variables:
+  tc: random(-50, 100)
+
+respuesta: tc + 273
+tipo: input
+unidad: "K"
+tolerancia_abs: 0
+
+enunciado: "Para usar la ecuación de los gases, ¿cuántos kelvin son {tc} °C?"
+
+pasos:
+  - "K = °C + 273 = {tc} + 273 = {tc + 273} K"
+
+explicacion: |
+  La escala Kelvin empieza en el cero absoluto, así que nunca da negativa: es la que exige la ecuación.
 ```

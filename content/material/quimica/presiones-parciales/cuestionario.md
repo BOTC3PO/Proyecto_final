@@ -1,4 +1,4 @@
-# Química — Presiones parciales: Ley de Dalton (cuestionario, 20 preguntas VBLang)
+# Química — Presiones parciales: Ley de Dalton (cuestionario, 26 preguntas VBLang)
 
 > Tema: `QDALTON`. Ver `teoria.md` en esta misma carpeta.
 
@@ -417,4 +417,171 @@ enunciado: "Si dos gases en una mezcla tienen la misma fracción molar, entonces
 
 explicacion: |
   Verdadero. Como Pi = Xi × P_total, si Xi es igual para dos gases, Pi también es igual (mismo P_total para toda la mezcla).
+```
+
+### 21 — Presión total (ley de Dalton)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "presiones_parciales"
+  nivel: "basico"
+  tags: ["calculo", "dalton"]
+
+variables:
+  p1: random_float(0.2, 3, 1)
+  p2: random_float(0.2, 3, 1)
+  p3: random_float(0.1, 1, 1)
+
+respuesta: p1 + p2 + p3
+tipo: input
+unidad: "atm"
+tolerancia: 1%
+
+enunciado: "Una mezcla tiene nitrógeno a {p1} atm, oxígeno a {p2} atm y dióxido de carbono a {p3} atm. ¿Cuál es la presión total?"
+
+pasos:
+  - "P total = suma de las presiones parciales"
+  - "P total = {p1} + {p2} + {p3} = {p1 + p2 + p3 | 1} atm"
+
+explicacion: |
+  Cada gas aporta su presión como si estuviera solo.
+```
+
+### 22 — Presión parcial con la fracción molar
+
+```
+metadata:
+  materia: "quimica"
+  tema: "presiones_parciales"
+  nivel: "intermedio"
+  tags: ["calculo", "fraccion_molar"]
+
+variables:
+  nA: random(1, 6)
+  nB: random(1, 6)
+  P: uno_de([2, 3, 4, 6])
+
+respuesta: nA / (nA + nB) * P
+tipo: input
+unidad: "atm"
+tolerancia: 1%
+
+enunciado: "Una mezcla tiene {nA} mol de gas A y {nB} mol de gas B, con una presión total de {P} atm. ¿Cuál es la presión parcial de A? (podés redondear a dos decimales)"
+
+pasos:
+  - "n total = {nA} + {nB} = {nA + nB} mol"
+  - "X_A = {nA} / {nA + nB} ≈ {nA / (nA + nB) | 3}"
+  - "P_A = X_A × P total = {nA / (nA + nB) | 3} × {P} ≈ {nA / (nA + nB) * P | 2} atm"
+
+explicacion: |
+  La presión parcial es la parte de la presión total que corresponde a la fracción de moles de ese gas.
+```
+
+### 23 — Fracción molar
+
+```
+metadata:
+  materia: "quimica"
+  tema: "presiones_parciales"
+  nivel: "basico"
+  tags: ["calculo", "fraccion_molar"]
+
+variables:
+  nA: random(1, 9)
+  nB: random(1, 9)
+
+respuesta: nA / (nA + nB)
+tipo: input
+unidad: ""
+tolerancia: 1%
+
+enunciado: "En una mezcla hay {nA} mol de oxígeno y {nB} mol de nitrógeno. ¿Cuál es la fracción molar del oxígeno? (podés redondear a tres decimales)"
+
+pasos:
+  - "X = moles del gas / moles totales"
+  - "X = {nA} / ({nA} + {nB}) = {nA} / {nA + nB} ≈ {nA / (nA + nB) | 3}"
+
+explicacion: |
+  La fracción molar no tiene unidades y las de todos los gases suman 1.
+```
+
+### 24 — Presión parcial de un gas que falta
+
+```
+metadata:
+  materia: "quimica"
+  tema: "presiones_parciales"
+  nivel: "intermedio"
+  tags: ["calculo", "dalton"]
+
+variables:
+  P: uno_de([3, 5, 8, 10])
+  p1: random_float(0.5, 2, 1)
+  p2: random_float(0.5, 1, 1)
+
+respuesta: P - p1 - p2
+tipo: input
+unidad: "atm"
+tolerancia: 1%
+
+enunciado: "Un tanque con tres gases tiene una presión total de {P} atm. Dos de ellos aportan {p1} atm y {p2} atm. ¿Cuál es la presión parcial del tercero?"
+
+pasos:
+  - "P3 = P total − P1 − P2"
+  - "P3 = {P} − {p1} − {p2} = {P - p1 - p2 | 1} atm"
+
+explicacion: |
+  Si se conoce el total y todas las presiones menos una, la que falta sale restando.
+```
+
+### 25 — El aire que respiramos
+
+```
+metadata:
+  materia: "quimica"
+  tema: "presiones_parciales"
+  nivel: "basico"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  P: uno_de([1, 0.7, 2, 3])
+
+respuesta: 0.21 * P
+tipo: input
+unidad: "atm"
+tolerancia: 1%
+
+enunciado: "El aire tiene un 21 % de oxígeno (fracción molar 0,21). ¿Cuál es la presión parcial del oxígeno si la presión del aire es {P} atm? (podés redondear a tres decimales)"
+
+pasos:
+  - "P_O2 = X_O2 × P total = 0,21 × {P} = {0.21 * P | 3} atm"
+
+explicacion: |
+  En la montaña (presión menor) hay menos oxígeno por bocanada; al bucear, con más presión, hay más.
+```
+
+### 26 — Cuál aporta más presión
+
+```
+metadata:
+  materia: "quimica"
+  tema: "presiones_parciales"
+  nivel: "basico"
+  tags: ["comparacion", "verdadero_falso"]
+
+variables:
+  nA: random(1, 8)
+  nB: random(1, 8)
+
+respuesta: nA > nB
+tipo: vf
+
+enunciado: "En una mezcla hay {nA} mol de gas A y {nB} mol de gas B. ¿La presión parcial de A es mayor que la de B?"
+
+pasos:
+  - "Las presiones parciales son proporcionales a los moles: compará {nA} con {nB}."
+
+explicacion: |
+  Con la misma temperatura y volumen, el gas con más moles aporta más presión.
 ```

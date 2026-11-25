@@ -62,3 +62,22 @@ calor). En una **endotérmica**, los productos quedan **más arriba**
 (absorbieron energía para llegar ahí). En ambos casos puede haber una
 "joroba" intermedia (energía de activación) — pero esa parte es tema de
 `../cinetica-reaccion/`, no de termoquímica.
+
+## 5. Ejemplos resueltos
+
+**Combustión del metano** (el gas de la cocina):
+
+```
+CH₄ + 2 O₂ → CO₂ + 2 H₂O
+
+ΔH_f:  CH₄ = −75 kJ/mol   O₂ = 0   CO₂ = −394 kJ/mol   H₂O (líquida) = −286 kJ/mol
+
+productos:  1 × (−394) + 2 × (−286) = −966 kJ
+reactivos:  1 × (−75)  + 2 × 0      = −75 kJ
+
+ΔH = −966 − (−75) = −891 kJ por mol de metano
+```
+
+El signo negativo indica que la reacción es **exotérmica**: cada mol de metano que se quema libera 891 kJ. Un mol de
+metano son 16 g, así que quemar 1 kg (unos 62,5 mol) libera unos 55 700 kJ.
+

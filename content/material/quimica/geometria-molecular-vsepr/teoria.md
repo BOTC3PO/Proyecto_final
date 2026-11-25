@@ -57,3 +57,19 @@ Regla práctica: geometrías perfectamente simétricas (lineal con
 extremos iguales, trigonal plana con 3 iguales, tetraédrica con 4
 iguales) cancelan la polaridad neta; cualquier asimetría (par libre,
 átomos distintos en las puntas) deja polaridad neta.
+
+## 5. Ejemplos resueltos
+
+**Contar pares para predecir la forma.** El átomo central del amoníaco (NH₃) es el nitrógeno, con 5 electrones de
+valencia.
+
+```
+Enlaces con H:            3  (usan 3 de los 5 electrones del N)
+Electrones que sobran:    5 − 3 = 2  →  1 par libre
+Total de pares:           3 enlaces + 1 par libre = 4  →  base tetraédrica
+Forma visible:            piramidal trigonal (~107°)
+```
+
+**El agua (H₂O).** El oxígeno tiene 6 electrones de valencia: 2 forman enlaces con los H y sobran 4, o sea 2 pares
+libres. Total: 4 pares → base tetraédrica, forma angular (~104,5°).
+

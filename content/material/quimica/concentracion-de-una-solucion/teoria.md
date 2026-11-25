@@ -83,3 +83,22 @@ La concentración es la magnitud detrás de cualquier mezcla dosificada:
 medicamentos, productos de limpieza diluidos, bebidas alcohólicas, o el
 control de contaminantes en agua potable, donde ley y salud pública fijan
 límites máximos en ppm.
+
+## Ejemplos resueltos
+
+**Agua con azúcar.** Se disuelven 30 g de azúcar y se completa con agua hasta 250 mL de solución.
+
+```
+%m/V = (30 g / 250 mL) × 100 = 12 %m/V
+```
+
+Es decir, hay 12 g de azúcar por cada 100 mL de solución.
+
+**Al revés: cuánto soluto hace falta.** Para preparar 500 mL de suero al 0,9 %m/V:
+
+```
+masa de soluto = %m/V × volumen / 100 = 0,9 × 500 / 100 = 4,5 g de sal
+```
+
+**Un vino.** Una botella de 750 mL dice 12 %V/V: contiene 750 × 12 / 100 = 90 mL de alcohol.
+

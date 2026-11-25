@@ -1,4 +1,4 @@
-# Química — Dilución de soluciones: C1V1 = C2V2 (cuestionario, 20 preguntas VBLang)
+# Química — Dilución de soluciones: C1V1 = C2V2 (cuestionario, 26 preguntas VBLang)
 
 > Tema: `QDIL`. Ver `teoria.md` en esta misma carpeta.
 
@@ -417,4 +417,172 @@ enunciado: "Evaporar solvente de una solución (sin agregar ni quitar soluto) es
 
 explicacion: |
   Falso. Evaporar solvente reduce el volumen y AUMENTA la concentración — es el proceso contrario (concentrar), no diluir.
+```
+
+### 21 — Volumen final al diluir (C1 · V1 = C2 · V2)
+
+```
+metadata:
+  materia: "quimica"
+  tema: "dilucion_soluciones"
+  nivel: "basico"
+  tags: ["calculo", "dilucion"]
+
+variables:
+  C1: uno_de([10, 12, 20, 30, 40])
+  V1: uno_de([10, 20, 50, 100])
+  k: uno_de([2, 4, 5, 10])
+
+respuesta: V1 * k
+tipo: input
+unidad: "mL"
+tolerancia_abs: 0
+
+enunciado: "Se tienen {V1} mL de una solución al {C1} %. ¿Hasta qué volumen hay que diluirla para que quede al {C1 / k} %?"
+
+pasos:
+  - "V2 = C1 · V1 / C2"
+  - "V2 = {C1} × {V1} / {C1 / k} = {V1 * k} mL"
+
+explicacion: |
+  La cantidad de soluto no cambia: si la concentración baja a la mitad, el volumen se duplica.
+```
+
+### 22 — Concentración final
+
+```
+metadata:
+  materia: "quimica"
+  tema: "dilucion_soluciones"
+  nivel: "basico"
+  tags: ["calculo", "dilucion"]
+
+variables:
+  C1: uno_de([2, 3, 6])
+  V1: uno_de([50, 100, 200])
+  k: uno_de([2, 3, 4])
+
+respuesta: C1 / k
+tipo: input
+unidad: "M"
+tolerancia: 1%
+
+enunciado: "Se toman {V1} mL de una solución {C1} M y se agrega agua hasta {V1 * k} mL. ¿Cuál es la nueva concentración, en M? (podés redondear a dos decimales)"
+
+pasos:
+  - "C2 = C1 · V1 / V2"
+  - "C2 = {C1} × {V1} / {V1 * k} = {C1 / k | 2} M"
+
+explicacion: |
+  Agregar agua reparte el mismo soluto en más volumen.
+```
+
+### 23 — Cuánto tomar de la solución madre
+
+```
+metadata:
+  materia: "quimica"
+  tema: "dilucion_soluciones"
+  nivel: "intermedio"
+  tags: ["calculo", "dilucion"]
+
+variables:
+  C1: uno_de([5, 10, 12])
+  C2: uno_de([0.5, 1, 2])
+  V2: uno_de([100, 250, 500, 1000])
+
+respuesta: C2 * V2 / C1
+tipo: input
+unidad: "mL"
+tolerancia: 1%
+
+enunciado: "Hay que preparar {V2} mL de una solución {C2} M a partir de una solución madre {C1} M. ¿Cuántos mL de la solución madre hay que tomar? (podés redondear a un decimal)"
+
+pasos:
+  - "V1 = C2 · V2 / C1"
+  - "V1 = {C2} × {V2} / {C1} ≈ {C2 * V2 / C1 | 1} mL"
+
+explicacion: |
+  Así se trabaja en el laboratorio: se mide un poco de la solución concentrada y se completa con agua.
+```
+
+### 24 — Cuánta agua agregar
+
+```
+metadata:
+  materia: "quimica"
+  tema: "dilucion_soluciones"
+  nivel: "intermedio"
+  tags: ["calculo", "dilucion"]
+
+variables:
+  V1: uno_de([20, 50, 100])
+  k: uno_de([2, 3, 5, 10])
+
+respuesta: V1 * k - V1
+tipo: input
+unidad: "mL"
+tolerancia_abs: 0
+
+enunciado: "Para que {V1} mL de una solución queden {k} veces menos concentrados, ¿cuántos mL de agua hay que agregar?"
+
+pasos:
+  - "Volumen final: {V1} × {k} = {V1 * k} mL"
+  - "Agua a agregar: {V1 * k} − {V1} = {V1 * k - V1} mL"
+
+explicacion: |
+  La fórmula da el volumen final; el agua que se agrega es la diferencia con el inicial.
+```
+
+### 25 — La lavandina
+
+```
+metadata:
+  materia: "quimica"
+  tema: "dilucion_soluciones"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  V2: uno_de([1000, 2000, 5000])
+  C2: uno_de([0.1, 0.2, 0.5])
+
+respuesta: C2 * V2 / 5
+tipo: input
+unidad: "mL"
+tolerancia: 1%
+
+enunciado: "La lavandina comercial tiene un 5 % de cloro activo. Para limpiar se recomienda una solución al {C2} %. ¿Cuántos mL de lavandina hay que poner para preparar {V2} mL de solución?"
+
+pasos:
+  - "V1 = C2 · V2 / C1"
+  - "V1 = {C2} × {V2} / 5 = {C2 * V2 / 5} mL"
+
+explicacion: |
+  Las indicaciones de «una cucharada por litro» salen de este cálculo.
+```
+
+### 26 — El jugo concentrado
+
+```
+metadata:
+  materia: "quimica"
+  tema: "dilucion_soluciones"
+  nivel: "basico"
+  tags: ["comparacion", "verdadero_falso", "cotidiano"]
+
+variables:
+  V1: uno_de([100, 200])
+  V2: uno_de([500, 1000, 1500])
+
+respuesta: V2 / V1 >= 5
+tipo: vf
+
+enunciado: "Un jugo concentrado dice «diluir 1 en 5» (una parte de jugo en cinco partes de bebida final). Si se ponen {V1} mL de concentrado y se completa hasta {V2} mL, ¿queda igual o más diluido de lo indicado?"
+
+pasos:
+  - "Factor de dilución: {V2} / {V1} = {V2 / V1 | 1}"
+
+explicacion: |
+  El factor de dilución es V2 / V1: cuanto más grande, más diluido.
 ```

@@ -1,4 +1,4 @@
-# Química — Termoquímica (cuestionario, 20 preguntas VBLang)
+# Química — Termoquímica (cuestionario, 26 preguntas VBLang)
 
 > Tema: `QO`. Ver `teoria.md` en esta misma carpeta.
 
@@ -390,4 +390,167 @@ enunciado: "El ΔH de una reacción es una propiedad fija que no depende de cuá
 
 explicacion: |
   Falso. El ΔH tabulado corresponde a la reacción tal como está balanceada (con esos coeficientes); si reacciona el doble de moles, el calor total intercambiado también se duplica.
+```
+
+### 21 — Entalpía de reacción con entalpías de formación
+
+```
+metadata:
+  materia: "quimica"
+  tema: "termoquimica"
+  nivel: "intermedio"
+  tags: ["calculo", "entalpia"]
+
+variables:
+  hp: random(-500, -100)
+  hr: random(-300, -20)
+
+respuesta: hp - hr
+tipo: input
+unidad: "kJ"
+tolerancia_abs: 0
+
+enunciado: "En una reacción, la suma de las entalpías de formación de los productos es {hp} kJ y la de los reactivos es {hr} kJ. ¿Cuál es el ΔH de la reacción?"
+
+pasos:
+  - "ΔH = Σ productos − Σ reactivos"
+  - "ΔH = ({hp}) − ({hr}) = {hp - hr} kJ"
+
+explicacion: |
+  Si el resultado es negativo, la reacción libera calor (exotérmica).
+```
+
+### 22 — Calor liberado según la cantidad
+
+```
+metadata:
+  materia: "quimica"
+  tema: "termoquimica"
+  nivel: "intermedio"
+  tags: ["calculo", "estequiometria"]
+
+variables:
+  n: uno_de([0.5, 2, 3, 5, 10])
+
+respuesta: n * 891
+tipo: input
+unidad: "kJ"
+tolerancia: 1%
+
+enunciado: "La combustión del metano libera 891 kJ por mol (ΔH = −891 kJ/mol). ¿Cuánto calor se libera al quemar {n} mol, en kJ?"
+
+pasos:
+  - "Calor = moles × calor por mol"
+  - "Calor = {n} × 891 = {n * 891} kJ"
+
+explicacion: |
+  El ΔH es por mol de reacción: con el doble de combustible sale el doble de calor.
+```
+
+### 23 — Ley de Hess
+
+```
+metadata:
+  materia: "quimica"
+  tema: "termoquimica"
+  nivel: "avanzado"
+  tags: ["calculo", "hess"]
+
+variables:
+  h1: random(-400, -50)
+  h2: random(-300, 100)
+
+respuesta: h1 + h2
+tipo: input
+unidad: "kJ"
+tolerancia_abs: 0
+
+enunciado: "Una reacción se puede hacer en dos pasos: el primero tiene ΔH₁ = {h1} kJ y el segundo ΔH₂ = {h2} kJ. ¿Cuál es el ΔH de la reacción completa?"
+
+pasos:
+  - "Ley de Hess: el ΔH total es la suma de los pasos."
+  - "ΔH = ({h1}) + ({h2}) = {h1 + h2} kJ"
+
+explicacion: |
+  La entalpía depende solo del estado inicial y final, no del camino.
+```
+
+### 24 — Invertir una reacción
+
+```
+metadata:
+  materia: "quimica"
+  tema: "termoquimica"
+  nivel: "intermedio"
+  tags: ["calculo", "hess"]
+
+variables:
+  h: random(-600, -50)
+  k: uno_de([1, 2, 3])
+
+respuesta: -h * k
+tipo: input
+unidad: "kJ"
+tolerancia_abs: 0
+
+enunciado: "Una reacción tiene ΔH = {h} kJ. Si se escribe al revés y multiplicada por {k}, ¿cuánto vale su ΔH?"
+
+pasos:
+  - "Invertir cambia el signo: −({h}) = {-h} kJ"
+  - "Multiplicar por {k} multiplica el ΔH: {-h} × {k} = {-h * k} kJ"
+
+explicacion: |
+  Son las dos reglas para combinar ecuaciones con la ley de Hess.
+```
+
+### 25 — Calentar agua con gas
+
+```
+metadata:
+  materia: "quimica"
+  tema: "termoquimica"
+  nivel: "avanzado"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  L: uno_de([1, 2, 5])
+  dT: uno_de([60, 70, 80])
+
+respuesta: L * 4.18 * dT / 891
+tipo: input
+unidad: "mol"
+tolerancia: 2%
+
+enunciado: "Para calentar {L} litro(s) de agua {dT} °C hacen falta {L} × 4,18 × {dT} kJ. ¿Cuántos moles de metano hay que quemar como mínimo? (el metano libera 891 kJ/mol; podés redondear a dos decimales)"
+
+pasos:
+  - "Calor necesario: {L} × 4,18 × {dT} = {L * 4.18 * dT | 1} kJ"
+  - "Moles: {L * 4.18 * dT | 1} / 891 ≈ {L * 4.18 * dT / 891 | 2} mol"
+
+explicacion: |
+  En la práctica hace falta más gas, porque parte del calor se pierde en el aire y en la olla.
+```
+
+### 26 — ¿Exotérmica o endotérmica?
+
+```
+metadata:
+  materia: "quimica"
+  tema: "termoquimica"
+  nivel: "basico"
+  tags: ["clasificacion", "verdadero_falso"]
+
+variables:
+  h: uno_de([-891, -286, -57, 44, 178, 90])
+
+respuesta: h < 0
+tipo: vf
+
+enunciado: "Una reacción tiene ΔH = {h} kJ/mol. ¿Es exotérmica (libera calor)?"
+
+pasos:
+  - "Exotérmica: ΔH < 0. Endotérmica: ΔH > 0. Acá ΔH = {h} kJ/mol."
+
+explicacion: |
+  El signo del ΔH se mira desde el sistema: negativo significa que la energía sale hacia el entorno.
 ```

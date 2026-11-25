@@ -1,4 +1,4 @@
-# Química — Propiedades coligativas (cuestionario, 20 preguntas VBLang)
+# Química — Propiedades coligativas (cuestionario, 26 preguntas VBLang)
 
 > Temas: `QCOLIGa/b/c`. Ver `teoria.md` en esta misma carpeta.
 
@@ -401,4 +401,166 @@ enunciado: "Comparado con agua pura, ¿qué le pasa al punto de congelación y a
 
 explicacion: |
   El soluto baja el punto de congelación (descenso crioscópico) y sube el punto de ebullición (ascenso ebulloscópico) — van en direcciones opuestas.
+```
+
+### 21 — Descenso del punto de congelamiento
+
+```
+metadata:
+  materia: "quimica"
+  tema: "propiedades_coligativas"
+  nivel: "basico"
+  tags: ["calculo", "crioscopia"]
+
+variables:
+  m: uno_de([0.5, 1, 1.5, 2, 3])
+
+respuesta: 1.86 * m
+tipo: input
+unidad: "°C"
+tolerancia: 1%
+
+enunciado: "¿Cuántos grados baja el punto de congelamiento del agua con una solución de molalidad {m} mol/kg? (K_c del agua = 1,86 °C·kg/mol)"
+
+pasos:
+  - "ΔT = K_c × m"
+  - "ΔT = 1,86 × {m} = {1.86 * m | 2} °C"
+
+explicacion: |
+  Cuanto más soluto disuelto, más frío hace falta para congelar.
+```
+
+### 22 — Ascenso del punto de ebullición
+
+```
+metadata:
+  materia: "quimica"
+  tema: "propiedades_coligativas"
+  nivel: "basico"
+  tags: ["calculo", "ebulloscopia"]
+
+variables:
+  m: uno_de([0.5, 1, 2, 4])
+
+respuesta: 100 + 0.52 * m
+tipo: input
+unidad: "°C"
+tolerancia_abs: 0.01
+
+enunciado: "¿A qué temperatura hierve una solución acuosa de molalidad {m} mol/kg a 1 atm? (K_e del agua = 0,52 °C·kg/mol)"
+
+pasos:
+  - "ΔT = K_e × m = 0,52 × {m} = {0.52 * m | 2} °C"
+  - "T ebullición = 100 + {0.52 * m | 2} = {100 + 0.52 * m | 2} °C"
+
+explicacion: |
+  El soluto hace que al agua le cueste más evaporarse: hierve a una temperatura más alta.
+```
+
+### 23 — Calcular la molalidad
+
+```
+metadata:
+  materia: "quimica"
+  tema: "propiedades_coligativas"
+  nivel: "intermedio"
+  tags: ["calculo", "molalidad"]
+
+variables:
+  n: uno_de([0.5, 1, 2, 3])
+  kg: uno_de([0.25, 0.5, 1, 2])
+
+respuesta: n / kg
+tipo: input
+unidad: "mol/kg"
+tolerancia: 1%
+
+enunciado: "Se disuelven {n} mol de azúcar en {kg} kg de agua. ¿Cuál es la molalidad?"
+
+pasos:
+  - "m = moles de soluto / kg de solvente"
+  - "m = {n} / {kg} = {n / kg} mol/kg"
+
+explicacion: |
+  La molalidad se mide por kilo de solvente (no de solución) porque no cambia con la temperatura.
+```
+
+### 24 — Sal en vez de azúcar
+
+```
+metadata:
+  materia: "quimica"
+  tema: "propiedades_coligativas"
+  nivel: "avanzado"
+  tags: ["calculo", "electrolitos"]
+
+variables:
+  m: uno_de([0.5, 1, 1.5, 2])
+
+respuesta: 1.86 * m * 2
+tipo: input
+unidad: "°C"
+tolerancia: 1%
+
+enunciado: "Se disuelve sal de mesa (NaCl) con molalidad {m} mol/kg. Cada unidad de NaCl se separa en 2 iones. ¿Cuántos grados baja el punto de congelamiento del agua? (K_c = 1,86 °C·kg/mol)"
+
+pasos:
+  - "Partículas: {m} × 2 = {m * 2} mol/kg"
+  - "ΔT = 1,86 × {m * 2} = {1.86 * m * 2 | 2} °C"
+
+explicacion: |
+  Lo que cuenta es la cantidad de partículas: una sal que se separa en iones vale doble.
+```
+
+### 25 — La sal en la ruta
+
+```
+metadata:
+  materia: "quimica"
+  tema: "propiedades_coligativas"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  m: uno_de([1, 2, 3])
+
+respuesta: -(1.86 * m * 2)
+tipo: input
+unidad: "°C"
+tolerancia: 1%
+
+enunciado: "En una ruta de montaña se echa sal sobre el hielo. Si el agua queda con {m} mol de NaCl por kg (cada NaCl da 2 iones), ¿a qué temperatura se congela ahora? (K_c = 1,86 °C·kg/mol)"
+
+pasos:
+  - "Partículas: {m} × 2 = {m * 2} mol/kg"
+  - "ΔT = 1,86 × {m * 2} = {1.86 * m * 2 | 2} °C"
+  - "Punto de congelamiento: 0 − {1.86 * m * 2 | 2} = −{1.86 * m * 2 | 2} °C"
+
+explicacion: |
+  Mientras la temperatura no baje de ese valor, el agua salada no se congela: por eso se usa sal en rutas con hielo.
+```
+
+### 26 — ¿Cuál se congela a menor temperatura?
+
+```
+metadata:
+  materia: "quimica"
+  tema: "propiedades_coligativas"
+  nivel: "intermedio"
+  tags: ["comparacion", "verdadero_falso"]
+
+variables:
+  ma: uno_de([1, 2, 3])
+  ms: uno_de([0.5, 1, 2])
+
+respuesta: (ms * 2) > ma
+tipo: vf
+
+enunciado: "La solución A tiene {ma} mol/kg de azúcar; la B, {ms} mol/kg de sal (NaCl, que da 2 iones). ¿B se congela a una temperatura más baja que A?"
+
+pasos:
+  - "Partículas en A: {ma} mol/kg; en B: {ms} × 2 = {ms * 2} mol/kg"
+
+explicacion: |
+  Se congela más abajo la que tiene más partículas disueltas, sin importar de qué sustancia sean.
 ```

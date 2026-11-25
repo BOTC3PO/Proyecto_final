@@ -1,4 +1,4 @@
-# Química — Cinética de reacción (cuestionario, 20 preguntas VBLang)
+# Química — Cinética de reacción (cuestionario, 26 preguntas VBLang)
 
 > Tema: `QQ`. Ver `teoria.md` en esta misma carpeta.
 
@@ -383,4 +383,172 @@ enunciado: "Guardar comida en la heladera retrasa su descomposición porque baja
 
 explicacion: |
   Correcto. A menor temperatura, menos partículas alcanzan la energía de activación necesaria para las reacciones de descomposición: todo va más lento.
+```
+
+### 21 — Velocidad media de reacción
+
+```
+metadata:
+  materia: "quimica"
+  tema: "cinetica_reaccion"
+  nivel: "basico"
+  tags: ["calculo", "velocidad"]
+
+variables:
+  v: uno_de([0.01, 0.02, 0.05, 0.1])
+  t: uno_de([5, 10, 20])
+  c2: uno_de([0.1, 0.2, 0.3])
+  c1: c2 + v * t
+
+respuesta: v
+tipo: input
+unidad: "M/s"
+tolerancia: 1%
+
+enunciado: "La concentración de un reactivo baja de {c1 | 2} M a {c2} M en {t} segundos. ¿Cuál es la velocidad media de la reacción, en M/s?"
+
+pasos:
+  - "velocidad = Δ[concentración] / Δt"
+  - "velocidad = ({c1 | 2} − {c2}) / {t} = {v * t | 2} / {t} = {v} M/s"
+
+explicacion: |
+  La velocidad mide cuánto cambia la concentración por cada segundo.
+```
+
+### 22 — Cuánto tarda
+
+```
+metadata:
+  materia: "quimica"
+  tema: "cinetica_reaccion"
+  nivel: "intermedio"
+  tags: ["calculo", "tiempo"]
+
+variables:
+  v: uno_de([0.01, 0.02, 0.05])
+  t: random(5, 40)
+  dc: v * t
+
+respuesta: t
+tipo: input
+unidad: "s"
+tolerancia: 1%
+
+enunciado: "Una reacción consume un reactivo a una velocidad media de {v} M/s. ¿Cuántos segundos tarda en bajar su concentración {dc | 2} M?"
+
+pasos:
+  - "Δt = Δ[concentración] / velocidad"
+  - "Δt = {dc | 2} / {v} = {t} s"
+
+explicacion: |
+  Con la velocidad y el cambio de concentración se despeja el tiempo.
+```
+
+### 23 — Concentración después de un tiempo
+
+```
+metadata:
+  materia: "quimica"
+  tema: "cinetica_reaccion"
+  nivel: "intermedio"
+  tags: ["calculo", "concentracion"]
+
+variables:
+  c0: uno_de([1, 1.5, 2])
+  v: uno_de([0.01, 0.02])
+  t: random(5, 40)
+
+respuesta: c0 - v * t
+tipo: input
+unidad: "M"
+tolerancia: 1%
+
+enunciado: "Un reactivo empieza en {c0} M y se consume a una velocidad media de {v} M/s. ¿Qué concentración queda después de {t} segundos?"
+
+pasos:
+  - "Se consumió: {v} × {t} = {v * t | 2} M"
+  - "Queda: {c0} − {v * t | 2} = {c0 - v * t | 2} M"
+
+explicacion: |
+  Velocidad por tiempo da cuánto reactivo se gastó.
+```
+
+### 24 — Regla de los 10 grados
+
+```
+metadata:
+  materia: "quimica"
+  tema: "cinetica_reaccion"
+  nivel: "intermedio"
+  tags: ["calculo", "temperatura"]
+
+variables:
+  n: random(1, 4)
+  t1: uno_de([10, 20, 25])
+
+respuesta: 2 ^ n
+tipo: input
+unidad: "veces"
+tolerancia_abs: 0
+
+enunciado: "Si cada aumento de 10 °C duplica la velocidad de una reacción, ¿cuántas veces más rápida es a {t1 + 10 * n} °C que a {t1} °C?"
+
+pasos:
+  - "Saltos de 10 °C: ({t1 + 10 * n} − {t1}) / 10 = {n}"
+  - "Factor: 2^{n} = {2 ^ n}"
+
+explicacion: |
+  Cada salto multiplica por 2, así que los saltos se acumulan como potencias de 2.
+```
+
+### 25 — La heladera
+
+```
+metadata:
+  materia: "quimica"
+  tema: "cinetica_reaccion"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  d: uno_de([1, 2, 3])
+
+respuesta: d * 4
+tipo: input
+unidad: "días"
+tolerancia_abs: 0
+
+enunciado: "Un alimento se echa a perder en {d} día(s) a 25 °C. Si cada 10 °C menos las reacciones van a la mitad de velocidad, ¿cuántos días dura en la heladera a 5 °C?"
+
+pasos:
+  - "De 25 °C a 5 °C hay 2 saltos de 10 °C: la velocidad se divide por 2 × 2 = 4."
+  - "Dura 4 veces más: {d} × 4 = {d * 4} días"
+
+explicacion: |
+  Es una estimación: cada alimento tiene sus propias reacciones, pero la idea de enfriar para frenarlas es la misma.
+```
+
+### 26 — El catalizador
+
+```
+metadata:
+  materia: "quimica"
+  tema: "cinetica_reaccion"
+  nivel: "basico"
+  tags: ["catalizador", "verdadero_falso"]
+
+variables:
+  ea: random(80, 150)
+  eac: random(30, 70)
+
+respuesta: eac < ea
+tipo: vf
+
+enunciado: "Sin catalizador, una reacción tiene una energía de activación de {ea} kJ/mol; con catalizador, de {eac} kJ/mol. ¿El catalizador hace más rápida la reacción?"
+
+pasos:
+  - "Compará: {eac} kJ/mol con catalizador contra {ea} kJ/mol sin él."
+
+explicacion: |
+  Con menos energía de activación, más choques entre moléculas alcanzan para reaccionar: la reacción va más rápido.
 ```

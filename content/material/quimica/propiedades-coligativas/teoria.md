@@ -75,3 +75,17 @@ ver `../gases-ideales/`).
 **Ejemplo cotidiano**: por eso una célula puesta en agua muy pura (sin
 sal) se hincha y puede explotar — el agua entra buscando igualar la
 concentración de sales de adentro.
+
+## 5. Ejemplos resueltos
+
+**Agua con sal para el fideo.** Se disuelven 2 mol de partículas de soluto en 1 kg de agua (molalidad m = 2 mol/kg).
+Para el agua, K_c = 1,86 °C·kg/mol y K_e = 0,52 °C·kg/mol.
+
+```
+ΔT_congelamiento = 1,86 × 2 = 3,72 °C   →  se congela a −3,72 °C
+ΔT_ebullicion    = 0,52 × 2 = 1,04 °C   →  hierve a 101,04 °C
+```
+
+**Ojo con las sales.** Un mol de sal de mesa (NaCl) se separa en dos iones (Na⁺ y Cl⁻): aporta 2 moles de partículas.
+Por eso 1 mol de sal por kilo de agua baja el punto de congelamiento lo mismo que 2 moles de azúcar.
+

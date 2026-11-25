@@ -1,4 +1,4 @@
-# Química — Geometría molecular: teoría VSEPR (cuestionario, 20 preguntas VBLang)
+# Química — Geometría molecular: teoría VSEPR (cuestionario, 26 preguntas VBLang)
 
 > Tema: `QG2`. Ver `teoria.md` en esta misma carpeta.
 
@@ -389,4 +389,170 @@ enunciado: "¿Cuál de las siguientes moléculas es polar debido a una geometrí
 
 explicacion: |
   El NH₃ tiene geometría piramidal trigonal (asimétrica, por el par libre del nitrógeno), lo que deja un momento dipolar neto. CO2, CH4 y BF3 son todas geometrías simétricas que cancelan la polaridad.
+```
+
+### 21 — Pares libres del átomo central
+
+```
+metadata:
+  materia: "quimica"
+  tema: "geometria_molecular_vsepr"
+  nivel: "intermedio"
+  tags: ["calculo", "pares_libres"]
+
+variables:
+  mol: ["CH₄", "NH₃", "H₂O", "H₂S", "PH₃"]
+  cen: ["C", "N", "O", "S", "P"]
+  val: [4, 5, 6, 6, 5]
+  enl: [4, 3, 2, 2, 3]
+  i: random(0, 4)
+
+respuesta: (val[i] - enl[i]) / 2
+tipo: input
+unidad: "pares"
+tolerancia_abs: 0
+
+enunciado: "En la molécula {mol[i]}, el átomo central ({cen[i]}) tiene {val[i]} electrones de valencia y forma {enl[i]} enlaces simples. ¿Cuántos pares libres le quedan?"
+
+pasos:
+  - "Electrones que sobran: {val[i]} − {enl[i]} = {val[i] - enl[i]}"
+  - "Pares libres: {val[i] - enl[i]} / 2 = {(val[i] - enl[i]) / 2}"
+
+explicacion: |
+  Cada enlace simple usa un electrón del átomo central; los que sobran se agrupan de a dos.
+```
+
+### 22 — Total de pares alrededor del centro
+
+```
+metadata:
+  materia: "quimica"
+  tema: "geometria_molecular_vsepr"
+  nivel: "basico"
+  tags: ["calculo", "dominios"]
+
+variables:
+  e: random(2, 4)
+  l: random(0, 2)
+
+respuesta: e + l
+tipo: input
+unidad: "pares"
+tolerancia_abs: 0
+
+enunciado: "Un átomo central forma {e} enlaces y tiene {l} pares libres. ¿Cuántos pares de electrones (dominios) tiene alrededor?"
+
+pasos:
+  - "Total = enlaces + pares libres = {e} + {l} = {e + l}"
+
+explicacion: |
+  Para VSEPR, un par libre ocupa lugar igual que un enlace: los dos cuentan.
+```
+
+### 23 — Ángulo según la geometría
+
+```
+metadata:
+  materia: "quimica"
+  tema: "geometria_molecular_vsepr"
+  nivel: "basico"
+  tags: ["angulos", "calculo"]
+
+variables:
+  datos: [[2, 180], [3, 120], [4, 109.5]]
+  i: random(0, 2)
+
+respuesta: datos[i][1]
+tipo: input
+unidad: "°"
+tolerancia_abs: 0
+
+enunciado: "Un átomo central tiene {datos[i][0]} pares de electrones, todos enlazantes. ¿Cuál es el ángulo entre los enlaces, en grados?"
+
+pasos:
+  - "{datos[i][0]} pares se separan al máximo: el ángulo es {datos[i][1]}°."
+
+explicacion: |
+  2 pares: lineal (180°); 3: trigonal plana (120°); 4: tetraédrica (109,5°).
+```
+
+### 24 — Geometría a partir de los pares
+
+```
+metadata:
+  materia: "quimica"
+  tema: "geometria_molecular_vsepr"
+  nivel: "intermedio"
+  tags: ["geometria", "pares_libres"]
+
+variables:
+  tot: [4, 4, 4, 3, 2]
+  lib: [0, 1, 2, 0, 0]
+  geo: ["tetraédrica", "piramidal trigonal", "angular", "trigonal plana", "lineal"]
+  i: random(0, 4)
+
+respuesta: geo[i]
+tipo: mc
+opciones_explicitas: ["tetraédrica", "piramidal trigonal", "angular", "trigonal plana", "lineal"]
+
+enunciado: "Un átomo central tiene {tot[i]} pares de electrones en total, de los cuales {lib[i]} son libres. ¿Qué forma tiene la molécula?"
+
+pasos:
+  - "Enlaces visibles: {tot[i]} − {lib[i]} = {tot[i] - lib[i]}"
+
+explicacion: |
+  El total de pares da la base; los pares libres no se «ven» y cambian la forma visible.
+```
+
+### 25 — El agua de la canilla
+
+```
+metadata:
+  materia: "quimica"
+  tema: "geometria_molecular_vsepr"
+  nivel: "intermedio"
+  tags: ["calculo", "cotidiano"]
+
+variables:
+  mol: ["el metano (CH₄, gas de la cocina)", "el amoníaco (NH₃, de los limpiadores)", "el agua (H₂O)"]
+  ang: [109.5, 107, 104.5]
+  i: random(0, 2)
+
+respuesta: 109.5 - ang[i]
+tipo: input
+unidad: "°"
+tolerancia_abs: 0
+
+enunciado: "En {mol[i]} el ángulo entre enlaces es de {ang[i]}°, y la base de los cuatro pares es tetraédrica (109,5°). ¿Cuántos grados se cierra el ángulo por los pares libres?"
+
+pasos:
+  - "Diferencia: 109,5 − {ang[i]} = {109.5 - ang[i]}°"
+
+explicacion: |
+  Sin pares libres (metano) no se cierra nada; con uno (amoníaco), unos 2,5°; con dos (agua), unos 5°. Esa forma angular hace que el agua sea polar y disuelva la sal y el azúcar.
+```
+
+### 26 — ¿Es polar?
+
+```
+metadata:
+  materia: "quimica"
+  tema: "geometria_molecular_vsepr"
+  nivel: "intermedio"
+  tags: ["polaridad", "verdadero_falso"]
+
+variables:
+  casos: [["CO₂", 0], ["H₂O", 1], ["CH₄", 0], ["NH₃", 1], ["BF₃", 0]]
+  i: random(0, 4)
+
+respuesta: casos[i][1] == 1
+tipo: vf
+
+enunciado: "¿La molécula {casos[i][0]} es polar en conjunto?"
+
+pasos:
+  - "Si la forma es simétrica con átomos iguales en las puntas, los dipolos se cancelan; si hay pares libres o asimetría, no."
+
+explicacion: |
+  CO₂, CH₄ y BF₃ son simétricas (no polares); H₂O y NH₃ tienen pares libres que rompen la simetría (polares).
 ```
