@@ -1,134 +1,136 @@
-# Proyecto Final — Plataforma educativa
+# Virtual Book — plataforma educativa
 
-Monorepo full-stack de una plataforma educativa: API en Express/TypeScript, web en
-React/Vite/TypeScript, app mobile en Expo (en desarrollo) y un paquete compartido de
-lenguaje (`vblang`).
+Plataforma que organiza el aprendizaje **por temas y no por grados**: cada tema es un módulo con teoría y evaluación,
+y un módulo se habilita cuando el alumno domina los temas que necesita. Incluye un temario propio de más de 2.300
+módulos, aulas para las escuelas, una app de Android y una app para estudiar sin internet.
 
-- **Estado:** en desarrollo activo.
-- **Última actualización:** 2026-05-30.
+- **Estado:** en producción en un servidor propio; salida pública con el dominio `virtualbook.com.ar` en preparación.
+- **Última actualización:** 2026-11-25.
 
-## Qué es
+## Qué incluye
 
-Plataforma educativa organizada como un monorepo con `pnpm` workspaces. El backend expone
-una API REST bajo `/api/*` respaldada por **PostgreSQL vía Prisma** (más algunas bases
-**SQLite** de solo lectura para diccionario y mapas). El frontend web consume esa API y
-comparte lógica de dominio con el paquete `@vb/vblang`.
+- **Temario oficial:** 2.133 temas de 36 materias (con oficios e idiomas), 225 exámenes jefe y 24 libros de teoría
+  extendida, unidos por prerrequisitos. Se recorre por caminos en el **mapa del temario** (`/mapa-temario`).
+- **Módulos y editor:** teoría con texto, mapas, líneas de tiempo, diagramas, gráficos, fórmulas y presentaciones;
+  cuestionarios con corrección automática; prerrequisitos y visibilidad. Páginas de apoyo: plantillas y su
+  biblioteca, datasets, libros, editor de bloques, de mapas, de líneas de tiempo y de presentaciones.
+- **VBLang:** formato propio para escribir preguntas con datos al azar, respuesta calculada, resolución paso a paso y
+  explicación. Diez tipos de pregunta (opción múltiple, verdadero o falso, completar, numérica, ordenar, marcar en un
+  mapa, análisis sintáctico, entre otros). Editor visual **Tiza**.
+- **Escuelas y aulas:** roles (alumno, profesor, padre o tutor, directivo, administrador), publicaciones, tareas y
+  entregas, asistencia, calificaciones, encuestas, calendario, mensajería con reporte, reportes y boletines.
+- **Economía virtual** con tienda de temas visuales, **cobro de cuotas** con Mercado Pago (comisión escalonada,
+  interés por mora, cooperadora), diccionario en 14 idiomas y lectura en voz alta.
+- **App de Android** (Expo) y **app sin conexión** (Tauri 2) para Windows, Linux y Android, pensada para las
+  netbooks Juana Manso y Conectar Igualdad: trae todo el temario y el diccionario de español, y sincroniza al volver
+  la red. Página pública de descargas en `/descargas`.
 
-## Layout del monorepo
+## Estructura del repositorio
 
 ```text
 .
-├─ api/                # Backend Express + TypeScript (Prisma + PostgreSQL)
+├─ api/                  # API REST: Express 5 + TypeScript, Prisma + PostgreSQL
 ├─ apps/
-│  ├─ web/             # Frontend React + Vite + TypeScript
-│  └─ mobile/          # App Expo / React Native (en desarrollo)
+│  ├─ web/               # Web: React 19 + Vite
+│  ├─ mobile/            # App de Android: Expo / React Native
+│  └─ offline/           # App sin conexión: Tauri 2 (API local en TypeScript, núcleo en Rust, «modo navegador»)
 ├─ packages/
-│  └─ vblang/          # Paquete compartido @vb/vblang (lógica de dominio)
-└─ docs/               # Documentación técnica y funcional (incluye docs/archive/)
+│  └─ vblang/            # @vb/vblang: parser, validador y generador de preguntas (lo usan la API y la web)
+├─ content/
+│  ├─ material/          # El temario: <materia>/<tema>/{teoria.md, cuestionario.md, herramientas/}
+│  │  └─ _qa_tools/      # Exportar el temario, validar cuestionarios y exámenes, generar el mapa
+│  └─ troncos.md         # Mapa de temas y prerrequisitos (los caminos)
+├─ docs/                 # Documentación técnica, legal, de pagos y planes (índice en docs/README.md)
+├─ tools/                # Compuertas de CI (auditoría de dependencias, lint), pruebas de carga, generador
+└─ .github/workflows/    # CI y compilación de la app sin conexión
 ```
 
-Workspaces declarados en `pnpm-workspace.yaml`: `apps/*`, `api`, `packages/*`.
+## Stack
 
-## Stack real
-
-- **Monorepo:** pnpm workspaces
-- **API:** Express 5 + TypeScript
-- **ORM / DB principal:** Prisma 7.7 + PostgreSQL (driver adapter `@prisma/adapter-pg`)
-- **DB auxiliares:** SQLite de solo lectura para diccionario (`/api/dictionary`) y mapas (`/api/maps`)
-- **Web:** React 19 + Vite 7 + TypeScript
-- **Mobile:** Expo / React Native (en desarrollo)
-- **Compartido:** `@vb/vblang` (`packages/vblang`)
+| Parte | Tecnología |
+|---|---|
+| Monorepo | pnpm workspaces (`apps/*`, `api`, `packages/*`) |
+| API | Node.js 22, Express 5.2, TypeScript 5.9, Prisma 7.10 con `@prisma/adapter-pg` |
+| Base de datos | PostgreSQL 16; SQLite de solo lectura para el diccionario y los mapas; Redis opcional (límites compartidos entre instancias) |
+| Web | React 19, Vite 7, Tailwind, Vitest |
+| Móvil | Expo 54, React Native 0.83 |
+| Sin conexión | Tauri 2, Rust 1.99 (SQLite), Vite |
 
 ## Requisitos
 
-- **Node.js:** `POR CONFIRMAR` (no hay `.nvmrc` ni `engines` en ningún `package.json`).
-  El código usa `@types/node` v25 en `api/`, por lo que se recomienda Node 22 LTS o superior
-  hasta fijar la versión oficial.
-- **pnpm:** gestor de paquetes del monorepo (hay `pnpm-workspace.yaml` y `pnpm-lock.yaml`).
-- **PostgreSQL:** base de datos principal (la API se conecta vía `DATABASE_URL`).
+- **Node.js 22** (fijado en `.nvmrc` y en `engines`) y **pnpm 12.3.4**.
+- **PostgreSQL 16** para la API.
+- **Redis**, solo si se corre más de una instancia de la API.
+- **Rust 1.99.1**, solo para compilar la app sin conexión (ver `apps/offline/LEEME.md`).
 
-## Quickstart (dev)
-
-### 1) Instalar dependencias
-
-Desde la raíz del repo, una sola vez para todos los workspaces:
+## Puesta en marcha (desarrollo)
 
 ```bash
-pnpm install
+pnpm install                              # una vez, desde la raíz
+cp api/.env.example api/.env              # completar DATABASE_URL y JWT_SECRET como mínimo
+cp apps/web/.env.example apps/web/.env    # opcional: VITE_API_BASE_URL (por defecto http://localhost:5050)
+
+pnpm --filter api db:generate             # cliente de Prisma
+pnpm --filter api exec prisma migrate dev # migraciones
+pnpm --filter api db:seed                 # datos de demostración (solo desarrollo)
+
+pnpm --filter api dev                     # API en http://localhost:5050
+pnpm --filter web dev                     # web en http://localhost:5173 (redirige /api a la API)
+pnpm --filter mobile start                # app móvil (Expo)
 ```
 
-### 2) Configurar variables de entorno
+> El seed y `db:init` son **solo para desarrollo**: nunca se corren contra la base de producción.
 
-El proyecto usa archivos `.env` por paquete. Copiá los `.env.example` correspondientes:
+### Cargar el temario
 
 ```bash
-cp api/.env.example api/.env
+python3 content/material/_qa_tools/exportar_manifiesto.py /tmp/manifiesto.json
+cd api
+npx tsx scripts/importar_contenido.ts /tmp/manifiesto.json                       # ensayo: no escribe
+IMPORT_DB_ESPERADA=<base> npx tsx scripts/importar_contenido.ts /tmp/manifiesto.json --aplicar
 ```
 
-Variables reales detectadas:
+`--materia=a,b` limita la carga y `--actualizar` reemplaza lo ya importado (salvo cuestionarios con intentos). Detalle
+en `docs/IMPORTAR-CONTENIDO.md`. Si cambia el temario, regenerar el mapa con
+`python3 content/material/_qa_tools/exportar_mapa.py` (la CI lo comprueba).
 
-**API (`api/.env`, ver `api/.env.example`):**
+## Pruebas y calidad
 
-- `NODE_ENV`, `PORT` (default `5050`), `CORS_ORIGIN` (default `http://localhost:5173`)
-- `DATABASE_URL` — conexión PostgreSQL (ej. `postgresql://user:password@localhost:5432/virtualbook`)
-- SQLite de solo lectura: `SQLITE_PATH`, `SQLITE_READONLY`, `SQLITE_CACHE_KB`, `CONTENT_SQLITE_PATH`
-- Auth: `JWT_SECRET`, `JWT_REFRESH_SECRET`, `JWT_ISSUER`, `JWT_AUDIENCE`, `JWT_ACCESS_TTL_SECONDS`, `JWT_REFRESH_TTL_SECONDS`, `BOOTSTRAP_ADMIN_KEY`
-- Otros: `MAX_PAGE_MB`, `AUTH_RATE_LIMIT_DISABLED`, `ENABLE_SEED_ENDPOINT`, `PAYMENTS_WEBHOOK_SECRET`, knobs de billing/governance
+| Qué | Comando |
+|---|---|
+| Tipos y lint de la API | `pnpm --filter api typecheck` · `pnpm --filter api lint` |
+| Pruebas de la API (base en memoria) | `pnpm --filter api test` (necesita `JWT_SECRET`) |
+| Pruebas de la API contra PostgreSQL | `pnpm --filter api test:pg` (con `PG_TEST_DATABASE_URL` apuntando a una base de pruebas) |
+| Web | `pnpm --filter web test` · `node tools/lint-gate.mjs` |
+| App sin conexión | `pnpm --filter offline tipos` · `pnpm --filter offline test` · `cargo test -p vb-nucleo` (en `apps/offline`) |
+| Dependencias | `node tools/audit-gate.mjs` |
 
-**Web (`apps/web/.env`):** no hay `.env.example` propio; las variables `VITE_*` figuran en el
-`.env.example` de la raíz. Solo se necesitan si querés apuntar a una API distinta del default:
+La CI (`.github/workflows/ci.yml`) corre todo esto en cada PR y en cada cambio de `main`: tipos, lint, pruebas con
+una base PostgreSQL creada desde cero, la compuerta de seguridad de dependencias y el control del mapa del temario.
+`tools/lint-gate.mjs` frena solo los errores de lint **nuevos** de la web (los heredados están en
+`tools/lint-web-base.json`).
 
-- `VITE_API_BASE_URL` / `VITE_API_URL` (fallback en código a `http://localhost:5050`)
-- `VITE_TEST_MODE`
+## Configuración
 
-### 3) Preparar la base de datos (Prisma + PostgreSQL)
+Todas las variables, con su explicación, están en `api/.env.example`, `apps/web/.env.example` y
+`apps/mobile/.env.example`. Las principales de la API:
 
-Con `DATABASE_URL` configurado y PostgreSQL corriendo:
+- **Base y servidor:** `DATABASE_URL`, `PORT` (5050), `HOST`, `API_URL`, `APP_URL`, `CORS_ORIGIN`, `TRUST_PROXY`,
+  `REDIS_URL`, `COMPRESSION`.
+- **Autenticación:** `JWT_SECRET`, `JWT_REFRESH_SECRET`, `JWT_ISSUER`, `JWT_AUDIENCE`, `TOTP_ENCRYPTION_KEY`, límites
+  de ingreso `LOGIN_*` (por cuenta y por IP; `LOGIN_IPS_CONFIABLES` para escuelas detrás de una misma IP).
+- **Correo:** `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS`, `SMTP_FROM`, `EMAIL_VERIFICACION`.
+- **Pagos:** `MP_CLIENT_ID`, `MP_CLIENT_SECRET`, `MP_WEBHOOK_SECRET` (obligatoria si hay credenciales),
+  `PASARELAS_ENCRYPTION_KEY`.
+- **App sin conexión:** `OFFLINE_PERMISO_CLAVE_ARCHIVO`, `OFFLINE_PAQUETES_DIR`, `OFFLINE_DESCARGAS_DIR`.
+- **Contenido:** `SQLITE_PATH` (diccionario), `CONTENT_SQLITE_PATH`, `GEONAMES_SQLITE_PATH`, `MEDIA_STORAGE`.
 
-```bash
-# Generar el cliente Prisma
-pnpm --filter api db:generate
+## Más documentación
 
-# Aplicar migraciones en desarrollo
-pnpm --filter api exec prisma migrate dev
-
-# Seed de datos demo
-pnpm --filter api db:seed
-```
-
-> Scripts de DB disponibles en `api/package.json`: `db:generate` (`prisma generate`),
-> `db:migrate` (`prisma migrate deploy`, para entornos no-dev), `db:push`, `db:studio`,
-> `db:init`, `db:seed` / `seed:demo`. El seed de Prisma (`prisma.seed`) ejecuta `prisma/seed.ts`.
-
-### 4) Levantar los servicios en dev
-
-```bash
-# API → http://localhost:5050   (script: nodemon; confirmado en api/src/index.ts)
-pnpm --filter api dev
-
-# Web → http://localhost:5173   (script: vite; proxea /api a http://localhost:5050)
-pnpm --filter web dev
-```
-
-- El puerto **5050** de la API está confirmado en `api/src/index.ts` (`app.listen(ENV.PORT)`)
-  con default `5050` en `api/src/lib/env.ts`.
-- El puerto **5173** es el default de Vite; `apps/web/vite.config.ts` no lo sobreescribe y
-  define un proxy de `/api` hacia `http://localhost:5050`.
-
-## Mobile (en construcción)
-
-La app mobile (`apps/mobile/`) es un proyecto **Expo / React Native** con NativeWind.
-**🚧 En construcción**: todavía no se migraron sus funciones. Cuando el flujo de
-desarrollo esté definido se documentará acá.
-
-## Cómo orientarse en el repo
-
-- **Backend / API:** `api/src/` — `index.ts` monta las rutas bajo `/api/*`; `routes/`, `lib/`,
-  `db/`, `schema/`. Modelo de datos en `api/prisma/schema.prisma`; scripts de mantenimiento en
-  `api/scripts/`.
-- **Frontend web:** `apps/web/src/` — la base de la API se resuelve en `apps/web/src/lib/api.ts`.
-  Configuración de build/dev en `apps/web/vite.config.ts`.
-- **Mobile (en desarrollo):** `apps/mobile/` — app Expo/React Native.
-- **Paquete compartido:** `packages/vblang/` (`@vb/vblang`), consumido por `api` y `web`.
-- **Documentación:** `docs/` (técnica y funcional). El README histórico previo está en
-  `docs/archive/README-temporal.md`.
+- `docs/README.md` — índice: qué documento es la referencia de cada tema.
+- `docs/VBLang.md` y `docs/modulos.md` — el formato de preguntas y el modelo de módulos.
+- `docs/MIGRACION-PRODUCCION.md` — instalación en el servidor y despliegue.
+- `docs/legal/` — cumplimiento de la Ley 25.326, evaluación de impacto y procedimiento ante incidentes.
+- `docs/pagos/` — comisión, interés por mora, cooperadora y reembolsos.
+- `apps/offline/LEEME.md` y `apps/offline/MANUAL.md` — la app sin conexión, para quien la desarrolla y para quien la usa.
+- `content/introduccion.md` y `content/troncos.md` — cómo está pensado el temario y sus caminos.
