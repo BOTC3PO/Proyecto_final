@@ -10,7 +10,7 @@ import {
   type EvalContext,
 } from "../evaluator/evaluator.js";
 import {
-  formatoDefault,
+  formatoVisible,
   interpolar,
 } from "../evaluator/interpolation.js";
 import { createIsolatedMath } from "../evaluator/math-setup.js";
@@ -597,7 +597,7 @@ function construirOpciones(
         return deepEqual(t, respuestaVal);
       };
       const opciones: OpcionGenerada[] = textos.map((t) => ({
-        texto: formatoDefault(t),
+        texto: formatoVisible(t),
         correcta: esCorrecta(t),
       }));
       if (!opciones.some((o) => o.correcta)) {
@@ -621,9 +621,9 @@ function construirOpciones(
         ctx.prng,
       );
       const allOpts: OpcionGenerada[] = [
-        { texto: formatoDefault(respuestaVal), correcta: true },
+        { texto: formatoVisible(respuestaVal), correcta: true },
         ...distractores.map((d) => ({
-          texto: formatoDefault(d),
+          texto: formatoVisible(d),
           correcta: false,
         })),
       ];

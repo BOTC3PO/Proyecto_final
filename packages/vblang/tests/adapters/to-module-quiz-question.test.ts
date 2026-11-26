@@ -274,3 +274,33 @@ describe("adapter / focus + visualSpec", () => {
     expect(q.visualSpec).toEqual(visualSpec);
   });
 });
+
+describe("adapter / coma decimal", () => {
+  const fuente = (tipo: string) => `metadata:
+  materia: "fisica"
+  tema: "prueba"
+  nivel: "basico"
+variables:
+  x: 2.5
+respuesta: x * 3
+tipo: ${tipo}
+${tipo === "mc" ? "opciones: 4\n" : ""}enunciado: "Un objeto mide {x} m. ¿Cuánto miden tres?"
+pasos:
+  - "3 × {x} = {x * 3}"
+`;
+
+  it("el enunciado y los pasos muestran coma; la respuesta para corregir sigue con punto", () => {
+    const g = generate(compile(parse(fuente("input"))), { seed: "coma" });
+    expect(g.enunciado).toBe("Un objeto mide 2,5 m. ¿Cuánto miden tres?");
+    expect(g.pasos).toEqual(["3 × 2,5 = 7,5"]);
+    const q = toModuleQuizQuestion(g);
+    expect(q.answerKey).toBe("7.5");
+  });
+
+  it("en opción múltiple, la opción y la clave de corrección usan el mismo texto con coma", () => {
+    const g = generate(compile(parse(fuente("mc"))), { seed: "coma" });
+    const correcta = g.opciones!.find((o) => o.correcta)!;
+    expect(correcta.texto).toBe("7,5");
+    expect(toModuleQuizQuestion(g).answerKey).toBe("7,5");
+  });
+});

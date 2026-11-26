@@ -22,8 +22,8 @@ describe("interpolación runtime", () => {
     expect(interp("{a + b}", { a: 2, b: 3 })).toBe("5");
   });
 
-  it("modificador numérico: {x | 2} con x=3.14159 → 3.14", () => {
-    expect(interp("{x | 2}", { x: 3.14159 })).toBe("3.14");
+  it("modificador numérico: {x | 2} con x=3.14159 → 3,14 (coma decimal)", () => {
+    expect(interp("{x | 2}", { x: 3.14159 })).toBe("3,14");
   });
 
   it("modificador de unidad: {v | km/h} con v=80 → 80 km/h", () => {
@@ -66,9 +66,22 @@ describe("interpolación runtime", () => {
     expect(interp("{x}", { x: 5 })).toBe("5");
   });
 
-  it("número decimal sin modificador muestra hasta 4 decimales sin trailing zero", () => {
-    expect(interp("{x}", { x: 3.1 })).toBe("3.1");
-    expect(interp("{x}", { x: 3.14159 })).toBe("3.1416");
+  it("número decimal sin modificador muestra hasta 4 decimales sin trailing zero, con coma", () => {
+    expect(interp("{x}", { x: 3.1 })).toBe("3,1");
+    expect(interp("{x}", { x: 3.14159 })).toBe("3,1416");
+  });
+
+  it("{x | punto} conserva el punto decimal (por ejemplo, dentro de código)", () => {
+    expect(interp("x = {x | punto}", { x: 2.5 })).toBe("x = 2.5");
+  });
+
+  it("una lista con decimales se separa con punto y coma para no confundir la coma", () => {
+    expect(interp("{v}", { v: [1.5, 2] })).toBe("1,5; 2");
+    expect(interp("{v}", { v: [1, 2, 3] })).toBe("1,2,3");
+  });
+
+  it("un negativo decimal después de un operador va entre paréntesis y con coma", () => {
+    expect(interp("3 + {x}", { x: -1.5 })).toBe("3 + (-1,5)");
   });
 
   it("texto sin interpolación se preserva", () => {

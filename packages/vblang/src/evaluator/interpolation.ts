@@ -39,19 +39,36 @@ export function formatoDefault(valor: unknown): string {
   return String(valor);
 }
 
+/**
+ * Formato para lo que lee el alumno (enunciado, pasos, explicación, opciones): igual que `formatoDefault`, pero con
+ * **coma decimal**, la convención en Argentina (`2.5` → `"2,5"`). `formatoDefault` sigue con punto porque es la
+ * serialización de la respuesta que corrigen la API, la app móvil y la app sin conexión (la corrección ya acepta
+ * coma o punto en lo que tipea el alumno). Con decimales, una lista se separa con `"; "` para que `[1.5, 2]` no se
+ * lea `"1,5,2"`. El modificador `{x | punto}` conserva el punto (por ejemplo, un número dentro de código).
+ */
+export function formatoVisible(valor: unknown): string {
+  if (typeof valor === "number") return formatoDefault(valor).replace(".", ",");
+  if (Array.isArray(valor)) {
+    const partes = valor.map((v) => formatoVisible(v));
+    return partes.some((s) => s.includes(",")) ? partes.join("; ") : partes.join(",");
+  }
+  return formatoDefault(valor);
+}
+
 function aplicarModificador(
   valor: unknown,
   modificador: string | undefined,
 ): string {
-  if (modificador === undefined) return formatoDefault(valor);
+  if (modificador === undefined) return formatoVisible(valor);
 
   const mod = modificador.trim();
 
   if (/^\d+$/.test(mod)) {
     const n = parseInt(mod, 10);
     if (typeof valor !== "number") return String(valor);
-    return valor.toFixed(n);
+    return valor.toFixed(n).replace(".", ",");
   }
+  if (mod === "punto") return formatoDefault(valor);
 
   if (mod === "capitalizar") {
     const s = String(valor);
@@ -60,7 +77,7 @@ function aplicarModificador(
   if (mod === "mayusculas") return String(valor).toUpperCase();
   if (mod === "minusculas") return String(valor).toLowerCase();
 
-  return `${formatoDefault(valor)} ${mod}`;
+  return `${formatoVisible(valor)} ${mod}`;
 }
 
 /**
