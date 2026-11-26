@@ -474,6 +474,11 @@
   "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Levels_of_Organization_Organism.png/960px-Levels_of_Organization_Organism.png",
   "usada_en": "content/material/historia/multicelularidad/teoria.md"
  },
+ "ley-de-snell.webp": {
+  "propia": true,
+  "fuente": "content/material/_fuentes-imagenes/ley-de-snell.svg",
+  "usada_en": "content/material/fisica/refraccion-indice-ley-snell/teoria.md"
+ },
  "light-spectrum-precise-colors.webp": {
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Light_spectrum_%28precise_colors%29.svg",
   "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Light_spectrum_%28precise_colors%29.svg/960px-Light_spectrum_%28precise_colors%29.svg.png",
@@ -718,11 +723,6 @@
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Smart_criteria.svg",
   "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Smart_criteria.svg/960px-Smart_criteria.svg.png",
   "usada_en": "content/material/economia/objetivos-y-metas/teoria.md"
- },
- "snells-law-mk.webp": {
-  "pagina_commons": "https://commons.wikimedia.org/wiki/File:Snells_law_mk.svg",
-  "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Snells_law_mk.svg/960px-Snells_law_mk.svg.png",
-  "usada_en": "content/material/fisica/refraccion-indice-ley-snell/teoria.md"
  },
  "snider-pellegrini-wegener-fossil-map-i18n.webp": {
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Snider-Pellegrini_Wegener_fossil_map-i18n.png",

@@ -122,7 +122,7 @@ describe("herramientas standalone del temario (mapas)", () => {
 // Las imágenes de Commons se copian a la web (`apps/web/public/temario/imagenes`) para no depender de
 // Wikimedia, que responde HTTP 429 a los enlaces directos. La fuente queda en FUENTES.json y en el pie.
 const IMAGENES = join(__dirname, "../../../public/temario/imagenes");
-const FUENTES = JSON.parse(readFileSync(join(IMAGENES, "FUENTES.json"), "utf-8")) as Record<string, { pagina_commons: string }>;
+const FUENTES = JSON.parse(readFileSync(join(IMAGENES, "FUENTES.json"), "utf-8")) as Record<string, { pagina_commons?: string; propia?: boolean }>;
 
 describe("imágenes de la teoría", () => {
   it("no enlazan a Wikimedia: están copiadas en la web", () => {
@@ -135,7 +135,7 @@ describe("imágenes de la teoría", () => {
     expect(malas).toEqual([]);
   });
 
-  it("cada imagen local existe, figura en FUENTES.json y tiene al pie su atribución con enlace a Commons", () => {
+  it("cada imagen local existe, figura en FUENTES.json y, si es de Commons, tiene al pie su atribución con enlace", () => {
     const malas: string[] = [];
     for (const f of teorias(RAIZ)) {
       const lineas = readFileSync(f, "utf-8").split("\n");
@@ -146,7 +146,8 @@ describe("imágenes de la teoría", () => {
           if (!statSync(join(IMAGENES, arch), { throwIfNoEntry: false })) malas.push(`${donde}: no existe`);
           if (!FUENTES[arch]) malas.push(`${donde}: falta en FUENTES.json`);
           const pie = lineas.slice(i + 1, i + 4).join(" ");
-          if (!/commons\.wikimedia\.org\/wiki\/File:/.test(pie)) malas.push(`${donde}: falta la atribución al pie`);
+          // Los diagramas propios del proyecto (`propia` en FUENTES.json) no llevan atribución.
+          if (!FUENTES[arch]?.propia && !/commons\.wikimedia\.org\/wiki\/File:/.test(pie)) malas.push(`${donde}: falta la atribución al pie`);
         }
       });
     }

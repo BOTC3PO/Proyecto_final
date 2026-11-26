@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" font-family="DejaVu Sans, Arial, sans-serif">
+<rect width="960" height="280" fill="#ffffff"/>
+<rect y="280" width="960" height="280" fill="#d6ecfa"/>
+<line x1="0" y1="280" x2="960" y2="280" stroke="#2a6f97" stroke-width="3"/>
+<line x1="480" y1="20" x2="480" y2="540" stroke="#666" stroke-width="2" stroke-dasharray="10 8"/>
+<text x="490" y="42" font-size="24" fill="#555">normal</text>
+<text x="30" y="50" font-size="30" font-weight="bold" fill="#333">Aire</text>
+<text x="30" y="88" font-size="24" fill="#333">n₁ = 1</text>
+<text x="30" y="330" font-size="30" font-weight="bold" fill="#1d4e6b">Agua</text>
+<text x="30" y="368" font-size="24" fill="#1d4e6b">n₂ = 1,33</text>
+<text x="940" y="268" font-size="22" fill="#2a6f97" text-anchor="end">superficie de separación</text>
+<defs><marker id="f" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#d62828"/></marker></defs>
+<line x1="303.2" y1="103.2" x2="391.6" y2="191.6" stroke="#d62828" stroke-width="5" marker-end="url(#f)"/>
+<line x1="391.6" y1="191.6" x2="480" y2="280" stroke="#d62828" stroke-width="5"/>
+<line x1="480" y1="280" x2="612.9" y2="491.7" stroke="#d62828" stroke-width="5" marker-end="url(#f)"/>
+<path d="M416.4,216.4 L418.0,214.7 L419.8,213.1 L421.5,211.6 L423.4,210.1 L425.2,208.6 L427.1,207.2 L429.0,205.8 L431.0,204.5 L433.0,203.3 L435.0,202.1 L437.1,200.9 L439.1,199.8 L441.3,198.8 L443.4,197.8 L445.6,196.9 L447.7,196.0 L450.0,195.2 L452.2,194.4 L454.4,193.7 L456.7,193.1 L459.0,192.5 L461.3,192.0 L463.6,191.5 L465.9,191.1 L468.3,190.8 L470.6,190.5 L472.9,190.3 L475.3,190.1 L477.6,190.0 L480.0,190.0" fill="none" stroke="#333" stroke-width="2.5"/>
+<path d="M480.0,390.0 L482.1,390.0 L484.1,389.9 L486.2,389.8 L488.2,389.7 L490.3,389.5 L492.3,389.3 L494.3,389.1 L496.4,388.8 L498.4,388.4 L500.4,388.1 L502.5,387.7 L504.5,387.2 L506.5,386.8 L508.4,386.3 L510.4,385.7 L512.4,385.1 L514.4,384.5 L516.3,383.8 L518.2,383.1 L520.2,382.4 L522.1,381.6 L524.0,380.8 L525.8,380.0 L527.7,379.1 L529.5,378.2 L531.4,377.3 L533.2,376.3 L535.0,375.3 L536.7,374.2 L538.5,373.2" fill="none" stroke="#333" stroke-width="2.5"/>
+<text x="425" y="160" font-size="28" fill="#333">θ₁</text>
+<text x="510" y="430" font-size="28" fill="#333">θ₂</text>
+<text x="293.2" y="89.2" font-size="22" fill="#d62828">rayo incidente</text>
+<text x="630" y="455" font-size="22" fill="#d62828">rayo refractado</text>
+<text x="30" y="535" font-size="24" fill="#1d4e6b">n₁ · sen θ₁ = n₂ · sen θ₂</text>
+</svg>
