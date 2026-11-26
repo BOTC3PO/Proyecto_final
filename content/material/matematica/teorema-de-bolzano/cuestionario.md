@@ -95,7 +95,7 @@ tipo: vf
 enunciado: "Para $f(x) = {coef}x^2 + {c_const}$, evaluada en $[{a}, {b}]$, si $f(a)$ y $f(b)$ tienen signos opuestos, existe un cero en ese intervalo."
 
 explicacion: |
-  Verdadero. Los polinomios son funciones continuas en todo $\mathbb{R}$. Por lo tanto, se cumple la hipótesis de continuidad y, sumada la condición de signos opuestos, Bolzano aplica.
+  Verdadero. Los polinomios son funciones continuas en todo $\mathbb{{R}}$. Por lo tanto, se cumple la hipótesis de continuidad y, sumada la condición de signos opuestos, Bolzano aplica.
 ```
 
 ### 5 — pregunta 5

@@ -109,7 +109,7 @@ tipo: input
 enunciado: "¿Cuántas veces más pequeña es una escala nanométrica (1 nm) comparada con una micrométrica (1 µm)?"
 
 explicacion: |
-  1000 veces. Un micrómetro es $10^{-6}$ m y un nanómetro es $10^{-9}$ m. La diferencia es un factor de $10^3$.
+  1000 veces. Un micrómetro es $10^{{-6}}$ m y un nanómetro es $10^{{-9}}$ m. La diferencia es un factor de $10^3$.
 ```
 
 ### 6 — pregunta 6

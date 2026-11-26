@@ -137,7 +137,7 @@ tipo: input
 enunciado: "Si un par de Cooper tuviera una masa efectiva equivalente a {masa} unidades y se moviera a {velocidad} unidades de velocidad, ¿cuál sería su energía cinética clásica?"
 
 explicacion: |
-  La energía cinética clásica es $E_k = \frac{1}{2}mv^2$. Sustituyendo los valores dados.
+  La energía cinética clásica es $E_k = \frac{{1}}{{2}}mv^2$. Sustituyendo los valores dados.
 ```
 
 ### 8 — pregunta 8

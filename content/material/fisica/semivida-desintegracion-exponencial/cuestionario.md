@@ -29,7 +29,7 @@ respuestas_validas:
 enunciado: "El tiempo necesario para que la actividad de una muestra radiactiva se reduzca a la mitad de su valor inicial se denomina ___."
 
 explicacion: |
-  La semivida (o vida media, $T_{1/2}$) es el intervalo de tiempo en el cual la cantidad de núcleos radiactivos presentes en una muestra se reduce exactamente a la mitad.
+  La semivida (o vida media, $T_{{1/2}}$) es el intervalo de tiempo en el cual la cantidad de núcleos radiactivos presentes en una muestra se reduce exactamente a la mitad.
 ```
 
 ### 2 — Relación con la constante de desintegración
@@ -175,7 +175,7 @@ tolerancia_abs: 0.01
 enunciado: "Una muestra de un isótopo radiactivo tiene una masa inicial de {escenario[0]} g. Si la semivida del isótopo es de {escenario[1]} años, ¿cuántos gramos de la muestra permanecerán después de {escenario[1] * 2} años?"
 
 pasos:
-  - "Calcular el número de periodos de semivida transcurridos: $n = t / T_{1/2}$"
+  - "Calcular el número de periodos de semivida transcurridos: $n = t / T_{{1/2}}$"
   - "Aplicar la fórmula de desintegración: $N = N_0 \\cdot (1/2)^n$"
 
 explicacion: |
@@ -254,9 +254,9 @@ tipo: completar
 tolerancia_abs: 0.01
 
 explicacion: |
-  La relación es $\lambda = \ln(2) / T_{1/2}$.
-  Para el caso de $T_{1/2} = {datos[idx][0]}$, $\lambda = 0.693/{datos[idx][0]} = {datos[idx][1]}$.
-  La confusión común es intentar multiplicar en lugar de dividir o usar $\log_{10}$ en lugar de $\ln$.
+  La relación es $\lambda = \ln(2) / T_{{1/2}}$.
+  Para el caso de $T_{{1/2}} = {datos[idx][0]}$, $\lambda = 0.693/{datos[idx][0]} = {datos[idx][1]}$.
+  La confusión común es intentar multiplicar en lugar de dividir o usar $\log_{{10}}$ en lugar de $\ln$.
 ```
 
 ### 12 — ¿Qué sucede después de una semivida?
@@ -360,10 +360,10 @@ respuestas_validas:
   - "lambda"
   - "lambda_constante"
 
-enunciado: "En el modelo de desintegración radiactiva, mientras que la semivida ($T_{1/2}$) es el tiempo necesario para que la actividad se reduzca a la mitad, la ___ representa la probabilidad de desintegración por unidad de tiempo."
+enunciado: "En el modelo de desintegración radiactiva, mientras que la semivida ($T_{{1/2}}$) es el tiempo necesario para que la actividad se reduzca a la mitad, la ___ representa la probabilidad de desintegración por unidad de tiempo."
 
 explicacion: |
-  La constante de desintegración ($\lambda$) y la semivida ($T_{1/2}$) están relacionadas inversamente por la expresión: $\lambda = \ln(2) / T_{1/2}$.
+  La constante de desintegración ($\lambda$) y la semivida ($T_{{1/2}}$) están relacionadas inversamente por la expresión: $\lambda = \ln(2) / T_{{1/2}}$.
 ```
 
 ### 17 — Relación entre actividad y tiempo

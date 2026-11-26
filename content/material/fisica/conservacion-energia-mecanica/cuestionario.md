@@ -104,7 +104,7 @@ opciones_explicitas: ["aumenta", "disminuye", "se mantiene igual", "es cero"]
 enunciado: "Si la velocidad de un objeto aumenta, su energía cinética ___."
 
 explicacion: |
-  La energía cinética depende del cuadrado de la velocidad ($E_c = \frac{1}{2} m \cdot v^2$).
+  La energía cinética depende del cuadrado de la velocidad ($E_c = \frac{{1}}{{2}} m \cdot v^2$).
 ```
 
 ### 6 — Cálculo de energía cinética
@@ -128,7 +128,7 @@ enunciado: "Calcula la energía cinética de un objeto de {m} kg que se desplaza
 
 pasos:
   - "Identificar la masa (m = 10 kg) y la velocidad (v = 5 m/s)."
-  - "Aplicar la fórmula $E_c = \\frac{1}{2} \\cdot m \\cdot v^2$."
+  - "Aplicar la fórmula $E_c = \\frac{{1}}{{2}} \\cdot m \\cdot v^2$."
 
 explicacion: |
   $E_c = 0.5 \cdot 10 \cdot 5^2 = 0.5 \cdot 10 \cdot 25 = 125$ Joules.

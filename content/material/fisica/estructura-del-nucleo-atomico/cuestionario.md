@@ -354,7 +354,7 @@ respuestas_validas:
 enunciado: "La fuerza nuclear fuerte es una interacción de ___ alcance, lo que la distingue de la fuerza electromagnética que actúa a distancias mayores."
 
 explicacion: |
-  La fuerza nuclear fuerte es extremadamente poderosa pero solo actúa a distancias muy cortas (aproximadamente $10^{-15}$ metros). Si los nucleones se separan más allá de ese rango, la fuerza cae drásticamente.
+  La fuerza nuclear fuerte es extremadamente poderosa pero solo actúa a distancias muy cortas (aproximadamente $10^{{-15}}$ metros). Si los nucleones se separan más allá de ese rango, la fuerza cae drásticamente.
 ```
 
 ### 18 — Composición del isótopo

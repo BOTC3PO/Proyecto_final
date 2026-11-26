@@ -299,11 +299,11 @@ variables:
 respuesta: "{k/3}"
 tipo: input
 
-enunciado: "Calcule: lim(x→0) ( (1 + k*x)^{1/3} - 1 ) / x"
+enunciado: "Calcule: lim(x→0) ( (1 + k*x)^{{1/3}} - 1 ) / x"
 
 explicacion: |
   Indeterminación 0/0. Aplicamos L'Hôpital:
-  Derivada num: (1/3)*(1+k*x)^{-2/3} * k
+  Derivada num: (1/3)*(1+k*x)^{{-2/3}} * k
   Derivada den: 1
   En x=0: (1/3)*1 * k = k/3.
 ```

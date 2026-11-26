@@ -53,7 +53,7 @@ respuesta: datos[scenario_idx][0] * (datos[scenario_idx][1] * datos[scenario_idx
 enunciado: "Si un objeto tiene una masa de {datos[scenario_idx][0]} kg y una velocidad de {datos[scenario_idx][1]} m/s, su energía cinética es ___ J."
 
 explicacion: |
-  Usando la fórmula $E_c = \frac{1}{2} \cdot m \cdot v^2$:
+  Usando la fórmula $E_c = \frac{{1}}{{2}} \cdot m \cdot v^2$:
   Para el caso sorteado, se calcula $0.5 \cdot m \cdot v^2$.
   Si scenario_idx es 0: $0.5 \cdot 10 \cdot 2^2 = 20$.
   Si scenario_idx es 1: $0.5 \cdot 5 \cdot 4^2 = 40$.
@@ -81,7 +81,7 @@ respuesta: redondear(datos[escenario_idx][0] * (datos[escenario_idx][1] * datos[
 enunciado: "Si un objeto tiene una masa de {datos[escenario_idx][0]} kg y una velocidad de {datos[escenario_idx][1]} m/s, su energía cinética es ___ J."
 
 explicacion: |
-  Aplicando la fórmula $E_c = \frac{1}{2} \cdot m \cdot v^2$:
+  Aplicando la fórmula $E_c = \frac{{1}}{{2}} \cdot m \cdot v^2$:
   Para el primer caso: $0.5 \cdot 10 \cdot 2^2 = 20.0$ J.
   Para el segundo caso: $0.5 \cdot 5 \cdot 4^2 = 40.0$ J.
 ```
@@ -137,10 +137,10 @@ tipo: ordenar
 opciones_explicitas: ["Masa", "Velocidad", "Constante (1/2)"]
 respuesta_orden: ["Masa", "Velocidad", "Constante (1/2)"]
 
-enunciado: "Ordena los componentes de la fórmula de la energía cinética ($E_c = \\frac{1}{2} m v^2$) según aparecen en la expresión matemática de izquierda a derecha:"
+enunciado: "Ordena los componentes de la fórmula de la energía cinética ($E_c = \\frac{{1}}{{2}} m v^2$) según aparecen en la expresión matemática de izquierda a derecha:"
 
 explicacion: |
-  La expresión es $\frac{1}{2}$ (constante) $\cdot m$ (masa) $\cdot v^2$ (velocidad al cuadrado).
+  La expresión es $\frac{{1}}{{2}}$ (constante) $\cdot m$ (masa) $\cdot v^2$ (velocidad al cuadrado).
   *Nota: El orden en la lista de opciones debe reflejar la secuencia de la fórmula.*
 ```
 
@@ -157,7 +157,7 @@ tipo: ordenar
 opciones_explicitas: ["Constante (1/2)", "Masa", "Velocidad"]
 respuesta_orden: ["Constante (1/2)", "Masa", "Velocidad"]
 
-enunciado: "Ordena los elementos de la fórmula $E_c = \\frac{1}{2} m v^2$ tal como aparecen de izquierda a derecha:"
+enunciado: "Ordena los elementos de la fórmula $E_c = \\frac{{1}}{{2}} m v^2$ tal como aparecen de izquierda a derecha:"
 
 explicacion: |
   El orden es: 1) El factor constante 1/2, 2) La masa (m) y 3) La velocidad (v).
@@ -189,7 +189,7 @@ pasos:
   - "Resultado: Ec = 5 * 16 = 80 J."
 
 explicacion: |
-  La energía cinética se calcula con la fórmula $E_c = \frac{1}{2}mv^2$. 
+  La energía cinética se calcula con la fórmula $E_c = \frac{{1}}{{2}}mv^2$. 
   En este caso: $0.5 \cdot 10 \cdot 4^2 = 0.5 \cdot 10 \cdot 16 = 80$ Joules.
 ```
 
@@ -228,7 +228,7 @@ tipo: vf
 enunciado: "¿Un objeto con velocidad cero posee energía cinética?"
 
 explicacion: |
-  Verdadero. Si $v = 0$, entonces $E_c = \frac{1}{2} \cdot m \cdot 0^2 = 0$. Un objeto en reposo no tiene energía cinética.
+  Verdadero. Si $v = 0$, entonces $E_c = \frac{{1}}{{2}} \cdot m \cdot 0^2 = 0$. Un objeto en reposo no tiene energía cinética.
 ```
 
 ### 11 — Completar fórmula
@@ -309,7 +309,7 @@ pasos:
   - "Calcular la diferencia: 36 - 9 = 27 J."
 
 explicacion: |
-  $\Delta E_c = E_{c,final} - E_{c,inicial}$
+  $\Delta E_c = E_{{c,final}} - E_{{c,inicial}}$
   $\Delta E_c = (0.5 \cdot 2 \cdot 6^2) - (0.5 \cdot 2 \cdot 3^2) = 36 - 9 = 27$ Joules.
 ```
 
@@ -437,7 +437,7 @@ respuestas_validas:
 enunciado: "Mientras que la energía potencial es la energía que un objeto posee debido a su posición o configuración, la energía que un objeto posee debido a su movimiento se denomina energía ___."
 
 explicacion: |
-  La energía cinética es la energía asociada al movimiento de un cuerpo, definida como $E_c = \frac{1}{2}mv^2$.
+  La energía cinética es la energía asociada al movimiento de un cuerpo, definida como $E_c = \frac{{1}}{{2}}mv^2$.
 ```
 
 ### 20 — Dependencia de la masa y la velocidad
@@ -459,7 +459,7 @@ opciones_explicitas: ["se duplica", "se triplica", "cuadriplica", "se mantiene i
 enunciado: "Si un objeto aumenta su velocidad al doble (2x) manteniendo su masa constante, su energía cinética ___."
 
 explicacion: |
-  Como la fórmula es $E_c = \frac{1}{2}mv^2$, la velocidad está elevada al cuadrado. Si la velocidad se multiplica por 2, la energía se multiplica por $2^2 = 4$.
+  Como la fórmula es $E_c = \frac{{1}}{{2}}mv^2$, la velocidad está elevada al cuadrado. Si la velocidad se multiplica por 2, la energía se multiplica por $2^2 = 4$.
 ```
 
 ### 21 — Trabajo y Energía Cinética
@@ -559,7 +559,7 @@ pasos:
   - "Calcular: 0.5 * {m} * ({v})^2"
 
 explicacion: |
-  La energía cinética se calcula con la fórmula $E_c = \frac{1}{2} m v^2$.
+  La energía cinética se calcula con la fórmula $E_c = \frac{{1}}{{2}} m v^2$.
   Para este caso: $0.5 \cdot {m} \cdot {v}^2 = {ec}$ J.
 ```
 
@@ -662,5 +662,5 @@ respuestas_validas:
 enunciado: "La energía cinética de un cuerpo depende de dos variables principales: la ___ y la ___."
 
 explicacion: |
-  La fórmula $E_c = \frac{1}{2} m v^2$ muestra que la energía depende de la masa ($m$) y del cuadrado de la velocidad ($v$).
+  La fórmula $E_c = \frac{{1}}{{2}} m v^2$ muestra que la energía depende de la masa ($m$) y del cuadrado de la velocidad ($v$).
 ```

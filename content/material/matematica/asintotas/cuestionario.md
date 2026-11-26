@@ -134,7 +134,7 @@ respuestas_validas:
 enunciado: "La función $f(x) = e^x$ tiene ___ asíntotas verticales."
 
 explicacion: |
-  $e^x$ está definida para todo $x \in \mathbb{R}$ y es continua. No tiene asíntotas verticales. (Tiene una horizontal en $y=0$ para $x \to -\infty$).
+  $e^x$ está definida para todo $x \in \mathbb{{R}}$ y es continua. No tiene asíntotas verticales. (Tiene una horizontal en $y=0$ para $x \to -\infty$).
 ```
 
 ### 7 — pregunta 7

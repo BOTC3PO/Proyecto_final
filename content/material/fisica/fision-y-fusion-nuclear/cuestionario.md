@@ -519,7 +519,7 @@ enunciado: "Si un proceso nuclear libera una cantidad de masa $\\Delta m$ de {va
 pasos:
   - "Utilizar la fórmula $E = \\Delta m \\cdot c^2$."
   - "Sustituir $\\Delta m$ por el valor dado."
-  - "Elevar la velocidad de la luz al cuadrado ($9 \\times 10^{16}$)."
+  - "Elevar la velocidad de la luz al cuadrado ($9 \\times 10^{{16}}$)."
 
 explicacion: |
   Aplicando $E = mc^2$, la energía liberada es {valores[idx][1]} J.
