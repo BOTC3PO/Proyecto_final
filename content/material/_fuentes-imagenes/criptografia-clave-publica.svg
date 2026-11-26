@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" font-family="DejaVu Sans, Arial, sans-serif">
+<rect width="960" height="600" fill="#fff"/>
+<defs><marker id="na" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#f08a24"/></marker><marker id="az" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#4a86c5"/></marker></defs>
+<path d="M 190 250 C 260 60, 700 60, 770 230" fill="none" stroke="#f08a24" stroke-width="16" marker-end="url(#na)"/>
+<path d="M 770 350 C 700 540, 260 540, 190 370" fill="none" stroke="#4a86c5" stroke-width="16" marker-end="url(#az)"/>
+<rect x="30" y="270" width="290" height="70" rx="16" fill="#4d5458" stroke="#4a86c5" stroke-width="6"/>
+<text x="175.0" y="315.0" font-size="28" fill="#fff" text-anchor="middle" font-weight="bold">datos originales</text>
+<rect x="640" y="270" width="290" height="70" rx="16" fill="#4d5458" stroke="#f08a24" stroke-width="6"/>
+<text x="785.0" y="315.0" font-size="28" fill="#fff" text-anchor="middle" font-weight="bold">datos cifrados</text>
+<circle cx="480" cy="105" r="88" fill="#4d5458" stroke="#f08a24" stroke-width="8"/>
+<g transform="translate(445,50)" fill="none" stroke="#fff" stroke-width="7"><circle cx="16" cy="16" r="13"/><path d="M29 16 H70 M58 16 V30 M68 16 V26"/></g>
+<text x="480.0" y="130.0" font-size="26" fill="#fff" text-anchor="middle" font-weight="bold">clave</text>
+<text x="480.0" y="160.0" font-size="26" fill="#fff" text-anchor="middle" font-weight="bold">pública</text>
+<circle cx="480" cy="495" r="88" fill="#4d5458" stroke="#4a86c5" stroke-width="8"/>
+<g transform="translate(445,440)" fill="none" stroke="#fff" stroke-width="7"><circle cx="16" cy="16" r="13"/><path d="M29 16 H70 M58 16 V30 M68 16 V26"/></g>
+<text x="480.0" y="520.0" font-size="26" fill="#fff" text-anchor="middle" font-weight="bold">clave</text>
+<text x="480.0" y="550.0" font-size="26" fill="#fff" text-anchor="middle" font-weight="bold">privada</text>
+<text x="480.0" y="245.0" font-size="20" fill="#a35a12" text-anchor="middle" font-weight="normal">cualquiera puede cifrar con la clave pública</text>
+<text x="480.0" y="375.0" font-size="20" fill="#2b5c8f" text-anchor="middle" font-weight="normal">solo el dueño descifra con su clave privada</text>
+</svg>

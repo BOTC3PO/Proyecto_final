@@ -184,6 +184,11 @@
   "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Crest_trough_wavelength_amplitude.png/960px-Crest_trough_wavelength_amplitude.png",
   "usada_en": "content/material/fisica/longitud-onda-velocidad-propagacion/teoria.md"
  },
+ "criptografia-clave-publica.webp": {
+  "propia": true,
+  "fuente": "content/material/_fuentes-imagenes/criptografia-clave-publica.svg",
+  "usada_en": "content/material/informatica/criptografia-clave-simetrica-asimetrica-hash/teoria.md"
+ },
  "cryptographic-hash-function.webp": {
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Cryptographic_Hash_Function.svg",
   "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Cryptographic_Hash_Function.svg/960px-Cryptographic_Hash_Function.svg.png",
@@ -469,6 +474,11 @@
   "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Laurentide_ice_sheet_map.jpg/960px-Laurentide_ice_sheet_map.jpg",
   "usada_en": "content/material/historia/paleoclima-glaciaciones/teoria.md"
  },
+ "lente-convergente-imagen-real-y-virtual.webp": {
+  "propia": true,
+  "fuente": "content/material/_fuentes-imagenes/lente-convergente-imagen-real-y-virtual.svg",
+  "usada_en": "content/material/fisica/formacion-de-imagenes-optica/teoria.md"
+ },
  "levels-of-organization-organism.webp": {
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Levels_of_Organization_Organism.png",
   "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Levels_of_Organization_Organism.png/960px-Levels_of_Organization_Organism.png",
@@ -558,11 +568,6 @@
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Operation_Barbarossa_%2826_August_-_5_December_1941%29.jpg",
   "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Operation_Barbarossa_%2826_August_-_5_December_1941%29.jpg/960px-Operation_Barbarossa_%2826_August_-_5_December_1941%29.jpg",
   "usada_en": "content/material/historia/segunda-guerra-mundial/teoria.md"
- },
- "orange-blue-public-key-cryptography-uk.webp": {
-  "pagina_commons": "https://commons.wikimedia.org/wiki/File:Orange_blue_public_key_cryptography_uk.svg",
-  "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Orange_blue_public_key_cryptography_uk.svg/960px-Orange_blue_public_key_cryptography_uk.svg.png",
-  "usada_en": "content/material/informatica/criptografia-clave-simetrica-asimetrica-hash/teoria.md"
  },
  "ordovician-470.webp": {
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Ordovician_470.svg",
@@ -793,11 +798,6 @@
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:The_Scribe_at_Work.jpg",
   "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/The_Scribe_at_Work.jpg/960px-The_Scribe_at_Work.jpg",
   "usada_en": "content/material/historia/imprenta/teoria.md"
- },
- "thin-lens-images-mk.webp": {
-  "pagina_commons": "https://commons.wikimedia.org/wiki/File:Thin_lens_images_mk.svg",
-  "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Thin_lens_images_mk.svg/960px-Thin_lens_images_mk.svg.png",
-  "usada_en": "content/material/fisica/formacion-de-imagenes-optica/teoria.md"
  },
  "three-field-system-be.webp": {
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Three_Field_System_be.svg",

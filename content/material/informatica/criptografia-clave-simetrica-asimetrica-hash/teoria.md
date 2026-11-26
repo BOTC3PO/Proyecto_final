@@ -30,9 +30,9 @@ El proceso funciona así:
 
 Este método elimina la necesidad de compartir una clave secreta por canales inseguros, lo que la hace ideal para comunicaciones en internet. Algoritmos como RSA o ECC (Elliptic Curve Cryptography) son ejemplos clave.  
 
-![Esquema de intercambio de claves pública y privada](/temario/imagenes/orange-blue-public-key-cryptography-uk.webp)
+![Ciclo de la criptografía de clave pública: los datos originales se cifran con la clave pública y solo la clave privada los vuelve a descifrar](/temario/imagenes/criptografia-clave-publica.webp)
 
-*Imagen: «Orange blue public key cryptography uk», Orange_blue_public_key_cryptography_en.svg: Banane, CC0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Orange_blue_public_key_cryptography_uk.svg).*
+*Diagrama: lo que se cifra con la clave pública solo se descifra con la clave privada de su dueño.*
 
 ---
 
