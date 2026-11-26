@@ -32,9 +32,9 @@ Las **cordilleras** surgen principalmente en zonas de colisión convergente. Cua
 
 Los **sismos** (terremotos) ocurren cuando las placas se mueven bruscamente, liberando energía acumulada en fallas. La magnitud depende de la profundidad y el tamaño del desplazamiento. Por otro lado, los **volcanes** aparecen principalmente en bordes divergentes (donde el magma rellena el vacío entre placas) o convergentes (donde la subducción genera magma al fundir rocas). La erupción volcánica puede crear nuevas islas, como Hawái, o modificar paisajes existentes, como en los Andes. Ambos fenómenos son manifestaciones directas de la dinámica interna del planeta.
 
-![Esquema de un volcán y su relación con la subducción](/temario/imagenes/volcanic-arc-system-svg-en.webp)
+![Corte de una zona de subducción: la placa oceánica se hunde bajo la otra, se funde en parte y el magma sube hasta formar un arco de volcanes](/temario/imagenes/arco-volcanico-subduccion.webp)
 
-*Imagen: «Volcanic Arc System SVG en», MagentaGreen, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Volcanic_Arc_System_SVG_en.svg).*
+*Imagen: «Volcanic Arc System SVG en», MagentaGreen, CC BY-SA 3.0, traducida al español (la traducción se comparte con la misma licencia). [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Volcanic_Arc_System_SVG_en.svg).*
 
 ## N. Conexión con lo que sigue
 

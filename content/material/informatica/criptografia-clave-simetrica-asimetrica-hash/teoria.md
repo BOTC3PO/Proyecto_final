@@ -14,9 +14,9 @@ La criptografía simétrica funciona con un único parámetro secreto: una **cla
 
 El principal desafío es **distribuir la clave sin que sea interceptada**. Si un atacante logra acceder a esa clave, puede leer o modificar el mensaje sin dejar rastro. Por eso, se suele combinar con otros métodos (como criptografía asimétrica) para proteger su transmisión.  
 
-![Diagrama mostrando un proceso de cifrado y descifrado con una misma clave](/temario/imagenes/simple-symmetric-encryption-en.webp)
+![Diagrama mostrando un proceso de cifrado y descifrado con una misma clave](/temario/imagenes/cifrado-simetrico.webp)
 
-*Imagen: «Simple symmetric encryption-en», Michel Bakni, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Simple_symmetric_encryption-en.svg).*
+*Imagen: «Simple symmetric encryption-en», Michel Bakni, CC BY-SA 4.0, traducida al español (la traducción se comparte con la misma licencia). [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Simple_symmetric_encryption-en.svg).*
 
 ---
 

@@ -14,9 +14,9 @@ La luz es una forma de energía que se propaga mediante ondas electromagnéticas
 
 Estas ondas poseen características definidas: frecuencia (número de oscilaciones por segundo), longitud de onda (distancia entre dos crestas consecutivas) y energía. La relación entre estas tres magnitudes es clave para entender su comportamiento: a mayor frecuencia, mayor energía; a menor longitud de onda, mayor frecuencia.
 
-![Esquema de una onda electromagnética con campos eléctrico y magnético perpendiculares, indicando dirección de propagación](/temario/imagenes/electromagnetic-wave-en.webp)
+![Esquema de una onda electromagnética con campos eléctrico y magnético perpendiculares, indicando dirección de propagación](/temario/imagenes/onda-electromagnetica.webp)
 
-*Imagen: «Electromagnetic wave EN», Piotr Fita, CC0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Electromagnetic_wave_EN.svg).*
+*Imagen: «Electromagnetic wave EN», Piotr Fita, CC0, traducida al español. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Electromagnetic_wave_EN.svg).*
 
 ---
 

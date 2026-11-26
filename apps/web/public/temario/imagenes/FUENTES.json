@@ -64,6 +64,12 @@
   "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Archimedes_-_Opere%2C_1544_-_1291605_pagina_55.jpeg/960px-Archimedes_-_Opere%2C_1544_-_1291605_pagina_55.jpeg",
   "usada_en": "content/material/historia/ciencia-revolucion-cientifica/teoria.md"
  },
+ "arco-volcanico-subduccion.webp": {
+  "pagina_commons": "https://commons.wikimedia.org/wiki/File:Volcanic_Arc_System_SVG_en.svg",
+  "traduccion": "propia, al español",
+  "fuente": "content/material/_fuentes-imagenes/arco-volcanico-subduccion.svg",
+  "usada_en": "content/material/historia/relieve-sismos-volcanes/teoria.md"
+ },
  "augustus-of-prima-porta.webp": {
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Augustus_of_Prima_Porta.jpg",
   "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Augustus_of_Prima_Porta.jpg/960px-Augustus_of_Prima_Porta.jpg",
@@ -159,15 +165,16 @@
   "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Chloroplast_diagram-es.svg/960px-Chloroplast_diagram-es.svg.png",
   "usada_en": "content/material/biologia/necesidades-basicas-seres-vivos/teoria.md"
  },
+ "cifrado-simetrico.webp": {
+  "pagina_commons": "https://commons.wikimedia.org/wiki/File:Simple_symmetric_encryption-en.svg",
+  "traduccion": "propia, al español",
+  "fuente": "content/material/_fuentes-imagenes/cifrado-simetrico.svg",
+  "usada_en": "content/material/informatica/criptografia-clave-simetrica-asimetrica-hash/teoria.md"
+ },
  "co2-temperature-records.webp": {
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Co2-temperature-records.svg",
   "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Co2-temperature-records.svg/960px-Co2-temperature-records.svg.png",
   "usada_en": "content/material/historia/paleoclima-glaciaciones/teoria.md"
- },
- "cold-war-europe-military-alliances-map-en.webp": {
-  "pagina_commons": "https://commons.wikimedia.org/wiki/File:Cold_war_europe_military_alliances_map_en.png",
-  "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Cold_war_europe_military_alliances_map_en.png/960px-Cold_war_europe_military_alliances_map_en.png",
-  "usada_en": "content/material/historia/guerra-fria-descolonizacion/teoria.md"
  },
  "construction-du-temple-de-jerusalem.webp": {
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Construction_du_Temple_de_J%C3%A9rusalem.jpg",
@@ -259,11 +266,6 @@
   "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Electricity_reading_meter.jpeg/960px-Electricity_reading_meter.jpeg",
   "usada_en": "content/material/vida-cotidiana/consumo-electrico-lectura-factura/teoria.md"
  },
- "electromagnetic-wave-en.webp": {
-  "pagina_commons": "https://commons.wikimedia.org/wiki/File:Electromagnetic_wave_EN.svg",
-  "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Electromagnetic_wave_EN.svg/960px-Electromagnetic_wave_EN.svg.png",
-  "usada_en": "content/material/fisica/luz-onda-espectro-electromagnetico/teoria.md"
- },
  "elektronenbeugung-ds7-6133-pk.webp": {
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Elektronenbeugung_-_DS7_6133_PK.jpg",
   "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Elektronenbeugung_-_DS7_6133_PK.jpg/960px-Elektronenbeugung_-_DS7_6133_PK.jpg",
@@ -293,6 +295,11 @@
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Eukaryotic_cell_diagram.jpg",
   "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Eukaryotic_cell_diagram.jpg/960px-Eukaryotic_cell_diagram.jpg",
   "usada_en": "content/material/historia/eucariotas/teoria.md"
+ },
+ "experimento-miller-urey.webp": {
+  "pagina_commons": "https://commons.wikimedia.org/wiki/File:Miller-Urey_experiment-es.svg",
+  "url_original": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Miller-Urey_experiment-es.svg",
+  "usada_en": "content/material/historia/origen-de-la-vida/teoria.md"
  },
  "eye-diagram-no-circles-border.webp": {
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Eye-diagram_no_circles_border.svg",
@@ -339,6 +346,12 @@
   "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Forgetting_curve_and_work_of_Ebbinghaus.png/960px-Forgetting_curve_and_work_of_Ebbinghaus.png",
   "usada_en": "content/material/aprendizaje/tecnicas-de-estudio-repaso-espaciado-recuperacion/teoria.md"
  },
+ "fotosintesis.webp": {
+  "pagina_commons": "https://commons.wikimedia.org/wiki/File:Photosynthesis_en.svg",
+  "traduccion": "propia, al español",
+  "fuente": "content/material/_fuentes-imagenes/fotosintesis.svg",
+  "usada_en": "content/material/historia/fotosintesis-cambio-atmosfera-nivel2/teoria.md"
+ },
  "fra-mauro-world-map-c-1450-1806-copy.webp": {
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Fra_Mauro_World_Map%2C_c.1450_%281806_copy%29.jpg",
   "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Fra_Mauro_World_Map%2C_c.1450_%281806_copy%29.jpg/960px-Fra_Mauro_World_Map%2C_c.1450_%281806_copy%29.jpg",
@@ -378,6 +391,11 @@
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Gu-MaslowsHierarchyOfNeeds.svg",
   "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Gu-MaslowsHierarchyOfNeeds.svg/960px-Gu-MaslowsHierarchyOfNeeds.svg.png",
   "usada_en": "content/material/psicologia/corrientes-psicologicas-psicoanalisis-conductismo-humanismo-cognitivismo/teoria.md"
+ },
+ "guerra-fria-europa-alianzas-militares.webp": {
+  "pagina_commons": "https://commons.wikimedia.org/wiki/File:Cold_war_europe_military_alliances_map_es.png",
+  "url_original": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Cold_war_europe_military_alliances_map_es.png",
+  "usada_en": "content/material/historia/guerra-fria-descolonizacion/teoria.md"
  },
  "gutenberg-bible-b42-genesis.webp": {
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Gutenberg_Bible_B42_Genesis.JPG",
@@ -534,11 +552,6 @@
   "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Milky_Way_Arms_ssc2008-10.svg/960px-Milky_Way_Arms_ssc2008-10.svg.png",
   "usada_en": "content/material/historia/galaxias-tipos-escala/teoria.md"
  },
- "miller-urey-experiment-en.webp": {
-  "pagina_commons": "https://commons.wikimedia.org/wiki/File:Miller-Urey_experiment-en.svg",
-  "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Miller-Urey_experiment-en.svg/960px-Miller-Urey_experiment-en.svg.png",
-  "usada_en": "content/material/historia/origen-de-la-vida/teoria.md"
- },
  "mosaic-of-justinian-i-san-vitale-ravenna-2016.webp": {
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Mosaic_of_Justinian_I_-_San_Vitale_-_Ravenna_2016.jpg",
   "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Mosaic_of_Justinian_I_-_San_Vitale_-_Ravenna_2016.jpg/960px-Mosaic_of_Justinian_I_-_San_Vitale_-_Ravenna_2016.jpg",
@@ -563,6 +576,12 @@
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Nautical_astrolabe-CnAM_3864-IMG_6430-gradient.jpg",
   "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Nautical_astrolabe-CnAM_3864-IMG_6430-gradient.jpg/960px-Nautical_astrolabe-CnAM_3864-IMG_6430-gradient.jpg",
   "usada_en": "content/material/historia/navegacion/teoria.md"
+ },
+ "onda-electromagnetica.webp": {
+  "pagina_commons": "https://commons.wikimedia.org/wiki/File:Electromagnetic_wave_EN.svg",
+  "traduccion": "propia, al español",
+  "fuente": "content/material/_fuentes-imagenes/onda-electromagnetica.svg",
+  "usada_en": "content/material/fisica/luz-onda-espectro-electromagnetico/teoria.md"
  },
  "operation-barbarossa-26-august-5-december-1941.webp": {
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Operation_Barbarossa_%2826_August_-_5_December_1941%29.jpg",
@@ -598,11 +617,6 @@
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:PDCA_Cycle.svg",
   "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/PDCA_Cycle.svg/960px-PDCA_Cycle.svg.png",
   "usada_en": "content/material/economia/mejora-continua/teoria.md"
- },
- "photosynthesis-en.webp": {
-  "pagina_commons": "https://commons.wikimedia.org/wiki/File:Photosynthesis_en.svg",
-  "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Photosynthesis_en.svg/960px-Photosynthesis_en.svg.png",
-  "usada_en": "content/material/historia/fotosintesis-cambio-atmosfera-nivel2/teoria.md"
  },
  "plane-mirror-opt.webp": {
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Plane-mirror_opt.svg",
@@ -708,11 +722,6 @@
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Simple_map_of_Indus_valley_civilization.png",
   "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Simple_map_of_Indus_valley_civilization.png/960px-Simple_map_of_Indus_valley_civilization.png",
   "usada_en": "content/material/historia/india-antigua/teoria.md"
- },
- "simple-symmetric-encryption-en.webp": {
-  "pagina_commons": "https://commons.wikimedia.org/wiki/File:Simple_symmetric_encryption-en.svg",
-  "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Simple_symmetric_encryption-en.svg/960px-Simple_symmetric_encryption-en.svg.png",
-  "usada_en": "content/material/informatica/criptografia-clave-simetrica-asimetrica-hash/teoria.md"
  },
  "six-flint-flakes-debitage-material-from-flint-knapping-findid-481392.webp": {
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Six_flint_flakes%3B_debitage_material_from_flint_knapping._%28FindID_481392%29.jpg",
@@ -843,11 +852,6 @@
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:VFPt_cylindermagnet_field-representations.svg",
   "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/VFPt_cylindermagnet_field-representations.svg/960px-VFPt_cylindermagnet_field-representations.svg.png",
   "usada_en": "content/material/fisica/campo-magnetico-imanes-corrientes/teoria.md"
- },
- "volcanic-arc-system-svg-en.webp": {
-  "pagina_commons": "https://commons.wikimedia.org/wiki/File:Volcanic_Arc_System_SVG_en.svg",
-  "url_original": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Volcanic_Arc_System_SVG_en.svg/960px-Volcanic_Arc_System_SVG_en.svg.png",
-  "usada_en": "content/material/historia/relieve-sismos-volcanes/teoria.md"
  },
  "western-front-1917-es.webp": {
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Western_Front_1917-es.svg",

@@ -13,9 +13,9 @@ La Guerra Fría definió un orden mundial dominado por dos bloques contrapuestos
 
 Este equilibrio de poder generó una lógica de **contención**, donde ambas partes buscaban evitar la expansión del otro. Por ejemplo, Estados Unidos impulsó la OTAN (1949) como alianza militar occidental, mientras la URSS respondió creando el Pacto de Varsovia (1955) y respaldó movimientos antiimperialistas en África, Asia y América Latina. Esta dinámica no solo polarizó a las naciones, sino que también influyó en los procesos de independencia de colonias, al convertirlas en escenarios de lucha por el control ideológico y estratégico.  
 
-![mapa del mundo dividido en bloques capitalista y socialista](/temario/imagenes/cold-war-europe-military-alliances-map-en.webp)
+![Mapa de Europa durante la Guerra Fría: los países de la OTAN en azul y los del Pacto de Varsovia en rojo](/temario/imagenes/guerra-fria-europa-alianzas-militares.webp)
 
-*Imagen: «Cold war europe military alliances map en», CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cold_war_europe_military_alliances_map_en.png).*
+*Imagen: «Cold war europe military alliances map es», Reignerok, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cold_war_europe_military_alliances_map_es.png).*
 
 ---
 
