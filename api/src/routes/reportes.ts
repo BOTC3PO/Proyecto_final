@@ -5,6 +5,7 @@ import { ENTERPRISE_FEATURES, requireEnterpriseFeature } from "../lib/entitlemen
 import { buildSimplePdf } from "../lib/pdf";
 import { getQueryString } from "../lib/query";
 import { requireUser } from "../lib/user-auth";
+import { hasRole } from "../lib/roles";
 import { soloAlumnosReales } from "../lib/inscripcion-prueba";
 
 export const reportes = Router();
@@ -212,9 +213,20 @@ const buildSchoolFilter = (schoolId?: string) => {
 };
 
 const buildAulaWhere = (filtros: ReporteFilters, schoolId?: string) => {
-  if (filtros.aula) return { id: filtros.aula };
+  if (filtros.aula) return schoolId ? { id: filtros.aula, escuelaId: schoolId } : { id: filtros.aula };
   if (!schoolId) return {};
   return { escuelaId: schoolId };
+};
+
+// La escuela del reporte sale de la sesión. Solo ADMIN puede elegir otra con
+// `institucion`; el resto del personal necesita una escuela propia y queda
+// limitado a ella (también el filtro `aula`, por buildAulaWhere).
+const resolverEscuelaReporte = (req: any, filtros: ReporteFilters): { schoolId?: string } | null => {
+  const propia = typeof req.user?.schoolId === "string" && req.user.schoolId ? req.user.schoolId : undefined;
+  if (hasRole(req.user ?? null, "ADMIN")) return { schoolId: filtros.institucion ?? propia };
+  if (!propia) return null;
+  if (filtros.institucion && filtros.institucion !== propia) return null;
+  return { schoolId: propia };
 };
 
 const uniqueIds = (values: string[]) => Array.from(new Set(values.filter(Boolean)));
@@ -238,9 +250,8 @@ const buildReporteData = async (
   filtros: ReporteFilters,
   loteIds: string[],
   pagination: { limit: number; offset: number },
-  scopeSchoolId?: string
+  scopedSchoolId?: string
 ) => {
-  const scopedSchoolId = filtros.institucion ?? scopeSchoolId;
   const aulaWhere = buildAulaWhere(filtros, scopedSchoolId);
 
   const totalAulas = await prisma.clase.count({ where: aulaWhere });
@@ -465,8 +476,9 @@ const handleReporte = (rol: "profesor" | "admin") => async (req: any, res: any) 
   if (formato !== "json" && !isStaffRole(requesterRole)) {
     return res.status(403).json({ error: "report export requires staff role" });
   }
-  const scopeSchoolId = typeof req.user?.schoolId === "string" ? req.user.schoolId : undefined;
-  const data = await buildReporteData(rol, filtros, lote.ids, pagination, scopeSchoolId);
+  const alcance = resolverEscuelaReporte(req, filtros);
+  if (!alcance) return res.status(403).json({ error: "forbidden" });
+  const data = await buildReporteData(rol, filtros, lote.ids, pagination, alcance.schoolId);
 
   if (formato !== "json") {
     const payload = await buildFilePayload(data, formato);
@@ -501,8 +513,9 @@ reportes.get(
   async (req, res) => {
     const filtros = parseFilters(req.query);
     const pagination = parsePagination(req.query);
-    const scopeSchoolId = typeof req.user?.schoolId === "string" ? req.user.schoolId : undefined;
-    const scopedSchoolId = filtros.institucion ?? scopeSchoolId;
+    const alcance = resolverEscuelaReporte(req, filtros);
+    if (!alcance) return res.status(403).json({ error: "forbidden" });
+    const scopedSchoolId = alcance.schoolId;
     const aulaWhere = buildAulaWhere(filtros, scopedSchoolId);
 
     const totalAulas = await prisma.clase.count({ where: aulaWhere });

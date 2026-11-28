@@ -201,3 +201,19 @@ test("FASE 5: un directivo de OTRA escuela no puede vincular (403)", async () =>
   });
   assert.equal(res.status, 403);
 });
+
+test("Auditoría 11/2026: un directivo no puede vincular a un alumno de OTRA escuela (404, sin vínculo)", async () => {
+  const dirId = randomUUID();
+  const padreId = randomUUID();
+  const hijoId = randomUUID();
+  seedDirectivo(dirId);
+  seedPadre(padreId);
+  seedHijo(hijoId, "esc-fase5-otra");
+  prisma.usuario.rows.find((u) => u.id === hijoId)!.username = "alumno_ajeno";
+
+  for (const body of [{ childId: hijoId }, { childUsername: "alumno_ajeno" }]) {
+    const res = await jsonRequest(baseUrl, "POST", `/api/usuarios/${padreId}/hijos`, { token: dirToken(dirId), body });
+    assert.equal(res.status, 404, JSON.stringify(res.body));
+  }
+  assert.equal(prisma.progresoModuloVinculo.rows.length, 0);
+});

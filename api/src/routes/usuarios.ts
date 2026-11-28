@@ -13,6 +13,7 @@ import { acreditarSaldoInicial } from "../lib/economia-alta";
 import { sincronizarMembresia } from "../lib/memberships";
 import { isParentInRoles, resolveRoles, resolvePrimaryRole } from "../lib/roles";
 import { vincularHijoCore } from "../lib/vinculo-padre-hijo";
+import { perteneceAEscuela } from "../lib/pertenece-escuela";
 import { requireUser } from "../lib/user-auth";
 import { serializeUsuario } from "../lib/user-serializer";
 import { UsuarioWriteSchema } from "../schema/usuario";
@@ -201,6 +202,11 @@ usuarios.post(
             where: { username: { equals: normalizeUsername(parsed.childUsername!) }, isDeleted: { not: true } }
           });
       if (!child?.id) return res.status(404).json({ error: "child not found" });
+      // El hijo también tiene que ser de la escuela del directivo; si no, se responde igual que si no
+      // existiera para no revelar usuarios de otras escuelas.
+      if (accessLevel !== "admin" && !(await perteneceAEscuela(String(requester?.schoolId), child.id))) {
+        return res.status(404).json({ error: "child not found" });
+      }
 
       const result = await vincularHijoCore({
         parentId,
