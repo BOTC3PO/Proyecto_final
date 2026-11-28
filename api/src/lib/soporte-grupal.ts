@@ -28,7 +28,7 @@ async function principalDelHilo(hilo: { solicitanteId: string; escuelaId: string
   if (!principalId) return null;
   if (!(await perteneceAEscuela(hilo.escuelaId, hilo.solicitanteId))) return null;
   const principal = await prisma.usuario.findFirst({ where: { id: principalId, isDeleted: { not: true } } });
-  if (!principal || !(await directivoVigente({ id: principal.id, roles: principal.roles ?? undefined, role: principal.role ?? undefined }, hilo.escuelaId))) return null;
+  if (!principal || !(await directivoVigente({ id: principal.id, roles: principal.roles ?? undefined }, hilo.escuelaId))) return null;
   return principalId;
 }
 
