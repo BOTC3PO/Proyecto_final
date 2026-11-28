@@ -35,10 +35,16 @@ export function limiteParaRuta(ruta: string, cfg: ReturnType<typeof reglasDeLimi
   return cfg.reglas.find((r) => r.patron.test(ruta))?.mb ?? cfg.defectoMb;
 }
 
-/** Middleware que elige el parser JSON según la ruta. `verify` conserva el cuerpo crudo de los webhooks. */
+/**
+ * Middleware que elige el parser JSON según la ruta. `verify` conserva el cuerpo crudo de los webhooks.
+ * `conSesion` decide si el pedido trae una sesión válida: el parser se monta antes de `requireUser`, así que
+ * sin esta condición un pedido anónimo a una ruta de contenido hacía leer y parsear hasta el límite grande
+ * antes de recibir el 401. Sin sesión se aplica el límite por defecto.
+ */
 export function jsonPorRuta(
   cfg: ReturnType<typeof reglasDeLimite>,
-  verify?: (req: Request, res: Response, buf: Buffer) => void
+  verify?: (req: Request, res: Response, buf: Buffer) => void,
+  conSesion?: (req: Request) => boolean
 ): RequestHandler {
   const parsers = new Map<number, RequestHandler>();
   const parserDe = (mb: number) => {
@@ -51,6 +57,8 @@ export function jsonPorRuta(
   };
   return (req: Request, res: Response, next: NextFunction) => {
     const ruta = (req.originalUrl || req.url || "").split("?")[0];
-    return parserDe(limiteParaRuta(ruta, cfg))(req, res, next);
+    const mb = limiteParaRuta(ruta, cfg);
+    if (mb > cfg.defectoMb && conSesion && !conSesion(req)) return parserDe(cfg.defectoMb)(req, res, next);
+    return parserDe(mb)(req, res, next);
   };
 }

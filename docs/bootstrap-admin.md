@@ -6,10 +6,11 @@ con `role: "ADMIN"` en la coleccion `usuarios`.
 
 ## Configuracion
 
-1. Define una clave de instalacion en el entorno:
+1. Define una clave de instalacion en el entorno, generada para esta instalacion (la API no arranca con
+   valores de ejemplo y en produccion exige al menos 32 caracteres):
 
 ```
-BOOTSTRAP_ADMIN_KEY=coloca-una-clave-segura
+openssl rand -hex 32   # copiar el resultado en BOOTSTRAP_ADMIN_KEY=
 ```
 
 2. Reinicia el backend para cargar la nueva variable de entorno.
@@ -20,7 +21,7 @@ Envia una peticion HTTP con la clave en el header `x-bootstrap-key` y los datos 
 
 ```
 POST /api/auth/bootstrap-admin
-x-bootstrap-key: coloca-una-clave-segura
+x-bootstrap-key: <tu BOOTSTRAP_ADMIN_KEY>
 Content-Type: application/json
 
 {

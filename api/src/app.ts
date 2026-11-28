@@ -2,6 +2,7 @@ import express, { type NextFunction, type Request, type Response } from "express
 import compression from "compression";
 import { opcionesCompresion } from "./lib/compression-config";
 import { ocultarErroresInternos, respuestaDeError } from "./lib/safe-error";
+import { extractTokenFromRequest, verifyToken } from "./lib/auth-token";
 import { jsonPorRuta, reglasDeLimite } from "./lib/json-limits";
 import helmet from "helmet";
 import cors from "cors";
@@ -156,6 +157,10 @@ app.use(jsonPorRuta(
     ) {
       req.rawBody = Buffer.from(buf);
     }
+  },
+  (req) => {
+    const token = extractTokenFromRequest(req);
+    return !!token && verifyToken(token, "access").ok;
   }
 ));
 // VUL-3: rate limiters específicos para endpoints sensibles

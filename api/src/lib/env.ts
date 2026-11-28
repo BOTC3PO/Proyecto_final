@@ -4,6 +4,32 @@ const parseBool = (value: string | undefined, fallback: boolean) => {
   if (value === undefined) return fallback;
   return ["true", "1", "yes", "on"].includes(value.toLowerCase());
 };
+// Valores de ejemplo que figuran en el repositorio (.env.example, composer.sh, documentación): quien los
+// leyó puede firmar tokens válidos. Se rechazan siempre; en producción además se exige un mínimo de largo.
+const SECRETOS_DE_EJEMPLO = new Set([
+  "dev-secret",
+  "cambiar-en-produccion",
+  "replace-me-with-a-strong-random-secret",
+  "coloca-una-clave-segura"
+]);
+const LARGO_MINIMO_SECRETO = 32;
+
+/** Valida un secreto de firma. `opcional`: vacío está permitido (la variable no es obligatoria). */
+export function validarSecreto(nombre: string, valor: string | undefined, opts: { opcional?: boolean; nodeEnv?: string } = {}): string {
+  const v = valor ?? "";
+  if (!v && opts.opcional) return "";
+  const comoEjemplo = SECRETOS_DE_EJEMPLO.has(v.trim().toLowerCase());
+  const corto = (opts.nodeEnv ?? process.env.NODE_ENV) === "production" && Buffer.byteLength(v) < LARGO_MINIMO_SECRETO;
+  if (!v || comoEjemplo || corto) {
+    throw new Error(
+      `${nombre} must be set to a strong, unique value via the ${nombre} environment variable ` +
+        `(at least ${LARGO_MINIMO_SECRETO} bytes in production; the example values from the repository are not ` +
+        "accepted). Generate one with `openssl rand -hex 64`."
+    );
+  }
+  return v;
+}
+
 export const ENV = {
   NODE_ENV: process.env.NODE_ENV ?? "development",
   PORT: Number(process.env.PORT ?? 5050),
@@ -71,27 +97,15 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   MONGO_SERVER_SELECTION_MS: Number(process.env.MONGO_SERVER_SELECTION_MS ?? 5000),
   MONGO_REQUIRE_AUTH: parseBool(process.env.MONGO_REQUIRE_AUTH, true),
   PAYMENTS_WEBHOOK_SECRET: process.env.PAYMENTS_WEBHOOK_SECRET ?? "",
-  BOOTSTRAP_ADMIN_KEY: process.env.BOOTSTRAP_ADMIN_KEY ?? "",
+  BOOTSTRAP_ADMIN_KEY: validarSecreto("BOOTSTRAP_ADMIN_KEY", process.env.BOOTSTRAP_ADMIN_KEY, { opcional: true }),
   // SECURITY: refuse to start if JWT_SECRET is missing or still set to the
   // well-known placeholder "dev-secret" (CWE-798). The previous fallback
   // silently enabled a publicly-known signing key in any non-production
   // NODE_ENV, letting anyone who has read this repository mint valid
   // access tokens. Refusing at boot is the only safe behavior: by the time
   // any auth middleware runs, ENV.JWT_SECRET is already in memory.
-  JWT_SECRET: (() => {
-    const secret = process.env.JWT_SECRET;
-    if (!secret || secret === "dev-secret") {
-      throw new Error(
-        "JWT_SECRET must be set to a strong, unique value via the JWT_SECRET " +
-          "environment variable. The placeholder value \"dev-secret\" is not " +
-          "accepted in any environment. Generate one with `node -e \"console.log(" +
-          "require('crypto').randomBytes(64).toString('hex'))\"` or " +
-          "`openssl rand -hex 64`."
-      );
-    }
-    return secret;
-  })(),
-  JWT_REFRESH_SECRET: process.env.JWT_REFRESH_SECRET ?? "",
+  JWT_SECRET: validarSecreto("JWT_SECRET", process.env.JWT_SECRET),
+  JWT_REFRESH_SECRET: validarSecreto("JWT_REFRESH_SECRET", process.env.JWT_REFRESH_SECRET, { opcional: true }),
   JWT_ISSUER: process.env.JWT_ISSUER ?? "",
   JWT_AUDIENCE: process.env.JWT_AUDIENCE ?? "",
   JWT_ACCESS_TTL_SECONDS: Number(process.env.JWT_ACCESS_TTL_SECONDS ?? 60 * 60),

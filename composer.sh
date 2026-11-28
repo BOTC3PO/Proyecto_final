@@ -226,7 +226,11 @@ if [[ -f "$ENV_PATH" ]]; then
   warn ".env ya existe en api/ — no se sobreescribe"
 else
   if [[ "$DRY_RUN" == "false" ]]; then
-    cat > "$ENV_PATH" << 'EOF'
+    # Claves propias de esta instalación: la API no arranca con valores de ejemplo.
+    JWT_GEN=$(openssl rand -hex 32)
+    JWT_REFRESH_GEN=$(openssl rand -hex 32)
+    BOOTSTRAP_GEN=$(openssl rand -hex 32)
+    cat > "$ENV_PATH" << EOF
 # ── Servidor ──────────────────────────────────────────────
 PORT=5050
 NODE_ENV=development
@@ -241,8 +245,8 @@ SQLITE_PATH=./src/diccionarios/Diccionario.sqlite
 CORS_ORIGIN=http://localhost:5173
 
 # ── JWT ────────────────────────────────────────────────────
-JWT_SECRET=cambiar-en-produccion
-JWT_REFRESH_SECRET=cambiar-en-produccion
+JWT_SECRET=${JWT_GEN}
+JWT_REFRESH_SECRET=${JWT_REFRESH_GEN}
 JWT_ACCESS_TTL_SECONDS=3600
 
 # ── MercadoPago (opcional) ─────────────────────────────────
@@ -257,7 +261,7 @@ PRECIO_STAFF_MENSUAL=300
 PRECIO_EXPANSION_PROFESOR=150
 
 # ── Admin ──────────────────────────────────────────────────
-BOOTSTRAP_ADMIN_KEY=cambiar-en-produccion
+BOOTSTRAP_ADMIN_KEY=${BOOTSTRAP_GEN}
 EOF
   else
     warn "DRY  Crear $ENV_PATH"

@@ -89,3 +89,41 @@ describe("el parser aplica el límite de cada ruta", () => {
     assert.equal((await mandar("/api/auth/login", 2)).status, 413);
   });
 });
+
+// Auditoría 11/2026 — el parser corre antes de requireUser: sin sesión, una ruta de contenido leía y
+// parseaba hasta 30 MB antes de responder 401.
+describe("sin sesión las rutas de contenido usan el límite por defecto", () => {
+  let baseUrl: string;
+  let server: Server;
+
+  before(async () => {
+    const app = express();
+    app.use(jsonPorRuta(cfg, undefined, (req) => req.headers.authorization === "Bearer valida"));
+    app.post(/.*/, (_req, res) => res.json({ ok: true }));
+    app.use((err: unknown, req: Request, res: Response, _next: NextFunction) => {
+      const { status, cuerpo } = respuestaDeError(err, req);
+      res.status(status).json(cuerpo);
+    });
+    server = await new Promise<Server>((resolve) => { const s = app.listen(0, () => resolve(s)); });
+    const a = server.address();
+    if (!a || typeof a === "string") throw new Error("bind");
+    baseUrl = `http://127.0.0.1:${a.port}`;
+  });
+  after(async () => { await new Promise((r) => server.close(() => r(null))); });
+
+  const mandar = (ruta: string, mb: number, auth?: string) =>
+    fetch(`${baseUrl}${ruta}`, {
+      method: "POST",
+      headers: { "content-type": "application/json", ...(auth ? { authorization: auth } : {}) },
+      body: JSON.stringify({ relleno: "x".repeat(Math.floor(mb * 1024 * 1024)) }),
+    }).then((r) => r.status);
+
+  test("anónimo o con un token inválido: 3 MB a /api/modulos → 413", async () => {
+    assert.equal(await mandar("/api/modulos", 3), 413);
+    assert.equal(await mandar("/api/admin/x", 3, "Bearer falsa"), 413);
+  });
+
+  test("con sesión: 3 MB a /api/modulos → 200", async () => {
+    assert.equal(await mandar("/api/modulos", 3, "Bearer valida"), 200);
+  });
+});

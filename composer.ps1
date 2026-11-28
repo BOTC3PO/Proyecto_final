@@ -164,6 +164,11 @@ if (Test-Path $EnvPath) {
   Write-Warn ".env ya existe en api/ — no se sobreescribe"
 } else {
   if ($PSCmdlet.ShouldProcess($EnvPath, "Crear .env")) {
+    # Claves propias de esta instalación: la API no arranca con valores de ejemplo.
+    function New-Clave { $b = New-Object byte[] 32; [System.Security.Cryptography.RandomNumberGenerator]::Create().GetBytes($b); -join ($b | ForEach-Object { $_.ToString("x2") }) }
+    $JwtGen = New-Clave
+    $JwtRefreshGen = New-Clave
+    $BootstrapGen = New-Clave
     $EnvContent = @"
 # ── Servidor ──────────────────────────────────────────────
 PORT=5050
@@ -179,8 +184,8 @@ SQLITE_PATH=./src/diccionarios/Diccionario.sqlite
 CORS_ORIGIN=http://localhost:5173
 
 # ── JWT ────────────────────────────────────────────────────
-JWT_SECRET=cambiar-en-produccion
-JWT_REFRESH_SECRET=cambiar-en-produccion
+JWT_SECRET=$JwtGen
+JWT_REFRESH_SECRET=$JwtRefreshGen
 JWT_ACCESS_TTL_SECONDS=3600
 
 # ── MercadoPago (opcional) ─────────────────────────────────
@@ -195,7 +200,7 @@ PRECIO_STAFF_MENSUAL=300
 PRECIO_EXPANSION_PROFESOR=150
 
 # ── Admin ──────────────────────────────────────────────────
-BOOTSTRAP_ADMIN_KEY=cambiar-en-produccion
+BOOTSTRAP_ADMIN_KEY=$BootstrapGen
 "@
     $Enc = New-Object System.Text.UTF8Encoding($false)
     [System.IO.File]::WriteAllText($EnvPath, $EnvContent, $Enc)
