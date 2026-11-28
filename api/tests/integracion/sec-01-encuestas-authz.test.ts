@@ -273,3 +273,24 @@ test("SEC-01: un docente de otra aula no crea encuestas en esta", async () => {
   });
   assert.equal(r.status, 403);
 });
+
+test("Auditoría 11/2026: editar una encuesta no la mueve a otra aula (classroomId se ignora)", async () => {
+  prisma.clase.rows.push({ id: "aula-ajena-enc", escuelaId: "escuela-otra", name: "Ajena", isDeleted: false, status: "ACTIVE", createdBy: "otro", createdAt: new Date().toISOString() } as never);
+  const teacherToken = tokenFor({ id: TEACHER_ID, role: "TEACHER" });
+  const now = new Date();
+  const crear = await jsonRequest(baseUrl, "POST", "/api/encuestas", {
+    token: teacherToken,
+    body: {
+      id: "survey-mover-1", title: "No se mueve", description: "x", classroomId: "aula-1", type: "normal",
+      options: [{ id: "a", label: "A" }, { id: "b", label: "B" }],
+      startAt: now.toISOString(), endAt: new Date(now.getTime() + 60_000).toISOString(),
+    },
+  });
+  assert.equal(crear.status, 201, JSON.stringify(crear.body));
+  const id = (crear.body as { id: string }).id;
+  for (const metodo of ["PUT", "PATCH"] as const) {
+    await jsonRequest(baseUrl, metodo, `/api/encuestas/${id}`, { token: teacherToken, body: { classroomId: "aula-ajena-enc", title: "Movida" } });
+    const fila = prisma.encuesta.rows.find((e: any) => e.id === id) as { classroomId: string };
+    assert.equal(fila.classroomId, "aula-1", metodo);
+  }
+});

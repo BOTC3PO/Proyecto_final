@@ -650,7 +650,9 @@ libros.get("/api/libros", requireUser, async (req, res) => {
 libros.get("/api/libros/:id", requireUser, async (req, res) => {
   const id = String(req.params.id);
   const row = await prisma.libro.findFirst({ where: { id } });
-  if (!row) return res.status(404).json({ error: "not found" });
+  // Mismo criterio que el listado: un libro que no se puede leer responde igual que uno inexistente.
+  const user = (req as { user?: AuthUser }).user ?? {};
+  if (!row || !canReadLibro(row as unknown as LibroRow, user)) return res.status(404).json({ error: "not found" });
   // WO-13 — provenance (snapshot de `LibroRow.clonedFrom*`).
   const clonedFrom = row.clonedFromId
     ? {

@@ -35,7 +35,8 @@ const requireStaff = (req: express.Request, res: express.Response, next: express
 
 
 
-const SurveyUpdateSchema = SurveyBaseSchema.partial().omit({ id: true, createdAt: true, createdBy: true });
+// El aula de una encuesta no se cambia al editarla: moverla saltaría el control sobre el aula de destino.
+const SurveyUpdateSchema = SurveyBaseSchema.partial().omit({ id: true, createdAt: true, createdBy: true, classroomId: true });
 
 const clampLimit = (value: string | undefined) => {
   const parsed = Number(value ?? 20);

@@ -492,6 +492,19 @@ mensajeria.post("/api/mensajeria/avisos/:id/leer", requireUser, async (req, res)
   return res.json({ ok: true });
 });
 
+/**
+ * Editar o borrar un aviso: el ADMIN; o quien hoy es DIRECTIVO/TEACHER de la escuela del aviso y es su autor.
+ * Un directivo de esa escuela además puede borrar avisos de autores que ya no están. Antes alcanzaba con
+ * ser el autor, aunque ya no fuera parte de la escuela.
+ */
+function puedeTocarAviso(req: unknown, aviso: { autorId: string; escuelaId: string }, userId: string, accion: "editar" | "borrar") {
+  const user = getUserFromReq(req as never);
+  if (hasRole(user, "ADMIN")) return true;
+  if (getSchoolId(req as never) !== aviso.escuelaId) return false;
+  if (accion === "borrar" && hasRole(user, "DIRECTIVO")) return true;
+  return aviso.autorId === userId && (hasRole(user, "DIRECTIVO") || hasRole(user, "TEACHER"));
+}
+
 // ── PUT /api/mensajeria/avisos/:id ────────────────────────────
 // FIX-TEST4-AVISOS-EDIT — antes no había forma de editar ni borrar
 // un aviso después de crearlo. Ahora PUT parcial (mismo shape que
@@ -504,8 +517,7 @@ mensajeria.put("/api/mensajeria/avisos/:id", requireUser, async (req, res) => {
   const aviso = await prisma.aviso.findFirst({ where: { id: String(req.params.id) } });
   if (!aviso) return res.status(404).json({ error: "aviso no encontrado" });
 
-  const user = getUserFromReq(req as never);
-  if (!hasRole(user, "ADMIN") && aviso.autorId !== userId) {
+  if (!puedeTocarAviso(req, aviso, userId, "editar")) {
     return res.status(403).json({ error: "sin permiso sobre este aviso" });
   }
 
@@ -549,8 +561,7 @@ mensajeria.delete("/api/mensajeria/avisos/:id", requireUser, async (req, res) =>
   const aviso = await prisma.aviso.findFirst({ where: { id: String(req.params.id) } });
   if (!aviso) return res.status(404).json({ error: "aviso no encontrado" });
 
-  const user = getUserFromReq(req as never);
-  if (!hasRole(user, "ADMIN") && aviso.autorId !== userId) {
+  if (!puedeTocarAviso(req, aviso, userId, "borrar")) {
     return res.status(403).json({ error: "sin permiso sobre este aviso" });
   }
 

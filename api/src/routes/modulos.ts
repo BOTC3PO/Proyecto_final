@@ -798,10 +798,15 @@ modulos.get("/api/modulos/:id", requireUser, async (req, res) => {
  *
  * Retorna `{ newId, createdAt }` con el id del módulo clonado.
  */
+const escuelaDeQuienCopia = (req: { user?: unknown }): string | null => {
+  const u = req.user as { schoolId?: string | null; escuelaId?: string | null } | undefined;
+  return (typeof u?.schoolId === "string" && u.schoolId) || (typeof u?.escuelaId === "string" && u.escuelaId) || null;
+};
+
 async function cloneModuloDeep(
   sourceId: string,
   newOwnerId: string,
-  opts: { appendCopiaSuffix?: boolean } = { appendCopiaSuffix: true },
+  opts: { appendCopiaSuffix?: boolean; newSchoolId?: string | null } = { appendCopiaSuffix: true },
 ): Promise<{ newId: string; createdAt: string }> {
   const source = await prisma.modulo.findFirst({
     where: { id: sourceId, isDeleted: { not: true } },
@@ -853,8 +858,10 @@ async function cloneModuloDeep(
           ? `${source.titulo} (copia)`
           : source.titulo,
         descripcion: source.descripcion ?? null,
-        visibility: source.visibility,
-        schoolId: source.schoolId,
+        // La copia es de quien copia: queda en SU escuela. Antes heredaba la escuela del original y una
+        // copia "solo escuela" aparecía en el catálogo de otra escuela. Sin escuela, pasa a privada.
+        visibility: source.visibility === "escuela" && !opts.newSchoolId ? "privado" : source.visibility,
+        schoolId: opts.newSchoolId ?? null,
         ownerUserId: newOwnerId,
         teoriaId: source.teoriaId,
         tuesdayDocId: source.tuesdayDocId,
@@ -969,6 +976,7 @@ modulos.post(
 
       const { newId, createdAt } = await cloneModuloDeep(sourceId, requesterId, {
         appendCopiaSuffix: true,
+        newSchoolId: escuelaDeQuienCopia(req),
       });
 
       // Auditoria fuera de la transaccion (no bloquea si falla).
@@ -1579,6 +1587,7 @@ modulos.put("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), as
     ) {
       const { newId } = await cloneModuloDeep(targetId, userIdForCow, {
         appendCopiaSuffix: false,
+        newSchoolId: escuelaDeQuienCopia(req),
       });
       // WO-13 — auditoría. Diferenciamos del duplicar explícito
       // (`trigger: "cow"`) para que la traza refleje que fue un
@@ -1679,6 +1688,7 @@ modulos.patch("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), 
     ) {
       const { newId } = await cloneModuloDeep(targetId, userIdForCow, {
         appendCopiaSuffix: false,
+        newSchoolId: escuelaDeQuienCopia(req),
       });
       await recordAuditLog({
         actorId: userIdForCow,

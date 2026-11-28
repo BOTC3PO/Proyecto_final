@@ -210,3 +210,20 @@ test("GET pendientes como TEACHER → 403", async () => {
   );
   assert.equal(r.status, 403);
 });
+
+test("Auditoría 11/2026: cambiar el contenido de una pública aprobada la vuelve a la cola", async () => {
+  const id = await crearPlantilla({ token: tTeacher(), nombre: "aprobada", visibility: "publica" });
+  await jsonRequest(baseUrl, "POST", `/api/admin/plantillas/${id}/aprobar`, { token: tAdmin(), body: {} });
+  const r = await jsonRequest(baseUrl, "PUT", `/api/plantillas/${id}`, {
+    token: tTeacher(),
+    body: { nombre: "cambiada", codigoDsl: VALID_DSL.replace("variables:", "variables:\n") },
+  });
+  assert.equal(r.status, 200, JSON.stringify(r.body));
+  const detail = await jsonRequest(baseUrl, "GET", `/api/plantillas/${id}`, { token: tAdmin() });
+  assert.equal((detail.body as { publicAprobado: boolean }).publicAprobado, false);
+  // Solo renombrar también cuenta (el nombre es parte de lo publicado).
+  await jsonRequest(baseUrl, "POST", `/api/admin/plantillas/${id}/aprobar`, { token: tAdmin(), body: {} });
+  await jsonRequest(baseUrl, "PUT", `/api/plantillas/${id}`, { token: tTeacher(), body: { nombre: "otra vez" } });
+  const d2 = await jsonRequest(baseUrl, "GET", `/api/plantillas/${id}`, { token: tAdmin() });
+  assert.equal((d2.body as { publicAprobado: boolean }).publicAprobado, false);
+});

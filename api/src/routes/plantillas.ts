@@ -412,6 +412,18 @@ plantillas.put("/api/plantillas/:id", requireUser, async (req, res) => {
         update.publicAprobado = false;
       }
     }
+    // La aprobación es del contenido revisado: si quien no es ADMIN cambia lo que se publica de una plantilla
+    // pública, vuelve a la cola de aprobación en vez de seguir visible para todos con el contenido nuevo.
+    const cambiaContenido =
+      !!nextCodigo ||
+      (data.nombre !== undefined && data.nombre !== row.nombre) ||
+      (data.descripcion !== undefined && data.descripcion !== row.descripcion) ||
+      (data.materia !== undefined && data.materia !== row.materia) ||
+      (data.tags !== undefined && JSON.stringify(data.tags) !== row.tags);
+    const quedaPublica = (data.visibility ?? row.visibility) === "publica";
+    if (cambiaContenido && quedaPublica && !hasRole(user, "ADMIN")) {
+      update.publicAprobado = false;
+    }
 
     const updated = await prisma.$transaction(async (tx) => {
       const u = await tx.plantillaEjercicio.update({
