@@ -364,6 +364,25 @@ const exigirAdministrarAula = async (
   return false;
 };
 
+/**
+ * Saldo, movimientos y puntos de una persona: los ve ella misma, un ADMIN, su padre o madre con vínculo
+ * aprobado o el personal que administra un aula de la que es miembro. Antes cualquier sesión los leía.
+ */
+const puedeVerEconomiaDe = async (req: express.Request, usuarioId: string): Promise<boolean> => {
+  const yo = getRequesterId(req);
+  if (yo && yo === usuarioId) return true;
+  if (hasRole(actorDe(req) as never, "ADMIN")) return true;
+  if (yo && (await prisma.progresoModuloVinculo.findFirst({ where: { parentId: yo, childId: usuarioId, estado: "aprobado" } }))) {
+    return true;
+  }
+  if (!isStaffRole(actorDe(req))) return false;
+  const aulas = await prisma.claseMiembro.findMany({ where: { usuarioId }, select: { claseId: true }, take: 200 });
+  for (const { claseId } of aulas) {
+    if (puedeAdministrarAula(req, await cargarAula(claseId))) return true;
+  }
+  return false;
+};
+
 const buildIntercambioScore = (params: {
   diarios: number;
   cancelRatio: number;
@@ -671,6 +690,7 @@ economia.get("/api/economia/saldos", checkModoAula("economia"), async (req, res)
   if (!usuarioObjectId) {
     return res.status(400).json({ error: "usuarioId is required" });
   }
+  if (!(await puedeVerEconomiaDe(req, usuarioId))) return res.status(403).json({ error: "forbidden" });
   const saldo = await prisma.economiaSaldo.findFirst({ where: { usuarioId: usuarioObjectId } });
   // FIX-TEST4-ADMIN-01 — leer el override del panel admin
   // primero. Si no hay override (modo "normal"), cae al JSON
@@ -828,6 +848,7 @@ economia.get("/api/economia/transacciones", async (req, res) => {
   if (typeof usuarioId !== "string" || !usuarioId.trim()) {
     return res.status(400).json({ error: "usuarioId is required" });
   }
+  if (!(await puedeVerEconomiaDe(req, usuarioId))) return res.status(403).json({ error: "forbidden" });
   const limit = clampLimit(req.query.limit as string | undefined);
   const offset = Number(req.query.offset ?? 0);
   const items = await prisma.economiaTransaccion.findMany({
@@ -1258,6 +1279,8 @@ economia.post(
   async (req, res) => {
     try {
       const payload = CompraCreateSchema.parse(req.body ?? {});
+      // Comprar por otra persona (descontarle saldo) es de quien administra el aula, no de cualquier docente.
+      if (getRequesterId(req) !== payload.usuarioId && !(await exigirAdministrarAula(req, res, String(payload.aulaId)))) return;
       const config = await getEconomiaConfig();
       const aula = await cargarAula(String(payload.aulaId));
       if (!assertClassroomWritable(res, aula)) {
@@ -1454,7 +1477,17 @@ economia.patch("/api/economia/examenes/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), as
       }
     }
     // El aula del examen no se cambia desde acá: moverlo a otra aula saltaría el control de arriba.
-    const { aulaId: _aulaDelPedido, ...cambios } = parsed as Record<string, unknown>;
+    // Tampoco lo que solo fija el cierre del servidor: un precio promedio editado inflaba los premios de
+    // los cierres siguientes (de cualquier aula), y el estado "cerrado" salteaba el cierre.
+    const {
+      aulaId: _aulaDelPedido,
+      estado: _estado,
+      precioPromedio: _precioPromedio,
+      cierreIniciadoAt: _cierreIniciadoAt,
+      cupo: _cupo,
+      ticketsEmitidos: _ticketsEmitidos,
+      ...cambios
+    } = parsed as Record<string, unknown>;
     const updatedDoc = { ...existing, ...cambios, updatedAt: new Date().toISOString() };
     await prisma.economiaExamen.updateMany({
       where: { id: req.params.id as string },
@@ -1613,6 +1646,7 @@ economia.get("/api/economia/examenes/puntos", async (req, res) => {
   if (typeof usuarioId !== "string" || !usuarioId.trim()) {
     return res.status(400).json({ error: "usuarioId is required" });
   }
+  if (!(await puedeVerEconomiaDe(req, usuarioId))) return res.status(403).json({ error: "forbidden" });
   const allRows = await prisma.economiaExamenPunto.findMany({
     where: { json: { contains: `"usuarioId":${JSON.stringify(usuarioId)}` } },
     take: 50
@@ -1673,6 +1707,7 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
       .map((row) => { try { return JSON.parse(row.json); } catch { return null; } })
       .filter((doc): doc is PujaDoc => doc !== null && doc.examenId === req.params.id && doc.estado === "pendiente");
     const rankingPuntos = new Map<string, number>();
+    const pagadoPorUsuario = new Map<string, number>();
     let precioTotal = 0;
     let precioCount = 0;
 
@@ -1751,6 +1786,7 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
         continue;
       }
       cupoRestante -= puja.puntos ?? 0;
+      pagadoPorUsuario.set(puja.usuarioId ?? "", (pagadoPorUsuario.get(puja.usuarioId ?? "") ?? 0) + costoTotal);
       const puntosNetos = Math.max(0, (puja.puntos ?? 0) * (1 - (examen.impuestoTasa ?? 0)));
       PuntosExamenSchema.parse({
         usuarioId: puja.usuarioId,
@@ -1796,10 +1832,15 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
       });
     }
     const precioPromedioActual = precioCount ? precioTotal / precioCount : 0;
-    const preciosPreviosRows = await prisma.economiaExamen.findMany({ orderBy: { createdAt: "desc" }, take: 5 });
+    // Historial de precios: solo exámenes de esta misma aula (antes eran los últimos de toda la plataforma).
+    const preciosPreviosRows = await prisma.economiaExamen.findMany({
+      where: { json: { contains: `"aulaId":${JSON.stringify(examen.aulaId)}` } },
+      orderBy: { createdAt: "desc" },
+      take: 20
+    });
     const preciosPrevios = preciosPreviosRows
       .map((row) => { try { return JSON.parse(row.json); } catch { return null; } })
-      .filter((doc): doc is ExamenDoc => doc !== null && doc.estado === "cerrado" && doc.id !== req.params.id)
+      .filter((doc): doc is ExamenDoc => doc !== null && doc.aulaId === examen.aulaId && doc.estado === "cerrado" && doc.id !== req.params.id)
       .slice(0, 4);
     const precioPromedioRanking = buildPrecioPromedio([
       precioPromedioActual,
@@ -1814,7 +1855,8 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
     for (const [index, ganador] of ranking.entries()) {
       const factor = config.rankingFactors?.[index] ?? 0;
       if (factor <= 0 || ganador.puntos <= 0 || precioPromedioRanking <= 0) continue;
-      const premio = ganador.puntos * precioPromedioRanking * factor;
+      // El premio nunca supera lo que el ganador pagó en esta subasta: la subasta no emite monedas.
+      const premio = Math.min(ganador.puntos * precioPromedioRanking * factor, pagadoPorUsuario.get(ganador.usuarioId) ?? 0);
       if (premio <= 0) continue;
       const transaccion = TransaccionSchema.parse({
         id: generateId(),

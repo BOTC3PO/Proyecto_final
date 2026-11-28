@@ -162,3 +162,13 @@ test("un alumno no puede pedir el boletín de OTRO alumno (403)", async () => {
   );
   assert.equal(status, 403);
 });
+
+test("Auditoría 11/2026: el docente no puede pedir el boletín de un alumno que no es del aula (404)", async () => {
+  seedUser({ id: "alumno-ajeno-boletin", role: "USER", schoolId: "esc-otra-boletin" });
+  seedAttempt("att-ajeno", "alumno-ajeno-boletin", 8, "2026-03-15T10:00:00.000Z");
+  const { status, body } = await jsonRequest(
+    baseUrl, "GET", `/api/aulas/${AULA}/boletin?alumnoId=alumno-ajeno-boletin`, { token: docenteToken() }
+  );
+  assert.equal(status, 404);
+  assert.equal(JSON.stringify(body).includes("promedio"), false);
+});

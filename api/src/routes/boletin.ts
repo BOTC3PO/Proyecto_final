@@ -58,6 +58,10 @@ boletin.get(
     if (alumnoId !== requesterId && !isClassroomTeacher(classroom, requesterId, requesterRole)) {
       return res.status(403).json({ error: "forbidden" });
     }
+    // Y ese alumno tiene que ser del aula: el docente de esta aula no lee notas de alumnos de otras.
+    if (alumnoId !== requesterId && !(classroom.members ?? []).some((m) => m.userId === alumnoId && m.roleInClass === "STUDENT")) {
+      return res.status(404).json({ error: "alumno no encontrado en el aula" });
+    }
 
     const periodos = await prisma.clasePeriodo.findMany({
       where: { claseId: id },

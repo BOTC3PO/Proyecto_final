@@ -1,6 +1,8 @@
 import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import { requirePolicy } from "../lib/authorization";
+import { aulaGestionable } from "../lib/aula-gestion";
+import { hasRole } from "../lib/roles";
 import { requireClassroomScope } from "../lib/classroom-scope";
 import { prisma } from "../lib/prisma";
 import { leerPagina, recortar } from "../lib/paginacion";
@@ -162,6 +164,9 @@ aulaFeed.post("/api/aula/actividades", requireUser, requirePolicy("aula-feed/wri
     return res.status(400).json({ error: "tipo inválido" });
   }
 
+  // Solo en un aula que quien llama gestiona (mismo criterio que calendario.ts).
+  if (!(await aulaGestionable(req as never, res, String(classroomId)))) return;
+
   const id = `act-${randomUUID()}`;
   const createdBy = getRequesterId(req as never) ?? "unknown";
   const now = new Date().toISOString();
@@ -183,6 +188,15 @@ aulaFeed.post("/api/aula/actividades", requireUser, requirePolicy("aula-feed/wri
 });
 
 aulaFeed.delete("/api/aula/actividades/:id", requireUser, requirePolicy("aula-feed/write"), async (req, res) => {
+  // Solo quien la creó (o un ADMIN), como en calendario.ts.
+  const actividad = await prisma.actividadAula.findFirst({
+    where: { id: String(req.params.id), isDeleted: false },
+    select: { createdBy: true },
+  });
+  if (!actividad) return res.status(404).json({ error: "actividad no encontrada" });
+  if (!hasRole(req.user as never, "ADMIN") && actividad.createdBy !== getRequesterId(req as never)) {
+    return res.status(403).json({ error: "sin permiso sobre esta actividad" });
+  }
   await prisma.actividadAula.updateMany({
     where: { id: String(req.params.id) },
     data: { isDeleted: true, deletedAt: new Date().toISOString() },
