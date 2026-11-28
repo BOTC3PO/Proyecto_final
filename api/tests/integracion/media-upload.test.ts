@@ -15,7 +15,10 @@ import {
   mimeForFile,
   registrarSubida,
   reiniciarContadorDeSubidas,
+  reiniciarCuposDeMedia,
 } from "../../src/routes/media";
+import { ENV } from "../../src/lib/env";
+import net from "node:net";
 
 let baseUrl: string;
 let close: () => Promise<void>;
@@ -82,6 +85,7 @@ after(async () => {
 
 beforeEach(() => {
   reiniciarContadorDeSubidas();
+  reiniciarCuposDeMedia();
   resetPrisma();
   seedUser({ id: "profe-1", role: "TEACHER", schoolId: "esc-1" });
 });
@@ -325,4 +329,58 @@ test("B7: por HTTP, superado el tope la subida responde 429", async () => {
   for (let i = 0; i < 60; i++) registrarSubida("profe-1");
   const r = await uploadRaw(docente(), fakePng(), "image/png", "image");
   assert.equal(r.status, 429);
+});
+
+// ── Auditoría 11/2026: cupo de bytes, subidas simultáneas y espacio en disco ──
+
+test("cupo diario de bytes: superado, la subida responde 429 sin guardar", async () => {
+  const antes = ENV.MEDIA_MB_POR_DIA;
+  ENV.MEDIA_MB_POR_DIA = 1;
+  try {
+    const token = tokenFor({ id: "profe-1", role: "TEACHER", schoolId: "esc-1" });
+    const medio = fakePng("x".repeat(600 * 1024));
+    assert.equal((await uploadRaw(token, medio, "image/png", "image")).status, 201);
+    assert.equal((await uploadRaw(token, medio, "image/png", "image")).status, 429);
+  } finally {
+    ENV.MEDIA_MB_POR_DIA = antes;
+  }
+});
+
+test("sin espacio libre suficiente en disco responde 507", async () => {
+  const antes = ENV.MEDIA_DISCO_LIBRE_MIN_MB;
+  ENV.MEDIA_DISCO_LIBRE_MIN_MB = Number.MAX_SAFE_INTEGER / (1024 * 1024);
+  try {
+    const token = tokenFor({ id: "profe-1", role: "TEACHER", schoolId: "esc-1" });
+    assert.equal((await uploadRaw(token, fakePng(), "image/png", "image")).status, 507);
+  } finally {
+    ENV.MEDIA_DISCO_LIBRE_MIN_MB = antes;
+  }
+});
+
+test("subidas simultáneas: pasado el máximo por cuenta, la siguiente responde 429 sin leer el cuerpo", async () => {
+  const token = tokenFor({ id: "profe-1", role: "TEACHER", schoolId: "esc-1" });
+  const { port } = new URL(baseUrl);
+  // Abre una subida que declara 1 MB y manda solo una parte: queda "en curso".
+  const abierta = () =>
+    new Promise<net.Socket>((resolve) => {
+      const sock = net.connect(Number(port), "127.0.0.1", () => {
+        sock.write(
+          `POST /api/media/upload HTTP/1.1\r\nHost: x\r\nAuthorization: Bearer ${token}\r\n` +
+            "Content-Type: image/png\r\nX-Media-Kind: image\r\nContent-Length: 1048576\r\n\r\n"
+        );
+        sock.write(fakePng("parcial"));
+        setTimeout(() => resolve(sock), 150);
+      });
+    });
+  const sockets: net.Socket[] = [];
+  try {
+    for (let i = 0; i < ENV.MEDIA_SUBIDAS_SIMULTANEAS_USUARIO; i++) sockets.push(await abierta());
+    const r = await uploadRaw(token, fakePng(), "image/png", "image");
+    assert.equal(r.status, 429);
+  } finally {
+    for (const s of sockets) s.destroy();
+  }
+  // Al cerrarse, el cupo se libera.
+  await new Promise((r) => setTimeout(r, 100));
+  assert.equal((await uploadRaw(token, fakePng(), "image/png", "image")).status, 201);
 });

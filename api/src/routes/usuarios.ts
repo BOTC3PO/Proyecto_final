@@ -78,6 +78,14 @@ usuarios.post("/api/usuarios", requireUser, requirePolicy("usuarios/create"), as
         res.status(403).json({ error: "forbidden: ADMIN role requires admin requester" });
         return;
       }
+      // Techo de rol: la escuela da de alta alumnos, familias y docentes. Un DIRECTIVO solo lo crea otro
+      // DIRECTIVO (un ADMIN_ESCUELA no puede crear cuentas con más poder que la suya).
+      const rolesPermitidos = new Set(["USER", "PARENT", "TEACHER"]);
+      if (hasRole(requester as never, "DIRECTIVO")) rolesPermitidos.add("DIRECTIVO");
+      if (!rolesPermitidos.has(parsed.role)) {
+        res.status(403).json({ error: `forbidden: no podés crear cuentas con rol ${parsed.role}` });
+        return;
+      }
     }
     const now = new Date().toISOString();
 

@@ -212,6 +212,30 @@ export function coerceFilas(
   });
 }
 
+/**
+ * Lee el cuerpo ya descomprimido de a pedazos y corta apenas supera `max` bytes. `Content-Length` es el
+ * tamaño comprimido: una fuente gzip chica en el cable podía descomprimirse entera a memoria antes de que
+ * se mirara el límite.
+ */
+export async function leerConTope(res: Response, max: number, controlador?: AbortController): Promise<string> {
+  if (!res.body) return "";
+  const lector = res.body.getReader();
+  const partes: Uint8Array[] = [];
+  let total = 0;
+  for (;;) {
+    const { done, value } = await lector.read();
+    if (done) break;
+    total += value.byteLength;
+    if (total > max) {
+      await lector.cancel().catch(() => undefined);
+      controlador?.abort();
+      throw new Error("La fuente supera el límite de 2MB");
+    }
+    partes.push(value);
+  }
+  return Buffer.concat(partes).toString("utf8");
+}
+
 /** Baja y parsea la fuente externa. Lanza Error con mensaje apto para el usuario. */
 async function fetchFilasExternas(
   sourceUrl: string,
@@ -228,8 +252,9 @@ async function fetchFilasExternas(
   }
   if (esHostProhibido(url.hostname, resolvedIps)) throw new Error("Host no permitido");
 
+  const controlador = new AbortController();
   const res = await fetch(sourceUrl, {
-    signal: AbortSignal.timeout(EXTERNO_TIMEOUT_MS),
+    signal: AbortSignal.any([AbortSignal.timeout(EXTERNO_TIMEOUT_MS), controlador.signal]),
     redirect: "error",
   });
   if (!res.ok) throw new Error(`La fuente respondió ${res.status}`);
@@ -237,10 +262,7 @@ async function fetchFilasExternas(
   if (contentLength > EXTERNO_MAX_BYTES) {
     throw new Error("La fuente supera el límite de 2MB");
   }
-  const text = await res.text();
-  if (text.length > EXTERNO_MAX_BYTES) {
-    throw new Error("La fuente supera el límite de 2MB");
-  }
+  const text = await leerConTope(res, EXTERNO_MAX_BYTES, controlador);
 
   const contentType = res.headers.get("content-type") ?? "";
   const esJson =

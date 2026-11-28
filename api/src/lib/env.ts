@@ -86,6 +86,13 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   INSTRUMENTOS_MONTO_MAX: Number(process.env.INSTRUMENTOS_MONTO_MAX ?? 1_000_000),
   // Subidas de media por usuario y por hora (cada una puede pesar hasta 100 MB).
   MEDIA_UPLOADS_POR_HORA: Number(process.env.MEDIA_UPLOADS_POR_HORA ?? 60),
+  // Bytes que una cuenta puede subir en 24 h (además del tope de cantidad por hora).
+  MEDIA_MB_POR_DIA: Number(process.env.MEDIA_MB_POR_DIA ?? 1024),
+  // Subidas en curso a la vez: por cuenta y en total. Cada una se lee entera a memoria antes de guardarse.
+  MEDIA_SUBIDAS_SIMULTANEAS_USUARIO: Number(process.env.MEDIA_SUBIDAS_SIMULTANEAS_USUARIO ?? 2),
+  MEDIA_SUBIDAS_SIMULTANEAS: Number(process.env.MEDIA_SUBIDAS_SIMULTANEAS ?? 8),
+  // Con almacenamiento local: no guardar si el disco quedaría con menos que esto libre (lo comparte la base).
+  MEDIA_DISCO_LIBRE_MIN_MB: Number(process.env.MEDIA_DISCO_LIBRE_MIN_MB ?? 2048),
   MAX_PAGES_POST_MB: Number(process.env.MAX_PAGES_POST_MB ?? 5),
   MONGO_TLS: parseBool(process.env.MONGO_TLS, false),
   MONGO_REQUIRE_TLS: parseBool(process.env.MONGO_REQUIRE_TLS, true),

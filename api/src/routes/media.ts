@@ -24,7 +24,7 @@ import path from "path";
 import crypto from "crypto";
 import { requireUser } from "../lib/user-auth";
 import { ENV } from "../lib/env";
-import { putMedia, getMedia, mediaPublicUrl, localMediaPath } from "../lib/media-storage";
+import { putMedia, getMedia, mediaPublicUrl, localMediaPath, espacioLibreMedia } from "../lib/media-storage";
 import { createRateLimiter } from "../lib/rate-limit";
 
 export const mediaRouter = Router();
@@ -379,18 +379,100 @@ const limitarEnMemoria: express.RequestHandler = (req, res, next) => {
   return next();
 };
 
+/**
+ * Auditoría 11/2026 — cada subida se lee entera a memoria y no había tope de subidas en curso: muchas a la
+ * vez (de una o varias cuentas) ocupaban cientos de MB. Ahora hay un máximo por cuenta y uno total; el resto
+ * recibe 429/503 antes de leer el cuerpo.
+ */
+const enCursoPorUsuario = new Map<string, number>();
+let enCursoTotal = 0;
+
+const usuarioDe = (req: express.Request) => {
+  const u = (req as { user?: { id?: string; _id?: { toString?: () => string } } }).user;
+  return u?._id?.toString?.() ?? u?.id ?? "";
+};
+
+const limitarSimultaneas: express.RequestHandler = (req, res, next) => {
+  const id = usuarioDe(req);
+  const propias = enCursoPorUsuario.get(id) ?? 0;
+  if (propias >= ENV.MEDIA_SUBIDAS_SIMULTANEAS_USUARIO) {
+    res.setHeader("Connection", "close");
+    return res.status(429).json({ error: "esperá a que terminen tus otras subidas" });
+  }
+  if (enCursoTotal >= ENV.MEDIA_SUBIDAS_SIMULTANEAS) {
+    res.setHeader("Connection", "close");
+    res.setHeader("Retry-After", "10");
+    return res.status(503).json({ error: "hay muchas subidas en curso; probá en unos segundos" });
+  }
+  enCursoPorUsuario.set(id, propias + 1);
+  enCursoTotal += 1;
+  let liberado = false;
+  const liberar = () => {
+    if (liberado) return;
+    liberado = true;
+    enCursoTotal -= 1;
+    const n = (enCursoPorUsuario.get(id) ?? 1) - 1;
+    if (n <= 0) enCursoPorUsuario.delete(id);
+    else enCursoPorUsuario.set(id, n);
+  };
+  res.on("finish", liberar);
+  res.on("close", liberar);
+  return next();
+};
+
+/** Bytes subidos por cuenta en las últimas 24 h (en memoria, por proceso). */
+const bytesPorUsuario = new Map<string, Array<{ t: number; bytes: number }>>();
+const DIA_MS = 24 * 60 * 60 * 1000;
+
+export function bytesSubidosHoy(usuarioId: string, ahora = Date.now()): number {
+  const recientes = (bytesPorUsuario.get(usuarioId) ?? []).filter((e) => ahora - e.t < DIA_MS);
+  bytesPorUsuario.set(usuarioId, recientes);
+  return recientes.reduce((a, e) => a + e.bytes, 0);
+}
+
+/** Solo para pruebas. */
+export function reiniciarCuposDeMedia() {
+  bytesPorUsuario.clear();
+  enCursoPorUsuario.clear();
+  enCursoTotal = 0;
+}
+
+const cupoDiarioBytes = () => ENV.MEDIA_MB_POR_DIA * 1024 * 1024;
+
+/** Antes de leer el cuerpo: si lo declarado ya no entra en el cupo del día, se corta ahí. */
+const controlarCupoDiario: express.RequestHandler = (req, res, next) => {
+  const largo = Number(req.headers["content-length"]);
+  const usado = bytesSubidosHoy(usuarioDe(req));
+  if (usado >= cupoDiarioBytes() || (Number.isFinite(largo) && usado + largo > cupoDiarioBytes())) {
+    res.setHeader("Connection", "close");
+    return res.status(429).json({ error: `superaste el máximo de ${ENV.MEDIA_MB_POR_DIA} MB subidos por día` });
+  }
+  return next();
+};
+
 mediaRouter.post(
   "/upload",
   requireUser,
   limiteCompartido ?? limitarEnMemoria,
+  limitarSimultaneas,
+  controlarCupoDiario,
   leerCuerpoSegunTipo,
   async (req, res) => {
     const buf = req.body;
+    const usuarioId = usuarioDe(req);
+    if (bytesSubidosHoy(usuarioId) + buf.length > cupoDiarioBytes()) {
+      return res.status(429).json({ error: `superaste el máximo de ${ENV.MEDIA_MB_POR_DIA} MB subidos por día` });
+    }
     const declaredMime = (req.headers["content-type"] ?? "").split(";")[0].trim();
     const kindHeader = (req.headers["x-media-kind"] as string | undefined) ?? undefined;
     const check = inspectMediaUpload(buf, declaredMime, kindHeader);
     if (!check.ok) {
       return res.status(check.status).json({ error: check.error });
+    }
+    // El disco de la media local es el mismo de la base: nunca se llena por subidas.
+    const libre = await espacioLibreMedia();
+    if (libre !== null && libre - buf.length < ENV.MEDIA_DISCO_LIBRE_MIN_MB * 1024 * 1024) {
+      return res.status(507).json({ error: "no hay espacio para guardar el archivo; avisá al administrador" });
     }
     const name = `${crypto.randomBytes(16).toString("hex")}.${check.extension}`;
     try {
@@ -398,6 +480,9 @@ mediaRouter.post(
     } catch {
       return res.status(500).json({ error: "no se pudo guardar el archivo" });
     }
+    const registro = bytesPorUsuario.get(usuarioId) ?? [];
+    registro.push({ t: Date.now(), bytes: buf.length });
+    bytesPorUsuario.set(usuarioId, registro);
     return res.status(201).json({ url: `/api/media/${name}`, mimeType: check.mimeType });
   },
 );

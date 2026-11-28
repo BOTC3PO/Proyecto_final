@@ -45,6 +45,18 @@ export const putMedia = async (name: string, buf: Buffer): Promise<void> => {
   await fs.writeFile(path.resolve(LOCAL_ROOT, name), buf);
 };
 
+/** Bytes libres del disco donde se guarda la media local, o `null` con S3 (o si no se pudo medir). */
+export const espacioLibreMedia = async (): Promise<number | null> => {
+  if (ENV.MEDIA_STORAGE === "s3") return null;
+  try {
+    await fs.mkdir(LOCAL_ROOT, { recursive: true });
+    const st = await fs.statfs(LOCAL_ROOT);
+    return Number(st.bavail) * Number(st.bsize);
+  } catch {
+    return null;
+  }
+};
+
 /** Devuelve el contenido, o `null` si no existe. */
 export const getMedia = async (name: string): Promise<Buffer | null> => {
   if (ENV.MEDIA_STORAGE === "s3") {
