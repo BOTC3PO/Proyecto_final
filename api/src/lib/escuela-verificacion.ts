@@ -50,6 +50,26 @@ export const bloquearSiNoVerificada = async (
  * ADMIN de plataforma pasa siempre: es soporte, y sus acciones quedan en el
  * audit log.
  */
+/**
+ * ¿Es hoy directivo de esa escuela? Lo que vale es la pertenencia actual, no el rol global ni figurar como
+ * principal. Compat con filas anteriores al backfill de membresías (mismo criterio que `perteneceAEscuela`):
+ * sin ninguna membresía en esa escuela, alcanza con `usuarios.escuelaId` + rol DIRECTIVO. Una membresía
+ * revocada no tiene esa salida.
+ */
+export const directivoVigente = async (
+  usuario: { id: string; roles?: string[]; role?: string },
+  escuelaId: string
+): Promise<{ puedeCobrar: boolean } | null> => {
+  const membresias = await prisma.membresia.findMany({ where: { usuarioId: usuario.id, escuelaId } });
+  const activa = membresias.find((m) => m.rol === "DIRECTIVO" && m.estado === "activa");
+  if (activa) return { puedeCobrar: activa.puedeCobrar === true };
+  if (membresias.length > 0) return null;
+  const roles = usuario.roles ?? (usuario.role ? [usuario.role] : []);
+  if (!roles.includes("DIRECTIVO")) return null;
+  const fila = await prisma.usuario.findFirst({ where: { id: usuario.id } });
+  return fila?.escuelaId === escuelaId ? { puedeCobrar: false } : null;
+};
+
 export const puedeEmitirCobros = async (
   usuario: { id?: string; roles?: string[]; role?: string } | undefined,
   escuelaId: string
@@ -59,18 +79,17 @@ export const puedeEmitirCobros = async (
   if (!usuario?.id) return false;
 
   const escuela = await prisma.escuela.findFirst({ where: { id: escuelaId } });
-  if (escuela?.directivoPrincipalId === usuario.id) return true;
-
-  const membresia = await prisma.membresia.findFirst({
-    where: { usuarioId: usuario.id, escuelaId, rol: "DIRECTIVO", estado: "activa" }
-  });
-  if (membresia?.puedeCobrar === true) return true;
+  if (!escuela) return false;
+  // Un principal o delegado que dejó la escuela (membresía revocada) ya no emite cobros.
+  const membresia = await directivoVigente({ ...usuario, id: usuario.id }, escuelaId);
+  if (!membresia) return false;
+  if (escuela.directivoPrincipalId === usuario.id) return true;
+  if (membresia.puedeCobrar === true) return true;
 
   // Escuelas anteriores a este flujo: no tienen principal designado. Sin
   // esta salida NADIE podría cobrar en ellas — la delegación sólo aprieta
   // donde hay un principal que pueda otorgarla.
-  if (!escuela?.directivoPrincipalId) return roles.includes("DIRECTIVO");
-  return false;
+  return !escuela.directivoPrincipalId;
 };
 
 /** Sólo el directivo principal (o un ADMIN de plataforma). */
@@ -82,9 +101,10 @@ export const esDirectivoPrincipal = async (
   if (roles.includes("ADMIN")) return true;
   if (!usuario?.id) return false;
   const escuela = await prisma.escuela.findFirst({ where: { id: escuelaId } });
-  // Misma salida que en `puedeEmitirCobros`: sin principal designado
-  // (escuela previa al flujo de alta), cualquier DIRECTIVO de esa escuela
-  // conserva lo que ya podía hacer.
-  if (!escuela?.directivoPrincipalId) return roles.includes("DIRECTIVO");
+  if (!escuela) return false;
+  // Tanto el principal como, en escuelas sin principal designado (previas al
+  // flujo de alta), cualquier directivo: siempre con membresía activa en ESA escuela.
+  if (!(await directivoVigente({ ...usuario, id: usuario.id }, escuelaId))) return false;
+  if (!escuela.directivoPrincipalId) return true;
   return escuela.directivoPrincipalId === usuario.id;
 };

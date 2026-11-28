@@ -185,3 +185,21 @@ test("aula legacy sin status igual admite registrar asistencia (PLAN-A §2)", as
   });
   assert.equal(res.status, 200, JSON.stringify(res.body));
 });
+
+test("Auditoría 11/2026: un docente de la escuela que no es del aula no lee ni carga asistencia; el directivo sí", async () => {
+  seedUser({ id: "docente-otro-asistencia", role: "TEACHER", schoolId: ESCUELA });
+  seedUser({ id: "directivo-asistencia", role: "DIRECTIVO", schoolId: ESCUELA });
+  const otro = tokenFor({ id: "docente-otro-asistencia", role: "TEACHER", schoolId: ESCUELA });
+  const getRes = await jsonRequest(baseUrl, "GET", `/api/aulas/${AULA_ID}/asistencia?fecha=${FECHA}`, { token: otro });
+  assert.equal(getRes.status, 403);
+  const putRes = await jsonRequest(baseUrl, "PUT", `/api/aulas/${AULA_ID}/asistencia/${FECHA}`, {
+    token: otro,
+    body: { registros: [{ alumnoId: ALUMNO_1, estado: "ausente" }] },
+  });
+  assert.equal(putRes.status, 403);
+  assert.equal(prisma.asistencia.rows.length, 0);
+
+  const dir = tokenFor({ id: "directivo-asistencia", role: "DIRECTIVO", schoolId: ESCUELA });
+  const dirRes = await jsonRequest(baseUrl, "GET", `/api/aulas/${AULA_ID}/asistencia?fecha=${FECHA}`, { token: dir });
+  assert.equal(dirRes.status, 200);
+});

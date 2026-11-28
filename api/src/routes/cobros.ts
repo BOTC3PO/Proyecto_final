@@ -1,5 +1,6 @@
 import { randomUUID } from "node:crypto";
 import { Router } from "express";
+import { perteneceAEscuela } from "../lib/pertenece-escuela";
 import { prisma } from "../lib/prisma";
 import { validarCuerpo } from "../lib/validar";
 import { CuotaCheckoutSchema, DelegacionCobrosSchema, CryptomusHabilitarSchema } from "../schema/escrituras";
@@ -218,6 +219,22 @@ cobros.post("/api/cobros/:id/publicar", requireUser, async (req, res) => {
   const parsed = CobroPublicarSchema.safeParse(req.body);
   if (!parsed.success) {
     return res.status(400).json({ error: "payload inválido", issues: parsed.error.issues });
+  }
+
+  // Los destinatarios tienen que ser de la escuela del cobro: un aula de otra escuela o un alumno ajeno
+  // rechazan el pedido entero (sin crear nada ni revelar nombres).
+  const ajenos: string[] = [];
+  for (const alumnoId of new Set(parsed.data.alumnoIds ?? [])) {
+    if (!(await perteneceAEscuela(cobro.escuelaId, alumnoId))) ajenos.push(alumnoId);
+  }
+  if (parsed.data.aulaId) {
+    const aula = await prisma.clase.findFirst({ where: { id: parsed.data.aulaId, isDeleted: { not: true } } });
+    if (!aula || aula.escuelaId !== cobro.escuelaId) {
+      return res.status(422).json({ error: "el aula no es de la escuela del cobro", code: "DESTINATARIO_AJENO" });
+    }
+  }
+  if (ajenos.length) {
+    return res.status(422).json({ error: "hay alumnos que no son de la escuela del cobro", code: "DESTINATARIO_AJENO" });
   }
 
   const alumnoIds = new Set<string>(parsed.data.alumnoIds ?? []);
@@ -685,7 +702,7 @@ cobros.patch("/api/escuelas/:escuelaId/delegacion-cobros", requireUser, async (r
   if (!delegacion) return;
   const { usuarioId, puedeCobrar } = delegacion;
 
-  if (!(await esDirectivoPrincipal(user, escuelaId))) {
+  if (!puedeGestionarEscuela(user, escuelaId) || !(await esDirectivoPrincipal(user, escuelaId))) {
     return res.status(403).json({
       error: "sólo el directivo principal delega cobros",
       code: "SOLO_DIRECTIVO_PRINCIPAL"
@@ -748,7 +765,7 @@ cobros.patch("/api/escuelas/:escuelaId/cryptomus", requireUser, async (req, res)
 cobros.get("/api/escuelas/:escuelaId/directivos", requireUser, async (req, res) => {
   const user = req.user as ReqUser | undefined;
   const escuelaId = req.params.escuelaId as string;
-  if (!(await esDirectivoPrincipal(user, escuelaId))) {
+  if (!puedeGestionarEscuela(user, escuelaId) || !(await esDirectivoPrincipal(user, escuelaId))) {
     return res.status(403).json({
       error: "sólo el directivo principal ve la delegación",
       code: "SOLO_DIRECTIVO_PRINCIPAL"

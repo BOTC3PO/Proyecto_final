@@ -7,6 +7,8 @@
 import { randomUUID } from "node:crypto";
 import { prisma } from "./prisma";
 import { hasRole } from "./roles";
+import { directivoVigente } from "./escuela-verificacion";
+import { perteneceAEscuela } from "./pertenece-escuela";
 
 export const PREFIJO_HILO_SOPORTE = "sop-";
 export const DESTINO_SOPORTE = "soporte";
@@ -14,6 +16,21 @@ export const DESTINO_SOPORTE = "soporte";
 type Actor = { id: string; roles?: string[]; role?: string };
 
 export const esIdHiloSoporte = (id: string) => id.startsWith(PREFIJO_HILO_SOPORTE);
+
+/**
+ * El directivo principal que acompaña el hilo: solo si la persona sigue siendo de esa escuela y el principal
+ * sigue siendo directivo de ella. Así un cambio de escuela o una baja del principal no dejan el chat expuesto.
+ */
+async function principalDelHilo(hilo: { solicitanteId: string; escuelaId: string | null }): Promise<string | null> {
+  if (!hilo.escuelaId) return null;
+  const escuela = await prisma.escuela.findFirst({ where: { id: hilo.escuelaId }, select: { directivoPrincipalId: true } });
+  const principalId = escuela?.directivoPrincipalId;
+  if (!principalId) return null;
+  if (!(await perteneceAEscuela(hilo.escuelaId, hilo.solicitanteId))) return null;
+  const principal = await prisma.usuario.findFirst({ where: { id: principalId, isDeleted: { not: true } } });
+  if (!principal || !(await directivoVigente({ id: principal.id, roles: principal.roles ?? undefined, role: principal.role ?? undefined }, hilo.escuelaId))) return null;
+  return principalId;
+}
 
 /** Participantes de un hilo, en dos grupos: la persona que lo abrió y quienes la acompañan. */
 export async function participantesSoporte(hilo: { solicitanteId: string; escuelaId: string | null }): Promise<string[]> {
@@ -23,10 +40,8 @@ export async function participantesSoporte(hilo: { solicitanteId: string; escuel
     select: { id: true },
   });
   for (const a of admins) ids.add(a.id);
-  if (hilo.escuelaId) {
-    const escuela = await prisma.escuela.findFirst({ where: { id: hilo.escuelaId }, select: { directivoPrincipalId: true } });
-    if (escuela?.directivoPrincipalId) ids.add(escuela.directivoPrincipalId);
-  }
+  const principal = await principalDelHilo(hilo);
+  if (principal) ids.add(principal);
   const padres = await prisma.progresoModuloVinculo.findMany({
     where: { childId: hilo.solicitanteId, estado: "aprobado" },
     select: { parentId: true },
@@ -56,9 +71,11 @@ export async function hilosSoporteDe(actor: Actor) {
   const deHijos = hijos.length
     ? await prisma.hiloSoporte.findMany({ where: { solicitanteId: { in: hijos.map((h) => h.childId) } } })
     : [];
-  const deEscuela = escuelasPrincipal.length
+  const candidatos = escuelasPrincipal.length
     ? await prisma.hiloSoporte.findMany({ where: { escuelaId: { in: escuelasPrincipal.map((e) => e.id) } } })
     : [];
+  const deEscuela = [];
+  for (const h of candidatos) if ((await principalDelHilo(h)) === actor.id) deEscuela.push(h);
   const porId = new Map<string, (typeof propios)[number]>();
   for (const h of [...propios, ...deHijos, ...deEscuela]) porId.set(h.id, h);
   return [...porId.values()].sort((a, b) => String(b.ultimoAt ?? "").localeCompare(String(a.ultimoAt ?? ""))).slice(0, 50);
@@ -67,7 +84,13 @@ export async function hilosSoporteDe(actor: Actor) {
 /** El hilo de la persona; lo crea si no existe. Los ADMIN no abren hilos propios: responden en los de otros. */
 export async function hiloSoporteDe(solicitanteId: string, escuelaId: string | null) {
   const existente = await prisma.hiloSoporte.findFirst({ where: { solicitanteId } });
-  if (existente) return existente;
+  if (existente) {
+    // La persona cambió de escuela: el hilo pasa a la nueva (y a su principal).
+    if ((existente.escuelaId ?? null) !== escuelaId) {
+      return prisma.hiloSoporte.update({ where: { id: existente.id }, data: { escuelaId } });
+    }
+    return existente;
+  }
   try {
     return await prisma.hiloSoporte.create({
       data: { id: PREFIJO_HILO_SOPORTE + randomUUID(), solicitanteId, escuelaId, createdAt: new Date().toISOString() },

@@ -30,6 +30,8 @@ asistencia.get(
   requireClassroomScope({
     allowMemberRoles: ["ADMIN", "TEACHER"],
     allowSchoolMatch: true,
+    // Por escuela entran solo quienes la gestionan; un docente entra por ser del aula o su dueño.
+    schoolMatchRoles: ["DIRECTIVO", "ADMIN_ESCUELA"],
     notFoundMessage: "aula no encontrada"
   }),
   async (req, res) => {
@@ -87,6 +89,8 @@ asistencia.put(
   requireClassroomScope({
     allowMemberRoles: ["ADMIN", "TEACHER"],
     allowSchoolMatch: true,
+    // Por escuela entran solo quienes la gestionan; un docente entra por ser del aula o su dueño.
+    schoolMatchRoles: ["DIRECTIVO", "ADMIN_ESCUELA"],
     notFoundMessage: "aula no encontrada"
   }),
   async (req, res) => {
