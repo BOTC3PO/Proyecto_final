@@ -281,7 +281,9 @@ instrumentos.post("/api/instrumentos/fci/:id/rescatar", requireUser, async (req,
   const ahora = new Date();
   const nowStr = ahora.toISOString();
   const creado = new Date(pos.creadoAt);
-  const diasTranscurridos = Math.max(1,
+  // Solo días completos: antes un rescate a los segundos cobraba un día de interés y abrir/rescatar en
+  // bucle creaba monedas sin límite.
+  const diasTranscurridos = Math.max(0,
     Math.floor((ahora.getTime() - creado.getTime()) / (1000 * 60 * 60 * 24))
   );
   const diasEfectivos = Math.min(diasTranscurridos, pos.dias);

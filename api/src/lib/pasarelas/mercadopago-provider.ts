@@ -141,6 +141,24 @@ export class MercadoPagoProvider implements PaymentProvider {
     };
   }
 
+  async consultarPago(
+    providerRef: string,
+    opts?: { accessToken?: string | null }
+  ): Promise<{ estado: WebhookEventEstado; monto?: number } | null> {
+    const token = opts?.accessToken ?? ENV.MP_ACCESS_TOKEN;
+    if (!token) return null;
+    const response = await fetch(
+      `${MP_BASE}/v1/payments/search?external_reference=${encodeURIComponent(providerRef)}&sort=date_created&criteria=desc`,
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+    if (!response.ok) return null;
+    const data = (await response.json()) as { results?: Array<{ status?: string; transaction_amount?: number; external_reference?: string }> };
+    const pago = data.results?.find((r) => r.external_reference === undefined || r.external_reference === providerRef);
+    if (!pago?.status) return null;
+    const estado = pago.status === "approved" ? "pagada" : pago.status === "rejected" ? "fallida" : "pendiente";
+    return { estado, monto: typeof pago.transaction_amount === "number" ? pago.transaction_amount : undefined };
+  }
+
   async checkStatus(providerRef: string, opts?: { accessToken?: string | null }): Promise<WebhookEventEstado | null> {
     // Pagos de marketplace (split) viven en la cuenta del vendedor — hay
     // que buscarlos con SU access_token, no el de la plataforma. Cae al

@@ -1,7 +1,7 @@
 import type { PRNG } from "../runtime/prng.js";
 import { EvalError } from "./errors.js";
 import type { IsolatedMath } from "./math-setup.js";
-import { __internals } from "./symbolic.js";
+import { __internals, parsearExpresionSegura } from "./symbolic.js";
 
 export type BuiltinFn = (...args: unknown[]) => unknown;
 
@@ -332,7 +332,7 @@ export function createBuiltins(
       }
       try {
         const math = __internals.algebraMath();
-        const node = math.derivative(math.parse(expr), variable);
+        const node = math.derivative(parsearExpresionSegura(math, expr), variable);
         return math.simplify(node).toString();
       } catch (e) {
         throw new EvalError(`derivar: ${(e as Error).message}`);
@@ -344,7 +344,7 @@ export function createBuiltins(
       }
       try {
         const math = __internals.algebraMath();
-        return math.simplify(expr).toString();
+        return math.simplify(parsearExpresionSegura(math, expr)).toString();
       } catch (e) {
         throw new EvalError(`simplificar_expr: ${(e as Error).message}`);
       }
@@ -362,7 +362,7 @@ export function createBuiltins(
       }
       try {
         const math = __internals.algebraMath();
-        return math.parse(expr).evaluate({ [variable]: v });
+        return parsearExpresionSegura(math, expr).evaluate({ [variable]: v });
       } catch (e) {
         throw new EvalError(`evaluar_en: ${(e as Error).message}`);
       }

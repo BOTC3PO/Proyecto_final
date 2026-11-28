@@ -102,6 +102,20 @@ suscripciones.get("/api/suscripciones/historial", requireUser, async (req, res) 
   return res.json({ items });
 });
 
+/**
+ * Quién gestiona (cancela, pide reembolso) una suscripción: su dueño si es personal; si es de una escuela,
+ * el DIRECTIVO o ADMIN_ESCUELA de esa escuela; y el ADMIN. Antes cancelar alcanzaba con ser miembro de la
+ * escuela (incluso un alumno) y el reembolso no miraba nada.
+ */
+function puedeGestionarSuscripcion(req: unknown, sub: { entidadTipo: string; entidadId: string }, userId: string): boolean {
+  const user = getUserFromReq(req as never);
+  if (hasRole(user, "ADMIN")) return true;
+  if (sub.entidadTipo === "escuela") {
+    return sub.entidadId === getSchoolId(req as never) && (hasRole(user, "DIRECTIVO") || hasRole(user, "ADMIN_ESCUELA"));
+  }
+  return sub.entidadId === userId;
+}
+
 // ── POST /api/suscripciones/cancelar ────────────────────────
 suscripciones.post("/api/suscripciones/cancelar", requireUser, async (req, res) => {
   const userId = getId(req as never);
@@ -115,12 +129,7 @@ suscripciones.post("/api/suscripciones/cancelar", requireUser, async (req, res) 
   if (!sub) return res.status(404).json({ error: "suscripción no encontrada" });
   if (sub.estado !== "activa") return res.status(400).json({ error: "la suscripción no está activa" });
 
-  const esAdmin = hasRole(user, "ADMIN");
-  const esDueno =
-    sub.entidadId === userId ||
-    (sub.entidadTipo === "escuela" && sub.entidadId === getSchoolId(req as never));
-
-  if (!esAdmin && !esDueno) return res.status(403).json({ error: "sin permiso" });
+  if (!puedeGestionarSuscripcion(req, sub, userId)) return res.status(403).json({ error: "sin permiso" });
 
   const now = new Date().toISOString();
   await prisma.suscripcion.update({
@@ -155,6 +164,7 @@ suscripciones.post("/api/suscripciones/reembolso", requireUser, async (req, res)
 
   const sub = await prisma.suscripcion.findUnique({ where: { id: suscripcionId } });
   if (!sub) return res.status(404).json({ error: "no encontrada" });
+  if (!puedeGestionarSuscripcion(req, sub, userId)) return res.status(403).json({ error: "sin permiso" });
 
   const ultimoPago = await prisma.historialPago.findFirst({
     where: { suscripcionId, estado: "pagado" },
@@ -270,6 +280,9 @@ suscripciones.post("/api/suscripciones/webhook", async (req, res) => {
   const { type, action, data } = aviso.data;
 
   if (type !== "subscription_preapproval" || !data?.id) return res.status(200).json({ ok: true });
+  // La firma cubre el data.id de la URL: el del cuerpo tiene que ser el mismo (antes se firmaba uno y se
+  // actuaba sobre otro).
+  if (data.id !== dataId) return res.status(401).json({ error: "firma inválida" });
 
   const sub = await prisma.suscripcion.findFirst({
     where: { mpPreapprovalId: data.id },
@@ -355,6 +368,9 @@ suscripciones.post("/api/suscripciones/webhook", async (req, res) => {
       });
     }
   } else if (action === "deleted" || action === "cancelled") {
+    // Igual que "updated": se confirma con Mercado Pago antes de cancelar.
+    const pre = await getPreapproval(data.id);
+    if (pre.status !== "cancelled" && pre.status !== "expired") return res.status(200).json({ ok: true });
     await prisma.suscripcion.update({
       where: { id: sub.id },
       data: { estado: "cancelada", canceladaAt: now, updatedAt: now },

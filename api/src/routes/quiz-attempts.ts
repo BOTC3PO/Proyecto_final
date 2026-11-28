@@ -363,42 +363,13 @@ quizAttempts.post(
     // docente probando su propio contenido no tiene `ProgresoModulo`
     // como alumno, así que quedaría "bloqueado" por defecto).
     if (resolvedModuleId && !isStaffRole(req.user?.role ?? null)) {
-      const moduleForLock = await prisma.modulo.findFirst({
-        where: { id: resolvedModuleId },
-        select: { dependencies: true }
-      });
-      if (moduleForLock) {
-        const completedRows = await prisma.progresoModulo.findMany({
-          where: { usuarioId: userId, status: "completado" },
-          select: { moduloId: true }
+      const missingDependencyIds = await dependenciasFaltantes(userId, resolvedModuleId);
+      if (missingDependencyIds) {
+        return res.status(403).json({
+          error: "Todavía no completaste los módulos previos requeridos.",
+          code: "module_locked",
+          missingDependencyIds
         });
-        const completedModuleIds = new Set(completedRows.map((r) => r.moduloId));
-        // FIX-DEPENDENCIAS-UNLOCKS — un "unlocks" declarado desde CUALQUIER
-        // otro módulo puede bloquear a éste; hace falta el universo
-        // completo de dependencias (no sólo las propias) para saberlo.
-        const allDependenciesById = new Map(
-          (
-            await prisma.modulo.findMany({
-              where: { dependencies: { not: null } },
-              select: { id: true, dependencies: true }
-            })
-          ).map((m) => [m.id, parseModuleDependencies(m.dependencies)])
-        );
-        const { isLocked, missingDependencyIds } = computeModuleLock(
-          resolvedModuleId,
-          parseModuleDependencies(moduleForLock.dependencies),
-          allDependenciesById,
-          completedModuleIds
-        );
-        // "Niveles por aula con mapa de flujo" — desbloqueo manual: gana
-        // sobre el candado por dependencias, no lo reemplaza.
-        if (isLocked && !(await hasActiveModuleOverride(resolvedModuleId, userId))) {
-          return res.status(403).json({
-            error: "Todavía no completaste los módulos previos requeridos.",
-            code: "module_locked",
-            missingDependencyIds
-          });
-        }
       }
     }
     const seed = buildSeed(quiz);
@@ -2275,6 +2246,39 @@ const resultadoGuardado = (a: { score: number | null; maxScore: number | null; s
 });
 
 /**
+ * Candado por dependencias de un módulo para un alumno: `null` si puede rendir, o los módulos previos que le
+ * faltan. Un desbloqueo manual del docente gana sobre el candado. Lo usan la web y la sincronización sin conexión.
+ */
+export async function dependenciasFaltantes(userId: string, moduloId: string): Promise<string[] | null> {
+  const moduleForLock = await prisma.modulo.findFirst({ where: { id: moduloId }, select: { dependencies: true } });
+  if (!moduleForLock) return null;
+  const completedRows = await prisma.progresoModulo.findMany({
+    where: { usuarioId: userId, status: "completado" },
+    select: { moduloId: true }
+  });
+  const completedModuleIds = new Set(completedRows.map((r) => r.moduloId));
+  // FIX-DEPENDENCIAS-UNLOCKS — un "unlocks" declarado desde CUALQUIER otro módulo puede bloquear a éste; hace
+  // falta el universo completo de dependencias (no sólo las propias) para saberlo.
+  const allDependenciesById = new Map(
+    (
+      await prisma.modulo.findMany({
+        where: { dependencies: { not: null } },
+        select: { id: true, dependencies: true }
+      })
+    ).map((m) => [m.id, parseModuleDependencies(m.dependencies)])
+  );
+  const { isLocked, missingDependencyIds } = computeModuleLock(
+    moduloId,
+    parseModuleDependencies(moduleForLock.dependencies),
+    allDependenciesById,
+    completedModuleIds
+  );
+  // "Niveles por aula con mapa de flujo" — desbloqueo manual: gana sobre el candado por dependencias.
+  if (isLocked && !(await hasActiveModuleOverride(moduloId, userId))) return missingDependencyIds;
+  return null;
+}
+
+/**
  * L8 — vuelve a corregir en el servidor un intento hecho sin conexión, con su semilla, su versión y sus respuestas, y
  * recién ahí acredita monedas y progreso, igual que una entrega de la web (`materializeSubmit`). Vale la nota del
  * servidor; si no coincide con la del dispositivo, el intento queda marcado para revisión. Aplicar dos veces el mismo
@@ -2302,6 +2306,25 @@ export async function corregirIntentoSinConexion(
   );
   if (versionMissing || !version?.id) return { estado: "rechazado", motivo: "la versión del cuestionario no está en la plataforma" };
   if (!collectionQuiz) return { estado: "rechazado", motivo: "el cuestionario no está en la plataforma" };
+
+  // Mismas reglas que la web (auditoría 11/2026: la subida sin conexión salteaba el candado por dependencias y el
+  // máximo de intentos). El número de intento sigue siendo el del dispositivo: con él se sortearon las preguntas.
+  const usuario = await prisma.usuario.findFirst({ where: { id: userId }, select: { roles: true } });
+  if (moduleId && !isStaffRole({ roles: usuario?.roles ?? [] }) && (await dependenciasFaltantes(userId, moduleId))) {
+    return { estado: "rechazado", motivo: "el módulo todavía está bloqueado: faltan módulos previos" };
+  }
+  const tipoQuiz = (() => {
+    try {
+      return (JSON.parse(version.settings ?? "{}") as { type?: string }).type ?? "practica";
+    } catch {
+      return "practica";
+    }
+  })();
+  const politica = parseIntentoPolicy(version.settings, tipoQuiz);
+  const previos = contarIntentosPrevios(await prisma.quizAttempt.findMany({ where: { quizId: i.quizId, userId } }), userId, i.quizId);
+  if (!validarLimiteIntentos(previos, politica.maxIntentos).allowed) {
+    return { estado: "rechazado", motivo: `se alcanzó el máximo de ${politica.maxIntentos} intento(s) para este cuestionario` };
+  }
 
   // La hora la pone el dispositivo; una entrega «del futuro» o anterior al inicio se acota.
   const ahora = Date.now();

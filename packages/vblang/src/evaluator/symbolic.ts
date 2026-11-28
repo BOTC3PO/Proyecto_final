@@ -51,6 +51,74 @@ function algebraMath(): MathJsInstance {
 }
 
 /**
+ * Lo que se evalúa acá llega de afuera (la respuesta de un alumno, una plantilla), así que no se pasa entero
+ * a math.js: antes un alumno respondía `config({...}); x` y cambiaba la configuración de esta instancia
+ * compartida (la corrección de todos quedaba mal hasta reiniciar), o `sum(ones(n,n))` y bloqueaba el
+ * proceso. Solo se acepta aritmética con funciones escalares, con tope de largo y de nodos.
+ */
+export const MAX_LARGO_EXPRESION = 300;
+const MAX_NODOS_EXPRESION = 200;
+const OPERADORES_PERMITIDOS = new Set(["add", "subtract", "multiply", "divide", "pow", "unaryMinus", "unaryPlus"]);
+const FUNCIONES_PERMITIDAS = new Set([
+  "sqrt", "cbrt", "abs", "exp", "log", "log10", "log2",
+  "sin", "cos", "tan", "sec", "csc", "cot", "asin", "acos", "atan",
+  "sinh", "cosh", "tanh",
+]);
+
+export class ExpresionNoPermitida extends Error {}
+
+/** Revisa un árbol ya parseado contra la lista de lo permitido; lanza `ExpresionNoPermitida` si no pasa. */
+export function validarArbol(math: MathJsInstance, raiz: MathNode): MathNode {
+  let nodos = 0;
+  raiz.traverse((nodo: MathNode, _ruta: string, padre: MathNode | null) => {
+    nodos += 1;
+    if (nodos > MAX_NODOS_EXPRESION) throw new ExpresionNoPermitida("expresión demasiado grande");
+    const n = nodo as MathNode & { type: string; value?: unknown; fn?: unknown; name?: string };
+    switch (n.type) {
+      case "ConstantNode":
+        if (typeof n.value !== "number" || !Number.isFinite(n.value)) throw new ExpresionNoPermitida("constante no numérica");
+        return;
+      case "ParenthesisNode":
+        return;
+      case "OperatorNode":
+        if (!OPERADORES_PERMITIDOS.has(String(n.fn))) throw new ExpresionNoPermitida(`operador no permitido: ${String(n.fn)}`);
+        return;
+      case "FunctionNode": {
+        const fn = n.fn as { type?: string; name?: string };
+        if (fn?.type !== "SymbolNode" || !FUNCIONES_PERMITIDAS.has(String(fn.name))) {
+          throw new ExpresionNoPermitida(`función no permitida: ${String(fn?.name ?? "?")}`);
+        }
+        return;
+      }
+      case "SymbolNode": {
+        const p = padre as (MathNode & { type: string; fn?: unknown }) | null;
+        // El nombre de una función permitida (ya revisada en su FunctionNode).
+        if (p?.type === "FunctionNode" && p.fn === nodo) return;
+        // Variables y constantes (pi, e); nunca una referencia a una función de math.js.
+        if (typeof (math as unknown as Record<string, unknown>)[String(n.name)] === "function") {
+          throw new ExpresionNoPermitida(`símbolo no permitido: ${String(n.name)}`);
+        }
+        return;
+      }
+      default:
+        throw new ExpresionNoPermitida(`construcción no permitida: ${n.type}`);
+    }
+  });
+  return raiz;
+}
+
+/**
+ * Parsea y valida una expresión que viene de afuera. Una respuesta escrita como ecuación explícita
+ * (`y = -3*x - 5`) se toma por su lado derecho: es la forma habitual de responder «la ecuación de la recta».
+ */
+export function parsearExpresionSegura(math: MathJsInstance, texto: string): MathNode {
+  if (texto.length > MAX_LARGO_EXPRESION) throw new ExpresionNoPermitida("expresión demasiado larga");
+  let raiz = math.parse(texto) as MathNode & { type: string; object?: { type?: string }; value?: MathNode };
+  if (raiz.type === "AssignmentNode" && raiz.object?.type === "SymbolNode" && raiz.value) raiz = raiz.value as typeof raiz;
+  return validarArbol(math, raiz);
+}
+
+/**
  * Puntos de prueba fijos (enteros pequeños, no triviales, evitan
  * denominadores cero típicos). Deterministas para que los tests sean
  * reproducibles. Schwartz-Zippel con 10 puntos sobre {2,3,5,7,11,13,17,
@@ -148,8 +216,8 @@ export function sonEquivalentes(
   let nodeA: MathNode;
   let nodeB: MathNode;
   try {
-    nodeA = toSingle(math.parse(a));
-    nodeB = toSingle(math.parse(b));
+    nodeA = toSingle(parsearExpresionSegura(math, a));
+    nodeB = toSingle(parsearExpresionSegura(math, b));
   } catch (e) {
     return {
       eq: false,
@@ -186,7 +254,8 @@ export function sonEquivalentes(
   let simbolicoDetalle = "";
   try {
     // diff = (a) - (b)  — con paréntesis por si a o b son binop.
-    const diffParsed = math.parse(`(${a})-(${b})`);
+    // a y b ya pasaron la validación; la diferencia se vuelve a revisar igual.
+    const diffParsed = validarArbol(math, math.parse(`(${nodeA.toString()})-(${nodeB.toString()})`) as MathNode);
     const diff = toSingle(diffParsed);
     // Pasada 1: distribución (para que `2x+4 - 2(x+2)` expanda a
     // `2x+4 - 2x - 2*2`).

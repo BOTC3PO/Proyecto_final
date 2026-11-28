@@ -43,13 +43,7 @@ export const reconciliarPagosPendientes = async (maxAgeMinutes = ENV.RECONCILIAC
     // el pago más abajo, sin repetir las mismas consultas dos veces.
     const cuota = await prisma.cuotaAlumno.findFirst({ where: { pagoId: pago.id } });
     const cobro = cuota ? await prisma.cobroEscuela.findFirst({ where: { id: cuota.cobroId } }) : null;
-    let accessToken: string | null = null;
-    if (pago.provider === "mercadopago" && cobro) {
-      const pasarela = await prisma.escuelaPasarela.findFirst({
-        where: { escuelaId: cobro.escuelaId, provider: "mercadopago", ...filtroTitular(titularDeCobro(cobro.tipo)) }
-      });
-      accessToken = accessTokenDesdeCredenciales(pasarela?.credencialesCifradas);
-    }
+    const accessToken = pago.provider === "mercadopago" && cobro ? await accessTokenDelVendedor(cobro) : null;
 
     let estado: string | null;
     try {
@@ -77,6 +71,14 @@ export const reconciliarPagosPendientes = async (maxAgeMinutes = ENV.RECONCILIAC
   }
 
   return { evaluados: pendientes.length, confirmados, fallidos, sinCambios };
+};
+
+/** Token del vendedor (la escuela o su cooperadora) para consultar sus pagos de Mercado Pago. */
+export const accessTokenDelVendedor = async (cobro: { escuelaId: string; tipo?: string | null }): Promise<string | null> => {
+  const pasarela = await prisma.escuelaPasarela.findFirst({
+    where: { escuelaId: cobro.escuelaId, provider: "mercadopago", ...filtroTitular(titularDeCobro(cobro.tipo as never)) }
+  });
+  return accessTokenDesdeCredenciales(pasarela?.credencialesCifradas);
 };
 
 export const scheduleReconciliacionJob = () => {

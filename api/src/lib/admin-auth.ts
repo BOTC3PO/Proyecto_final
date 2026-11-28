@@ -3,6 +3,7 @@ import { buildUserContextFromClaims, extractTokenFromRequest, verifyToken } from
 import { toObjectId } from "./ids";
 import { prisma } from "./prisma";
 import { hasRole } from "./roles";
+import { estaBaneado, respuestaBaneado } from "./ban";
 
 export const requireAdmin = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -52,10 +53,17 @@ export const requireAdmin = async (req: Request, res: Response, next: NextFuncti
       res.status(403).json({ error: "Admin role required" });
       return;
     }
+    // Igual que requireUser: un baneo corta también el token vigente. Hay rutas de admin montadas antes del
+    // requireUser global (POST /api/admins) que, sin este control, lo dejaban pasar.
+    if (estaBaneado(adminUser as { isBanned?: boolean; bannedUntil?: string | null })) {
+      res.status(403).json(respuestaBaneado(adminUser as { bannedUntil?: string | null }));
+      return;
+    }
 
     const userContext = {
       ...buildUserContextFromClaims(claims),
-      _id: adminUser.id
+      _id: adminUser.id,
+      esAdminPrincipal: adminUser.esAdminPrincipal === true
     };
     (req as { user?: typeof userContext }).user = userContext;
     res.locals.adminUser = userContext;

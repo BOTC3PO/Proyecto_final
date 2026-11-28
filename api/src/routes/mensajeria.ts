@@ -1,3 +1,4 @@
+import { destinosVisiblesDeAvisos } from "../lib/avisos-destino";
 import type { Prisma } from "@prisma/client";
 import { enviarMensajeDirecto } from "../lib/mensaje-directo";
 import { Router } from "express";
@@ -376,11 +377,7 @@ mensajeria.get("/api/mensajeria/avisos", requireUser, async (req, res) => {
   const schoolId = await getEffectiveSchoolId(req as never);
   if (!schoolId) return res.json({ items: [] });
 
-  const destinosValidos: string[] = ["todos"];
-  if (hasRole(user, "USER")) destinosValidos.push("alumnos");
-  if (hasRole(user, "TEACHER")) destinosValidos.push("profesores");
-  if (hasRole(user, "PARENT")) destinosValidos.push("padres");
-  if (hasRole(user, "DIRECTIVO")) destinosValidos.push("profesores", "padres");
+  const destinosValidos = destinosVisiblesDeAvisos(user);
 
   // FIX-TEST4-AVISOS-AUTOR — antes el filtro era solo
   // `destino: { in: destinosValidos }`. Si un DIRECTIVO creaba un

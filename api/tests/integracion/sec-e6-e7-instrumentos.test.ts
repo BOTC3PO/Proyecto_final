@@ -140,8 +140,31 @@ test("FCI: abrir y rescatar una vez", async () => {
   const rescatar = () => jsonRequest(baseUrl, "POST", `/api/instrumentos/fci/${id}/rescatar`, { token });
   const [x, y] = await Promise.all([rescatar(), rescatar()]);
   assert.equal([x.status, y.status].filter((s) => s === 200).length, 1);
+  // Rescate en el mismo día: vuelve solo el capital (auditoría 11/2026: antes pagaba un día de interés).
+  assert.equal(await saldoDe(), 200);
+});
+
+test("FCI: el interés corre por días completos", async () => {
+  await poner(200);
+  const a = await jsonRequest(baseUrl, "POST", "/api/instrumentos/fci", { token, body: { monto: 100, dias: 30 } });
+  const id = (a.body as { id: string }).id;
+  const fila = (prisma.fciPosicion as unknown as { rows: Array<{ id: string; creadoAt: string }> }).rows.find((f) => f.id === id)!;
+  fila.creadoAt = new Date(Date.now() - 2 * 86_400_000 - 1000).toISOString();
+  const r = await jsonRequest(baseUrl, "POST", `/api/instrumentos/fci/${id}/rescatar`, { token });
+  assert.equal(r.status, 200);
+  assert.equal((r.body as { diasEfectivos: number }).diasEfectivos, 2);
   const saldo = (await saldoDe())!;
-  assert.ok(saldo > 200 && saldo < 210, `saldo tras rescatar una sola vez: ${saldo}`);
+  assert.ok(saldo > 200 && saldo < 210, `saldo tras dos días: ${saldo}`);
+});
+
+test("FCI: abrir y rescatar en bucle no crea monedas", async () => {
+  await poner(1000);
+  for (let i = 0; i < 5; i++) {
+    const a = await jsonRequest(baseUrl, "POST", "/api/instrumentos/fci", { token, body: { monto: 1000, dias: 30 } });
+    assert.equal(a.status, 201, JSON.stringify(a.body));
+    await jsonRequest(baseUrl, "POST", `/api/instrumentos/fci/${(a.body as { id: string }).id}/rescatar`, { token });
+  }
+  assert.equal(await saldoDe(), 1000);
 });
 
 test("FCI: sin saldo → 400", async () => {

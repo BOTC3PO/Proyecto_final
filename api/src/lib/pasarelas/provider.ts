@@ -88,6 +88,15 @@ export interface PaymentProvider {
    * del vendedor (marketplace de MP) cuando aplica.
    */
   checkStatus?(providerRef: string, opts?: { accessToken?: string | null }): Promise<WebhookEventEstado | null>;
+  /**
+   * Estado y monto del pago consultados a la pasarela. Lo usa el webhook de los providers cuya firma no cubre
+   * el cuerpo (Mercado Pago firma solo el id): el aviso dispara la consulta, pero el estado y el monto salen
+   * de acá, nunca del cuerpo. `null` si no se pudo determinar.
+   */
+  consultarPago?(
+    providerRef: string,
+    opts?: { accessToken?: string | null }
+  ): Promise<{ estado: WebhookEventEstado; monto?: number } | null>;
 }
 
 export const round2 = (n: number): number => Math.round(n * 100) / 100;

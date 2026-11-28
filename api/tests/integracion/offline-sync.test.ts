@@ -249,3 +249,41 @@ test("L8: la renovación trae los roles de hoy", async () => {
   const datos = JSON.parse(Buffer.from(r.body.permiso.permiso, "base64url").toString("utf8"));
   assert.deepEqual(datos.roles, ["USER", "PARENT"]);
 });
+
+// ── Auditoría 11/2026: la subida sin conexión sigue las mismas reglas que la web ──
+
+test("un módulo bloqueado por dependencias no se acredita desde el dispositivo", async () => {
+  const quiz = "cont-mat--restar.quiz";
+  const q = prisma.quiz.rows.find((x: { id: string }) => x.id === quiz) as { id: string; moduleId: string; title: string };
+  const v = prisma.quizVersion.rows.find((x: { quizId: string }) => x.quizId === quiz) as { id: string; settings: string };
+  const armado = buildQuizFromCollection({ id: q.id, moduleId: q.moduleId, title: q.title }, { id: v.id, quizId: q.id, settings: v.settings })!;
+  const codigo = async (id: string) => (prisma.plantillaEjercicio.rows.find((p: { id: string }) => p.id === id) as { codigoDsl: string })?.codigoDsl;
+  const ps = (await materializarPreguntasNativas(parseCuestionarioPreguntas(armado.preguntas), contextoSorteoPreguntas(armado, quiz, ALUMNA, 1), codigo))!;
+  const id = crypto.randomUUID();
+  const e = {
+    id: "ev-bloqueado", tipo: "intento",
+    datos: {
+      id, quizId: quiz, quizVersionId: v.id, seed: null, attemptNo: 1, sorteo: ALUMNA,
+      startedAt: new Date(Date.now() - 60_000).toISOString(), submittedAt: new Date(Date.now() - 30_000).toISOString(),
+      answers: Object.fromEntries(ps.map((p) => [p.id, String(p.answerKey)])), presentedIds: ps.map((p) => p.id),
+      score: ps.length, maxScore: ps.length,
+    },
+  };
+  const r = await sincronizar({ eventos: [e] });
+  assert.equal(r.body.resultados["ev-bloqueado"].estado, "rechazado");
+  assert.equal(prisma.progresoModulo.rows.length, 0);
+});
+
+test("se respeta el máximo de intentos del cuestionario", async () => {
+  const ver = prisma.quizVersion.rows.find((x: { quizId: string }) => x.quizId === QUIZ) as { settings: string };
+  ver.settings = JSON.stringify({ ...JSON.parse(ver.settings), maxIntentos: 1 });
+  const primero = conId(await intento({ bien: true }));
+  const segundo = conId(await intento({ bien: true }));
+  const r = await sincronizar({ eventos: [primero, segundo] });
+  assert.equal(r.body.resultados[primero.id].estado, "corregido");
+  assert.equal(r.body.resultados[segundo.id].estado, "rechazado");
+  assert.equal(prisma.quizAttempt.rows.filter((a: { quizId: string }) => a.quizId === QUIZ).length, 1);
+  // Reenviar el primero sigue siendo idempotente.
+  const otra = await sincronizar({ eventos: [primero] });
+  assert.equal(otra.body.resultados[primero.id].estado, "ya_estaba");
+});

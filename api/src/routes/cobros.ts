@@ -14,6 +14,7 @@ import { ENV } from "../lib/env";
 import { getProvider } from "../lib/pasarelas";
 import { accessTokenDesdeCredenciales } from "../lib/mercadopago-oauth";
 import { confirmarPago } from "../lib/cobros-confirmacion";
+import { accessTokenDelVendedor } from "../lib/pasarelas/reconciliacion";
 import { enviarPush } from "../lib/push";
 import { filtroTitular, titularDeCobro } from "../lib/pasarelas/titular";
 import { CobroCreateSchema, CobroPublicarSchema, ConfigCobrosEscuelaSchema } from "../schema/cobros";
@@ -670,19 +671,37 @@ cobros.post("/api/pasarelas/webhook/:provider", async (req, res) => {
   });
   if (!pago) return res.status(404).json({ error: "pago no encontrado para ese providerRef" });
 
-  if (evento.estado === "pagada") {
-    const cuota = await prisma.cuotaAlumno.findFirst({ where: { pagoId: pago.id } });
-    const cobro = cuota ? await prisma.cobroEscuela.findFirst({ where: { id: cuota.cobroId } }) : null;
+  const cuota = await prisma.cuotaAlumno.findFirst({ where: { pagoId: pago.id } });
+  const cobro = cuota ? await prisma.cobroEscuela.findFirst({ where: { id: cuota.cobroId } }) : null;
+  // Mercado Pago firma solo el id del aviso, no el cuerpo: el estado y el monto se consultan a la pasarela con
+  // el token del vendedor de ESTE cobro. Antes se tomaban del cuerpo y un aviso firmado para otro pago podía
+  // saldar cualquier cuota. Si no se puede consultar, queda para la reconciliación.
+  let estado = evento.estado;
+  let montoReportado = evento.montoBruto;
+  if (adapter.consultarPago) {
+    const accessToken = cobro && adapter.nombre === "mercadopago" ? await accessTokenDelVendedor(cobro) : null;
+    let consulta: Awaited<ReturnType<NonNullable<typeof adapter.consultarPago>>> = null;
+    try {
+      consulta = await adapter.consultarPago(pago.providerRef ?? evento.providerRef, { accessToken });
+    } catch {
+      consulta = null;
+    }
+    if (!consulta) return res.json({ ok: true, pendiente: true });
+    estado = consulta.estado;
+    montoReportado = consulta.monto;
+  }
+
+  if (estado === "pagada") {
     if (cuota && cobro) {
-      // `montoBruto` es lo que la pasarela dice haber cobrado — si no
+      // `montoReportado` es lo que la pasarela dice haber cobrado — si no
       // llega a `cuota.montoFinal`, confirmarPago manda el pago a
       // revisión en vez de saldar la cuota (pago parcial).
       await confirmarPago(pago, cuota, cobro, {
-        montoReportado: evento.montoBruto,
+        montoReportado,
         actorId: `system:webhook:${adapter.nombre}`
       });
     }
-  } else if (evento.estado === "fallida") {
+  } else if (estado === "fallida") {
     await prisma.pago.update({ where: { id: pago.id }, data: { estado: "fallida", updatedAt: now() } });
   }
 

@@ -176,3 +176,40 @@ describe("sonEquivalentes — builtins simbólicos (derivar, simplificar_expr, e
     expect(builtins.evaluar_en("x^2 + 1", "x", 3)).toBe(10);
   });
 });
+
+// Auditoría 11/2026 — la respuesta del alumno no puede tocar la instancia compartida ni pedir cálculos sin tope.
+describe("sonEquivalentes — expresiones no permitidas", () => {
+  it("config() en la respuesta se rechaza y no cambia la corrección de los demás", () => {
+    const malicioso = sonEquivalentes('config({number:"BigNumber",precision:1}); x', "x");
+    expect(malicioso.eq).toBe(false);
+    expect(sonEquivalentes("x+x", "2*x").eq).toBe(true);
+    expect(sonEquivalentes("(x+1)^2", "x^2+2*x+1").eq).toBe(true);
+  });
+
+  it("matrices, sumas y funciones fuera de la lista se rechazan sin evaluarse", () => {
+    for (const r of ["sum(ones(3200,3200))*0+x", "x+import({})", "evaluate(\"x\")", "f(y)=y; x", "[x, x]", "createUnit(\"z\")", "x == x"]) {
+      const inicio = Date.now();
+      expect(sonEquivalentes(r, "x").eq).toBe(false);
+      expect(Date.now() - inicio).toBeLessThan(200);
+    }
+  });
+
+  it("una respuesta demasiado larga se rechaza", () => {
+    expect(sonEquivalentes("x" + "+0".repeat(400), "x").eq).toBe(false);
+  });
+
+  it("las funciones escalares y las constantes siguen andando", () => {
+    expect(sonEquivalentes("sqrt(x^2)", "abs(x)").eq).toBe(true);
+    expect(sonEquivalentes("2*pi*x", "pi*x+pi*x").eq).toBe(true);
+  });
+});
+
+describe("sonEquivalentes — ecuación explícita", () => {
+  it("«y = …» se compara por su lado derecho", () => {
+    expect(sonEquivalentes("y = -3*x - 5", "-3*x+-5").eq).toBe(true);
+    expect(sonEquivalentes("y = 2*x", "3*x").eq).toBe(false);
+  });
+  it("lo de la derecha también pasa por la lista de lo permitido", () => {
+    expect(sonEquivalentes('y = config({number:"BigNumber"})', "x").eq).toBe(false);
+  });
+});

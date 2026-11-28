@@ -3,6 +3,7 @@ import { Router } from "express";
 import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
 import { hasRole } from "../lib/roles";
+import { destinosVisiblesDeAvisos } from "../lib/avisos-destino";
 
 export const sync = Router();
 
@@ -261,7 +262,10 @@ sync.get("/api/sync/pull/:aulaId", requireUser, async (req, res) => {
       const leidosIds = new Set(leidosSet.map((l) => l.avisoId));
 
       const todosAvisos = await prisma.aviso.findMany({
-        where: { escuelaId: aula.escuelaId },
+        where: {
+          escuelaId: aula.escuelaId,
+          OR: [{ destino: { in: destinosVisiblesDeAvisos(req.user as never) } }, { autorId: userId }],
+        },
         orderBy: { createdAt: "desc" },
         take: 20,
       });

@@ -115,3 +115,24 @@ test("escuela authorized con expansiones → upsert de límites", async () => {
   const limite = prisma.limiteEscuela.rows.find((l) => l.escuelaId === "esc-1");
   assert.ok(limite, "debió crear el límite de la escuela");
 });
+
+// ── Auditoría 11/2026 ──
+
+test("el data.id del cuerpo distinto del firmado (URL) → 401 y no toca nada", async () => {
+  seedSub({ estado: "activa", mpPreapprovalId: "pre-victima" });
+  const r = await jsonRequest(baseUrl, "POST", "/api/suscripciones/webhook?data.id=pre-atacante", {
+    body: { type: "subscription_preapproval", action: "deleted", data: { id: "pre-victima" } },
+  });
+  assert.equal(r.status, 401);
+  assert.equal(sub()?.estado, "activa");
+});
+
+test("deleted sin que Mercado Pago lo confirme no cancela", async () => {
+  seedSub({ estado: "activa" });
+  mpState.status = "authorized";
+  await webhook("pre-1", "deleted");
+  assert.equal(sub()?.estado, "activa");
+  mpState.status = "cancelled";
+  await webhook("pre-1", "deleted");
+  assert.equal(sub()?.estado, "cancelada");
+});

@@ -196,6 +196,10 @@ auth.post("/api/auth/bootstrap-admin", async (req, res) => {
 });
 
 auth.post("/api/admins", requireAdmin, async (req, res) => {
+  // Crear un ADMIN es dar el rol ADMIN: mismo candado que PATCH /api/admin/usuarios/:id/rol.
+  if (!(res.locals.adminUser as { esAdminPrincipal?: boolean } | undefined)?.esAdminPrincipal) {
+    return res.status(403).json({ error: "Solo el administrador principal puede crear administradores." });
+  }
   try {
     const parsed = CreateAdminSchema.parse(req.body ?? {});
     const now = new Date().toISOString();
